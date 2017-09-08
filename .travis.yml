@@ -1,2 +1,5 @@
 language: csharp
+dotnet: 2.0.0
+ - solution: DSharpPlus.sln
+mono: none
 solution: DSharpPlus.sln
