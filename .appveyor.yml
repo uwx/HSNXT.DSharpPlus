@@ -25,3 +25,7 @@ build_script:
         # Get-ChildItem $env:ARTIFACT_DIR | ? { $_.Name.ToLower().StartsWith("DSharpPlus.Test") } | % { $_.Delete() }
         # Rebuild documentation
  - ps:  & .\rebuild-docs.ps1 .\docs "$dir" dsharpplus-docs
+
+artifacts:
+ - path: artifacts\dsharpplus-docs.tar.xz
+ - path: artifacts\*.nupkg
