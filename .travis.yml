@@ -3,7 +3,7 @@ mono: none
 solution: DSharpPlus.sln
 
 git:
-  depth: 3
+  depth: 6
   submodules: false
 
 #matrix: 
