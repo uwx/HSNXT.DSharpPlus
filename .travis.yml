@@ -18,30 +18,18 @@ env:
    - COREBTYP=Debug COREAPPTYP=netstandard1.1
    - COREBTYP=Debug COREAPPTYP=netstandard1.3
    - COREBTYP=Debug COREAPPTYP=netstandard2.0
-   - COREBTYP=Debug COREAPPTYP=net45
-   - COREBTYP=Debug COREAPPTYP=net46
-   - COREBTYP=Debug COREAPPTYP=net47
    
    - COREBTYP=Release COREAPPTYP=netstandard1.1
    - COREBTYP=Release COREAPPTYP=netstandard1.3
    - COREBTYP=Release COREAPPTYP=netstandard2.0
-   - COREBTYP=Release COREAPPTYP=net45
-   - COREBTYP=Release COREAPPTYP=net46
-   - COREBTYP=Release COREAPPTYP=net47
    
    - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.1
    - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.3
    - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard2.0
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net45
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net46
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net47
    
    - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.1
    - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.3
    - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard2.0
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net45
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net46
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net47
 
 before_install:
   - cp .nuget/NuGet.config ./NuGet.config
