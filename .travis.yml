@@ -12,4 +12,13 @@ before_install:
   - cp .nuget/NuGet.config ./NuGet.config
 script:
   - dotnet restore
-  - dotnet publish **/project.csproj
+  #- dotnet publish **/*.csproj
+  
+  - dotnet publish DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj
+  - dotnet publish DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj
+  - dotnet publish DSharpPlus.Rest/DSharpPlus.Rest.csproj
+  - dotnet publish DSharpPlus.Test/DSharpPlus.Test.csproj
+  - dotnet publish DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj
+  - dotnet publish DSharpPlus.WebSocket.WebSocket4Net/DSharpPlus.WebSocket.WebSocket4Net.csproj
+  - dotnet publish DSharpPlus.WebSocket.WebSocketSharp/DSharpPlus.WebSocket.WebSocketSharp.csproj
+  - dotnet publish DSharpPlus/DSharpPlus.csproj
