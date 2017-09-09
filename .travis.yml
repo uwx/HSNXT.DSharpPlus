@@ -5,12 +5,13 @@ solution: DSharpPlus.sln
 git:
   depth: 3
   submodules: false
-  
-dotnet:
-  matrix:
-    - 1.0.0
-    - 1.0.1
-    - 2.0.0
+
+matrix: 
+  - DOTNETVER=1.0.0
+  - DOTNETVER=1.0.1
+  - DOTNETVER=2.0.0
+
+dotnet: $DOTNETVER
 
 env: 
   matrix:
