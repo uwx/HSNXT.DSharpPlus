@@ -15,43 +15,33 @@ dotnet: 2.0.0
 
 env: 
   matrix:
-   - COREBTYP=Debug COREAPPTYP=netcoreapp1.0
-   - COREBTYP=Debug COREAPPTYP=netcoreapp1.1
-   - COREBTYP=Debug COREAPPTYP=netcoreapp2.0
-   - COREBTYP=Debug COREAPPTYP=netstandard1.0
    - COREBTYP=Debug COREAPPTYP=netstandard1.1
-   - COREBTYP=Debug COREAPPTYP=netstandard1.2
    - COREBTYP=Debug COREAPPTYP=netstandard1.3
-   - COREBTYP=Debug COREAPPTYP=netstandard1.4
-   - COREBTYP=Debug COREAPPTYP=netstandard1.5
-   - COREBTYP=Debug COREAPPTYP=netstandard1.6
    - COREBTYP=Debug COREAPPTYP=netstandard2.0
    - COREBTYP=Debug COREAPPTYP=net45
-   - COREBTYP=Debug COREAPPTYP=net451
-   - COREBTYP=Debug COREAPPTYP=net452
    - COREBTYP=Debug COREAPPTYP=net46
-   - COREBTYP=Debug COREAPPTYP=net461
-   - COREBTYP=Debug COREAPPTYP=net462
    - COREBTYP=Debug COREAPPTYP=net47
    
-   - COREBTYP=Release COREAPPTYP=netcoreapp1.0
-   - COREBTYP=Release COREAPPTYP=netcoreapp1.1
-   - COREBTYP=Release COREAPPTYP=netcoreapp2.0
-   - COREBTYP=Release COREAPPTYP=netstandard1.0
    - COREBTYP=Release COREAPPTYP=netstandard1.1
-   - COREBTYP=Release COREAPPTYP=netstandard1.2
    - COREBTYP=Release COREAPPTYP=netstandard1.3
-   - COREBTYP=Release COREAPPTYP=netstandard1.4
-   - COREBTYP=Release COREAPPTYP=netstandard1.5
-   - COREBTYP=Release COREAPPTYP=netstandard1.6
    - COREBTYP=Release COREAPPTYP=netstandard2.0
    - COREBTYP=Release COREAPPTYP=net45
-   - COREBTYP=Release COREAPPTYP=net451
-   - COREBTYP=Release COREAPPTYP=net452
    - COREBTYP=Release COREAPPTYP=net46
-   - COREBTYP=Release COREAPPTYP=net461
-   - COREBTYP=Release COREAPPTYP=net462
    - COREBTYP=Release COREAPPTYP=net47
+   
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard2.0
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net45
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net46
+   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=net47
+   
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.1
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.3
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard2.0
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net45
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net46
+   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=net47
 
 before_install:
   - cp .nuget/NuGet.config ./NuGet.config
@@ -59,11 +49,4 @@ script:
   - dotnet restore
   #- dotnet publish **/*.csproj
   
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.Rest/DSharpPlus.Rest.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.Test/DSharpPlus.Test.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.WebSocket.WebSocket4Net/DSharpPlus.WebSocket.WebSocket4Net.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus.WebSocket.WebSocketSharp/DSharpPlus.WebSocket.WebSocketSharp.csproj
-  - dotnet publish -f $COREAPPTYP -c $COREBTYP DSharpPlus/DSharpPlus.csproj
+  - bash ./.travis.sh
