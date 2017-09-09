@@ -1,6 +1,11 @@
 # version format
 version: uwx-nightly-{build}
 
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_folder: c:\projects\dsp
+
 branches:
   only:
     - master
