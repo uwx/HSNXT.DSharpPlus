@@ -4,29 +4,7 @@ version: 3.0.1-beta-{build}
 build: off
 
 build_script:
- - ps:  git clone -q --depth=1 --branch=master https://github.com/NaamloosDT/DSharpPlus.git C:\projects\dsharpplus-6g6vr
- - ps:  git checkout -qf 44506f5e47cc2ed84bc010ab189033875cc10d40
-        # Version number
- - ps:  $VERSION = [int]::Parse($Env:APPVEYOR_BUILD_NUMBER).ToString("00000")
-        # Environment variables
- - ps:  $Env:ARTIFACT_DIR = ".\artifacts"
-        # Prepare the environment
- - ps:  Copy-Item .\.nuget.\NuGet.config .\
- - ps:  $dir = New-Item -type directory $env:ARTIFACT_DIR
- - ps:  $dir = $dir.FullName
-        # Verbosity
- - ps:  Write-Host "Build: $VERSION"
- - ps:  Write-Host "Artifacts will be placed in: $dir"
-        # Restore NuGet packages
- - ps:  dotnet restore -v Minimal
-        # Build
- - ps:  dotnet build DSharpPlus.sln -v Minimal -c Release --version-suffix "$VERSION"
-        # Package
- - ps:  dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$VERSION"
-        # Remove Test packages
-        # Get-ChildItem $env:ARTIFACT_DIR | ? { $_.Name.ToLower().StartsWith("DSharpPlus.Test") } | % { $_.Delete() }
-        # Rebuild documentation
- - ps:  & .\rebuild-docs.ps1 .\docs "$dir" dsharpplus-docs
+ - ps: .\build.ps1
 
 artifacts:
  - path: artifacts\dsharpplus-docs.tar.xz
