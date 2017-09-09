@@ -23,13 +23,21 @@ env:
    - COREBTYP=Release COREAPPTYP=netstandard1.3
    - COREBTYP=Release COREAPPTYP=netstandard2.0
    
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.1
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard1.3
-   - CORESC=--self-contained COREBTYP=Debug COREAPPTYP=netstandard2.0
+   - CORESC=-r linux-x64 COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - CORESC=-r linux-x64 COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - CORESC=-r linux-x64 COREBTYP=Debug COREAPPTYP=netstandard2.0
    
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.1
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard1.3
-   - CORESC=--self-contained COREBTYP=Release COREAPPTYP=netstandard2.0
+   - CORESC=-r linux-x64 COREBTYP=Release COREAPPTYP=netstandard1.1
+   - CORESC=-r linux-x64 COREBTYP=Release COREAPPTYP=netstandard1.3
+   - CORESC=-r linux-x64 COREBTYP=Release COREAPPTYP=netstandard2.0
+   
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Debug COREAPPTYP=netstandard2.0
+   
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Release COREAPPTYP=netstandard1.1
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Release COREAPPTYP=netstandard1.3
+   - CORESC=-r ubuntu.14.04-x64 COREBTYP=Release COREAPPTYP=netstandard2.0
 
 before_install:
   - cp .nuget/NuGet.config ./NuGet.config
