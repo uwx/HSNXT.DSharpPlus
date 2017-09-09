@@ -9,3 +9,4 @@ build_script:
 artifacts:
  - path: artifacts\dsharpplus-docs.tar.xz
  - path: artifacts\*.nupkg
+ - path: *\bin\Release\*\*.dll
