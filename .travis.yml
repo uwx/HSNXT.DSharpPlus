@@ -6,12 +6,12 @@ git:
   depth: 3
   submodules: false
 
-matrix: 
-  - DOTNETVER=1.0.0
-  - DOTNETVER=1.0.1
-  - DOTNETVER=2.0.0
+#matrix: 
+#  - DOTNETVER=1.0.0
+#  - DOTNETVER=1.0.1
+#  - DOTNETVER=2.0.0
 
-dotnet: $DOTNETVER
+dotnet: 2.0.0
 
 env: 
   matrix:
