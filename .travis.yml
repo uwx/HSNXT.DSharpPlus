@@ -2,3 +2,8 @@ language: csharp
 dotnet: 2.0.0
 mono: none
 solution: DSharpPlus.sln
+
+install:
+    - nuget restore DSharpPlus.sln
+script:
+    - dotnet publish **/project.csproj
