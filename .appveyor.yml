@@ -1,6 +1,8 @@
 # version format
 version: 3.0.1-beta-{build}
 
+build: off
+
 build_script:
  - ps:  git clone -q --depth=1 --branch=master https://github.com/NaamloosDT/DSharpPlus.git C:\projects\dsharpplus-6g6vr
  - ps:  git checkout -qf 44506f5e47cc2ed84bc010ab189033875cc10d40
