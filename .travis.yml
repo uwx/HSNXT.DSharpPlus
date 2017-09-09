@@ -1,10 +1,12 @@
 language: csharp
-dotnet: 
- - 1.0.0
- - 1.0.1
- - 2.0.0
 mono: none
 solution: DSharpPlus.sln
+
+matrix:
+  include:
+    - dotnet: 1.0.0
+    - dotnet: 1.0.1
+    - dotnet: 2.0.0
 
 script:
     - dotnet restore
