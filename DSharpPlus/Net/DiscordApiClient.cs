@@ -158,7 +158,7 @@ namespace DSharpPlus.Net
         internal Task CreateGuildBanAsync(ulong guild_id, ulong user_id, int delete_message_days, string reason)
         {
             if (delete_message_days < 0 || delete_message_days > 7)
-                throw new ArgumentException("Delete message days must be a number between 0-7", nameof(delete_message_days));
+                throw new ArgumentException("Delete message days must be a number between 0 and 7.", nameof(delete_message_days));
 
             var urlparams = new Dictionary<string, string>
             {
@@ -314,12 +314,13 @@ namespace DSharpPlus.Net
         #endregion
 
         #region Channel
-        internal async Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType? type, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, string reason)
+        internal async Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, string reason)
         {
             var pld = new RestChannelCreatePayload
             {
                 Name = name,
                 Type = type,
+                Parent = parent,
                 Bitrate = bitrate,
                 UserLimit = user_limit,
                 PermissionOverwrites = overwrites
@@ -341,13 +342,15 @@ namespace DSharpPlus.Net
             return ret;
         }
 
-        internal Task ModifyChannelAsync(ulong id, string name, int? position, string topic, int? bitrate, int? user_limit, string reason)
+        internal Task ModifyChannelAsync(ulong id, string name, int? position, string topic, Optional<ulong?> parent, int? bitrate, int? user_limit, string reason)
         {
             var pld = new RestChannelModifyPayload
             {
                 Name = name,
                 Position = position,
                 Topic = topic,
+                Parent = parent.HasValue ? parent.Value : null,
+                ParentSet = parent.HasValue,
                 Bitrate = bitrate,
                 UserLimit = user_limit
             };
@@ -404,24 +407,32 @@ namespace DSharpPlus.Net
             return ret;
         }
 
-        internal async Task<DiscordMessage> CreateMessageAsync(ulong channel_id, Optional<string> content, bool? tts, Optional<DiscordEmbed> embed)
+        internal async Task<DiscordMessage> CreateMessageAsync(ulong channel_id, string content, bool? tts, DiscordEmbed embed)
         {
-            if (embed.HasValue && embed.Value != null && embed.Value.Timestamp != null)
-                embed.Value.Timestamp = embed.Value.Timestamp.Value.ToUniversalTime();
+            if (content != null && content.Length >= 2000)
+                throw new ArgumentException("Max message length is 2000");
+            if (string.IsNullOrEmpty(content) && embed == null)
+                throw new ArgumentException("Cannot send empty message");
+            if (content == null && embed == null)
+                throw new ArgumentException("Message must have text or embed");
+                
+            if (embed?.Timestamp != null)
+                embed.Timestamp = embed.Timestamp.Value.ToUniversalTime();
 
             var pld = new RestChannelMessageCreatePayload
             {
-                HasContent = content.HasValue,
-                Content = content.HasValue ? (string)content : null,
+                HasContent = content != null,
+                Content = content,
                 IsTTS = tts,
-                HasEmbed = embed.HasValue,
-                Embed = embed.HasValue ? (DiscordEmbed)embed : null
+                HasEmbed = embed != null,
+                Embed = embed
             };
 
             var route = string.Concat(Endpoints.CHANNELS, "/:channel_id", Endpoints.MESSAGES);
             var bucket = this.Rest.GetBucket(RestRequestMethod.POST, route, new { channel_id = channel_id.ToString(CultureInfo.InvariantCulture) }, out var path);
 
             var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path));
+            
             var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.POST, payload: JsonConvert.SerializeObject(pld));
 
             var ret = JsonConvert.DeserializeObject<DiscordMessage>(res.Response);
@@ -434,7 +445,10 @@ namespace DSharpPlus.Net
         {
             var file = new Dictionary<string, Stream> { { file_name, file_data } };
 
-            if (embed != null && embed.Timestamp != null)
+            if (content != null && content.Length >= 2000) 
+                throw new ArgumentException("Max message length is 2000");
+            
+            if (embed?.Timestamp != null)
                 embed.Timestamp = embed.Timestamp.Value.ToUniversalTime();
 
             var values = new Dictionary<string, string>();
@@ -444,7 +458,8 @@ namespace DSharpPlus.Net
                 Content = content,
                 IsTTS = tts
             };
-            if (!string.IsNullOrWhiteSpace(content) || embed != null || tts == true)
+            
+            if (!string.IsNullOrEmpty(content) || embed != null || tts == true)
                 values["payload_json"] = JsonConvert.SerializeObject(pld);
 
             var route = string.Concat(Endpoints.CHANNELS, "/:channel_id", Endpoints.MESSAGES);
@@ -461,9 +476,14 @@ namespace DSharpPlus.Net
 
         internal async Task<DiscordMessage> UploadFilesAsync(ulong channel_id, Dictionary<string, Stream> files, string content, bool? tts, DiscordEmbed embed)
         {
-            if (embed != null && embed.Timestamp != null)
+            if (embed?.Timestamp != null)
                 embed.Timestamp = embed.Timestamp.Value.ToUniversalTime();
 
+            if (content != null && content.Length >= 2000) 
+                throw new ArgumentException("Message content length cannot exceed 2000 characters.");
+            if (files.Count == 0 && string.IsNullOrEmpty(content) && embed == null)
+                throw new ArgumentException("You must specify content, an embed, or at least one file.");
+            
             var values = new Dictionary<string, string>();
             var pld = new RestChannelMessageCreateMultipartPayload
             {
@@ -638,7 +658,7 @@ namespace DSharpPlus.Net
                 headers.Add(REASON_HEADER_NAME, reason);
 
             var route = string.Concat(Endpoints.CHANNELS, "/:channel_id", Endpoints.PERMISSIONS, "/:overwrite_id");
-            var bucket = this.Rest.GetBucket(RestRequestMethod.DELETE, route, new { channel_id = channel_id.ToString(CultureInfo.InvariantCulture) }, out var path);
+            var bucket = this.Rest.GetBucket(RestRequestMethod.DELETE, route, new { channel_id = channel_id.ToString(CultureInfo.InvariantCulture), overwrite_id = overwrite_id.ToString(CultureInfo.InvariantCulture) }, out var path);
 
             var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path));
             return this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.DELETE, headers);
@@ -1022,16 +1042,19 @@ namespace DSharpPlus.Net
         #region Prune
         internal async Task<int> GetGuildPruneCountAsync(ulong guild_id, int days)
         {
-            var pld = new RestGuildPrunePayload
+            if (days < 0 || days > 30)
+                throw new ArgumentException("Prune inactivity days must be a number between 0 and 7.", nameof(days));
+
+            var urlparams = new Dictionary<string, string>
             {
-                Days = days
+                ["days"] = days.ToString(CultureInfo.InvariantCulture)
             };
 
             var route = string.Concat(Endpoints.GUILDS, "/:guild_id", Endpoints.PRUNE);
             var bucket = this.Rest.GetBucket(RestRequestMethod.GET, route, new { guild_id = guild_id.ToString(CultureInfo.InvariantCulture) }, out var path);
 
-            var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path));
-            var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.GET, payload: JsonConvert.SerializeObject(pld));
+            var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path, BuildQueryString(urlparams)));
+            var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.GET);
 
             var pruned = JsonConvert.DeserializeObject<RestGuildPruneResultPayload>(res.Response);
 
@@ -1040,10 +1063,12 @@ namespace DSharpPlus.Net
         
         internal async Task<int> BeginGuildPruneAsync(ulong guild_id, int days, string reason)
         {
-            var pld = new RestGuildPrunePayload
+            var urlparams = new Dictionary<string, string>
             {
-                Days = days
+                ["days"] = days.ToString(CultureInfo.InvariantCulture)
             };
+            if (reason != null)
+                urlparams["reason"] = reason;
 
             var headers = Utilities.GetBaseHeaders();
             if (!string.IsNullOrWhiteSpace(reason))
@@ -1052,8 +1077,8 @@ namespace DSharpPlus.Net
             var route = string.Concat(Endpoints.GUILDS, "/:guild_id", Endpoints.PRUNE);
             var bucket = this.Rest.GetBucket(RestRequestMethod.POST, route, new { guild_id = guild_id.ToString(CultureInfo.InvariantCulture) }, out var path);
 
-            var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path));
-            var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.POST, headers, JsonConvert.SerializeObject(pld));
+            var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path, BuildQueryString(urlparams)));
+            var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.POST);
 
             var pruned = JsonConvert.DeserializeObject<RestGuildPruneResultPayload>(res.Response);
 

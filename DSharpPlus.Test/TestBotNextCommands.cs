@@ -160,9 +160,15 @@ namespace DSharpPlus.Test
         }
         
         [Command("datetime"), Description("Tests DateTimeOffset binding.")]
-        public async Task ConvertDate(CommandContext ctx, [Description("DateTimeOffset to bind")] DateTimeOffset dto)
+        public async Task ConvertDate(CommandContext ctx, [RemainingText, Description("DateTimeOffset to bind")] DateTimeOffset dto)
         {
             await ctx.RespondAsync(dto.ToString("yyyy-MM-dd HH:mm:ss"));
+        }
+
+        [Command("adminonly"), Description("For admin's eyes only."), RequirePermissions(Permissions.Administrator)]
+        public async Task AdminOnly(CommandContext ctx)
+        {
+            await ctx.RespondAsync("u my boi");
         }
 
         [Group("interactive"), Aliases("int", "interact", "interactivity"), Description("Interactivity commands."), RequireOwner]
