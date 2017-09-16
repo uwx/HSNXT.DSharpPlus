@@ -64,9 +64,9 @@ deploy:
   - provider: NuGet
     #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
     #If server is not specified package will be pushed to NuGet.org.
-    #server: https://my.nuget.server/feed
+    server: https://www.myget.org/F/hansen-dsp/api/v2/package
     api_key:
-      secure: # nuget key goes here
+      secure: yTsHQ3VLhxalxoRsOJvcg0J+ATpBEiKAZXArhQGHQyyTiwOXkFzAtbPBTQdIo8rS
     skip_symbols: false
     #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
     #will be pushed to SymbolSource.org.
