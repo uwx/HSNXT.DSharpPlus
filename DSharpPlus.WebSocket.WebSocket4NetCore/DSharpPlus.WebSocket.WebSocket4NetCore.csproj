@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
-	  <TargetFrameworks>net45;net46;net47</TargetFrameworks>
+    <TargetFrameworks>net45;net46;net47;netstandard1.3;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>7.1</LangVersion>
     <NoWarn>1591</NoWarn>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <RootNamespace>DSharpPlus</RootNamespace>
-    <PackageId>DSharpPlus.WebSocket.WebSocket4Net</PackageId>
+    <PackageId>DSharpPlus.WebSocket.WebSocket4NetCore</PackageId>
     <Authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</Authors>
     <Company>DSharpPlus developers</Company>
-    <Description>NOTE: This is an optional package. Do not install, unless you're targeting .NETFX on Windows 7.
-
-A WebSocket4Net WebSocket client for DSharpPlus, for platforms that do not support native .NET WebSockets, such as Windows 7 or Mono.</Description>
+    <Description>NOTE: This is an optional package. Do not install, unless you're targeting .NET Core on Windows 7.
+    
+A WebSocket4Net WebSocket client for DSharpPlus, for Windows 7.</Description>
     <PackageLicenseUrl>https://github.com/NaamloosDT/DSharpPlus/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/NaamloosDT/DSharpPlus</PackageProjectUrl>
@@ -33,17 +33,17 @@ A WebSocket4Net WebSocket client for DSharpPlus, for platforms that do not suppo
     <AssemblyVersion>3.1.2.0</AssemblyVersion>
     <FileVersion>3.1.2.0</FileVersion>
   </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <Optimize>False</Optimize>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="WebSocket4Net" Version="0.14.1" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <PackageReference Include="WebSocket4Net" Version="0.15.0" />
+  </ItemGroup>
+  
 </Project>
