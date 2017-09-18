@@ -21,11 +21,12 @@ build_script:
  - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
 
 artifacts:
- - path: artifacts\*.nupkg
- - path: "*\\bin\\Release\\net47\\*.dll"
+ #- path: "bin\\Release\\net47\\publish\\*.nupkg"
+ - path: "bin\\Release\\netstandard2.0\\publish\\*.nupkg"
+ - path: "bin\\Release\\net47\\*.dll"
    name: Release DLLs (.NET 4.7)
    type: zip
- - path: "*\\bin\\Release\\netstandard2.0\\*.dll"
+ - path: "bin\\Release\\netstandard2.0\\*.dll"
    name: Release DLLs (.NET Standard 2.0)
    type: zip
 
