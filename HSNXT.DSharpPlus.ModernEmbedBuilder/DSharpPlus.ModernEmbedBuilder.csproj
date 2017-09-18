@@ -1,8 +1,35 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>7.1</LangVersion>
+    <NoWarn>1591</NoWarn>
+    <Optimize>True</Optimize>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>DSharpPlus.ModernEmbedBuilder</PackageId>
+    <Authors>uwx / fallk</Authors>
+    <Company>uwx</Company>
+    <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers.</Description>
+    <PackageLicenseUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#</PackageTags>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <Optimize>False</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
+    <Reference Include="System" />
+  </ItemGroup>
+
 </Project>

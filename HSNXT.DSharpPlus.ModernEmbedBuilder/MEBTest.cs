@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿#if TEST
+using System;
+using System.Collections.Generic;
 using DSharpPlus.Entities;
 
 namespace DSharpPlus.ModernEmbedBuilder.Test
@@ -55,7 +56,11 @@ namespace DSharpPlus.ModernEmbedBuilder.Test
                     }
                 }
             };
-            Debug.WriteLine($"{a}\n{b}\n{c}");
+            
+#if DEBUG
+            Console.WriteLine($"{a}\n{b}\n{c}");
+#endif
         }
     }
 }
+#endif
