@@ -25,7 +25,8 @@
     <Optimize>False</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
+    <!--<ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />-->
+    <PackageReference Include="DSharpPlus" Version="3.1.2" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
