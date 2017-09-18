@@ -17,8 +17,8 @@ environment:
 build: off
 
 build_script:
- - ps: dotnet publish DSharpPlus.ModernEmbedBuilder.csproj --configuration Release -f=netcoreapp2.0
- - ps: dotnet publish DSharpPlus.ModernEmbedBuilder.csproj --configuration Release -f=net47
+ - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netcoreapp2.0
+ - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
 
 artifacts:
  - path: artifacts\*.nupkg
