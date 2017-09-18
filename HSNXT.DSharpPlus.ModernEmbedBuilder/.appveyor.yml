@@ -19,10 +19,11 @@ build: off
 build_script:
  - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
  - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
+ - ps: dotnet build "DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release
+ - ps: dotnet pack "DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release -o "MEB" --no-build
 
 artifacts:
- #- path: "bin\\Release\\net47\\publish\\*.nupkg"
- - path: "bin\\Release\\netstandard2.0\\publish\\*.nupkg"
+ - path: "MEB\\*.nupkg"
  - path: "bin\\Release\\net47\\*.dll"
    name: Release DLLs (.NET 4.7)
    type: zip
