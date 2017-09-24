@@ -1,4 +1,4 @@
-﻿#if TEST
+﻿#if !TEST
 using System;
 using System.Collections.Generic;
 using DSharpPlus.Entities;
@@ -9,7 +9,7 @@ namespace DSharpPlus.ModernEmbedBuilder.Test
     {
         public void Test()
         {
-            DiscordEmbed a = new ModernEmbedBuilder()
+            DiscordEmbed a = new ModernEmbedBuilder
             {
                 Footer = "text",
                 Title = "title",
@@ -19,18 +19,18 @@ namespace DSharpPlus.ModernEmbedBuilder.Test
                 Timestamp = DuckTimestamp.Now,
                 AuthorName = "author name",
                 AuthorUrl = "author url",
-                AuthorIcon = "icon url",
+                AuthorIcon = "icon url"
             };
-            DiscordEmbed b = new ModernEmbedBuilder()
+            DiscordEmbed b = new ModernEmbedBuilder
             {
                 Color = 0xFF0000,
                 Timestamp = 50000, // in utc seconds
                 Footer = ("text", "icon url"),
                 ThumbnailUrl = "http://example.com/ex.png",
                 ImageUrl = "http://example.com/bigImage.png",
-                Author = ("name", "url", "icon url"),
+                Author = ("name", "url", "icon url")
             };
-            DiscordEmbed c = new ModernEmbedBuilder()
+            DiscordEmbed c = new ModernEmbedBuilder
             {
                 Color = new DiscordColor("0xgay faggot"),
                 FooterIcon = "icon url",
@@ -52,7 +52,7 @@ namespace DSharpPlus.ModernEmbedBuilder.Test
                     {
                         ["name"] = "ay Name",
                         ["value"] = "ay Value",
-                        ["inline"] = "true",
+                        ["inline"] = "true"
                     }
                 }
             };
@@ -60,6 +60,11 @@ namespace DSharpPlus.ModernEmbedBuilder.Test
 #if DEBUG
             Console.WriteLine($"{a}\n{b}\n{c}");
 #endif
+
+            new ModernEmbedBuilder
+            {
+
+            }.Send(null);
         }
     }
 }
