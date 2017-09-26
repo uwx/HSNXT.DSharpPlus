@@ -46,6 +46,20 @@
           <e p="XmlExtensions.cs" t="Include" />
           <e p="XmlSyntaxHighlightColor.cs" t="Include" />
         </e>
+        <e p="Dff" t="Include">
+          <e p="Base64Extensions.cs" t="Include" />
+          <e p="DateTimeExtensions.cs" t="Include" />
+          <e p="Gps" t="Include">
+            <e p="DffGpsPosition.cs" t="Include" />
+            <e p="DffGpsTools.cs" t="Include" />
+          </e>
+          <e p="HelperClasses" t="Include">
+            <e p="ObjectDumper.cs" t="Include" />
+          </e>
+          <e p="ObjectExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+          <e p="TimeSpanExtensions.cs" t="Include" />
+        </e>
         <e p="ExtensionOverflow" t="Include">
           <e p="ClassExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />
