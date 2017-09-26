@@ -85,7 +85,7 @@ namespace TestProj47
 		/// <typeparam name="T">Any class type</typeparam>
 		/// <param name="objectToSerialise">Object to serialise</param>
 		/// <returns>A string that represents Xml, empty oterwise</returns>
-		public static string XmlSerialie<T>(this T objectToSerialise) where T : class
+		public static string XmlSerializeZ<T>(this T objectToSerialise) where T : class
 		{
 			var serialiser = new XmlSerializer(typeof(T));
 			string xml;
@@ -108,7 +108,7 @@ namespace TestProj47
 		/// <typeparam name="T">Any class type</typeparam>
 		/// <param name="xml">Xml as string to deserialise from</param>
 		/// <returns>A new object of type T is successful, null if failed</returns>
-		public static T XmlDeserialie<T>(this string xml) where T : class
+		public static T XmlDeserializeZ<T>(this string xml) where T : class
 		{
 			var serialiser = new XmlSerializer(typeof(T));
 			T newObject;
