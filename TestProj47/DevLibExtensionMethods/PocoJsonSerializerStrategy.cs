@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.PocoJsonSerializerStrategy
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.PocoJsonSerializerStrategy
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
   /// <summary>Class PocoJsonSerializerStrategy.</summary>
   internal class PocoJsonSerializerStrategy
@@ -37,7 +37,7 @@ namespace DevLib.ExtensionMethods
     private IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>> SetCache;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:DevLib.ExtensionMethods.PocoJsonSerializerStrategy" /> class.
+    /// Initializes a new instance of the <see cref="T:TestProj47.PocoJsonSerializerStrategy" /> class.
     /// </summary>
     public PocoJsonSerializerStrategy()
     {

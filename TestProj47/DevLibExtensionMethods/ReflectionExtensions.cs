@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.ReflectionExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.ReflectionExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections;
@@ -12,10 +12,10 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Reflection Extensions.</summary>
-  public static class ReflectionExtensions
+    public static partial class Extensions
+
   {
     /// <summary>The BindingFlags for public only lookup.</summary>
     public const BindingFlags PublicOnlyLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
@@ -113,27 +113,6 @@ namespace DevLib.ExtensionMethods
       {
         collection
       });
-    }
-
-    /// <summary>
-    /// Creates an instance of the specified type using the constructor that best matches the specified parameters.
-    /// </summary>
-    /// <param name="source">The type of object to create.</param>
-    /// <param name="args">An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <paramref name="args" /> is an empty array or null, the constructor that takes no parameters (the default constructor) is invoked.</param>
-    /// <returns>A reference to the newly created object.</returns>
-    [SecurityPermission(SecurityAction.Demand, Unrestricted = true)]
-    public static object CreateInstance(this Type source, params object[] args)
-    {
-      if (source == typeof (string))
-        return (object) string.Empty;
-      try
-      {
-        return Activator.CreateInstance(source, args);
-      }
-      catch
-      {
-        return FormatterServices.GetUninitializedObject(source);
-      }
     }
 
     /// <summary>

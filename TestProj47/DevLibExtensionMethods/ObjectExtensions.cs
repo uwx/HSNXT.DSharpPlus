@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.ObjectExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.ObjectExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections.Generic;
@@ -12,53 +12,11 @@ using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Object Extensions.</summary>
-  public static class ObjectExtensions
+    public static partial class Extensions
+
   {
-    /// <summary>If object is not null, invoke method.</summary>
-    /// <typeparam name="T">The type of input object.</typeparam>
-    /// <param name="source">Object to check.</param>
-    /// <param name="action">Delegate method.
-    /// <example>E.g. <code>() =&gt; DoSomething();</code></example>
-    /// </param>
-    /// <returns>Source object.</returns>
-    public static T IfNotNull<T>(this T source, Action action)
-    {
-      if ((object) source != null)
-        action();
-      return source;
-    }
-
-    /// <summary>If object is not null, invoke method.</summary>
-    /// <typeparam name="T">The type of input object.</typeparam>
-    /// <param name="source">Object to check.</param>
-    /// <param name="action">Delegate method.
-    /// <example>E.g. <code>source =&gt; DoSomething(source);</code></example>
-    /// </param>
-    /// <returns>Source object.</returns>
-    public static T IfNotNull<T>(this T source, Action<T> action)
-    {
-      if ((object) source != null)
-        action(source);
-      return source;
-    }
-
-    /// <summary>If object is null, invoke method.</summary>
-    /// <typeparam name="T">The type of input object.</typeparam>
-    /// <param name="source">Object to check.</param>
-    /// <param name="action">Delegate method.
-    /// <example>E.g. <code>() =&gt; DoSomething();</code></example>
-    /// </param>
-    /// <returns>Source object.</returns>
-    public static T IfNull<T>(this T source, Action action)
-    {
-      if ((object) source == null)
-        action();
-      return source;
-    }
-
     /// <summary>If object is null, invoke method.</summary>
     /// <typeparam name="T">The type of input object.</typeparam>
     /// <param name="source">Object to check.</param>
@@ -144,7 +102,7 @@ namespace DevLib.ExtensionMethods
     /// <param name="defaultValue">The default value.</param>
     /// <param name="throwOnError">true to throw any exception that occurs.-or- false to ignore any exception that occurs.</param>
     /// <returns>The target type object.</returns>
-    public static T ConvertTo<T>(this object source, T defaultValue = null, bool throwOnError = false)
+    public static T ConvertTo<T>(this object source, T defaultValue = default(T), bool throwOnError = false)
     {
       if (source == null)
       {

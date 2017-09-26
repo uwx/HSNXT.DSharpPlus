@@ -1,14 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.JsonObject
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.JsonObject
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
   /// <summary>Represents the JSON object.</summary>
   internal class JsonObject : IDictionary<string, object>, ICollection<KeyValuePair<string, object>>, IEnumerable<KeyValuePair<string, object>>, IEnumerable
@@ -17,7 +17,7 @@ namespace DevLib.ExtensionMethods
     private readonly Dictionary<string, object> _members;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:DevLib.ExtensionMethods.JsonObject" /> class.
+    /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
     /// </summary>
     public JsonObject()
     {
@@ -25,7 +25,7 @@ namespace DevLib.ExtensionMethods
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:DevLib.ExtensionMethods.JsonObject" /> class.
+    /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
     /// </summary>
     /// <param name="comparer">The comparer.</param>
     public JsonObject(IEqualityComparer<string> comparer)

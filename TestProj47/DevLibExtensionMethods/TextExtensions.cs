@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.TextExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.TextExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections.Generic;
@@ -10,10 +10,10 @@ using System.IO;
 using System.Text;
 using System.Web.Security;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Text Extensions.</summary>
-  public static class TextExtensions
+    public static partial class Extensions
+
   {
     /// <summary>The alphabet and numeric chars.</summary>
     private static readonly string[] AlphaNumericChars = new string[62]
@@ -131,9 +131,9 @@ namespace DevLib.ExtensionMethods
     {
       get
       {
-        if (TextExtensions.CP1252Encoding == null)
-          TextExtensions.CP1252Encoding = Encoding.GetEncoding(1252);
-        return TextExtensions.CP1252Encoding;
+        if (Extensions.CP1252Encoding == null)
+          Extensions.CP1252Encoding = Encoding.GetEncoding(1252);
+        return Extensions.CP1252Encoding;
       }
     }
 
@@ -144,7 +144,7 @@ namespace DevLib.ExtensionMethods
     /// <returns>Encoding instance for the CP1252 (Windows-1252) character set.</returns>
     public static Encoding GetCP1252Encoding(this object source)
     {
-      return TextExtensions.CP1252;
+      return Extensions.CP1252;
     }
 
     /// <summary>Shortens the specified source string.</summary>
@@ -169,7 +169,7 @@ namespace DevLib.ExtensionMethods
         for (int index2 = 0; index2 < 6; ++index2)
         {
           int index3 = 61 & num;
-          empty += TextExtensions.AlphaNumericChars[index3];
+          empty += Extensions.AlphaNumericChars[index3];
           num >>= 5;
         }
         strArray[index1] = empty;

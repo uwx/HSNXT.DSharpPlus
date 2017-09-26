@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.XmlExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.Extensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System.IO;
 using System.Text;
@@ -10,25 +10,25 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Xml Extensions.</summary>
-  public static class XmlExtensions
+    public static partial class Extensions
+
   {
     /// <summary>Field ReaderSettings.</summary>
     private static readonly XmlReaderSettings ReaderSettings = new XmlReaderSettings();
 
-    static XmlExtensions()
+    static Extensions()
     {
-      XmlExtensions.ReaderSettings.CheckCharacters = true;
-      XmlExtensions.ReaderSettings.ConformanceLevel = ConformanceLevel.Document;
-      XmlExtensions.ReaderSettings.ProhibitDtd = false;
-      XmlExtensions.ReaderSettings.IgnoreComments = true;
-      XmlExtensions.ReaderSettings.IgnoreProcessingInstructions = true;
-      XmlExtensions.ReaderSettings.IgnoreWhitespace = true;
-      XmlExtensions.ReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
-      XmlExtensions.ReaderSettings.ValidationType = ValidationType.None;
-      XmlExtensions.ReaderSettings.CloseInput = true;
+      Extensions.ReaderSettings.CheckCharacters = true;
+      Extensions.ReaderSettings.ConformanceLevel = ConformanceLevel.Document;
+      Extensions.ReaderSettings.ProhibitDtd = false;
+      Extensions.ReaderSettings.IgnoreComments = true;
+      Extensions.ReaderSettings.IgnoreProcessingInstructions = true;
+      Extensions.ReaderSettings.IgnoreWhitespace = true;
+      Extensions.ReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
+      Extensions.ReaderSettings.ValidationType = ValidationType.None;
+      Extensions.ReaderSettings.CloseInput = true;
     }
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace DevLib.ExtensionMethods
       string s = source.Trim();
       if ((int) s[0] != 60 || (int) s[s.Length - 1] != 62)
         return false;
-      using (XmlReader xmlReader = XmlReader.Create((TextReader) new StringReader(s), XmlExtensions.ReaderSettings))
+      using (XmlReader xmlReader = XmlReader.Create((TextReader) new StringReader(s), Extensions.ReaderSettings))
       {
         try
         {
@@ -374,7 +374,7 @@ namespace DevLib.ExtensionMethods
     /// <param name="value">The attribute value.</param>
     public static void SetAttribute(this XmlNode source, string name, object value)
     {
-      XmlExtensions.SetAttribute(source, name, value != null ? value.ToString() : (string) null);
+      Extensions.SetAttribute(source, name, value != null ? value.ToString() : (string) null);
     }
 
     /// <summary>

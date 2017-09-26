@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.IOExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.IOExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections.Generic;
@@ -13,10 +13,10 @@ using System.Security.Permissions;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>IO Extensions.</summary>
-  public static class IOExtensions
+    public static partial class Extensions
+
   {
     /// <summary>Renames the file to "* (n).*" if file already exists.</summary>
     /// <param name="filename">The filename.</param>
@@ -376,9 +376,7 @@ namespace DevLib.ExtensionMethods
     public static bool IsDirectory(this string sourcePath)
     {
       FileInfo fileInfo = new FileInfo(sourcePath);
-      if (fileInfo.Attributes != (FileAttributes) -1)
-        return (fileInfo.Attributes & FileAttributes.Directory) != (FileAttributes) 0;
-      return false;
+      return (fileInfo.Attributes & FileAttributes.Directory) != 0;
     }
 
     /// <summary>
@@ -401,7 +399,7 @@ namespace DevLib.ExtensionMethods
     public static bool ExistsFileSystem(this string source)
     {
       FileInfo fileInfo = new FileInfo(source);
-      if (fileInfo.Attributes == (FileAttributes) -1 || (fileInfo.Attributes & FileAttributes.Directory) == (FileAttributes) 0)
+      if ((fileInfo.Attributes & FileAttributes.Directory) == (FileAttributes) 0)
         return fileInfo.Exists;
       return true;
     }
@@ -604,25 +602,6 @@ namespace DevLib.ExtensionMethods
           process.WaitForExit();
       }
       return num;
-    }
-
-    /// <summary>Stream object to bytes.</summary>
-    /// <param name="source">Stream source.</param>
-    /// <returns>Byte array.</returns>
-    public static byte[] ToByteArray(this Stream source)
-    {
-      if (source == null)
-        throw new ArgumentNullException(nameof (source));
-      if (source is MemoryStream)
-        return ((MemoryStream) source).ToArray();
-      using (MemoryStream memoryStream = new MemoryStream())
-      {
-        byte[] buffer = new byte[81920];
-        int count;
-        while ((count = source.Read(buffer, 0, buffer.Length)) != 0)
-          memoryStream.Write(buffer, 0, count);
-        return memoryStream.ToArray();
-      }
     }
 
     /// <summary>Bytes to Stream object.</summary>

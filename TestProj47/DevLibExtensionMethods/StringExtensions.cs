@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.StringExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.StringExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections.Generic;
@@ -11,22 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>String Extensions.</summary>
-  public static class StringExtensions
-  {
-    /// <summary>
-    /// Replaces the format item in a specified string with the string representation of a corresponding object in a specified array.
-    /// </summary>
-    /// <param name="source">A composite format string.</param>
-    /// <param name="args">An object array that contains zero or more objects to format.</param>
-    /// <returns>A copy of format in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
-    public static string FormatWith(this string source, params object[] args)
-    {
-      return string.Format(source, args);
-    }
+    public static partial class Extensions
 
+  {
     /// <summary>
     /// Replaces the format item in a specified string with the string representation of a corresponding object in a specified array.
     /// </summary>
@@ -342,33 +331,6 @@ namespace DevLib.ExtensionMethods
     }
 
     /// <summary>
-    /// Indicates whether the specified string is null or an System.String.Empty string.
-    /// </summary>
-    /// <param name="source">The string to test.</param>
-    /// <returns>true if the value parameter is null or an empty string (""); otherwise, false.</returns>
-    public static bool IsNullOrEmpty(this string source)
-    {
-      return string.IsNullOrEmpty(source);
-    }
-
-    /// <summary>
-    /// Indicates whether a specified string is null, empty, or consists only of white-space characters.
-    /// </summary>
-    /// <param name="source">The string to test.</param>
-    /// <returns>true if the <paramref name="source" /> parameter is null or <see cref="F:System.String.Empty" />, or if <paramref name="source" /> consists exclusively of white-space characters. </returns>
-    public static bool IsNullOrWhiteSpace(this string source)
-    {
-      if (source == null)
-        return true;
-      for (int index = 0; index < source.Length; ++index)
-      {
-        if (!char.IsWhiteSpace(source[index]))
-          return false;
-      }
-      return true;
-    }
-
-    /// <summary>
     /// Indicates whether the specified string is neither null nor an System.String.Empty string.
     /// </summary>
     /// <param name="source">The string to test.</param>
@@ -553,17 +515,6 @@ namespace DevLib.ExtensionMethods
           return (int) p == 13;
         return true;
       })).ToArray<char>());
-    }
-
-    /// <summary>Retrieves a truncated string from this instance.</summary>
-    /// <param name="source">Source string.</param>
-    /// <param name="maxLength">Maximum length to truncate.</param>
-    /// <returns>A truncated string.</returns>
-    public static string Truncate(this string source, int maxLength)
-    {
-      if (string.IsNullOrEmpty(source) || source.Length <= maxLength)
-        return source;
-      return source.Substring(0, maxLength);
     }
 
     /// <summary>

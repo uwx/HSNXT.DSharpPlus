@@ -1,18 +1,18 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.CollectionExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.CollectionExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Collection Extensions.</summary>
-  public static class CollectionExtensions
+    public static partial class Extensions
+
   {
     /// <summary>Check Type inherit IEnumerable interface or not.</summary>
     /// <param name="source">Source Type.</param>

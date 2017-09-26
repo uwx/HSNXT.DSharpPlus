@@ -1,16 +1,16 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.DateTimeExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.DateTimeExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Globalization;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>DateTime Extensions.</summary>
-  public static class DateTimeExtensions
+    public static partial class Extensions
+
   {
     public const long TicksPerMillisecond = 10000;
     public const long TicksPerSecond = 10000000;

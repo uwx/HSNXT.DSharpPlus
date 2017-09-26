@@ -1,8 +1,8 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: DevLib.ExtensionMethods.ByteExtensions
-// Assembly: DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
+// Type: TestProj47.ByteExtensions
+// Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\DevLib.ExtensionMethods.dll
+// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
 using System.Collections;
@@ -12,10 +12,10 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 
-namespace DevLib.ExtensionMethods
+namespace TestProj47
 {
-  /// <summary>Byte Extensions.</summary>
-  public static class ByteExtensions
+    public static partial class Extensions
+
   {
     /// <summary>Convert BitArray to byte array.</summary>
     /// <param name="source">The source BitArray.</param>
@@ -172,20 +172,6 @@ namespace DevLib.ExtensionMethods
       return (encoding ?? Encoding.UTF8).GetString(source);
     }
 
-    /// <summary>Convert bytes to Image.</summary>
-    /// <param name="source">Byte array.</param>
-    /// <returns>Image object.</returns>
-    public static Image ToImage(this byte[] source)
-    {
-      if (source == null)
-        throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream(source))
-      {
-        memoryStream.Write(source, 0, source.Length);
-        return Image.FromStream((Stream) memoryStream);
-      }
-    }
-
     /// <summary>Convert Image to bytes.</summary>
     /// <param name="source">Image to convert.</param>
     /// <returns>Byte array.</returns>
@@ -206,7 +192,7 @@ namespace DevLib.ExtensionMethods
         throw new ArgumentNullException(nameof (source));
       using (MemoryStream memoryStream = new MemoryStream())
       {
-        using (Stream zipStream = ByteExtensions.GetZipStream(memoryStream, CompressionMode.Compress, compressionType))
+        using (Stream zipStream = Extensions.GetZipStream(memoryStream, CompressionMode.Compress, compressionType))
           zipStream.Write(source, 0, source.Length);
         return memoryStream.ToArray();
       }
@@ -224,7 +210,7 @@ namespace DevLib.ExtensionMethods
       {
         using (MemoryStream memoryStream2 = new MemoryStream(source))
         {
-          using (Stream zipStream = ByteExtensions.GetZipStream(memoryStream2, CompressionMode.Decompress, compressionType))
+          using (Stream zipStream = Extensions.GetZipStream(memoryStream2, CompressionMode.Decompress, compressionType))
           {
             byte[] buffer = new byte[81920];
             int count;

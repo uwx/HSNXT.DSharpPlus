@@ -41,9 +41,6 @@
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
-    <Reference Include="DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\DevLib.ExtensionMethods.2.17.8.0\lib\net35\DevLib.ExtensionMethods.dll</HintPath>
-    </Reference>
     <Reference Include="dff.Extensions, Version=1.12.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\dff.Extensions.1.12.0.0\lib\dff.Extensions.dll</HintPath>
     </Reference>
@@ -123,6 +120,7 @@
     </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -166,7 +164,6 @@
     <Compile Include="CSharpBasicExtensionsKit\StringEqualityExtensions.cs" />
     <Compile Include="CSharpBasicExtensionsKit\StringExtensions.cs" />
     <Compile Include="DevLibExtensionMethods\ArrayExtensions.cs" />
-    <Compile Include="DevLibExtensionMethods\AssemblyInfo.cs" />
     <Compile Include="DevLibExtensionMethods\BitStream.cs" />
     <Compile Include="DevLibExtensionMethods\BoolExtensions.cs" />
     <Compile Include="DevLibExtensionMethods\ByteExtensions.cs" />
