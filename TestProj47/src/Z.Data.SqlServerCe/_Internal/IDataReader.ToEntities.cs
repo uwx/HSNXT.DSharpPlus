@@ -4,6 +4,7 @@
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +23,7 @@ namespace Z.Data.SQLite
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
         public static IEnumerable<T> ToEntitiesSqLite<T>(this IDataReader @this) where T : new()
         {
-            Type type = typeof (T);
+            Type type = typeof(T);
             PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 

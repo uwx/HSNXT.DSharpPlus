@@ -3,57 +3,61 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates to entities in this collection.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-    public static IEnumerable<T> ToEntities<T>(this IDataReader @this) where T : new()
+    public static partial class Extensions
     {
-        Type type = typeof (T);
-        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-        var list = new List<T>();
-
-        var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
-            .Select(@this.GetName));
-
-        while (@this.Read())
+        /// <summary>
+        ///     Enumerates to entities in this collection.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+        public static IEnumerable<T> ToEntities<T>(this IDataReader @this) where T : new()
         {
-            var entity = new T();
+            Type type = typeof(T);
+            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
-            foreach (PropertyInfo property in properties)
+            var list = new List<T>();
+
+            var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
+                .Select(@this.GetName));
+
+            while (@this.Read())
             {
-                if (hash.Contains(property.Name))
+                var entity = new T();
+
+                foreach (PropertyInfo property in properties)
                 {
-                    Type valueType = property.PropertyType;
-                    property.SetValue(entity, @this[property.Name].To(valueType), null);
+                    if (hash.Contains(property.Name))
+                    {
+                        Type valueType = property.PropertyType;
+                        property.SetValue(entity, @this[property.Name].To(valueType), null);
+                    }
                 }
+
+                foreach (FieldInfo field in fields)
+                {
+                    if (hash.Contains(field.Name))
+                    {
+                        Type valueType = field.FieldType;
+                        field.SetValue(entity, @this[field.Name].To(valueType));
+                    }
+                }
+
+                list.Add(entity);
             }
 
-            foreach (FieldInfo field in fields)
-            {
-                if (hash.Contains(field.Name))
-                {
-                    Type valueType = field.FieldType;
-                    field.SetValue(entity, @this[field.Name].To(valueType));
-                }
-            }
-
-            list.Add(entity);
+            return list;
         }
-
-        return list;
     }
 }

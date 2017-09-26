@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A Stream extension method that converts the Stream to a byte array.
-    /// </summary>
-    /// <param name="this">The Stream to act on.</param>
-    /// <returns>The Stream as a byte[].</returns>
-    public static byte[] ToByteArray(this Stream @this)
+    public static partial class Extensions
     {
-        using (var ms = new MemoryStream())
+        /// <summary>
+        ///     A Stream extension method that converts the Stream to a byte array.
+        /// </summary>
+        /// <param name="this">The Stream to act on.</param>
+        /// <returns>The Stream as a byte[].</returns>
+        public static byte[] ToByteArray(this Stream @this)
         {
-            @this.CopyTo(ms);
-            return ms.ToArray();
+            using (var ms = new MemoryStream())
+            {
+                @this.CopyTo(ms);
+                return ms.ToArray();
+            }
         }
     }
 }

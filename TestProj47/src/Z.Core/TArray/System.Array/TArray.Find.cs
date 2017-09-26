@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T[] extension method that searches for the first match.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="array">The array to act on.</param>
-    /// <param name="match">Specifies the match.</param>
-    /// <returns>A T.</returns>
-    public static T Find<T>(this T[] array, Predicate<T> match)
+    public static partial class Extensions
     {
-        return Array.Find(array, match);
+        /// <summary>
+        ///     A T[] extension method that searches for the first match.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="array">The array to act on.</param>
+        /// <param name="match">Specifies the match.</param>
+        /// <returns>A T.</returns>
+        public static T Find<T>(this T[] array, Predicate<T> match)
+        {
+            return Array.Find(array, match);
+        }
     }
 }

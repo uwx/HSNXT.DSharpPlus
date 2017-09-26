@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Indicates whether the character at the specified position in a specified string has a surrogate code unit.
-    /// </summary>
-    /// <param name="s">A string.</param>
-    /// <param name="index">The position of the character to evaluate in .</param>
-    /// <returns>
-    ///     true if the character at position  in  is a either a high surrogate or a low surrogate; otherwise, false.
-    /// </returns>
-    public static Boolean IsSurrogate(this String s, Int32 index)
+    public static partial class Extensions
     {
-        return Char.IsSurrogate(s, index);
+        /// <summary>
+        ///     Indicates whether the character at the specified position in a specified string has a surrogate code unit.
+        /// </summary>
+        /// <param name="s">A string.</param>
+        /// <param name="index">The position of the character to evaluate in .</param>
+        /// <returns>
+        ///     true if the character at position  in  is a either a high surrogate or a low surrogate; otherwise, false.
+        /// </returns>
+        public static Boolean IsSurrogate(this String s, Int32 index)
+        {
+            return Char.IsSurrogate(s, index);
+        }
     }
 }

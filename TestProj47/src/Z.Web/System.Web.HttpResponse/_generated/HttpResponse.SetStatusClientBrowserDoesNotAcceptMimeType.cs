@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Web;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A HttpResponse extension method that sets the response to status code 406 (Client browser does not accept the
-    ///     MIME type of the requested page.).
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    public static void SetStatusClientBrowserDoesNotAcceptMimeType(this HttpResponse @this)
+    public static partial class Extensions
     {
-        @this.StatusCode = 406;
-        @this.StatusDescription = "Client browser does not accept the MIME type of the requested page.";
+        /// <summary>
+        ///     A HttpResponse extension method that sets the response to status code 406 (Client browser does not accept the
+        ///     MIME type of the requested page.).
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        public static void SetStatusClientBrowserDoesNotAcceptMimeType(this HttpResponse @this)
+        {
+            @this.StatusCode = 406;
+            @this.StatusDescription = "Client browser does not accept the MIME type of the requested page.";
+        }
     }
 }

@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Gets the column names in this collection.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>An enumerator that allows foreach to be used to get the column names in this collection.</returns>
-    public static IEnumerable<string> GetColumnNames(this IDataRecord @this)
+    public static partial class Extensions
     {
-        return Enumerable.Range(0, @this.FieldCount)
-            .Select(@this.GetName)
-            .ToList();
+        /// <summary>
+        ///     Gets the column names in this collection.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>An enumerator that allows foreach to be used to get the column names in this collection.</returns>
+        public static IEnumerable<string> GetColumnNames(this IDataRecord @this)
+        {
+            return Enumerable.Range(0, @this.FieldCount)
+                .Select(@this.GetName)
+                .ToList();
+        }
     }
 }

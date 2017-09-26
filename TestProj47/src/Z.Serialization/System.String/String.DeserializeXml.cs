@@ -3,23 +3,27 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 using System.Xml.Serialization;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that deserialize an Xml as &lt;T&gt;.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The desieralize Xml as &lt;T&gt;</returns>
-    public static T DeserializeXml<T>(this string @this)
+    public static partial class Extensions
     {
-        var x = new XmlSerializer(typeof (T));
-        var r = new StringReader(@this);
+        /// <summary>
+        ///     A string extension method that deserialize an Xml as &lt;T&gt;.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The desieralize Xml as &lt;T&gt;</returns>
+        public static T DeserializeXml<T>(this string @this)
+        {
+            var x = new XmlSerializer(typeof(T));
+            var r = new StringReader(@this);
 
-        return (T) x.Deserialize(r);
+            return (T) x.Deserialize(r);
+        }
     }
 }

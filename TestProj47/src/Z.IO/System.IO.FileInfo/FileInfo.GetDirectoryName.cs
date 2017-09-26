@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A FileInfo extension method that gets directory name.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The directory name.</returns>
-    public static String GetDirectoryName(this FileInfo @this)
+    public static partial class Extensions
     {
-        return @this.Directory.Name;
+        /// <summary>
+        ///     A FileInfo extension method that gets directory name.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The directory name.</returns>
+        public static String GetDirectoryName(this FileInfo @this)
+        {
+            return @this.Directory.Name;
+        }
     }
 }

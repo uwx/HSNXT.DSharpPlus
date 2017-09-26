@@ -3,26 +3,30 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>A DataRow extension method that converts the @this to an expando object.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a dynamic.</returns>
-    public static dynamic ToExpandoObject(this DataRow @this)
+    public static partial class Extensions
     {
-        dynamic entity = new ExpandoObject();
-        var expandoDict = (IDictionary<string, object>) entity;
-
-        foreach (DataColumn column in @this.Table.Columns)
+        /// <summary>A DataRow extension method that converts the @this to an expando object.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a dynamic.</returns>
+        public static dynamic ToExpandoObject(this DataRow @this)
         {
-            expandoDict.Add(column.ColumnName, @this[column]);
-        }
+            dynamic entity = new ExpandoObject();
+            var expandoDict = (IDictionary<string, object>) entity;
 
-        return expandoDict;
+            foreach (DataColumn column in @this.Table.Columns)
+            {
+                expandoDict.Add(column.ColumnName, @this[column]);
+            }
+
+            return expandoDict;
+        }
     }
 }

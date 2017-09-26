@@ -3,58 +3,62 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An Image extension method that scales an image to the specific ratio.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="ratio">The ratio.</param>
-    /// <returns>The scaled image to the specific ratio.</returns>
-    public static Image Scale(this Image @this, double ratio)
+    public static partial class Extensions
     {
-        int width = Convert.ToInt32(@this.Width*ratio);
-        int height = Convert.ToInt32(@this.Height*ratio);
-
-        var r = new Bitmap(width, height);
-
-        using (Graphics g = Graphics.FromImage(r))
+        /// <summary>
+        ///     An Image extension method that scales an image to the specific ratio.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="ratio">The ratio.</param>
+        /// <returns>The scaled image to the specific ratio.</returns>
+        public static Image Scale(this Image @this, double ratio)
         {
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            int width = Convert.ToInt32(@this.Width * ratio);
+            int height = Convert.ToInt32(@this.Height * ratio);
 
-            g.DrawImage(@this, 0, 0, width, height);
+            var r = new Bitmap(width, height);
+
+            using (Graphics g = Graphics.FromImage(r))
+            {
+                g.CompositingQuality = CompositingQuality.HighQuality;
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                g.DrawImage(@this, 0, 0, width, height);
+            }
+
+            return r;
         }
 
-        return r;
-    }
-
-    /// <summary>
-    ///     An Image extension method that scales an image to a specific with and height.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="width">The width.</param>
-    /// <param name="height">The height.</param>
-    /// <returns>The scaled image to the specific width and height.</returns>
-    public static Image Scale(this Image @this, int width, int height)
-    {
-        var r = new Bitmap(width, height);
-
-        using (Graphics g = Graphics.FromImage(r))
+        /// <summary>
+        ///     An Image extension method that scales an image to a specific with and height.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns>The scaled image to the specific width and height.</returns>
+        public static Image Scale(this Image @this, int width, int height)
         {
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            var r = new Bitmap(width, height);
 
-            g.DrawImage(@this, 0, 0, width, height);
+            using (Graphics g = Graphics.FromImage(r))
+            {
+                g.CompositingQuality = CompositingQuality.HighQuality;
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                g.DrawImage(@this, 0, 0, width, height);
+            }
+
+            return r;
         }
-
-        return r;
     }
 }

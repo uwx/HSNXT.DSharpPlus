@@ -3,30 +3,34 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Reflection;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>A T extension method that gets property or field.</summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="name">The name.</param>
-    /// <returns>The property or field.</returns>
-    public static MemberInfo GetPropertyOrField<T>(this T @this, string name)
+    public static partial class Extensions
     {
-        PropertyInfo property = @this.GetProperty(name);
-        if (property != null)
+        /// <summary>A T extension method that gets property or field.</summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>The property or field.</returns>
+        public static MemberInfo GetPropertyOrField<T>(this T @this, string name)
         {
-            return property;
-        }
+            PropertyInfo property = @this.GetProperty(name);
+            if (property != null)
+            {
+                return property;
+            }
 
-        FieldInfo field = @this.GetField(name);
-        if (field != null)
-        {
-            return field;
-        }
+            FieldInfo field = @this.GetField(name);
+            if (field != null)
+            {
+                return field;
+            }
 
-        return null;
+            return null;
+        }
     }
 }

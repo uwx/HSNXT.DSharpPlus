@@ -3,39 +3,43 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
 using System.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates to expando objects in this collection.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
-    public static IEnumerable<dynamic> ToExpandoObjects(this IDataReader @this)
+    public static partial class Extensions
     {
-        Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
-            .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
-            .ToDictionary(pair => pair.Key);
-
-        var list = new List<dynamic>();
-
-        while (@this.Read())
+        /// <summary>
+        ///     Enumerates to expando objects in this collection.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
+        public static IEnumerable<dynamic> ToExpandoObjects(this IDataReader @this)
         {
-            dynamic entity = new ExpandoObject();
-            var expandoDict = (IDictionary<string, object>) entity;
+            Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
+                .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
+                .ToDictionary(pair => pair.Key);
 
-            Enumerable.Range(0, @this.FieldCount)
-                .ToList()
-                .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+            var list = new List<dynamic>();
 
-            list.Add(entity);
+            while (@this.Read())
+            {
+                dynamic entity = new ExpandoObject();
+                var expandoDict = (IDictionary<string, object>) entity;
+
+                Enumerable.Range(0, @this.FieldCount)
+                    .ToList()
+                    .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+
+                list.Add(entity);
+            }
+
+            return list;
         }
-
-        return list;
     }
 }

@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Drawing;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Translates the specified  structure to an HTML string color representation.
-    /// </summary>
-    /// <param name="c">The  structure to translate.</param>
-    /// <returns>The string that represents the HTML color.</returns>
-    public static String ToHtml(this Color c)
+    public static partial class Extensions
     {
-        return ColorTranslator.ToHtml(c);
+        /// <summary>
+        ///     Translates the specified  structure to an HTML string color representation.
+        /// </summary>
+        /// <param name="c">The  structure to translate.</param>
+        /// <returns>The string that represents the HTML color.</returns>
+        public static String ToHtml(this Color c)
+        {
+            return ColorTranslator.ToHtml(c);
+        }
     }
 }

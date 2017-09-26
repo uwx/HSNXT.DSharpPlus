@@ -4,12 +4,16 @@
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Reflection;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    public static string GetSignature(this EventInfo @this)
+    public static partial class Extensions
     {
-        return null;
+        public static string GetSignature(this EventInfo @this)
+        {
+            return null;
+        }
     }
 }

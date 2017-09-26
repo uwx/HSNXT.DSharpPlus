@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Web;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A HttpResponse extension method that sets the response to status code 100 (Continue.).
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    public static void SetStatusContinue(this HttpResponse @this)
+    public static partial class Extensions
     {
-        @this.StatusCode = 100;
-        @this.StatusDescription = "Continue.";
+        /// <summary>
+        ///     A HttpResponse extension method that sets the response to status code 100 (Continue.).
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        public static void SetStatusContinue(this HttpResponse @this)
+        {
+            @this.StatusCode = 100;
+            @this.StatusDescription = "Continue.";
+        }
     }
 }

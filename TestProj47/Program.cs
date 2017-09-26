@@ -144,6 +144,11 @@ namespace TestProj47
             return o.ToString(CultureInfo.InvariantCulture);
         }
         
+        public static string ToStringCurrent(this DateTime o)
+        {
+            return o.ToString(CultureInfo.CurrentCulture);
+        }
+        
         public static bool In<T>(this T source, params T[] list)
         {
             if (null == source) throw new ArgumentNullException(nameof(source));

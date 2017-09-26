@@ -3,41 +3,45 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that deserialize a string binary as &lt;T&gt;.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The desrialize binary as &lt;T&gt;</returns>
-    public static T DeserializeBinary<T>(this string @this)
+    public static partial class Extensions
     {
-        using (var stream = new MemoryStream(Encoding.Default.GetBytes(@this)))
+        /// <summary>
+        ///     A string extension method that deserialize a string binary as &lt;T&gt;.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The desrialize binary as &lt;T&gt;</returns>
+        public static T DeserializeBinary<T>(this string @this)
         {
-            var binaryRead = new BinaryFormatter();
-            return (T) binaryRead.Deserialize(stream);
+            using (var stream = new MemoryStream(Encoding.Default.GetBytes(@this)))
+            {
+                var binaryRead = new BinaryFormatter();
+                return (T) binaryRead.Deserialize(stream);
+            }
         }
-    }
 
-    /// <summary>
-    ///     A string extension method that deserialize a string binary as &lt;T&gt;.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="encoding">The encoding.</param>
-    /// <returns>The desrialize binary as &lt;T&gt;</returns>
-    public static T DeserializeBinary<T>(this string @this, Encoding encoding)
-    {
-        using (var stream = new MemoryStream(encoding.GetBytes(@this)))
+        /// <summary>
+        ///     A string extension method that deserialize a string binary as &lt;T&gt;.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <returns>The desrialize binary as &lt;T&gt;</returns>
+        public static T DeserializeBinary<T>(this string @this, Encoding encoding)
         {
-            var binaryRead = new BinaryFormatter();
-            return (T) binaryRead.Deserialize(stream);
+            using (var stream = new MemoryStream(encoding.GetBytes(@this)))
+            {
+                var binaryRead = new BinaryFormatter();
+                return (T) binaryRead.Deserialize(stream);
+            }
         }
     }
 }

@@ -4,52 +4,56 @@
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>A Type extension method that gets a declaraction.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The declaraction.</returns>
-    public static string GetSignature(this Type @this)
+    public static partial class Extensions
     {
-        // Example: [Visibility] [Modifier] [Type] [Name] [<GenericArguments>] [:] [Inherited Class] [Inherited Interface]
-        var sb = new StringBuilder();
-
-        // Variable
-        bool hasInheritedClass = false;
-
-        // Name
-        sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
-
-        // GenericArguments
-        if (@this.IsGenericType)
+        /// <summary>A Type extension method that gets a declaraction.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The declaraction.</returns>
+        public static string GetSignature(this Type @this)
         {
-            Type[] arguments = @this.GetGenericArguments();
-            sb.Append("<");
-            sb.Append(string.Join(", ", arguments.Select(x =>
+            // Example: [Visibility] [Modifier] [Type] [Name] [<GenericArguments>] [:] [Inherited Class] [Inherited Interface]
+            var sb = new StringBuilder();
+
+            // Variable
+            bool hasInheritedClass = false;
+
+            // Name
+            sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
+
+            // GenericArguments
+            if (@this.IsGenericType)
             {
-                Type[] constraints = x.GetGenericParameterConstraints();
-
-                foreach (Type constraint in constraints)
+                Type[] arguments = @this.GetGenericArguments();
+                sb.Append("<");
+                sb.Append(string.Join(", ", arguments.Select(x =>
                 {
-                    GenericParameterAttributes gpa = constraint.GenericParameterAttributes;
-                    GenericParameterAttributes variance = gpa & GenericParameterAttributes.VarianceMask;
+                    Type[] constraints = x.GetGenericParameterConstraints();
 
-                    if (variance != GenericParameterAttributes.None)
+                    foreach (Type constraint in constraints)
                     {
-                        sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
+                        GenericParameterAttributes gpa = constraint.GenericParameterAttributes;
+                        GenericParameterAttributes variance = gpa & GenericParameterAttributes.VarianceMask;
+
+                        if (variance != GenericParameterAttributes.None)
+                        {
+                            sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
+                        }
                     }
-                }
 
-                return x.GetShortDeclaraction();
-            })));
-            sb.Append(">");
+                    return x.GetShortDeclaraction();
+                })));
+                sb.Append(">");
+            }
+
+            return sb.ToString();
         }
-
-        return sb.ToString();
     }
 }

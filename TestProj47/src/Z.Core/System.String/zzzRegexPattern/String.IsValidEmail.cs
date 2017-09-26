@@ -3,18 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Text.RegularExpressions;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that query if 'obj' is valid email.
-    /// </summary>
-    /// <param name="obj">The obj to act on.</param>
-    /// <returns>true if valid email, false if not.</returns>
-    public static bool IsValidEmail(this string obj)
+    public static partial class Extensions
     {
-        return Regex.IsMatch(obj, @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z0-9]{1,30})(\]?)$");
+        /// <summary>
+        ///     A string extension method that query if 'obj' is valid email.
+        /// </summary>
+        /// <param name="obj">The obj to act on.</param>
+        /// <returns>true if valid email, false if not.</returns>
+        public static bool IsValidEmail(this string obj)
+        {
+            return Regex.IsMatch(obj,
+                @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z0-9]{1,30})(\]?)$");
+        }
     }
 }

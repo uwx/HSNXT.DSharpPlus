@@ -3,30 +3,34 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Determines whether a @this includes a file name extension.
-    /// </summary>
-    /// <param name="this">The @this to search for an extension.</param>
-    /// <returns>
-    ///     true if the characters that follow the last directory separator (\\ or /) or volume separator (:) in the
-    ///     @this include a period (.) followed by one or more characters; otherwise, false.
-    /// </returns>
-    /// ###
-    /// <exception cref="T:System.ArgumentException">
-    ///     <paramref name="this" /> contains one or more of the invalid
-    ///     characters defined in
-    ///     <see
-    ///         cref="M:System.IO.Path.GetInvalidPathChars" />
-    ///     .
-    /// </exception>
-    public static Boolean HasExtension(this FileInfo @this)
+    public static partial class Extensions
     {
-        return Path.HasExtension(@this.FullName);
+        /// <summary>
+        ///     Determines whether a @this includes a file name extension.
+        /// </summary>
+        /// <param name="this">The @this to search for an extension.</param>
+        /// <returns>
+        ///     true if the characters that follow the last directory separator (\\ or /) or volume separator (:) in the
+        ///     @this include a period (.) followed by one or more characters; otherwise, false.
+        /// </returns>
+        /// ###
+        /// <exception cref="T:System.ArgumentException">
+        ///     <paramref name="this" /> contains one or more of the invalid
+        ///     characters defined in
+        ///     <see
+        ///         cref="M:System.IO.Path.GetInvalidPathChars" />
+        ///     .
+        /// </exception>
+        public static Boolean HasExtension(this FileInfo @this)
+        {
+            return Path.HasExtension(@this.FullName);
+        }
     }
 }

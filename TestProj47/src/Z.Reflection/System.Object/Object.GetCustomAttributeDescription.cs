@@ -3,98 +3,110 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.ComponentModel;
 using System.Reflection;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that gets description attribute.
-    /// </summary>
-    /// <param name="value">The value to act on.</param>
-    /// <returns>The description attribute.</returns>
-    public static string GetCustomAttributeDescription(this object value)
+    public static partial class Extensions
     {
-        var type = value.GetType();
-
-        var attributes = type.IsEnum ?
-            type.GetField(value.ToString()).GetCustomAttributes(typeof (DescriptionAttribute)) :
-            type.GetCustomAttributes(typeof (DescriptionAttribute));
-
-        if (attributes.Length == 0)
+        /// <summary>
+        ///     An object extension method that gets description attribute.
+        /// </summary>
+        /// <param name="value">The value to act on.</param>
+        /// <returns>The description attribute.</returns>
+        public static string GetCustomAttributeDescription(this object value)
         {
-            return null;
-        }
-        if (attributes.Length == 1)
-        {
-            return ((DescriptionAttribute) attributes[0]).Description;
-        }
+            var type = value.GetType();
 
-        throw new Exception(string.Format("Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.", attributes.Length));
-    }
+            var attributes = type.IsEnum
+                ? type.GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute))
+                : type.GetCustomAttributes(typeof(DescriptionAttribute));
 
-    /// <summary>An object extension method that gets description attribute.</summary>
-    /// <param name="value">The value to act on.</param>
-    /// <param name="inherit">true to inherit.</param>
-    /// <returns>The description attribute.</returns>
-    public static string GetCustomAttributeDescription(this object value, bool inherit)
-    {
-        var type = value.GetType();
+            if (attributes.Length == 0)
+            {
+                return null;
+            }
+            if (attributes.Length == 1)
+            {
+                return ((DescriptionAttribute) attributes[0]).Description;
+            }
 
-        var attributes = type.IsEnum ?
-            type.GetField(value.ToString()).GetCustomAttributes(typeof (DescriptionAttribute), inherit) :
-            type.GetCustomAttributes(typeof (DescriptionAttribute));
-
-        if (attributes.Length == 0)
-        {
-            return null;
-        }
-        if (attributes.Length == 1)
-        {
-            return ((DescriptionAttribute) attributes[0]).Description;
+            throw new Exception(string.Format(
+                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
+                attributes.Length));
         }
 
-        throw new Exception(string.Format("Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.", attributes.Length));
-    }
-
-    /// <summary>An object extension method that gets description attribute.</summary>
-    /// <param name="value">The value to act on.</param>
-    /// <returns>The description attribute.</returns>
-    public static string GetCustomAttributeDescription(this MemberInfo value)
-    {
-        var attributes = value.GetCustomAttributes(typeof (DescriptionAttribute));
-
-        if (attributes.Length == 0)
+        /// <summary>An object extension method that gets description attribute.</summary>
+        /// <param name="value">The value to act on.</param>
+        /// <param name="inherit">true to inherit.</param>
+        /// <returns>The description attribute.</returns>
+        public static string GetCustomAttributeDescription(this object value, bool inherit)
         {
-            return null;
-        }
-        if (attributes.Length == 1)
-        {
-            return ((DescriptionAttribute) attributes[0]).Description;
-        }
+            var type = value.GetType();
 
-        throw new Exception(string.Format("Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.", attributes.Length));
-    }
+            var attributes = type.IsEnum
+                ? type.GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), inherit)
+                : type.GetCustomAttributes(typeof(DescriptionAttribute));
 
-    /// <summary>An object extension method that gets description attribute.</summary>
-    /// <param name="value">The value to act on.</param>
-    /// <param name="inherit">true to inherit.</param>
-    /// <returns>The description attribute.</returns>
-    public static string GetCustomAttributeDescription(this MemberInfo value, bool inherit)
-    {
-        var attributes = value.GetCustomAttributes(typeof (DescriptionAttribute), inherit);
+            if (attributes.Length == 0)
+            {
+                return null;
+            }
+            if (attributes.Length == 1)
+            {
+                return ((DescriptionAttribute) attributes[0]).Description;
+            }
 
-        if (attributes.Length == 0)
-        {
-            return null;
-        }
-        if (attributes.Length == 1)
-        {
-            return ((DescriptionAttribute) attributes[0]).Description;
+            throw new Exception(string.Format(
+                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
+                attributes.Length));
         }
 
-        throw new Exception(string.Format("Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.", attributes.Length));
+        /// <summary>An object extension method that gets description attribute.</summary>
+        /// <param name="value">The value to act on.</param>
+        /// <returns>The description attribute.</returns>
+        public static string GetCustomAttributeDescription(this MemberInfo value)
+        {
+            var attributes = value.GetCustomAttributes(typeof(DescriptionAttribute));
+
+            if (attributes.Length == 0)
+            {
+                return null;
+            }
+            if (attributes.Length == 1)
+            {
+                return ((DescriptionAttribute) attributes[0]).Description;
+            }
+
+            throw new Exception(string.Format(
+                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
+                attributes.Length));
+        }
+
+        /// <summary>An object extension method that gets description attribute.</summary>
+        /// <param name="value">The value to act on.</param>
+        /// <param name="inherit">true to inherit.</param>
+        /// <returns>The description attribute.</returns>
+        public static string GetCustomAttributeDescription(this MemberInfo value, bool inherit)
+        {
+            var attributes = value.GetCustomAttributes(typeof(DescriptionAttribute), inherit);
+
+            if (attributes.Length == 0)
+            {
+                return null;
+            }
+            if (attributes.Length == 1)
+            {
+                return ((DescriptionAttribute) attributes[0]).Description;
+            }
+
+            throw new Exception(string.Format(
+                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
+                attributes.Length));
+        }
     }
 }

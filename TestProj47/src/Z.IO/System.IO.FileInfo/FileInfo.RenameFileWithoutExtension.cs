@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A FileInfo extension method that rename file without extension.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="newName">Name of the new.</param>
-    /// ###
-    /// <returns>.</returns>
-    public static void RenameFileWithoutExtension(this FileInfo @this, string newName)
+    public static partial class Extensions
     {
-        string fileName = string.Concat(newName, @this.Extension);
-        string filePath = Path.Combine(@this.Directory.FullName, fileName);
-        @this.MoveTo(filePath);
+        /// <summary>
+        ///     A FileInfo extension method that rename file without extension.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="newName">Name of the new.</param>
+        /// ###
+        /// <returns>.</returns>
+        public static void RenameFileWithoutExtension(this FileInfo @this, string newName)
+        {
+            string fileName = string.Concat(newName, @this.Extension);
+            string filePath = Path.Combine(@this.Directory.FullName, fileName);
+            @this.MoveTo(filePath);
+        }
     }
 }

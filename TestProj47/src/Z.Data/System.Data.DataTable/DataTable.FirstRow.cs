@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Data;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DataTable extension method that return the first row.
-    /// </summary>
-    /// <param name="this">The table to act on.</param>
-    /// <returns>The first row of the table.</returns>
-    public static DataRow FirstRow(this DataTable @this)
+    public static partial class Extensions
     {
-        return @this.Rows[0];
+        /// <summary>
+        ///     A DataTable extension method that return the first row.
+        /// </summary>
+        /// <param name="this">The table to act on.</param>
+        /// <returns>The first row of the table.</returns>
+        public static DataRow FirstRow(this DataTable @this)
+        {
+            return @this.Rows[0];
+        }
     }
 }

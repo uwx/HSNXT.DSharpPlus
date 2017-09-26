@@ -8,6 +8,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
+namespace TestProj47 {
 public static partial class Extensions
 {
     /// <summary>
@@ -25,5 +26,6 @@ public static partial class Extensions
 
         return ds;
     }
+}
 }
 #endif

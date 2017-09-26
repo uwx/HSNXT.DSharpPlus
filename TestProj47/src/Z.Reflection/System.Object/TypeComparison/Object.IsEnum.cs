@@ -3,17 +3,21 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that query if '@this' is enum.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if enum, false if not.</returns>
-    public static bool IsEnum<T>(this T @this)
+    public static partial class Extensions
     {
-        return @this.GetType().IsEnum;
+        /// <summary>
+        ///     A T extension method that query if '@this' is enum.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if enum, false if not.</returns>
+        public static bool IsEnum<T>(this T @this)
+        {
+            return @this.GetType().IsEnum;
+        }
     }
 }

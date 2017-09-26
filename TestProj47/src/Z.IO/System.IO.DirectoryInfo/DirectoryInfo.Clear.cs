@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DirectoryInfo extension method that clears all files and directories in this directory.
-    /// </summary>
-    /// <param name="obj">The obj to act on.</param>
-    public static void Clear(this DirectoryInfo obj)
+    public static partial class Extensions
     {
-        Array.ForEach(obj.GetFiles(), x => x.Delete());
-        Array.ForEach(obj.GetDirectories(), x => x.Delete(true));
+        /// <summary>
+        ///     A DirectoryInfo extension method that clears all files and directories in this directory.
+        /// </summary>
+        /// <param name="obj">The obj to act on.</param>
+        public static void Clear(this DirectoryInfo obj)
+        {
+            Array.ForEach(obj.GetFiles(), x => x.Delete());
+            Array.ForEach(obj.GetDirectories(), x => x.Delete(true));
+        }
     }
 }

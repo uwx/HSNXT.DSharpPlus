@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A SqlParameterCollection extension method that adds a range with value to 'values'.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="values">The values.</param>
-    public static void AddRangeWithValue(this SqlParameterCollection @this, Dictionary<string, object> values)
+    public static partial class Extensions
     {
-        foreach (var keyValuePair in values)
+        /// <summary>
+        ///     A SqlParameterCollection extension method that adds a range with value to 'values'.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="values">The values.</param>
+        public static void AddRangeWithValue(this SqlParameterCollection @this, Dictionary<string, object> values)
         {
-            @this.AddWithValue(keyValuePair.Key, keyValuePair.Value);
+            foreach (var keyValuePair in values)
+            {
+                @this.AddWithValue(keyValuePair.Key, keyValuePair.Value);
+            }
         }
     }
 }

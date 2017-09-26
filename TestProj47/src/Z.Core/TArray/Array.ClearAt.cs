@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T[] extension method that clears at.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The arrayToClear to act on.</param>
-    /// <param name="at">at.</param>
-    public static void ClearAt<T>(this T[] @this, int at)
+    public static partial class Extensions
     {
-        Array.Clear(@this, at, 1);
+        /// <summary>
+        ///     A T[] extension method that clears at.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The arrayToClear to act on.</param>
+        /// <param name="at">at.</param>
+        public static void ClearAt<T>(this T[] @this, int at)
+        {
+            Array.Clear(@this, at, 1);
+        }
     }
 }

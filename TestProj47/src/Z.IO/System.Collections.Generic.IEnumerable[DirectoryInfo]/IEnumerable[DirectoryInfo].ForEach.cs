@@ -3,25 +3,30 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates for each in this collection.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="action">The action.</param>
-    /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
-    public static IEnumerable<DirectoryInfo> ForEach(this IEnumerable<DirectoryInfo> @this, Action<DirectoryInfo> action)
+    public static partial class Extensions
     {
-        foreach (DirectoryInfo t in @this)
+        /// <summary>
+        ///     Enumerates for each in this collection.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="action">The action.</param>
+        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        public static IEnumerable<DirectoryInfo> ForEach(this IEnumerable<DirectoryInfo> @this,
+            Action<DirectoryInfo> action)
         {
-            action(t);
+            foreach (DirectoryInfo t in @this)
+            {
+                action(t);
+            }
+            return @this;
         }
-        return @this;
     }
 }

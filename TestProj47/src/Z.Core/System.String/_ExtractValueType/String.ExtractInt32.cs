@@ -3,32 +3,36 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that extracts the Int32 from the string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The extracted Int32.</returns>
-    public static int ExtractInt32(this string @this)
+    public static partial class Extensions
     {
-        var sb = new StringBuilder();
-        for (int i = 0; i < @this.Length; i++)
+        /// <summary>
+        ///     A string extension method that extracts the Int32 from the string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The extracted Int32.</returns>
+        public static int ExtractInt32(this string @this)
         {
-            if (Char.IsDigit(@this[i]))
+            var sb = new StringBuilder();
+            for (int i = 0; i < @this.Length; i++)
             {
-                if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
+                if (Char.IsDigit(@this[i]))
                 {
-                    sb.Append('-');
+                    if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
+                    {
+                        sb.Append('-');
+                    }
+                    sb.Append(@this[i]);
                 }
-                sb.Append(@this[i]);
             }
-        }
 
-        return Convert.ToInt32(sb.ToString());
+            return Convert.ToInt32(sb.ToString());
+        }
     }
 }

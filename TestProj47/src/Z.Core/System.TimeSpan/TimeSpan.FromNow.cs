@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A TimeSpan extension method that add the specified TimeSpan to the current DateTime.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The current DateTime with the specified TimeSpan added to it.</returns>
-    public static DateTime FromNow(this TimeSpan @this)
+    public static partial class Extensions
     {
-        return DateTime.Now.Add(@this);
+        /// <summary>
+        ///     A TimeSpan extension method that add the specified TimeSpan to the current DateTime.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The current DateTime with the specified TimeSpan added to it.</returns>
+        public static DateTime FromNow(this TimeSpan @this)
+        {
+            return DateTime.Now.Add(@this);
+        }
     }
 }

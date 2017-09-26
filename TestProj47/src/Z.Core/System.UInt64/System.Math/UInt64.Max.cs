@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the larger of two 64-bit unsigned integers.
-    /// </summary>
-    /// <param name="val1">The first of two 64-bit unsigned integers to compare.</param>
-    /// <param name="val2">The second of two 64-bit unsigned integers to compare.</param>
-    /// <returns>Parameter  or , whichever is larger.</returns>
-    public static UInt64 Max(this UInt64 val1, UInt64 val2)
+    public static partial class Extensions
     {
-        return Math.Max(val1, val2);
+        /// <summary>
+        ///     Returns the larger of two 64-bit unsigned integers.
+        /// </summary>
+        /// <param name="val1">The first of two 64-bit unsigned integers to compare.</param>
+        /// <param name="val2">The second of two 64-bit unsigned integers to compare.</param>
+        /// <returns>Parameter  or , whichever is larger.</returns>
+        public static UInt64 Max(this UInt64 val1, UInt64 val2)
+        {
+            return Math.Max(val1, val2);
+        }
     }
 }

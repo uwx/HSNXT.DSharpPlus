@@ -3,31 +3,35 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Drawing;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An Image extension method that cuts an image.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="width">The width.</param>
-    /// <param name="height">The height.</param>
-    /// <param name="x">The x coordinate.</param>
-    /// <param name="y">The y coordinate.</param>
-    /// <returns>The cutted image.</returns>
-    public static Image Cut(this Image @this, int width, int height, int x, int y)
+    public static partial class Extensions
     {
-        var r = new Bitmap(width, height);
-        var destinationRectange = new Rectangle(0, 0, width, height);
-        var sourceRectangle = new Rectangle(x, y, width, height);
-
-        using (Graphics g = Graphics.FromImage(r))
+        /// <summary>
+        ///     An Image extension method that cuts an image.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>The cutted image.</returns>
+        public static Image Cut(this Image @this, int width, int height, int x, int y)
         {
-            g.DrawImage(@this, destinationRectange, sourceRectangle, GraphicsUnit.Pixel);
-        }
+            var r = new Bitmap(width, height);
+            var destinationRectange = new Rectangle(0, 0, width, height);
+            var sourceRectangle = new Rectangle(x, y, width, height);
 
-        return r;
+            using (Graphics g = Graphics.FromImage(r))
+            {
+                g.DrawImage(@this, destinationRectange, sourceRectangle, GraphicsUnit.Pixel);
+            }
+
+            return r;
+        }
     }
 }

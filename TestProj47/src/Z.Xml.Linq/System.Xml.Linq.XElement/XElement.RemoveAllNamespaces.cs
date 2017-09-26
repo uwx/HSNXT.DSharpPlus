@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Linq;
 using System.Xml.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An XElement extension method that removes all namespaces described by @this.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>An XElement.</returns>
-    public static XElement RemoveAllNamespaces(this XElement @this)
+    public static partial class Extensions
     {
-        return new XElement(@this.Name.LocalName,
-            (from n in @this.Nodes()
-                select ((n is XElement) ? RemoveAllNamespaces(n as XElement) : n)),
-            (@this.HasAttributes) ? (from a in @this.Attributes() select a) : null);
+        /// <summary>
+        ///     An XElement extension method that removes all namespaces described by @this.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>An XElement.</returns>
+        public static XElement RemoveAllNamespaces(this XElement @this)
+        {
+            return new XElement(@this.Name.LocalName,
+                (from n in @this.Nodes()
+                    select ((n is XElement) ? RemoveAllNamespaces(n as XElement) : n)),
+                (@this.HasAttributes) ? (from a in @this.Attributes() select a) : null);
+        }
     }
 }

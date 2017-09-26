@@ -3,38 +3,42 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates to expando objects in this collection.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
-    /// ###
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    public static IEnumerable<dynamic> ToExpandoObjects(this DataTable @this)
+    public static partial class Extensions
     {
-        var list = new List<dynamic>();
-
-        foreach (DataRow dr in @this.Rows)
+        /// <summary>
+        ///     Enumerates to expando objects in this collection.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
+        /// ###
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        public static IEnumerable<dynamic> ToExpandoObjects(this DataTable @this)
         {
-            dynamic entity = new ExpandoObject();
-            var expandoDict = (IDictionary<string, object>) entity;
+            var list = new List<dynamic>();
 
-            foreach (DataColumn column in @this.Columns)
+            foreach (DataRow dr in @this.Rows)
             {
-                expandoDict.Add(column.ColumnName, dr[column]);
+                dynamic entity = new ExpandoObject();
+                var expandoDict = (IDictionary<string, object>) entity;
+
+                foreach (DataColumn column in @this.Columns)
+                {
+                    expandoDict.Add(column.ColumnName, dr[column]);
+                }
+
+
+                list.Add(entity);
             }
 
-
-            list.Add(entity);
+            return list;
         }
-
-        return list;
     }
 }

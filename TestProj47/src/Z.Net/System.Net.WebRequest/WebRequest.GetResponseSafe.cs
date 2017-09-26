@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Net;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A WebRequest extension method that gets the WebRequest response or the WebException response.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The WebRequest response or WebException response.</returns>
-    public static WebResponse GetResponseSafe(this WebRequest @this)
+    public static partial class Extensions
     {
-        try
+        /// <summary>
+        ///     A WebRequest extension method that gets the WebRequest response or the WebException response.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The WebRequest response or WebException response.</returns>
+        public static WebResponse GetResponseSafe(this WebRequest @this)
         {
-            return @this.GetResponse();
-        }
-        catch (WebException e)
-        {
-            return e.Response;
+            try
+            {
+                return @this.GetResponse();
+            }
+            catch (WebException e)
+            {
+                return e.Response;
+            }
         }
     }
 }

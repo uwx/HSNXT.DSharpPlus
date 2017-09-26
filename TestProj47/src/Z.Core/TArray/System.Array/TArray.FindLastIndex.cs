@@ -3,47 +3,51 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T[] extension method that searches for the last index.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="array">The array to act on.</param>
-    /// <param name="match">Specifies the match.</param>
-    /// <returns>The found index.</returns>
-    public static Int32 FindLastIndex<T>(this T[] array, Predicate<T> match)
+    public static partial class Extensions
     {
-        return Array.FindLastIndex(array, match);
-    }
+        /// <summary>
+        ///     A T[] extension method that searches for the last index.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="array">The array to act on.</param>
+        /// <param name="match">Specifies the match.</param>
+        /// <returns>The found index.</returns>
+        public static Int32 FindLastIndex<T>(this T[] array, Predicate<T> match)
+        {
+            return Array.FindLastIndex(array, match);
+        }
 
-    /// <summary>
-    ///     A T[] extension method that searches for the last index.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="array">The array to act on.</param>
-    /// <param name="startIndex">The start index.</param>
-    /// <param name="match">Specifies the match.</param>
-    /// <returns>The found index.</returns>
-    public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Predicate<T> match)
-    {
-        return Array.FindLastIndex(array, startIndex, match);
-    }
+        /// <summary>
+        ///     A T[] extension method that searches for the last index.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="array">The array to act on.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="match">Specifies the match.</param>
+        /// <returns>The found index.</returns>
+        public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Predicate<T> match)
+        {
+            return Array.FindLastIndex(array, startIndex, match);
+        }
 
-    /// <summary>
-    ///     A T[] extension method that searches for the last index.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="array">The array to act on.</param>
-    /// <param name="startIndex">The start index.</param>
-    /// <param name="count">Number of.</param>
-    /// <param name="match">Specifies the match.</param>
-    /// <returns>The found index.</returns>
-    public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Int32 count, Predicate<T> match)
-    {
-        return Array.FindLastIndex(array, startIndex, count, match);
+        /// <summary>
+        ///     A T[] extension method that searches for the last index.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="array">The array to act on.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">Number of.</param>
+        /// <param name="match">Specifies the match.</param>
+        /// <returns>The found index.</returns>
+        public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Int32 count, Predicate<T> match)
+        {
+            return Array.FindLastIndex(array, startIndex, count, match);
+        }
     }
 }

@@ -9,6 +9,7 @@ using System;
 using System.Data;
 using System.Data.SqlServerCe;
 
+namespace TestProj47 {
 public static partial class Extensions
 {
     /// <summary>
@@ -138,5 +139,6 @@ public static partial class Extensions
     {
         return @this.ExecuteScalarAs<T>(cmdText, parameters, commandType, null);
     }
+}
 }
 #endif

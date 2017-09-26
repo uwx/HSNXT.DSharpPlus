@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 using System.Net;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A WebResponse extension method that reads the response stream to the end.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The response stream as a string, from the current position to the end.</returns>
-    public static string ReadToEnd(this WebResponse @this)
+    public static partial class Extensions
     {
-        using (Stream stream = @this.GetResponseStream())
+        /// <summary>
+        ///     A WebResponse extension method that reads the response stream to the end.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The response stream as a string, from the current position to the end.</returns>
+        public static string ReadToEnd(this WebResponse @this)
         {
-            using (var reader = new StreamReader(stream))
+            using (Stream stream = @this.GetResponseStream())
             {
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
     }

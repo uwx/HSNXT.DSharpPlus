@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates execute entities in this collection.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>An enumerator that allows foreach to be used to process execute entities in this collection.</returns>
-    public static IEnumerable<T> ExecuteEntities<T>(this DbCommand @this) where T : new()
+    public static partial class Extensions
     {
-        using (IDataReader reader = @this.ExecuteReader())
+        /// <summary>
+        ///     Enumerates execute entities in this collection.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>An enumerator that allows foreach to be used to process execute entities in this collection.</returns>
+        public static IEnumerable<T> ExecuteEntities<T>(this DbCommand @this) where T : new()
         {
-            return reader.ToEntities<T>();
+            using (IDataReader reader = @this.ExecuteReader())
+            {
+                return reader.ToEntities<T>();
+            }
         }
     }
 }

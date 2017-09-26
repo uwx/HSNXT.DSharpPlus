@@ -3,30 +3,34 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that converts the @this to a plural.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a string.</returns>
-    public static string ToPlural(this string @this)
+    public static partial class Extensions
     {
-        return PluralizationService.CreateService(new CultureInfo("en-US")).Pluralize(@this);
-    }
+        /// <summary>
+        ///     A string extension method that converts the @this to a plural.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a string.</returns>
+        public static string ToPlural(this string @this)
+        {
+            return PluralizationService.CreateService(new CultureInfo("en-US")).Pluralize(@this);
+        }
 
-    /// <summary>
-    ///     A string extension method that converts the @this to a plural.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="cultureInfo">Information describing the culture.</param>
-    /// <returns>@this as a string.</returns>
-    public static string ToPlural(this string @this, CultureInfo cultureInfo)
-    {
-        return PluralizationService.CreateService(cultureInfo).Pluralize(@this);
+        /// <summary>
+        ///     A string extension method that converts the @this to a plural.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="cultureInfo">Information describing the culture.</param>
+        /// <returns>@this as a string.</returns>
+        public static string ToPlural(this string @this, CultureInfo cultureInfo)
+        {
+            return PluralizationService.CreateService(cultureInfo).Pluralize(@this);
+        }
     }
 }

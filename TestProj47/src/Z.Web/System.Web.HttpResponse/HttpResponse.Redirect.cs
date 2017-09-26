@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Web;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A HttpResponse extension method that redirects.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="urlFormat">The URL format.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    public static void Redirect(this HttpResponse @this, string urlFormat, params object[] values)
+    public static partial class Extensions
     {
-        string url = string.Format(urlFormat, values);
-        @this.Redirect(url, true);
+        /// <summary>
+        ///     A HttpResponse extension method that redirects.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="urlFormat">The URL format.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        public static void Redirect(this HttpResponse @this, string urlFormat, params object[] values)
+        {
+            string url = string.Format(urlFormat, values);
+            @this.Redirect(url, true);
+        }
     }
 }

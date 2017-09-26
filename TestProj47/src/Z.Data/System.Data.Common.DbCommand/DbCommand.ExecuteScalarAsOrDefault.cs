@@ -3,65 +3,69 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Data.Common;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DbCommand extension method that executes the scalar as or default operation.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A T.</returns>
-    public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this)
+    public static partial class Extensions
     {
-        try
+        /// <summary>
+        ///     A DbCommand extension method that executes the scalar as or default operation.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A T.</returns>
+        public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this)
         {
-            return (T) @this.ExecuteScalar();
+            try
+            {
+                return (T) @this.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
         }
-        catch (Exception)
-        {
-            return default(T);
-        }
-    }
 
-    /// <summary>
-    ///     A DbCommand extension method that executes the scalar as or default operation.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <returns>A T.</returns>
-    public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this, T defaultValue)
-    {
-        try
+        /// <summary>
+        ///     A DbCommand extension method that executes the scalar as or default operation.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>A T.</returns>
+        public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this, T defaultValue)
         {
-            return (T) @this.ExecuteScalar();
+            try
+            {
+                return (T) @this.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
 
-    /// <summary>
-    ///     A DbCommand extension method that executes the scalar as or default operation.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>A T.</returns>
-    public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this, Func<DbCommand, T> defaultValueFactory)
-    {
-        try
+        /// <summary>
+        ///     A DbCommand extension method that executes the scalar as or default operation.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <returns>A T.</returns>
+        public static T ExecuteScalarAsOrDefault<T>(this DbCommand @this, Func<DbCommand, T> defaultValueFactory)
         {
-            return (T) @this.ExecuteScalar();
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory(@this);
+            try
+            {
+                return (T) @this.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory(@this);
+            }
         }
     }
 }

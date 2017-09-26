@@ -8,6 +8,7 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
+namespace TestProj47 {
 public static partial class Extensions
 {
     /// <summary>
@@ -22,5 +23,6 @@ public static partial class Extensions
             @this.AddWithValue(keyValuePair.Key, keyValuePair.Value);
         }
     }
+}
 }
 #endif

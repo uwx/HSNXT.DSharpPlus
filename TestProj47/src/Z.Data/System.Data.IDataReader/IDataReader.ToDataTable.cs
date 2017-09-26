@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Data;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An IDataReader extension method that converts the @this to a data table.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a DataTable.</returns>
-    public static DataTable ToDataTable(this IDataReader @this)
+    public static partial class Extensions
     {
-        var dt = new DataTable();
-        dt.Load(@this);
-        return dt;
+        /// <summary>
+        ///     An IDataReader extension method that converts the @this to a data table.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a DataTable.</returns>
+        public static DataTable ToDataTable(this IDataReader @this)
+        {
+            var dt = new DataTable();
+            dt.Load(@this);
+            return dt;
+        }
     }
 }

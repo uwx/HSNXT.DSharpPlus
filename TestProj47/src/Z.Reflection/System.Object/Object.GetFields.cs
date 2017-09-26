@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Reflection;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>An object extension method that gets the fields.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>An array of field information.</returns>
-    public static FieldInfo[] GetFields(this object @this)
+    public static partial class Extensions
     {
-        return @this.GetType().GetFields();
-    }
+        /// <summary>An object extension method that gets the fields.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>An array of field information.</returns>
+        public static FieldInfo[] GetFields(this object @this)
+        {
+            return @this.GetType().GetFields();
+        }
 
-    /// <summary>An object extension method that gets the fields.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="bindingAttr">The binding attribute.</param>
-    /// <returns>An array of field information.</returns>
-    public static FieldInfo[] GetFields(this object @this, BindingFlags bindingAttr)
-    {
-        return @this.GetType().GetFields(bindingAttr);
+        /// <summary>An object extension method that gets the fields.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="bindingAttr">The binding attribute.</param>
+        /// <returns>An array of field information.</returns>
+        public static FieldInfo[] GetFields(this object @this, BindingFlags bindingAttr)
+        {
+            return @this.GetType().GetFields(bindingAttr);
+        }
     }
 }

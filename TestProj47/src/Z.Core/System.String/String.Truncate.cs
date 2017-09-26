@@ -3,43 +3,47 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright ï¿½ ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that truncates.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="maxLength">The maximum length.</param>
-    /// <returns>A string.</returns>
-    public static string Truncate(this string @this, int maxLength)
+    public static partial class Extensions
     {
-        const string suffix = "...";
-
-        if (@this == null || @this.Length <= maxLength)
+        /// <summary>
+        ///     A string extension method that truncates.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="maxLength">The maximum length.</param>
+        /// <returns>A string.</returns>
+        public static string TruncateZ(this string @this, int maxLength)
         {
-            return @this;
+            const string suffix = "...";
+
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
+
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
         }
 
-        int strLength = maxLength - suffix.Length;
-        return @this.Substring(0, strLength) + suffix;
-    }
-
-    /// <summary>
-    ///     A string extension method that truncates.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="maxLength">The maximum length.</param>
-    /// <param name="suffix">The suffix.</param>
-    /// <returns>A string.</returns>
-    public static string Truncate(this string @this, int maxLength, string suffix)
-    {
-        if (@this == null || @this.Length <= maxLength)
+        /// <summary>
+        ///     A string extension method that truncates.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="maxLength">The maximum length.</param>
+        /// <param name="suffix">The suffix.</param>
+        /// <returns>A string.</returns>
+        public static string TruncateZ(this string @this, int maxLength, string suffix)
         {
-            return @this;
-        }
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
 
-        int strLength = maxLength - suffix.Length;
-        return @this.Substring(0, strLength) + suffix;
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
+        }
     }
 }

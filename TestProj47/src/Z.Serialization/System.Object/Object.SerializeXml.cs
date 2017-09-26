@@ -3,27 +3,31 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.IO;
 using System.Xml.Serialization;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that serialize a string to XML.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The string representation of the Xml Serialization.</returns>
-    public static string SerializeXml(this object @this)
+    public static partial class Extensions
     {
-        var xmlSerializer = new XmlSerializer(@this.GetType());
-
-        using (var stringWriter = new StringWriter())
+        /// <summary>
+        ///     An object extension method that serialize a string to XML.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The string representation of the Xml Serialization.</returns>
+        public static string SerializeXml(this object @this)
         {
-            xmlSerializer.Serialize(stringWriter, @this);
-            using (var streamReader = new StringReader(stringWriter.GetStringBuilder().ToString()))
+            var xmlSerializer = new XmlSerializer(@this.GetType());
+
+            using (var stringWriter = new StringWriter())
             {
-                return streamReader.ReadToEnd();
+                xmlSerializer.Serialize(stringWriter, @this);
+                using (var streamReader = new StringReader(stringWriter.GetStringBuilder().ToString()))
+                {
+                    return streamReader.ReadToEnd();
+                }
             }
         }
     }

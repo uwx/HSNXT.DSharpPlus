@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An IEnumerable&lt;DirectoryInfo&gt; extension method that deletes the given @this.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    public static void Delete(this IEnumerable<DirectoryInfo> @this)
+    public static partial class Extensions
     {
-        foreach (DirectoryInfo t in @this)
+        /// <summary>
+        ///     An IEnumerable&lt;DirectoryInfo&gt; extension method that deletes the given @this.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        public static void Delete(this IEnumerable<DirectoryInfo> @this)
         {
-            t.Delete();
+            foreach (DirectoryInfo t in @this)
+            {
+                t.Delete();
+            }
         }
     }
 }

@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Data;
 using System.Data.SqlClient;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Executes the query, and returns the first result set as DataTable.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A DataTable that is equivalent to the first result set.</returns>
-    public static DataTable ExecuteDataTable(this SqlCommand @this)
+    public static partial class Extensions
     {
-        var dt = new DataTable();
-        using (var dataAdapter = new SqlDataAdapter(@this))
+        /// <summary>
+        ///     Executes the query, and returns the first result set as DataTable.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A DataTable that is equivalent to the first result set.</returns>
+        public static DataTable ExecuteDataTable(this SqlCommand @this)
         {
-            dataAdapter.Fill(dt);
-        }
+            var dt = new DataTable();
+            using (var dataAdapter = new SqlDataAdapter(@this))
+            {
+                dataAdapter.Fill(dt);
+            }
 
-        return dt;
+            return dt;
+        }
     }
 }

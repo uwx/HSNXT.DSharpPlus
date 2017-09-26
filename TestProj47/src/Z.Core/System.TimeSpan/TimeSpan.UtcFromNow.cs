@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A TimeSpan extension method that add the specified TimeSpan to the current UTC (Coordinated Universal Time)
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The current UTC (Coordinated Universal Time) with the specified TimeSpan added to it.</returns>
-    public static DateTime UtcFromNow(this TimeSpan @this)
+    public static partial class Extensions
     {
-        return DateTime.UtcNow.Add(@this);
+        /// <summary>
+        ///     A TimeSpan extension method that add the specified TimeSpan to the current UTC (Coordinated Universal Time)
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The current UTC (Coordinated Universal Time) with the specified TimeSpan added to it.</returns>
+        public static DateTime UtcFromNow(this TimeSpan @this)
+        {
+            return DateTime.UtcNow.Add(@this);
+        }
     }
 }

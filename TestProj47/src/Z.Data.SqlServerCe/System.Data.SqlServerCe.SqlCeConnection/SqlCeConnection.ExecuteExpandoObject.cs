@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.SqlServerCe;
 using Z.Data.SQLite;
 
+namespace TestProj47 {
 public static partial class Extensions
 {
     /// <summary>
@@ -147,5 +148,6 @@ public static partial class Extensions
     {
         return @this.ExecuteExpandoObject(cmdText, parameters, commandType, null);
     }
+}
 }
 #endif
