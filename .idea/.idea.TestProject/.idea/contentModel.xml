@@ -60,6 +60,17 @@
           <e p="StringExtensions.cs" t="Include" />
           <e p="TimeSpanExtensions.cs" t="Include" />
         </e>
+        <e p="ExtensionMethods" t="Include">
+          <e p="BooleanExtensions.cs" t="Include" />
+          <e p="ByteExtensions.cs" t="Include" />
+          <e p="Helpers" t="Include">
+            <e p="Check.cs" t="Include" />
+          </e>
+          <e p="IEnumerableExtensions.cs" t="Include" />
+          <e p="IPrincipalExtension.cs" t="Include" />
+          <e p="NullableExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
         <e p="ExtensionOverflow" t="Include">
           <e p="ClassExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />

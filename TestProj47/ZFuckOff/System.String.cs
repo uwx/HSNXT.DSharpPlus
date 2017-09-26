@@ -965,9 +965,8 @@ namespace TestProj47
                     return SqlDbType.Xml;
 
                 default:
-                    throw new Exception(string.Format(
-                        "Unsupported Type: {0}. Please let us know about this type and we will support it: sales@zzzprojects.com",
-                        @this));
+                    throw new Exception(
+                        $"Unsupported Type: {@this}. Please let us know about this type and we will support it: sales@zzzprojects.com");
             }
         }
 

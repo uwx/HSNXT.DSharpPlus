@@ -41,12 +41,6 @@
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
-    <Reference Include="ExtensionMethod, Version=1.0.0.1550, Culture=neutral, PublicKeyToken=0881597d21098b2c">
-      <HintPath>..\ExtensionOverflow\ExtensionMethods\bin\Debug\ExtensionMethod.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionMethods, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ExtensionMethods.1.0.2\lib\net40\ExtensionMethods.dll</HintPath>
-    </Reference>
     <Reference Include="ExtensionMethodsCore.Collections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\ExtensionMethodsCore.Collections.1.0.5\lib\dotnet5.0\ExtensionMethodsCore.Collections.dll</HintPath>
     </Reference>
@@ -195,6 +189,13 @@
     <Compile Include="Dff\ObjectExtensions.cs" />
     <Compile Include="Dff\StringExtensions.cs" />
     <Compile Include="Dff\TimeSpanExtensions.cs" />
+    <Compile Include="ExtensionMethods\BooleanExtensions.cs" />
+    <Compile Include="ExtensionMethods\ByteExtensions.cs" />
+    <Compile Include="ExtensionMethods\Helpers\Check.cs" />
+    <Compile Include="ExtensionMethods\IEnumerableExtensions.cs" />
+    <Compile Include="ExtensionMethods\IPrincipalExtension.cs" />
+    <Compile Include="ExtensionMethods\NullableExtensions.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="ExtensionOverflow\ClassExtensions.cs" />
     <Compile Include="ExtensionOverflow\DateTimeExtensions.cs" />
     <Compile Include="ExtensionOverflow\DecimalExtensions.cs" />

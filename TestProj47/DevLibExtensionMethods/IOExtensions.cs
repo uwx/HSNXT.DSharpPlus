@@ -344,7 +344,7 @@ namespace TestProj47
             if (!Directory.Exists(sourceDirectory))
             {
                 if (throwOnError)
-                    throw new DirectoryNotFoundException(string.Format("{0} does not exist.", fullPath1));
+                    throw new DirectoryNotFoundException($"{fullPath1} does not exist.");
                 return string.Empty;
             }
             try
@@ -515,7 +515,7 @@ namespace TestProj47
             bool hidden = true, int? milliseconds = null)
         {
             var processStartInfo = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "cmd.exe"));
-            processStartInfo.Arguments = string.Format(" /C {0}", sourceCmd);
+            processStartInfo.Arguments = $" /C {sourceCmd}";
             processStartInfo.CreateNoWindow = hidden;
             processStartInfo.ErrorDialog = true;
             processStartInfo.UseShellExecute = true;

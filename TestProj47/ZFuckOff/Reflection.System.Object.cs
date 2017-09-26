@@ -122,9 +122,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>A MemberInfo extension method that gets custom attribute by full name.</summary>
@@ -152,9 +151,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>A MemberInfo extension method that gets custom attribute by full name.</summary>
@@ -176,9 +174,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>A MemberInfo extension method that gets custom attribute by full name.</summary>
@@ -201,9 +198,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets custom attribute by name.</summary>
@@ -229,9 +225,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets custom attribute by name.</summary>
@@ -259,9 +254,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets custom attribute by name.</summary>
@@ -283,9 +277,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets custom attribute by name.</summary>
@@ -308,9 +301,8 @@ namespace TestProj47
                 return attributes[0];
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>
@@ -335,9 +327,8 @@ namespace TestProj47
                 return ((DescriptionAttribute) attributes[0]).Description;
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets description attribute.</summary>
@@ -361,9 +352,8 @@ namespace TestProj47
                 return ((DescriptionAttribute) attributes[0]).Description;
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets description attribute.</summary>
@@ -382,9 +372,8 @@ namespace TestProj47
                 return ((DescriptionAttribute) attributes[0]).Description;
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets description attribute.</summary>
@@ -404,9 +393,8 @@ namespace TestProj47
                 return ((DescriptionAttribute) attributes[0]).Description;
             }
 
-            throw new Exception(string.Format(
-                "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
-                attributes.Length));
+            throw new Exception(
+                $"Ambiguous attribute. Multiple custom attributes of the same type found: {attributes.Length} attributes found.");
         }
 
         /// <summary>An object extension method that gets custom attributes.</summary>
