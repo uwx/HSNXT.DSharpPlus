@@ -41,9 +41,6 @@
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
-    <Reference Include="CSharpBasicExtensionsKit, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CSharpBasicExtensionsKit.1.0.6.0\lib\net45\CSharpBasicExtensionsKit.dll</HintPath>
-    </Reference>
     <Reference Include="DevLib.ExtensionMethods, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\DevLib.ExtensionMethods.2.17.8.0\lib\net35\DevLib.ExtensionMethods.dll</HintPath>
     </Reference>
@@ -159,6 +156,15 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSharpBasicExtensionsKit\ActionExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\BooleanExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\DoExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\EnumerableExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\NullCheckExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\NumeircExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\StringDateTimeExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\StringEqualityExtensions.cs" />
+    <Compile Include="CSharpBasicExtensionsKit\StringExtensions.cs" />
     <Compile Include="ExtensionOverflow\ClassExtensions.cs" />
     <Compile Include="ExtensionOverflow\DateTimeExtensions.cs" />
     <Compile Include="ExtensionOverflow\DecimalExtensions.cs" />

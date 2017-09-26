@@ -6,6 +6,17 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="TestProj47" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CSharpBasicExtensionsKit" t="Include">
+          <e p="ActionExtensions.cs" t="Include" />
+          <e p="BooleanExtensions.cs" t="Include" />
+          <e p="DoExtensions.cs" t="Include" />
+          <e p="EnumerableExtensions.cs" t="Include" />
+          <e p="NullCheckExtensions.cs" t="Include" />
+          <e p="NumeircExtensions.cs" t="Include" />
+          <e p="StringDateTimeExtensions.cs" t="Include" />
+          <e p="StringEqualityExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
         <e p="ExtensionOverflow" t="Include">
           <e p="ClassExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />
