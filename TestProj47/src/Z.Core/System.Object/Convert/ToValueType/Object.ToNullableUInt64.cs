@@ -3,23 +3,27 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts the @this to a nullable u int 64.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an ulong?</returns>
-    public static ulong? ToNullableUInt64(this object @this)
+    public static partial class Extensions
     {
-        if (@this == null || @this == DBNull.Value)
+        /// <summary>
+        ///     An object extension method that converts the @this to a nullable u int 64.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an ulong?</returns>
+        public static ulong? ToNullableUInt64(this object @this)
         {
-            return null;
-        }
+            if (@this == null || @this == DBNull.Value)
+            {
+                return null;
+            }
 
-        return Convert.ToUInt64(@this);
+            return Convert.ToUInt64(@this);
+        }
     }
 }

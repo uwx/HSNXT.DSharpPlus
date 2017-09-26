@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the  for the specified object.
-    /// </summary>
-    /// <param name="value">An object that implements the  interface.</param>
-    /// <returns>The  for , or  if  is null.</returns>
-    public static TypeCode GetTypeCode(this Object value)
+    public static partial class Extensions
     {
-        return Convert.GetTypeCode(value);
+        /// <summary>
+        ///     Returns the  for the specified object.
+        /// </summary>
+        /// <param name="value">An object that implements the  interface.</param>
+        /// <returns>The  for , or  if  is null.</returns>
+        public static TypeCode GetTypeCode(this Object value)
+        {
+            return Convert.GetTypeCode(value);
+        }
     }
 }

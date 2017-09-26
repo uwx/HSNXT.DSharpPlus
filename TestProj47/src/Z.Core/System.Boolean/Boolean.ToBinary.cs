@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A bool extension method that convert this object into a binary representation.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A binary represenation of this object.</returns>
-    public static byte ToBinary(this bool @this)
+    public static partial class Extensions
     {
-        return Convert.ToByte(@this);
+        /// <summary>
+        ///     A bool extension method that convert this object into a binary representation.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A binary represenation of this object.</returns>
+        public static byte ToBinary(this bool @this)
+        {
+            return Convert.ToByte(@this);
+        }
     }
 }

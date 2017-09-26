@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the larger of two double-precision floating-point numbers.
-    /// </summary>
-    /// <param name="val1">The first of two double-precision floating-point numbers to compare.</param>
-    /// <param name="val2">The second of two double-precision floating-point numbers to compare.</param>
-    /// <returns>Parameter  or , whichever is larger. If , , or both  and  are equal to ,  is returned.</returns>
-    public static Double Max(this Double val1, Double val2)
+    public static partial class Extensions
     {
-        return Math.Max(val1, val2);
+        /// <summary>
+        ///     Returns the larger of two double-precision floating-point numbers.
+        /// </summary>
+        /// <param name="val1">The first of two double-precision floating-point numbers to compare.</param>
+        /// <param name="val2">The second of two double-precision floating-point numbers to compare.</param>
+        /// <returns>Parameter  or , whichever is larger. If , , or both  and  are equal to ,  is returned.</returns>
+        public static Double Max(this Double val1, Double val2)
+        {
+            return Math.Max(val1, val2);
+        }
     }
 }

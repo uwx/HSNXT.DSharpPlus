@@ -3,16 +3,20 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that return null if the value is empty else the value.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>null if the value is empty, otherwise the value.</returns>
-    public static string NullIfEmpty(this string @this)
+    public static partial class Extensions
     {
-        return @this == "" ? null : @this;
+        /// <summary>
+        ///     A string extension method that return null if the value is empty else the value.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>null if the value is empty, otherwise the value.</returns>
+        public static string NullIfEmpty(this string @this)
+        {
+            return @this == "" ? null : @this;
+        }
     }
 }

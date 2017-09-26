@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that query if '@this' is today.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if today, false if not.</returns>
-    public static bool IsToday(this DateTime @this)
+    public static partial class Extensions
     {
-        return @this.Date == DateTime.Today;
+        /// <summary>
+        ///     A DateTime extension method that query if '@this' is today.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if today, false if not.</returns>
+        public static bool IsToday(this DateTime @this)
+        {
+            return @this.Date == DateTime.Today;
+        }
     }
 }

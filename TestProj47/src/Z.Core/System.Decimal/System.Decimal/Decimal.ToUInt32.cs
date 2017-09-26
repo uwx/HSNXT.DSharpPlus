@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the value of the specified  to the equivalent 32-bit unsigned integer.
-    /// </summary>
-    /// <param name="d">The decimal number to convert.</param>
-    /// <returns>A 32-bit unsigned integer equivalent to the value of .</returns>
-    public static UInt32 ToUInt32(this Decimal d)
+    public static partial class Extensions
     {
-        return Decimal.ToUInt32(d);
+        /// <summary>
+        ///     Converts the value of the specified  to the equivalent 32-bit unsigned integer.
+        /// </summary>
+        /// <param name="d">The decimal number to convert.</param>
+        /// <returns>A 32-bit unsigned integer equivalent to the value of .</returns>
+        public static UInt32 ToUInt32(this Decimal d)
+        {
+            return Decimal.ToUInt32(d);
+        }
     }
 }

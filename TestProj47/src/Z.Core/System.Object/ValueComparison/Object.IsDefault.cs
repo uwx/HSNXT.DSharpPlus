@@ -3,17 +3,21 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that query if 'source' is the default value.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="source">The source to act on.</param>
-    /// <returns>true if default, false if not.</returns>
-    public static bool IsDefault<T>(this T source)
+    public static partial class Extensions
     {
-        return source.Equals(default(T));
+        /// <summary>
+        ///     A T extension method that query if 'source' is the default value.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="source">The source to act on.</param>
+        /// <returns>true if default, false if not.</returns>
+        public static bool IsDefault<T>(this T source)
+        {
+            return source.Equals(default(T));
+        }
     }
 }

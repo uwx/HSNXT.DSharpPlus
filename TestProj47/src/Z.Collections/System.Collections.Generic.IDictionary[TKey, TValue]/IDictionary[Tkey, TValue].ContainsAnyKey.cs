@@ -3,29 +3,33 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this' contains any key.
-    /// </summary>
-    /// <typeparam name="TKey">Type of the key.</typeparam>
-    /// <typeparam name="TValue">Type of the value.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="keys">A variable-length parameters list containing keys.</param>
-    /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool ContainsAnyKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
+    public static partial class Extensions
     {
-        foreach (TKey value in keys)
+        /// <summary>
+        ///     An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this' contains any key.
+        /// </summary>
+        /// <typeparam name="TKey">Type of the key.</typeparam>
+        /// <typeparam name="TValue">Type of the value.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="keys">A variable-length parameters list containing keys.</param>
+        /// <returns>true if it succeeds, false if it fails.</returns>
+        public static bool ContainsAnyKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
-            if (@this.ContainsKey(value))
+            foreach (TKey value in keys)
             {
-                return true;
+                if (@this.ContainsKey(value))
+                {
+                    return true;
+                }
             }
-        }
 
-        return false;
+            return false;
+        }
     }
 }

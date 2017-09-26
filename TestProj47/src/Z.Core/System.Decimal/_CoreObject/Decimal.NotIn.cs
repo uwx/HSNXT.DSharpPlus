@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method to determines whether the object is not equal to any of the provided values.
-    /// </summary>
-    /// <param name="this">The object to be compared.</param>
-    /// <param name="values">The value list to compare with the object.</param>
-    /// <returns>true if the values list doesn't contains the object, else false.</returns>
-    /// ###
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    public static bool NotIn(this Decimal @this, params Decimal[] values)
+    public static partial class Extensions
     {
-        return Array.IndexOf(values, @this) == -1;
+        /// <summary>
+        ///     A T extension method to determines whether the object is not equal to any of the provided values.
+        /// </summary>
+        /// <param name="this">The object to be compared.</param>
+        /// <param name="values">The value list to compare with the object.</param>
+        /// <returns>true if the values list doesn't contains the object, else false.</returns>
+        /// ###
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        public static bool NotIn(this Decimal @this, params Decimal[] values)
+        {
+            return Array.IndexOf(values, @this) == -1;
+        }
     }
 }

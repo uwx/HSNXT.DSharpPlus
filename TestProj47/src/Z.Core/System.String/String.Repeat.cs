@@ -3,30 +3,34 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that repeats the string a specified number of times.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="repeatCount">Number of repeats.</param>
-    /// <returns>The repeated string.</returns>
-    public static string Repeat(this string @this, int repeatCount)
+    public static partial class Extensions
     {
-        if (@this.Length == 1)
+        /// <summary>
+        ///     A string extension method that repeats the string a specified number of times.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="repeatCount">Number of repeats.</param>
+        /// <returns>The repeated string.</returns>
+        public static string Repeat(this string @this, int repeatCount)
         {
-            return new string(@this[0], repeatCount);
-        }
+            if (@this.Length == 1)
+            {
+                return new string(@this[0], repeatCount);
+            }
 
-        var sb = new StringBuilder(repeatCount*@this.Length);
-        while (repeatCount-- > 0)
-        {
-            sb.Append(@this);
-        }
+            var sb = new StringBuilder(repeatCount * @this.Length);
+            while (repeatCount-- > 0)
+            {
+                sb.Append(@this);
+            }
 
-        return sb.ToString();
+            return sb.ToString();
+        }
     }
 }

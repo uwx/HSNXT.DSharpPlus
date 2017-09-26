@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A Decimal extension method that converts the @this to a money.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a Decimal.</returns>
-    public static Decimal ToMoney(this Decimal @this)
+    public static partial class Extensions
     {
-        return Math.Round(@this, 2);
+        /// <summary>
+        ///     A Decimal extension method that converts the @this to a money.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a Decimal.</returns>
+        public static Decimal ToMoney(this Decimal @this)
+        {
+            return Math.Round(@this, 2);
+        }
     }
 }

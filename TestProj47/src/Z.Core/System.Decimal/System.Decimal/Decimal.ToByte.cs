@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the value of the specified  to the equivalent 8-bit unsigned integer.
-    /// </summary>
-    /// <param name="value">The decimal number to convert.</param>
-    /// <returns>An 8-bit unsigned integer equivalent to .</returns>
-    public static Byte ToByte(this Decimal value)
+    public static partial class Extensions
     {
-        return Decimal.ToByte(value);
+        /// <summary>
+        ///     Converts the value of the specified  to the equivalent 8-bit unsigned integer.
+        /// </summary>
+        /// <param name="value">The decimal number to convert.</param>
+        /// <returns>An 8-bit unsigned integer equivalent to .</returns>
+        public static Byte ToByte(this Decimal value)
+        {
+            return Decimal.ToByte(value);
+        }
     }
 }

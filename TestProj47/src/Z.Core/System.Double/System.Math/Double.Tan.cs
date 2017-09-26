@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the tangent of the specified angle.
-    /// </summary>
-    /// <param name="a">An angle, measured in radians.</param>
-    /// <returns>The tangent of . If  is equal to , , or , this method returns .</returns>
-    public static Double Tan(this Double a)
+    public static partial class Extensions
     {
-        return Math.Tan(a);
+        /// <summary>
+        ///     Returns the tangent of the specified angle.
+        /// </summary>
+        /// <param name="a">An angle, measured in radians.</param>
+        /// <returns>The tangent of . If  is equal to , , or , this method returns .</returns>
+        public static Double Tan(this Double a)
+        {
+            return Math.Tan(a);
+        }
     }
 }

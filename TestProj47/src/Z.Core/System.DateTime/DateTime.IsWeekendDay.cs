@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that query if '@this' is a weekend day.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if '@this' is a weekend day, false if not.</returns>
-    public static bool IsWeekendDay(this DateTime @this)
+    public static partial class Extensions
     {
-        return (@this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday);
+        /// <summary>
+        ///     A DateTime extension method that query if '@this' is a weekend day.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if '@this' is a weekend day, false if not.</returns>
+        public static bool IsWeekendDay(this DateTime @this)
+        {
+            return (@this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday);
+        }
     }
 }

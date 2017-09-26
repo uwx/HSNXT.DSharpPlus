@@ -3,57 +3,61 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>A string extension method that strip HTML.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A string.</returns>
-    public static string StripHtml(this string @this)
+    public static partial class Extensions
     {
-        var path = new StringBuilder(@this);
-        var sb = new StringBuilder();
-
-        int pos = 0;
-
-        while (pos < path.Length)
+        /// <summary>A string extension method that strip HTML.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A string.</returns>
+        public static string StripHtml(this string @this)
         {
-            char ch = path[pos];
-            pos++;
+            var path = new StringBuilder(@this);
+            var sb = new StringBuilder();
 
-            if (ch == '<')
+            int pos = 0;
+
+            while (pos < path.Length)
             {
-                // LOOP until we close the html tag
-                while (pos < path.Length)
+                char ch = path[pos];
+                pos++;
+
+                if (ch == '<')
                 {
-                    ch = path[pos];
-                    pos++;
+                    // LOOP until we close the html tag
+                    while (pos < path.Length)
+                    {
+                        ch = path[pos];
+                        pos++;
 
-                    if (ch == '>')
-                    {
-                        break;
-                    }
+                        if (ch == '>')
+                        {
+                            break;
+                        }
 
-                    if (ch == '\'')
-                    {
-                        // SKIP attribute starting with single quote
-                        pos = GetIndexAfterNextSingleQuote(path, pos, true);
-                    }
-                    else if (ch == '"')
-                    {
-                        // SKIP attribute starting with double quote
-                        pos = GetIndexAfterNextDoubleQuote(path, pos, true);
+                        if (ch == '\'')
+                        {
+                            // SKIP attribute starting with single quote
+                            pos = GetIndexAfterNextSingleQuote(path, pos, true);
+                        }
+                        else if (ch == '"')
+                        {
+                            // SKIP attribute starting with double quote
+                            pos = GetIndexAfterNextDoubleQuote(path, pos, true);
+                        }
                     }
                 }
+                else
+                {
+                    sb.Append(ch);
+                }
             }
-            else
-            {
-                sb.Append(ch);
-            }
-        }
 
-        return sb.ToString();
+            return sb.ToString();
+        }
     }
 }

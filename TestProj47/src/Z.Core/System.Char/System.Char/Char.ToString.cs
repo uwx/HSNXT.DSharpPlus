@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the specified Unicode character to its equivalent string representation.
-    /// </summary>
-    /// <param name="c">The Unicode character to convert.</param>
-    /// <returns>The string representation of the value of .</returns>
-    public static String ToString(this Char c)
+    public static partial class Extensions
     {
-        return Char.ToString(c);
+        /// <summary>
+        ///     Converts the specified Unicode character to its equivalent string representation.
+        /// </summary>
+        /// <param name="c">The Unicode character to convert.</param>
+        /// <returns>The string representation of the value of .</returns>
+        public static String ToString(this Char c)
+        {
+            return Char.ToString(c);
+        }
     }
 }

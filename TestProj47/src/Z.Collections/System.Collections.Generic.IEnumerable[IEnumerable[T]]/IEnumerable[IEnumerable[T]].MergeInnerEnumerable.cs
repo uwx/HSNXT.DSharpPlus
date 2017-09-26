@@ -3,30 +3,34 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>Enumerates merge inner enumerable in this collection.</summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>
-    ///     An enumerator that allows foreach to be used to process merge inner enumerable in
-    ///     this collection.
-    /// </returns>
-    public static IEnumerable<T> MergeInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
+    public static partial class Extensions
     {
-        List<IEnumerable<T>> listItem = @this.ToList();
-
-        var list = new List<T>();
-
-        foreach (var item in listItem)
+        /// <summary>Enumerates merge inner enumerable in this collection.</summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>
+        ///     An enumerator that allows foreach to be used to process merge inner enumerable in
+        ///     this collection.
+        /// </returns>
+        public static IEnumerable<T> MergeInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
         {
-            list.AddRange(item);
-        }
+            List<IEnumerable<T>> listItem = @this.ToList();
 
-        return list;
+            var list = new List<T>();
+
+            foreach (var item in listItem)
+            {
+                list.AddRange(item);
+            }
+
+            return list;
+        }
     }
 }

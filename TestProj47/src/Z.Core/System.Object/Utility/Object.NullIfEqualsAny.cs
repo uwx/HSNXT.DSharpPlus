@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that null if equals any.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    /// <returns>A T.</returns>
-    public static T NullIfEqualsAny<T>(this T @this, params T[] values) where T : class
+    public static partial class Extensions
     {
-        if (Array.IndexOf(values, @this) != -1)
+        /// <summary>
+        ///     A T extension method that null if equals any.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <returns>A T.</returns>
+        public static T NullIfEqualsAny<T>(this T @this, params T[] values) where T : class
         {
-            return null;
+            if (Array.IndexOf(values, @this) != -1)
+            {
+                return null;
+            }
+            return @this;
         }
-        return @this;
     }
 }

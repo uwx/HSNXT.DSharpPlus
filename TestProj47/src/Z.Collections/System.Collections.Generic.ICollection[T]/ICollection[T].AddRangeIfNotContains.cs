@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An ICollection&lt;T&gt; extension method that adds a range of values that's not already in the ICollection.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    public static void AddRangeIfNotContains<T>(this ICollection<T> @this, params T[] values)
+    public static partial class Extensions
     {
-        foreach (T value in values)
+        /// <summary>
+        ///     An ICollection&lt;T&gt; extension method that adds a range of values that's not already in the ICollection.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        public static void AddRangeIfNotContains<T>(this ICollection<T> @this, params T[] values)
         {
-            if (!@this.Contains(value))
+            foreach (T value in values)
             {
-                @this.Add(value);
+                if (!@this.Contains(value))
+                {
+                    @this.Add(value);
+                }
             }
         }
     }

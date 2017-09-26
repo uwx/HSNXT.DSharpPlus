@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the specified numeric Unicode character to a double-precision floating point number.
-    /// </summary>
-    /// <param name="c">The Unicode character to convert.</param>
-    /// <returns>The numeric value of  if that character represents a number; otherwise, -1.0.</returns>
-    public static Double GetNumericValue(this Char c)
+    public static partial class Extensions
     {
-        return Char.GetNumericValue(c);
+        /// <summary>
+        ///     Converts the specified numeric Unicode character to a double-precision floating point number.
+        /// </summary>
+        /// <param name="c">The Unicode character to convert.</param>
+        /// <returns>The numeric value of  if that character represents a number; otherwise, -1.0.</returns>
+        public static Double GetNumericValue(this Char c)
+        {
+            return Char.GetNumericValue(c);
+        }
     }
 }

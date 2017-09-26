@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns an indication whether the specified object is of type .
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="value">An object.</param>
-    /// <returns>true if  is of type ; otherwise, false.</returns>
-    public static Boolean IsDBNull<T>(this T value) where T : class
+    public static partial class Extensions
     {
-        return Convert.IsDBNull(value);
+        /// <summary>
+        ///     Returns an indication whether the specified object is of type .
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="value">An object.</param>
+        /// <returns>true if  is of type ; otherwise, false.</returns>
+        public static Boolean IsDBNull<T>(this T value) where T : class
+        {
+            return Convert.IsDBNull(value);
+        }
     }
 }

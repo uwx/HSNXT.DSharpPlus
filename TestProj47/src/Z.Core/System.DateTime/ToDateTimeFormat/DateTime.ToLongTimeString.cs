@@ -3,41 +3,45 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Globalization;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that converts this object to a long time string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The given data converted to a string.</returns>
-    public static string ToLongTimeString(this DateTime @this)
+    public static partial class Extensions
     {
-        return @this.ToString("T", DateTimeFormatInfo.CurrentInfo);
-    }
+        /// <summary>
+        ///     A DateTime extension method that converts this object to a long time string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The given data converted to a string.</returns>
+        public static string ToLongTimeString(this DateTime @this)
+        {
+            return @this.ToString("T", DateTimeFormatInfo.CurrentInfo);
+        }
 
-    /// <summary>
-    ///     A DateTime extension method that converts this object to a long time string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="culture">The culture.</param>
-    /// <returns>The given data converted to a string.</returns>
-    public static string ToLongTimeString(this DateTime @this, string culture)
-    {
-        return @this.ToString("T", new CultureInfo(culture));
-    }
+        /// <summary>
+        ///     A DateTime extension method that converts this object to a long time string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The given data converted to a string.</returns>
+        public static string ToLongTimeString(this DateTime @this, string culture)
+        {
+            return @this.ToString("T", new CultureInfo(culture));
+        }
 
-    /// <summary>
-    ///     A DateTime extension method that converts this object to a long time string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="culture">The culture.</param>
-    /// <returns>The given data converted to a string.</returns>
-    public static string ToLongTimeString(this DateTime @this, CultureInfo culture)
-    {
-        return @this.ToString("T", culture);
+        /// <summary>
+        ///     A DateTime extension method that converts this object to a long time string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The given data converted to a string.</returns>
+        public static string ToLongTimeString(this DateTime @this, CultureInfo culture)
+        {
+            return @this.ToString("T", culture);
+        }
     }
 }

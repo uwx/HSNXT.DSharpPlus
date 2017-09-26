@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An Int16 extension method that query if '@this' is odd.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if odd, false if not.</returns>
-    public static bool IsOdd(this Int16 @this)
+    public static partial class Extensions
     {
-        return @this%2 != 0;
+        /// <summary>
+        ///     An Int16 extension method that query if '@this' is odd.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if odd, false if not.</returns>
+        public static bool IsOdd(this Int16 @this)
+        {
+            return @this % 2 != 0;
+        }
     }
 }

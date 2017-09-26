@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Calculates the integral part of a specified decimal number.
-    /// </summary>
-    /// <param name="d">A number to truncate.</param>
-    /// <returns>
-    ///     The integral part of ; that is, the number that remains after any fractional digits have been discarded.
-    /// </returns>
-    public static Decimal Truncate(this Decimal d)
+    public static partial class Extensions
     {
-        return Math.Truncate(d);
+        /// <summary>
+        ///     Calculates the integral part of a specified decimal number.
+        /// </summary>
+        /// <param name="d">A number to truncate.</param>
+        /// <returns>
+        ///     The integral part of ; that is, the number that remains after any fractional digits have been discarded.
+        /// </returns>
+        public static Decimal TruncateZ(this Decimal d)
+        {
+            return Math.Truncate(d);
+        }
     }
 }

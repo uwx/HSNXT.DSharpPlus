@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Indicates whether the specified  object is a high surrogate.
-    /// </summary>
-    /// <param name="c">The Unicode character to evaluate.</param>
-    /// <returns>
-    ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF; otherwise, false.
-    /// </returns>
-    public static Boolean IsHighSurrogate(this Char c)
+    public static partial class Extensions
     {
-        return Char.IsHighSurrogate(c);
+        /// <summary>
+        ///     Indicates whether the specified  object is a high surrogate.
+        /// </summary>
+        /// <param name="c">The Unicode character to evaluate.</param>
+        /// <returns>
+        ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF; otherwise, false.
+        /// </returns>
+        public static Boolean IsHighSurrogate(this Char c)
+        {
+            return Char.IsHighSurrogate(c);
+        }
     }
 }

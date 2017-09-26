@@ -3,33 +3,37 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates from @this to toCharacter.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="toCharacter">to character.</param>
-    /// <returns>An enumerator that allows foreach to be used to process @this to toCharacter.</returns>
-    public static IEnumerable<char> To(this char @this, char toCharacter)
+    public static partial class Extensions
     {
-        bool reverseRequired = (@this > toCharacter);
-
-        char first = reverseRequired ? toCharacter : @this;
-        char last = reverseRequired ? @this : toCharacter;
-
-        IEnumerable<char> result = Enumerable.Range(first, last - first + 1).Select(charCode => (char) charCode);
-
-        if (reverseRequired)
+        /// <summary>
+        ///     Enumerates from @this to toCharacter.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="toCharacter">to character.</param>
+        /// <returns>An enumerator that allows foreach to be used to process @this to toCharacter.</returns>
+        public static IEnumerable<char> To(this char @this, char toCharacter)
         {
-            result = result.Reverse();
+            bool reverseRequired = (@this > toCharacter);
+
+            char first = reverseRequired ? toCharacter : @this;
+            char last = reverseRequired ? @this : toCharacter;
+
+            IEnumerable<char> result = Enumerable.Range(first, last - first + 1).Select(charCode => (char) charCode);
+
+            if (reverseRequired)
+            {
+                result = result.Reverse();
+            }
+
+
+            return result;
         }
-
-
-        return result;
     }
 }

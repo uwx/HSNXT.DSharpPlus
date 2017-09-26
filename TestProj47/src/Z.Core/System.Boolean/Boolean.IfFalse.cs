@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A bool extension method that execute an Action if the value is false.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="action">The action to execute.</param>
-    public static void IfFalse(this bool @this, Action action)
+    public static partial class Extensions
     {
-        if (!@this)
+        /// <summary>
+        ///     A bool extension method that execute an Action if the value is false.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="action">The action to execute.</param>
+        public static void IfFalse(this bool @this, Action action)
         {
-            action();
+            if (!@this)
+            {
+                action();
+            }
         }
     }
 }

@@ -3,16 +3,20 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts the @this to string or return an empty string if the value is null.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a string or empty if the value is null.</returns>
-    public static string ToStringSafe(this object @this)
+    public static partial class Extensions
     {
-        return @this == null ? "" : @this.ToString();
+        /// <summary>
+        ///     An object extension method that converts the @this to string or return an empty string if the value is null.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a string or empty if the value is null.</returns>
+        public static string ToStringSafe(this object @this)
+        {
+            return @this == null ? "" : @this.ToString();
+        }
     }
 }

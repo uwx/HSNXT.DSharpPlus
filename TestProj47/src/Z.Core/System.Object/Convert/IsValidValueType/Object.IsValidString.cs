@@ -3,16 +3,20 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that query if '@this' is valid string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if valid string, false if not.</returns>
-    public static bool IsValidString(this object @this)
+    public static partial class Extensions
     {
-        return true;
+        /// <summary>
+        ///     An object extension method that query if '@this' is valid string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if valid string, false if not.</returns>
+        public static bool IsValidString(this object @this)
+        {
+            return true;
+        }
     }
 }

@@ -3,109 +3,113 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts this object to a float or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The given data converted to a float.</returns>
-    public static float ToFloatOrDefault(this object @this)
+    public static partial class Extensions
     {
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a float or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The given data converted to a float.</returns>
+        public static float ToFloatOrDefault(this object @this)
         {
-            return Convert.ToSingle(@this);
-        }
-        catch (Exception)
-        {
-            return default(float);
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts this object to a float or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <returns>The given data converted to a float.</returns>
-    public static float ToFloatOrDefault(this object @this, float defaultValue)
-    {
-        try
-        {
-            return Convert.ToSingle(@this);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
-
-    /// <summary>
-    /// An object extension method that converts this object to a float or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <param name="useDefaultIfNull">true to use default if null.</param>
-    /// <returns>The given data converted to a float.</returns>
-    public static float ToFloatOrDefault(this object @this, float defaultValue, bool useDefaultIfNull)
-    {
-        if (useDefaultIfNull && @this == null)
-        {
-            return defaultValue;
+            try
+            {
+                return Convert.ToSingle(@this);
+            }
+            catch (Exception)
+            {
+                return default(float);
+            }
         }
 
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a float or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The given data converted to a float.</returns>
+        public static float ToFloatOrDefault(this object @this, float defaultValue)
         {
-            return Convert.ToSingle(@this);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts this object to a float or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>The given data converted to a float.</returns>
-    public static float ToFloatOrDefault(this object @this, Func<float> defaultValueFactory)
-    {
-        try
-        {
-            return Convert.ToSingle(@this);
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory();
-        }
-    }
-
-    /// <summary>
-    /// An object extension method that converts this object to a float or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <param name="useDefaultIfNull">true to use default if null.</param>
-    /// <returns>The given data converted to a float.</returns>
-    public static float ToFloatOrDefault(this object @this, Func<float> defaultValueFactory, bool useDefaultIfNull)
-    {
-        if (useDefaultIfNull && @this == null)
-        {
-            return defaultValueFactory();
+            try
+            {
+                return Convert.ToSingle(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
 
-        try
+        /// <summary>
+        /// An object extension method that converts this object to a float or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <param name="useDefaultIfNull">true to use default if null.</param>
+        /// <returns>The given data converted to a float.</returns>
+        public static float ToFloatOrDefault(this object @this, float defaultValue, bool useDefaultIfNull)
         {
-            return Convert.ToSingle(@this);
+            if (useDefaultIfNull && @this == null)
+            {
+                return defaultValue;
+            }
+
+            try
+            {
+                return Convert.ToSingle(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
-        catch (Exception)
+
+        /// <summary>
+        ///     An object extension method that converts this object to a float or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <returns>The given data converted to a float.</returns>
+        public static float ToFloatOrDefault(this object @this, Func<float> defaultValueFactory)
         {
-            return defaultValueFactory();
+            try
+            {
+                return Convert.ToSingle(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory();
+            }
+        }
+
+        /// <summary>
+        /// An object extension method that converts this object to a float or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <param name="useDefaultIfNull">true to use default if null.</param>
+        /// <returns>The given data converted to a float.</returns>
+        public static float ToFloatOrDefault(this object @this, Func<float> defaultValueFactory, bool useDefaultIfNull)
+        {
+            if (useDefaultIfNull && @this == null)
+            {
+                return defaultValueFactory();
+            }
+
+            try
+            {
+                return Convert.ToSingle(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory();
+            }
         }
     }
 }

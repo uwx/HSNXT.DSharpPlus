@@ -3,16 +3,20 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that queries if a not is empty.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if a not is empty, false if not.</returns>
-    public static bool IsNotEmpty(this string @this)
+    public static partial class Extensions
     {
-        return @this != "";
+        /// <summary>
+        ///     A string extension method that queries if a not is empty.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if a not is empty, false if not.</returns>
+        public static bool IsNotEmpty(this string @this)
+        {
+            return @this != "";
+        }
     }
 }

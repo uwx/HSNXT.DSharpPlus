@@ -4,20 +4,24 @@
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Linq;
 using System.Text.RegularExpressions;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>A string extension method that query if '@this' is palindrome.</summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if palindrome, false if not.</returns>
-    public static bool IsPalindrome(this string @this)
+    public static partial class Extensions
     {
-        // Keep only alphanumeric characters
+        /// <summary>A string extension method that query if '@this' is palindrome.</summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if palindrome, false if not.</returns>
+        public static bool IsPalindrome(this string @this)
+        {
+            // Keep only alphanumeric characters
 
-        var rgx = new Regex("[^a-zA-Z0-9]");
-        @this = rgx.Replace(@this, "");
-        return @this.SequenceEqual(Reverse(@this));
+            var rgx = new Regex("[^a-zA-Z0-9]");
+            @this = rgx.Replace(@this, "");
+            return @this.SequenceEqual(Reverse(@this));
+        }
     }
 }

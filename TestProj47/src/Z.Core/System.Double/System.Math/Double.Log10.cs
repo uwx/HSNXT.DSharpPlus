@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the base 10 logarithm of a specified number.
-    /// </summary>
-    /// <param name="d">A number whose logarithm is to be found.</param>
-    /// <returns>
-    ///     One of the values in the following table.  parameter Return value Positive The base 10 log of ; that is, log
-    ///     10. Zero Negative Equal to Equal to.
-    /// </returns>
-    public static Double Log10(this Double d)
+    public static partial class Extensions
     {
-        return Math.Log10(d);
+        /// <summary>
+        ///     Returns the base 10 logarithm of a specified number.
+        /// </summary>
+        /// <param name="d">A number whose logarithm is to be found.</param>
+        /// <returns>
+        ///     One of the values in the following table.  parameter Return value Positive The base 10 log of ; that is, log
+        ///     10. Zero Negative Equal to Equal to.
+        /// </returns>
+        public static Double Log10(this Double d)
+        {
+            return Math.Log10(d);
+        }
     }
 }

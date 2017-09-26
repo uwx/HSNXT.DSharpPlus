@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that ages the given this.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>An int.</returns>
-    public static int Age(this DateTime @this)
+    public static partial class Extensions
     {
-        if (DateTime.Today.Month < @this.Month ||
-            DateTime.Today.Month == @this.Month &&
-            DateTime.Today.Day < @this.Day)
+        /// <summary>
+        ///     A DateTime extension method that ages the given this.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>An int.</returns>
+        public static int Age(this DateTime @this)
         {
-            return DateTime.Today.Year - @this.Year - 1;
+            if (DateTime.Today.Month < @this.Month ||
+                DateTime.Today.Month == @this.Month &&
+                DateTime.Today.Day < @this.Day)
+            {
+                return DateTime.Today.Year - @this.Year - 1;
+            }
+            return DateTime.Today.Year - @this.Year;
         }
-        return DateTime.Today.Year - @this.Year;
     }
 }

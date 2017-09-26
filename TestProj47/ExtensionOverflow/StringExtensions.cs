@@ -85,7 +85,7 @@ namespace TestProj47
 		/// <typeparam name="T">Any class type</typeparam>
 		/// <param name="objectToSerialise">Object to serialise</param>
 		/// <returns>A string that represents Xml, empty oterwise</returns>
-		public static string XmlSerialize<T>(this T objectToSerialise) where T : class
+		public static string XmlSerialie<T>(this T objectToSerialise) where T : class
 		{
 			var serialiser = new XmlSerializer(typeof(T));
 			string xml;
@@ -108,7 +108,7 @@ namespace TestProj47
 		/// <typeparam name="T">Any class type</typeparam>
 		/// <param name="xml">Xml as string to deserialise from</param>
 		/// <returns>A new object of type T is successful, null if failed</returns>
-		public static T XmlDeserialize<T>(this string xml) where T : class
+		public static T XmlDeserialie<T>(this string xml) where T : class
 		{
 			var serialiser = new XmlSerializer(typeof(T));
 			T newObject;
@@ -241,7 +241,7 @@ namespace TestProj47
         /// <param name="value">The value.</param>
         /// <param name="defaultvalue">The defaultvalue.</param>
         /// <returns></returns>
-        public static DateTime? ToDateTime(this string value, DateTime? defaultvalue)
+        public static DateTime? ToDateTimeZ(this string value, DateTime? defaultvalue)
         {
             DateTime result;
             if (DateTime.TryParse(value, out result))
@@ -255,9 +255,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public static DateTime? ToDateTime(this string value)
+        public static DateTime? ToDateTimeZ(this string value)
         {
-            return ToDateTime(value, null);
+            return ToDateTimeZ(value, null);
         }
 
         /// <summary>

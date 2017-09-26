@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="minValue">The minimum value.</param>
-    /// <param name="maxValue">The maximum value.</param>
-    /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
-    public static bool InRange<T>(this T @this, T minValue, T maxValue) where T : IComparable<T>
+    public static partial class Extensions
     {
-        return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
+        /// <summary>
+        ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="minValue">The minimum value.</param>
+        /// <param name="maxValue">The maximum value.</param>
+        /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
+        public static bool InRange<T>(this T @this, T minValue, T maxValue) where T : IComparable<T>
+        {
+            return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
+        }
     }
 }

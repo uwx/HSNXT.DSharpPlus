@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns a specified number raised to the specified power.
-    /// </summary>
-    /// <param name="x">A double-precision floating-point number to be raised to a power.</param>
-    /// <param name="y">A double-precision floating-point number that specifies a power.</param>
-    /// <returns>The number  raised to the power .</returns>
-    public static Double Pow(this Double x, Double y)
+    public static partial class Extensions
     {
-        return Math.Pow(x, y);
+        /// <summary>
+        ///     Returns a specified number raised to the specified power.
+        /// </summary>
+        /// <param name="x">A double-precision floating-point number to be raised to a power.</param>
+        /// <param name="y">A double-precision floating-point number that specifies a power.</param>
+        /// <returns>The number  raised to the power .</returns>
+        public static Double Pow(this Double x, Double y)
+        {
+            return Math.Pow(x, y);
+        }
     }
 }

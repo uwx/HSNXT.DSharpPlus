@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright ï¿½ ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that converts the @this to an enum.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a T.</returns>
-    public static T ToEnum<T>(this string @this)
+    public static partial class Extensions
     {
-        Type enumType = typeof (T);
-        return (T) Enum.Parse(enumType, @this);
+        /// <summary>
+        ///     A string extension method that converts the @this to an enum.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a T.</returns>
+        public static T ToEnumZ<T>(this string @this)
+        {
+            Type enumType = typeof(T);
+            return (T) Enum.Parse(enumType, @this);
+        }
     }
 }

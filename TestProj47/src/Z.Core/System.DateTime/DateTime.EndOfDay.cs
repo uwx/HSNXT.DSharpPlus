@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that return a DateTime with the time set to "23:59:59:999". The last moment of
-    ///     the day. Use "DateTime2" column type in sql to keep the precision.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A DateTime of the day with the time set to "23:59:59:999".</returns>
-    public static DateTime EndOfDay(this DateTime @this)
+    public static partial class Extensions
     {
-        return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
+        /// <summary>
+        ///     A DateTime extension method that return a DateTime with the time set to "23:59:59:999". The last moment of
+        ///     the day. Use "DateTime2" column type in sql to keep the precision.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A DateTime of the day with the time set to "23:59:59:999".</returns>
+        public static DateTime EndOfDay(this DateTime @this)
+        {
+            return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
+        }
     }
 }

@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the absolute value of a 64-bit signed integer.
-    /// </summary>
-    /// <param name="value">A number that is greater than , but less than or equal to .</param>
-    /// <returns>A 64-bit signed integer, x, such that 0 ? x ?.</returns>
-    public static Int64 Abs(this Int64 value)
+    public static partial class Extensions
     {
-        return Math.Abs(value);
+        /// <summary>
+        ///     Returns the absolute value of a 64-bit signed integer.
+        /// </summary>
+        /// <param name="value">A number that is greater than , but less than or equal to .</param>
+        /// <returns>A 64-bit signed integer, x, such that 0 ? x ?.</returns>
+        public static Int64 Abs(this Int64 value)
+        {
+            return Math.Abs(value);
+        }
     }
 }

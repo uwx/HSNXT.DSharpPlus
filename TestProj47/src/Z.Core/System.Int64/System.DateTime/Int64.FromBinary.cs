@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Deserializes a 64-bit binary value and recreates an original serialized  object.
-    /// </summary>
-    /// <param name="dateData">
-    ///     A 64-bit signed integer that encodes the  property in a 2-bit field and the  property in
-    ///     a 62-bit field.
-    /// </param>
-    /// <returns>An object that is equivalent to the  object that was serialized by the  method.</returns>
-    public static DateTime FromBinary(this Int64 dateData)
+    public static partial class Extensions
     {
-        return DateTime.FromBinary(dateData);
+        /// <summary>
+        ///     Deserializes a 64-bit binary value and recreates an original serialized  object.
+        /// </summary>
+        /// <param name="dateData">
+        ///     A 64-bit signed integer that encodes the  property in a 2-bit field and the  property in
+        ///     a 62-bit field.
+        /// </param>
+        /// <returns>An object that is equivalent to the  object that was serialized by the  method.</returns>
+        public static DateTime FromBinary(this Int64 dateData)
+        {
+            return DateTime.FromBinary(dateData);
+        }
     }
 }

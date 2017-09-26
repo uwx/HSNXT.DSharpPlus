@@ -3,45 +3,49 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that query if '@this' contains any values.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    /// <returns>true if it contains any values, otherwise false.</returns>
-    public static bool ContainsAny(this string @this, params string[] values)
+    public static partial class Extensions
     {
-        foreach (string value in values)
+        /// <summary>
+        ///     A string extension method that query if '@this' contains any values.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <returns>true if it contains any values, otherwise false.</returns>
+        public static bool ContainsAny(this string @this, params string[] values)
         {
-            if (@this.IndexOf(value) != -1)
+            foreach (string value in values)
             {
-                return true;
+                if (@this.IndexOf(value) != -1)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
 
-    /// <summary>
-    ///     A string extension method that query if '@this' contains any values.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="comparisonType">Type of the comparison.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    /// <returns>true if it contains any values, otherwise false.</returns>
-    public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
-    {
-        foreach (string value in values)
+        /// <summary>
+        ///     A string extension method that query if '@this' contains any values.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="comparisonType">Type of the comparison.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <returns>true if it contains any values, otherwise false.</returns>
+        public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
         {
-            if (@this.IndexOf(value, comparisonType) != -1)
+            foreach (string value in values)
             {
-                return true;
+                if (@this.IndexOf(value, comparisonType) != -1)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
     }
 }

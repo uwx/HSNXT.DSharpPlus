@@ -3,22 +3,26 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that null if equals.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="value">The value.</param>
-    /// <returns>A T.</returns>
-    public static T NullIfEquals<T>(this T @this, T value) where T : class
+    public static partial class Extensions
     {
-        if (@this.Equals(value))
+        /// <summary>
+        ///     A T extension method that null if equals.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>A T.</returns>
+        public static T NullIfEquals<T>(this T @this, T value) where T : class
         {
-            return null;
+            if (@this.Equals(value))
+            {
+                return null;
+            }
+            return @this;
         }
-        return @this;
     }
 }

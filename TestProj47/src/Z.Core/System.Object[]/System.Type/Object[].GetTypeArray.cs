@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Gets the types of the objects in the specified array.
-    /// </summary>
-    /// <param name="args">An array of objects whose types to determine.</param>
-    /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
-    public static Type[] GetTypeArray(this Object[] args)
+    public static partial class Extensions
     {
-        return Type.GetTypeArray(args);
+        /// <summary>
+        ///     Gets the types of the objects in the specified array.
+        /// </summary>
+        /// <param name="args">An array of objects whose types to determine.</param>
+        /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
+        public static Type[] GetTypeArray(this Object[] args)
+        {
+            return Type.GetTypeArray(args);
+        }
     }
 }

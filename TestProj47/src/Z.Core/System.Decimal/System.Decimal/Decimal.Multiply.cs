@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Multiplies two specified  values.
-    /// </summary>
-    /// <param name="d1">The multiplicand.</param>
-    /// <param name="d2">The multiplier.</param>
-    /// <returns>The result of multiplying  and .</returns>
-    public static Decimal Multiply(this Decimal d1, Decimal d2)
+    public static partial class Extensions
     {
-        return Decimal.Multiply(d1, d2);
+        /// <summary>
+        ///     Multiplies two specified  values.
+        /// </summary>
+        /// <param name="d1">The multiplicand.</param>
+        /// <param name="d2">The multiplier.</param>
+        /// <returns>The result of multiplying  and .</returns>
+        public static Decimal Multiply(this Decimal d1, Decimal d2)
+        {
+            return Decimal.Multiply(d1, d2);
+        }
     }
 }

@@ -57,11 +57,11 @@ namespace TestProj47
             var firstDayOfWeek = dateinf.FirstDayOfWeek;
             return WeekOfYear(datetime, weekrule, firstDayOfWeek);
         }
+
         /// <summary>
         /// Weeks the of year.
         /// </summary>
         /// <param name="datetime">The datetime.</param>
-        /// <param name="weekrule">The weekrule.</param>
         /// <returns></returns>
         public static int WeekOfYear(this DateTime datetime)
         {
@@ -131,14 +131,12 @@ namespace TestProj47
 
         public static string GetValueOrDefaultToString(this DateTime? datetime, string defaultvalue)
         {
-            if (datetime == null) return defaultvalue;
-            return datetime.Value.ToString();
+            return datetime == null ? defaultvalue : datetime.Value.ToStringCurrent();
         }
 
         public static string GetValueOrDefaultToString(this DateTime? datetime, string format, string defaultvalue)
         {
-            if (datetime == null) return defaultvalue;
-            return datetime.Value.ToString(format);
+            return datetime?.ToString(format) ?? defaultvalue;
         }
     }
 }

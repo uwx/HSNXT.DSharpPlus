@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An ICollection&lt;T&gt; extension method that query if the collection is not empty.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if not empty&lt; t&gt;, false if not.</returns>
-    public static bool IsNotEmpty<T>(this ICollection<T> @this)
+    public static partial class Extensions
     {
-        return @this.Count != 0;
+        /// <summary>
+        ///     An ICollection&lt;T&gt; extension method that query if the collection is not empty.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true if not empty&lt; t&gt;, false if not.</returns>
+        public static bool IsNotEmpty<T>(this ICollection<T> @this)
+        {
+            return @this.Count != 0;
+        }
     }
 }

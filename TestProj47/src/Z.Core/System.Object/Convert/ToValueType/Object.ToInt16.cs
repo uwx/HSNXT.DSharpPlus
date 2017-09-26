@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts the @this to an int 16.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a short.</returns>
-    public static short ToInt16(this object @this)
+    public static partial class Extensions
     {
-        return Convert.ToInt16(@this);
+        /// <summary>
+        ///     An object extension method that converts the @this to an int 16.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a short.</returns>
+        public static short ToInt16(this object @this)
+        {
+            return Convert.ToInt16(@this);
+        }
     }
 }

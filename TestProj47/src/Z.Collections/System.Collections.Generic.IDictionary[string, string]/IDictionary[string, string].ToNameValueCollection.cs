@@ -3,29 +3,33 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Collections.Specialized;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An IDictionary&lt;string,string&gt; extension method that converts the @this to a name value collection.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a NameValueCollection.</returns>
-    public static NameValueCollection ToNameValueCollection(this IDictionary<string, string> @this)
+    public static partial class Extensions
     {
-        if (@this == null)
+        /// <summary>
+        ///     An IDictionary&lt;string,string&gt; extension method that converts the @this to a name value collection.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as a NameValueCollection.</returns>
+        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string> @this)
         {
-            return null;
-        }
+            if (@this == null)
+            {
+                return null;
+            }
 
-        var col = new NameValueCollection();
-        foreach (var item in @this)
-        {
-            col.Add(item.Key, item.Value);
+            var col = new NameValueCollection();
+            foreach (var item in @this)
+            {
+                col.Add(item.Key, item.Value);
+            }
+            return col;
         }
-        return col;
     }
 }

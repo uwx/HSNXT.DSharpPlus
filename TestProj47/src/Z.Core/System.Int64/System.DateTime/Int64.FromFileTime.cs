@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the specified Windows file time to an equivalent local time.
-    /// </summary>
-    /// <param name="fileTime">A Windows file time expressed in ticks.</param>
-    /// <returns>
-    ///     An object that represents the local time equivalent of the date and time represented by the  parameter.
-    /// </returns>
-    public static DateTime FromFileTime(this Int64 fileTime)
+    public static partial class Extensions
     {
-        return DateTime.FromFileTime(fileTime);
+        /// <summary>
+        ///     Converts the specified Windows file time to an equivalent local time.
+        /// </summary>
+        /// <param name="fileTime">A Windows file time expressed in ticks.</param>
+        /// <returns>
+        ///     An object that represents the local time equivalent of the date and time represented by the  parameter.
+        /// </returns>
+        public static DateTime FromFileTime(this Int64 fileTime)
+        {
+            return DateTime.FromFileTime(fileTime);
+        }
     }
 }

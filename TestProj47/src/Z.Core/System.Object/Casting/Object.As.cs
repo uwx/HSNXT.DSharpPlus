@@ -3,17 +3,21 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that cast anonymous type to the specified type.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter. The specified type.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The object as the specified type.</returns>
-    public static T As<T>(this object @this)
+    public static partial class Extensions
     {
-        return (T) @this;
+        /// <summary>
+        ///     An object extension method that cast anonymous type to the specified type.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter. The specified type.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The object as the specified type.</returns>
+        public static T As<T>(this object @this)
+        {
+            return (T) @this;
+        }
     }
 }

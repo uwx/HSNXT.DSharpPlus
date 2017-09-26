@@ -3,109 +3,116 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts this object to a date time off set or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The given data converted to a DateTimeOffset.</returns>
-    public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this)
+    public static partial class Extensions
     {
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a date time off set or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The given data converted to a DateTimeOffset.</returns>
+        public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this)
         {
-            return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
-        }
-        catch (Exception)
-        {
-            return default(DateTimeOffset);
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts this object to a date time off set or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <returns>The given data converted to a DateTimeOffset.</returns>
-    public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, DateTimeOffset defaultValue)
-    {
-        try
-        {
-            return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
-
-    /// <summary>
-    /// An object extension method that converts this object to a date time off set or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <param name="useDefaultIfNull">true to use default if null.</param>
-    /// <returns>The given data converted to a DateTimeOffset.</returns>
-    public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, DateTimeOffset defaultValue, bool useDefaultIfNull)
-    {
-        if (useDefaultIfNull && @this == null)
-        {
-            return defaultValue;
+            try
+            {
+                return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            }
+            catch (Exception)
+            {
+                return default(DateTimeOffset);
+            }
         }
 
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a date time off set or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The given data converted to a DateTimeOffset.</returns>
+        public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, DateTimeOffset defaultValue)
         {
-            return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts this object to a date time off set or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>The given data converted to a DateTimeOffset.</returns>
-    public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, Func<DateTimeOffset> defaultValueFactory)
-    {
-        try
-        {
-            return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory();
-        }
-    }
-
-    /// <summary>
-    /// An object extension method that converts this object to a date time off set or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <param name="useDefaultIfNull">true to use default if null.</param>
-    /// <returns>The given data converted to a DateTimeOffset.</returns>
-    public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, Func<DateTimeOffset> defaultValueFactory, bool useDefaultIfNull)
-    {
-        if (useDefaultIfNull && @this == null)
-        {
-            return defaultValueFactory();
+            try
+            {
+                return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
 
-        try
+        /// <summary>
+        /// An object extension method that converts this object to a date time off set or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <param name="useDefaultIfNull">true to use default if null.</param>
+        /// <returns>The given data converted to a DateTimeOffset.</returns>
+        public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this, DateTimeOffset defaultValue,
+            bool useDefaultIfNull)
         {
-            return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            if (useDefaultIfNull && @this == null)
+            {
+                return defaultValue;
+            }
+
+            try
+            {
+                return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
-        catch (Exception)
+
+        /// <summary>
+        ///     An object extension method that converts this object to a date time off set or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <returns>The given data converted to a DateTimeOffset.</returns>
+        public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this,
+            Func<DateTimeOffset> defaultValueFactory)
         {
-            return defaultValueFactory();
+            try
+            {
+                return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory();
+            }
+        }
+
+        /// <summary>
+        /// An object extension method that converts this object to a date time off set or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <param name="useDefaultIfNull">true to use default if null.</param>
+        /// <returns>The given data converted to a DateTimeOffset.</returns>
+        public static DateTimeOffset ToDateTimeOffSetOrDefault(this object @this,
+            Func<DateTimeOffset> defaultValueFactory, bool useDefaultIfNull)
+        {
+            if (useDefaultIfNull && @this == null)
+            {
+                return defaultValueFactory();
+            }
+
+            try
+            {
+                return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory();
+            }
         }
     }
 }

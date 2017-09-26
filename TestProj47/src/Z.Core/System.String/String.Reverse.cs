@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that reverses the given string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The string reversed.</returns>
-    public static string Reverse(this string @this)
+    public static partial class Extensions
     {
-        if (@this.Length <= 1)
+        /// <summary>
+        ///     A string extension method that reverses the given string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The string reversed.</returns>
+        public static string Reverse(this string @this)
         {
-            return @this;
-        }
+            if (@this.Length <= 1)
+            {
+                return @this;
+            }
 
-        char[] chars = @this.ToCharArray();
-        Array.Reverse(chars);
-        return new string(chars);
+            char[] chars = @this.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+        }
     }
 }

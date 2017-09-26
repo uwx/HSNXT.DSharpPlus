@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Globalization;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Categorizes a specified Unicode character into a group identified by one of the  values.
-    /// </summary>
-    /// <param name="c">The Unicode character to categorize.</param>
-    /// <returns>A  value that identifies the group that contains .</returns>
-    public static UnicodeCategory GetUnicodeCategory(this Char c)
+    public static partial class Extensions
     {
-        return Char.GetUnicodeCategory(c);
+        /// <summary>
+        ///     Categorizes a specified Unicode character into a group identified by one of the  values.
+        /// </summary>
+        /// <param name="c">The Unicode character to categorize.</param>
+        /// <returns>A  value that identifies the group that contains .</returns>
+        public static UnicodeCategory GetUnicodeCategory(this Char c)
+        {
+            return Char.GetUnicodeCategory(c);
+        }
     }
 }

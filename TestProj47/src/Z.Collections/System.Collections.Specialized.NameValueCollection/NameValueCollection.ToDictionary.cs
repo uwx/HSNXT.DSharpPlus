@@ -3,29 +3,33 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Collections.Generic;
 using System.Collections.Specialized;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A NameValueCollection extension method that converts the @this to a dictionary.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an IDictionary&lt;string,object&gt;</returns>
-    public static IDictionary<string, object> ToDictionary(this NameValueCollection @this)
+    public static partial class Extensions
     {
-        var dict = new Dictionary<string, object>();
-
-        if (@this != null)
+        /// <summary>
+        ///     A NameValueCollection extension method that converts the @this to a dictionary.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an IDictionary&lt;string,object&gt;</returns>
+        public static IDictionary<string, object> ToDictionary(this NameValueCollection @this)
         {
-            foreach (string key in @this.AllKeys)
-            {
-                dict.Add(key, @this[key]);
-            }
-        }
+            var dict = new Dictionary<string, object>();
 
-        return dict;
+            if (@this != null)
+            {
+                foreach (string key in @this.AllKeys)
+                {
+                    dict.Add(key, @this[key]);
+                }
+            }
+
+            return dict;
+        }
     }
 }

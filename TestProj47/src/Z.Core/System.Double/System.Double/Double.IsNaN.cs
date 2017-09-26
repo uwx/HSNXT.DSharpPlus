@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns a value that indicates whether the specified value is not a number ().
-    /// </summary>
-    /// <param name="d">A double-precision floating-point number.</param>
-    /// <returns>true if  evaluates to ; otherwise, false.</returns>
-    public static Boolean IsNaN(this Double d)
+    public static partial class Extensions
     {
-        return Double.IsNaN(d);
+        /// <summary>
+        ///     Returns a value that indicates whether the specified value is not a number ().
+        /// </summary>
+        /// <param name="d">A double-precision floating-point number.</param>
+        /// <returns>true if  evaluates to ; otherwise, false.</returns>
+        public static Boolean IsNaN(this Double d)
+        {
+            return Double.IsNaN(d);
+        }
     }
 }

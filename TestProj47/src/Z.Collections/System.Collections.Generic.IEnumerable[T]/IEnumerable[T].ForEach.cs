@@ -3,44 +3,48 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Enumerates for each in this collection.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="action">The action.</param>
-    /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
-    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
+    public static partial class Extensions
     {
-        T[] array = @this.ToArray();
-        foreach (T t in array)
+        /// <summary>
+        ///     Enumerates for each in this collection.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="action">The action.</param>
+        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
-            action(t);
-        }
-        return array;
-    }
-
-    /// <summary>Enumerates for each in this collection.</summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="action">The action.</param>
-    /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
-    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
-    {
-        T[] array = @this.ToArray();
-
-        for (int i = 0; i < array.Length; i++)
-        {
-            action(array[i], i);
+            T[] array = @this.ToArray();
+            foreach (T t in array)
+            {
+                action(t);
+            }
+            return array;
         }
 
-        return array;
+        /// <summary>Enumerates for each in this collection.</summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="action">The action.</param>
+        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
+        {
+            T[] array = @this.ToArray();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                action(array[i], i);
+            }
+
+            return array;
+        }
     }
 }

@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Indicates whether the specified  object is a low surrogate.
-    /// </summary>
-    /// <param name="c">The character to evaluate.</param>
-    /// <returns>
-    ///     true if the numeric value of the  parameter ranges from U+DC00 through U+DFFF; otherwise, false.
-    /// </returns>
-    public static Boolean IsLowSurrogate(this Char c)
+    public static partial class Extensions
     {
-        return Char.IsLowSurrogate(c);
+        /// <summary>
+        ///     Indicates whether the specified  object is a low surrogate.
+        /// </summary>
+        /// <param name="c">The character to evaluate.</param>
+        /// <returns>
+        ///     true if the numeric value of the  parameter ranges from U+DC00 through U+DFFF; otherwise, false.
+        /// </returns>
+        public static Boolean IsLowSurrogate(this Char c)
+        {
+            return Char.IsLowSurrogate(c);
+        }
     }
 }

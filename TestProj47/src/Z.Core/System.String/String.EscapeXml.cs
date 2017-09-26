@@ -3,16 +3,21 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that escape XML.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>A string.</returns>
-    public static string EscapeXml(this string @this)
+    public static partial class Extensions
     {
-        return @this.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+        /// <summary>
+        ///     A string extension method that escape XML.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A string.</returns>
+        public static string EscapeXml(this string @this)
+        {
+            return @this.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;")
+                .Replace("'", "&apos;");
+        }
     }
 }

@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>An Environment.SpecialFolder extension method that gets folder path.</summary>
-    /// <param name="this">this.</param>
-    /// <returns>The folder path.</returns>
-    public static string GetFolderPath(this Environment.SpecialFolder @this)
+    public static partial class Extensions
     {
-        return Environment.GetFolderPath(@this);
-    }
+        /// <summary>An Environment.SpecialFolder extension method that gets folder path.</summary>
+        /// <param name="this">this.</param>
+        /// <returns>The folder path.</returns>
+        public static string GetFolderPath(this Environment.SpecialFolder @this)
+        {
+            return Environment.GetFolderPath(@this);
+        }
 
-    /// <summary>An Environment.SpecialFolder extension method that gets folder path.</summary>
-    /// <param name="this">this.</param>
-    /// <param name="option">The option.</param>
-    /// <returns>The folder path.</returns>
-    public static string GetFolderPath(this Environment.SpecialFolder @this, Environment.SpecialFolderOption option)
-    {
-        return Environment.GetFolderPath(@this, option);
+        /// <summary>An Environment.SpecialFolder extension method that gets folder path.</summary>
+        /// <param name="this">this.</param>
+        /// <param name="option">The option.</param>
+        /// <returns>The folder path.</returns>
+        public static string GetFolderPath(this Environment.SpecialFolder @this, Environment.SpecialFolderOption option)
+        {
+            return Environment.GetFolderPath(@this, option);
+        }
     }
 }

@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Converts the specified 64-bit signed integer to a double-precision floating point number.
-    /// </summary>
-    /// <param name="value">The number to convert.</param>
-    /// <returns>A double-precision floating point number whose value is equivalent to .</returns>
-    public static Double Int64BitsToDouble(this Int64 value)
+    public static partial class Extensions
     {
-        return BitConverter.Int64BitsToDouble(value);
+        /// <summary>
+        ///     Converts the specified 64-bit signed integer to a double-precision floating point number.
+        /// </summary>
+        /// <param name="value">The number to convert.</param>
+        /// <returns>A double-precision floating point number whose value is equivalent to .</returns>
+        public static Double Int64BitsToDouble(this Int64 value)
+        {
+            return BitConverter.Int64BitsToDouble(value);
+        }
     }
 }

@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A DateTime extension method that query if 'date' is date equal.
-    /// </summary>
-    /// <param name="date">The date to act on.</param>
-    /// <param name="dateToCompare">Date/Time of the date to compare.</param>
-    /// <returns>true if date equal, false if not.</returns>
-    public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
+    public static partial class Extensions
     {
-        return (date.Date == dateToCompare.Date);
+        /// <summary>
+        ///     A DateTime extension method that query if 'date' is date equal.
+        /// </summary>
+        /// <param name="date">The date to act on.</param>
+        /// <param name="dateToCompare">Date/Time of the date to compare.</param>
+        /// <returns>true if date equal, false if not.</returns>
+        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
+        {
+            return (date.Date == dateToCompare.Date);
+        }
     }
 }

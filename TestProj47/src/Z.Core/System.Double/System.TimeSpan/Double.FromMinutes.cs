@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns a  that represents a specified number of minutes, where the specification is accurate to the nearest
-    ///     millisecond.
-    /// </summary>
-    /// <param name="value">A number of minutes, accurate to the nearest millisecond.</param>
-    /// <returns>An object that represents .</returns>
-    public static TimeSpan FromMinutes(this Double value)
+    public static partial class Extensions
     {
-        return TimeSpan.FromMinutes(value);
+        /// <summary>
+        ///     Returns a  that represents a specified number of minutes, where the specification is accurate to the nearest
+        ///     millisecond.
+        /// </summary>
+        /// <param name="value">A number of minutes, accurate to the nearest millisecond.</param>
+        /// <returns>An object that represents .</returns>
+        public static TimeSpan FromMinutes(this Double value)
+        {
+            return TimeSpan.FromMinutes(value);
+        }
     }
 }

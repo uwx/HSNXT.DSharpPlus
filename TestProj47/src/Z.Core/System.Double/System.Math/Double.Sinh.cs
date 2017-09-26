@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the hyperbolic sine of the specified angle.
-    /// </summary>
-    /// <param name="value">An angle, measured in radians.</param>
-    /// <returns>The hyperbolic sine of . If  is equal to , , or , this method returns a  equal to .</returns>
-    public static Double Sinh(this Double value)
+    public static partial class Extensions
     {
-        return Math.Sinh(value);
+        /// <summary>
+        ///     Returns the hyperbolic sine of the specified angle.
+        /// </summary>
+        /// <param name="value">An angle, measured in radians.</param>
+        /// <returns>The hyperbolic sine of . If  is equal to , , or , this method returns a  equal to .</returns>
+        public static Double Sinh(this Double value)
+        {
+            return Math.Sinh(value);
+        }
     }
 }

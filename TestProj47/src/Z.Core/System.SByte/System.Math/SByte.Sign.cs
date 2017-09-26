@@ -3,21 +3,25 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns a value indicating the sign of an 8-bit signed integer.
-    /// </summary>
-    /// <param name="value">A signed number.</param>
-    /// <returns>
-    ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
-    ///     zero. 0  is equal to zero. 1  is greater than zero.
-    /// </returns>
-    public static Int32 Sign(this SByte value)
+    public static partial class Extensions
     {
-        return Math.Sign(value);
+        /// <summary>
+        ///     Returns a value indicating the sign of an 8-bit signed integer.
+        /// </summary>
+        /// <param name="value">A signed number.</param>
+        /// <returns>
+        ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
+        ///     zero. 0  is equal to zero. 1  is greater than zero.
+        /// </returns>
+        public static Int32 Sign(this SByte value)
+        {
+            return Math.Sign(value);
+        }
     }
 }

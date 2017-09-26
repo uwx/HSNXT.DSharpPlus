@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns the result of multiplying the specified  value by negative one.
-    /// </summary>
-    /// <param name="d">The value to negate.</param>
-    /// <returns>A decimal number with the value of , but the opposite sign.-or- Zero, if  is zero.</returns>
-    public static Decimal Negate(this Decimal d)
+    public static partial class Extensions
     {
-        return Decimal.Negate(d);
+        /// <summary>
+        ///     Returns the result of multiplying the specified  value by negative one.
+        /// </summary>
+        /// <param name="d">The value to negate.</param>
+        /// <returns>A decimal number with the value of , but the opposite sign.-or- Zero, if  is zero.</returns>
+        public static Decimal Negate(this Decimal d)
+        {
+            return Decimal.Negate(d);
+        }
     }
 }

@@ -3,18 +3,22 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A Random extension method that flip a coin toss.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true 50% of time, otherwise false.</returns>
-    public static bool CoinToss(this Random @this)
+    public static partial class Extensions
     {
-        return @this.Next(2) == 0;
+        /// <summary>
+        ///     A Random extension method that flip a coin toss.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>true 50% of time, otherwise false.</returns>
+        public static bool CoinToss(this Random @this)
+        {
+            return @this.Next(2) == 0;
+        }
     }
 }

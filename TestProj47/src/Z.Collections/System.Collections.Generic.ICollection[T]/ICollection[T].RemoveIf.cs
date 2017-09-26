@@ -3,24 +3,28 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Collections.Generic;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An ICollection&lt;T&gt; extension method that removes if.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="value">The value.</param>
-    /// <param name="predicate">The predicate.</param>
-    public static void RemoveIf<T>(this ICollection<T> @this, T value, Func<T, bool> predicate)
+    public static partial class Extensions
     {
-        if (predicate(value))
+        /// <summary>
+        ///     An ICollection&lt;T&gt; extension method that removes if.
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="predicate">The predicate.</param>
+        public static void RemoveIf<T>(this ICollection<T> @this, T value, Func<T, bool> predicate)
         {
-            @this.Remove(value);
+            if (predicate(value))
+            {
+                @this.Remove(value);
+            }
         }
     }
 }

@@ -3,76 +3,80 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An object extension method that converts this object to a nullable u int 64 or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The given data converted to an ulong?</returns>
-    public static ulong? ToNullableUInt64OrDefault(this object @this)
+    public static partial class Extensions
     {
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a nullable u int 64 or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The given data converted to an ulong?</returns>
+        public static ulong? ToNullableUInt64OrDefault(this object @this)
         {
-            if (@this == null || @this == DBNull.Value)
+            try
             {
-                return null;
+                if (@this == null || @this == DBNull.Value)
+                {
+                    return null;
+                }
+
+                return Convert.ToUInt64(@this);
             }
-
-            return Convert.ToUInt64(@this);
-        }
-        catch (Exception)
-        {
-            return default(ulong);
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts this object to a nullable u int 64 or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <returns>The given data converted to an ulong?</returns>
-    public static ulong? ToNullableUInt64OrDefault(this object @this, ulong? defaultValue)
-    {
-        try
-        {
-            if (@this == null || @this == DBNull.Value)
+            catch (Exception)
             {
-                return null;
+                return default(ulong);
             }
-
-            return Convert.ToUInt64(@this);
         }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
 
-    /// <summary>
-    ///     An object extension method that converts this object to a nullable u int 64 or default.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>The given data converted to an ulong?</returns>
-    public static ulong? ToNullableUInt64OrDefault(this object @this, Func<ulong?> defaultValueFactory)
-    {
-        try
+        /// <summary>
+        ///     An object extension method that converts this object to a nullable u int 64 or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>The given data converted to an ulong?</returns>
+        public static ulong? ToNullableUInt64OrDefault(this object @this, ulong? defaultValue)
         {
-            if (@this == null || @this == DBNull.Value)
+            try
             {
-                return null;
-            }
+                if (@this == null || @this == DBNull.Value)
+                {
+                    return null;
+                }
 
-            return Convert.ToUInt64(@this);
+                return Convert.ToUInt64(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
-        catch (Exception)
+
+        /// <summary>
+        ///     An object extension method that converts this object to a nullable u int 64 or default.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="defaultValueFactory">The default value factory.</param>
+        /// <returns>The given data converted to an ulong?</returns>
+        public static ulong? ToNullableUInt64OrDefault(this object @this, Func<ulong?> defaultValueFactory)
         {
-            return defaultValueFactory();
+            try
+            {
+                if (@this == null || @this == DBNull.Value)
+                {
+                    return null;
+                }
+
+                return Convert.ToUInt64(@this);
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory();
+            }
         }
     }
 }

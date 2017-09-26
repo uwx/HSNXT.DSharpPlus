@@ -3,19 +3,23 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that decode a Base64 String.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>The Base64 String decoded.</returns>
-    public static string DecodeBase64(this string @this)
+    public static partial class Extensions
     {
-        return Encoding.ASCII.GetString(Convert.FromBase64String(@this));
+        /// <summary>
+        ///     A string extension method that decode a Base64 String.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>The Base64 String decoded.</returns>
+        public static string DecodeBase64(this string @this)
+        {
+            return Encoding.ASCII.GetString(Convert.FromBase64String(@this));
+        }
     }
 }

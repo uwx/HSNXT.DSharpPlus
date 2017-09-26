@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     An Int32 extension method that div rem.
-    /// </summary>
-    /// <param name="a">a to act on.</param>
-    /// <param name="b">The Int32 to process.</param>
-    /// <param name="result">[out] The result.</param>
-    /// <returns>An Int32.</returns>
-    public static Int32 DivRem(this Int32 a, Int32 b, out Int32 result)
+    public static partial class Extensions
     {
-        return Math.DivRem(a, b, out result);
+        /// <summary>
+        ///     An Int32 extension method that div rem.
+        /// </summary>
+        /// <param name="a">a to act on.</param>
+        /// <param name="b">The Int32 to process.</param>
+        /// <param name="result">[out] The result.</param>
+        /// <returns>An Int32.</returns>
+        public static Int32 DivRem(this Int32 a, Int32 b, out Int32 result)
+        {
+            return Math.DivRem(a, b, out result);
+        }
     }
 }

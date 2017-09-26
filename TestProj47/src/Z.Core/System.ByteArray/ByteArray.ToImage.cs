@@ -4,21 +4,25 @@
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System.Drawing;
 using System.IO;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A byte[] extension method that converts the @this to an image.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as an Image.</returns>
-    public static Image ToImage(this byte[] @this)
+    public static partial class Extensions
     {
-        using (var ms = new MemoryStream(@this))
+        /// <summary>
+        ///     A byte[] extension method that converts the @this to an image.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>@this as an Image.</returns>
+        public static Image ToImage(this byte[] @this)
         {
-            return Image.FromStream(ms);
+            using (var ms = new MemoryStream(@this))
+            {
+                return Image.FromStream(ms);
+            }
         }
     }
 }

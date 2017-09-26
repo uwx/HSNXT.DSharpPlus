@@ -3,25 +3,29 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 using System.Security.Cryptography;
 using System.Text;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     A string extension method that encrypts the string.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="key">The key.</param>
-    /// <returns>The encrypted string.</returns>
-    public static string EncryptRSA(this string @this, string key)
+    public static partial class Extensions
     {
-        var cspp = new CspParameters {KeyContainerName = key};
-        var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
-        byte[] bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(@this), true);
+        /// <summary>
+        ///     A string extension method that encrypts the string.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="key">The key.</param>
+        /// <returns>The encrypted string.</returns>
+        public static string EncryptRSA(this string @this, string key)
+        {
+            var cspp = new CspParameters {KeyContainerName = key};
+            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
+            byte[] bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(@this), true);
 
-        return BitConverter.ToString(bytes);
+            return BitConverter.ToString(bytes);
+        }
     }
 }

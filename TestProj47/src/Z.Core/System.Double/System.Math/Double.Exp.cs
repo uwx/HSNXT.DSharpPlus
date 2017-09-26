@@ -3,20 +3,24 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using System;
 
-public static partial class Extensions
+namespace TestProj47
 {
-    /// <summary>
-    ///     Returns e raised to the specified power.
-    /// </summary>
-    /// <param name="d">A number specifying a power.</param>
-    /// <returns>
-    ///     The number e raised to the power . If  equals  or , that value is returned. If  equals , 0 is returned.
-    /// </returns>
-    public static Double Exp(this Double d)
+    public static partial class Extensions
     {
-        return Math.Exp(d);
+        /// <summary>
+        ///     Returns e raised to the specified power.
+        /// </summary>
+        /// <param name="d">A number specifying a power.</param>
+        /// <returns>
+        ///     The number e raised to the power . If  equals  or , that value is returned. If  equals , 0 is returned.
+        /// </returns>
+        public static Double Exp(this Double d)
+        {
+            return Math.Exp(d);
+        }
     }
 }

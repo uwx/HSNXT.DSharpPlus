@@ -3,31 +3,35 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-public static partial class Extensions
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
+namespace TestProj47
 {
-    /// <summary>
-    ///     A T extension method that that return the first not null value (including the @this).
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="values">A variable-length parameters list containing values.</param>
-    /// <returns>The first not null value.</returns>
-    public static T Coalesce<T>(this T @this, params T[] values) where T : class
+    public static partial class Extensions
     {
-        if (@this != null)
+        /// <summary>
+        ///     A T extension method that that return the first not null value (including the @this).
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <returns>The first not null value.</returns>
+        public static T Coalesce<T>(this T @this, params T[] values) where T : class
         {
-            return @this;
-        }
-
-        foreach (T value in values)
-        {
-            if (value != null)
+            if (@this != null)
             {
-                return value;
+                return @this;
             }
-        }
 
-        return null;
+            foreach (T value in values)
+            {
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+
+            return null;
+        }
     }
 }
