@@ -13,7 +13,6 @@ using System.Web.Security;
 namespace TestProj47
 {
     public static partial class Extensions
-
     {
         /// <summary>The alphabet and numeric chars.</summary>
         private static readonly string[] AlphaNumericChars =

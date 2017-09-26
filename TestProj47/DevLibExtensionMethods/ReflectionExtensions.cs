@@ -45,12 +45,7 @@ namespace TestProj47
             }
             else if (source.GetGenericTypeDefinition().Equals(baseType.GetGenericTypeDefinition()))
                 return true;
-            foreach (var source1 in source.GetInterfaces())
-            {
-                if (source1.IsInheritFrom(baseType))
-                    return true;
-            }
-            return false;
+            return source.GetInterfaces().Any(source1 => source1.IsInheritFrom(baseType));
         }
 
         /// <summary>Check whether the Type is nullable type.</summary>
@@ -87,9 +82,7 @@ namespace TestProj47
                 return null;
             if (source.IsArray)
             {
-                if (!lengths.IsNullOrEmpty())
-                    return Array.CreateInstance(source.GetElementType(), lengths.Select(i => (long) i).ToArray());
-                return Array.CreateInstance(source.GetElementType(), 0);
+                return !lengths.IsNullOrEmpty() ? Array.CreateInstance(source.GetElementType(), lengths.Select(i => (long) i).ToArray()) : Array.CreateInstance(source.GetElementType(), 0);
             }
             if (lengths.IsNullOrEmpty())
                 return (IList) Activator.CreateInstance(source);
@@ -159,7 +152,7 @@ namespace TestProj47
                         : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
                     null, CallingConventions.Any, array, null);
             }
-            catch (AmbiguousMatchException ex)
+            catch (AmbiguousMatchException)
             {
                 foreach (var methodInfo2 in source.GetType().GetMethods(isPublicOnly
                     ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public
@@ -207,30 +200,24 @@ namespace TestProj47
                         : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
                     null, CallingConventions.Any, types, null).MakeGenericMethod(typeArguments);
             }
-            catch (AmbiguousMatchException ex)
+            catch (AmbiguousMatchException)
             {
                 foreach (var methodInfo2 in source.GetType().GetMethods(isPublicOnly
                     ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public
                     : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Where(
                     p =>
                     {
-                        if (p.Name.Equals(method, StringComparison.OrdinalIgnoreCase))
-                            return p.IsGenericMethod;
-                        return false;
+                        return p.Name.Equals(method, StringComparison.OrdinalIgnoreCase) && p.IsGenericMethod;
                     }))
                 {
-                    if (methodInfo2.GetGenericArguments().Length == typeArguments.Length)
-                    {
-                        var parameters1 = methodInfo2.GetParameters();
-                        if (parameters1.Length == types.Length)
-                        {
-                            var index = 0;
-                            while (index < parameters1.Length && parameters1[index].ParameterType == types[index])
-                                ++index;
-                            methodInfo1 = methodInfo2;
-                            break;
-                        }
-                    }
+                    if (methodInfo2.GetGenericArguments().Length != typeArguments.Length) continue;
+                    var parameters1 = methodInfo2.GetParameters();
+                    if (parameters1.Length != types.Length) continue;
+                    var index = 0;
+                    while (index < parameters1.Length && parameters1[index].ParameterType == types[index])
+                        ++index;
+                    methodInfo1 = methodInfo2;
+                    break;
                 }
             }
             return methodInfo1.MakeGenericMethod(typeArguments).Invoke(source, parameters);
