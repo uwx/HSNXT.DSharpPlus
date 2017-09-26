@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class ActionExtensions
-  {
+    public static partial class Extensions
+    {
     public static void Call(this Action action)
     {
       action.IfNotNull<Action>((Action<Action>) (x => x()));

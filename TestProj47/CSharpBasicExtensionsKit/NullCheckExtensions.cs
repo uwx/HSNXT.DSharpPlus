@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class NullCheckExtensions
-  {
+    public static partial class Extensions
+    {
     public static bool IsNull(this object obj)
     {
       return obj == null;

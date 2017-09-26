@@ -9,10 +9,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class StringDateTimeExtensions
-  {
+    public static partial class Extensions
+    {
     private static readonly string[] dateFormats = new string[5]
     {
       "ddd, d MMM yyyy HH:mm:ss zzz",

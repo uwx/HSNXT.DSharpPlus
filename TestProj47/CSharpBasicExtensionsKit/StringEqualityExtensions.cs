@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class StringEqualityExtensions
-  {
+    public static partial class Extensions
+    {
     public static bool IsEqualTo(this string str, string value)
     {
       if (str.IsNull() && value.IsNull())

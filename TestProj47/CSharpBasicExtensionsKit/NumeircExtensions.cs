@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class NumeircExtensions
-  {
+    public static partial class Extensions
+    {
     public static int ToInt(this string value)
     {
       double result = 0.0;

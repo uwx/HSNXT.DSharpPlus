@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class DoExtensions
-  {
+    public static partial class Extensions
+    {
     public static T Do<T>(this T target, Action<T> action) where T : class
     {
       action(target);

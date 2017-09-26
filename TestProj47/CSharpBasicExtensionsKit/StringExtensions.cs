@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class StringExtensions
-  {
+    public static partial class Extensions
+    {
     public static bool IsEmpty(this string value)
     {
       return string.IsNullOrEmpty(value);

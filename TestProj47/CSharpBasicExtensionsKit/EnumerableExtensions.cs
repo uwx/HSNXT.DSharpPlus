@@ -8,10 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class EnumerableExtensions
-  {
+    public static partial class Extensions
+    {
     public static bool IsEnumEmpty<T>(this IEnumerable<T> sequence)
     {
       if (!sequence.IsNull())

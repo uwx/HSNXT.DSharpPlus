@@ -6,10 +6,10 @@
 
 using System;
 
-namespace CSharpBasicExtensionsKit
+namespace TestProj47
 {
-  public static class BooleanExtensions
-  {
+    public static partial class Extensions
+    {
     public static bool IfTrue(this bool expression, Action action)
     {
       if (expression)
