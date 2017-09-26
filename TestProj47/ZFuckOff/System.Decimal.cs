@@ -144,7 +144,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>A 64-bit signed integer that contains the OLE Automation equivalent of .</returns>
-        public static long ToOACurrency(this decimal value)
+        public static long ToOaCurrency(this decimal value)
         {
             return decimal.ToOACurrency(value);
         }

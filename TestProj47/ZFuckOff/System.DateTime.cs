@@ -665,7 +665,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The given data converted to a string.</returns>
-        public static string ToRFC1123String(this DateTime @this)
+        public static string ToRfc1123String(this DateTime @this)
         {
             return @this.ToString("r", DateTimeFormatInfo.CurrentInfo);
         }
@@ -676,7 +676,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
         /// <returns>The given data converted to a string.</returns>
-        public static string ToRFC1123String(this DateTime @this, string culture)
+        public static string ToRfc1123String(this DateTime @this, string culture)
         {
             return @this.ToString("r", new CultureInfo(culture));
         }
@@ -687,7 +687,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
         /// <returns>The given data converted to a string.</returns>
-        public static string ToRFC1123String(this DateTime @this, CultureInfo culture)
+        public static string ToRfc1123String(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("r", culture);
         }

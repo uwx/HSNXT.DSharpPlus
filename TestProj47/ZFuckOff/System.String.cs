@@ -14,6 +14,7 @@ using System.Security;
 using System.Xml.Linq;
 using System.Xml;
 //using System.Data.SqlServerCe;
+// ReSharper disable StringIndexOfIsCultureSpecific.1
 
 // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
@@ -191,7 +192,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="key">The key.</param>
         /// <returns>The decrypted string.</returns>
-        public static string DecryptRSA(this string @this, string key)
+        public static string DecryptRsa(this string @this, string key)
         {
             var cspp = new CspParameters {KeyContainerName = key};
             var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
@@ -219,7 +220,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="key">The key.</param>
         /// <returns>The encrypted string.</returns>
-        public static string EncryptRSA(this string @this, string key)
+        public static string EncryptRsa(this string @this, string key)
         {
             var cspp = new CspParameters {KeyContainerName = key};
             var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
@@ -1978,7 +1979,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="obj">The obj to act on.</param>
         /// <returns>true if valid ip, false if not.</returns>
-        public static bool IsValidIP(this string obj)
+        public static bool IsValidIp(this string obj)
         {
             return Regex.IsMatch(obj,
                 @"^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$");

@@ -29,7 +29,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">An OLE Automation Date value.</param>
         /// <returns>An object that represents the same date and time as .</returns>
-        public static DateTime FromOADate(this double d)
+        public static DateTime FromOaDate(this double d)
         {
             return DateTime.FromOADate(d);
         }
@@ -209,7 +209,7 @@ namespace TestProj47
         ///     halfway between two integers, the even integer is returned).If  - ( Q) is zero, the value +0 is returned if
         ///     is positive, or -0 if  is negative.If  = 0,  is returned.
         /// </returns>
-        public static double IEEERemainder(this double x, double y)
+        public static double IeeeRemainder(this double x, double y)
         {
             return Math.IEEERemainder(x, y);
         }

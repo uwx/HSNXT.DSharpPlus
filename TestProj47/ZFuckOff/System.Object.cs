@@ -6402,7 +6402,7 @@ namespace TestProj47
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">An object.</param>
         /// <returns>true if  is of type ; otherwise, false.</returns>
-        public static bool IsDBNull<T>(this T value) where T : class
+        public static bool IsDbNull<T>(this T value) where T : class
         {
             return Convert.IsDBNull(value);
         }

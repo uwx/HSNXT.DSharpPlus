@@ -209,7 +209,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="cy">An OLE Automation Currency value.</param>
         /// <returns>A  that contains the equivalent of .</returns>
-        public static decimal FromOACurrency(this long cy)
+        public static decimal FromOaCurrency(this long cy)
         {
             return decimal.FromOACurrency(cy);
         }
