@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
@@ -26,7 +25,7 @@ namespace TestProj47
     /// <returns>Source object.</returns>
     public static T IfNull<T>(this T source, Action<T> action)
     {
-      if ((object) source == null)
+      if (source == null)
         action(source);
       return source;
     }
@@ -44,23 +43,23 @@ namespace TestProj47
       if (appendObj == null)
       {
         if (withNewLine)
-          Console.WriteLine((object) source);
+          Console.WriteLine(source);
         else
-          Console.Write((object) source);
+          Console.Write(source);
         return source;
       }
       if (appendObj is string && (appendObj as string).Contains("{0}"))
       {
         if (withNewLine)
-          Console.WriteLine(appendObj as string, (object) source);
+          Console.WriteLine(appendObj as string, source);
         else
-          Console.Write(appendObj as string, (object) source);
+          Console.Write(appendObj as string, source);
         return source;
       }
       if (withNewLine)
-        Console.WriteLine("{0}{1}", (object) source, appendObj);
+        Console.WriteLine("{0}{1}", source, appendObj);
       else
-        Console.Write("{0}{1}", (object) source, appendObj);
+        Console.Write("{0}{1}", source, appendObj);
       return source;
     }
 
@@ -70,26 +69,26 @@ namespace TestProj47
     /// <returns>The copied object.</returns>
     public static T CloneDeep<T>(this T source)
     {
-      if ((object) source == null)
-        return default (T);
+      if (source == null)
+        return default;
       try
       {
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-        using (MemoryStream memoryStream = new MemoryStream())
+        var binaryFormatter = new BinaryFormatter();
+        using (var memoryStream = new MemoryStream())
         {
-          binaryFormatter.Serialize((Stream) memoryStream, (object) source);
+          binaryFormatter.Serialize(memoryStream, source);
           memoryStream.Position = 0L;
-          return (T) binaryFormatter.Deserialize((Stream) memoryStream);
+          return (T) binaryFormatter.Deserialize(memoryStream);
         }
       }
       catch
       {
-        XmlSerializer xmlSerializer = new XmlSerializer(typeof (T));
-        using (MemoryStream memoryStream = new MemoryStream())
+        var xmlSerializer = new XmlSerializer(typeof (T));
+        using (var memoryStream = new MemoryStream())
         {
-          xmlSerializer.Serialize((Stream) memoryStream, (object) source);
+          xmlSerializer.Serialize(memoryStream, source);
           memoryStream.Position = 0L;
-          return (T) xmlSerializer.Deserialize((Stream) memoryStream);
+          return (T) xmlSerializer.Deserialize(memoryStream);
         }
       }
     }
@@ -102,23 +101,23 @@ namespace TestProj47
     /// <param name="defaultValue">The default value.</param>
     /// <param name="throwOnError">true to throw any exception that occurs.-or- false to ignore any exception that occurs.</param>
     /// <returns>The target type object.</returns>
-    public static T ConvertTo<T>(this object source, T defaultValue = default(T), bool throwOnError = false)
+    public static T ConvertTo<T>(this object source, T defaultValue = default, bool throwOnError = false)
     {
       if (source == null)
       {
         if (throwOnError)
           throw new ArgumentNullException(nameof (source));
-        return default (T);
+        return default;
       }
       try
       {
-        Type type = typeof (T);
+        var type = typeof (T);
         if (source.GetType() == type)
           return (T) source;
-        TypeConverter converter1 = TypeDescriptor.GetConverter(source);
+        var converter1 = TypeDescriptor.GetConverter(source);
         if (converter1 != null && converter1.CanConvertTo(type))
           return (T) converter1.ConvertTo(source, type);
-        TypeConverter converter2 = TypeDescriptor.GetConverter(type);
+        var converter2 = TypeDescriptor.GetConverter(type);
         if (converter2 != null && converter2.CanConvertFrom(source.GetType()))
           return (T) converter2.ConvertFrom(source);
         throw new InvalidOperationException();
@@ -144,16 +143,16 @@ namespace TestProj47
       {
         if (throwOnError)
           throw new ArgumentNullException(nameof (source));
-        return (object) null;
+        return null;
       }
       try
       {
         if (source.GetType() == targetType)
           return source;
-        TypeConverter converter1 = TypeDescriptor.GetConverter(source);
+        var converter1 = TypeDescriptor.GetConverter(source);
         if (converter1 != null && converter1.CanConvertTo(targetType))
           return converter1.ConvertTo(source, targetType);
-        TypeConverter converter2 = TypeDescriptor.GetConverter(targetType);
+        var converter2 = TypeDescriptor.GetConverter(targetType);
         if (converter2 != null && converter2.CanConvertFrom(source.GetType()))
           return converter2.ConvertFrom(source);
         throw new InvalidOperationException();
@@ -161,7 +160,7 @@ namespace TestProj47
       catch
       {
         if (!throwOnError)
-          return (object) null;
+          return null;
         throw;
       }
     }
@@ -181,24 +180,24 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (copySource == null)
         throw new ArgumentNullException("target");
-      Type type = copySource.GetType();
+      var type = copySource.GetType();
       if (source.GetType() != type)
         throw new ArgumentException("The target type must be the same as the source");
-      List<string> stringList = new List<string>();
+      var stringList = new List<string>();
       if (ignoreProperties != null && ignoreProperties.Length > 0)
       {
-        foreach (string ignoreProperty in ignoreProperties)
+        foreach (var ignoreProperty in ignoreProperties)
         {
           if (!ignoreProperty.IsNullOrWhiteSpace() && !stringList.Contains(ignoreProperty))
             stringList.Add(ignoreProperty);
         }
       }
-      foreach (PropertyInfo property in type.GetProperties())
+      foreach (var property in type.GetProperties())
       {
         if (property.CanWrite && property.CanRead && !stringList.Contains(property.Name))
         {
-          object obj = property.GetValue(copySource, (object[]) null);
-          property.SetValue(source, obj, (object[]) null);
+          var obj = property.GetValue(copySource, null);
+          property.SetValue(source, obj, null);
         }
       }
       return source;
@@ -218,20 +217,20 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (copySource == null)
         throw new ArgumentNullException("target");
-      Type type = source.GetType();
-      List<string> stringList = new List<string>();
+      var type = source.GetType();
+      var stringList = new List<string>();
       if (ignoreProperties != null && ignoreProperties.Length > 0)
       {
-        foreach (string ignoreProperty in ignoreProperties)
+        foreach (var ignoreProperty in ignoreProperties)
         {
           if (!ignoreProperty.IsNullOrWhiteSpace() && !stringList.Contains(ignoreProperty))
             stringList.Add(ignoreProperty);
         }
       }
-      foreach (PropertyInfo property in type.GetProperties())
+      foreach (var property in type.GetProperties())
       {
         if (property.CanWrite && !stringList.Contains(property.Name) && copySource.ContainsKey(property.Name))
-          property.SetValue(source, copySource[property.Name], (object[]) null);
+          property.SetValue(source, copySource[property.Name], null);
       }
       return source;
     }
@@ -250,22 +249,22 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (target == null)
         throw new ArgumentNullException(nameof (target));
-      Type type = target.GetType();
-      List<string> stringList = new List<string>();
+      var type = target.GetType();
+      var stringList = new List<string>();
       if (ignoreProperties != null && ignoreProperties.Length > 0)
       {
-        foreach (string ignoreProperty in ignoreProperties)
+        foreach (var ignoreProperty in ignoreProperties)
         {
           if (!ignoreProperty.IsNullOrWhiteSpace() && !stringList.Contains(ignoreProperty))
             stringList.Add(ignoreProperty);
         }
       }
-      foreach (PropertyInfo property in type.GetProperties())
+      foreach (var property in type.GetProperties())
       {
         if (property.CanWrite && !stringList.Contains(property.Name) && source.ContainsKey(property.Name))
-          property.SetValue((object) source, source[property.Name], (object[]) null);
+          property.SetValue(source, source[property.Name], null);
       }
-      return (object) source;
+      return source;
     }
 
     /// <summary>
@@ -282,20 +281,20 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      object instance = type.CreateInstance();
-      List<string> stringList = new List<string>();
+      var instance = type.CreateInstance();
+      var stringList = new List<string>();
       if (ignoreProperties != null && ignoreProperties.Length > 0)
       {
-        foreach (string ignoreProperty in ignoreProperties)
+        foreach (var ignoreProperty in ignoreProperties)
         {
           if (!ignoreProperty.IsNullOrWhiteSpace() && !stringList.Contains(ignoreProperty))
             stringList.Add(ignoreProperty);
         }
       }
-      foreach (PropertyInfo property in type.GetProperties())
+      foreach (var property in type.GetProperties())
       {
         if (property.CanWrite && !stringList.Contains(property.Name) && source.ContainsKey(property.Name))
-          property.SetValue(instance, source[property.Name], (object[]) null);
+          property.SetValue(instance, source[property.Name], null);
       }
       return instance;
     }
@@ -312,20 +311,20 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      T instance = (T) typeof (T).CreateInstance();
-      List<string> stringList = new List<string>();
+      var instance = (T) typeof (T).CreateInstance();
+      var stringList = new List<string>();
       if (ignoreProperties != null && ignoreProperties.Length > 0)
       {
-        foreach (string ignoreProperty in ignoreProperties)
+        foreach (var ignoreProperty in ignoreProperties)
         {
           if (!ignoreProperty.IsNullOrWhiteSpace() && !stringList.Contains(ignoreProperty))
             stringList.Add(ignoreProperty);
         }
       }
-      foreach (PropertyInfo property in typeof (T).GetProperties())
+      foreach (var property in typeof (T).GetProperties())
       {
         if (property.CanWrite && !stringList.Contains(property.Name) && source.ContainsKey(property.Name))
-          property.SetValue((object) instance, source[property.Name], (object[]) null);
+          property.SetValue(instance, source[property.Name], null);
       }
       return instance;
     }
@@ -337,7 +336,7 @@ namespace TestProj47
     /// <returns>true if call Dispose succeeded; otherwise, false.</returns>
     public static bool TryDispose(this object source)
     {
-      IDisposable disposable = source as IDisposable;
+      var disposable = source as IDisposable;
       if (disposable == null)
         return false;
       disposable.Dispose();

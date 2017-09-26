@@ -28,7 +28,7 @@ namespace TestProj47
       '\r',
       '\t'
     };
-    private static readonly string EscapeCharactersString = new string(JsonSerializer.EscapeCharacters);
+    private static readonly string EscapeCharactersString = new string(EscapeCharacters);
     private static PocoJsonSerializerStrategy CurrentJsonSerializerStrategy = new PocoJsonSerializerStrategy();
     private static readonly char[] EscapeTable = new char[93];
     private const int BUILDER_CAPACITY = 2000;
@@ -47,13 +47,13 @@ namespace TestProj47
 
     static JsonSerializer()
     {
-      JsonSerializer.EscapeTable[34] = '"';
-      JsonSerializer.EscapeTable[92] = '\\';
-      JsonSerializer.EscapeTable[8] = 'b';
-      JsonSerializer.EscapeTable[12] = 'f';
-      JsonSerializer.EscapeTable[10] = 'n';
-      JsonSerializer.EscapeTable[13] = 'r';
-      JsonSerializer.EscapeTable[9] = 't';
+      EscapeTable[34] = '"';
+      EscapeTable[92] = '\\';
+      EscapeTable[8] = 'b';
+      EscapeTable[12] = 'f';
+      EscapeTable[10] = 'n';
+      EscapeTable[13] = 'r';
+      EscapeTable[9] = 't';
     }
 
     /// <summary>Deserializes the specified json.</summary>
@@ -62,7 +62,7 @@ namespace TestProj47
     public static object Deserialize(string json)
     {
       object obj;
-      if (JsonSerializer.TryDeserialize(json, out obj))
+      if (TryDeserialize(json, out obj))
         return obj;
       throw new SerializationException("Invalid JSON string");
     }
@@ -73,9 +73,9 @@ namespace TestProj47
     /// <returns>The System.Object.</returns>
     public static object Deserialize(string json, Type type)
     {
-      object obj = JsonSerializer.Deserialize(json);
+      var obj = Deserialize(json);
       if (type != null && (obj == null || !ReflectionUtilities.IsAssignableFrom(obj.GetType(), type)))
-        return JsonSerializer.CurrentJsonSerializerStrategy.DeserializeObject(obj, type);
+        return CurrentJsonSerializerStrategy.DeserializeObject(obj, type);
       return obj;
     }
 
@@ -85,7 +85,7 @@ namespace TestProj47
     /// <returns>The System.Object.</returns>
     public static T Deserialize<T>(string json)
     {
-      return (T) JsonSerializer.Deserialize(json, typeof (T));
+      return (T) Deserialize(json, typeof (T));
     }
 
     /// <summary>Escapes to javascript string.</summary>
@@ -95,12 +95,12 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(jsonString))
         return jsonString;
-      StringBuilder stringBuilder = new StringBuilder();
-      int index = 0;
+      var stringBuilder = new StringBuilder();
+      var index = 0;
       while (index < jsonString.Length)
       {
-        char ch = jsonString[index++];
-        if ((int) ch == 92)
+        var ch = jsonString[index++];
+        if (ch == 92)
         {
           if (jsonString.Length - index >= 2)
           {
@@ -146,9 +146,9 @@ namespace TestProj47
     /// <returns>A JSON encoded string, or null if object 'json' is not serializable.</returns>
     public static string Serialize(object json)
     {
-      StringBuilder builder = new StringBuilder(2000);
-      if (!JsonSerializer.SerializeValue(JsonSerializer.CurrentJsonSerializerStrategy, json, builder))
-        return (string) null;
+      var builder = new StringBuilder(2000);
+      if (!SerializeValue(CurrentJsonSerializerStrategy, json, builder))
+        return null;
       return builder.ToString();
     }
 
@@ -158,15 +158,15 @@ namespace TestProj47
     /// <returns>true if succeeded; otherwise, false.</returns>
     public static bool TryDeserialize(string json, out object obj)
     {
-      bool success = true;
+      var success = true;
       if (json != null)
       {
-        char[] charArray = json.ToCharArray();
-        int index = 0;
-        obj = JsonSerializer.ParseValue(charArray, ref index, ref success);
+        var charArray = json.ToCharArray();
+        var index = 0;
+        obj = ParseValue(charArray, ref index, ref success);
       }
       else
-        obj = (object) null;
+        obj = null;
       return success;
     }
 
@@ -195,7 +195,7 @@ namespace TestProj47
     /// <returns>The System.Int32.</returns>
     private static int GetLastIndexOfNumber(char[] json, int index)
     {
-      int index1 = index;
+      var index1 = index;
       while (index1 < json.Length && "0123456789+-.eE".IndexOf(json[index1]) != -1)
         ++index1;
       return index1 - 1;
@@ -217,8 +217,8 @@ namespace TestProj47
     /// <returns>The System.Int32.</returns>
     private static int LookAhead(char[] json, int index)
     {
-      int index1 = index;
-      return JsonSerializer.NextToken(json, ref index1);
+      var index1 = index;
+      return NextToken(json, ref index1);
     }
 
     /// <summary>Next token.</summary>
@@ -227,10 +227,10 @@ namespace TestProj47
     /// <returns>The System.Int32.</returns>
     private static int NextToken(char[] json, ref int index)
     {
-      JsonSerializer.RemoveWhitespace(json, ref index);
+      RemoveWhitespace(json, ref index);
       if (index == json.Length)
         return 0;
-      char ch = json[index];
+      var ch = json[index];
       ++index;
       switch (ch)
       {
@@ -262,18 +262,18 @@ namespace TestProj47
           return 2;
         default:
           --index;
-          int num = json.Length - index;
-          if (num >= 5 && (int) json[index] == 102 && ((int) json[index + 1] == 97 && (int) json[index + 2] == 108) && ((int) json[index + 3] == 115 && (int) json[index + 4] == 101))
+          var num = json.Length - index;
+          if (num >= 5 && json[index] == 102 && (json[index + 1] == 97 && json[index + 2] == 108) && (json[index + 3] == 115 && json[index + 4] == 101))
           {
             index += 5;
             return 10;
           }
-          if (num >= 4 && (int) json[index] == 116 && ((int) json[index + 1] == 114 && (int) json[index + 2] == 117) && (int) json[index + 3] == 101)
+          if (num >= 4 && json[index] == 116 && (json[index + 1] == 114 && json[index + 2] == 117) && json[index + 3] == 101)
           {
             index += 4;
             return 9;
           }
-          if (num < 4 || (int) json[index] != 110 || ((int) json[index + 1] != 117 || (int) json[index + 2] != 108) || (int) json[index + 3] != 108)
+          if (num < 4 || json[index] != 110 || (json[index + 1] != 117 || json[index + 2] != 108) || json[index + 3] != 108)
             return 0;
           index += 4;
           return 11;
@@ -287,26 +287,26 @@ namespace TestProj47
     /// <returns>The JsonArray.</returns>
     private static JsonArray ParseArray(char[] json, ref int index, ref bool success)
     {
-      JsonArray jsonArray = new JsonArray();
-      JsonSerializer.NextToken(json, ref index);
-      bool flag = false;
+      var jsonArray = new JsonArray();
+      NextToken(json, ref index);
+      var flag = false;
       while (!flag)
       {
-        switch (JsonSerializer.LookAhead(json, index))
+        switch (LookAhead(json, index))
         {
           case 0:
             success = false;
-            return (JsonArray) null;
+            return null;
           case 6:
-            JsonSerializer.NextToken(json, ref index);
+            NextToken(json, ref index);
             continue;
           case 4:
-            JsonSerializer.NextToken(json, ref index);
+            NextToken(json, ref index);
             goto label_9;
           default:
-            object obj = JsonSerializer.ParseValue(json, ref index, ref success);
+            var obj = ParseValue(json, ref index, ref success);
             if (!success)
-              return (JsonArray) null;
+              return null;
             jsonArray.Add(obj);
             continue;
         }
@@ -322,22 +322,22 @@ label_9:
     /// <returns>The System.Object.</returns>
     private static object ParseNumber(char[] json, ref int index, ref bool success)
     {
-      JsonSerializer.RemoveWhitespace(json, ref index);
-      int lastIndexOfNumber = JsonSerializer.GetLastIndexOfNumber(json, index);
-      int length = lastIndexOfNumber - index + 1;
-      string str = new string(json, index, length);
+      RemoveWhitespace(json, ref index);
+      var lastIndexOfNumber = GetLastIndexOfNumber(json, index);
+      var length = lastIndexOfNumber - index + 1;
+      var str = new string(json, index, length);
       object obj;
       if (str.IndexOf(".", StringComparison.OrdinalIgnoreCase) != -1 || str.IndexOf("e", StringComparison.OrdinalIgnoreCase) != -1)
       {
         double result;
-        success = double.TryParse(new string(json, index, length), NumberStyles.Any, (IFormatProvider) CultureInfo.InvariantCulture, out result);
-        obj = (object) result;
+        success = double.TryParse(new string(json, index, length), NumberStyles.Any, CultureInfo.InvariantCulture, out result);
+        obj = result;
       }
       else
       {
         long result;
-        success = long.TryParse(new string(json, index, length), NumberStyles.Any, (IFormatProvider) CultureInfo.InvariantCulture, out result);
-        obj = (object) result;
+        success = long.TryParse(new string(json, index, length), NumberStyles.Any, CultureInfo.InvariantCulture, out result);
+        obj = result;
       }
       index = lastIndexOfNumber + 1;
       return obj;
@@ -350,39 +350,39 @@ label_9:
     /// <returns>The IDictionary.</returns>
     private static IDictionary<string, object> ParseObject(char[] json, ref int index, ref bool success)
     {
-      IDictionary<string, object> dictionary = (IDictionary<string, object>) new JsonObject((IEqualityComparer<string>) StringComparer.OrdinalIgnoreCase);
-      JsonSerializer.NextToken(json, ref index);
-      bool flag = false;
+      IDictionary<string, object> dictionary = new JsonObject(StringComparer.OrdinalIgnoreCase);
+      NextToken(json, ref index);
+      var flag = false;
       while (!flag)
       {
-        switch (JsonSerializer.LookAhead(json, index))
+        switch (LookAhead(json, index))
         {
           case 0:
             success = false;
-            return (IDictionary<string, object>) null;
+            return null;
           case 6:
-            JsonSerializer.NextToken(json, ref index);
+            NextToken(json, ref index);
             continue;
           case 2:
-            JsonSerializer.NextToken(json, ref index);
+            NextToken(json, ref index);
             return dictionary;
           default:
-            string index1 = JsonSerializer.ParseString(json, ref index, ref success);
+            var index1 = ParseString(json, ref index, ref success);
             if (!success)
             {
               success = false;
-              return (IDictionary<string, object>) null;
+              return null;
             }
-            if (JsonSerializer.NextToken(json, ref index) != 5)
+            if (NextToken(json, ref index) != 5)
             {
               success = false;
-              return (IDictionary<string, object>) null;
+              return null;
             }
-            object obj = JsonSerializer.ParseValue(json, ref index, ref success);
+            var obj = ParseValue(json, ref index, ref success);
             if (!success)
             {
               success = false;
-              return (IDictionary<string, object>) null;
+              return null;
             }
             dictionary[index1] = obj;
             continue;
@@ -398,13 +398,13 @@ label_9:
     /// <returns>The System.String.</returns>
     private static string ParseString(char[] json, ref int index, ref bool success)
     {
-      StringBuilder stringBuilder = new StringBuilder(2000);
-      JsonSerializer.RemoveWhitespace(json, ref index);
-      char ch1 = json[index++];
-      bool flag = false;
+      var stringBuilder = new StringBuilder(2000);
+      RemoveWhitespace(json, ref index);
+      var ch1 = json[index++];
+      var flag = false;
       while (!flag && index != json.Length)
       {
-        char ch2 = json[index++];
+        var ch2 = json[index++];
         switch (ch2)
         {
           case '"':
@@ -443,13 +443,13 @@ label_9:
                   if (json.Length - index >= 4)
                   {
                     uint result1;
-                    if (!(success = uint.TryParse(new string(json, index, 4), NumberStyles.HexNumber, (IFormatProvider) CultureInfo.InvariantCulture, out result1)))
+                    if (!(success = uint.TryParse(new string(json, index, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result1)))
                       return string.Empty;
                     if (result1 >= 55296U && result1 <= 56319U)
                     {
                       index += 4;
                       uint result2;
-                      if (json.Length - index >= 6 && new string(json, index, 2) == "\\u" && (uint.TryParse(new string(json, index + 2, 4), NumberStyles.HexNumber, (IFormatProvider) CultureInfo.InvariantCulture, out result2) && result2 >= 56320U) && result2 <= 57343U)
+                      if (json.Length - index >= 6 && new string(json, index, 2) == "\\u" && (uint.TryParse(new string(json, index + 2, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result2) && result2 >= 56320U) && result2 <= 57343U)
                       {
                         stringBuilder.Append((char) result1);
                         stringBuilder.Append((char) result2);
@@ -459,7 +459,7 @@ label_9:
                       success = false;
                       return string.Empty;
                     }
-                    stringBuilder.Append(JsonSerializer.ConvertFromUtf32((int) result1));
+                    stringBuilder.Append(ConvertFromUtf32((int) result1));
                     index += 4;
                     continue;
                   }
@@ -479,7 +479,7 @@ label_23:
       if (flag)
         return stringBuilder.ToString();
       success = false;
-      return (string) null;
+      return null;
     }
 
     /// <summary>Parses the value.</summary>
@@ -489,28 +489,28 @@ label_23:
     /// <returns>The System.Object.</returns>
     private static object ParseValue(char[] json, ref int index, ref bool success)
     {
-      switch (JsonSerializer.LookAhead(json, index))
+      switch (LookAhead(json, index))
       {
         case 1:
-          return (object) JsonSerializer.ParseObject(json, ref index, ref success);
+          return ParseObject(json, ref index, ref success);
         case 3:
-          return (object) JsonSerializer.ParseArray(json, ref index, ref success);
+          return ParseArray(json, ref index, ref success);
         case 7:
-          return (object) JsonSerializer.ParseString(json, ref index, ref success);
+          return ParseString(json, ref index, ref success);
         case 8:
-          return JsonSerializer.ParseNumber(json, ref index, ref success);
+          return ParseNumber(json, ref index, ref success);
         case 9:
-          JsonSerializer.NextToken(json, ref index);
-          return (object) true;
+          NextToken(json, ref index);
+          return true;
         case 10:
-          JsonSerializer.NextToken(json, ref index);
-          return (object) false;
+          NextToken(json, ref index);
+          return false;
         case 11:
-          JsonSerializer.NextToken(json, ref index);
-          return (object) null;
+          NextToken(json, ref index);
+          return null;
         default:
           success = false;
-          return (object) null;
+          return null;
       }
     }
 
@@ -531,12 +531,12 @@ label_23:
     private static bool SerializeArray(PocoJsonSerializerStrategy jsonSerializerStrategy, IEnumerable sourceArray, StringBuilder builder)
     {
       builder.Append("[");
-      bool flag = true;
-      foreach (object source in sourceArray)
+      var flag = true;
+      foreach (var source in sourceArray)
       {
         if (!flag)
           builder.Append(",");
-        if (!JsonSerializer.SerializeValue(jsonSerializerStrategy, source, builder))
+        if (!SerializeValue(jsonSerializerStrategy, source, builder))
           return false;
         flag = false;
       }
@@ -551,19 +551,19 @@ label_23:
     private static bool SerializeNumber(object number, StringBuilder builder)
     {
       if (number is long)
-        builder.Append(((long) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((long) number).ToString(CultureInfo.InvariantCulture));
       else if (number is ulong)
-        builder.Append(((ulong) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((ulong) number).ToString(CultureInfo.InvariantCulture));
       else if (number is int)
-        builder.Append(((int) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((int) number).ToString(CultureInfo.InvariantCulture));
       else if (number is uint)
-        builder.Append(((uint) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((uint) number).ToString(CultureInfo.InvariantCulture));
       else if (number is Decimal)
-        builder.Append(((Decimal) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((Decimal) number).ToString(CultureInfo.InvariantCulture));
       else if (number is float)
-        builder.Append(((float) number).ToString((IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(((float) number).ToString(CultureInfo.InvariantCulture));
       else
-        builder.Append(Convert.ToDouble(number, (IFormatProvider) CultureInfo.InvariantCulture).ToString("r", (IFormatProvider) CultureInfo.InvariantCulture));
+        builder.Append(Convert.ToDouble(number, CultureInfo.InvariantCulture).ToString("r", CultureInfo.InvariantCulture));
       return true;
     }
 
@@ -576,22 +576,22 @@ label_23:
     private static bool SerializeObject(PocoJsonSerializerStrategy jsonSerializerStrategy, IEnumerable keys, IEnumerable values, StringBuilder builder)
     {
       builder.Append("{");
-      IEnumerator enumerator1 = keys.GetEnumerator();
-      IEnumerator enumerator2 = values.GetEnumerator();
-      bool flag = true;
+      var enumerator1 = keys.GetEnumerator();
+      var enumerator2 = values.GetEnumerator();
+      var flag = true;
       while (enumerator1.MoveNext() && enumerator2.MoveNext())
       {
-        object current1 = enumerator1.Current;
-        object current2 = enumerator2.Current;
+        var current1 = enumerator1.Current;
+        var current2 = enumerator2.Current;
         if (!flag)
           builder.Append(",");
-        string source = current1 as string;
+        var source = current1 as string;
         if (source != null)
-          JsonSerializer.SerializeString(source, builder);
-        else if (!JsonSerializer.SerializeValue(jsonSerializerStrategy, current2, builder))
+          SerializeString(source, builder);
+        else if (!SerializeValue(jsonSerializerStrategy, current2, builder))
           return false;
         builder.Append(":");
-        if (!JsonSerializer.SerializeValue(jsonSerializerStrategy, current2, builder))
+        if (!SerializeValue(jsonSerializerStrategy, current2, builder))
           return false;
         flag = false;
       }
@@ -605,7 +605,7 @@ label_23:
     /// <returns>true if succeeded; otherwise, false.</returns>
     private static bool SerializeString(string source, StringBuilder builder)
     {
-      if (source.IndexOfAny(JsonSerializer.EscapeCharacters) == -1)
+      if (source.IndexOfAny(EscapeCharacters) == -1)
       {
         builder.Append('"');
         builder.Append(source);
@@ -613,12 +613,12 @@ label_23:
         return true;
       }
       builder.Append('"');
-      int charCount = 0;
-      char[] charArray = source.ToCharArray();
-      for (int index = 0; index < charArray.Length; ++index)
+      var charCount = 0;
+      var charArray = source.ToCharArray();
+      for (var index = 0; index < charArray.Length; ++index)
       {
-        char ch = charArray[index];
-        if ((int) ch >= JsonSerializer.EscapeTable.Length || (int) JsonSerializer.EscapeTable[(int) ch] == 0)
+        var ch = charArray[index];
+        if (ch >= EscapeTable.Length || EscapeTable[ch] == 0)
         {
           ++charCount;
         }
@@ -630,7 +630,7 @@ label_23:
             charCount = 0;
           }
           builder.Append('\\');
-          builder.Append(JsonSerializer.EscapeTable[(int) ch]);
+          builder.Append(EscapeTable[ch]);
         }
       }
       if (charCount > 0)
@@ -646,33 +646,33 @@ label_23:
     /// <returns>true if succeeded; otherwise, false.</returns>
     private static bool SerializeValue(PocoJsonSerializerStrategy jsonSerializerStrategy, object value, StringBuilder builder)
     {
-      bool flag = true;
-      string source = value as string;
+      var flag = true;
+      var source = value as string;
       if (source != null)
       {
-        flag = JsonSerializer.SerializeString(source, builder);
+        flag = SerializeString(source, builder);
       }
       else
       {
-        IDictionary<string, object> dictionary1 = value as IDictionary<string, object>;
+        var dictionary1 = value as IDictionary<string, object>;
         if (dictionary1 != null)
         {
-          flag = JsonSerializer.SerializeObject(jsonSerializerStrategy, (IEnumerable) dictionary1.Keys, (IEnumerable) dictionary1.Values, builder);
+          flag = SerializeObject(jsonSerializerStrategy, dictionary1.Keys, dictionary1.Values, builder);
         }
         else
         {
-          IDictionary<string, string> dictionary2 = value as IDictionary<string, string>;
+          var dictionary2 = value as IDictionary<string, string>;
           if (dictionary2 != null)
           {
-            flag = JsonSerializer.SerializeObject(jsonSerializerStrategy, (IEnumerable) dictionary2.Keys, (IEnumerable) dictionary2.Values, builder);
+            flag = SerializeObject(jsonSerializerStrategy, dictionary2.Keys, dictionary2.Values, builder);
           }
           else
           {
-            IEnumerable sourceArray = value as IEnumerable;
+            var sourceArray = value as IEnumerable;
             if (sourceArray != null)
-              flag = JsonSerializer.SerializeArray(jsonSerializerStrategy, sourceArray, builder);
-            else if (JsonSerializer.IsNumeric(value))
-              flag = JsonSerializer.SerializeNumber(value, builder);
+              flag = SerializeArray(jsonSerializerStrategy, sourceArray, builder);
+            else if (IsNumeric(value))
+              flag = SerializeNumber(value, builder);
             else if (value is bool)
               builder.Append((bool) value ? "true" : "false");
             else if (value == null)
@@ -684,7 +684,7 @@ label_23:
               object output;
               flag = jsonSerializerStrategy.TrySerializeNonPrimitiveObject(value, out output);
               if (flag)
-                JsonSerializer.SerializeValue(jsonSerializerStrategy, output, builder);
+                SerializeValue(jsonSerializerStrategy, output, builder);
             }
           }
         }

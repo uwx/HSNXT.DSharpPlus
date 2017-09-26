@@ -76,7 +76,7 @@ namespace TestProj47
     {
       get
       {
-        return (long) (this._source.Length * 8);
+        return this._source.Length * 8;
       }
     }
 
@@ -103,14 +103,14 @@ namespace TestProj47
     /// <returns>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</returns>
     public override int Read(byte[] buffer, int offset, int count)
     {
-      long num1 = this.Position + (long) offset;
-      int index1 = 0;
-      int num2 = 0;
-      long index2 = num1 >> 3;
-      int num3 = (int) (num1 - (num1 >> 3 << 3));
-      while (num1 < this.Position + (long) offset + (long) count && num1 < this.Length)
+      var num1 = this.Position + offset;
+      var index1 = 0;
+      var num2 = 0;
+      var index2 = num1 >> 3;
+      var num3 = (int) (num1 - (num1 >> 3 << 3));
+      while (num1 < this.Position + offset + count && num1 < this.Length)
       {
-        buffer[index1] = ((int) this._source[index2] & 1 << 7 - num3) == 0 ? (byte) ((ulong) buffer[index1] & (ulong) uint.MaxValue - (ulong) (1 << 7 - num2)) : (byte) ((uint) buffer[index1] | (uint) (1 << 7 - num2));
+        buffer[index1] = ((int) this._source[index2] & 1 << 7 - num3) == 0 ? (byte) (buffer[index1] & uint.MaxValue - (ulong) (1 << 7 - num2)) : (byte) (buffer[index1] | (uint) (1 << 7 - num2));
         ++num1;
         if (num3 == 7)
         {
@@ -127,7 +127,7 @@ namespace TestProj47
         else
           ++num2;
       }
-      int num4 = (int) (num1 - this.Position - (long) offset);
+      var num4 = (int) (num1 - this.Position - offset);
       this.Position = num1;
       return num4;
     }
@@ -171,14 +171,14 @@ namespace TestProj47
     /// <param name="count">The number of bytes to be written to the current stream.</param>
     public override void Write(byte[] buffer, int offset, int count)
     {
-      long position = this.Position;
-      int index1 = offset >> 3;
-      int num1 = offset - (offset >> 3 << 3);
-      long index2 = position >> 3;
-      int num2 = (int) (position - (position >> 3 << 3));
-      while (position < this.Position + (long) count && position < this.Length)
+      var position = this.Position;
+      var index1 = offset >> 3;
+      var num1 = offset - (offset >> 3 << 3);
+      var index2 = position >> 3;
+      var num2 = (int) (position - (position >> 3 << 3));
+      while (position < this.Position + count && position < this.Length)
       {
-        this._source[index2] = ((int) buffer[index1] & 1 << 7 - num1) == 0 ? (byte) ((ulong) this._source[index2] & (ulong) uint.MaxValue - (ulong) (1 << 7 - num2)) : (byte) ((uint) this._source[index2] | (uint) (1 << 7 - num2));
+        this._source[index2] = ((int) buffer[index1] & 1 << 7 - num1) == 0 ? (byte) (this._source[index2] & uint.MaxValue - (ulong) (1 << 7 - num2)) : (byte) (this._source[index2] | (uint) (1 << 7 - num2));
         ++position;
         if (num2 == 7)
         {

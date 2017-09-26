@@ -16,8 +16,7 @@ namespace TestProj47
 
   {
     /// <summary>The alphabet and numeric chars.</summary>
-    private static readonly string[] AlphaNumericChars = new string[62]
-    {
+    private static readonly string[] AlphaNumericChars = {
       "a",
       "b",
       "c",
@@ -131,9 +130,9 @@ namespace TestProj47
     {
       get
       {
-        if (Extensions.CP1252Encoding == null)
-          Extensions.CP1252Encoding = Encoding.GetEncoding(1252);
-        return Extensions.CP1252Encoding;
+        if (CP1252Encoding == null)
+          CP1252Encoding = Encoding.GetEncoding(1252);
+        return CP1252Encoding;
       }
     }
 
@@ -144,7 +143,7 @@ namespace TestProj47
     /// <returns>Encoding instance for the CP1252 (Windows-1252) character set.</returns>
     public static Encoding GetCP1252Encoding(this object source)
     {
-      return Extensions.CP1252;
+      return CP1252;
     }
 
     /// <summary>Shortens the specified source string.</summary>
@@ -153,23 +152,23 @@ namespace TestProj47
     public static string[] Shorten(this string source)
     {
       if (string.IsNullOrEmpty(source))
-        return new string[4]
+        return new[]
         {
           source,
           source,
           source,
           source
         };
-      string str = FormsAuthentication.HashPasswordForStoringInConfigFile(source, "md5");
-      string[] strArray = new string[4];
-      for (int index1 = 0; index1 < 4; ++index1)
+      var str = FormsAuthentication.HashPasswordForStoringInConfigFile(source, "md5");
+      var strArray = new string[4];
+      for (var index1 = 0; index1 < 4; ++index1)
       {
-        int num = 1073741823 & Convert.ToInt32("0x" + str.Substring(index1 * 8, 8), 16);
-        string empty = string.Empty;
-        for (int index2 = 0; index2 < 6; ++index2)
+        var num = 1073741823 & Convert.ToInt32("0x" + str.Substring(index1 * 8, 8), 16);
+        var empty = string.Empty;
+        for (var index2 = 0; index2 < 6; ++index2)
         {
-          int index3 = 61 & num;
-          empty += Extensions.AlphaNumericChars[index3];
+          var index3 = 61 & num;
+          empty += AlphaNumericChars[index3];
           num >>= 5;
         }
         strArray[index1] = empty;
@@ -424,30 +423,29 @@ namespace TestProj47
     /// <returns>A Based encoded string.</returns>
     public static string Base62EncodeBytes(this byte[] source)
     {
-      StringBuilder stringBuilder = new StringBuilder();
-      BitStream bitStream = new BitStream(source);
-      byte[] buffer = new byte[1];
+      var stringBuilder = new StringBuilder();
+      var bitStream = new BitStream(source);
+      var buffer = new byte[1];
       int num;
       while (true)
       {
-        buffer[0] = (byte) 0;
+        buffer[0] = 0;
         num = bitStream.Read(buffer, 0, 6);
         switch (num)
         {
           case 6:
-            if ((int) buffer[0] >> 3 == 31)
+            switch (buffer[0] >> 3)
             {
-              stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[61]);
-              bitStream.Seek(-1L, SeekOrigin.Current);
-              continue;
+              case 31:
+                stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[61]);
+                bitStream.Seek(-1L, SeekOrigin.Current);
+                continue;
+              case 30:
+                stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[60]);
+                bitStream.Seek(-1L, SeekOrigin.Current);
+                continue;
             }
-            if ((int) buffer[0] >> 3 == 30)
-            {
-              stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[60]);
-              bitStream.Seek(-1L, SeekOrigin.Current);
-              continue;
-            }
-            stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[(int) buffer[0] >> 2]);
+            stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[buffer[0] >> 2]);
             continue;
           case 0:
             goto label_8;
@@ -456,7 +454,7 @@ namespace TestProj47
         }
       }
 label_7:
-      stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[(int) buffer[0] >> 8 - num]);
+      stringBuilder.Append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"[buffer[0] >> 8 - num]);
 label_8:
       return stringBuilder.ToString();
     }
@@ -468,32 +466,38 @@ label_8:
     /// <returns>The decoded bytes.</returns>
     public static byte[] Base62DecodeBytes(this string source)
     {
-      int num1 = 0;
-      BitStream bitStream = new BitStream(source.Length * 6 / 8);
-      foreach (char ch in source)
+      var num1 = 0;
+      var bitStream = new BitStream(source.Length * 6 / 8);
+      foreach (var ch in source)
       {
-        int num2 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".IndexOf(ch);
+        var num2 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".IndexOf(ch);
         if (num1 == source.Length - 1)
         {
-          int num3 = (int) (bitStream.Position % 8L);
+          var num3 = (int) (bitStream.Position % 8L);
           if (num3 == 0)
             throw new InvalidDataException("An extra character was found");
           if (num2 >> 8 - num3 > 0)
             throw new InvalidDataException("Invalid ending character was found");
-          bitStream.Write(new byte[1]
+          bitStream.Write(new[]
           {
             (byte) (num2 << num3)
           }, 0, 8 - num3);
         }
-        else if (num2 == 60)
-          bitStream.Write(new byte[1]{ (byte) 240 }, 0, 5);
-        else if (num2 == 61)
-          bitStream.Write(new byte[1]{ (byte) 248 }, 0, 5);
-        else
-          bitStream.Write(new byte[1]{ (byte) num2 }, 2, 6);
+        else switch (num2)
+        {
+          case 60:
+            bitStream.Write(new byte[]{ 240 }, 0, 5);
+            break;
+          case 61:
+            bitStream.Write(new byte[]{ 248 }, 0, 5);
+            break;
+          default:
+            bitStream.Write(new[]{ (byte) num2 }, 2, 6);
+            break;
+        }
         ++num1;
       }
-      byte[] buffer = new byte[bitStream.Position / 8L];
+      var buffer = new byte[bitStream.Position / 8L];
       bitStream.Seek(0L, SeekOrigin.Begin);
       bitStream.Read(buffer, 0, buffer.Length * 8);
       return buffer;
@@ -514,19 +518,19 @@ label_8:
     /// <returns>A Based encoded string.</returns>
     public static string BaseEncode(this long source, string baseChars)
     {
-      Decimal num = (Decimal) source;
-      bool flag = num < new Decimal(0);
+      Decimal num = source;
+      var flag = num < new Decimal(0);
       if (flag)
-        num = new Decimal(-1, -1, 0, false, (byte) 0) + num;
-      long length = (long) baseChars.Length;
-      Stack<char> charStack = new Stack<char>();
+        num = new Decimal(-1, -1, 0, false, 0) + num;
+      long length = baseChars.Length;
+      var charStack = new Stack<char>();
       do
       {
-        charStack.Push(baseChars[(int) (num % (Decimal) length)]);
-        num = (Decimal) (long) (num / (Decimal) length);
+        charStack.Push(baseChars[(int) (num % length)]);
+        num = (long) (num / length);
       }
       while (num != new Decimal(0));
-      string str = new string(charStack.ToArray());
+      var str = new string(charStack.ToArray());
       if (!flag)
         return str;
       return "-" + str;
@@ -538,14 +542,14 @@ label_8:
     /// <returns>The decoded number.</returns>
     public static long BaseDecode(this string source, string baseChars)
     {
-      bool flag = source.StartsWith("-") && source.Length > 1;
+      var flag = source.StartsWith("-") && source.Length > 1;
       if (flag)
         source = source.Substring(1);
-      int length = baseChars.Length;
-      Decimal num = new Decimal(0);
-      foreach (char ch in source)
-        num = num * (Decimal) length + (Decimal) baseChars.IndexOf(ch);
-      return (long) (flag ? num - new Decimal(-1, -1, 0, false, (byte) 0) : num);
+      var length = baseChars.Length;
+      var num = new Decimal(0);
+      foreach (var ch in source)
+        num = num * length + baseChars.IndexOf(ch);
+      return (long) (flag ? num - new Decimal(-1, -1, 0, false, 0) : num);
     }
   }
 }

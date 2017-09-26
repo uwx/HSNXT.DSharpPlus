@@ -33,7 +33,7 @@ namespace TestProj47
     /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
     public override string ToString()
     {
-      return JsonSerializer.Serialize((object) this) ?? string.Empty;
+      return JsonSerializer.Serialize(this) ?? string.Empty;
     }
   }
 }

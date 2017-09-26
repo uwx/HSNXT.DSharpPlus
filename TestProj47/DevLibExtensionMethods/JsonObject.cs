@@ -61,7 +61,7 @@ namespace TestProj47
     {
       get
       {
-        return (ICollection<string>) this._members.Keys;
+        return this._members.Keys;
       }
     }
 
@@ -71,7 +71,7 @@ namespace TestProj47
     {
       get
       {
-        return (ICollection<object>) this._members.Values;
+        return this._members.Values;
       }
     }
 
@@ -84,7 +84,7 @@ namespace TestProj47
     {
       get
       {
-        return JsonObject.GetAtIndex((IDictionary<string, object>) this._members, index);
+        return GetAtIndex(this._members, index);
       }
     }
 
@@ -151,8 +151,8 @@ namespace TestProj47
     {
       if (array == null)
         throw new ArgumentNullException(nameof (array));
-      int count = this.Count;
-      foreach (KeyValuePair<string, object> keyValuePair in this)
+      var count = this.Count;
+      foreach (var keyValuePair in this)
       {
         array[arrayIndex++] = keyValuePair;
         if (--count <= 0)
@@ -164,12 +164,12 @@ namespace TestProj47
     /// <returns>An enumerator that can be used to iterate through the collection.</returns>
     public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
     {
-      return (IEnumerator<KeyValuePair<string, object>>) this._members.GetEnumerator();
+      return this._members.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-      return (IEnumerator) this._members.GetEnumerator();
+      return this._members.GetEnumerator();
     }
 
     /// <summary>Removes the specified key.</summary>
@@ -194,7 +194,7 @@ namespace TestProj47
     /// <returns>A json <see cref="T:System.String" /> that represents the current <see cref="T:System.Object" />.</returns>
     public override string ToString()
     {
-      return JsonSerializer.Serialize((object) this);
+      return JsonSerializer.Serialize(this);
     }
 
     /// <summary>Tries the get value.</summary>
@@ -216,13 +216,13 @@ namespace TestProj47
         throw new ArgumentNullException("obj");
       if (index >= dictionary.Count)
         throw new ArgumentOutOfRangeException(nameof (index));
-      int num = 0;
-      foreach (KeyValuePair<string, object> keyValuePair in (IEnumerable<KeyValuePair<string, object>>) dictionary)
+      var num = 0;
+      foreach (var keyValuePair in dictionary)
       {
         if (num++ == index)
           return keyValuePair.Value;
       }
-      return (object) null;
+      return null;
     }
   }
 }

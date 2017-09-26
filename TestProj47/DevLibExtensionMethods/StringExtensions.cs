@@ -24,7 +24,7 @@ namespace TestProj47
     /// <returns>A copy of format in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
     public static string FormatInvariantCultureWith(this string source, params object[] args)
     {
-      return string.Format((IFormatProvider) CultureInfo.InvariantCulture, source, args);
+      return string.Format(CultureInfo.InvariantCulture, source, args);
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace TestProj47
     /// <returns>A copy of format in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
     public static string FormatCurrentCultureWith(this string source, params object[] args)
     {
-      return string.Format((IFormatProvider) CultureInfo.CurrentCulture, source, args);
+      return string.Format(CultureInfo.CurrentCulture, source, args);
     }
 
     /// <summary>
@@ -47,11 +47,11 @@ namespace TestProj47
     /// <returns>The list of index positions of the value parameter if that string is found, or empty list if it is not. If value is System.String.Empty or null, the return value is empty list.</returns>
     public static List<int> AllIndexOf(this string source, string value, bool ignoreCase)
     {
-      List<int> intList = new List<int>();
+      var intList = new List<int>();
       if (source == null || string.IsNullOrEmpty(value))
         return intList;
-      int length = value.Length;
-      int startIndex = 0;
+      var length = value.Length;
+      var startIndex = 0;
       if (ignoreCase)
       {
         int num;
@@ -74,14 +74,14 @@ namespace TestProj47
     /// <returns>The list of index positions of the value parameter if that string is found, or empty list if it is not. If value is System.String.Empty or null, the return value is empty list.</returns>
     public static List<int> AllIndexOf(this string source, char value, bool ignoreCase)
     {
-      List<int> intList = new List<int>();
+      var intList = new List<int>();
       if (source == null)
         return intList;
-      int startIndex = 0;
+      var startIndex = 0;
       if (ignoreCase)
       {
         int num;
-        for (string str = value.ToString(); (num = source.IndexOf(str, startIndex, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex = num + 1)
+        for (var str = value.ToString(); (num = source.IndexOf(str, startIndex, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex = num + 1)
           intList.Add(num);
         return intList;
       }
@@ -121,7 +121,7 @@ namespace TestProj47
       if (source == null)
         return false;
       if (!ignoreCase)
-        return source.Contains<char>(value);
+        return source.Contains(value);
       if (string.IsNullOrEmpty(value.ToString()))
         return true;
       return source.IndexOf(value.ToString(), StringComparison.OrdinalIgnoreCase) >= 0;
@@ -140,7 +140,7 @@ namespace TestProj47
         return false;
       if (values == null || values.Length < 1)
         return true;
-      return ((IEnumerable<string>) values).Any<string>((Func<string, bool>) (i => source.Contains(i, ignoreCase)));
+      return values.Any(i => source.Contains(i, ignoreCase));
     }
 
     /// <summary>
@@ -156,7 +156,7 @@ namespace TestProj47
         return false;
       if (values == null || values.Length < 1)
         return true;
-      return ((IEnumerable<char>) values).Any<char>((Func<char, bool>) (i => source.Contains(i, ignoreCase)));
+      return values.Any(i => source.Contains(i, ignoreCase));
     }
 
     /// <summary>
@@ -173,11 +173,11 @@ namespace TestProj47
         return source;
       if (!ignoreCase)
         return source.Replace(oldValue, newValue);
-      string str = source;
-      int length1 = oldValue.Length;
-      int length2 = newValue.Length;
+      var str = source;
+      var length1 = oldValue.Length;
+      var length2 = newValue.Length;
       int startIndex1;
-      for (int startIndex2 = 0; (startIndex1 = str.IndexOf(oldValue, startIndex2, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex2 = startIndex1 + length2)
+      for (var startIndex2 = 0; (startIndex1 = str.IndexOf(oldValue, startIndex2, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex2 = startIndex1 + length2)
         str = str.Remove(startIndex1, length1).Insert(startIndex1, newValue);
       return str;
     }
@@ -196,13 +196,13 @@ namespace TestProj47
         return source;
       if (!ignoreCase)
         return source.Replace(oldValue, newValue);
-      string str1 = source;
-      string str2 = oldValue.ToString();
-      int length1 = str2.Length;
-      string str3 = newValue.ToString();
-      int length2 = str3.Length;
+      var str1 = source;
+      var str2 = oldValue.ToString();
+      var length1 = str2.Length;
+      var str3 = newValue.ToString();
+      var length2 = str3.Length;
       int startIndex1;
-      for (int startIndex2 = 0; (startIndex1 = str1.IndexOf(str2, startIndex2, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex2 = startIndex1 + length2)
+      for (var startIndex2 = 0; (startIndex1 = str1.IndexOf(str2, startIndex2, StringComparison.OrdinalIgnoreCase)) >= 0; startIndex2 = startIndex1 + length2)
         str1 = str1.Remove(startIndex1, length1).Insert(startIndex1, str3);
       return str1;
     }
@@ -219,8 +219,8 @@ namespace TestProj47
     {
       if (source == null || newValue == null || (oldValues == null || oldValues.Length < 1))
         return source;
-      string source1 = source;
-      foreach (string oldValue in oldValues)
+      var source1 = source;
+      foreach (var oldValue in oldValues)
         source1 = source1.Replace(oldValue, newValue, ignoreCase);
       return source1;
     }
@@ -237,8 +237,8 @@ namespace TestProj47
     {
       if (source == null || oldValues == null || oldValues.Length < 1)
         return source;
-      string source1 = source;
-      foreach (char oldValue in oldValues)
+      var source1 = source;
+      foreach (var oldValue in oldValues)
         source1 = source1.Replace(oldValue, newValue, ignoreCase);
       return source1;
     }
@@ -256,9 +256,9 @@ namespace TestProj47
         return source;
       if (!ignoreCase)
         return source.Replace(value, string.Empty);
-      string str = source;
-      int length = value.Length;
-      int startIndex = 0;
+      var str = source;
+      var length = value.Length;
+      var startIndex = 0;
       while ((startIndex = str.IndexOf(value, startIndex, StringComparison.OrdinalIgnoreCase)) >= 0)
         str = str.Remove(startIndex, length);
       return str;
@@ -277,10 +277,10 @@ namespace TestProj47
         return source;
       if (!ignoreCase)
         return source.Replace(value.ToString(), string.Empty);
-      string str1 = source;
-      string str2 = value.ToString();
-      int length = str2.Length;
-      int startIndex = 0;
+      var str1 = source;
+      var str2 = value.ToString();
+      var length = str2.Length;
+      var startIndex = 0;
       while ((startIndex = str1.IndexOf(str2, startIndex, StringComparison.OrdinalIgnoreCase)) >= 0)
         str1 = str1.Remove(startIndex, length);
       return str1;
@@ -297,8 +297,8 @@ namespace TestProj47
     {
       if (source == null || values == null || values.Length < 1)
         return source;
-      string source1 = source;
-      foreach (string str in values)
+      var source1 = source;
+      foreach (var str in values)
         source1 = source1.Remove(str, ignoreCase);
       return source1;
     }
@@ -314,8 +314,8 @@ namespace TestProj47
     {
       if (source == null || values == null || values.Length < 1)
         return source;
-      string source1 = source;
-      foreach (char ch in values)
+      var source1 = source;
+      foreach (var ch in values)
         source1 = source1.Remove(ch, ignoreCase);
       return source1;
     }
@@ -355,7 +355,7 @@ namespace TestProj47
     /// <returns>All digits contained within the input string.</returns>
     public static string ExtractDigits(this string source)
     {
-      return source.ExtractChars(new Func<char, bool>(char.IsDigit));
+      return source.ExtractChars(char.IsDigit);
     }
 
     /// <summary>Extracts all letters from a string.</summary>
@@ -363,7 +363,7 @@ namespace TestProj47
     /// <returns>All letters contained within the input string.</returns>
     public static string ExtractLetters(this string source)
     {
-      return source.ExtractChars(new Func<char, bool>(char.IsLetter));
+      return source.ExtractChars(char.IsLetter);
     }
 
     /// <summary>Extracts all symbols from a string.</summary>
@@ -371,7 +371,7 @@ namespace TestProj47
     /// <returns>All symbols contained within the input string.</returns>
     public static string ExtractSymbols(this string source)
     {
-      return source.ExtractChars(new Func<char, bool>(char.IsSymbol));
+      return source.ExtractChars(char.IsSymbol);
     }
 
     /// <summary>Extracts all control chars from a string.</summary>
@@ -379,7 +379,7 @@ namespace TestProj47
     /// <returns>All control chars contained within the input string.</returns>
     public static string ExtractControlChars(this string source)
     {
-      return source.ExtractChars(new Func<char, bool>(char.IsControl));
+      return source.ExtractChars(char.IsControl);
     }
 
     /// <summary>Extracts all letters and digits from a string.</summary>
@@ -387,7 +387,7 @@ namespace TestProj47
     /// <returns>All letters and digits contained within the input string.</returns>
     public static string ExtractLettersDigits(this string source)
     {
-      return source.ExtractChars(new Func<char, bool>(char.IsLetterOrDigit));
+      return source.ExtractChars(char.IsLetterOrDigit);
     }
 
     /// <summary>
@@ -400,7 +400,7 @@ namespace TestProj47
     {
       if (source.IsNullOrEmpty())
         return string.Empty;
-      return source.Where<char>(predicate).Aggregate<char, StringBuilder>(new StringBuilder(source.Length), (Func<StringBuilder, char, StringBuilder>) ((stringBuilder, item) => stringBuilder.Append(item))).ToString();
+      return source.Where(predicate).Aggregate(new StringBuilder(source.Length), (stringBuilder, item) => stringBuilder.Append(item)).ToString();
     }
 
     /// <summary>Convert string to byte array.</summary>
@@ -423,7 +423,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(value))
         return source;
-      int length = ignoreCase ? source.IndexOf(value, StringComparison.OrdinalIgnoreCase) : source.IndexOf(value);
+      var length = ignoreCase ? source.IndexOf(value, StringComparison.OrdinalIgnoreCase) : source.IndexOf(value);
       switch (length)
       {
         case -1:
@@ -445,7 +445,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(value))
         return source;
-      int length = ignoreCase ? source.LastIndexOf(value, StringComparison.OrdinalIgnoreCase) : source.LastIndexOf(value);
+      var length = ignoreCase ? source.LastIndexOf(value, StringComparison.OrdinalIgnoreCase) : source.LastIndexOf(value);
       switch (length)
       {
         case -1:
@@ -467,7 +467,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(value))
         return source;
-      int num = ignoreCase ? source.IndexOf(value, StringComparison.OrdinalIgnoreCase) : source.IndexOf(value);
+      var num = ignoreCase ? source.IndexOf(value, StringComparison.OrdinalIgnoreCase) : source.IndexOf(value);
       switch (num)
       {
         case -1:
@@ -489,7 +489,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(value))
         return source;
-      int num = ignoreCase ? source.LastIndexOf(value, StringComparison.OrdinalIgnoreCase) : source.LastIndexOf(value);
+      var num = ignoreCase ? source.LastIndexOf(value, StringComparison.OrdinalIgnoreCase) : source.LastIndexOf(value);
       switch (num)
       {
         case -1:
@@ -509,12 +509,12 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         return source;
-      return new string(source.Where<char>((Func<char, bool>) (p =>
+      return new string(source.Where(p =>
       {
-        if (((int) p < 32 || (int) p > 55295) && ((int) p < 57344 || (int) p > 65533) && ((int) p != 9 && (int) p != 10))
+        if ((p < 32 || p > 55295) && (p < 57344 || p > 65533) && (p != 9 && p != 10))
           return (int) p == 13;
         return true;
-      })).ToArray<char>());
+      }).ToArray());
     }
 
     /// <summary>
@@ -528,22 +528,22 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         return new List<string>();
-      StringBuilder stringBuilder = new StringBuilder();
-      List<string> stringList = new List<string>();
-      bool flag1 = false;
-      bool flag2 = false;
-      for (int index = 0; index < source.Length; ++index)
+      var stringBuilder = new StringBuilder();
+      var stringList = new List<string>();
+      var flag1 = false;
+      var flag2 = false;
+      for (var index = 0; index < source.Length; ++index)
       {
-        char ch = source[index];
+        var ch = source[index];
         if (!flag1)
         {
-          if ((int) ch == (int) delimiter)
+          if (ch == delimiter)
           {
             stringList.Add(string.Empty);
           }
           else
           {
-            if ((int) ch == (int) qualifier)
+            if (ch == qualifier)
               flag2 = true;
             else
               stringBuilder.Append(ch);
@@ -554,16 +554,16 @@ namespace TestProj47
         {
           if (flag2)
           {
-            if ((int) ch == (int) qualifier && (source.Length > index + 1 && (int) source[index + 1] == (int) delimiter || index + 1 == source.Length))
+            if (ch == qualifier && (source.Length > index + 1 && source[index + 1] == delimiter || index + 1 == source.Length))
             {
               flag2 = false;
               flag1 = false;
               ++index;
             }
-            else if ((int) ch == (int) qualifier && source.Length > index + 1 && (int) source[index + 1] == (int) qualifier)
+            else if (ch == qualifier && source.Length > index + 1 && source[index + 1] == qualifier)
               ++index;
           }
-          else if ((int) ch == (int) delimiter)
+          else if (ch == delimiter)
             flag1 = false;
           if (!flag1)
           {
@@ -590,22 +590,22 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         return new List<string>();
-      StringBuilder stringBuilder = new StringBuilder();
-      List<string> stringList = new List<string>();
-      bool flag1 = false;
-      bool flag2 = false;
-      for (int index = 0; index < source.Length; ++index)
+      var stringBuilder = new StringBuilder();
+      var stringList = new List<string>();
+      var flag1 = false;
+      var flag2 = false;
+      for (var index = 0; index < source.Length; ++index)
       {
-        char ch = source[index];
+        var ch = source[index];
         if (!flag1)
         {
-          if (((IEnumerable<char>) delimiters).Contains<char>(ch))
+          if (delimiters.Contains(ch))
           {
             stringList.Add(string.Empty);
           }
           else
           {
-            if ((int) ch == (int) qualifier)
+            if (ch == qualifier)
               flag2 = true;
             else
               stringBuilder.Append(ch);
@@ -616,16 +616,16 @@ namespace TestProj47
         {
           if (flag2)
           {
-            if ((int) ch == (int) qualifier && (source.Length > index + 1 && ((IEnumerable<char>) delimiters).Contains<char>(source[index + 1]) || index + 1 == source.Length))
+            if (ch == qualifier && (source.Length > index + 1 && delimiters.Contains(source[index + 1]) || index + 1 == source.Length))
             {
               flag2 = false;
               flag1 = false;
               ++index;
             }
-            else if ((int) ch == (int) qualifier && source.Length > index + 1 && (int) source[index + 1] == (int) qualifier)
+            else if (ch == qualifier && source.Length > index + 1 && source[index + 1] == qualifier)
               ++index;
           }
-          else if (((IEnumerable<char>) delimiters).Contains<char>(ch))
+          else if (delimiters.Contains(ch))
             flag1 = false;
           if (!flag1)
           {
@@ -647,11 +647,11 @@ namespace TestProj47
     /// <returns>A list of lines for the word wrapped text.</returns>
     public static List<string> WordWrap(this string source, int maxLineLength = 80)
     {
-      List<string> stringList = new List<string>();
-      string empty = string.Empty;
-      string str1 = source;
-      char[] chArray = new char[1]{ ' ' };
-      foreach (string str2 in str1.Split(chArray))
+      var stringList = new List<string>();
+      var empty = string.Empty;
+      var str1 = source;
+      var chArray = new char[1]{ ' ' };
+      foreach (var str2 in str1.Split(chArray))
       {
         if (empty.Length + str2.Length > maxLineLength)
         {
@@ -679,11 +679,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (separator == null)
         separator = string.Empty;
-      using (IEnumerator<string> enumerator = source.GetEnumerator())
+      using (var enumerator = source.GetEnumerator())
       {
         if (!enumerator.MoveNext())
           return string.Empty;
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         if (enumerator.Current != null)
           stringBuilder.Append(enumerator.Current);
         while (enumerator.MoveNext())
@@ -741,7 +741,7 @@ namespace TestProj47
     {
       if (!string.IsNullOrEmpty(source))
         return source;
-      return (string) null;
+      return null;
     }
 
     /// <summary>Gets null if string is null or white space.</summary>
@@ -751,7 +751,7 @@ namespace TestProj47
     {
       if (!source.IsNullOrWhiteSpace())
         return source;
-      return (string) null;
+      return null;
     }
 
     /// <summary>Retrieves a substring from the left.</summary>

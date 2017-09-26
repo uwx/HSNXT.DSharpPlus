@@ -22,8 +22,8 @@ namespace TestProj47
     /// <returns>Byte array.</returns>
     public static byte[] ToByteArray(this BitArray source)
     {
-      byte[] numArray = new byte[(source.Length - 1) / 8 + 1];
-      source.CopyTo((Array) numArray, 0);
+      var numArray = new byte[(source.Length - 1) / 8 + 1];
+      source.CopyTo(numArray, 0);
       return numArray;
     }
 
@@ -32,8 +32,8 @@ namespace TestProj47
     /// <returns>bool array.</returns>
     public static bool[] ToBoolArray(this BitArray source)
     {
-      bool[] flagArray = new bool[source.Length];
-      source.CopyTo((Array) flagArray, 0);
+      var flagArray = new bool[source.Length];
+      source.CopyTo(flagArray, 0);
       return flagArray;
     }
 
@@ -42,8 +42,8 @@ namespace TestProj47
     /// <returns>Binary digit Int32 array.</returns>
     public static int[] ToBitIntArray(this BitArray source)
     {
-      int[] numArray = new int[source.Length];
-      source.CopyTo((Array) numArray, 0);
+      var numArray = new int[source.Length];
+      source.CopyTo(numArray, 0);
       return numArray;
     }
 
@@ -52,10 +52,10 @@ namespace TestProj47
     /// <returns>Binary digit string.</returns>
     public static string ToBitString(this BitArray source)
     {
-      StringBuilder stringBuilder = new StringBuilder(source.Length);
+      var stringBuilder = new StringBuilder(source.Length);
       foreach (bool flag in source)
         stringBuilder.Append(flag ? "1" : "0");
-      string str = stringBuilder.ToString();
+      var str = stringBuilder.ToString();
       stringBuilder.Length = 0;
       return str;
     }
@@ -89,9 +89,9 @@ namespace TestProj47
     /// <returns>BitArray instance.</returns>
     public static BitArray BitStringToBitArray(this string source)
     {
-      bool[] values = new bool[source.Length];
-      for (int index = 0; index < source.Length; ++index)
-        values[index] = (int) source[index] != 48;
+      var values = new bool[source.Length];
+      for (var index = 0; index < source.Length; ++index)
+        values[index] = source[index] != 48;
       return new BitArray(values);
     }
 
@@ -103,24 +103,24 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      char[] chArray1 = new char[source.Count * 2];
-      int index1 = 0;
-      int index2 = 0;
+      var chArray1 = new char[source.Count * 2];
+      var index1 = 0;
+      var index2 = 0;
       while (index1 < source.Count)
       {
-        byte num1 = (byte) ((uint) source[index1] >> 4);
-        chArray1[index2] = (int) num1 > 9 ? (char) ((int) num1 + 55 + 32) : (char) ((int) num1 + 48);
-        byte num2 = (byte) ((uint) source[index1] & 15U);
+        var num1 = (byte) ((uint) source[index1] >> 4);
+        chArray1[index2] = (int) num1 > 9 ? (char) (num1 + 55 + 32) : (char) (num1 + 48);
+        var num2 = (byte) (source[index1] & 15U);
         int num3;
-        chArray1[num3 = index2 + 1] = (int) num2 > 9 ? (char) ((int) num2 + 55 + 32) : (char) ((int) num2 + 48);
+        chArray1[num3 = index2 + 1] = (int) num2 > 9 ? (char) (num2 + 55 + 32) : (char) (num2 + 48);
         ++index1;
         index2 = num3 + 1;
       }
-      char? nullable = delimiter;
-      if (!(nullable.HasValue ? new int?((int) nullable.GetValueOrDefault()) : new int?()).HasValue)
+      var nullable = delimiter;
+      if (!(nullable.HasValue ? nullable.GetValueOrDefault() : new int?()).HasValue)
         return new string(chArray1).ToUpperInvariant();
-      char[] chArray2 = new char[source.Count * 3];
-      for (int index3 = 0; index3 < source.Count; ++index3)
+      var chArray2 = new char[source.Count * 3];
+      for (var index3 = 0; index3 < source.Count; ++index3)
       {
         chArray2[index3 * 3] = chArray1[index3 * 2];
         chArray2[index3 * 3 + 1] = chArray1[index3 * 2 + 1];
@@ -142,19 +142,19 @@ namespace TestProj47
     /// <returns>Byte array.</returns>
     public static byte[] HexToByteArray(this string source)
     {
-      string str = source.RemoveAny(false, ' ', '-', '\n', '\r');
+      var str = source.RemoveAny(false, ' ', '-', '\n', '\r');
       if (str.Length % 2 == 1)
         str = "0" + str;
-      byte[] numArray = new byte[str.Length / 2];
-      int index1 = 0;
-      int index2 = 0;
+      var numArray = new byte[str.Length / 2];
+      var index1 = 0;
+      var index2 = 0;
       while (index1 < numArray.Length)
       {
-        char ch1 = str[index2];
-        numArray[index1] = (byte) (((int) ch1 > 57 ? ((int) ch1 > 90 ? (int) ch1 - 97 + 10 : (int) ch1 - 65 + 10) : (int) ch1 - 48) << 4);
+        var ch1 = str[index2];
+        numArray[index1] = (byte) (((int) ch1 > 57 ? ((int) ch1 > 90 ? ch1 - 97 + 10 : ch1 - 65 + 10) : ch1 - 48) << 4);
         int num;
-        char ch2 = str[num = index2 + 1];
-        numArray[index1] |= (int) ch2 > 57 ? ((int) ch2 > 90 ? (byte) ((int) ch2 - 97 + 10) : (byte) ((int) ch2 - 65 + 10)) : (byte) ((int) ch2 - 48);
+        var ch2 = str[num = index2 + 1];
+        numArray[index1] |= (int) ch2 > 57 ? ((int) ch2 > 90 ? (byte) (ch2 - 97 + 10) : (byte) (ch2 - 65 + 10)) : (byte) (ch2 - 48);
         ++index1;
         index2 = num + 1;
       }
@@ -179,7 +179,7 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      return (byte[]) new ImageConverter().ConvertTo((object) source, typeof (byte[]));
+      return (byte[]) new ImageConverter().ConvertTo(source, typeof (byte[]));
     }
 
     /// <summary>Compresses byte array using CompressionType.</summary>
@@ -190,9 +190,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        using (Stream zipStream = Extensions.GetZipStream(memoryStream, CompressionMode.Compress, compressionType))
+        using (var zipStream = GetZipStream(memoryStream, CompressionMode.Compress, compressionType))
           zipStream.Write(source, 0, source.Length);
         return memoryStream.ToArray();
       }
@@ -206,13 +206,13 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream1 = new MemoryStream())
+      using (var memoryStream1 = new MemoryStream())
       {
-        using (MemoryStream memoryStream2 = new MemoryStream(source))
+        using (var memoryStream2 = new MemoryStream(source))
         {
-          using (Stream zipStream = Extensions.GetZipStream(memoryStream2, CompressionMode.Decompress, compressionType))
+          using (var zipStream = GetZipStream(memoryStream2, CompressionMode.Decompress, compressionType))
           {
-            byte[] buffer = new byte[81920];
+            var buffer = new byte[81920];
             int count;
             while ((count = zipStream.Read(buffer, 0, buffer.Length)) != 0)
               memoryStream1.Write(buffer, 0, count);
@@ -230,8 +230,8 @@ namespace TestProj47
     private static Stream GetZipStream(MemoryStream memoryStream, CompressionMode compressionMode, CompressionType compressionType)
     {
       if (compressionType == CompressionType.GZip)
-        return (Stream) new GZipStream((Stream) memoryStream, compressionMode);
-      return (Stream) new DeflateStream((Stream) memoryStream, compressionMode);
+        return new GZipStream(memoryStream, compressionMode);
+      return new DeflateStream(memoryStream, compressionMode);
     }
   }
 }

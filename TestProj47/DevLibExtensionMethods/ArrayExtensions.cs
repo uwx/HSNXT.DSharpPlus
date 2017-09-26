@@ -32,7 +32,7 @@ namespace TestProj47
       }
       else
       {
-        for (int index = 0; index < source.Length; ++index)
+        for (var index = 0; index < source.Length; ++index)
         {
           try
           {
@@ -60,28 +60,28 @@ namespace TestProj47
         return;
       if (sourceArray == null)
       {
-        int length = suffixArray.Length;
+        var length = suffixArray.Length;
         sourceArray = new T[length];
         if (useDeepClone)
         {
-          for (int index = 0; index < length; ++index)
-            sourceArray[index] = suffixArray[index].CloneDeep<T>();
+          for (var index = 0; index < length; ++index)
+            sourceArray[index] = suffixArray[index].CloneDeep();
         }
         else
-          Array.Copy((Array) suffixArray, (Array) sourceArray, length);
+          Array.Copy(suffixArray, sourceArray, length);
       }
       else
       {
-        int length1 = sourceArray.Length;
-        int length2 = suffixArray.Length;
-        Array.Resize<T>(ref sourceArray, length1 + length2);
+        var length1 = sourceArray.Length;
+        var length2 = suffixArray.Length;
+        Array.Resize(ref sourceArray, length1 + length2);
         if (useDeepClone)
         {
-          for (int index = 0; index < length2; ++index)
-            sourceArray[index + length1] = suffixArray[index].CloneDeep<T>();
+          for (var index = 0; index < length2; ++index)
+            sourceArray[index + length1] = suffixArray[index].CloneDeep();
         }
         else
-          suffixArray.CopyTo((Array) sourceArray, length1);
+          suffixArray.CopyTo(sourceArray, length1);
       }
     }
 
@@ -100,11 +100,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (pattern));
       if (pattern.Length == 0)
         return 0;
-      int num1 = -1;
-      int num2 = source.Length - pattern.Length;
-      while ((num1 = Array.IndexOf<T>(source, pattern[0], num1 + 1)) <= num2 && num1 != -1)
+      var num1 = -1;
+      var num2 = source.Length - pattern.Length;
+      while ((num1 = Array.IndexOf(source, pattern[0], num1 + 1)) <= num2 && num1 != -1)
       {
-        int index = 0;
+        var index = 0;
         while (source[num1 + index].Equals(pattern[index]))
         {
           if (++index == pattern.Length)
@@ -129,12 +129,12 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (pattern));
       if (pattern.Length == 0)
         return 0;
-      int num1 = -1;
-      int num2 = source.Length - pattern.Length;
-      StringComparison comparisonType = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
-      while ((num1 = Array.IndexOf<string>(source, pattern[0], num1 + 1)) <= num2 && num1 != -1)
+      var num1 = -1;
+      var num2 = source.Length - pattern.Length;
+      var comparisonType = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
+      while ((num1 = Array.IndexOf(source, pattern[0], num1 + 1)) <= num2 && num1 != -1)
       {
-        int index = 0;
+        var index = 0;
         while (source[num1 + index].Equals(pattern[index], comparisonType))
         {
           if (++index == pattern.Length)
@@ -159,10 +159,10 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (pattern));
       if (pattern.Length == 0)
         return source.Length - 1;
-      int num = source.Length - pattern.Length + 1;
-      while ((num = Array.LastIndexOf<T>(source, pattern[0], num - 1)) >= 0 && num != -1)
+      var num = source.Length - pattern.Length + 1;
+      while ((num = Array.LastIndexOf(source, pattern[0], num - 1)) >= 0 && num != -1)
       {
-        int index = 0;
+        var index = 0;
         while (source[num + index].Equals(pattern[index]))
         {
           if (++index == pattern.Length)
@@ -187,11 +187,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (pattern));
       if (pattern.Length == 0)
         return source.Length - 1;
-      int num = source.Length - pattern.Length + 1;
-      StringComparison comparisonType = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
-      while ((num = Array.LastIndexOf<string>(source, pattern[0], num - 1)) >= 0 && num != -1)
+      var num = source.Length - pattern.Length + 1;
+      var comparisonType = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
+      while ((num = Array.LastIndexOf(source, pattern[0], num - 1)) >= 0 && num != -1)
       {
-        int index = 0;
+        var index = 0;
         while (source[num + index].Equals(pattern[index], comparisonType))
         {
           if (++index == pattern.Length)

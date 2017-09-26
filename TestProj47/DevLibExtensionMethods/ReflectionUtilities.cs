@@ -25,7 +25,7 @@ namespace TestProj47
     public static Attribute GetAttribute(MemberInfo info, Type type)
     {
       if (info == null || type == null || !Attribute.IsDefined(info, type))
-        return (Attribute) null;
+        return null;
       return Attribute.GetCustomAttribute(info, type);
     }
 
@@ -35,48 +35,48 @@ namespace TestProj47
     /// <returns>The Attribute.</returns>
     public static Attribute GetAttribute(Type objectType, Type attributeType)
     {
-      if (objectType == null || attributeType == null || !Attribute.IsDefined((MemberInfo) objectType, attributeType))
-        return (Attribute) null;
-      return Attribute.GetCustomAttribute((MemberInfo) objectType, attributeType);
+      if (objectType == null || attributeType == null || !Attribute.IsDefined(objectType, attributeType))
+        return null;
+      return Attribute.GetCustomAttribute(objectType, attributeType);
     }
 
     /// <summary>Gets the constructor.</summary>
     /// <param name="constructorInfo">The constructor information.</param>
     /// <returns>The ConstructorDelegate.</returns>
-    public static ReflectionUtilities.ConstructorDelegate GetConstructor(ConstructorInfo constructorInfo)
+    public static ConstructorDelegate GetConstructor(ConstructorInfo constructorInfo)
     {
-      return ReflectionUtilities.GetConstructorByReflection(constructorInfo);
+      return GetConstructorByReflection(constructorInfo);
     }
 
     /// <summary>Gets the constructor.</summary>
     /// <param name="type">The type.</param>
     /// <param name="argsType">Type of the arguments.</param>
     /// <returns>The ConstructorDelegate.</returns>
-    public static ReflectionUtilities.ConstructorDelegate GetConstructor(Type type, params Type[] argsType)
+    public static ConstructorDelegate GetConstructor(Type type, params Type[] argsType)
     {
-      return ReflectionUtilities.GetConstructorByReflection(type, argsType);
+      return GetConstructorByReflection(type, argsType);
     }
 
     /// <summary>Gets the constructor by reflection.</summary>
     /// <param name="constructorInfo">The constructor information.</param>
     /// <returns>The ConstructorDelegate.</returns>
-    public static ReflectionUtilities.ConstructorDelegate GetConstructorByReflection(ConstructorInfo constructorInfo)
+    public static ConstructorDelegate GetConstructorByReflection(ConstructorInfo constructorInfo)
     {
-      if (ReflectionUtilities.IsEnumerable(constructorInfo.DeclaringType))
-        return (ReflectionUtilities.ConstructorDelegate) (args => (object) ReflectionUtilities.CreateIList(constructorInfo.DeclaringType, args));
-      return (ReflectionUtilities.ConstructorDelegate) (args => constructorInfo.Invoke(args));
+      if (IsEnumerable(constructorInfo.DeclaringType))
+        return args => (object) CreateIList(constructorInfo.DeclaringType, args);
+      return args => constructorInfo.Invoke(args);
     }
 
     /// <summary>Gets the constructor by reflection.</summary>
     /// <param name="type">The type.</param>
     /// <param name="argsType">Type of the arguments.</param>
     /// <returns>The ConstructorDelegate.</returns>
-    public static ReflectionUtilities.ConstructorDelegate GetConstructorByReflection(Type type, params Type[] argsType)
+    public static ConstructorDelegate GetConstructorByReflection(Type type, params Type[] argsType)
     {
-      ConstructorInfo constructorInfo = ReflectionUtilities.GetConstructorInfo(type, argsType);
+      var constructorInfo = GetConstructorInfo(type, argsType);
       if (constructorInfo != null)
-        return ReflectionUtilities.GetConstructorByReflection(constructorInfo);
-      return (ReflectionUtilities.ConstructorDelegate) null;
+        return GetConstructorByReflection(constructorInfo);
+      return null;
     }
 
     /// <summary>Gets the constructor information.</summary>
@@ -85,14 +85,14 @@ namespace TestProj47
     /// <returns>The ConstructorInfo.</returns>
     public static ConstructorInfo GetConstructorInfo(Type type, params Type[] argsType)
     {
-      foreach (ConstructorInfo constructor in ReflectionUtilities.GetConstructors(type))
+      foreach (var constructor in GetConstructors(type))
       {
-        ParameterInfo[] parameters = constructor.GetParameters();
+        var parameters = constructor.GetParameters();
         if (argsType.Length == parameters.Length)
         {
-          int index = 0;
-          bool flag = true;
-          foreach (ParameterInfo parameter in constructor.GetParameters())
+          var index = 0;
+          var flag = true;
+          foreach (var parameter in constructor.GetParameters())
           {
             if (parameter.ParameterType != argsType[index])
             {
@@ -104,7 +104,7 @@ namespace TestProj47
             return constructor;
         }
       }
-      return (ConstructorInfo) null;
+      return null;
     }
 
     /// <summary>Gets the constructors.</summary>
@@ -112,7 +112,7 @@ namespace TestProj47
     /// <returns>The IEnumerable.</returns>
     public static IEnumerable<ConstructorInfo> GetConstructors(Type type)
     {
-      return (IEnumerable<ConstructorInfo>) type.GetConstructors();
+      return type.GetConstructors();
     }
 
     /// <summary>Gets the fields.</summary>
@@ -120,7 +120,7 @@ namespace TestProj47
     /// <returns>The IEnumerable.</returns>
     public static IEnumerable<FieldInfo> GetFields(Type type)
     {
-      return (IEnumerable<FieldInfo>) type.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+      return type.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
     }
 
     /// <summary>Gets the type of the generic list element.</summary>
@@ -128,12 +128,12 @@ namespace TestProj47
     /// <returns>The Type.</returns>
     public static Type GetGenericListElementType(Type type)
     {
-      foreach (Type type1 in (IEnumerable<Type>) type.GetInterfaces())
+      foreach (var type1 in type.GetInterfaces())
       {
-        if (ReflectionUtilities.IsTypeGeneric(type1) && type1.GetGenericTypeDefinition() == typeof (IList<>))
-          return ReflectionUtilities.GetGenericTypeArguments(type1)[0];
+        if (IsTypeGeneric(type1) && type1.GetGenericTypeDefinition() == typeof (IList<>))
+          return GetGenericTypeArguments(type1)[0];
       }
-      return ReflectionUtilities.GetGenericTypeArguments(type)[0];
+      return GetGenericTypeArguments(type)[0];
     }
 
     /// <summary>Gets the generic type arguments.</summary>
@@ -147,34 +147,34 @@ namespace TestProj47
     /// <summary>Gets the get method.</summary>
     /// <param name="propertyInfo">The property information.</param>
     /// <returns>The GetDelegate.</returns>
-    public static ReflectionUtilities.GetDelegate GetGetMethod(PropertyInfo propertyInfo)
+    public static GetDelegate GetGetMethod(PropertyInfo propertyInfo)
     {
-      return ReflectionUtilities.GetGetMethodByReflection(propertyInfo);
+      return GetGetMethodByReflection(propertyInfo);
     }
 
     /// <summary>Gets the get method.</summary>
     /// <param name="fieldInfo">The field information.</param>
     /// <returns>The GetDelegate.</returns>
-    public static ReflectionUtilities.GetDelegate GetGetMethod(FieldInfo fieldInfo)
+    public static GetDelegate GetGetMethod(FieldInfo fieldInfo)
     {
-      return ReflectionUtilities.GetGetMethodByReflection(fieldInfo);
+      return GetGetMethodByReflection(fieldInfo);
     }
 
     /// <summary>Gets the get method by reflection.</summary>
     /// <param name="propertyInfo">The property information.</param>
     /// <returns>The GetDelegate.</returns>
-    public static ReflectionUtilities.GetDelegate GetGetMethodByReflection(PropertyInfo propertyInfo)
+    public static GetDelegate GetGetMethodByReflection(PropertyInfo propertyInfo)
     {
-      MethodInfo methodInfo = ReflectionUtilities.GetGetterMethodInfo(propertyInfo);
-      return (ReflectionUtilities.GetDelegate) (source => methodInfo.Invoke(source, ReflectionUtilities.EmptyObjects));
+      var methodInfo = GetGetterMethodInfo(propertyInfo);
+      return source => methodInfo.Invoke(source, EmptyObjects);
     }
 
     /// <summary>Gets the get method by reflection.</summary>
     /// <param name="fieldInfo">The field information.</param>
     /// <returns>The GetDelegate.</returns>
-    public static ReflectionUtilities.GetDelegate GetGetMethodByReflection(FieldInfo fieldInfo)
+    public static GetDelegate GetGetMethodByReflection(FieldInfo fieldInfo)
     {
-      return (ReflectionUtilities.GetDelegate) (source => fieldInfo.GetValue(source));
+      return source => fieldInfo.GetValue(source);
     }
 
     /// <summary>Gets the getter method information.</summary>
@@ -190,43 +190,43 @@ namespace TestProj47
     /// <returns>The IEnumerable.</returns>
     public static IEnumerable<PropertyInfo> GetProperties(Type type)
     {
-      return (IEnumerable<PropertyInfo>) type.GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+      return type.GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
     }
 
     /// <summary>Gets the set method.</summary>
     /// <param name="propertyInfo">The property information.</param>
     /// <returns>The SetDelegate.</returns>
-    public static ReflectionUtilities.SetDelegate GetSetMethod(PropertyInfo propertyInfo)
+    public static SetDelegate GetSetMethod(PropertyInfo propertyInfo)
     {
-      return ReflectionUtilities.GetSetMethodByReflection(propertyInfo);
+      return GetSetMethodByReflection(propertyInfo);
     }
 
     /// <summary>Gets the set method.</summary>
     /// <param name="fieldInfo">The field information.</param>
     /// <returns>The SetDelegate.</returns>
-    public static ReflectionUtilities.SetDelegate GetSetMethod(FieldInfo fieldInfo)
+    public static SetDelegate GetSetMethod(FieldInfo fieldInfo)
     {
-      return ReflectionUtilities.GetSetMethodByReflection(fieldInfo);
+      return GetSetMethodByReflection(fieldInfo);
     }
 
     /// <summary>Gets the set method by reflection.</summary>
     /// <param name="propertyInfo">The property information.</param>
     /// <returns>The SetDelegate.</returns>
-    public static ReflectionUtilities.SetDelegate GetSetMethodByReflection(PropertyInfo propertyInfo)
+    public static SetDelegate GetSetMethodByReflection(PropertyInfo propertyInfo)
     {
-      MethodInfo methodInfo = ReflectionUtilities.GetSetterMethodInfo(propertyInfo);
-      return (ReflectionUtilities.SetDelegate) ((source, value) => methodInfo.Invoke(source, new object[1]
+      var methodInfo = GetSetterMethodInfo(propertyInfo);
+      return (source, value) => methodInfo.Invoke(source, new object[1]
       {
         value
-      }));
+      });
     }
 
     /// <summary>Gets the set method by reflection.</summary>
     /// <param name="fieldInfo">The field information.</param>
     /// <returns>The SetDelegate.</returns>
-    public static ReflectionUtilities.SetDelegate GetSetMethodByReflection(FieldInfo fieldInfo)
+    public static SetDelegate GetSetMethodByReflection(FieldInfo fieldInfo)
     {
-      return (ReflectionUtilities.SetDelegate) ((source, value) => fieldInfo.SetValue(source, value));
+      return (source, value) => fieldInfo.SetValue(source, value);
     }
 
     /// <summary>Gets the setter method information.</summary>
@@ -287,9 +287,9 @@ namespace TestProj47
     /// <returns>true if the specified type is generic collection; otherwise, false.</returns>
     public static bool IsTypeGenericCollectionInterface(Type type)
     {
-      if (!ReflectionUtilities.IsTypeGeneric(type))
+      if (!IsTypeGeneric(type))
         return false;
-      Type genericTypeDefinition = type.GetGenericTypeDefinition();
+      var genericTypeDefinition = type.GetGenericTypeDefinition();
       if (genericTypeDefinition != typeof (IList<>) && genericTypeDefinition != typeof (ICollection<>))
         return genericTypeDefinition == typeof (IEnumerable<>);
       return true;
@@ -310,8 +310,8 @@ namespace TestProj47
     public static object ToNullableType(object obj, Type nullableType)
     {
       if (obj != null)
-        return Convert.ChangeType(obj, Nullable.GetUnderlyingType(nullableType), (IFormatProvider) CultureInfo.InvariantCulture);
-      return (object) null;
+        return Convert.ChangeType(obj, Nullable.GetUnderlyingType(nullableType), CultureInfo.InvariantCulture);
+      return null;
     }
 
     /// <summary>
@@ -322,33 +322,30 @@ namespace TestProj47
     /// <returns>A reference to the newly created IList object.</returns>
     private static IList CreateIList(Type source, params object[] lengths)
     {
-      if (!ReflectionUtilities.IsEnumerable(source) || ReflectionUtilities.IsDictionary(source))
-        return (IList) null;
+      if (!IsEnumerable(source) || IsDictionary(source))
+        return null;
       if (source.IsArray)
       {
-        if (ReflectionUtilities.IsNullOrEmpty((Array) lengths))
-          return (IList) Array.CreateInstance(source.GetElementType(), 0);
-        long[] numArray = new long[lengths.Length];
-        for (int index = 0; index < lengths.Length; ++index)
+        if (IsNullOrEmpty(lengths))
+          return Array.CreateInstance(source.GetElementType(), 0);
+        var numArray = new long[lengths.Length];
+        for (var index = 0; index < lengths.Length; ++index)
         {
-          object length = lengths[index];
+          var length = lengths[index];
           try
           {
             numArray[index] = (long) length;
           }
           catch
           {
-            numArray[index] = (long) (int) length;
+            numArray[index] = (int) length;
           }
         }
-        return (IList) Array.CreateInstance(source.GetElementType(), numArray);
+        return Array.CreateInstance(source.GetElementType(), numArray);
       }
-      if (ReflectionUtilities.IsNullOrEmpty((Array) lengths))
+      if (IsNullOrEmpty(lengths))
         return (IList) Activator.CreateInstance(source);
-      return (IList) Activator.CreateInstance(source, new object[1]
-      {
-        lengths[0]
-      });
+      return (IList) Activator.CreateInstance(source, lengths[0]);
     }
 
     /// <summary>Check Type inherit IDictionary interface or not.</summary>
@@ -411,7 +408,7 @@ namespace TestProj47
       /// <summary>Field _syncRoot.</summary>
       private readonly object _syncRoot = new object();
       /// <summary>Field _valueFactory.</summary>
-      private readonly ReflectionUtilities.ThreadSafeDictionaryValueFactory<TKey, TValue> _valueFactory;
+      private readonly ThreadSafeDictionaryValueFactory<TKey, TValue> _valueFactory;
       /// <summary>Field _dictionary.</summary>
       private Dictionary<TKey, TValue> _dictionary;
 
@@ -419,7 +416,7 @@ namespace TestProj47
       /// Initializes a new instance of the <see cref="T:TestProj47.ReflectionUtilities.ThreadSafeDictionary`2" /> class.
       /// </summary>
       /// <param name="valueFactory">The value factory.</param>
-      public ThreadSafeDictionary(ReflectionUtilities.ThreadSafeDictionaryValueFactory<TKey, TValue> valueFactory)
+      public ThreadSafeDictionary(ThreadSafeDictionaryValueFactory<TKey, TValue> valueFactory)
       {
         this._valueFactory = valueFactory;
       }
@@ -456,7 +453,7 @@ namespace TestProj47
       {
         get
         {
-          return (ICollection<TKey>) this._dictionary.Keys;
+          return this._dictionary.Keys;
         }
       }
 
@@ -468,7 +465,7 @@ namespace TestProj47
       {
         get
         {
-          return (ICollection<TValue>) this._dictionary.Values;
+          return this._dictionary.Values;
         }
       }
 
@@ -548,12 +545,12 @@ namespace TestProj47
       /// <returns>An enumerator that can be used to iterate through the collection.</returns>
       public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
       {
-        return (IEnumerator<KeyValuePair<TKey, TValue>>) this._dictionary.GetEnumerator();
+        return this._dictionary.GetEnumerator();
       }
 
       IEnumerator IEnumerable.GetEnumerator()
       {
-        return (IEnumerator) this._dictionary.GetEnumerator();
+        return this._dictionary.GetEnumerator();
       }
 
       /// <summary>
@@ -591,7 +588,7 @@ namespace TestProj47
       /// <returns>The value.</returns>
       private TValue AddValue(TKey key)
       {
-        TValue obj1 = this._valueFactory(key);
+        var obj1 = this._valueFactory(key);
         lock (this._syncRoot)
         {
           if (this._dictionary == null)
@@ -604,7 +601,7 @@ namespace TestProj47
             TValue obj2;
             if (this._dictionary.TryGetValue(key, out obj2))
               return obj2;
-            Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>((IDictionary<TKey, TValue>) this._dictionary);
+            var dictionary = new Dictionary<TKey, TValue>(this._dictionary);
             dictionary[key] = obj1;
             this._dictionary = dictionary;
           }

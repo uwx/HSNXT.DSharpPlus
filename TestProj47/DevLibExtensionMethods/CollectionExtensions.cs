@@ -40,7 +40,7 @@ namespace TestProj47
     public static Type GetEnumerableElementType(this Type source)
     {
       if (source.GetInterface("IEnumerable") == null)
-        return (Type) null;
+        return null;
       if (!source.IsArray)
         return source.GetGenericArguments()[0];
       return source.GetElementType();
@@ -56,7 +56,7 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      if ((object) sourceKey == null)
+      if (sourceKey == null)
         throw new ArgumentNullException(nameof (sourceKey));
       if (source.ContainsKey(sourceKey))
         source[sourceKey] = sourceValue;
@@ -75,7 +75,7 @@ namespace TestProj47
     {
       if (source == null || source.Count == 0 || action == null)
         return;
-      foreach (KeyValuePair<TKey, TValue> keyValuePair in (IEnumerable<KeyValuePair<TKey, TValue>>) source)
+      foreach (var keyValuePair in source)
         action(keyValuePair.Key, keyValuePair.Value);
     }
 
@@ -104,7 +104,7 @@ namespace TestProj47
     /// <param name="forceUpdate">true to update the source dictionary if the key exists; otherwise, ignore the value.</param>
     public static void AddRange<TKey, TValue>(this IDictionary<TKey, TValue> source, IDictionary<TKey, TValue> dictionary, bool forceUpdate = true)
     {
-      foreach (KeyValuePair<TKey, TValue> keyValuePair in (IEnumerable<KeyValuePair<TKey, TValue>>) dictionary)
+      foreach (var keyValuePair in dictionary)
       {
         if (forceUpdate || !source.ContainsKey(keyValuePair.Key))
           source[keyValuePair.Key] = keyValuePair.Value;
@@ -138,7 +138,7 @@ namespace TestProj47
     public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
     {
       if (source != null)
-        return source.Count<T>() == 0;
+        return source.Count() == 0;
       return true;
     }
 
@@ -149,7 +149,7 @@ namespace TestProj47
     public static bool IsNotNullNorEmpty<T>(this IEnumerable<T> source)
     {
       if (source != null)
-        return source.Count<T>() > 0;
+        return source.Count() > 0;
       return false;
     }
 
@@ -182,11 +182,11 @@ namespace TestProj47
     /// <returns>A list of the zero-based index of the all occurrence of elements that matches the conditions defined by match, if found; otherwise, empty list.</returns>
     public static List<int> FindAllIndex<T>(this IEnumerable<T> source, Predicate<T> match)
     {
-      List<int> intList = new List<int>();
+      var intList = new List<int>();
       if (source == null)
         return intList;
-      int num = 0;
-      foreach (T obj in source)
+      var num = 0;
+      foreach (var obj in source)
       {
         if (match(obj))
           intList.Add(num);
@@ -203,11 +203,11 @@ namespace TestProj47
     /// <returns>A list of the zero-based index of the all occurrence of elements that matches the conditions defined by match, if found; otherwise, empty list.</returns>
     public static List<int> FindAllIndex(this IEnumerable source, Func<object, bool> predicate)
     {
-      List<int> intList = new List<int>();
+      var intList = new List<int>();
       if (source == null)
         return intList;
-      int num = 0;
-      foreach (object obj in source)
+      var num = 0;
+      foreach (var obj in source)
       {
         if (predicate(obj))
           intList.Add(num);
@@ -226,24 +226,24 @@ namespace TestProj47
     /// <returns>A list of IEnumerable{T} that contains the sub collection of source.</returns>
     public static List<List<T>> SplitByStartsWith<T>(this IEnumerable<T> source, Predicate<T> match)
     {
-      List<List<T>> objListList = new List<List<T>>();
-      List<int> allIndex = source.FindAllIndex<T>(match);
+      var objListList = new List<List<T>>();
+      var allIndex = source.FindAllIndex(match);
       if (allIndex.Count < 1)
       {
-        objListList.Add(source.ToList<T>());
+        objListList.Add(source.ToList());
         return objListList;
       }
-      int count1 = 0;
-      foreach (int num in allIndex)
+      var count1 = 0;
+      foreach (var num in allIndex)
       {
         if (num != 0)
         {
-          int count2 = num - count1;
-          objListList.Add(source.Skip<T>(count1).Take<T>(count2).ToList<T>());
+          var count2 = num - count1;
+          objListList.Add(source.Skip(count1).Take(count2).ToList());
           count1 = num;
         }
       }
-      objListList.Add(source.Skip<T>(count1).ToList<T>());
+      objListList.Add(source.Skip(count1).ToList());
       return objListList;
     }
 
@@ -256,25 +256,25 @@ namespace TestProj47
     /// <returns>A list of IEnumerable that contains the sub collection of source.</returns>
     public static List<List<object>> SplitByStartsWith(this IEnumerable source, Func<object, bool> predicate)
     {
-      List<List<object>> objectListList = new List<List<object>>();
-      List<int> allIndex = source.FindAllIndex(predicate);
-      IEnumerable<object> source1 = source.Cast<object>();
+      var objectListList = new List<List<object>>();
+      var allIndex = source.FindAllIndex(predicate);
+      var source1 = source.Cast<object>();
       if (allIndex.Count < 1)
       {
-        objectListList.Add(source1.ToList<object>());
+        objectListList.Add(source1.ToList());
         return objectListList;
       }
-      int count1 = 0;
-      foreach (int num in allIndex)
+      var count1 = 0;
+      foreach (var num in allIndex)
       {
         if (num != 0)
         {
-          int count2 = num - count1;
-          objectListList.Add(source1.Skip<object>(count1).Take<object>(count2).ToList<object>());
+          var count2 = num - count1;
+          objectListList.Add(source1.Skip(count1).Take(count2).ToList());
           count1 = num;
         }
       }
-      objectListList.Add(source1.Skip<object>(count1).ToList<object>());
+      objectListList.Add(source1.Skip(count1).ToList());
       return objectListList;
     }
 
@@ -288,22 +288,22 @@ namespace TestProj47
     /// <returns>A list of IEnumerable{T} that contains the sub collection of source.</returns>
     public static List<List<T>> SplitByEndsWith<T>(this IEnumerable<T> source, Predicate<T> match)
     {
-      List<List<T>> objListList = new List<List<T>>();
-      List<int> allIndex = source.FindAllIndex<T>(match);
+      var objListList = new List<List<T>>();
+      var allIndex = source.FindAllIndex(match);
       if (allIndex.Count < 1)
       {
-        objListList.Add(source.ToList<T>());
+        objListList.Add(source.ToList());
         return objListList;
       }
-      int count1 = 0;
-      foreach (int num in allIndex)
+      var count1 = 0;
+      foreach (var num in allIndex)
       {
-        int count2 = num + 1 - count1;
-        objListList.Add(source.Skip<T>(count1).Take<T>(count2).ToList<T>());
+        var count2 = num + 1 - count1;
+        objListList.Add(source.Skip(count1).Take(count2).ToList());
         count1 = num + 1;
       }
-      if (count1 < source.Count<T>())
-        objListList.Add(source.Skip<T>(count1).ToList<T>());
+      if (count1 < source.Count())
+        objListList.Add(source.Skip(count1).ToList());
       return objListList;
     }
 
@@ -316,23 +316,23 @@ namespace TestProj47
     /// <returns>A list of IEnumerable that contains the sub collection of source.</returns>
     public static List<List<object>> SplitByEndsWith(this IEnumerable source, Func<object, bool> predicate)
     {
-      List<List<object>> objectListList = new List<List<object>>();
-      List<int> allIndex = source.FindAllIndex(predicate);
-      IEnumerable<object> source1 = source.Cast<object>();
+      var objectListList = new List<List<object>>();
+      var allIndex = source.FindAllIndex(predicate);
+      var source1 = source.Cast<object>();
       if (allIndex.Count < 1)
       {
-        objectListList.Add(source1.ToList<object>());
+        objectListList.Add(source1.ToList());
         return objectListList;
       }
-      int count1 = 0;
-      foreach (int num in allIndex)
+      var count1 = 0;
+      foreach (var num in allIndex)
       {
-        int count2 = num + 1 - count1;
-        objectListList.Add(source1.Skip<object>(count1).Take<object>(count2).ToList<object>());
+        var count2 = num + 1 - count1;
+        objectListList.Add(source1.Skip(count1).Take(count2).ToList());
         count1 = num + 1;
       }
-      if (count1 < source1.Count<object>())
-        objectListList.Add(source1.Skip<object>(count1).ToList<object>());
+      if (count1 < source1.Count())
+        objectListList.Add(source1.Skip(count1).ToList());
       return objectListList;
     }
 
@@ -346,20 +346,20 @@ namespace TestProj47
     public static List<List<T>> GroupBatch<T>(this IEnumerable<T> source, int batchSize)
     {
       if (source == null)
-        return (List<List<T>>) null;
-      List<List<T>> objListList = new List<List<T>>();
-      int num = source.Count<T>();
+        return null;
+      var objListList = new List<List<T>>();
+      var num = source.Count();
       if (num < 1)
         return objListList;
       if (batchSize < 1)
       {
-        objListList.Add(source.ToList<T>());
+        objListList.Add(source.ToList());
         return objListList;
       }
-      int count = 0;
+      var count = 0;
       do
       {
-        objListList.Add(source.Skip<T>(count).Take<T>(batchSize).ToList<T>());
+        objListList.Add(source.Skip(count).Take(batchSize).ToList());
         count += batchSize;
         num -= batchSize;
       }
@@ -376,21 +376,21 @@ namespace TestProj47
     public static List<List<object>> GroupBatch(this IEnumerable source, int batchSize)
     {
       if (source == null)
-        return (List<List<object>>) null;
-      List<List<object>> objectListList = new List<List<object>>();
-      IEnumerable<object> source1 = source.Cast<object>();
-      int num = source1.Count<object>();
+        return null;
+      var objectListList = new List<List<object>>();
+      var source1 = source.Cast<object>();
+      var num = source1.Count();
       if (num < 1)
         return objectListList;
       if (batchSize < 1)
       {
-        objectListList.Add(source1.ToList<object>());
+        objectListList.Add(source1.ToList());
         return objectListList;
       }
-      int count = 0;
+      var count = 0;
       do
       {
-        objectListList.Add(source1.Skip<object>(count).Take<object>(batchSize).ToList<object>());
+        objectListList.Add(source1.Skip(count).Take(batchSize).ToList());
         count += batchSize;
         num -= batchSize;
       }
@@ -407,7 +407,7 @@ namespace TestProj47
     /// <returns>true if the source collection is a subset of the specified superset; otherwise, false.</returns>
     public static bool IsSubsetOf<T>(this IEnumerable<T> source, IEnumerable<T> superset)
     {
-      return source.All<T>((Func<T, bool>) (subsetItem => superset.Any<T>((Func<T, bool>) (supersetItem => supersetItem.Equals((object) subsetItem)))));
+      return source.All(subsetItem => superset.Any(supersetItem => supersetItem.Equals(subsetItem)));
     }
 
     /// <summary>
@@ -419,7 +419,7 @@ namespace TestProj47
     /// <returns>true if the source collection is superset of the specified subset; otherwise, false.</returns>
     public static bool IsSupersetOf<T>(this IEnumerable<T> source, IEnumerable<T> subset)
     {
-      return subset.All<T>((Func<T, bool>) (subsetItem => source.Any<T>((Func<T, bool>) (supersetItem => supersetItem.Equals((object) subsetItem)))));
+      return subset.All(subsetItem => source.Any(supersetItem => supersetItem.Equals(subsetItem)));
     }
   }
 }

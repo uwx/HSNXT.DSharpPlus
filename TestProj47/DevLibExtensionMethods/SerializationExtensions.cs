@@ -5,7 +5,6 @@
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -41,13 +40,13 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), (IEnumerable<Type>) knownTypes)).WriteObject((Stream) memoryStream, source);
+        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), knownTypes)).WriteObject(memoryStream, source);
         memoryStream.Position = 0L;
-        string input = (encoding ?? Encoding.UTF8).GetString(memoryStream.ToArray());
+        var input = (encoding ?? Encoding.UTF8).GetString(memoryStream.ToArray());
         if (omitTypeInfo)
-          return SerializationExtensions.JsonTypeInfoRegex.Replace(input, string.Empty);
+          return JsonTypeInfoRegex.Replace(input, string.Empty);
         return input;
       }
     }
@@ -64,8 +63,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -79,9 +78,9 @@ namespace TestProj47
           throw;
         }
       }
-      using (FileStream fileStream = File.OpenWrite(fullPath))
+      using (var fileStream = File.OpenWrite(fullPath))
       {
-        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), (IEnumerable<Type>) knownTypes)).WriteObject((Stream) fileStream, source);
+        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), knownTypes)).WriteObject(fileStream, source);
         return fullPath;
       }
     }
@@ -98,11 +97,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      DataContractJsonSerializer contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
+      var contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, knownTypes);
+      using (var memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
       {
         memoryStream.Position = 0L;
-        return contractJsonSerializer.ReadObject((Stream) memoryStream);
+        return contractJsonSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -117,19 +116,19 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      Type type = (Type) null;
-      using (StringReader stringReader = new StringReader(source))
+      Type type = null;
+      using (var stringReader = new StringReader(source))
       {
-        string rootNodeName = XElement.Load((TextReader) stringReader).Name.LocalName;
-        type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+        var rootNodeName = XElement.Load(stringReader).Name.LocalName;
+        type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
         if (type == null)
           throw new InvalidOperationException();
       }
-      DataContractJsonSerializer contractJsonSerializer = new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
+      var contractJsonSerializer = new DataContractJsonSerializer(type, knownTypes);
+      using (var memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
       {
         memoryStream.Position = 0L;
-        return contractJsonSerializer.ReadObject((Stream) memoryStream);
+        return contractJsonSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -143,11 +142,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      DataContractJsonSerializer contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
+      var contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), knownTypes);
+      using (var memoryStream = new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(source)))
       {
         memoryStream.Position = 0L;
-        return (T) contractJsonSerializer.ReadObject((Stream) memoryStream);
+        return (T) contractJsonSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -162,11 +161,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes)).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, knownTypes)).ReadObject(fileStream);
     }
 
     /// <summary>Deserializes Json string to object, read from file.</summary>
@@ -179,15 +178,15 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      string rootNodeName = XElement.Load(fullPath).Name.LocalName;
-      Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+      var rootNodeName = XElement.Load(fullPath).Name.LocalName;
+      var type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
       if (type == null)
         throw new InvalidOperationException();
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return new DataContractJsonSerializer(type, knownTypes).ReadObject(fileStream);
     }
 
     /// <summary>Deserializes Json string to object, read from file.</summary>
@@ -199,11 +198,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (T) (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), (IEnumerable<Type>) knownTypes)).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (T) (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), knownTypes)).ReadObject(fileStream);
     }
 
     /// <summary>Serializes object to Json bytes.</summary>
@@ -214,9 +213,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), (IEnumerable<Type>) knownTypes)).WriteObject((Stream) memoryStream, source);
+        (knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(source.GetType()) : new DataContractJsonSerializer(source.GetType(), knownTypes)).WriteObject(memoryStream, source);
         memoryStream.Position = 0L;
         return memoryStream.ToArray();
       }
@@ -233,11 +232,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      DataContractJsonSerializer contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(type) : new DataContractJsonSerializer(type, knownTypes);
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return contractJsonSerializer.ReadObject((Stream) memoryStream);
+        return contractJsonSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -251,16 +250,16 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      using (var memoryStream = new MemoryStream(source))
       {
-        using (XmlReader reader = XmlReader.Create((Stream) memoryStream))
+        using (var reader = XmlReader.Create(memoryStream))
         {
-          string rootNodeName = XElement.Load(reader).Name.LocalName;
-          Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+          var rootNodeName = XElement.Load(reader).Name.LocalName;
+          var type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
           if (type == null)
             throw new InvalidOperationException();
           memoryStream.Position = 0L;
-          return new DataContractJsonSerializer(type, (IEnumerable<Type>) knownTypes).ReadObject((Stream) memoryStream);
+          return new DataContractJsonSerializer(type, knownTypes).ReadObject(memoryStream);
         }
       }
     }
@@ -274,11 +273,11 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      DataContractJsonSerializer contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var contractJsonSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractJsonSerializer(typeof (T)) : new DataContractJsonSerializer(typeof (T), knownTypes);
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return (T) contractJsonSerializer.ReadObject((Stream) memoryStream);
+        return (T) contractJsonSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -289,12 +288,12 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        new SoapFormatter().Serialize((Stream) memoryStream, source);
+        new SoapFormatter().Serialize(memoryStream, source);
         memoryStream.Position = 0L;
-        XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.Load((Stream) memoryStream);
+        var xmlDocument = new XmlDocument();
+        xmlDocument.Load(memoryStream);
         return xmlDocument.InnerXml;
       }
     }
@@ -308,8 +307,8 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -323,9 +322,9 @@ namespace TestProj47
           throw;
         }
       }
-      using (FileStream fileStream = File.OpenWrite(fullPath))
+      using (var fileStream = File.OpenWrite(fullPath))
       {
-        new SoapFormatter().Serialize((Stream) fileStream, source);
+        new SoapFormatter().Serialize(fileStream, source);
         return fullPath;
       }
     }
@@ -337,14 +336,14 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      XmlDocument xmlDocument = new XmlDocument();
+      var xmlDocument = new XmlDocument();
       xmlDocument.LoadXml(source);
-      SoapFormatter soapFormatter = new SoapFormatter();
-      using (MemoryStream memoryStream = new MemoryStream())
+      var soapFormatter = new SoapFormatter();
+      using (var memoryStream = new MemoryStream())
       {
-        xmlDocument.Save((Stream) memoryStream);
+        xmlDocument.Save(memoryStream);
         memoryStream.Position = 0L;
-        return soapFormatter.Deserialize((Stream) memoryStream);
+        return soapFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -356,14 +355,14 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      XmlDocument xmlDocument = new XmlDocument();
+      var xmlDocument = new XmlDocument();
       xmlDocument.LoadXml(source);
-      SoapFormatter soapFormatter = new SoapFormatter();
-      using (MemoryStream memoryStream = new MemoryStream())
+      var soapFormatter = new SoapFormatter();
+      using (var memoryStream = new MemoryStream())
       {
-        xmlDocument.Save((Stream) memoryStream);
+        xmlDocument.Save(memoryStream);
         memoryStream.Position = 0L;
-        return (T) soapFormatter.Deserialize((Stream) memoryStream);
+        return (T) soapFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -374,11 +373,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return new SoapFormatter().Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return new SoapFormatter().Deserialize(fileStream);
     }
 
     /// <summary>Deserializes Soap string to object, read from file.</summary>
@@ -389,11 +388,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (T) new SoapFormatter().Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (T) new SoapFormatter().Deserialize(fileStream);
     }
 
     /// <summary>Serializes object to Soap bytes.</summary>
@@ -403,9 +402,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        new SoapFormatter().Serialize((Stream) memoryStream, source);
+        new SoapFormatter().Serialize(memoryStream, source);
         memoryStream.Position = 0L;
         return memoryStream.ToArray();
       }
@@ -418,11 +417,11 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      SoapFormatter soapFormatter = new SoapFormatter();
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var soapFormatter = new SoapFormatter();
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return soapFormatter.Deserialize((Stream) memoryStream);
+        return soapFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -434,11 +433,11 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      SoapFormatter soapFormatter = new SoapFormatter();
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var soapFormatter = new SoapFormatter();
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return (T) soapFormatter.Deserialize((Stream) memoryStream);
+        return (T) soapFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -456,24 +455,24 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      XmlSerializer xmlSerializer = extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes);
-      using (MemoryStream memoryStream1 = new MemoryStream())
+      var xmlSerializer = extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes);
+      using (var memoryStream1 = new MemoryStream())
       {
-        using (StreamReader streamReader = new StreamReader((Stream) memoryStream1))
+        using (var streamReader = new StreamReader(memoryStream1))
         {
-          MemoryStream memoryStream2 = memoryStream1;
-          XmlWriterSettings settings = new XmlWriterSettings()
+          var memoryStream2 = memoryStream1;
+          var settings = new XmlWriterSettings
           {
             OmitXmlDeclaration = omitXmlDeclaration,
             Indent = indent,
-            Encoding = (Encoding) new UTF8Encoding(false),
+            Encoding = new UTF8Encoding(false),
             CloseOutput = true
           };
-          using (XmlWriter xmlWriter = XmlWriter.Create((Stream) memoryStream2, settings))
+          using (var xmlWriter = XmlWriter.Create(memoryStream2, settings))
           {
             if (removeDefaultNamespace)
             {
-              XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+              var namespaces = new XmlSerializerNamespaces();
               namespaces.Add(string.Empty, string.Empty);
               xmlSerializer.Serialize(xmlWriter, source, namespaces);
             }
@@ -505,8 +504,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -520,20 +519,20 @@ namespace TestProj47
           throw;
         }
       }
-      XmlSerializer xmlSerializer = extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes);
-      string outputFileName = fullPath;
-      XmlWriterSettings settings = new XmlWriterSettings()
+      var xmlSerializer = extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes);
+      var outputFileName = fullPath;
+      var settings = new XmlWriterSettings
       {
         OmitXmlDeclaration = omitXmlDeclaration,
         Indent = indent,
-        Encoding = (Encoding) new UTF8Encoding(false),
+        Encoding = new UTF8Encoding(false),
         CloseOutput = true
       };
-      using (XmlWriter xmlWriter = XmlWriter.Create(outputFileName, settings))
+      using (var xmlWriter = XmlWriter.Create(outputFileName, settings))
       {
         if (removeDefaultNamespace)
         {
-          XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+          var namespaces = new XmlSerializerNamespaces();
           namespaces.Add(string.Empty, string.Empty);
           xmlSerializer.Serialize(xmlWriter, source, namespaces);
         }
@@ -555,8 +554,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      using (StringReader stringReader = new StringReader(source))
-        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize((TextReader) stringReader);
+      using (var stringReader = new StringReader(source))
+        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize(stringReader);
     }
 
     /// <summary>Deserializes Xml string to object.</summary>
@@ -569,16 +568,16 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      Type type = (Type) null;
-      using (StringReader stringReader = new StringReader(source))
+      Type type = null;
+      using (var stringReader = new StringReader(source))
       {
-        string rootNodeName = XElement.Load((TextReader) stringReader).Name.LocalName;
-        type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name.Equals(rootNodeName, StringComparison.OrdinalIgnoreCase)));
+        var rootNodeName = XElement.Load(stringReader).Name.LocalName;
+        type = knownTypes.FirstOrDefault(p => p.Name.Equals(rootNodeName, StringComparison.OrdinalIgnoreCase));
         if (type == null)
           throw new InvalidOperationException();
       }
-      using (StringReader stringReader = new StringReader(source))
-        return new XmlSerializer(type, knownTypes).Deserialize((TextReader) stringReader);
+      using (var stringReader = new StringReader(source))
+        return new XmlSerializer(type, knownTypes).Deserialize(stringReader);
     }
 
     /// <summary>Deserializes Xml string to object.</summary>
@@ -590,8 +589,8 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      using (StringReader stringReader = new StringReader(source))
-        return (T) (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), extraTypes)).Deserialize((TextReader) stringReader);
+      using (var stringReader = new StringReader(source))
+        return (T) (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), extraTypes)).Deserialize(stringReader);
     }
 
     /// <summary>Deserializes Xml string to object, read from file.</summary>
@@ -605,11 +604,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize(fileStream);
     }
 
     /// <summary>Deserializes Xml string to object, read from file.</summary>
@@ -622,15 +621,15 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      string rootNodeName = XElement.Load(fullPath).Name.LocalName;
-      Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name.Equals(rootNodeName, StringComparison.OrdinalIgnoreCase)));
+      var rootNodeName = XElement.Load(fullPath).Name.LocalName;
+      var type = knownTypes.FirstOrDefault(p => p.Name.Equals(rootNodeName, StringComparison.OrdinalIgnoreCase));
       if (type == null)
         throw new InvalidOperationException();
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return new XmlSerializer(type, knownTypes).Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return new XmlSerializer(type, knownTypes).Deserialize(fileStream);
     }
 
     /// <summary>Deserializes Xml string to object, read from file.</summary>
@@ -642,11 +641,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (T) (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), extraTypes)).Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (T) (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), extraTypes)).Deserialize(fileStream);
     }
 
     /// <summary>Serializes object to Xml bytes.</summary>
@@ -657,9 +656,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes)).Serialize((Stream) memoryStream, source);
+        (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(source.GetType()) : new XmlSerializer(source.GetType(), extraTypes)).Serialize(memoryStream, source);
         memoryStream.Position = 0L;
         return memoryStream.ToArray();
       }
@@ -676,8 +675,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      using (MemoryStream memoryStream = new MemoryStream(source))
-        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize((Stream) memoryStream);
+      using (var memoryStream = new MemoryStream(source))
+        return (extraTypes == null || extraTypes.Length == 0 ? new XmlSerializer(type) : new XmlSerializer(type, extraTypes)).Deserialize(memoryStream);
     }
 
     /// <summary>Deserializes Xml bytes to object.</summary>
@@ -690,16 +689,16 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      using (var memoryStream = new MemoryStream(source))
       {
-        XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.Load((Stream) memoryStream);
-        string rootNodeName = xmlDocument.LocalName;
-        Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+        var xmlDocument = new XmlDocument();
+        xmlDocument.Load(memoryStream);
+        var rootNodeName = xmlDocument.LocalName;
+        var type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
         if (type == null)
           throw new InvalidOperationException();
         memoryStream.Position = 0L;
-        return new XmlSerializer(type, knownTypes).Deserialize((Stream) memoryStream);
+        return new XmlSerializer(type, knownTypes).Deserialize(memoryStream);
       }
     }
 
@@ -712,8 +711,8 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream(source))
-        return (T) (knownTypes == null || knownTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), knownTypes)).Deserialize((Stream) memoryStream);
+      using (var memoryStream = new MemoryStream(source))
+        return (T) (knownTypes == null || knownTypes.Length == 0 ? new XmlSerializer(typeof (T)) : new XmlSerializer(typeof (T), knownTypes)).Deserialize(memoryStream);
     }
 
     /// <summary>Serializes DataContract object to Xml string.</summary>
@@ -726,20 +725,20 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream1 = new MemoryStream())
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), knownTypes);
+      using (var memoryStream1 = new MemoryStream())
       {
-        using (StreamReader streamReader = new StreamReader((Stream) memoryStream1))
+        using (var streamReader = new StreamReader(memoryStream1))
         {
-          MemoryStream memoryStream2 = memoryStream1;
-          XmlWriterSettings settings = new XmlWriterSettings()
+          var memoryStream2 = memoryStream1;
+          var settings = new XmlWriterSettings
           {
             OmitXmlDeclaration = omitXmlDeclaration,
             Indent = indent,
-            Encoding = (Encoding) new UTF8Encoding(false),
+            Encoding = new UTF8Encoding(false),
             CloseOutput = true
           };
-          using (XmlWriter writer = XmlWriter.Create((Stream) memoryStream2, settings))
+          using (var writer = XmlWriter.Create(memoryStream2, settings))
           {
             contractSerializer.WriteObject(writer, source);
             writer.Flush();
@@ -766,8 +765,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -781,16 +780,16 @@ namespace TestProj47
           throw;
         }
       }
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), (IEnumerable<Type>) knownTypes);
-      string outputFileName = fullPath;
-      XmlWriterSettings settings = new XmlWriterSettings()
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), knownTypes);
+      var outputFileName = fullPath;
+      var settings = new XmlWriterSettings
       {
         OmitXmlDeclaration = omitXmlDeclaration,
         Indent = indent,
-        Encoding = (Encoding) new UTF8Encoding(false),
+        Encoding = new UTF8Encoding(false),
         CloseOutput = true
       };
-      using (XmlWriter writer = XmlWriter.Create(outputFileName, settings))
+      using (var writer = XmlWriter.Create(outputFileName, settings))
       {
         contractSerializer.WriteObject(writer, source);
         writer.Flush();
@@ -809,9 +808,9 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, (IEnumerable<Type>) knownTypes);
-      StringReader stringReader = new StringReader(source);
-      XmlReaderSettings settings = new XmlReaderSettings()
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, knownTypes);
+      var stringReader = new StringReader(source);
+      var settings = new XmlReaderSettings
       {
         CheckCharacters = false,
         IgnoreComments = true,
@@ -819,7 +818,7 @@ namespace TestProj47
         IgnoreProcessingInstructions = true,
         CloseInput = true
       };
-      using (XmlReader reader = XmlReader.Create((TextReader) stringReader, settings))
+      using (var reader = XmlReader.Create(stringReader, settings))
         return contractSerializer.ReadObject(reader);
     }
 
@@ -833,17 +832,17 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      Type type = (Type) null;
-      using (StringReader stringReader = new StringReader(source))
+      Type type = null;
+      using (var stringReader = new StringReader(source))
       {
-        string rootNodeName = XElement.Load((TextReader) stringReader).Name.LocalName;
-        type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+        var rootNodeName = XElement.Load(stringReader).Name.LocalName;
+        type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
         if (type == null)
           throw new InvalidOperationException();
       }
-      DataContractSerializer contractSerializer = new DataContractSerializer(type, (IEnumerable<Type>) knownTypes);
-      StringReader stringReader1 = new StringReader(source);
-      XmlReaderSettings settings = new XmlReaderSettings()
+      var contractSerializer = new DataContractSerializer(type, knownTypes);
+      var stringReader1 = new StringReader(source);
+      var settings = new XmlReaderSettings
       {
         CheckCharacters = false,
         IgnoreComments = true,
@@ -851,7 +850,7 @@ namespace TestProj47
         IgnoreProcessingInstructions = true,
         CloseInput = true
       };
-      using (XmlReader reader = XmlReader.Create((TextReader) stringReader1, settings))
+      using (var reader = XmlReader.Create(stringReader1, settings))
         return contractSerializer.ReadObject(reader);
     }
 
@@ -864,9 +863,9 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), (IEnumerable<Type>) knownTypes);
-      StringReader stringReader = new StringReader(source);
-      XmlReaderSettings settings = new XmlReaderSettings()
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), knownTypes);
+      var stringReader = new StringReader(source);
+      var settings = new XmlReaderSettings
       {
         CheckCharacters = false,
         IgnoreComments = true,
@@ -874,7 +873,7 @@ namespace TestProj47
         IgnoreProcessingInstructions = true,
         CloseInput = true
       };
-      using (XmlReader reader = XmlReader.Create((TextReader) stringReader, settings))
+      using (var reader = XmlReader.Create(stringReader, settings))
         return (T) contractSerializer.ReadObject(reader);
     }
 
@@ -891,11 +890,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, (IEnumerable<Type>) knownTypes)).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, knownTypes)).ReadObject(fileStream);
     }
 
     /// <summary>
@@ -910,15 +909,15 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      string rootNodeName = XElement.Load(fullPath).Name.LocalName;
-      Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+      var rootNodeName = XElement.Load(fullPath).Name.LocalName;
+      var type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
       if (type == null)
         throw new InvalidOperationException();
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return new DataContractSerializer(type, (IEnumerable<Type>) knownTypes).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return new DataContractSerializer(type, knownTypes).ReadObject(fileStream);
     }
 
     /// <summary>
@@ -932,11 +931,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (T) (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), (IEnumerable<Type>) knownTypes)).ReadObject((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (T) (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), knownTypes)).ReadObject(fileStream);
     }
 
     /// <summary>Serializes DataContract object to bytes.</summary>
@@ -947,9 +946,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), (IEnumerable<Type>) knownTypes)).WriteObject((Stream) memoryStream, source);
+        (knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(source.GetType()) : new DataContractSerializer(source.GetType(), knownTypes)).WriteObject(memoryStream, source);
         memoryStream.Position = 0L;
         return memoryStream.ToArray();
       }
@@ -966,11 +965,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (type == null)
         throw new ArgumentNullException(nameof (type));
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(type) : new DataContractSerializer(type, knownTypes);
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return contractSerializer.ReadObject((Stream) memoryStream);
+        return contractSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -984,16 +983,16 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (knownTypes == null || knownTypes.Length < 1)
         throw new ArgumentException("knownTypes is null or empty.", nameof (knownTypes));
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      using (var memoryStream = new MemoryStream(source))
       {
-        using (XmlReader reader = XmlReader.Create((Stream) memoryStream))
+        using (var reader = XmlReader.Create(memoryStream))
         {
-          string rootNodeName = XElement.Load(reader).Name.LocalName;
-          Type type = ((IEnumerable<Type>) knownTypes).FirstOrDefault<Type>((Func<Type, bool>) (p => p.Name == rootNodeName));
+          var rootNodeName = XElement.Load(reader).Name.LocalName;
+          var type = knownTypes.FirstOrDefault(p => p.Name == rootNodeName);
           if (type == null)
             throw new InvalidOperationException();
           memoryStream.Position = 0L;
-          return new DataContractSerializer(type, (IEnumerable<Type>) knownTypes).ReadObject((Stream) memoryStream);
+          return new DataContractSerializer(type, knownTypes).ReadObject(memoryStream);
         }
       }
     }
@@ -1007,11 +1006,11 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      DataContractSerializer contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), (IEnumerable<Type>) knownTypes);
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var contractSerializer = knownTypes == null || knownTypes.Length == 0 ? new DataContractSerializer(typeof (T)) : new DataContractSerializer(typeof (T), knownTypes);
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return (T) contractSerializer.ReadObject((Stream) memoryStream);
+        return (T) contractSerializer.ReadObject(memoryStream);
       }
     }
 
@@ -1023,9 +1022,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      string input = JsonSerializer.Serialize(source);
+      var input = JsonSerializer.Serialize(source);
       if (omitTypeInfo)
-        return SerializationExtensions.JsonTypeInfoRegex.Replace(input, string.Empty);
+        return JsonTypeInfoRegex.Replace(input, string.Empty);
       return input;
     }
 
@@ -1041,8 +1040,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -1056,9 +1055,9 @@ namespace TestProj47
           throw;
         }
       }
-      string str = JsonSerializer.Serialize(source);
+      var str = JsonSerializer.Serialize(source);
       if (omitTypeInfo)
-        str = SerializationExtensions.JsonTypeInfoRegex.Replace(str, string.Empty);
+        str = JsonTypeInfoRegex.Replace(str, string.Empty);
       File.WriteAllText(fullPath, str);
       return fullPath;
     }
@@ -1093,7 +1092,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
       return JsonSerializer.Deserialize(File.ReadAllText(fullPath), type);
@@ -1107,7 +1106,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
       return JsonSerializer.Deserialize<T>(File.ReadAllText(fullPath));
@@ -1152,9 +1151,9 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      using (MemoryStream memoryStream = new MemoryStream())
+      using (var memoryStream = new MemoryStream())
       {
-        new BinaryFormatter().Serialize((Stream) memoryStream, source);
+        new BinaryFormatter().Serialize(memoryStream, source);
         memoryStream.Position = 0L;
         return memoryStream.ToArray();
       }
@@ -1171,8 +1170,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(filename))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -1186,9 +1185,9 @@ namespace TestProj47
           throw;
         }
       }
-      using (FileStream fileStream = File.OpenWrite(fullPath))
+      using (var fileStream = File.OpenWrite(fullPath))
       {
-        new BinaryFormatter().Serialize((Stream) fileStream, source);
+        new BinaryFormatter().Serialize(fileStream, source);
         return fullPath;
       }
     }
@@ -1202,11 +1201,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (source.Length == 0)
         throw new ArgumentOutOfRangeException(nameof (source));
-      BinaryFormatter binaryFormatter = new BinaryFormatter();
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var binaryFormatter = new BinaryFormatter();
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return binaryFormatter.Deserialize((Stream) memoryStream);
+        return binaryFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -1217,11 +1216,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return new BinaryFormatter().Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return new BinaryFormatter().Deserialize(fileStream);
     }
 
     /// <summary>Deserializes bytes to object.</summary>
@@ -1234,11 +1233,11 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (source.Length == 0)
         throw new ArgumentOutOfRangeException(nameof (source));
-      BinaryFormatter binaryFormatter = new BinaryFormatter();
-      using (MemoryStream memoryStream = new MemoryStream(source))
+      var binaryFormatter = new BinaryFormatter();
+      using (var memoryStream = new MemoryStream(source))
       {
         memoryStream.Position = 0L;
-        return (T) binaryFormatter.Deserialize((Stream) memoryStream);
+        return (T) binaryFormatter.Deserialize(memoryStream);
       }
     }
 
@@ -1250,11 +1249,11 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(source);
+      var fullPath = Path.GetFullPath(source);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
-      using (FileStream fileStream = File.OpenRead(fullPath))
-        return (T) new BinaryFormatter().Deserialize((Stream) fileStream);
+      using (var fileStream = File.OpenRead(fullPath))
+        return (T) new BinaryFormatter().Deserialize(fileStream);
     }
   }
 }

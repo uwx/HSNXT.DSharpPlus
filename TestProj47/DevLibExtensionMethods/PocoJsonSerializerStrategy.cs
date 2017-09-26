@@ -8,7 +8,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Reflection;
 
 namespace TestProj47
 {
@@ -41,9 +40,9 @@ namespace TestProj47
     /// </summary>
     public PocoJsonSerializerStrategy()
     {
-      this.ConstructorCache = (IDictionary<Type, ReflectionUtilities.ConstructorDelegate>) new ReflectionUtilities.ThreadSafeDictionary<Type, ReflectionUtilities.ConstructorDelegate>(new ReflectionUtilities.ThreadSafeDictionaryValueFactory<Type, ReflectionUtilities.ConstructorDelegate>(this.ConstructorDelegateFactory));
-      this.GetCache = (IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>>) new ReflectionUtilities.ThreadSafeDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>>(new ReflectionUtilities.ThreadSafeDictionaryValueFactory<Type, IDictionary<string, ReflectionUtilities.GetDelegate>>(this.GetterValueFactory));
-      this.SetCache = (IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>) new ReflectionUtilities.ThreadSafeDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>(new ReflectionUtilities.ThreadSafeDictionaryValueFactory<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>(this.SetterValueFactory));
+      this.ConstructorCache = new ReflectionUtilities.ThreadSafeDictionary<Type, ReflectionUtilities.ConstructorDelegate>(this.ConstructorDelegateFactory);
+      this.GetCache = new ReflectionUtilities.ThreadSafeDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>>(this.GetterValueFactory);
+      this.SetCache = new ReflectionUtilities.ThreadSafeDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>(this.SetterValueFactory);
     }
 
     /// <summary>Deserializes the object.</summary>
@@ -60,63 +59,63 @@ namespace TestProj47
           return ((IList) Enum.GetValues(type))[0];
         return Enum.ToObject(type, value);
       }
-      string str = value as string;
+      var str = value as string;
       if (type == typeof (Guid) && string.IsNullOrEmpty(str))
-        return (object) new Guid();
+        return new Guid();
       if (value == null)
-        return (object) null;
-      object source = (object) null;
+        return null;
+      object source = null;
       if (str != null)
       {
         if (str.Length != 0)
         {
           if (type == typeof (DateTime) || ReflectionUtilities.IsNullableType(type) && Nullable.GetUnderlyingType(type) == typeof (DateTime))
-            return (object) DateTime.ParseExact(str, PocoJsonSerializerStrategy.Iso8601Format, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
+            return DateTime.ParseExact(str, Iso8601Format, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
           if (type == typeof (DateTimeOffset) || ReflectionUtilities.IsNullableType(type) && Nullable.GetUnderlyingType(type) == typeof (DateTimeOffset))
-            return (object) DateTimeOffset.ParseExact(str, PocoJsonSerializerStrategy.Iso8601Format, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
+            return DateTimeOffset.ParseExact(str, Iso8601Format, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
           if (type == typeof (Guid) || ReflectionUtilities.IsNullableType(type) && Nullable.GetUnderlyingType(type) == typeof (Guid))
-            return (object) new Guid(str);
+            return new Guid(str);
           if (type == typeof (Uri))
           {
             Uri result;
             if (Uri.IsWellFormedUriString(str, UriKind.RelativeOrAbsolute) && Uri.TryCreate(str, UriKind.RelativeOrAbsolute, out result))
-              return (object) result;
-            return (object) null;
+              return result;
+            return null;
           }
           if (type == typeof (string))
-            return (object) str;
-          return Convert.ChangeType((object) str, type, (IFormatProvider) CultureInfo.InvariantCulture);
+            return str;
+          return Convert.ChangeType(str, type, CultureInfo.InvariantCulture);
         }
-        source = type != typeof (Guid) ? (!ReflectionUtilities.IsNullableType(type) || Nullable.GetUnderlyingType(type) != typeof (Guid) ? (object) str : (object) null) : (object) new Guid();
+        source = type != typeof (Guid) ? (!ReflectionUtilities.IsNullableType(type) || Nullable.GetUnderlyingType(type) != typeof (Guid) ? str : null) : (object) new Guid();
         if (!ReflectionUtilities.IsNullableType(type) && Nullable.GetUnderlyingType(type) == typeof (Guid))
-          return (object) str;
+          return str;
       }
       else if (value is bool)
         return value;
-      bool flag1 = value is long;
-      bool flag2 = value is double;
+      var flag1 = value is long;
+      var flag2 = value is double;
       if (flag1 && type == typeof (long) || flag2 && type == typeof (double))
         return value;
       if (flag2 && type != typeof (double) || flag1 && type != typeof (long))
       {
-        object obj = type == typeof (int) || type == typeof (long) || (type == typeof (double) || type == typeof (float)) || (type == typeof (bool) || type == typeof (Decimal) || (type == typeof (byte) || type == typeof (short))) ? Convert.ChangeType(value, type, (IFormatProvider) CultureInfo.InvariantCulture) : value;
+        var obj = type == typeof (int) || type == typeof (long) || (type == typeof (double) || type == typeof (float)) || (type == typeof (bool) || type == typeof (Decimal) || (type == typeof (byte) || type == typeof (short))) ? Convert.ChangeType(value, type, CultureInfo.InvariantCulture) : value;
         if (ReflectionUtilities.IsNullableType(type))
           return ReflectionUtilities.ToNullableType(obj, type);
         return obj;
       }
-      IDictionary<string, object> dictionary1 = value as IDictionary<string, object>;
+      var dictionary1 = value as IDictionary<string, object>;
       if (dictionary1 != null)
       {
-        IDictionary<string, object> dictionary2 = dictionary1;
+        var dictionary2 = dictionary1;
         if (ReflectionUtilities.IsTypeDictionary(type))
         {
-          Type[] genericTypeArguments = ReflectionUtilities.GetGenericTypeArguments(type);
-          Type type1 = genericTypeArguments[0];
-          Type type2 = genericTypeArguments[1];
-          IDictionary dictionary3 = (IDictionary) this.ConstructorCache[typeof (Dictionary<,>).MakeGenericType(type1, type2)](new object[0]);
-          foreach (KeyValuePair<string, object> keyValuePair in (IEnumerable<KeyValuePair<string, object>>) dictionary2)
-            dictionary3.Add((object) keyValuePair.Key, this.DeserializeObject(keyValuePair.Value, type2));
-          source = (object) dictionary3;
+          var genericTypeArguments = ReflectionUtilities.GetGenericTypeArguments(type);
+          var type1 = genericTypeArguments[0];
+          var type2 = genericTypeArguments[1];
+          var dictionary3 = (IDictionary) this.ConstructorCache[typeof (Dictionary<,>).MakeGenericType(type1, type2)]();
+          foreach (var keyValuePair in dictionary2)
+            dictionary3.Add(keyValuePair.Key, this.DeserializeObject(keyValuePair.Value, type2));
+          source = dictionary3;
         }
         else if (type == typeof (object))
         {
@@ -124,8 +123,8 @@ namespace TestProj47
         }
         else
         {
-          source = this.ConstructorCache[type](new object[0]);
-          foreach (KeyValuePair<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>> keyValuePair in (IEnumerable<KeyValuePair<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>) this.SetCache[type])
+          source = this.ConstructorCache[type]();
+          foreach (var keyValuePair in this.SetCache[type])
           {
             object obj;
             if (dictionary2.TryGetValue(keyValuePair.Key, out obj))
@@ -138,36 +137,33 @@ namespace TestProj47
       }
       else
       {
-        IList<object> objectList1 = value as IList<object>;
+        var objectList1 = value as IList<object>;
         if (objectList1 != null)
         {
-          IList<object> objectList2 = objectList1;
-          IList list = (IList) null;
+          var objectList2 = objectList1;
+          IList list = null;
           if (type.IsArray)
           {
-            list = (IList) this.ConstructorCache[type](new object[1]
-            {
-              (object) objectList2.Count
-            });
-            int num = 0;
-            foreach (object obj in (IEnumerable<object>) objectList2)
+            list = (IList) this.ConstructorCache[type]((object) objectList2.Count);
+            var num = 0;
+            foreach (var obj in objectList2)
               list[num++] = this.DeserializeObject(obj, type.GetElementType());
           }
           else if (ReflectionUtilities.IsTypeGenericCollectionInterface(type) || ReflectionUtilities.IsAssignableFrom(typeof (IList), type))
           {
-            Type genericListElementType = ReflectionUtilities.GetGenericListElementType(type);
-            ReflectionUtilities.ConstructorDelegate constructorDelegate = this.ConstructorCache[type];
+            var genericListElementType = ReflectionUtilities.GetGenericListElementType(type);
+            var constructorDelegate = this.ConstructorCache[type];
             if (constructorDelegate == null)
               constructorDelegate = this.ConstructorCache[typeof (List<>).MakeGenericType(genericListElementType)];
-            object[] objArray = new object[1]
+            var objArray = new object[1]
             {
-              (object) objectList2.Count
+              objectList2.Count
             };
             list = (IList) constructorDelegate(objArray);
-            foreach (object obj in (IEnumerable<object>) objectList2)
+            foreach (var obj in objectList2)
               list.Add(this.DeserializeObject(obj, genericListElementType));
           }
-          source = (object) list;
+          source = list;
         }
       }
       return source;
@@ -189,7 +185,7 @@ namespace TestProj47
     /// <returns>The delegate.</returns>
     internal virtual ReflectionUtilities.ConstructorDelegate ConstructorDelegateFactory(Type key)
     {
-      return ReflectionUtilities.GetConstructor(key, key.IsArray ? PocoJsonSerializerStrategy.ArrayConstructorParameterTypes : PocoJsonSerializerStrategy.EmptyTypes);
+      return ReflectionUtilities.GetConstructor(key, key.IsArray ? ArrayConstructorParameterTypes : EmptyTypes);
     }
 
     /// <summary>Getters the value factory.</summary>
@@ -197,17 +193,17 @@ namespace TestProj47
     /// <returns>The delegate.</returns>
     internal virtual IDictionary<string, ReflectionUtilities.GetDelegate> GetterValueFactory(Type type)
     {
-      IDictionary<string, ReflectionUtilities.GetDelegate> dictionary = (IDictionary<string, ReflectionUtilities.GetDelegate>) new Dictionary<string, ReflectionUtilities.GetDelegate>();
-      foreach (PropertyInfo property in ReflectionUtilities.GetProperties(type))
+      IDictionary<string, ReflectionUtilities.GetDelegate> dictionary = new Dictionary<string, ReflectionUtilities.GetDelegate>();
+      foreach (var property in ReflectionUtilities.GetProperties(type))
       {
         if (property.CanRead)
         {
-          MethodInfo getterMethodInfo = ReflectionUtilities.GetGetterMethodInfo(property);
+          var getterMethodInfo = ReflectionUtilities.GetGetterMethodInfo(property);
           if (!getterMethodInfo.IsStatic && getterMethodInfo.IsPublic)
             dictionary[this.MapClrMemberNameToJsonFieldName(property.Name)] = ReflectionUtilities.GetGetMethod(property);
         }
       }
-      foreach (FieldInfo field in ReflectionUtilities.GetFields(type))
+      foreach (var field in ReflectionUtilities.GetFields(type))
       {
         if (!field.IsStatic && field.IsPublic)
           dictionary[this.MapClrMemberNameToJsonFieldName(field.Name)] = ReflectionUtilities.GetGetMethod(field);
@@ -220,17 +216,17 @@ namespace TestProj47
     /// <returns>The delegate.</returns>
     internal virtual IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>> SetterValueFactory(Type type)
     {
-      IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>> dictionary = (IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>) new Dictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>();
-      foreach (PropertyInfo property in ReflectionUtilities.GetProperties(type))
+      IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>> dictionary = new Dictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>();
+      foreach (var property in ReflectionUtilities.GetProperties(type))
       {
         if (property.CanWrite)
         {
-          MethodInfo setterMethodInfo = ReflectionUtilities.GetSetterMethodInfo(property);
+          var setterMethodInfo = ReflectionUtilities.GetSetterMethodInfo(property);
           if (!setterMethodInfo.IsStatic && setterMethodInfo.IsPublic)
             dictionary[this.MapClrMemberNameToJsonFieldName(property.Name)] = new KeyValuePair<Type, ReflectionUtilities.SetDelegate>(property.PropertyType, ReflectionUtilities.GetSetMethod(property));
         }
       }
-      foreach (FieldInfo field in ReflectionUtilities.GetFields(type))
+      foreach (var field in ReflectionUtilities.GetFields(type))
       {
         if (!field.IsInitOnly && !field.IsStatic && field.IsPublic)
           dictionary[this.MapClrMemberNameToJsonFieldName(field.Name)] = new KeyValuePair<Type, ReflectionUtilities.SetDelegate>(field.FieldType, ReflectionUtilities.GetSetMethod(field));
@@ -251,7 +247,7 @@ namespace TestProj47
     /// <returns>The System.Object.</returns>
     protected virtual object SerializeEnum(Enum enumValue)
     {
-      return (object) Convert.ToDouble((object) enumValue, (IFormatProvider) CultureInfo.InvariantCulture);
+      return Convert.ToDouble(enumValue, CultureInfo.InvariantCulture);
     }
 
     /// <summary>Tries the serialize known types.</summary>
@@ -260,20 +256,20 @@ namespace TestProj47
     /// <returns>true if serialize succeeded; otherwise, false.</returns>
     protected virtual bool TrySerializeKnownTypes(object input, out object output)
     {
-      bool flag = true;
+      var flag = true;
       if (input is DateTime)
-        output = (object) ((DateTime) input).ToUniversalTime().ToString(PocoJsonSerializerStrategy.Iso8601Format[0], (IFormatProvider) CultureInfo.InvariantCulture);
+        output = ((DateTime) input).ToUniversalTime().ToString(Iso8601Format[0], CultureInfo.InvariantCulture);
       else if (input is DateTimeOffset)
-        output = (object) ((DateTimeOffset) input).ToUniversalTime().ToString(PocoJsonSerializerStrategy.Iso8601Format[0], (IFormatProvider) CultureInfo.InvariantCulture);
+        output = ((DateTimeOffset) input).ToUniversalTime().ToString(Iso8601Format[0], CultureInfo.InvariantCulture);
       else if (input is Guid)
-        output = (object) ((Guid) input).ToString("D");
+        output = ((Guid) input).ToString("D");
       else if ((object) (input as Uri) != null)
       {
-        output = (object) input.ToString();
+        output = input.ToString();
       }
       else
       {
-        Enum enumValue = input as Enum;
+        var enumValue = input as Enum;
         if (enumValue != null)
         {
           output = this.SerializeEnum(enumValue);
@@ -281,7 +277,7 @@ namespace TestProj47
         else
         {
           flag = false;
-          output = (object) null;
+          output = null;
         }
       }
       return flag;
@@ -295,17 +291,17 @@ namespace TestProj47
     {
       if (input == null)
         throw new ArgumentNullException(nameof (input));
-      output = (object) null;
-      Type type = input.GetType();
+      output = null;
+      var type = input.GetType();
       if (type.FullName == null)
         return false;
-      IDictionary<string, object> dictionary = (IDictionary<string, object>) new JsonObject((IEqualityComparer<string>) StringComparer.OrdinalIgnoreCase);
-      foreach (KeyValuePair<string, ReflectionUtilities.GetDelegate> keyValuePair in (IEnumerable<KeyValuePair<string, ReflectionUtilities.GetDelegate>>) this.GetCache[type])
+      IDictionary<string, object> dictionary = new JsonObject(StringComparer.OrdinalIgnoreCase);
+      foreach (var keyValuePair in this.GetCache[type])
       {
         if (keyValuePair.Value != null)
           dictionary.Add(this.MapClrMemberNameToJsonFieldName(keyValuePair.Key), keyValuePair.Value(input));
       }
-      output = (object) dictionary;
+      output = dictionary;
       return true;
     }
   }

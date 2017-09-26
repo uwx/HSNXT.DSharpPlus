@@ -40,9 +40,9 @@ namespace TestProj47
     /// <returns>The week number.</returns>
     public static int GetWeekOfYear(this DateTime source)
     {
-      CultureInfo currentUiCulture = CultureInfo.CurrentUICulture;
-      Calendar calendar = currentUiCulture.Calendar;
-      DateTimeFormatInfo dateTimeFormat = currentUiCulture.DateTimeFormat;
+      var currentUiCulture = CultureInfo.CurrentUICulture;
+      var calendar = currentUiCulture.Calendar;
+      var dateTimeFormat = currentUiCulture.DateTimeFormat;
       return calendar.GetWeekOfYear(source, dateTimeFormat.CalendarWeekRule, dateTimeFormat.FirstDayOfWeek);
     }
 
@@ -66,9 +66,9 @@ namespace TestProj47
     {
       if (source.IsNullOrEmpty())
         return new DateTime();
-      DateTime result = new DateTime();
+      var result = new DateTime();
       if (!DateTime.TryParse(source, out result))
-        DateTime.TryParseExact(source, formats, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, out result);
+        DateTime.TryParseExact(source, formats, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, out result);
       return result;
     }
 

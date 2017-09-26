@@ -39,7 +39,7 @@ namespace TestProj47
       }
       else if (source.GetGenericTypeDefinition().Equals(baseType.GetGenericTypeDefinition()))
         return true;
-      foreach (Type source1 in source.GetInterfaces())
+      foreach (var source1 in source.GetInterfaces())
       {
         if (source1.IsInheritFrom(baseType))
           return true;
@@ -76,19 +76,16 @@ namespace TestProj47
     public static IList CreateIList(this Type source, params object[] lengths)
     {
       if (!source.IsEnumerable() || source.IsDictionary())
-        return (IList) null;
+        return null;
       if (source.IsArray)
       {
-        if (!((IEnumerable<object>) lengths).IsNullOrEmpty<object>())
-          return (IList) Array.CreateInstance(source.GetElementType(), ((IEnumerable<object>) lengths).Select<object, long>((Func<object, long>) (i => (long) i)).ToArray<long>());
-        return (IList) Array.CreateInstance(source.GetElementType(), 0);
+        if (!lengths.IsNullOrEmpty())
+          return Array.CreateInstance(source.GetElementType(), lengths.Select(i => (long) i).ToArray());
+        return Array.CreateInstance(source.GetElementType(), 0);
       }
-      if (((IEnumerable<object>) lengths).IsNullOrEmpty<object>())
+      if (lengths.IsNullOrEmpty())
         return (IList) Activator.CreateInstance(source);
-      return (IList) Activator.CreateInstance(source, new object[1]
-      {
-        lengths[0]
-      });
+      return (IList) Activator.CreateInstance(source, lengths[0]);
     }
 
     /// <summary>
@@ -109,10 +106,7 @@ namespace TestProj47
     /// <returns>A reference to the newly created List object.</returns>
     public static IList CreateListByElementType(this Type source, object collection)
     {
-      return (IList) Activator.CreateInstance(typeof (List<>).MakeGenericType(source), new object[1]
-      {
-        collection
-      });
+      return (IList) Activator.CreateInstance(typeof (List<>).MakeGenericType(source), collection);
     }
 
     /// <summary>
@@ -125,7 +119,7 @@ namespace TestProj47
     [SecurityPermission(SecurityAction.Demand, Unrestricted = true)]
     public static object CreateInstanceGeneric(this Type source, Type[] typeArguments, params object[] args)
     {
-      Type type = source.MakeGenericType(typeArguments);
+      var type = source.MakeGenericType(typeArguments);
       try
       {
         return Activator.CreateInstance(type, args);
@@ -146,25 +140,25 @@ namespace TestProj47
     /// <returns>The return value of the invoked method.</returns>
     public static object InvokeMethod(this object source, string method, bool isPublicOnly = true, params object[] parameters)
     {
-      MethodInfo methodInfo1 = (MethodInfo) null;
-      Type[] array = ((IEnumerable<object>) parameters).Select<object, Type>((Func<object, Type>) (p => p.GetType())).ToArray<Type>();
+      MethodInfo methodInfo1 = null;
+      var array = parameters.Select(p => p.GetType()).ToArray();
       try
       {
-        methodInfo1 = source.GetType().GetMethod(method, isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, (Binder) null, CallingConventions.Any, array, (ParameterModifier[]) null);
+        methodInfo1 = source.GetType().GetMethod(method, isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, null, CallingConventions.Any, array, null);
       }
       catch (AmbiguousMatchException ex)
       {
-        foreach (MethodInfo methodInfo2 in ((IEnumerable<MethodInfo>) source.GetType().GetMethods(isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)).Where<MethodInfo>((Func<MethodInfo, bool>) (p =>
+        foreach (var methodInfo2 in source.GetType().GetMethods(isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Where(p =>
         {
           if (p.Name.Equals(method, StringComparison.OrdinalIgnoreCase))
             return !p.IsGenericMethod;
           return false;
-        })))
+        }))
         {
-          ParameterInfo[] parameters1 = methodInfo2.GetParameters();
+          var parameters1 = methodInfo2.GetParameters();
           if (parameters1.Length == parameters.Length)
           {
-            int index = 0;
+            var index = 0;
             while (index < parameters1.Length && parameters1[index].ParameterType == array[index])
               ++index;
             methodInfo1 = methodInfo2;
@@ -186,27 +180,27 @@ namespace TestProj47
     /// <returns>The return value of the invoked method.</returns>
     public static object InvokeMethodGeneric(this object source, string method, Type[] typeArguments, bool isPublicOnly = true, params object[] parameters)
     {
-      MethodInfo methodInfo1 = (MethodInfo) null;
-      Type[] types = parameters != null ? ((IEnumerable<object>) parameters).Select<object, Type>((Func<object, Type>) (p => p.GetType())).ToArray<Type>() : Type.EmptyTypes;
+      MethodInfo methodInfo1 = null;
+      var types = parameters != null ? parameters.Select(p => p.GetType()).ToArray() : Type.EmptyTypes;
       try
       {
-        methodInfo1 = source.GetType().GetMethod(method, isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, (Binder) null, CallingConventions.Any, types, (ParameterModifier[]) null).MakeGenericMethod(typeArguments);
+        methodInfo1 = source.GetType().GetMethod(method, isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, null, CallingConventions.Any, types, null).MakeGenericMethod(typeArguments);
       }
       catch (AmbiguousMatchException ex)
       {
-        foreach (MethodInfo methodInfo2 in ((IEnumerable<MethodInfo>) source.GetType().GetMethods(isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)).Where<MethodInfo>((Func<MethodInfo, bool>) (p =>
+        foreach (var methodInfo2 in source.GetType().GetMethods(isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Where(p =>
         {
           if (p.Name.Equals(method, StringComparison.OrdinalIgnoreCase))
             return p.IsGenericMethod;
           return false;
-        })))
+        }))
         {
           if (methodInfo2.GetGenericArguments().Length == typeArguments.Length)
           {
-            ParameterInfo[] parameters1 = methodInfo2.GetParameters();
+            var parameters1 = methodInfo2.GetParameters();
             if (parameters1.Length == types.Length)
             {
-              int index = 0;
+              var index = 0;
               while (index < parameters1.Length && parameters1[index].ParameterType == types[index])
                 ++index;
               methodInfo1 = methodInfo2;
@@ -285,14 +279,14 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      Dictionary<string, object> dictionary = new Dictionary<string, object>();
-      BindingFlags bindingAttr = isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+      var dictionary = new Dictionary<string, object>();
+      var bindingAttr = isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
       if (declaredOnly)
         bindingAttr |= BindingFlags.DeclaredOnly;
-      foreach (PropertyInfo property in source.GetType().GetProperties(bindingAttr))
+      foreach (var property in source.GetType().GetProperties(bindingAttr))
       {
         if (property.CanRead)
-          dictionary.Add(property.Name, property.GetValue(source, (object[]) null));
+          dictionary.Add(property.Name, property.GetValue(source, null));
       }
       return dictionary;
     }
@@ -306,14 +300,14 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      Dictionary<string, Func<object>> dictionary = new Dictionary<string, Func<object>>();
-      BindingFlags bindingAttr = isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+      var dictionary = new Dictionary<string, Func<object>>();
+      var bindingAttr = isPublicOnly ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
       if (declaredOnly)
         bindingAttr |= BindingFlags.DeclaredOnly;
-      foreach (PropertyInfo property1 in source.GetType().GetProperties(bindingAttr))
+      foreach (var property1 in source.GetType().GetProperties(bindingAttr))
       {
-        PropertyInfo property = property1;
-        dictionary.Add(property.Name, (Func<object>) (() => property.GetValue(source, (object[]) null)));
+        var property = property1;
+        dictionary.Add(property.Name, () => property.GetValue(source, null));
       }
       return dictionary;
     }
@@ -326,12 +320,12 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      return ((IEnumerable<PropertyInfo>) source.GetProperties(declaredOnly ? BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public)).Where<PropertyInfo>((Func<PropertyInfo, bool>) (i =>
+      return source.GetProperties(declaredOnly ? BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public).Where(i =>
       {
         if (i.CanRead && i.CanWrite && i.GetGetMethod(true).IsPublic)
           return i.GetSetMethod(true).IsPublic;
         return false;
-      })).ToArray<PropertyInfo>();
+      }).ToArray();
     }
 
     /// <summary>
@@ -356,8 +350,8 @@ namespace TestProj47
     /// <returns>The type with the specified name. If the type is not found, the throwOnError parameter specifies whether null is returned or an exception is thrown.</returns>
     public static Type GetType(this string source, bool isFullName, bool throwOnError, bool ignoreCase)
     {
-      Type type = (Type) null;
-      Exception exception = (Exception) null;
+      Type type = null;
+      Exception exception = null;
       try
       {
         type = Type.GetType(source, true, ignoreCase);
@@ -368,18 +362,18 @@ namespace TestProj47
       }
       if (type == null)
       {
-        StringComparison stringComparison = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
+        var stringComparison = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
         try
         {
-          type = !isFullName ? ((IEnumerable<Assembly>) AppDomain.CurrentDomain.GetAssemblies()).SelectMany<Assembly, Type>((Func<Assembly, IEnumerable<Type>>) (i => (IEnumerable<Type>) i.GetTypes())).FirstOrDefault<Type>((Func<Type, bool>) (i => i.Name.Equals(source, stringComparison))) : ((IEnumerable<Assembly>) AppDomain.CurrentDomain.GetAssemblies()).SelectMany<Assembly, Type>((Func<Assembly, IEnumerable<Type>>) (i => (IEnumerable<Type>) i.GetTypes())).FirstOrDefault<Type>((Func<Type, bool>) (i => i.FullName.Equals(source, stringComparison)));
+          type = !isFullName ? AppDomain.CurrentDomain.GetAssemblies().SelectMany(i => (IEnumerable<Type>) i.GetTypes()).FirstOrDefault(i => i.Name.Equals(source, stringComparison)) : AppDomain.CurrentDomain.GetAssemblies().SelectMany(i => (IEnumerable<Type>) i.GetTypes()).FirstOrDefault(i => i.FullName.Equals(source, stringComparison));
         }
         catch (Exception ex)
         {
-          exception.Data.Add((object) "InnerException", (object) ex);
+          exception.Data.Add("InnerException", ex);
         }
       }
       if (type == null && throwOnError)
-        throw exception ?? (Exception) new TypeLoadException();
+        throw exception ?? new TypeLoadException();
       return type;
     }
 
@@ -409,8 +403,8 @@ namespace TestProj47
     {
       return source.GetType(isFullName, true, true).CreateInstance(new object[2]
       {
-        (object) typeArguments,
-        (object) args
+        typeArguments,
+        args
       });
     }
   }

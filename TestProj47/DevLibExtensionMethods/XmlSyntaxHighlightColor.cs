@@ -64,7 +64,7 @@ namespace TestProj47
 
     static XmlSyntaxHighlightColor()
     {
-      StringBuilder stringBuilder = new StringBuilder();
+      var stringBuilder = new StringBuilder();
       stringBuilder.Append("{\\colortbl");
       stringBuilder.Append(";");
       stringBuilder.Append("\\red0\\green0\\blue255");
@@ -91,7 +91,7 @@ namespace TestProj47
       stringBuilder.Append(";");
       stringBuilder.Append("\\red225\\green225\\blue225");
       stringBuilder.Append(";}");
-      XmlSyntaxHighlightColor.ColorTable = stringBuilder.ToString();
+      ColorTable = stringBuilder.ToString();
     }
 
     /// <summary>Get RTF tag color.</summary>

@@ -22,9 +22,9 @@ namespace TestProj47
         foreach (ColumnHeader column in source.Columns)
         {
           column.AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-          int width1 = column.Width;
+          var width1 = column.Width;
           column.AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-          int width2 = column.Width;
+          var width2 = column.Width;
           column.Width = Math.Max(width1, width2);
         }
       }

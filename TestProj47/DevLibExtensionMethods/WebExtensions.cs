@@ -18,19 +18,19 @@ namespace TestProj47
     /// <returns>Byte array of data from the url.</returns>
     public static byte[] DownloadData(this string url, bool useSystemWebProxy = false)
     {
-      WebRequest webRequest = WebRequest.Create(url);
+      var webRequest = WebRequest.Create(url);
       if (useSystemWebProxy)
         webRequest.Proxy = WebRequest.GetSystemWebProxy();
-      using (WebResponse response = webRequest.GetResponse())
+      using (var response = webRequest.GetResponse())
       {
-        using (Stream responseStream = response.GetResponseStream())
+        using (var responseStream = response.GetResponseStream())
         {
-          using (MemoryStream memoryStream = new MemoryStream())
+          using (var memoryStream = new MemoryStream())
           {
-            byte[] buffer = new byte[1024];
+            var buffer = new byte[1024];
             while (true)
             {
-              int count = responseStream.Read(buffer, 0, buffer.Length);
+              var count = responseStream.Read(buffer, 0, buffer.Length);
               if (count != 0)
                 memoryStream.Write(buffer, 0, count);
               else

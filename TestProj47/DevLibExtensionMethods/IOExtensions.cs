@@ -5,7 +5,6 @@
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -25,12 +24,12 @@ namespace TestProj47
     {
       if (!File.Exists(filename))
         return filename;
-      string withoutExtension = Path.GetFileNameWithoutExtension(filename);
-      string extension = Path.GetExtension(filename);
-      string directoryName = Path.GetDirectoryName(Path.GetFullPath(filename));
-      Regex regex = new Regex("^" + withoutExtension + "\\s*(\\d+)?");
-      int num = ((IEnumerable<string>) Directory.GetFiles(directoryName, withoutExtension + "*" + extension)).Where<string>((Func<string, bool>) (i => regex.IsMatch(Path.GetFileNameWithoutExtension(i)))).Count<string>();
-      return withoutExtension + " (" + (num + 1).ToString() + ")" + extension;
+      var withoutExtension = Path.GetFileNameWithoutExtension(filename);
+      var extension = Path.GetExtension(filename);
+      var directoryName = Path.GetDirectoryName(Path.GetFullPath(filename));
+      var regex = new Regex("^" + withoutExtension + "\\s*(\\d+)?");
+      var num = Directory.GetFiles(directoryName, withoutExtension + "*" + extension).Where(i => regex.IsMatch(Path.GetFileNameWithoutExtension(i))).Count();
+      return withoutExtension + " (" + (num + 1) + ")" + extension;
     }
 
     /// <summary>
@@ -42,11 +41,11 @@ namespace TestProj47
     {
       if (!Directory.Exists(path))
         return path;
-      string fileName = Path.GetFileName(path);
-      string directoryName = Path.GetDirectoryName(Path.GetFullPath(path));
-      Regex regex = new Regex("^" + fileName + "\\s*(\\d+)?");
-      int num = ((IEnumerable<string>) Directory.GetDirectories(directoryName, fileName + "*")).Where<string>((Func<string, bool>) (i => regex.IsMatch(Path.GetFileName(i)))).Count<string>();
-      return fileName + " (" + (num + 1).ToString() + ")";
+      var fileName = Path.GetFileName(path);
+      var directoryName = Path.GetDirectoryName(Path.GetFullPath(path));
+      var regex = new Regex("^" + fileName + "\\s*(\\d+)?");
+      var num = Directory.GetDirectories(directoryName, fileName + "*").Where(i => regex.IsMatch(Path.GetFileName(i))).Count();
+      return fileName + " (" + (num + 1) + ")";
     }
 
     /// <summary>
@@ -61,8 +60,8 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(fullPath))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -85,8 +84,8 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!Directory.Exists(directoryName))
         Directory.CreateDirectory(directoryName);
       if (encoding == null)
@@ -106,7 +105,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
+      var fullPath = Path.GetFullPath(filename);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
       if (encoding != null)
@@ -124,7 +123,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
+      var fullPath = Path.GetFullPath(filename);
       if (!File.Exists(fullPath))
         throw new FileNotFoundException("The specified file does not exist.", fullPath);
       if (encoding != null)
@@ -145,8 +144,8 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (filename));
       if (bytes == null)
         throw new ArgumentNullException(nameof (bytes));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(fullPath))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
@@ -164,7 +163,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
+      var fullPath = Path.GetFullPath(filename);
       if (File.Exists(fullPath))
         return File.ReadAllBytes(fullPath);
       throw new FileNotFoundException("The specified file does not exist.", fullPath);
@@ -183,15 +182,15 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (filename));
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      string fullPath = Path.GetFullPath(filename);
-      string directoryName = Path.GetDirectoryName(fullPath);
+      var fullPath = Path.GetFullPath(filename);
+      var directoryName = Path.GetDirectoryName(fullPath);
       if (!overwrite && File.Exists(fullPath))
         throw new ArgumentException("The specified file already exists.", fullPath);
       if (!Directory.Exists(directoryName))
         Directory.CreateDirectory(directoryName);
-      using (FileStream fileStream = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
+      using (var fileStream = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
       {
-        byte[] buffer = new byte[81920];
+        var buffer = new byte[81920];
         int count;
         while ((count = source.Read(buffer, 0, buffer.Length)) != 0)
           fileStream.Write(buffer, 0, count);
@@ -207,7 +206,7 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(filename))
         throw new ArgumentNullException(nameof (filename));
-      string fullPath = Path.GetFullPath(filename);
+      var fullPath = Path.GetFullPath(filename);
       Process.Start("explorer.exe", Path.GetDirectoryName(fullPath));
       return fullPath;
     }
@@ -271,9 +270,9 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (sourceFileName));
       if (string.IsNullOrEmpty(destFileName))
         throw new ArgumentNullException(nameof (destFileName));
-      string fullPath1 = Path.GetFullPath(sourceFileName);
-      string fullPath2 = Path.GetFullPath(destFileName);
-      string directoryName = Path.GetDirectoryName(destFileName);
+      var fullPath1 = Path.GetFullPath(sourceFileName);
+      var fullPath2 = Path.GetFullPath(destFileName);
+      var directoryName = Path.GetDirectoryName(destFileName);
       if (File.Exists(fullPath2))
       {
         if (!overwrite)
@@ -299,9 +298,9 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (sourceFileName));
       if (string.IsNullOrEmpty(destFileName))
         throw new ArgumentNullException(nameof (destFileName));
-      string fullPath1 = Path.GetFullPath(sourceFileName);
-      string fullPath2 = Path.GetFullPath(destFileName);
-      string directoryName = Path.GetDirectoryName(destFileName);
+      var fullPath1 = Path.GetFullPath(sourceFileName);
+      var fullPath2 = Path.GetFullPath(destFileName);
+      var directoryName = Path.GetDirectoryName(destFileName);
       if (!Directory.Exists(directoryName))
         Directory.CreateDirectory(directoryName);
       File.Copy(fullPath1, fullPath2, overwrite);
@@ -330,8 +329,8 @@ namespace TestProj47
           throw new ArgumentNullException("destFileName");
         return string.Empty;
       }
-      string fullPath1 = Path.GetFullPath(sourceDirectory);
-      string fullPath2 = Path.GetFullPath(destDirectory);
+      var fullPath1 = Path.GetFullPath(sourceDirectory);
+      var fullPath2 = Path.GetFullPath(destDirectory);
       if (fullPath1.Equals(fullPath2, StringComparison.OrdinalIgnoreCase))
       {
         if (throwOnError)
@@ -341,12 +340,12 @@ namespace TestProj47
       if (!Directory.Exists(sourceDirectory))
       {
         if (throwOnError)
-          throw new DirectoryNotFoundException(string.Format("{0} does not exist.", (object) fullPath1));
+          throw new DirectoryNotFoundException(string.Format("{0} does not exist.", fullPath1));
         return string.Empty;
       }
       try
       {
-        foreach (string file in Directory.GetFiles(fullPath1, "*", SearchOption.AllDirectories))
+        foreach (var file in Directory.GetFiles(fullPath1, "*", SearchOption.AllDirectories))
         {
           try
           {
@@ -375,7 +374,7 @@ namespace TestProj47
     /// <returns>true if path is a directory; otherwise, false.</returns>
     public static bool IsDirectory(this string sourcePath)
     {
-      FileInfo fileInfo = new FileInfo(sourcePath);
+      var fileInfo = new FileInfo(sourcePath);
       return (fileInfo.Attributes & FileAttributes.Directory) != 0;
     }
 
@@ -398,8 +397,8 @@ namespace TestProj47
     /// <returns>true if path refers to an existing directory or a file; otherwise, false.</returns>
     public static bool ExistsFileSystem(this string source)
     {
-      FileInfo fileInfo = new FileInfo(source);
-      if ((fileInfo.Attributes & FileAttributes.Directory) == (FileAttributes) 0)
+      var fileInfo = new FileInfo(source);
+      if ((fileInfo.Attributes & FileAttributes.Directory) == 0)
         return fileInfo.Exists;
       return true;
     }
@@ -412,10 +411,10 @@ namespace TestProj47
     /// <returns>true if succeeded; otherwise, false.</returns>
     public static bool DeleteDirectory(this string source, bool recursive)
     {
-      DirectoryInfo directoryInfo = new DirectoryInfo(source);
+      var directoryInfo = new DirectoryInfo(source);
       if (!directoryInfo.Exists)
         return true;
-      foreach (FileInfo file in directoryInfo.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+      foreach (var file in directoryInfo.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
       {
         try
         {
@@ -432,7 +431,7 @@ namespace TestProj47
         {
         }
       }
-      foreach (DirectoryInfo directory in directoryInfo.GetDirectories("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+      foreach (var directory in directoryInfo.GetDirectories("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
       {
         try
         {
@@ -472,7 +471,7 @@ namespace TestProj47
     /// <returns>true if succeeded; otherwise, false.</returns>
     public static bool DeleteFile(this string source)
     {
-      FileInfo fileInfo = new FileInfo(source);
+      var fileInfo = new FileInfo(source);
       if (!fileInfo.Exists)
         return true;
       try
@@ -508,15 +507,15 @@ namespace TestProj47
     [EnvironmentPermission(SecurityAction.Demand, Unrestricted = true)]
     public static int ExecuteCmdLine(this string sourceCmd, Action onExited = null, bool runasAdmin = true, bool hidden = true, int? milliseconds = null)
     {
-      ProcessStartInfo processStartInfo = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "cmd.exe"));
-      processStartInfo.Arguments = string.Format(" /C {0}", (object) sourceCmd);
+      var processStartInfo = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "cmd.exe"));
+      processStartInfo.Arguments = string.Format(" /C {0}", sourceCmd);
       processStartInfo.CreateNoWindow = hidden;
       processStartInfo.ErrorDialog = true;
       processStartInfo.UseShellExecute = true;
       processStartInfo.WindowStyle = hidden ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal;
       if (runasAdmin)
         processStartInfo.Verb = "runas";
-      Process process = new Process();
+      var process = new Process();
       process.StartInfo = processStartInfo;
       process.EnableRaisingEvents = true;
       process.Exited += (EventHandler) ((s, e) =>
@@ -526,7 +525,7 @@ namespace TestProj47
         onExited();
       });
       process.Start();
-      int num = -1;
+      var num = -1;
       try
       {
         num = process.Id;
@@ -536,7 +535,7 @@ namespace TestProj47
       }
       if (milliseconds.HasValue)
       {
-        int? nullable = milliseconds;
+        var nullable = milliseconds;
         if ((nullable.GetValueOrDefault() < 0 ? 0 : (nullable.HasValue ? 1 : 0)) != 0)
         {
           if (process.WaitForExit(milliseconds.Value))
@@ -564,7 +563,7 @@ namespace TestProj47
     [EnvironmentPermission(SecurityAction.Demand, Unrestricted = true)]
     public static int Execute(this string sourceFile, string arguments = null, Action onExited = null, bool runasAdmin = true, bool hidden = true, int? milliseconds = null)
     {
-      ProcessStartInfo processStartInfo = new ProcessStartInfo(sourceFile);
+      var processStartInfo = new ProcessStartInfo(sourceFile);
       processStartInfo.Arguments = arguments;
       processStartInfo.CreateNoWindow = hidden;
       processStartInfo.ErrorDialog = true;
@@ -572,7 +571,7 @@ namespace TestProj47
       processStartInfo.WindowStyle = hidden ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal;
       if (runasAdmin)
         processStartInfo.Verb = "runas";
-      Process process = new Process();
+      var process = new Process();
       process.StartInfo = processStartInfo;
       process.EnableRaisingEvents = true;
       process.Exited += (EventHandler) ((s, e) =>
@@ -582,7 +581,7 @@ namespace TestProj47
         onExited();
       });
       process.Start();
-      int num = -1;
+      var num = -1;
       try
       {
         num = process.Id;
@@ -592,7 +591,7 @@ namespace TestProj47
       }
       if (milliseconds.HasValue)
       {
-        int? nullable = milliseconds;
+        var nullable = milliseconds;
         if ((nullable.GetValueOrDefault() < 0 ? 0 : (nullable.HasValue ? 1 : 0)) != 0)
         {
           if (process.WaitForExit(milliseconds.Value))
@@ -611,7 +610,7 @@ namespace TestProj47
     {
       if (source == null)
         throw new ArgumentNullException(nameof (source));
-      return (Stream) new MemoryStream(source);
+      return new MemoryStream(source);
     }
 
     /// <summary>
@@ -625,7 +624,7 @@ namespace TestProj47
         throw new ArgumentNullException(nameof (source));
       if (destination == null)
         throw new ArgumentNullException(nameof (destination));
-      byte[] buffer = new byte[81920];
+      var buffer = new byte[81920];
       int count;
       while ((count = source.Read(buffer, 0, buffer.Length)) != 0)
         destination.Write(buffer, 0, count);
@@ -645,19 +644,19 @@ namespace TestProj47
       if (destination == null)
         throw new ArgumentNullException(nameof (destination));
       source.Position = startPosition;
-      byte[] buffer = new byte[81920];
-      int count1 = length;
+      var buffer = new byte[81920];
+      var count1 = length;
       while (count1 > 0)
       {
         if (count1 <= buffer.Length)
         {
-          int count2 = source.Read(buffer, 0, count1);
+          var count2 = source.Read(buffer, 0, count1);
           if (count2 <= 0)
             break;
           destination.Write(buffer, 0, count2);
           break;
         }
-        int count3 = source.Read(buffer, 0, buffer.Length);
+        var count3 = source.Read(buffer, 0, buffer.Length);
         if (count3 <= 0)
           break;
         destination.Write(buffer, 0, count3);

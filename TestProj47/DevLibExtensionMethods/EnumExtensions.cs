@@ -21,7 +21,7 @@ namespace TestProj47
     /// <param name="ignoreCase">Whether ignore case.</param>
     /// <param name="throwOnError">true to throw any exception that occurs.-or- false to ignore any exception that occurs.</param>
     /// <returns>Instance of TEnum.</returns>
-    public static TEnum ToEnum<TEnum>(this string source, TEnum defaultValue = default (TEnum), bool ignoreCase = false, bool throwOnError = false) where TEnum : struct
+    public static TEnum ToEnum<TEnum>(this string source, TEnum defaultValue = default, bool ignoreCase = false, bool throwOnError = false) where TEnum : struct
     {
       try
       {
@@ -41,7 +41,7 @@ namespace TestProj47
     /// <returns>true if string in enum; otherwise, false.</returns>
     public static bool IsItemInEnum<TEnum>(this string source) where TEnum : struct
     {
-      return Enum.IsDefined(typeof (TEnum), (object) source);
+      return Enum.IsDefined(typeof (TEnum), source);
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace TestProj47
     /// <returns>Description string.</returns>
     public static string ToDescriptionString(this Enum source)
     {
-      DescriptionAttribute descriptionAttribute = ((IEnumerable<object>) source.GetType().GetField(source.ToString()).GetCustomAttributes(typeof (DescriptionAttribute), false)).FirstOrDefault<object>() as DescriptionAttribute;
+      var descriptionAttribute = source.GetType().GetField(source.ToString()).GetCustomAttributes(typeof (DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
       if (descriptionAttribute == null)
         return source.ToString();
       return descriptionAttribute.Description;
@@ -65,7 +65,7 @@ namespace TestProj47
     /// <returns>A list of the values of the constants in enumType. The elements of the array are sorted by the binary values of the enumeration constants.</returns>
     public static List<TEnum> ToEnumValueList<TEnum>(this TEnum source) where TEnum : struct
     {
-      return Enum.GetValues(source.GetType()).Cast<TEnum>().ToList<TEnum>();
+      return Enum.GetValues(source.GetType()).Cast<TEnum>().ToList();
     }
   }
 }

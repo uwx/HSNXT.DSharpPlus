@@ -18,7 +18,7 @@ namespace TestProj47
     /// <param name="e">A System.EventArgs that contains the event data.</param>
     public static void RaiseEvent(this EventHandler source, object sender, EventArgs e = null)
     {
-      EventHandler eventHandler = Interlocked.CompareExchange<EventHandler>(ref source, (EventHandler) null, (EventHandler) null);
+      var eventHandler = Interlocked.CompareExchange(ref source, null, null);
       if (eventHandler == null)
         return;
       eventHandler(sender, e);

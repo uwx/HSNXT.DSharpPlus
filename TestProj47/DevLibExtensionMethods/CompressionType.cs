@@ -12,6 +12,6 @@ namespace TestProj47
   public enum CompressionType
   {
     GZip,
-    Deflate,
+    Deflate
   }
 }

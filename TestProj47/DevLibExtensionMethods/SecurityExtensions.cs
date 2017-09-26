@@ -21,8 +21,8 @@ namespace TestProj47
     public static byte[] EncryptRSA(this byte[] source, string key = null, bool fOAEP = false)
     {
       if (source == null)
-        return (byte[]) null;
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider(new CspParameters()
+        return null;
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider(new CspParameters
       {
         KeyContainerName = key ?? string.Empty
       }))
@@ -39,8 +39,8 @@ namespace TestProj47
     public static byte[] DecryptRSA(this byte[] source, string key = null, bool fOAEP = false)
     {
       if (source == null)
-        return (byte[]) null;
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider(new CspParameters()
+        return null;
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider(new CspParameters
       {
         KeyContainerName = key ?? string.Empty
       }))
@@ -55,11 +55,11 @@ namespace TestProj47
     /// <returns>The System.Security.Cryptography.RSA signature for the specified data.</returns>
     public static byte[] SignDataRSA(this byte[] source, RSAParameters privateKey)
     {
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider())
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider())
       {
         cryptoServiceProvider.ImportParameters(privateKey);
-        using (SHA512Managed shA512Managed = new SHA512Managed())
-          return cryptoServiceProvider.SignData(source, (object) shA512Managed);
+        using (var shA512Managed = new SHA512Managed())
+          return cryptoServiceProvider.SignData(source, shA512Managed);
       }
     }
 
@@ -72,11 +72,11 @@ namespace TestProj47
     /// <returns>true if the signature verifies as valid; otherwise, false.</returns>
     public static bool VerifyDataRSA(this byte[] source, byte[] signature, RSAParameters publicKey)
     {
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider())
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider())
       {
         cryptoServiceProvider.ImportParameters(publicKey);
-        using (SHA512Managed shA512Managed = new SHA512Managed())
-          return cryptoServiceProvider.VerifyData(source, (object) shA512Managed, signature);
+        using (var shA512Managed = new SHA512Managed())
+          return cryptoServiceProvider.VerifyData(source, shA512Managed, signature);
       }
     }
 
@@ -88,11 +88,11 @@ namespace TestProj47
     /// <returns>The System.Security.Cryptography.RSA signature for the specified data.</returns>
     public static byte[] SignDataRSA(this byte[] source, byte[] privateKey)
     {
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider())
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider())
       {
         cryptoServiceProvider.ImportCspBlob(privateKey);
-        using (SHA512Managed shA512Managed = new SHA512Managed())
-          return cryptoServiceProvider.SignData(source, (object) shA512Managed);
+        using (var shA512Managed = new SHA512Managed())
+          return cryptoServiceProvider.SignData(source, shA512Managed);
       }
     }
 
@@ -105,11 +105,11 @@ namespace TestProj47
     /// <returns>true if the signature verifies as valid; otherwise, false.</returns>
     public static bool VerifyDataRSA(this byte[] source, byte[] signature, byte[] publicKey)
     {
-      using (RSACryptoServiceProvider cryptoServiceProvider = new RSACryptoServiceProvider())
+      using (var cryptoServiceProvider = new RSACryptoServiceProvider())
       {
         cryptoServiceProvider.ImportCspBlob(publicKey);
-        using (SHA512Managed shA512Managed = new SHA512Managed())
-          return cryptoServiceProvider.VerifyData(source, (object) shA512Managed, signature);
+        using (var shA512Managed = new SHA512Managed())
+          return cryptoServiceProvider.VerifyData(source, shA512Managed, signature);
       }
     }
 
@@ -120,7 +120,7 @@ namespace TestProj47
     /// <returns>The computed hash code.</returns>
     public static byte[] HashMD5(this byte[] source)
     {
-      using (MD5 md5 = MD5.Create())
+      using (var md5 = MD5.Create())
         return md5.ComputeHash(source);
     }
   }

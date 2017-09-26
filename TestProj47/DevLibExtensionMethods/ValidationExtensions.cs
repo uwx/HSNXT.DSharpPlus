@@ -17,7 +17,7 @@ namespace TestProj47
     /// <param name="argumentName">Name of the argument.</param>
     public static void RequireArgumentNotNull<T>(this T source, string argumentName) where T : class
     {
-      if ((object) source == null)
+      if (source == null)
         throw new ArgumentNullException(argumentName);
     }
 

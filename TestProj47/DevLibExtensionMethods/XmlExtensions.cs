@@ -20,15 +20,15 @@ namespace TestProj47
 
     static Extensions()
     {
-      Extensions.ReaderSettings.CheckCharacters = true;
-      Extensions.ReaderSettings.ConformanceLevel = ConformanceLevel.Document;
-      Extensions.ReaderSettings.ProhibitDtd = false;
-      Extensions.ReaderSettings.IgnoreComments = true;
-      Extensions.ReaderSettings.IgnoreProcessingInstructions = true;
-      Extensions.ReaderSettings.IgnoreWhitespace = true;
-      Extensions.ReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
-      Extensions.ReaderSettings.ValidationType = ValidationType.None;
-      Extensions.ReaderSettings.CloseInput = true;
+      ReaderSettings.CheckCharacters = true;
+      ReaderSettings.ConformanceLevel = ConformanceLevel.Document;
+      ReaderSettings.ProhibitDtd = false;
+      ReaderSettings.IgnoreComments = true;
+      ReaderSettings.IgnoreProcessingInstructions = true;
+      ReaderSettings.IgnoreWhitespace = true;
+      ReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
+      ReaderSettings.ValidationType = ValidationType.None;
+      ReaderSettings.CloseInput = true;
     }
 
     /// <summary>
@@ -40,10 +40,10 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         return false;
-      string s = source.Trim();
-      if ((int) s[0] != 60 || (int) s[s.Length - 1] != 62)
+      var s = source.Trim();
+      if (s[0] != 60 || s[s.Length - 1] != 62)
         return false;
-      using (XmlReader xmlReader = XmlReader.Create((TextReader) new StringReader(s), Extensions.ReaderSettings))
+      using (var xmlReader = XmlReader.Create(new StringReader(s), ReaderSettings))
       {
         try
         {
@@ -71,17 +71,17 @@ namespace TestProj47
         return source;
       try
       {
-        MemoryStream memoryStream1 = new MemoryStream();
-        StreamReader streamReader = new StreamReader((Stream) memoryStream1);
-        MemoryStream memoryStream2 = memoryStream1;
-        XmlWriterSettings settings = new XmlWriterSettings()
+        var memoryStream1 = new MemoryStream();
+        var streamReader = new StreamReader(memoryStream1);
+        var memoryStream2 = memoryStream1;
+        var settings = new XmlWriterSettings
         {
           OmitXmlDeclaration = omitXmlDeclaration,
           Indent = true,
-          Encoding = (Encoding) new UTF8Encoding(false),
+          Encoding = new UTF8Encoding(false),
           CloseOutput = true
         };
-        using (XmlWriter writer = XmlWriter.Create((Stream) memoryStream2, settings))
+        using (var writer = XmlWriter.Create(memoryStream2, settings))
         {
           XDocument.Parse(source).Save(writer);
           writer.Flush();
@@ -107,24 +107,24 @@ namespace TestProj47
     {
       if (string.IsNullOrEmpty(source))
         return source;
-      string str1 = indentXml ? source.ToIndentXml(omitXmlDeclaration) : source;
-      StringBuilder stringBuilder = new StringBuilder(string.Empty);
-      bool flag1 = false;
-      bool flag2 = false;
-      bool flag3 = false;
-      bool flag4 = false;
-      for (int index = 0; index < str1.Length; ++index)
+      var str1 = indentXml ? source.ToIndentXml(omitXmlDeclaration) : source;
+      var stringBuilder = new StringBuilder(string.Empty);
+      var flag1 = false;
+      var flag2 = false;
+      var flag3 = false;
+      var flag4 = false;
+      for (var index = 0; index < str1.Length; ++index)
       {
-        bool flag5 = false;
+        var flag5 = false;
         if (flag2)
         {
-          if ((int) str1[index] == 32)
+          if (str1[index] == 32)
           {
             stringBuilder.Append(XmlSyntaxHighlightColor.RtfAttributeNameColor(darkStyle));
             flag2 = false;
           }
         }
-        else if (flag1 && (int) str1[index] == 34)
+        else if (flag1 && str1[index] == 34)
         {
           if (flag3)
           {
@@ -139,12 +139,12 @@ namespace TestProj47
             flag3 = true;
           }
         }
-        if ((int) str1[index] == 60 && !flag4)
+        if (str1[index] == 60 && !flag4)
         {
           flag1 = true;
-          if ((int) str1[index + 1] == 33)
+          if (str1[index + 1] == 33)
           {
-            if ((int) str1[index + 2] == 45 && (int) str1[index + 3] == 45)
+            if (str1[index + 2] == 45 && str1[index + 3] == 45)
             {
               stringBuilder.Append(XmlSyntaxHighlightColor.RtfCommentColor(darkStyle));
               flag4 = true;
@@ -160,7 +160,7 @@ namespace TestProj47
             stringBuilder.Append(XmlSyntaxHighlightColor.RtfTagColor(darkStyle));
             stringBuilder.Append(str1[index]);
             flag5 = true;
-            if ((int) str1[index + 1] == 63 || (int) str1[index + 1] == 47)
+            if (str1[index + 1] == 63 || str1[index + 1] == 47)
             {
               ++index;
               stringBuilder.Append(str1[index]);
@@ -169,14 +169,14 @@ namespace TestProj47
             flag2 = true;
           }
         }
-        bool flag6 = false;
-        if ((int) str1[index] == 62)
+        var flag6 = false;
+        if (str1[index] == 62)
           flag6 = true;
-        if (index < str1.Length - 1 && (int) str1[index + 1] == 62 && ((int) str1[index] == 63 || (int) str1[index] == 47))
+        if (index < str1.Length - 1 && str1[index + 1] == 62 && (str1[index] == 63 || str1[index] == 47))
           flag6 = true;
         if (flag6)
         {
-          if (flag4 && (int) str1[index - 1] == 45 && (int) str1[index - 2] == 45)
+          if (flag4 && str1[index - 1] == 45 && str1[index - 2] == 45)
           {
             stringBuilder.Append(str1[index]);
             stringBuilder.Append(XmlSyntaxHighlightColor.RtfDefaultColor(darkStyle));
@@ -187,7 +187,7 @@ namespace TestProj47
           if (flag1)
           {
             stringBuilder.Append("\\cf1 ");
-            if ((int) str1[index] == 47 || (int) str1[index] == 63)
+            if (str1[index] == 47 || str1[index] == 63)
               stringBuilder.Append(str1[index++]);
             stringBuilder.Append(str1[index]);
             stringBuilder.Append(XmlSyntaxHighlightColor.RtfDefaultColor(darkStyle));
@@ -199,24 +199,24 @@ namespace TestProj47
         if (!flag5)
           stringBuilder.Append(str1[index]);
       }
-      string str2 = stringBuilder.ToString();
-      int startIndex1 = str2.IndexOf("{\\colortbl;");
+      var str2 = stringBuilder.ToString();
+      var startIndex1 = str2.IndexOf("{\\colortbl;");
       string str3;
       if (startIndex1 != -1)
       {
-        int num = str2.IndexOf('}', startIndex1);
+        var num = str2.IndexOf('}', startIndex1);
         str3 = str2.Remove(startIndex1, num - startIndex1).Insert(startIndex1, XmlSyntaxHighlightColor.ColorTable);
       }
       else
       {
-        int startIndex2 = str2.IndexOf("\\rtf");
+        var startIndex2 = str2.IndexOf("\\rtf");
         if (startIndex2 < 0)
         {
           str3 = str2.Insert(0, "{\\rtf\\ansi\\deff0" + XmlSyntaxHighlightColor.ColorTable) + "}";
         }
         else
         {
-          int startIndex3 = str2.IndexOf('{', startIndex2);
+          var startIndex3 = str2.IndexOf('{', startIndex2);
           if (startIndex3 == -1)
             startIndex3 = str2.IndexOf('}', startIndex2) - 1;
           str3 = str2.Insert(startIndex3, XmlSyntaxHighlightColor.ColorTable);
@@ -231,7 +231,7 @@ namespace TestProj47
     /// <returns>The newly created XML node.</returns>
     public static XmlNode CreateChildNode(this XmlNode source, string childNode)
     {
-      XmlNode element = (XmlNode) (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode);
+      XmlNode element = (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode);
       source.AppendChild(element);
       return element;
     }
@@ -243,7 +243,7 @@ namespace TestProj47
     /// <returns>The newly created XML node.</returns>
     public static XmlNode CreateChildNode(this XmlNode source, string childNode, string namespaceUri)
     {
-      XmlNode element = (XmlNode) (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode, namespaceUri);
+      XmlNode element = (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode, namespaceUri);
       source.AppendChild(element);
       return element;
     }
@@ -264,8 +264,8 @@ namespace TestProj47
     /// <returns>The created CData Section.</returns>
     public static XmlCDataSection CreateCDataSection(this XmlNode source, string cData)
     {
-      XmlCDataSection cdataSection = (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateCDataSection(cData);
-      source.AppendChild((XmlNode) cdataSection);
+      var cdataSection = (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateCDataSection(cData);
+      source.AppendChild(cdataSection);
       return cdataSection;
     }
 
@@ -274,7 +274,7 @@ namespace TestProj47
     /// <param name="sourceNode">The parent node.</param>
     public static void AppendChildNodeTo(this string childNode, XmlNode sourceNode)
     {
-      XmlNode element = (XmlNode) (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateElement(childNode);
+      XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateElement(childNode);
       sourceNode.AppendChild(element);
     }
 
@@ -284,7 +284,7 @@ namespace TestProj47
     /// <param name="namespaceUri">The node namespace.</param>
     public static void AppendChildNodeTo(this string childNode, XmlNode sourceNode, string namespaceUri)
     {
-      XmlNode element = (XmlNode) (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateElement(childNode, namespaceUri);
+      XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateElement(childNode, namespaceUri);
       sourceNode.AppendChild(element);
     }
 
@@ -295,8 +295,8 @@ namespace TestProj47
     /// <param name="sourceNode">The parent node.</param>
     public static void AppendCDataSectionTo(this string cData, XmlNode sourceNode)
     {
-      XmlCDataSection cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateCDataSection(cData);
-      sourceNode.AppendChild((XmlNode) cdataSection);
+      var cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateCDataSection(cData);
+      sourceNode.AppendChild(cdataSection);
     }
 
     /// <summary>Returns the value of a nested CData section.</summary>
@@ -304,12 +304,12 @@ namespace TestProj47
     /// <returns>The CData section content.</returns>
     public static string GetCDataSection(this XmlNode source)
     {
-      foreach (object childNode in source.ChildNodes)
+      foreach (var childNode in source.ChildNodes)
       {
         if (childNode is XmlCDataSection)
           return ((XmlNode) childNode).Value;
       }
-      return (string) null;
+      return null;
     }
 
     /// <summary>Gets an attribute value.</summary>
@@ -318,7 +318,7 @@ namespace TestProj47
     /// <returns>The attribute value.</returns>
     public static string GetAttribute(this XmlNode source, string attributeName)
     {
-      return source.GetAttribute(attributeName, (string) null);
+      return source.GetAttribute(attributeName, null);
     }
 
     /// <summary>
@@ -331,7 +331,7 @@ namespace TestProj47
     /// <returns>The attribute value.</returns>
     public static string GetAttribute(this XmlNode source, string attributeName, string defaultValue)
     {
-      XmlAttribute attribute = source.Attributes[attributeName];
+      var attribute = source.Attributes[attributeName];
       if (attribute == null)
         return defaultValue;
       return attribute.InnerText;
@@ -346,7 +346,7 @@ namespace TestProj47
     /// <returns>The attribute value.</returns>
     public static T GetAttribute<T>(this XmlNode source, string attributeName)
     {
-      return source.GetAttribute<T>(attributeName, default (T));
+      return source.GetAttribute(attributeName, default (T));
     }
 
     /// <summary>
@@ -360,10 +360,10 @@ namespace TestProj47
     /// <returns>The attribute value.</returns>
     public static T GetAttribute<T>(this XmlNode source, string attributeName, T defaultValue)
     {
-      string attribute = source.GetAttribute(attributeName);
+      var attribute = source.GetAttribute(attributeName);
       if (attribute.IsNullOrEmpty())
         return defaultValue;
-      return attribute.ConvertTo<T>(defaultValue, false);
+      return attribute.ConvertTo(defaultValue, false);
     }
 
     /// <summary>
@@ -374,7 +374,7 @@ namespace TestProj47
     /// <param name="value">The attribute value.</param>
     public static void SetAttribute(this XmlNode source, string name, object value)
     {
-      Extensions.SetAttribute(source, name, value != null ? value.ToString() : (string) null);
+      source.SetAttribute(name, value != null ? value.ToString() : (string) null);
     }
 
     /// <summary>
@@ -387,7 +387,7 @@ namespace TestProj47
     {
       if (source == null)
         return;
-      XmlAttribute attribute = source.Attributes[name, source.NamespaceURI];
+      var attribute = source.Attributes[name, source.NamespaceURI];
       if (attribute == null)
       {
         attribute = source.OwnerDocument.CreateAttribute(name, source.OwnerDocument.NamespaceURI);
