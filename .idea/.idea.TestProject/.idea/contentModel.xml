@@ -16,17 +16,6 @@
           <e p="IntExtensions.cs" t="Include" />
           <e p="LinqExtensions.cs" t="Include" />
           <e p="LongExtensions.cs" t="Include" />
-          <e p="netfx" t="Include">
-            <e p="system" t="Include">
-              <e p="Collections" t="Include">
-                <e p="Generic" t="Include">
-                  <e p="IEnumerable" t="Include">
-                    <e p="ForEach.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-          </e>
           <e p="StringExtensions.cs" t="Include" />
           <e p="WebControls" t="Include">
             <e p="WebTextBoxExtensions.cs" t="Include" />
@@ -38,7 +27,8 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="src" t="Include">
+        <e p="TestProj47.csproj" t="IncludeRecursive" />
+        <e p="ZExtensions" t="Include">
           <e p="logo.png" t="Include" />
           <e p="Z.Caching" t="Include">
             <e p="System.Object" t="Include">
@@ -1405,7 +1395,6 @@
             <e p="Z.Xml.Linq.csproj" t="Include" />
           </e>
         </e>
-        <e p="TestProj47.csproj" t="IncludeRecursive" />
       </e>
       <e p="TestProject.sln" t="IncludeFlat" />
     </e>
