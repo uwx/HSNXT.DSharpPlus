@@ -383,7 +383,7 @@ namespace TestProj47
         /// <param name="value">The attribute value.</param>
         public static void SetAttribute(this XmlNode source, string name, object value)
         {
-            source.SetAttribute(name, value != null ? value.ToString() : (string) null);
+            source.SetAttribute(name, value != null ? value.ToString() : null);
         }
 
         /// <summary>

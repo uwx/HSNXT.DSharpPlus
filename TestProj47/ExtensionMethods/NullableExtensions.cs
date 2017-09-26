@@ -10,16 +10,16 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    /// <summary>Returns a formatted string for a nullable type.</summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value">a nullable struct</param>
-    /// <param name="format">string format.</param>
-    /// <returns>Null if value is null; otherwise, returns a formatted string. </returns>
-    public static string ToFormat<T>(this T? value, string format) where T : struct, IFormattable
-    {
-      if (!value.HasValue)
-        return (string) null;
-      return value.Value.ToString(format, (IFormatProvider) null);
+        /// <summary>Returns a formatted string for a nullable type.</summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">a nullable struct</param>
+        /// <param name="format">string format.</param>
+        /// <returns>Null if value is null; otherwise, returns a formatted string. </returns>
+        public static string ToFormat<T>(this T? value, string format) where T : struct, IFormattable
+        {
+            if (!value.HasValue)
+                return null;
+            return value.Value.ToString(format, null);
+        }
     }
-  }
 }

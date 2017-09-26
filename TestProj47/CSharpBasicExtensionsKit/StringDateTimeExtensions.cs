@@ -14,8 +14,7 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-        private static readonly string[] DateFormats = new string[]
-        {
+        private static readonly string[] DateFormats = {
             "ddd, d MMM yyyy HH:mm:ss zzz",
             "ddd, dd MMM yyyy HH:mm:ss zzz",
             "dd MMM yyyy HH:mm:ss zzz",

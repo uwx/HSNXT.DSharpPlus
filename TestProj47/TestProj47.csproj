@@ -41,12 +41,6 @@
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
-    <Reference Include="ExtensionMethodsCore.Collections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ExtensionMethodsCore.Collections.1.0.5\lib\dotnet5.0\ExtensionMethodsCore.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionMinder, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ExtensionMinder.1.0.3.0\lib\ExtensionMinder.dll</HintPath>
-    </Reference>
     <Reference Include="ExtensionsHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\ExtensionsHelper.1.0.0\lib\ExtensionsHelper.dll</HintPath>
     </Reference>
@@ -189,6 +183,7 @@
     <Compile Include="Dff\ObjectExtensions.cs" />
     <Compile Include="Dff\StringExtensions.cs" />
     <Compile Include="Dff\TimeSpanExtensions.cs" />
+    <Compile Include="ExtensionMethodsCore.Collections\Extensions.cs" />
     <Compile Include="ExtensionMethods\BooleanExtensions.cs" />
     <Compile Include="ExtensionMethods\ByteExtensions.cs" />
     <Compile Include="ExtensionMethods\Helpers\Check.cs" />
@@ -196,6 +191,20 @@
     <Compile Include="ExtensionMethods\IPrincipalExtension.cs" />
     <Compile Include="ExtensionMethods\NullableExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
+    <Compile Include="ExtensionMinder\CollectionExtensions.cs" />
+    <Compile Include="ExtensionMinder\DateTimeExtensions.cs" />
+    <Compile Include="ExtensionMinder\EnumExtensions.cs" />
+    <Compile Include="ExtensionMinder\ExceptionExtensions.cs" />
+    <Compile Include="ExtensionMinder\Extensions.cs" />
+    <Compile Include="ExtensionMinder\FileExtensions.cs" />
+    <Compile Include="ExtensionMinder\MathExtensions.cs" />
+    <Compile Include="ExtensionMinder\ReflectionExtensions.cs" />
+    <Compile Include="ExtensionMinder\SerializerExtensions.cs" />
+    <Compile Include="ExtensionMinder\SetExtensions.cs" />
+    <Compile Include="ExtensionMinder\SpellingExtensions.cs" />
+    <Compile Include="ExtensionMinder\SpellingVariants.cs" />
+    <Compile Include="ExtensionMinder\StaticReflection.cs" />
+    <Compile Include="ExtensionMinder\StringExtension.cs" />
     <Compile Include="ExtensionOverflow\ClassExtensions.cs" />
     <Compile Include="ExtensionOverflow\DateTimeExtensions.cs" />
     <Compile Include="ExtensionOverflow\DecimalExtensions.cs" />

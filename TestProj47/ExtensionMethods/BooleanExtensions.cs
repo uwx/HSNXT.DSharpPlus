@@ -8,14 +8,14 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    /// <summary>
-    /// Returns Yes or No string if a boolean value is true or false, respectively.
-    /// </summary>
-    /// <param name="b">value to test</param>
-    /// <returns>Yes or No string.</returns>
-    public static string ToYesOrNo(this bool b)
-    {
-      return !b ? "No" : "Yes";
+        /// <summary>
+        /// Returns Yes or No string if a boolean value is true or false, respectively.
+        /// </summary>
+        /// <param name="b">value to test</param>
+        /// <returns>Yes or No string.</returns>
+        public static string ToYesOrNo(this bool b)
+        {
+            return !b ? "No" : "Yes";
+        }
     }
-  }
 }

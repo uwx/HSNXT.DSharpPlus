@@ -71,6 +71,25 @@
           <e p="NullableExtensions.cs" t="Include" />
           <e p="StringExtensions.cs" t="Include" />
         </e>
+        <e p="ExtensionMethodsCore.Collections" t="Include">
+          <e p="Extensions.cs" t="Include" />
+        </e>
+        <e p="ExtensionMinder" t="Include">
+          <e p="CollectionExtensions.cs" t="Include" />
+          <e p="DateTimeExtensions.cs" t="Include" />
+          <e p="EnumExtensions.cs" t="Include" />
+          <e p="ExceptionExtensions.cs" t="Include" />
+          <e p="Extensions.cs" t="Include" />
+          <e p="FileExtensions.cs" t="Include" />
+          <e p="MathExtensions.cs" t="Include" />
+          <e p="ReflectionExtensions.cs" t="Include" />
+          <e p="SerializerExtensions.cs" t="Include" />
+          <e p="SetExtensions.cs" t="Include" />
+          <e p="SpellingExtensions.cs" t="Include" />
+          <e p="SpellingVariants.cs" t="Include" />
+          <e p="StaticReflection.cs" t="Include" />
+          <e p="StringExtension.cs" t="Include" />
+        </e>
         <e p="ExtensionOverflow" t="Include">
           <e p="ClassExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />
