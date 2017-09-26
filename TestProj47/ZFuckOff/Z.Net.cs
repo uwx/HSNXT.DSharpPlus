@@ -1,8 +1,8 @@
 using System.IO;
-using System.Text;
 using System.Net;
-//using System.Data.SqlServerCe;
 using System.Net.Mail;
+using System.Text;
+//using System.Data.SqlServerCe;
 
 // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods

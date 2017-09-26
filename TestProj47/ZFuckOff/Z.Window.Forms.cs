@@ -1,5 +1,7 @@
 //using System.Data.SqlServerCe;
+
 using System.Windows.Forms;
+
 // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues

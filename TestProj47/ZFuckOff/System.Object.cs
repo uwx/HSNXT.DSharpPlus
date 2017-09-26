@@ -1,9 +1,10 @@
 using System;
-using System.IO;
 using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Reflection;
+
 //using System.Data.SqlServerCe;
 
 // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
@@ -42,7 +43,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(T);
+                return default;
             }
         }
 
@@ -1339,7 +1340,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(bool);
+                return default;
             }
         }
 
@@ -1450,7 +1451,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(byte);
+                return default;
             }
         }
 
@@ -1557,7 +1558,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(char);
+                return default;
             }
         }
 
@@ -1678,7 +1679,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(DateTimeOffset);
+                return default;
             }
         }
 
@@ -1782,7 +1783,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(DateTime);
+                return default;
             }
         }
 
@@ -1894,7 +1895,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(decimal);
+                return default;
             }
         }
 
@@ -2006,7 +2007,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(double);
+                return default;
             }
         }
 
@@ -2118,7 +2119,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(float);
+                return default;
             }
         }
 
@@ -2340,7 +2341,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(short);
+                return default;
             }
         }
 
@@ -2451,7 +2452,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(int);
+                return default;
             }
         }
 
@@ -2562,7 +2563,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(long);
+                return default;
             }
         }
 
@@ -2673,7 +2674,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(long);
+                return default;
             }
         }
 
@@ -4524,7 +4525,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(sbyte);
+                return default;
             }
         }
 
@@ -4635,7 +4636,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(short);
+                return default;
             }
         }
 
@@ -4746,7 +4747,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(float);
+                return default;
             }
         }
 
@@ -4857,7 +4858,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(string);
+                return default;
             }
         }
 
@@ -4969,7 +4970,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(ushort);
+                return default;
             }
         }
 
@@ -5081,7 +5082,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(uint);
+                return default;
             }
         }
 
@@ -5192,7 +5193,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(ulong);
+                return default;
             }
         }
 
@@ -5303,7 +5304,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(ulong);
+                return default;
             }
         }
 
@@ -5414,7 +5415,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(ushort);
+                return default;
             }
         }
 
@@ -5550,7 +5551,7 @@ namespace TestProj47
                 }
             }
 
-            return default(T);
+            return default;
         }
 
         /// <summary>
@@ -5839,7 +5840,7 @@ namespace TestProj47
             }
             catch (Exception)
             {
-                return default(TResult);
+                return default;
             }
         }
 
@@ -6104,7 +6105,7 @@ namespace TestProj47
         /// <returns>The function result if @this is not null otherwise default value.</returns>
         public static TResult IfNotNull<T, TResult>(this T @this, Func<T, TResult> func) where T : class
         {
-            return @this != null ? func(@this) : default(TResult);
+            return @this != null ? func(@this) : default;
         }
 
         /// <summary>
@@ -6209,7 +6210,7 @@ namespace TestProj47
             }
             catch
             {
-                return default(TResult);
+                return default;
             }
         }
 
@@ -6269,7 +6270,7 @@ namespace TestProj47
             }
             catch
             {
-                result = default(TResult);
+                result = default;
                 return false;
             }
         }

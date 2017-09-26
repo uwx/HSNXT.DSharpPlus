@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
+
 //using System.Data.SqlServerCe;
 
 // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
@@ -845,7 +846,7 @@ namespace TestProj47
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
             var value = method.Invoke(obj, parameters);
-            return (value is T ? (T) value : default(T));
+            return (value is T ? (T) value : default);
         }
 
         /// <summary>
