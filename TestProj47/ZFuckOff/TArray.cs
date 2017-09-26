@@ -147,7 +147,7 @@ namespace TestProj47
         /// <param name="array">The array to act on.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static Boolean Exists<T>(this T[] array, Predicate<T> match)
+        public static bool Exists<T>(this T[] array, Predicate<T> match)
         {
             return Array.Exists(array, match);
         }
@@ -192,7 +192,7 @@ namespace TestProj47
         /// <param name="array">The array to act on.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindIndex<T>(this T[] array, Predicate<T> match)
+        public static int FindIndex<T>(this T[] array, Predicate<T> match)
         {
             return Array.FindIndex(array, match);
         }
@@ -205,7 +205,7 @@ namespace TestProj47
         /// <param name="startIndex">The start index.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindIndex<T>(this T[] array, Int32 startIndex, Predicate<T> match)
+        public static int FindIndex<T>(this T[] array, int startIndex, Predicate<T> match)
         {
             return Array.FindIndex(array, startIndex, match);
         }
@@ -219,7 +219,7 @@ namespace TestProj47
         /// <param name="count">Number of.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindIndex<T>(this T[] array, Int32 startIndex, Int32 count, Predicate<T> match)
+        public static int FindIndex<T>(this T[] array, int startIndex, int count, Predicate<T> match)
         {
             return Array.FindIndex(array, startIndex, count, match);
         }
@@ -249,7 +249,7 @@ namespace TestProj47
         /// <param name="array">The array to act on.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindLastIndex<T>(this T[] array, Predicate<T> match)
+        public static int FindLastIndex<T>(this T[] array, Predicate<T> match)
         {
             return Array.FindLastIndex(array, match);
         }
@@ -262,7 +262,7 @@ namespace TestProj47
         /// <param name="startIndex">The start index.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Predicate<T> match)
+        public static int FindLastIndex<T>(this T[] array, int startIndex, Predicate<T> match)
         {
             return Array.FindLastIndex(array, startIndex, match);
         }
@@ -276,7 +276,7 @@ namespace TestProj47
         /// <param name="count">Number of.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>The found index.</returns>
-        public static Int32 FindLastIndex<T>(this T[] array, Int32 startIndex, Int32 count, Predicate<T> match)
+        public static int FindLastIndex<T>(this T[] array, int startIndex, int count, Predicate<T> match)
         {
             return Array.FindLastIndex(array, startIndex, count, match);
         }
@@ -305,7 +305,7 @@ namespace TestProj47
         /// <param name="array">The array to act on.</param>
         /// <param name="match">Specifies the match.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static Boolean TrueForAll<T>(this T[] array, Predicate<T> match)
+        public static bool TrueForAll<T>(this T[] array, Predicate<T> match)
         {
             return Array.TrueForAll(array, match);
         }

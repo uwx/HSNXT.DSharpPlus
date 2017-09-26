@@ -426,7 +426,7 @@ namespace TestProj47
         ///     An object whose underlying type is  and whose value is equivalent to .-or-A null reference (Nothing in Visual
         ///     Basic), if  is null and  is , , or .
         /// </returns>
-        public static Object ChangeType(this Object value, TypeCode typeCode)
+        public static object ChangeType(this object value, TypeCode typeCode)
         {
             return Convert.ChangeType(value, typeCode);
         }
@@ -442,7 +442,7 @@ namespace TestProj47
         ///     An object whose underlying type is  and whose value is equivalent to .-or- A null reference (Nothing in
         ///     Visual Basic), if  is null and  is , , or .
         /// </returns>
-        public static Object ChangeType(this Object value, TypeCode typeCode, IFormatProvider provider)
+        public static object ChangeType(this object value, TypeCode typeCode, IFormatProvider provider)
         {
             return Convert.ChangeType(value, typeCode, provider);
         }
@@ -456,7 +456,7 @@ namespace TestProj47
         ///     An object whose type is  and whose value is equivalent to .-or-A null reference (Nothing in Visual Basic), if
         ///     is null and  is not a value type.
         /// </returns>
-        public static Object ChangeType(this Object value, Type conversionType)
+        public static object ChangeType(this object value, Type conversionType)
         {
             return Convert.ChangeType(value, conversionType);
         }
@@ -472,7 +472,7 @@ namespace TestProj47
         ///     An object whose type is  and whose value is equivalent to .-or- , if the  of  and  are equal.-or- A null
         ///     reference (Nothing in Visual Basic), if  is null and  is not a value type.
         /// </returns>
-        public static Object ChangeType(this Object value, Type conversionType, IFormatProvider provider)
+        public static object ChangeType(this object value, Type conversionType, IFormatProvider provider)
         {
             return Convert.ChangeType(value, conversionType, provider);
         }
@@ -486,7 +486,7 @@ namespace TestProj47
         ///     An object whose type is  and whose value is equivalent to .-or-A null reference (Nothing in Visual Basic), if
         ///     is null and  is not a value type.
         /// </returns>
-        public static Object ChangeType<T>(this Object value)
+        public static object ChangeType<T>(this object value)
         {
             return (T) Convert.ChangeType(value, typeof(T));
         }
@@ -502,7 +502,7 @@ namespace TestProj47
         ///     An object whose type is  and whose value is equivalent to .-or- , if the  of  and  are equal.-or- A null
         ///     reference (Nothing in Visual Basic), if  is null and  is not a value type.
         /// </returns>
-        public static Object ChangeType<T>(this Object value, IFormatProvider provider)
+        public static object ChangeType<T>(this object value, IFormatProvider provider)
         {
             return (T) Convert.ChangeType(value, typeof(T), provider);
         }
@@ -515,7 +515,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">An object that implements the  interface.</param>
         /// <returns>The  for , or  if  is null.</returns>
-        public static TypeCode GetTypeCode(this Object value)
+        public static TypeCode GetTypeCode(this object value)
         {
             return Convert.GetTypeCode(value);
         }
@@ -597,7 +597,7 @@ namespace TestProj47
         ///       }
         /// </code>
         /// </example>
-        public static T To<T>(this Object @this)
+        public static T To<T>(this object @this)
         {
             if (@this != null)
             {
@@ -711,7 +711,7 @@ namespace TestProj47
         /// </example>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static object To(this Object @this, Type type)
+        public static object To(this object @this, Type type)
         {
             if (@this != null)
             {
@@ -858,7 +858,7 @@ namespace TestProj47
         ///           }
         ///     </code>
         /// </example>
-        public static T ToOrDefault<T>(this Object @this, Func<object, T> defaultValueFactory)
+        public static T ToOrDefault<T>(this object @this, Func<object, T> defaultValueFactory)
         {
             try
             {
@@ -1009,7 +1009,7 @@ namespace TestProj47
         ///           }
         ///     </code>
         /// </example>
-        public static T ToOrDefault<T>(this Object @this, Func<T> defaultValueFactory)
+        public static T ToOrDefault<T>(this object @this, Func<T> defaultValueFactory)
         {
             return ToOrDefault(@this, x => defaultValueFactory());
         }
@@ -1020,7 +1020,7 @@ namespace TestProj47
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>(this Object @this)
+        public static T ToOrDefault<T>(this object @this)
         {
             return ToOrDefault(@this, x => default(T));
         }
@@ -1032,7 +1032,7 @@ namespace TestProj47
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>(this Object @this, T defaultValue)
+        public static T ToOrDefault<T>(this object @this, T defaultValue)
         {
             return ToOrDefault(@this, x => defaultValue);
         }
@@ -6822,7 +6822,7 @@ namespace TestProj47
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">An object.</param>
         /// <returns>true if  is of type ; otherwise, false.</returns>
-        public static Boolean IsDBNull<T>(this T value) where T : class
+        public static bool IsDBNull<T>(this T value) where T : class
         {
             return Convert.IsDBNull(value);
         }
@@ -6893,9 +6893,9 @@ namespace TestProj47
         /// <param name="objA">The first object to compare.</param>
         /// <param name="objB">The second object  to compare.</param>
         /// <returns>true if  is the same instance as  or if both are null; otherwise, false.</returns>
-        public new static Boolean ReferenceEquals(this Object objA, Object objB)
+        public new static bool ReferenceEquals(this object objA, object objB)
         {
-            return Object.ReferenceEquals(objA, objB);
+            return object.ReferenceEquals(objA, objB);
         }
     }
 }

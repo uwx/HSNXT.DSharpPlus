@@ -61,7 +61,7 @@ namespace TestProj47
         /// <param name="args">The arguments.</param>
         /// <param name="culture">The culture.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, BindingFlags bindingAttr, Binder binder, Object[] args,
+        public static T CreateInstance<T>(this Type @this, BindingFlags bindingAttr, Binder binder, object[] args,
             CultureInfo culture)
         {
             return (T) Activator.CreateInstance(@this, bindingAttr, binder, args, culture);
@@ -78,8 +78,8 @@ namespace TestProj47
         /// <param name="culture">The culture.</param>
         /// <param name="activationAttributes">The activation attributes.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, BindingFlags bindingAttr, Binder binder, Object[] args,
-            CultureInfo culture, Object[] activationAttributes)
+        public static T CreateInstance<T>(this Type @this, BindingFlags bindingAttr, Binder binder, object[] args,
+            CultureInfo culture, object[] activationAttributes)
         {
             return (T) Activator.CreateInstance(@this, bindingAttr, binder, args, culture, activationAttributes);
         }
@@ -91,7 +91,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, Object[] args)
+        public static T CreateInstance<T>(this Type @this, object[] args)
         {
             return (T) Activator.CreateInstance(@this, args);
         }
@@ -104,7 +104,7 @@ namespace TestProj47
         /// <param name="args">The arguments.</param>
         /// <param name="activationAttributes">The activation attributes.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, Object[] args, Object[] activationAttributes)
+        public static T CreateInstance<T>(this Type @this, object[] args, object[] activationAttributes)
         {
             return (T) Activator.CreateInstance(@this, args, activationAttributes);
         }
@@ -127,7 +127,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="nonPublic">true to non public.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, Boolean nonPublic)
+        public static T CreateInstance<T>(this Type @this, bool nonPublic)
         {
             return (T) Activator.CreateInstance(@this, nonPublic);
         }
@@ -157,7 +157,7 @@ namespace TestProj47
         ///     the  constructor. If  is null, the  for the current thread is used.
         /// </param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type, BindingFlags bindingAttr, Binder binder, Object[] args,
+        public static object CreateInstance(this Type type, BindingFlags bindingAttr, Binder binder, object[] args,
             CultureInfo culture)
         {
             return Activator.CreateInstance(type, bindingAttr, binder, args, culture);
@@ -190,8 +190,8 @@ namespace TestProj47
         ///     remote object.
         /// </param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type, BindingFlags bindingAttr, Binder binder, Object[] args,
-            CultureInfo culture, Object[] activationAttributes)
+        public static object CreateInstance(this Type type, BindingFlags bindingAttr, Binder binder, object[] args,
+            CultureInfo culture, object[] activationAttributes)
         {
             return Activator.CreateInstance(type, bindingAttr, binder, args, culture, activationAttributes);
         }
@@ -206,7 +206,7 @@ namespace TestProj47
         ///     invoked.
         /// </param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type, Object[] args)
+        public static object CreateInstance(this Type type, object[] args)
         {
             return Activator.CreateInstance(type, args);
         }
@@ -226,7 +226,7 @@ namespace TestProj47
         ///     remote object.
         /// </param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type, Object[] args, Object[] activationAttributes)
+        public static object CreateInstance(this Type type, object[] args, object[] activationAttributes)
         {
             return Activator.CreateInstance(type, args, activationAttributes);
         }
@@ -236,7 +236,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="type">The type of object to create.</param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type)
+        public static object CreateInstance(this Type type)
         {
             return Activator.CreateInstance(type);
         }
@@ -250,7 +250,7 @@ namespace TestProj47
         ///     default constructor can match.
         /// </param>
         /// <returns>A reference to the newly created object.</returns>
-        public static Object CreateInstance(this Type type, Boolean nonPublic)
+        public static object CreateInstance(this Type type, bool nonPublic)
         {
             return Activator.CreateInstance(type, nonPublic);
         }
@@ -264,7 +264,7 @@ namespace TestProj47
         /// <param name="type">The type of the well-known object to which you want to connect.</param>
         /// <param name="url">The URL of the well-known object.</param>
         /// <returns>A proxy that points to an endpoint served by the requested well-known object.</returns>
-        public static Object GetObject(this Type type, String url)
+        public static object GetObject(this Type type, string url)
         {
             return Activator.GetObject(type, url);
         }
@@ -276,7 +276,7 @@ namespace TestProj47
         /// <param name="url">The URL of the well-known object.</param>
         /// <param name="state">Channel-specific data or null.</param>
         /// <returns>A proxy that points to an endpoint served by the requested well-known object.</returns>
-        public static Object GetObject(this Type type, String url, Object state)
+        public static object GetObject(this Type type, string url, object state)
         {
             return Activator.GetObject(type, url, state);
         }

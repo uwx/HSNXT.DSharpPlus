@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than or equal to , but less than or equal to .</param>
         /// <returns>A single-precision floating-point number, x, such that 0 ? x ?.</returns>
-        public static Single Abs(this Single value)
+        public static float Abs(this float value)
         {
             return Math.Abs(value);
         }
@@ -68,7 +68,7 @@ namespace TestProj47
         /// <param name="val1">The first of two single-precision floating-point numbers to compare.</param>
         /// <param name="val2">The second of two single-precision floating-point numbers to compare.</param>
         /// <returns>Parameter  or , whichever is larger. If , or , or both  and  are equal to ,  is returned.</returns>
-        public static Single Max(this Single val1, Single val2)
+        public static float Max(this float val1, float val2)
         {
             return Math.Max(val1, val2);
         }
@@ -82,7 +82,7 @@ namespace TestProj47
         /// <param name="val1">The first of two single-precision floating-point numbers to compare.</param>
         /// <param name="val2">The second of two single-precision floating-point numbers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller. If , , or both  and  are equal to ,  is returned.</returns>
-        public static Single Min(this Single val1, Single val2)
+        public static float Min(this float val1, float val2)
         {
             return Math.Min(val1, val2);
         }
@@ -98,7 +98,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Single value)
+        public static int Sign(this float value)
         {
             return Math.Sign(value);
         }
@@ -111,9 +111,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="f">A single-precision floating-point number.</param>
         /// <returns>true if  evaluates to  or ; otherwise, false.</returns>
-        public static Boolean IsInfinity(this Single f)
+        public static bool IsInfinity(this float f)
         {
-            return Single.IsInfinity(f);
+            return float.IsInfinity(f);
         }
     }
 
@@ -124,9 +124,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="f">A single-precision floating-point number.</param>
         /// <returns>true if  evaluates to not a number (); otherwise, false.</returns>
-        public static Boolean IsNaN(this Single f)
+        public static bool IsNaN(this float f)
         {
-            return Single.IsNaN(f);
+            return float.IsNaN(f);
         }
     }
 
@@ -137,9 +137,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="f">A single-precision floating-point number.</param>
         /// <returns>true if  evaluates to ; otherwise, false.</returns>
-        public static Boolean IsNegativeInfinity(this Single f)
+        public static bool IsNegativeInfinity(this float f)
         {
-            return Single.IsNegativeInfinity(f);
+            return float.IsNegativeInfinity(f);
         }
     }
 
@@ -150,9 +150,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="f">A single-precision floating-point number.</param>
         /// <returns>true if  evaluates to ; otherwise, false.</returns>
-        public static Boolean IsPositiveInfinity(this Single f)
+        public static bool IsPositiveInfinity(this float f)
         {
-            return Single.IsPositiveInfinity(f);
+            return float.IsPositiveInfinity(f);
         }
     }
 
@@ -167,7 +167,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Single @this, Single minValue, Single maxValue)
+        public static bool Between(this float @this, float minValue, float maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -183,7 +183,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Single @this, params Single[] values)
+        public static bool InZ(this float @this, params float[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -200,7 +200,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Single @this, Single minValue, Single maxValue)
+        public static bool InRange(this float @this, float minValue, float maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -216,7 +216,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Single @this, params Single[] values)
+        public static bool NotIn(this float @this, params float[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

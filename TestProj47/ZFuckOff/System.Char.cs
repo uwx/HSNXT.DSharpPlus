@@ -41,7 +41,7 @@ using System.Windows.Forms;
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 
 namespace TestProj47
 {
@@ -94,9 +94,9 @@ namespace TestProj47
         /// <param name="highSurrogate">A high surrogate code unit (that is, a code unit ranging from U+D800 through U+DBFF).</param>
         /// <param name="lowSurrogate">A low surrogate code unit (that is, a code unit ranging from U+DC00 through U+DFFF).</param>
         /// <returns>The 21-bit Unicode code point represented by the  and  parameters.</returns>
-        public static Int32 ConvertToUtf32(this Char highSurrogate, Char lowSurrogate)
+        public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate)
         {
-            return Char.ConvertToUtf32(highSurrogate, lowSurrogate);
+            return char.ConvertToUtf32(highSurrogate, lowSurrogate);
         }
     }
 
@@ -107,9 +107,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to convert.</param>
         /// <returns>The numeric value of  if that character represents a number; otherwise, -1.0.</returns>
-        public static Double GetNumericValue(this Char c)
+        public static double GetNumericValue(this char c)
         {
-            return Char.GetNumericValue(c);
+            return char.GetNumericValue(c);
         }
     }
 
@@ -120,9 +120,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to categorize.</param>
         /// <returns>A  value that identifies the group that contains .</returns>
-        public static UnicodeCategory GetUnicodeCategory(this Char c)
+        public static UnicodeCategory GetUnicodeCategory(this char c)
         {
-            return Char.GetUnicodeCategory(c);
+            return char.GetUnicodeCategory(c);
         }
     }
 
@@ -133,9 +133,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a control character; otherwise, false.</returns>
-        public static Boolean IsControl(this Char c)
+        public static bool IsControl(this char c)
         {
-            return Char.IsControl(c);
+            return char.IsControl(c);
         }
     }
 
@@ -146,9 +146,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a decimal digit; otherwise, false.</returns>
-        public static Boolean IsDigit(this Char c)
+        public static bool IsDigit(this char c)
         {
-            return Char.IsDigit(c);
+            return char.IsDigit(c);
         }
     }
 
@@ -161,9 +161,9 @@ namespace TestProj47
         /// <returns>
         ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF; otherwise, false.
         /// </returns>
-        public static Boolean IsHighSurrogate(this Char c)
+        public static bool IsHighSurrogate(this char c)
         {
-            return Char.IsHighSurrogate(c);
+            return char.IsHighSurrogate(c);
         }
     }
 
@@ -174,9 +174,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a letter; otherwise, false.</returns>
-        public static Boolean IsLetter(this Char c)
+        public static bool IsLetter(this char c)
         {
-            return Char.IsLetter(c);
+            return char.IsLetter(c);
         }
     }
 
@@ -187,9 +187,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a letter or a decimal digit; otherwise, false.</returns>
-        public static Boolean IsLetterOrDigit(this Char c)
+        public static bool IsLetterOrDigit(this char c)
         {
-            return Char.IsLetterOrDigit(c);
+            return char.IsLetterOrDigit(c);
         }
     }
 
@@ -200,9 +200,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a lowercase letter; otherwise, false.</returns>
-        public static Boolean IsLower(this Char c)
+        public static bool IsLower(this char c)
         {
-            return Char.IsLower(c);
+            return char.IsLower(c);
         }
     }
 
@@ -215,9 +215,9 @@ namespace TestProj47
         /// <returns>
         ///     true if the numeric value of the  parameter ranges from U+DC00 through U+DFFF; otherwise, false.
         /// </returns>
-        public static Boolean IsLowSurrogate(this Char c)
+        public static bool IsLowSurrogate(this char c)
         {
-            return Char.IsLowSurrogate(c);
+            return char.IsLowSurrogate(c);
         }
     }
 
@@ -228,9 +228,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a number; otherwise, false.</returns>
-        public static Boolean IsNumber(this Char c)
+        public static bool IsNumber(this char c)
         {
-            return Char.IsNumber(c);
+            return char.IsNumber(c);
         }
     }
 
@@ -241,9 +241,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a punctuation mark; otherwise, false.</returns>
-        public static Boolean IsPunctuation(this Char c)
+        public static bool IsPunctuation(this char c)
         {
-            return Char.IsPunctuation(c);
+            return char.IsPunctuation(c);
         }
     }
 
@@ -254,9 +254,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a separator character; otherwise, false.</returns>
-        public static Boolean IsSeparator(this Char c)
+        public static bool IsSeparator(this char c)
         {
-            return Char.IsSeparator(c);
+            return char.IsSeparator(c);
         }
     }
 
@@ -267,9 +267,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is either a high surrogate or a low surrogate; otherwise, false.</returns>
-        public static Boolean IsSurrogate(this Char c)
+        public static bool IsSurrogate(this char c)
         {
-            return Char.IsSurrogate(c);
+            return char.IsSurrogate(c);
         }
     }
 
@@ -284,9 +284,9 @@ namespace TestProj47
         ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF, and the numeric value of the
         ///     parameter ranges from U+DC00 through U+DFFF; otherwise, false.
         /// </returns>
-        public static Boolean IsSurrogatePair(this Char highSurrogate, Char lowSurrogate)
+        public static bool IsSurrogatePair(this char highSurrogate, char lowSurrogate)
         {
-            return Char.IsSurrogatePair(highSurrogate, lowSurrogate);
+            return char.IsSurrogatePair(highSurrogate, lowSurrogate);
         }
     }
 
@@ -297,9 +297,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is a symbol character; otherwise, false.</returns>
-        public static Boolean IsSymbol(this Char c)
+        public static bool IsSymbol(this char c)
         {
-            return Char.IsSymbol(c);
+            return char.IsSymbol(c);
         }
     }
 
@@ -310,9 +310,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is an uppercase letter; otherwise, false.</returns>
-        public static Boolean IsUpper(this Char c)
+        public static bool IsUpper(this char c)
         {
-            return Char.IsUpper(c);
+            return char.IsUpper(c);
         }
     }
 
@@ -323,9 +323,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to evaluate.</param>
         /// <returns>true if  is white space; otherwise, false.</returns>
-        public static Boolean IsWhiteSpace(this Char c)
+        public static bool IsWhiteSpace(this char c)
         {
-            return Char.IsWhiteSpace(c);
+            return char.IsWhiteSpace(c);
         }
     }
 
@@ -341,9 +341,9 @@ namespace TestProj47
         ///     The lowercase equivalent of , modified according to , or the unchanged value of , if  is already lowercase or
         ///     not alphabetic.
         /// </returns>
-        public static Char ToLower(this Char c, CultureInfo culture)
+        public static char ToLower(this char c, CultureInfo culture)
         {
-            return Char.ToLower(c, culture);
+            return char.ToLower(c, culture);
         }
 
         /// <summary>
@@ -353,9 +353,9 @@ namespace TestProj47
         /// <returns>
         ///     The lowercase equivalent of , or the unchanged value of , if  is already lowercase or not alphabetic.
         /// </returns>
-        public static Char ToLower(this Char c)
+        public static char ToLower(this char c)
         {
-            return Char.ToLower(c);
+            return char.ToLower(c);
         }
     }
 
@@ -370,9 +370,9 @@ namespace TestProj47
         ///     The lowercase equivalent of the  parameter, or the unchanged value of , if  is already lowercase or not
         ///     alphabetic.
         /// </returns>
-        public static Char ToLowerInvariant(this Char c)
+        public static char ToLowerInvariant(this char c)
         {
-            return Char.ToLowerInvariant(c);
+            return char.ToLowerInvariant(c);
         }
     }
 
@@ -383,9 +383,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The Unicode character to convert.</param>
         /// <returns>The string representation of the value of .</returns>
-        public static String ToString(this Char c)
+        public static string ToString(this char c)
         {
-            return Char.ToString(c);
+            return char.ToString(c);
         }
     }
 
@@ -401,9 +401,9 @@ namespace TestProj47
         ///     The uppercase equivalent of , modified according to , or the unchanged value of  if  is already uppercase,
         ///     has no uppercase equivalent, or is not alphabetic.
         /// </returns>
-        public static Char ToUpper(this Char c, CultureInfo culture)
+        public static char ToUpper(this char c, CultureInfo culture)
         {
-            return Char.ToUpper(c, culture);
+            return char.ToUpper(c, culture);
         }
 
         /// <summary>
@@ -414,9 +414,9 @@ namespace TestProj47
         ///     The uppercase equivalent of , or the unchanged value of  if  is already uppercase, has no uppercase
         ///     equivalent, or is not alphabetic.
         /// </returns>
-        public static Char ToUpper(this Char c)
+        public static char ToUpper(this char c)
         {
-            return Char.ToUpper(c);
+            return char.ToUpper(c);
         }
     }
 
@@ -431,9 +431,9 @@ namespace TestProj47
         ///     The uppercase equivalent of the  parameter, or the unchanged value of , if  is already uppercase or not
         ///     alphabetic.
         /// </returns>
-        public static Char ToUpperInvariant(this Char c)
+        public static char ToUpperInvariant(this char c)
         {
-            return Char.ToUpperInvariant(c);
+            return char.ToUpperInvariant(c);
         }
     }
 
@@ -447,7 +447,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Char @this, params Char[] values)
+        public static bool InZ(this char @this, params char[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -463,7 +463,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Char @this, params Char[] values)
+        public static bool NotIn(this char @this, params char[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

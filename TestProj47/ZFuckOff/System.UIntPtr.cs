@@ -55,7 +55,7 @@ namespace TestProj47
         /// <param name="pointer">The unsigned pointer to add the offset to.</param>
         /// <param name="offset">The offset to add.</param>
         /// <returns>A new unsigned pointer that reflects the addition of  to .</returns>
-        public static UIntPtr Add(this UIntPtr pointer, Int32 offset)
+        public static UIntPtr Add(this UIntPtr pointer, int offset)
         {
             return UIntPtr.Add(pointer, offset);
         }
@@ -69,7 +69,7 @@ namespace TestProj47
         /// <param name="pointer">The unsigned pointer to subtract the offset from.</param>
         /// <param name="offset">The offset to subtract.</param>
         /// <returns>A new unsigned pointer that reflects the subtraction of  from .</returns>
-        public static UIntPtr Subtract(this UIntPtr pointer, Int32 offset)
+        public static UIntPtr Subtract(this UIntPtr pointer, int offset)
         {
             return UIntPtr.Subtract(pointer, offset);
         }

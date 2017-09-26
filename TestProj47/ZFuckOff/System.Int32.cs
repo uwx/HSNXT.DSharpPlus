@@ -162,7 +162,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Days(this Int32 @this)
+        public static TimeSpan Days(this int @this)
         {
             return TimeSpan.FromDays(@this);
         }
@@ -176,7 +176,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factorNumer">The factor numer.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this Int32 @this, Int32 factorNumer)
+        public static bool FactorOf(this int @this, int factorNumer)
         {
             return factorNumer % @this == 0;
         }
@@ -189,7 +189,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Hours(this Int32 @this)
+        public static TimeSpan Hours(this int @this)
         {
             return TimeSpan.FromHours(@this);
         }
@@ -202,7 +202,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if even, false if not.</returns>
-        public static bool IsEven(this Int32 @this)
+        public static bool IsEven(this int @this)
         {
             return @this % 2 == 0;
         }
@@ -216,7 +216,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>true if multiple of, false if not.</returns>
-        public static bool IsMultipleOf(this Int32 @this, Int32 factor)
+        public static bool IsMultipleOf(this int @this, int factor)
         {
             return @this % factor == 0;
         }
@@ -229,7 +229,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if odd, false if not.</returns>
-        public static bool IsOdd(this Int32 @this)
+        public static bool IsOdd(this int @this)
         {
             return @this % 2 != 0;
         }
@@ -242,7 +242,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if prime, false if not.</returns>
-        public static bool IsPrime(this Int32 @this)
+        public static bool IsPrime(this int @this)
         {
             if (@this == 1 || @this == 2)
             {
@@ -254,8 +254,8 @@ namespace TestProj47
                 return false;
             }
 
-            var sqrt = (Int32) Math.Sqrt(@this);
-            for (Int64 t = 3; t <= sqrt; t = t + 2)
+            var sqrt = (int) Math.Sqrt(@this);
+            for (long t = 3; t <= sqrt; t = t + 2)
             {
                 if (@this % t == 0)
                 {
@@ -274,7 +274,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Milliseconds(this Int32 @this)
+        public static TimeSpan Milliseconds(this int @this)
         {
             return TimeSpan.FromMilliseconds(@this);
         }
@@ -287,7 +287,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Minutes(this Int32 @this)
+        public static TimeSpan Minutes(this int @this)
         {
             return TimeSpan.FromMinutes(@this);
         }
@@ -300,7 +300,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Seconds(this Int32 @this)
+        public static TimeSpan Seconds(this int @this)
         {
             return TimeSpan.FromSeconds(@this);
         }
@@ -313,7 +313,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Weeks(this Int32 @this)
+        public static TimeSpan Weeks(this int @this)
         {
             return TimeSpan.FromDays(@this * 7);
         }
@@ -326,7 +326,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>An array of bytes with length 4.</returns>
-        public static Byte[] GetBytes(this Int32 value)
+        public static byte[] GetBytes(this int value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -342,9 +342,9 @@ namespace TestProj47
         ///     A string consisting of one  object or a surrogate pair of  objects equivalent to the code point specified by
         ///     the  parameter.
         /// </returns>
-        public static String ConvertFromUtf32(this Int32 utf32)
+        public static string ConvertFromUtf32(this int utf32)
         {
-            return Char.ConvertFromUtf32(utf32);
+            return char.ConvertFromUtf32(utf32);
         }
     }
 
@@ -359,7 +359,7 @@ namespace TestProj47
         ///     The number of days in  for the specified .For example, if  equals 2 for February, the return value is 28 or
         ///     29 depending upon whether  is a leap year.
         /// </returns>
-        public static Int32 DaysInMonth(this Int32 year, Int32 month)
+        public static int DaysInMonth(this int year, int month)
         {
             return DateTime.DaysInMonth(year, month);
         }
@@ -372,7 +372,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="year">A 4-digit year.</param>
         /// <returns>true if  is a leap year; otherwise, false.</returns>
-        public static Boolean IsLeapYear(this Int32 year)
+        public static bool IsLeapYear(this int year)
         {
             return DateTime.IsLeapYear(year);
         }
@@ -385,7 +385,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="argb">A value specifying the 32-bit ARGB value.</param>
         /// <returns>The  structure that this method creates.</returns>
-        public static Color FromArgb(this Int32 argb)
+        public static Color FromArgb(this int argb)
         {
             return Color.FromArgb(argb);
         }
@@ -401,7 +401,7 @@ namespace TestProj47
         /// <returns>The  that this method creates.</returns>
         /// ###
         /// <param name="alpha">The alpha component. Valid values are 0 through 255.</param>
-        public static Color FromArgb(this Int32 argb, Int32 red, Int32 green, Int32 blue)
+        public static Color FromArgb(this int argb, int red, int green, int blue)
         {
             return Color.FromArgb(argb, red, green, blue);
         }
@@ -415,7 +415,7 @@ namespace TestProj47
         /// <returns>The  that this method creates.</returns>
         /// ###
         /// <param name="alpha">The alpha value for the new . Valid values are 0 through 255.</param>
-        public static Color FromArgb(this Int32 argb, Color baseColor)
+        public static Color FromArgb(this int argb, Color baseColor)
         {
             return Color.FromArgb(argb, baseColor);
         }
@@ -431,7 +431,7 @@ namespace TestProj47
         /// <returns>The  that this method creates.</returns>
         /// ###
         /// <param name="red">The red component value for the new . Valid values are 0 through 255.</param>
-        public static Color FromArgb(this Int32 argb, Int32 green, Int32 blue)
+        public static Color FromArgb(this int argb, int green, int blue)
         {
             return Color.FromArgb(argb, green, blue);
         }
@@ -444,7 +444,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="oleColor">The OLE color to translate.</param>
         /// <returns>The  structure that represents the translated OLE color.</returns>
-        public static Color FromOle(this Int32 oleColor)
+        public static Color FromOle(this int oleColor)
         {
             return ColorTranslator.FromOle(oleColor);
         }
@@ -457,7 +457,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="win32Color">The Windows color to translate.</param>
         /// <returns>The  structure that represents the translated Windows color.</returns>
-        public static Color FromWin32(this Int32 win32Color)
+        public static Color FromWin32(this int win32Color)
         {
             return ColorTranslator.FromWin32(win32Color);
         }
@@ -470,7 +470,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than , but less than or equal to .</param>
         /// <returns>A 32-bit signed integer, x, such that 0 ? x ?.</returns>
-        public static Int32 Abs(this Int32 value)
+        public static int Abs(this int value)
         {
             return Math.Abs(value);
         }
@@ -484,7 +484,7 @@ namespace TestProj47
         /// <param name="a">The first number to multiply.</param>
         /// <param name="b">The second number to multiply.</param>
         /// <returns>The number containing the product of the specified numbers.</returns>
-        public static Int64 BigMul(this Int32 a, Int32 b)
+        public static long BigMul(this int a, int b)
         {
             return Math.BigMul(a, b);
         }
@@ -499,7 +499,7 @@ namespace TestProj47
         /// <param name="b">The Int32 to process.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>An Int32.</returns>
-        public static Int32 DivRem(this Int32 a, Int32 b, out Int32 result)
+        public static int DivRem(this int a, int b, out int result)
         {
             return Math.DivRem(a, b, out result);
         }
@@ -513,7 +513,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 32-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 32-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static Int32 Max(this Int32 val1, Int32 val2)
+        public static int Max(this int val1, int val2)
         {
             return Math.Max(val1, val2);
         }
@@ -527,7 +527,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 32-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 32-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static Int32 Min(this Int32 val1, Int32 val2)
+        public static int Min(this int val1, int val2)
         {
             return Math.Min(val1, val2);
         }
@@ -543,7 +543,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Int32 value)
+        public static int Sign(this int value)
         {
             return Math.Sign(value);
         }
@@ -556,7 +556,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="host">The number to convert, expressed in host byte order.</param>
         /// <returns>An integer value, expressed in network byte order.</returns>
-        public static Int32 HostToNetworkOrder(this Int32 host)
+        public static int HostToNetworkOrder(this int host)
         {
             return IPAddress.HostToNetworkOrder(host);
         }
@@ -569,7 +569,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="network">The number to convert, expressed in network byte order.</param>
         /// <returns>An integer value, expressed in host byte order.</returns>
-        public static Int32 NetworkToHostOrder(this Int32 network)
+        public static int NetworkToHostOrder(this int network)
         {
             return IPAddress.NetworkToHostOrder(network);
         }
@@ -586,7 +586,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Int32 @this, Int32 minValue, Int32 maxValue)
+        public static bool Between(this int @this, int minValue, int maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -602,7 +602,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Int32 @this, params Int32[] values)
+        public static bool InZ(this int @this, params int[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -619,7 +619,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Int32 @this, Int32 minValue, Int32 maxValue)
+        public static bool InRange(this int @this, int minValue, int maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -635,7 +635,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Int32 @this, params Int32[] values)
+        public static bool NotIn(this int @this, params int[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

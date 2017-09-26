@@ -55,7 +55,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 16-bit unsigned integers to compare.</param>
         /// <param name="val2">The second of two 16-bit unsigned integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static UInt16 Max(this UInt16 val1, UInt16 val2)
+        public static ushort Max(this ushort val1, ushort val2)
         {
             return Math.Max(val1, val2);
         }
@@ -69,7 +69,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 16-bit unsigned integers to compare.</param>
         /// <param name="val2">The second of two 16-bit unsigned integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static UInt16 Min(this UInt16 val1, UInt16 val2)
+        public static ushort Min(this ushort val1, ushort val2)
         {
             return Math.Min(val1, val2);
         }
@@ -86,7 +86,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this UInt16 @this, UInt16 minValue, UInt16 maxValue)
+        public static bool Between(this ushort @this, ushort minValue, ushort maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -102,7 +102,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this UInt16 @this, params UInt16[] values)
+        public static bool InZ(this ushort @this, params ushort[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -119,7 +119,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this UInt16 @this, UInt16 minValue, UInt16 maxValue)
+        public static bool InRange(this ushort @this, ushort minValue, ushort maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -135,7 +135,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this UInt16 @this, params UInt16[] values)
+        public static bool NotIn(this ushort @this, params ushort[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

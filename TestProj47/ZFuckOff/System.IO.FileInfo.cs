@@ -57,7 +57,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="contents">The contents.</param>
-        public static void AppendAllLines(this FileInfo @this, IEnumerable<String> contents)
+        public static void AppendAllLines(this FileInfo @this, IEnumerable<string> contents)
         {
             File.AppendAllLines(@this.FullName, contents);
         }
@@ -68,7 +68,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="contents">The contents.</param>
         /// <param name="encoding">The encoding.</param>
-        public static void AppendAllLines(this FileInfo @this, IEnumerable<String> contents, Encoding encoding)
+        public static void AppendAllLines(this FileInfo @this, IEnumerable<string> contents, Encoding encoding)
         {
             File.AppendAllLines(@this.FullName, contents, encoding);
         }
@@ -126,7 +126,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void AppendAllText(this FileInfo @this, String contents)
+        public static void AppendAllText(this FileInfo @this, string contents)
         {
             File.AppendAllText(@this.FullName, contents);
         }
@@ -181,7 +181,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void AppendAllText(this FileInfo @this, String contents, Encoding encoding)
+        public static void AppendAllText(this FileInfo @this, string contents, Encoding encoding)
         {
             File.AppendAllText(@this.FullName, contents, encoding);
         }
@@ -226,7 +226,7 @@ namespace TestProj47
         ///         cref="M:System.IO.Path.GetInvalidPathChars" />
         ///     .
         /// </exception>
-        public static String ChangeExtension(this FileInfo @this, String extension)
+        public static string ChangeExtension(this FileInfo @this, string extension)
         {
             return Path.ChangeExtension(@this.FullName, extension);
         }
@@ -431,7 +431,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The directory full name.</returns>
-        public static String GetDirectoryFullName(this FileInfo @this)
+        public static string GetDirectoryFullName(this FileInfo @this)
         {
             return @this.Directory.FullName;
         }
@@ -444,7 +444,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The directory name.</returns>
-        public static String GetDirectoryName(this FileInfo @this)
+        public static string GetDirectoryName(this FileInfo @this)
         {
             return @this.Directory.Name;
         }
@@ -468,7 +468,7 @@ namespace TestProj47
         ///         cref="M:System.IO.Path.GetInvalidPathChars" />
         ///     .
         /// </exception>
-        public static String GetFileNameWithoutExtension(this FileInfo @this)
+        public static string GetFileNameWithoutExtension(this FileInfo @this)
         {
             return Path.GetFileNameWithoutExtension(@this.FullName);
         }
@@ -498,7 +498,7 @@ namespace TestProj47
         ///         name="this" />
         ///     .
         /// </exception>
-        public static String GetPathRoot(this FileInfo @this)
+        public static string GetPathRoot(this FileInfo @this)
         {
             return Path.GetPathRoot(@this.FullName);
         }
@@ -522,7 +522,7 @@ namespace TestProj47
         ///         cref="M:System.IO.Path.GetInvalidPathChars" />
         ///     .
         /// </exception>
-        public static Boolean HasExtension(this FileInfo @this)
+        public static bool HasExtension(this FileInfo @this)
         {
             return Path.HasExtension(@this.FullName);
         }
@@ -545,7 +545,7 @@ namespace TestProj47
         ///         cref="M:System.IO.Path.GetInvalidPathChars" />
         ///     .
         /// </exception>
-        public static Boolean IsPathRooted(this FileInfo @this)
+        public static bool IsPathRooted(this FileInfo @this)
         {
             return Path.IsPathRooted(@this.FullName);
         }
@@ -600,7 +600,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static Byte[] ReadAllBytes(this FileInfo @this)
+        public static byte[] ReadAllBytes(this FileInfo @this)
         {
             return File.ReadAllBytes(@this.FullName);
         }
@@ -657,7 +657,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static String[] ReadAllLines(this FileInfo @this)
+        public static string[] ReadAllLines(this FileInfo @this)
         {
             return File.ReadAllLines(@this.FullName);
         }
@@ -712,7 +712,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static String[] ReadAllLines(this FileInfo @this, Encoding encoding)
+        public static string[] ReadAllLines(this FileInfo @this, Encoding encoding)
         {
             return File.ReadAllLines(@this.FullName, encoding);
         }
@@ -769,7 +769,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static String ReadAllText(this FileInfo @this)
+        public static string ReadAllText(this FileInfo @this)
         {
             return File.ReadAllText(@this.FullName);
         }
@@ -824,7 +824,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static String ReadAllText(this FileInfo @this, Encoding encoding)
+        public static string ReadAllText(this FileInfo @this, Encoding encoding)
         {
             return File.ReadAllText(@this.FullName, encoding);
         }
@@ -877,7 +877,7 @@ namespace TestProj47
         ///         name="this" />
         ///     is a directory.-or-The caller does not have the required permission.
         /// </exception>
-        public static IEnumerable<String> ReadLines(this FileInfo @this)
+        public static IEnumerable<string> ReadLines(this FileInfo @this)
         {
             return File.ReadLines(@this.FullName);
         }
@@ -928,7 +928,7 @@ namespace TestProj47
         ///         name="this" />
         ///     is a directory.-or-The caller does not have the required permission.
         /// </exception>
-        public static IEnumerable<String> ReadLines(this FileInfo @this, Encoding encoding)
+        public static IEnumerable<string> ReadLines(this FileInfo @this, Encoding encoding)
         {
             return File.ReadLines(@this.FullName, encoding);
         }
@@ -1063,7 +1063,7 @@ namespace TestProj47
         ///         cref="M:System.IO.Path.GetInvalidPathChars" />
         ///     .
         /// </exception>
-        public static void RenameExtension(this FileInfo @this, String extension)
+        public static void RenameExtension(this FileInfo @this, string extension)
         {
             string filePath = Path.ChangeExtension(@this.FullName, extension);
             @this.MoveTo(filePath);
@@ -1134,7 +1134,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void WriteAllBytes(this FileInfo @this, Byte[] bytes)
+        public static void WriteAllBytes(this FileInfo @this, byte[] bytes)
         {
             File.WriteAllBytes(@this.FullName, bytes);
         }
@@ -1187,7 +1187,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void WriteAllLines(this FileInfo @this, String[] contents)
+        public static void WriteAllLines(this FileInfo @this, string[] contents)
         {
             File.WriteAllLines(@this.FullName, contents);
         }
@@ -1242,7 +1242,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void WriteAllLines(this FileInfo @this, String[] contents, Encoding encoding)
+        public static void WriteAllLines(this FileInfo @this, string[] contents, Encoding encoding)
         {
             File.WriteAllLines(@this.FullName, contents, encoding);
         }
@@ -1252,7 +1252,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="contents">The string array to write to the file.</param>
-        public static void WriteAllLines(this FileInfo @this, IEnumerable<String> contents)
+        public static void WriteAllLines(this FileInfo @this, IEnumerable<string> contents)
         {
             File.WriteAllLines(@this.FullName, contents);
         }
@@ -1267,7 +1267,7 @@ namespace TestProj47
         ///     An <see cref="T:System.Text.Encoding" /> object that represents the character encoding
         ///     applied to the string array.
         /// </param>
-        public static void WriteAllLines(this FileInfo @this, IEnumerable<String> contents, Encoding encoding)
+        public static void WriteAllLines(this FileInfo @this, IEnumerable<string> contents, Encoding encoding)
         {
             File.WriteAllLines(@this.FullName, contents, encoding);
         }
@@ -1321,7 +1321,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void WriteAllText(this FileInfo @this, String contents)
+        public static void WriteAllText(this FileInfo @this, string contents)
         {
             File.WriteAllText(@this.FullName, contents);
         }
@@ -1373,7 +1373,7 @@ namespace TestProj47
         /// </exception>
         /// ###
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-        public static void WriteAllText(this FileInfo @this, String contents, Encoding encoding)
+        public static void WriteAllText(this FileInfo @this, string contents, Encoding encoding)
         {
             File.WriteAllText(@this.FullName, contents, encoding);
         }

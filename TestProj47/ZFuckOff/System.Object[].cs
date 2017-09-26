@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="args">An array of objects whose types to determine.</param>
         /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
-        public static Type[] GetTypeArray(this Object[] args)
+        public static Type[] GetTypeArray(this object[] args)
         {
             return Type.GetTypeArray(args);
         }

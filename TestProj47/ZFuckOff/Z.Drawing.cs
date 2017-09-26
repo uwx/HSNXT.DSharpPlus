@@ -55,7 +55,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The  structure to translate.</param>
         /// <returns>The string that represents the HTML color.</returns>
-        public static String ToHtml(this Color c)
+        public static string ToHtml(this Color c)
         {
             return ColorTranslator.ToHtml(c);
         }
@@ -68,7 +68,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The  structure to translate.</param>
         /// <returns>The OLE color value.</returns>
-        public static Int32 ToOle(this Color c)
+        public static int ToOle(this Color c)
         {
             return ColorTranslator.ToOle(c);
         }
@@ -81,7 +81,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="c">The  structure to translate.</param>
         /// <returns>The Windows color value.</returns>
-        public static Int32 ToWin32(this Color c)
+        public static int ToWin32(this Color c)
         {
             return ColorTranslator.ToWin32(c);
         }

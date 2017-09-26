@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a Double.</returns>
-        public static Double ToMoney(this Double @this)
+        public static double ToMoney(this double @this)
         {
             return Math.Round(@this, 2);
         }
@@ -67,7 +67,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">An OLE Automation Date value.</param>
         /// <returns>An object that represents the same date and time as .</returns>
-        public static DateTime FromOADate(this Double d)
+        public static DateTime FromOADate(this double d)
         {
             return DateTime.FromOADate(d);
         }
@@ -80,9 +80,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>true if  evaluates to  or ; otherwise, false.</returns>
-        public static Boolean IsInfinity(this Double d)
+        public static bool IsInfinity(this double d)
         {
-            return Double.IsInfinity(d);
+            return double.IsInfinity(d);
         }
     }
 
@@ -93,9 +93,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>true if  evaluates to ; otherwise, false.</returns>
-        public static Boolean IsNaN(this Double d)
+        public static bool IsNaN(this double d)
         {
-            return Double.IsNaN(d);
+            return double.IsNaN(d);
         }
     }
 
@@ -106,9 +106,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>true if  evaluates to ; otherwise, false.</returns>
-        public static Boolean IsNegativeInfinity(this Double d)
+        public static bool IsNegativeInfinity(this double d)
         {
-            return Double.IsNegativeInfinity(d);
+            return double.IsNegativeInfinity(d);
         }
     }
 
@@ -119,9 +119,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>true if  evaluates to ; otherwise, false.</returns>
-        public static Boolean IsPositiveInfinity(this Double d)
+        public static bool IsPositiveInfinity(this double d)
         {
-            return Double.IsPositiveInfinity(d);
+            return double.IsPositiveInfinity(d);
         }
     }
 
@@ -132,7 +132,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than or equal to , but less than or equal to .</param>
         /// <returns>A double-precision floating-point number, x, such that 0 ? x ?.</returns>
-        public static Double Abs(this Double value)
+        public static double Abs(this double value)
         {
             return Math.Abs(value);
         }
@@ -148,7 +148,7 @@ namespace TestProj47
         ///     equal to 1.
         /// </param>
         /// <returns>An angle, ?, measured in radians, such that 0 ????-or-  if  &lt; -1 or  &gt; 1 or  equals .</returns>
-        public static Double Acos(this Double d)
+        public static double Acos(this double d)
         {
             return Math.Acos(d);
         }
@@ -166,7 +166,7 @@ namespace TestProj47
         /// <returns>
         ///     An angle, ?, measured in radians, such that -?/2 ????/2 -or-  if  &lt; -1 or  &gt; 1 or  equals .
         /// </returns>
-        public static Double Asin(this Double d)
+        public static double Asin(this double d)
         {
             return Math.Asin(d);
         }
@@ -182,7 +182,7 @@ namespace TestProj47
         ///     An angle, ?, measured in radians, such that -?/2 ????/2.-or-  if  equals , -?/2 rounded to double precision (-
         ///     1.5707963267949) if  equals , or ?/2 rounded to double precision (1.5707963267949) if  equals .
         /// </returns>
-        public static Double Atan(this Double d)
+        public static double Atan(this double d)
         {
             return Math.Atan(d);
         }
@@ -203,7 +203,7 @@ namespace TestProj47
         ///     0 and x is negative, ? = ?.If y is positive and x is 0, ? = ?/2.If y is negative and x is 0, ? = -?/2.If  or
         ///     is , or if  and  are either  or , the method returns .
         /// </returns>
-        public static Double Atan2(this Double y, Double x)
+        public static double Atan2(this double y, double x)
         {
             return Math.Atan2(y, x);
         }
@@ -220,7 +220,7 @@ namespace TestProj47
         ///     The smallest integral value that is greater than or equal to . If  is equal to , , or , that value is
         ///     returned. Note that this method returns a  instead of an integral type.
         /// </returns>
-        public static Double Ceiling(this Double a)
+        public static double Ceiling(this double a)
         {
             return Math.Ceiling(a);
         }
@@ -233,7 +233,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">An angle, measured in radians.</param>
         /// <returns>The cosine of . If  is equal to , , or , this method returns .</returns>
-        public static Double Cos(this Double d)
+        public static double Cos(this double d)
         {
             return Math.Cos(d);
         }
@@ -246,7 +246,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">An angle, measured in radians.</param>
         /// <returns>The hyperbolic cosine of . If  is equal to  or ,  is returned. If  is equal to ,  is returned.</returns>
-        public static Double Cosh(this Double value)
+        public static double Cosh(this double value)
         {
             return Math.Cosh(value);
         }
@@ -261,7 +261,7 @@ namespace TestProj47
         /// <returns>
         ///     The number e raised to the power . If  equals  or , that value is returned. If  equals , 0 is returned.
         /// </returns>
-        public static Double Exp(this Double d)
+        public static double Exp(this double d)
         {
             return Math.Exp(d);
         }
@@ -274,7 +274,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>The largest integer less than or equal to . If  is equal to , , or , that value is returned.</returns>
-        public static Double Floor(this Double d)
+        public static double Floor(this double d)
         {
             return Math.Floor(d);
         }
@@ -292,7 +292,7 @@ namespace TestProj47
         ///     halfway between two integers, the even integer is returned).If  - ( Q) is zero, the value +0 is returned if
         ///     is positive, or -0 if  is negative.If  = 0,  is returned.
         /// </returns>
-        public static Double IEEERemainder(this Double x, Double y)
+        public static double IEEERemainder(this double x, double y)
         {
             return Math.IEEERemainder(x, y);
         }
@@ -308,7 +308,7 @@ namespace TestProj47
         ///     One of the values in the following table.  parameterReturn value Positive The natural logarithm of ; that is,
         ///     ln , or log eZero Negative Equal to Equal to.
         /// </returns>
-        public static Double Log(this Double d)
+        public static double Log(this double d)
         {
             return Math.Log(d);
         }
@@ -326,7 +326,7 @@ namespace TestProj47
         /// </returns>
         /// ###
         /// <param name="a">The number whose logarithm is to be found.</param>
-        public static Double Log(this Double d, Double newBase)
+        public static double Log(this double d, double newBase)
         {
             return Math.Log(d, newBase);
         }
@@ -342,7 +342,7 @@ namespace TestProj47
         ///     One of the values in the following table.  parameter Return value Positive The base 10 log of ; that is, log
         ///     10. Zero Negative Equal to Equal to.
         /// </returns>
-        public static Double Log10(this Double d)
+        public static double Log10(this double d)
         {
             return Math.Log10(d);
         }
@@ -356,7 +356,7 @@ namespace TestProj47
         /// <param name="val1">The first of two double-precision floating-point numbers to compare.</param>
         /// <param name="val2">The second of two double-precision floating-point numbers to compare.</param>
         /// <returns>Parameter  or , whichever is larger. If , , or both  and  are equal to ,  is returned.</returns>
-        public static Double Max(this Double val1, Double val2)
+        public static double Max(this double val1, double val2)
         {
             return Math.Max(val1, val2);
         }
@@ -370,7 +370,7 @@ namespace TestProj47
         /// <param name="val1">The first of two double-precision floating-point numbers to compare.</param>
         /// <param name="val2">The second of two double-precision floating-point numbers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller. If , , or both  and  are equal to ,  is returned.</returns>
-        public static Double Min(this Double val1, Double val2)
+        public static double Min(this double val1, double val2)
         {
             return Math.Min(val1, val2);
         }
@@ -384,7 +384,7 @@ namespace TestProj47
         /// <param name="x">A double-precision floating-point number to be raised to a power.</param>
         /// <param name="y">A double-precision floating-point number that specifies a power.</param>
         /// <returns>The number  raised to the power .</returns>
-        public static Double Pow(this Double x, Double y)
+        public static double Pow(this double x, double y)
         {
             return Math.Pow(x, y);
         }
@@ -401,7 +401,7 @@ namespace TestProj47
         ///     and the other odd, then the even number is returned. Note that this method returns a  instead of an integral
         ///     type.
         /// </returns>
-        public static Double Round(this Double a)
+        public static double Round(this double a)
         {
             return Math.Round(a);
         }
@@ -414,7 +414,7 @@ namespace TestProj47
         /// <returns>The number nearest to  that contains a number of fractional digits equal to .</returns>
         /// ###
         /// <param name="value">A double-precision floating-point number to be rounded.</param>
-        public static Double Round(this Double a, Int32 digits)
+        public static double Round(this double a, int digits)
         {
             return Math.Round(a, digits);
         }
@@ -431,7 +431,7 @@ namespace TestProj47
         /// </returns>
         /// ###
         /// <param name="value">A double-precision floating-point number to be rounded.</param>
-        public static Double Round(this Double a, MidpointRounding mode)
+        public static double Round(this double a, MidpointRounding mode)
         {
             return Math.Round(a, mode);
         }
@@ -449,7 +449,7 @@ namespace TestProj47
         /// </returns>
         /// ###
         /// <param name="value">A double-precision floating-point number to be rounded.</param>
-        public static Double Round(this Double a, Int32 digits, MidpointRounding mode)
+        public static double Round(this double a, int digits, MidpointRounding mode)
         {
             return Math.Round(a, digits, mode);
         }
@@ -465,7 +465,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Double value)
+        public static int Sign(this double value)
         {
             return Math.Sign(value);
         }
@@ -478,7 +478,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="a">An angle, measured in radians.</param>
         /// <returns>The sine of . If  is equal to , , or , this method returns .</returns>
-        public static Double Sin(this Double a)
+        public static double Sin(this double a)
         {
             return Math.Sin(a);
         }
@@ -491,7 +491,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">An angle, measured in radians.</param>
         /// <returns>The hyperbolic sine of . If  is equal to , , or , this method returns a  equal to .</returns>
-        public static Double Sinh(this Double value)
+        public static double Sinh(this double value)
         {
             return Math.Sinh(value);
         }
@@ -507,7 +507,7 @@ namespace TestProj47
         ///     One of the values in the following table.  parameter Return value Zero or positive The positive square root
         ///     of . Negative Equals Equals.
         /// </returns>
-        public static Double Sqrt(this Double d)
+        public static double Sqrt(this double d)
         {
             return Math.Sqrt(d);
         }
@@ -520,7 +520,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="a">An angle, measured in radians.</param>
         /// <returns>The tangent of . If  is equal to , , or , this method returns .</returns>
-        public static Double Tan(this Double a)
+        public static double Tan(this double a)
         {
             return Math.Tan(a);
         }
@@ -536,7 +536,7 @@ namespace TestProj47
         ///     The hyperbolic tangent of . If  is equal to , this method returns -1. If value is equal to , this method
         ///     returns 1. If  is equal to , this method returns .
         /// </returns>
-        public static Double Tanh(this Double value)
+        public static double Tanh(this double value)
         {
             return Math.Tanh(value);
         }
@@ -552,7 +552,7 @@ namespace TestProj47
         ///     The integral part of ; that is, the number that remains after any fractional digits have been discarded, or
         ///     one of the values listed in the following table. Return value.
         /// </returns>
-        public static Double TruncateZ(this Double d)
+        public static double TruncateZ(this double d)
         {
             return Math.Truncate(d);
         }
@@ -566,7 +566,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of days, accurate to the nearest millisecond.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromDays(this Double value)
+        public static TimeSpan FromDays(this double value)
         {
             return TimeSpan.FromDays(value);
         }
@@ -580,7 +580,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of hours accurate to the nearest millisecond.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromHours(this Double value)
+        public static TimeSpan FromHours(this double value)
         {
             return TimeSpan.FromHours(value);
         }
@@ -593,7 +593,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of milliseconds.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromMilliseconds(this Double value)
+        public static TimeSpan FromMilliseconds(this double value)
         {
             return TimeSpan.FromMilliseconds(value);
         }
@@ -607,7 +607,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of minutes, accurate to the nearest millisecond.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromMinutes(this Double value)
+        public static TimeSpan FromMinutes(this double value)
         {
             return TimeSpan.FromMinutes(value);
         }
@@ -621,7 +621,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of seconds, accurate to the nearest millisecond.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromSeconds(this Double value)
+        public static TimeSpan FromSeconds(this double value)
         {
             return TimeSpan.FromSeconds(value);
         }
@@ -638,7 +638,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Double @this, Double minValue, Double maxValue)
+        public static bool Between(this double @this, double minValue, double maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -654,7 +654,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Double @this, params Double[] values)
+        public static bool InZ(this double @this, params double[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -671,7 +671,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Double @this, Double minValue, Double maxValue)
+        public static bool InRange(this double @this, double minValue, double maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -687,7 +687,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Double @this, params Double[] values)
+        public static bool NotIn(this double @this, params double[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

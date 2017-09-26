@@ -2103,7 +2103,7 @@ namespace Z.Data.SQLite
         ///       }
         /// </code>
         /// </example>
-        public static T To2<T>(this Object @this)
+        public static T To2<T>(this object @this)
         {
             if (@this != null)
             {
@@ -2217,7 +2217,7 @@ namespace Z.Data.SQLite
         /// </example>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static object To2(this Object @this, Type type)
+        public static object To2(this object @this, Type type)
         {
             if (@this != null)
             {

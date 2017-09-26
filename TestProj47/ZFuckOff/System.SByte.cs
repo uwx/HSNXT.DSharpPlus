@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than , but less than or equal to .</param>
         /// <returns>An 8-bit signed integer, x, such that 0 ? x ?.</returns>
-        public static SByte Abs(this SByte value)
+        public static sbyte Abs(this sbyte value)
         {
             return Math.Abs(value);
         }
@@ -68,7 +68,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 8-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 8-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static SByte Max(this SByte val1, SByte val2)
+        public static sbyte Max(this sbyte val1, sbyte val2)
         {
             return Math.Max(val1, val2);
         }
@@ -82,7 +82,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 8-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 8-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static SByte Min(this SByte val1, SByte val2)
+        public static sbyte Min(this sbyte val1, sbyte val2)
         {
             return Math.Min(val1, val2);
         }
@@ -98,7 +98,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this SByte value)
+        public static int Sign(this sbyte value)
         {
             return Math.Sign(value);
         }
@@ -114,7 +114,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this SByte @this, params SByte[] values)
+        public static bool InZ(this sbyte @this, params sbyte[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -130,7 +130,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this SByte @this, params SByte[] values)
+        public static bool NotIn(this sbyte @this, params sbyte[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

@@ -314,7 +314,7 @@ namespace TestProj47
         /// <returns>The extracted letter.</returns>
         public static string ExtractLetter(this string @this)
         {
-            return new string(@this.ToCharArray().Where(x => Char.IsLetter(x)).ToArray());
+            return new string(@this.ToCharArray().Where(x => char.IsLetter(x)).ToArray());
         }
     }
 
@@ -327,7 +327,7 @@ namespace TestProj47
         /// <returns>The extracted number.</returns>
         public static string ExtractNumber(this string @this)
         {
-            return new string(@this.ToCharArray().Where(x => Char.IsNumber(x)).ToArray());
+            return new string(@this.ToCharArray().Where(x => char.IsNumber(x)).ToArray());
         }
     }
 
@@ -343,9 +343,9 @@ namespace TestProj47
         ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
         ///     instances of Object in args.
         /// </returns>
-        public static String FormatWithZ(this String @this, Object arg0)
+        public static string FormatWithZ(this string @this, object arg0)
         {
-            return String.Format(@this, arg0);
+            return string.Format(@this, arg0);
         }
 
         /// <summary>
@@ -359,9 +359,9 @@ namespace TestProj47
         ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
         ///     instances of Object in args.
         /// </returns>
-        public static String FormatWithZ(this String @this, Object arg0, Object arg1)
+        public static string FormatWithZ(this string @this, object arg0, object arg1)
         {
-            return String.Format(@this, arg0, arg1);
+            return string.Format(@this, arg0, arg1);
         }
 
         /// <summary>
@@ -376,9 +376,9 @@ namespace TestProj47
         ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
         ///     instances of Object in args.
         /// </returns>
-        public static String FormatWithZ(this String @this, Object arg0, Object arg1, Object arg2)
+        public static string FormatWithZ(this string @this, object arg0, object arg1, object arg2)
         {
-            return String.Format(@this, arg0, arg1, arg2);
+            return string.Format(@this, arg0, arg1, arg2);
         }
 
         /// <summary>
@@ -393,7 +393,7 @@ namespace TestProj47
         /// </returns>
         public static string FormatWithZ(this string @this, params object[] values)
         {
-            return String.Format(@this, values);
+            return string.Format(@this, values);
         }
     }
 
@@ -584,9 +584,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns>true if the  parameter is null or , or if  consists exclusively of white-space characters.</returns>
-        public static Boolean IsNotNullOrWhiteSpace(this string value)
+        public static bool IsNotNullOrWhiteSpace(this string value)
         {
-            return !String.IsNullOrWhiteSpace(value);
+            return !string.IsNullOrWhiteSpace(value);
         }
     }
 
@@ -737,7 +737,7 @@ namespace TestProj47
         /// <returns>A string.</returns>
         public static string RemoveLetter(this string @this)
         {
-            return new string(@this.ToCharArray().Where(x => !Char.IsLetter(x)).ToArray());
+            return new string(@this.ToCharArray().Where(x => !char.IsLetter(x)).ToArray());
         }
     }
 
@@ -750,7 +750,7 @@ namespace TestProj47
         /// <returns>A string.</returns>
         public static string RemoveNumber(this string @this)
         {
-            return new string(@this.ToCharArray().Where(x => !Char.IsNumber(x)).ToArray());
+            return new string(@this.ToCharArray().Where(x => !char.IsNumber(x)).ToArray());
         }
     }
 
@@ -1296,7 +1296,7 @@ namespace TestProj47
         public static SecureString ToSecureString(this string @this)
         {
             var secureString = new SecureString();
-            foreach (Char c in @this)
+            foreach (char c in @this)
                 secureString.AppendChar(c);
 
             return secureString;
@@ -1431,9 +1431,9 @@ namespace TestProj47
         ///     The 21-bit Unicode code point represented by the character or surrogate pair at the position in the parameter
         ///     specified by the  parameter.
         /// </returns>
-        public static Int32 ConvertToUtf32(this String s, Int32 index)
+        public static int ConvertToUtf32(this string s, int index)
         {
-            return Char.ConvertToUtf32(s, index);
+            return char.ConvertToUtf32(s, index);
         }
     }
 
@@ -1448,9 +1448,9 @@ namespace TestProj47
         /// <returns>
         ///     The numeric value of the character at position  in  if that character represents a number; otherwise, -1.
         /// </returns>
-        public static Double GetNumericValue(this String s, Int32 index)
+        public static double GetNumericValue(this string s, int index)
         {
-            return Char.GetNumericValue(s, index);
+            return char.GetNumericValue(s, index);
         }
     }
 
@@ -1463,9 +1463,9 @@ namespace TestProj47
         /// <param name="s">A .</param>
         /// <param name="index">The character position in .</param>
         /// <returns>A  enumerated constant that identifies the group that contains the character at position  in .</returns>
-        public static UnicodeCategory GetUnicodeCategory(this String s, Int32 index)
+        public static UnicodeCategory GetUnicodeCategory(this string s, int index)
         {
-            return Char.GetUnicodeCategory(s, index);
+            return char.GetUnicodeCategory(s, index);
         }
     }
 
@@ -1478,9 +1478,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a control character; otherwise, false.</returns>
-        public static Boolean IsControl(this String s, Int32 index)
+        public static bool IsControl(this string s, int index)
         {
-            return Char.IsControl(s, index);
+            return char.IsControl(s, index);
         }
     }
 
@@ -1493,9 +1493,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a decimal digit; otherwise, false.</returns>
-        public static Boolean IsDigit(this String s, Int32 index)
+        public static bool IsDigit(this string s, int index)
         {
-            return Char.IsDigit(s, index);
+            return char.IsDigit(s, index);
         }
     }
 
@@ -1510,9 +1510,9 @@ namespace TestProj47
         ///     true if the numeric value of the specified character in the  parameter ranges from U+D800 through U+DBFF;
         ///     otherwise, false.
         /// </returns>
-        public static Boolean IsHighSurrogate(this String s, Int32 index)
+        public static bool IsHighSurrogate(this string s, int index)
         {
-            return Char.IsHighSurrogate(s, index);
+            return char.IsHighSurrogate(s, index);
         }
     }
 
@@ -1525,9 +1525,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a letter; otherwise, false.</returns>
-        public static Boolean IsLetter(this String s, Int32 index)
+        public static bool IsLetter(this string s, int index)
         {
-            return Char.IsLetter(s, index);
+            return char.IsLetter(s, index);
         }
     }
 
@@ -1540,9 +1540,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a letter or a decimal digit; otherwise, false.</returns>
-        public static Boolean IsLetterOrDigit(this String s, Int32 index)
+        public static bool IsLetterOrDigit(this string s, int index)
         {
-            return Char.IsLetterOrDigit(s, index);
+            return char.IsLetterOrDigit(s, index);
         }
     }
 
@@ -1555,9 +1555,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a lowercase letter; otherwise, false.</returns>
-        public static Boolean IsLower(this String s, Int32 index)
+        public static bool IsLower(this string s, int index)
         {
-            return Char.IsLower(s, index);
+            return char.IsLower(s, index);
         }
     }
 
@@ -1572,9 +1572,9 @@ namespace TestProj47
         ///     true if the numeric value of the specified character in the  parameter ranges from U+DC00 through U+DFFF;
         ///     otherwise, false.
         /// </returns>
-        public static Boolean IsLowSurrogate(this String s, Int32 index)
+        public static bool IsLowSurrogate(this string s, int index)
         {
-            return Char.IsLowSurrogate(s, index);
+            return char.IsLowSurrogate(s, index);
         }
     }
 
@@ -1586,9 +1586,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a number; otherwise, false.</returns>
-        public static Boolean IsNumber(this String s, Int32 index)
+        public static bool IsNumber(this string s, int index)
         {
-            return Char.IsNumber(s, index);
+            return char.IsNumber(s, index);
         }
     }
 
@@ -1601,9 +1601,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a punctuation mark; otherwise, false.</returns>
-        public static Boolean IsPunctuation(this String s, Int32 index)
+        public static bool IsPunctuation(this string s, int index)
         {
-            return Char.IsPunctuation(s, index);
+            return char.IsPunctuation(s, index);
         }
     }
 
@@ -1616,9 +1616,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a separator character; otherwise, false.</returns>
-        public static Boolean IsSeparator(this String s, Int32 index)
+        public static bool IsSeparator(this string s, int index)
         {
-            return Char.IsSeparator(s, index);
+            return char.IsSeparator(s, index);
         }
     }
 
@@ -1632,9 +1632,9 @@ namespace TestProj47
         /// <returns>
         ///     true if the character at position  in  is a either a high surrogate or a low surrogate; otherwise, false.
         /// </returns>
-        public static Boolean IsSurrogate(this String s, Int32 index)
+        public static bool IsSurrogate(this string s, int index)
         {
-            return Char.IsSurrogate(s, index);
+            return char.IsSurrogate(s, index);
         }
     }
 
@@ -1650,9 +1650,9 @@ namespace TestProj47
         ///     character at position  ranges from U+D800 through U+DBFF, and the numeric value of the character at position
         ///     +1 ranges from U+DC00 through U+DFFF; otherwise, false.
         /// </returns>
-        public static Boolean IsSurrogatePair(this String s, Int32 index)
+        public static bool IsSurrogatePair(this string s, int index)
         {
-            return Char.IsSurrogatePair(s, index);
+            return char.IsSurrogatePair(s, index);
         }
     }
 
@@ -1665,9 +1665,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is a symbol character; otherwise, false.</returns>
-        public static Boolean IsSymbol(this String s, Int32 index)
+        public static bool IsSymbol(this string s, int index)
         {
-            return Char.IsSymbol(s, index);
+            return char.IsSymbol(s, index);
         }
     }
 
@@ -1680,9 +1680,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is an uppercase letter; otherwise, false.</returns>
-        public static Boolean IsUpper(this String s, Int32 index)
+        public static bool IsUpper(this string s, int index)
         {
-            return Char.IsUpper(s, index);
+            return char.IsUpper(s, index);
         }
     }
 
@@ -1694,9 +1694,9 @@ namespace TestProj47
         /// <param name="s">A string.</param>
         /// <param name="index">The position of the character to evaluate in .</param>
         /// <returns>true if the character at position  in  is white space; otherwise, false.</returns>
-        public static Boolean IsWhiteSpace(this String s, Int32 index)
+        public static bool IsWhiteSpace(this string s, int index)
         {
-            return Char.IsWhiteSpace(s, index);
+            return char.IsWhiteSpace(s, index);
         }
     }
 
@@ -1711,9 +1711,9 @@ namespace TestProj47
         ///     An integer that indicates the lexical relationship between the two comparands.ValueCondition Less than zero
         ///     is less than . Zero  and  are equal. Greater than zero  is greater than .
         /// </returns>
-        public static Int32 CompareOrdinalZ(this String strA, String strB)
+        public static int CompareOrdinalZ(this string strA, string strB)
         {
-            return String.CompareOrdinal(strA, strB);
+            return string.CompareOrdinal(strA, strB);
         }
 
         /// <summary>
@@ -1730,9 +1730,9 @@ namespace TestProj47
         ///     Less than zero The substring in  is less than the substring in . Zero The substrings are equal, or  is zero.
         ///     Greater than zero The substring in  is greater than the substring in .
         /// </returns>
-        public static Int32 CompareOrdinalZ(this String strA, Int32 indexA, String strB, Int32 indexB, Int32 length)
+        public static int CompareOrdinalZ(this string strA, int indexA, string strB, int indexB, int length)
         {
-            return String.CompareOrdinal(strA, indexA, strB, indexB, length);
+            return string.CompareOrdinal(strA, indexA, strB, indexB, length);
         }
     }
 
@@ -1744,9 +1744,9 @@ namespace TestProj47
         /// <param name="str0">The first string to concatenate.</param>
         /// <param name="str1">The second string to concatenate.</param>
         /// <returns>The concatenation of  and .</returns>
-        public static String Concat(this String str0, String str1)
+        public static string Concat(this string str0, string str1)
         {
-            return String.Concat(str0, str1);
+            return string.Concat(str0, str1);
         }
 
         /// <summary>
@@ -1756,9 +1756,9 @@ namespace TestProj47
         /// <param name="str1">The second string to concatenate.</param>
         /// <param name="str2">The third string to concatenate.</param>
         /// <returns>The concatenation of , , and .</returns>
-        public static String Concat(this String str0, String str1, String str2)
+        public static string Concat(this string str0, string str1, string str2)
         {
-            return String.Concat(str0, str1, str2);
+            return string.Concat(str0, str1, str2);
         }
 
         /// <summary>
@@ -1769,9 +1769,9 @@ namespace TestProj47
         /// <param name="str2">The third string to concatenate.</param>
         /// <param name="str3">The fourth string to concatenate.</param>
         /// <returns>The concatenation of , , , and .</returns>
-        public static String Concat(this String str0, String str1, String str2, String str3)
+        public static string Concat(this string str0, string str1, string str2, string str3)
         {
-            return String.Concat(str0, str1, str2, str3);
+            return string.Concat(str0, str1, str2, str3);
         }
     }
 
@@ -1782,9 +1782,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The string to copy.</param>
         /// <returns>A new string with the same value as .</returns>
-        public static String Copy(this String str)
+        public static string Copy(this string str)
         {
-            return String.Copy(str);
+            return string.Copy(str);
         }
     }
 
@@ -1796,9 +1796,9 @@ namespace TestProj47
         /// <param name="format">A composite format string.</param>
         /// <param name="arg0">The object to format.</param>
         /// <returns>A copy of  in which any format items are replaced by the string representation of .</returns>
-        public static String Format(this String format, Object arg0)
+        public static string Format(this string format, object arg0)
         {
-            return String.Format(format, arg0);
+            return string.Format(format, arg0);
         }
 
         /// <summary>
@@ -1808,9 +1808,9 @@ namespace TestProj47
         /// <param name="arg0">The first object to format.</param>
         /// <param name="arg1">The second object to format.</param>
         /// <returns>A copy of  in which format items are replaced by the string representations of  and .</returns>
-        public static String Format(this String format, Object arg0, Object arg1)
+        public static string Format(this string format, object arg0, object arg1)
         {
-            return String.Format(format, arg0, arg1);
+            return string.Format(format, arg0, arg1);
         }
 
         /// <summary>
@@ -1823,9 +1823,9 @@ namespace TestProj47
         /// <returns>
         ///     A copy of  in which the format items have been replaced by the string representations of , , and .
         /// </returns>
-        public static String Format(this String format, Object arg0, Object arg1, Object arg2)
+        public static string Format(this string format, object arg0, object arg1, object arg2)
         {
-            return String.Format(format, arg0, arg1, arg2);
+            return string.Format(format, arg0, arg1, arg2);
         }
 
         /// <summary>
@@ -1838,9 +1838,9 @@ namespace TestProj47
         ///     A copy of  in which the format items have been replaced by the string representation of the corresponding
         ///     objects in .
         /// </returns>
-        public static String Format(this String format, Object[] args)
+        public static string Format(this string format, object[] args)
         {
-            return String.Format(format, args);
+            return string.Format(format, args);
         }
     }
 
@@ -1853,9 +1853,9 @@ namespace TestProj47
         /// <returns>
         ///     The system&#39;s reference to , if it is interned; otherwise, a new reference to a string with the value of .
         /// </returns>
-        public static String InternZ(this String str)
+        public static string InternZ(this string str)
         {
-            return String.Intern(str);
+            return string.Intern(str);
         }
     }
 
@@ -1866,9 +1866,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The string to search for in the intern pool.</param>
         /// <returns>A reference to  if it is in the common language runtime intern pool; otherwise, null.</returns>
-        public static String IsInternedZ(this String str)
+        public static string IsInternedZ(this string str)
         {
-            return String.IsInterned(str);
+            return string.IsInterned(str);
         }
     }
 
@@ -1879,9 +1879,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns>true if the  parameter is null or , or if  consists exclusively of white-space characters.</returns>
-        public static Boolean IsNullOrWhiteSpaceZ(this String value)
+        public static bool IsNullOrWhiteSpaceZ(this string value)
         {
-            return String.IsNullOrWhiteSpace(value);
+            return string.IsNullOrWhiteSpace(value);
         }
     }
 
@@ -1899,9 +1899,9 @@ namespace TestProj47
         ///     A string that consists of the elements in  delimited by the  string. If  is an empty array, the method
         ///     returns .
         /// </returns>
-        public static String Join(this String separator, String[] value)
+        public static string Join(this string separator, string[] value)
         {
-            return String.Join(separator, value);
+            return string.Join(separator, value);
         }
 
         /// <summary>
@@ -1916,9 +1916,9 @@ namespace TestProj47
         ///     A string that consists of the elements of  delimited by the  string. If  is an empty array, the method
         ///     returns .
         /// </returns>
-        public static String Join(this String separator, Object[] values)
+        public static string Join(this string separator, object[] values)
         {
-            return String.Join(separator, values);
+            return string.Join(separator, values);
         }
 
         /// <summary>
@@ -1931,9 +1931,9 @@ namespace TestProj47
         /// </param>
         /// <param name="values">An array that contains the elements to concatenate.</param>
         /// <returns>A String.</returns>
-        public static String Join<T>(this String separator, IEnumerable<T> values)
+        public static string Join<T>(this string separator, IEnumerable<T> values)
         {
-            return String.Join(separator, values);
+            return string.Join(separator, values);
         }
 
         /// <summary>
@@ -1948,9 +1948,9 @@ namespace TestProj47
         ///     A string that consists of the elements in  delimited by the  string. If  is an empty array, the method
         ///     returns .
         /// </returns>
-        public static String Join(this String separator, IEnumerable<String> values)
+        public static string Join(this string separator, IEnumerable<string> values)
         {
-            return String.Join(separator, values);
+            return string.Join(separator, values);
         }
 
         /// <summary>
@@ -1967,9 +1967,9 @@ namespace TestProj47
         ///     A string that consists of the strings in  delimited by the  string. -or- if  is zero,  has no elements, or
         ///     and all the elements of  are .
         /// </returns>
-        public static String Join(this String separator, String[] value, Int32 startIndex, Int32 count)
+        public static string Join(this string separator, string[] value, int startIndex, int count)
         {
-            return String.Join(separator, value, startIndex, count);
+            return string.Join(separator, value, startIndex, count);
         }
     }
 
@@ -1981,7 +1981,7 @@ namespace TestProj47
         /// <param name="input">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
-        public static Boolean IsMatch(this String input, String pattern)
+        public static bool IsMatch(this string input, string pattern)
         {
             return Regex.IsMatch(input, pattern);
         }
@@ -1994,7 +1994,7 @@ namespace TestProj47
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <param name="options">A bitwise combination of the enumeration values that provide options for matching.</param>
         /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
-        public static Boolean IsMatch(this String input, String pattern, RegexOptions options)
+        public static bool IsMatch(this string input, string pattern, RegexOptions options)
         {
             return Regex.IsMatch(input, pattern, options);
         }
@@ -2008,7 +2008,7 @@ namespace TestProj47
         /// <param name="input">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <returns>An object that contains information about the match.</returns>
-        public static Match Match(this String input, String pattern)
+        public static Match Match(this string input, string pattern)
         {
             return Regex.Match(input, pattern);
         }
@@ -2021,7 +2021,7 @@ namespace TestProj47
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <param name="options">A bitwise combination of the enumeration values that provide options for matching.</param>
         /// <returns>An object that contains information about the match.</returns>
-        public static Match Match(this String input, String pattern, RegexOptions options)
+        public static Match Match(this string input, string pattern, RegexOptions options)
         {
             return Regex.Match(input, pattern, options);
         }
@@ -2038,7 +2038,7 @@ namespace TestProj47
         ///     A collection of the  objects found by the search. If no matches are found, the method returns an empty
         ///     collection object.
         /// </returns>
-        public static MatchCollection Matches(this String input, String pattern)
+        public static MatchCollection Matches(this string input, string pattern)
         {
             return Regex.Matches(input, pattern);
         }
@@ -2054,7 +2054,7 @@ namespace TestProj47
         ///     A collection of the  objects found by the search. If no matches are found, the method returns an empty
         ///     collection object.
         /// </returns>
-        public static MatchCollection Matches(this String input, String pattern, RegexOptions options)
+        public static MatchCollection Matches(this string input, string pattern, RegexOptions options)
         {
             return Regex.Matches(input, pattern, options);
         }
@@ -2067,7 +2067,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static String HtmlAttributeEncode(this String s)
+        public static string HtmlAttributeEncode(this string s)
         {
             return HttpUtility.HtmlAttributeEncode(s);
         }
@@ -2077,7 +2077,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to encode.</param>
         /// <param name="output">A  output stream.</param>
-        public static void HtmlAttributeEncode(this String s, TextWriter output)
+        public static void HtmlAttributeEncode(this string s, TextWriter output)
         {
             HttpUtility.HtmlAttributeEncode(s, output);
         }
@@ -2090,7 +2090,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to decode.</param>
         /// <returns>A decoded string.</returns>
-        public static String HtmlDecodeZ(this String s)
+        public static string HtmlDecodeZ(this string s)
         {
             return HttpUtility.HtmlDecode(s);
         }
@@ -2101,7 +2101,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to decode.</param>
         /// <param name="output">A  stream of output.</param>
-        public static void HtmlDecodeZ(this String s, TextWriter output)
+        public static void HtmlDecodeZ(this string s, TextWriter output)
         {
             HttpUtility.HtmlDecode(s, output);
         }
@@ -2114,7 +2114,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static String HtmlEncodeZ(this String s)
+        public static string HtmlEncodeZ(this string s)
         {
             return HttpUtility.HtmlEncode(s);
         }
@@ -2124,7 +2124,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="s">The string to encode.</param>
         /// <param name="output">A  output stream.</param>
-        public static void HtmlEncodeZ(this String s, TextWriter output)
+        public static void HtmlEncodeZ(this string s, TextWriter output)
         {
             HttpUtility.HtmlEncode(s, output);
         }
@@ -2137,7 +2137,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A string to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static String JavaScriptStringEncode(this String value)
+        public static string JavaScriptStringEncode(this string value)
         {
             return HttpUtility.JavaScriptStringEncode(value);
         }
@@ -2151,7 +2151,7 @@ namespace TestProj47
         ///     encoded string.
         /// </param>
         /// <returns>An encoded string.</returns>
-        public static String JavaScriptStringEncode(this String value, Boolean addDoubleQuotes)
+        public static string JavaScriptStringEncode(this string value, bool addDoubleQuotes)
         {
             return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
         }
@@ -2164,7 +2164,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="query">The query string to parse.</param>
         /// <returns>A  of query parameters and values.</returns>
-        public static NameValueCollection ParseQueryStringZ(this String query)
+        public static NameValueCollection ParseQueryStringZ(this string query)
         {
             return HttpUtility.ParseQueryString(query);
         }
@@ -2175,7 +2175,7 @@ namespace TestProj47
         /// <param name="query">The query string to parse.</param>
         /// <param name="encoding">The  to use.</param>
         /// <returns>A  of query parameters and values.</returns>
-        public static NameValueCollection ParseQueryStringZ(this String query, Encoding encoding)
+        public static NameValueCollection ParseQueryStringZ(this string query, Encoding encoding)
         {
             return HttpUtility.ParseQueryString(query, encoding);
         }
@@ -2188,7 +2188,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The string to decode.</param>
         /// <returns>A decoded string.</returns>
-        public static String UrlDecodeZ(this String str)
+        public static string UrlDecodeZ(this string str)
         {
             return HttpUtility.UrlDecode(str);
         }
@@ -2199,7 +2199,7 @@ namespace TestProj47
         /// <param name="str">The string to decode.</param>
         /// <param name="e">The  that specifies the decoding scheme.</param>
         /// <returns>A decoded string.</returns>
-        public static String UrlDecodeZ(this String str, Encoding e)
+        public static string UrlDecodeZ(this string str, Encoding e)
         {
             return HttpUtility.UrlDecode(str, e);
         }
@@ -2212,7 +2212,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The string to decode.</param>
         /// <returns>A decoded array of bytes.</returns>
-        public static Byte[] UrlDecodeToBytes(this String str)
+        public static byte[] UrlDecodeToBytes(this string str)
         {
             return HttpUtility.UrlDecodeToBytes(str);
         }
@@ -2223,7 +2223,7 @@ namespace TestProj47
         /// <param name="str">The string to decode.</param>
         /// <param name="e">The  object that specifies the decoding scheme.</param>
         /// <returns>A decoded array of bytes.</returns>
-        public static Byte[] UrlDecodeToBytes(this String str, Encoding e)
+        public static byte[] UrlDecodeToBytes(this string str, Encoding e)
         {
             return HttpUtility.UrlDecodeToBytes(str, e);
         }
@@ -2236,7 +2236,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The text to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static String UrlEncodeZ(this String str)
+        public static string UrlEncodeZ(this string str)
         {
             return HttpUtility.UrlEncode(str);
         }
@@ -2247,7 +2247,7 @@ namespace TestProj47
         /// <param name="str">The text to encode.</param>
         /// <param name="e">The  object that specifies the encoding scheme.</param>
         /// <returns>An encoded string.</returns>
-        public static String UrlEncodeZ(this String str, Encoding e)
+        public static string UrlEncodeZ(this string str, Encoding e)
         {
             return HttpUtility.UrlEncode(str, e);
         }
@@ -2260,7 +2260,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The string to encode.</param>
         /// <returns>An encoded array of bytes.</returns>
-        public static Byte[] UrlEncodeToBytes(this String str)
+        public static byte[] UrlEncodeToBytes(this string str)
         {
             return HttpUtility.UrlEncodeToBytes(str);
         }
@@ -2271,7 +2271,7 @@ namespace TestProj47
         /// <param name="str">The string to encode.</param>
         /// <param name="e">The  that specifies the encoding scheme.</param>
         /// <returns>An encoded array of bytes.</returns>
-        public static Byte[] UrlEncodeToBytes(this String str, Encoding e)
+        public static byte[] UrlEncodeToBytes(this string str, Encoding e)
         {
             return HttpUtility.UrlEncodeToBytes(str, e);
         }
@@ -2284,7 +2284,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="str">The text to encode.</param>
         /// <returns>The encoded text.</returns>
-        public static String UrlPathEncodeZ(this String str)
+        public static string UrlPathEncodeZ(this string str)
         {
             return HttpUtility.UrlPathEncode(str);
         }
@@ -2326,7 +2326,7 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list contains the object, else false.</returns>
-        public static bool InZ(this String @this, params String[] values)
+        public static bool InZ(this string @this, params string[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -2339,7 +2339,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if not null, false if not.</returns>
-        public static bool IsNotNull(this String @this)
+        public static bool IsNotNull(this string @this)
         {
             return @this != null;
         }
@@ -2352,7 +2352,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null, false if not.</returns>
-        public static bool IsNull(this String @this)
+        public static bool IsNull(this string @this)
         {
             return @this == null;
         }
@@ -2366,7 +2366,7 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
-        public static bool NotIn(this String @this, params String[] values)
+        public static bool NotIn(this string @this, params string[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }
@@ -2384,7 +2384,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]) || @this[i] == '.')
+                if (char.IsDigit(@this[i]) || @this[i] == '.')
                 {
                     if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
                     {
@@ -2410,7 +2410,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]) || @this[i] == '.')
+                if (char.IsDigit(@this[i]) || @this[i] == '.')
                 {
                     if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
                     {
@@ -2436,7 +2436,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
                     {
@@ -2462,7 +2462,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
                     {
@@ -2488,7 +2488,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     if (sb.Length == 0 && i > 0 && @this[i - 1] == '-')
                     {
@@ -2642,7 +2642,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     sb.Append(@this[i]);
                 }
@@ -2664,7 +2664,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     sb.Append(@this[i]);
                 }
@@ -2686,7 +2686,7 @@ namespace TestProj47
             var sb = new StringBuilder();
             for (int i = 0; i < @this.Length; i++)
             {
-                if (Char.IsDigit(@this[i]))
+                if (char.IsDigit(@this[i]))
                 {
                     sb.Append(@this[i]);
                 }

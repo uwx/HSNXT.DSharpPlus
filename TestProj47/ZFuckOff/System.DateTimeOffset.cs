@@ -41,7 +41,7 @@ using System.Windows.Forms;
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 
 //using System;
 
@@ -124,7 +124,7 @@ namespace TestProj47
         /// <param name="destinationTimeZoneId">The identifier of the destination time zone.</param>
         /// <returns>The date and time in the destination time zone.</returns>
         public static DateTimeOffset ConvertTimeBySystemTimeZoneId(this DateTimeOffset dateTimeOffset,
-            String destinationTimeZoneId)
+            string destinationTimeZoneId)
         {
             return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTimeOffset, destinationTimeZoneId);
         }

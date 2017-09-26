@@ -483,7 +483,7 @@ namespace TestProj47
         /// <param name="time">A date and time.</param>
         /// <param name="daylightTimes">A daylight saving time period.</param>
         /// <returns>true if  is in ; otherwise, false.</returns>
-        public static Boolean IsDaylightSavingTime(this DateTime time, DaylightTime daylightTimes)
+        public static bool IsDaylightSavingTime(this DateTime time, DaylightTime daylightTimes)
         {
             return TimeZone.IsDaylightSavingTime(time, daylightTimes);
         }
@@ -526,7 +526,7 @@ namespace TestProj47
         /// <param name="dateTime">The date and time to convert.</param>
         /// <param name="destinationTimeZoneId">The identifier of the destination time zone.</param>
         /// <returns>The date and time in the destination time zone.</returns>
-        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, String destinationTimeZoneId)
+        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, string destinationTimeZoneId)
         {
             return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTime, destinationTimeZoneId);
         }
@@ -540,8 +540,8 @@ namespace TestProj47
         /// <returns>
         ///     The date and time in the destination time zone that corresponds to the  parameter in the source time zone.
         /// </returns>
-        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, String sourceTimeZoneId,
-            String destinationTimeZoneId)
+        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, string sourceTimeZoneId,
+            string destinationTimeZoneId)
         {
             return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTime, sourceTimeZoneId, destinationTimeZoneId);
         }

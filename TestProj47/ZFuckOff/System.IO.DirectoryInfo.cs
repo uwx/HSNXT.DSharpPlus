@@ -560,7 +560,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, String searchPattern)
+        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, string searchPattern)
         {
             return Directory.EnumerateDirectories(@this.FullName, searchPattern).Select(x => new DirectoryInfo(x));
         }
@@ -688,7 +688,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, String searchPattern,
+        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption)
         {
             return Directory.EnumerateDirectories(@this.FullName, searchPattern, searchOption)
@@ -807,7 +807,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, String[] searchPatterns)
+        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x)).Distinct();
         }
@@ -935,7 +935,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, String[] searchPatterns,
+        public static IEnumerable<DirectoryInfo> EnumerateDirectories(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x, searchOption)).Distinct();
@@ -1106,7 +1106,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, String searchPattern)
+        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, string searchPattern)
         {
             return Directory.EnumerateFiles(@this.FullName, searchPattern).Select(x => new FileInfo(x));
         }
@@ -1240,7 +1240,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, String searchPattern,
+        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption)
         {
             return Directory.EnumerateFiles(@this.FullName, searchPattern, searchOption).Select(x => new FileInfo(x));
@@ -1364,7 +1364,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, String[] searchPatterns)
+        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x)).Distinct();
         }
@@ -1498,7 +1498,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, String[] searchPatterns,
+        public static IEnumerable<FileInfo> EnumerateFiles(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x, searchOption)).Distinct();
@@ -1664,7 +1664,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, String searchPattern)
+        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, string searchPattern)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern);
         }
@@ -1796,7 +1796,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, String searchPattern,
+        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern, searchOption);
@@ -1918,7 +1918,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, String[] searchPatterns)
+        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x)).Distinct();
         }
@@ -2050,7 +2050,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, String[] searchPatterns,
+        public static IEnumerable<string> EnumerateFileSystemEntries(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x, searchOption))
@@ -2108,7 +2108,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectories(this DirectoryInfo @this, String[] searchPatterns)
+        public static DirectoryInfo[] GetDirectories(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x)).Distinct().ToArray();
         }
@@ -2172,7 +2172,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectories(this DirectoryInfo @this, String[] searchPatterns,
+        public static DirectoryInfo[] GetDirectories(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x, searchOption)).Distinct().ToArray();
@@ -2340,7 +2340,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, String searchPattern,
+        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, string searchPattern,
             Func<DirectoryInfo, bool> predicate)
         {
             return Directory.EnumerateDirectories(@this.FullName, searchPattern).Select(x => new DirectoryInfo(x))
@@ -2471,7 +2471,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, String searchPattern,
+        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption, Func<DirectoryInfo, bool> predicate)
         {
             return Directory.EnumerateDirectories(@this.FullName, searchPattern, searchOption)
@@ -2591,7 +2591,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, string[] searchPatterns,
             Func<DirectoryInfo, bool> predicate)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x)).Distinct().Where(x => predicate(x))
@@ -2722,7 +2722,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static DirectoryInfo[] GetDirectoriesWhere(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption, Func<DirectoryInfo, bool> predicate)
         {
             return searchPatterns.SelectMany(x => @this.GetDirectories(x, searchOption)).Distinct()
@@ -2780,7 +2780,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFiles(this DirectoryInfo @this, String[] searchPatterns)
+        public static FileInfo[] GetFiles(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x)).Distinct().ToArray();
         }
@@ -2844,7 +2844,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFiles(this DirectoryInfo @this, String[] searchPatterns, SearchOption searchOption)
+        public static FileInfo[] GetFiles(this DirectoryInfo @this, string[] searchPatterns, SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x, searchOption)).Distinct().ToArray();
         }
@@ -3019,7 +3019,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, String searchPattern,
+        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, string searchPattern,
             Func<FileInfo, bool> predicate)
         {
             return Directory.EnumerateFiles(@this.FullName, searchPattern).Select(x => new FileInfo(x))
@@ -3158,7 +3158,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, String searchPattern,
+        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption, Func<FileInfo, bool> predicate)
         {
             return Directory.EnumerateFiles(@this.FullName, searchPattern, searchOption).Select(x => new FileInfo(x))
@@ -3286,7 +3286,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, string[] searchPatterns,
             Func<FileInfo, bool> predicate)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x)).Distinct().Where(x => predicate(x)).ToArray();
@@ -3424,7 +3424,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static FileInfo[] GetFilesWhere(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption, Func<FileInfo, bool> predicate)
         {
             return searchPatterns.SelectMany(x => @this.GetFiles(x, searchOption)).Distinct().Where(x => predicate(x))
@@ -3587,7 +3587,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntries(this DirectoryInfo @this, String searchPattern)
+        public static string[] GetFileSystemEntries(this DirectoryInfo @this, string searchPattern)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern).ToArray();
         }
@@ -3715,7 +3715,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntries(this DirectoryInfo @this, String searchPattern,
+        public static string[] GetFileSystemEntries(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern, searchOption).ToArray();
@@ -3833,7 +3833,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntries(this DirectoryInfo @this, String[] searchPatterns)
+        public static string[] GetFileSystemEntries(this DirectoryInfo @this, string[] searchPatterns)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x)).Distinct()
                 .ToArray();
@@ -3962,7 +3962,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntries(this DirectoryInfo @this, String[] searchPatterns,
+        public static string[] GetFileSystemEntries(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x, searchOption))
@@ -4127,7 +4127,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, String searchPattern,
+        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, string searchPattern,
             Func<string, bool> predicate)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern).Where(x => predicate(x))
@@ -4258,7 +4258,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, String searchPattern,
+        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, string searchPattern,
             SearchOption searchOption, Func<string, bool> predicate)
         {
             return Directory.EnumerateFileSystemEntries(@this.FullName, searchPattern, searchOption)
@@ -4378,7 +4378,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, string[] searchPatterns,
             Func<string, bool> predicate)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x)).Distinct()
@@ -4509,7 +4509,7 @@ namespace TestProj47
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
         /// ###
         /// <exception cref="T:System.UnauthorizedAccessException">The caller does not have the required permission.</exception>
-        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, String[] searchPatterns,
+        public static string[] GetFileSystemEntriesWhere(this DirectoryInfo @this, string[] searchPatterns,
             SearchOption searchOption, Func<string, bool> predicate)
         {
             return searchPatterns.SelectMany(x => Directory.EnumerateFileSystemEntries(@this.FullName, x, searchOption))

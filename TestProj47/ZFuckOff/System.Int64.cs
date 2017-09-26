@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Days(this Int64 @this)
+        public static TimeSpan Days(this long @this)
         {
             return TimeSpan.FromDays(@this);
         }
@@ -68,7 +68,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factorNumer">The factor numer.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this Int64 @this, Int64 factorNumer)
+        public static bool FactorOf(this long @this, long factorNumer)
         {
             return factorNumer % @this == 0;
         }
@@ -81,7 +81,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Hours(this Int64 @this)
+        public static TimeSpan Hours(this long @this)
         {
             return TimeSpan.FromHours(@this);
         }
@@ -94,7 +94,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if even, false if not.</returns>
-        public static bool IsEven(this Int64 @this)
+        public static bool IsEven(this long @this)
         {
             return @this % 2 == 0;
         }
@@ -108,7 +108,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>true if multiple of, false if not.</returns>
-        public static bool IsMultipleOf(this Int64 @this, Int64 factor)
+        public static bool IsMultipleOf(this long @this, long factor)
         {
             return @this % factor == 0;
         }
@@ -121,7 +121,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if odd, false if not.</returns>
-        public static bool IsOdd(this Int64 @this)
+        public static bool IsOdd(this long @this)
         {
             return @this % 2 != 0;
         }
@@ -134,7 +134,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if prime, false if not.</returns>
-        public static bool IsPrime(this Int64 @this)
+        public static bool IsPrime(this long @this)
         {
             if (@this == 1 || @this == 2)
             {
@@ -146,8 +146,8 @@ namespace TestProj47
                 return false;
             }
 
-            var sqrt = (Int64) Math.Sqrt(@this);
-            for (Int64 t = 3; t <= sqrt; t = t + 2)
+            var sqrt = (long) Math.Sqrt(@this);
+            for (long t = 3; t <= sqrt; t = t + 2)
             {
                 if (@this % t == 0)
                 {
@@ -166,7 +166,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Milliseconds(this Int64 @this)
+        public static TimeSpan Milliseconds(this long @this)
         {
             return TimeSpan.FromMilliseconds(@this);
         }
@@ -179,7 +179,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Minutes(this Int64 @this)
+        public static TimeSpan Minutes(this long @this)
         {
             return TimeSpan.FromMinutes(@this);
         }
@@ -192,7 +192,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Seconds(this Int64 @this)
+        public static TimeSpan Seconds(this long @this)
         {
             return TimeSpan.FromSeconds(@this);
         }
@@ -205,7 +205,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Weeks(this Int64 @this)
+        public static TimeSpan Weeks(this long @this)
         {
             return TimeSpan.FromDays(@this * 7);
         }
@@ -218,7 +218,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>An array of bytes with length 8.</returns>
-        public static Byte[] GetBytes(this Int64 value)
+        public static byte[] GetBytes(this long value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -231,7 +231,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>A double-precision floating point number whose value is equivalent to .</returns>
-        public static Double Int64BitsToDouble(this Int64 value)
+        public static double Int64BitsToDouble(this long value)
         {
             return BitConverter.Int64BitsToDouble(value);
         }
@@ -247,7 +247,7 @@ namespace TestProj47
         ///     a 62-bit field.
         /// </param>
         /// <returns>An object that is equivalent to the  object that was serialized by the  method.</returns>
-        public static DateTime FromBinary(this Int64 dateData)
+        public static DateTime FromBinary(this long dateData)
         {
             return DateTime.FromBinary(dateData);
         }
@@ -262,7 +262,7 @@ namespace TestProj47
         /// <returns>
         ///     An object that represents the local time equivalent of the date and time represented by the  parameter.
         /// </returns>
-        public static DateTime FromFileTime(this Int64 fileTime)
+        public static DateTime FromFileTime(this long fileTime)
         {
             return DateTime.FromFileTime(fileTime);
         }
@@ -277,7 +277,7 @@ namespace TestProj47
         /// <returns>
         ///     An object that represents the UTC time equivalent of the date and time represented by the  parameter.
         /// </returns>
-        public static DateTime FromFileTimeUtc(this Int64 fileTime)
+        public static DateTime FromFileTimeUtc(this long fileTime)
         {
             return DateTime.FromFileTimeUtc(fileTime);
         }
@@ -291,9 +291,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="cy">An OLE Automation Currency value.</param>
         /// <returns>A  that contains the equivalent of .</returns>
-        public static Decimal FromOACurrency(this Int64 cy)
+        public static decimal FromOACurrency(this long cy)
         {
-            return Decimal.FromOACurrency(cy);
+            return decimal.FromOACurrency(cy);
         }
     }
 
@@ -304,7 +304,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than , but less than or equal to .</param>
         /// <returns>A 64-bit signed integer, x, such that 0 ? x ?.</returns>
-        public static Int64 Abs(this Int64 value)
+        public static long Abs(this long value)
         {
             return Math.Abs(value);
         }
@@ -319,7 +319,7 @@ namespace TestProj47
         /// <param name="b">The Int64 to process.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>An Int64.</returns>
-        public static Int64 DivRem(this Int64 a, Int64 b, out Int64 result)
+        public static long DivRem(this long a, long b, out long result)
         {
             return Math.DivRem(a, b, out result);
         }
@@ -333,7 +333,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 64-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 64-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static Int64 Max(this Int64 val1, Int64 val2)
+        public static long Max(this long val1, long val2)
         {
             return Math.Max(val1, val2);
         }
@@ -347,7 +347,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 64-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 64-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static Int64 Min(this Int64 val1, Int64 val2)
+        public static long Min(this long val1, long val2)
         {
             return Math.Min(val1, val2);
         }
@@ -363,7 +363,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Int64 value)
+        public static int Sign(this long value)
         {
             return Math.Sign(value);
         }
@@ -376,7 +376,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="host">The number to convert, expressed in host byte order.</param>
         /// <returns>A long value, expressed in network byte order.</returns>
-        public static Int64 HostToNetworkOrder(this Int64 host)
+        public static long HostToNetworkOrder(this long host)
         {
             return IPAddress.HostToNetworkOrder(host);
         }
@@ -389,7 +389,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="network">The number to convert, expressed in network byte order.</param>
         /// <returns>A long value, expressed in host byte order.</returns>
-        public static Int64 NetworkToHostOrder(this Int64 network)
+        public static long NetworkToHostOrder(this long network)
         {
             return IPAddress.NetworkToHostOrder(network);
         }
@@ -402,7 +402,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number of ticks that represent a time.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromTicks(this Int64 value)
+        public static TimeSpan FromTicks(this long value)
         {
             return TimeSpan.FromTicks(value);
         }
@@ -419,7 +419,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Int64 @this, Int64 minValue, Int64 maxValue)
+        public static bool Between(this long @this, long minValue, long maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -435,7 +435,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Int64 @this, params Int64[] values)
+        public static bool InZ(this long @this, params long[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -452,7 +452,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Int64 @this, Int64 minValue, Int64 maxValue)
+        public static bool InRange(this long @this, long minValue, long maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -468,7 +468,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Int64 @this, params Int64[] values)
+        public static bool NotIn(this long @this, params long[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

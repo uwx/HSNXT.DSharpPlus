@@ -2106,7 +2106,7 @@ namespace Z.Data.MySql
         ///       }
         /// </code>
         /// </example>
-        public static T To<T>(this Object @this)
+        public static T To<T>(this object @this)
         {
             if (@this != null)
             {
@@ -2220,7 +2220,7 @@ namespace Z.Data.MySql
         /// </example>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static object To(this Object @this, Type type)
+        public static object To(this object @this, Type type)
         {
             if (@this != null)
             {

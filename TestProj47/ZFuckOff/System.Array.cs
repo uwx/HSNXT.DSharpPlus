@@ -99,7 +99,7 @@ namespace TestProj47
         ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
         ///     bitwise complement of (the index of the last element plus 1).
         /// </returns>
-        public static Int32 BinarySearch(this Array array, Object value)
+        public static int BinarySearch(this Array array, object value)
         {
             return Array.BinarySearch(array, value);
         }
@@ -118,7 +118,7 @@ namespace TestProj47
         ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
         ///     bitwise complement of (the index of the last element plus 1).
         /// </returns>
-        public static Int32 BinarySearch(this Array array, Int32 index, Int32 length, Object value)
+        public static int BinarySearch(this Array array, int index, int length, object value)
         {
             return Array.BinarySearch(array, index, length, value);
         }
@@ -138,7 +138,7 @@ namespace TestProj47
         ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
         ///     bitwise complement of (the index of the last element plus 1).
         /// </returns>
-        public static Int32 BinarySearch(this Array array, Object value, IComparer comparer)
+        public static int BinarySearch(this Array array, object value, IComparer comparer)
         {
             return Array.BinarySearch(array, value, comparer);
         }
@@ -160,7 +160,7 @@ namespace TestProj47
         ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
         ///     bitwise complement of (the index of the last element plus 1).
         /// </returns>
-        public static Int32 BinarySearch(this Array array, Int32 index, Int32 length, Object value, IComparer comparer)
+        public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer)
         {
             return Array.BinarySearch(array, index, length, value, comparer);
         }
@@ -174,7 +174,7 @@ namespace TestProj47
         /// <param name="array">The  whose elements need to be cleared.</param>
         /// <param name="index">The starting index of the range of elements to clear.</param>
         /// <param name="length">The number of elements to clear.</param>
-        public static void Clear(this Array array, Int32 index, Int32 length)
+        public static void Clear(this Array array, int index, int length)
         {
             Array.Clear(array, index, length);
         }
@@ -192,8 +192,8 @@ namespace TestProj47
         /// <param name="destinationArray">The  that receives the data.</param>
         /// <param name="destinationIndex">A 32-bit integer that represents the index in the  at which storing begins.</param>
         /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
-        public static void ConstrainedCopy(this Array sourceArray, Int32 sourceIndex, Array destinationArray,
-            Int32 destinationIndex, Int32 length)
+        public static void ConstrainedCopy(this Array sourceArray, int sourceIndex, Array destinationArray,
+            int destinationIndex, int length)
         {
             Array.ConstrainedCopy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
@@ -208,7 +208,7 @@ namespace TestProj47
         /// <param name="sourceArray">The  that contains the data to copy.</param>
         /// <param name="destinationArray">The  that receives the data.</param>
         /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
-        public static void Copy(this Array sourceArray, Array destinationArray, Int32 length)
+        public static void Copy(this Array sourceArray, Array destinationArray, int length)
         {
             Array.Copy(sourceArray, destinationArray, length);
         }
@@ -222,8 +222,8 @@ namespace TestProj47
         /// <param name="destinationArray">The  that receives the data.</param>
         /// <param name="destinationIndex">A 32-bit integer that represents the index in the  at which storing begins.</param>
         /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
-        public static void Copy(this Array sourceArray, Int32 sourceIndex, Array destinationArray,
-            Int32 destinationIndex, Int32 length)
+        public static void Copy(this Array sourceArray, int sourceIndex, Array destinationArray,
+            int destinationIndex, int length)
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
@@ -238,7 +238,7 @@ namespace TestProj47
         ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
         ///     zero and , inclusive.
         /// </param>
-        public static void Copy(this Array sourceArray, Array destinationArray, Int64 length)
+        public static void Copy(this Array sourceArray, Array destinationArray, long length)
         {
             Array.Copy(sourceArray, destinationArray, length);
         }
@@ -255,8 +255,8 @@ namespace TestProj47
         ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
         ///     zero and , inclusive.
         /// </param>
-        public static void Copy(this Array sourceArray, Int64 sourceIndex, Array destinationArray,
-            Int64 destinationIndex, Int64 length)
+        public static void Copy(this Array sourceArray, long sourceIndex, Array destinationArray,
+            long destinationIndex, long length)
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
@@ -274,7 +274,7 @@ namespace TestProj47
         ///     The index of the first occurrence of  within the entire , if found; otherwise, the lower bound of the array
         ///     minus 1.
         /// </returns>
-        public static Int32 IndexOf(this Array array, Object value)
+        public static int IndexOf(this Array array, object value)
         {
             return Array.IndexOf(array, value);
         }
@@ -290,7 +290,7 @@ namespace TestProj47
         ///     The index of the first occurrence of  within the range of elements in  that extends from  to the last element,
         ///     if found; otherwise, the lower bound of the array minus 1.
         /// </returns>
-        public static Int32 IndexOf(this Array array, Object value, Int32 startIndex)
+        public static int IndexOf(this Array array, object value, int startIndex)
         {
             return Array.IndexOf(array, value, startIndex);
         }
@@ -307,7 +307,7 @@ namespace TestProj47
         ///     The index of the first occurrence of  within the range of elements in  that starts at  and contains the
         ///     number of elements specified in , if found; otherwise, the lower bound of the array minus 1.
         /// </returns>
-        public static Int32 IndexOf(this Array array, Object value, Int32 startIndex, Int32 count)
+        public static int IndexOf(this Array array, object value, int startIndex, int count)
         {
             return Array.IndexOf(array, value, startIndex, count);
         }
@@ -325,7 +325,7 @@ namespace TestProj47
         ///     The index of the last occurrence of  within the entire , if found; otherwise, the lower bound of the array
         ///     minus 1.
         /// </returns>
-        public static Int32 LastIndexOf(this Array array, Object value)
+        public static int LastIndexOf(this Array array, object value)
         {
             return Array.LastIndexOf(array, value);
         }
@@ -341,7 +341,7 @@ namespace TestProj47
         ///     The index of the last occurrence of  within the range of elements in  that extends from the first element to ,
         ///     if found; otherwise, the lower bound of the array minus 1.
         /// </returns>
-        public static Int32 LastIndexOf(this Array array, Object value, Int32 startIndex)
+        public static int LastIndexOf(this Array array, object value, int startIndex)
         {
             return Array.LastIndexOf(array, value, startIndex);
         }
@@ -358,7 +358,7 @@ namespace TestProj47
         ///     The index of the last occurrence of  within the range of elements in  that contains the number of elements
         ///     specified in  and ends at , if found; otherwise, the lower bound of the array minus 1.
         /// </returns>
-        public static Int32 LastIndexOf(this Array array, Object value, Int32 startIndex, Int32 count)
+        public static int LastIndexOf(this Array array, object value, int startIndex, int count)
         {
             return Array.LastIndexOf(array, value, startIndex, count);
         }
@@ -381,7 +381,7 @@ namespace TestProj47
         /// <param name="array">The one-dimensional  to reverse.</param>
         /// <param name="index">The starting index of the section to reverse.</param>
         /// <param name="length">The number of elements in the section to reverse.</param>
-        public static void Reverse(this Array array, Int32 index, Int32 length)
+        public static void Reverse(this Array array, int index, int length)
         {
             Array.Reverse(array, index, length);
         }
@@ -421,7 +421,7 @@ namespace TestProj47
         /// <param name="array">The one-dimensional  to sort.</param>
         /// <param name="index">The starting index of the range to sort.</param>
         /// <param name="length">The number of elements in the range to sort.</param>
-        public static void Sort(this Array array, Int32 index, Int32 length)
+        public static void Sort(this Array array, int index, int length)
         {
             Array.Sort(array, index, length);
         }
@@ -439,7 +439,7 @@ namespace TestProj47
         /// <param name="length">The number of elements in the range to sort.</param>
         /// ###
         /// <param name="keys">The one-dimensional  that contains the keys to sort.</param>
-        public static void Sort(this Array array, Array items, Int32 index, Int32 length)
+        public static void Sort(this Array array, Array items, int index, int length)
         {
             Array.Sort(array, items, index, length);
         }
@@ -487,7 +487,7 @@ namespace TestProj47
         ///     The  implementation to use when comparing elements.-or-null to use the  implementation of
         ///     each element.
         /// </param>
-        public static void Sort(this Array array, Int32 index, Int32 length, IComparer comparer)
+        public static void Sort(this Array array, int index, int length, IComparer comparer)
         {
             Array.Sort(array, index, length, comparer);
         }
@@ -509,7 +509,7 @@ namespace TestProj47
         /// </param>
         /// ###
         /// <param name="keys">The one-dimensional  that contains the keys to sort.</param>
-        public static void Sort(this Array array, Array items, Int32 index, Int32 length, IComparer comparer)
+        public static void Sort(this Array array, Array items, int index, int length, IComparer comparer)
         {
             Array.Sort(array, items, index, length, comparer);
         }
@@ -526,7 +526,7 @@ namespace TestProj47
         /// <param name="dst">The destination buffer.</param>
         /// <param name="dstOffset">The zero-based byte offset into .</param>
         /// <param name="count">The number of bytes to copy.</param>
-        public static void BlockCopy(this Array src, Int32 srcOffset, Array dst, Int32 dstOffset, Int32 count)
+        public static void BlockCopy(this Array src, int srcOffset, Array dst, int dstOffset, int count)
         {
             Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
         }
@@ -539,7 +539,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="array">An array.</param>
         /// <returns>The number of bytes in the array.</returns>
-        public static Int32 ByteLength(this Array array)
+        public static int ByteLength(this Array array)
         {
             return Buffer.ByteLength(array);
         }
@@ -553,7 +553,7 @@ namespace TestProj47
         /// <param name="array">An array.</param>
         /// <param name="index">A location in the array.</param>
         /// <returns>Returns the  byte in the array.</returns>
-        public static Byte GetByte(this Array array, Int32 index)
+        public static byte GetByte(this Array array, int index)
         {
             return Buffer.GetByte(array, index);
         }
@@ -567,7 +567,7 @@ namespace TestProj47
         /// <param name="array">An array.</param>
         /// <param name="index">A location in the array.</param>
         /// <param name="value">A value to assign.</param>
-        public static void SetByte(this Array array, Int32 index, Byte value)
+        public static void SetByte(this Array array, int index, byte value)
         {
             Buffer.SetByte(array, index, value);
         }

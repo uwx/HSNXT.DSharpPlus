@@ -55,7 +55,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 64-bit unsigned integers to compare.</param>
         /// <param name="val2">The second of two 64-bit unsigned integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static UInt64 Max(this UInt64 val1, UInt64 val2)
+        public static ulong Max(this ulong val1, ulong val2)
         {
             return Math.Max(val1, val2);
         }
@@ -69,7 +69,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 64-bit unsigned integers to compare.</param>
         /// <param name="val2">The second of two 64-bit unsigned integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static UInt64 Min(this UInt64 val1, UInt64 val2)
+        public static ulong Min(this ulong val1, ulong val2)
         {
             return Math.Min(val1, val2);
         }
@@ -86,7 +86,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this UInt64 @this, UInt64 minValue, UInt64 maxValue)
+        public static bool Between(this ulong @this, ulong minValue, ulong maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -102,7 +102,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this UInt64 @this, params UInt64[] values)
+        public static bool InZ(this ulong @this, params ulong[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -119,7 +119,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this UInt64 @this, UInt64 minValue, UInt64 maxValue)
+        public static bool InRange(this ulong @this, ulong minValue, ulong maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -135,7 +135,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this UInt64 @this, params UInt64[] values)
+        public static bool NotIn(this ulong @this, params ulong[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

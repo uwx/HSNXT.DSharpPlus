@@ -162,7 +162,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Days(this Int16 @this)
+        public static TimeSpan Days(this short @this)
         {
             return TimeSpan.FromDays(@this);
         }
@@ -176,7 +176,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factorNumer">The factor numer.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this Int16 @this, Int16 factorNumer)
+        public static bool FactorOf(this short @this, short factorNumer)
         {
             return factorNumer % @this == 0;
         }
@@ -189,7 +189,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Hours(this Int16 @this)
+        public static TimeSpan Hours(this short @this)
         {
             return TimeSpan.FromHours(@this);
         }
@@ -202,7 +202,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if even, false if not.</returns>
-        public static bool IsEven(this Int16 @this)
+        public static bool IsEven(this short @this)
         {
             return @this % 2 == 0;
         }
@@ -216,7 +216,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>true if multiple of, false if not.</returns>
-        public static bool IsMultipleOf(this Int16 @this, Int16 factor)
+        public static bool IsMultipleOf(this short @this, short factor)
         {
             return @this % factor == 0;
         }
@@ -229,7 +229,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if odd, false if not.</returns>
-        public static bool IsOdd(this Int16 @this)
+        public static bool IsOdd(this short @this)
         {
             return @this % 2 != 0;
         }
@@ -242,7 +242,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if prime, false if not.</returns>
-        public static bool IsPrime(this Int16 @this)
+        public static bool IsPrime(this short @this)
         {
             if (@this == 1 || @this == 2)
             {
@@ -254,8 +254,8 @@ namespace TestProj47
                 return false;
             }
 
-            var sqrt = (Int16) Math.Sqrt(@this);
-            for (Int64 t = 3; t <= sqrt; t = t + 2)
+            var sqrt = (short) Math.Sqrt(@this);
+            for (long t = 3; t <= sqrt; t = t + 2)
             {
                 if (@this % t == 0)
                 {
@@ -274,7 +274,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Milliseconds(this Int16 @this)
+        public static TimeSpan Milliseconds(this short @this)
         {
             return TimeSpan.FromMilliseconds(@this);
         }
@@ -287,7 +287,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Minutes(this Int16 @this)
+        public static TimeSpan Minutes(this short @this)
         {
             return TimeSpan.FromMinutes(@this);
         }
@@ -300,7 +300,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Seconds(this Int16 @this)
+        public static TimeSpan Seconds(this short @this)
         {
             return TimeSpan.FromSeconds(@this);
         }
@@ -313,7 +313,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A TimeSpan.</returns>
-        public static TimeSpan Weeks(this Int16 @this)
+        public static TimeSpan Weeks(this short @this)
         {
             return TimeSpan.FromDays(@this * 7);
         }
@@ -326,7 +326,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>An array of bytes with length 2.</returns>
-        public static Byte[] GetBytes(this Int16 value)
+        public static byte[] GetBytes(this short value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -339,7 +339,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than , but less than or equal to .</param>
         /// <returns>A 16-bit signed integer, x, such that 0 ? x ?.</returns>
-        public static Int16 Abs(this Int16 value)
+        public static short Abs(this short value)
         {
             return Math.Abs(value);
         }
@@ -353,7 +353,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 16-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 16-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static Int16 Max(this Int16 val1, Int16 val2)
+        public static short Max(this short val1, short val2)
         {
             return Math.Max(val1, val2);
         }
@@ -367,7 +367,7 @@ namespace TestProj47
         /// <param name="val1">The first of two 16-bit signed integers to compare.</param>
         /// <param name="val2">The second of two 16-bit signed integers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static Int16 Min(this Int16 val1, Int16 val2)
+        public static short Min(this short val1, short val2)
         {
             return Math.Min(val1, val2);
         }
@@ -383,7 +383,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Int16 value)
+        public static int Sign(this short value)
         {
             return Math.Sign(value);
         }
@@ -396,7 +396,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="host">The number to convert, expressed in host byte order.</param>
         /// <returns>A short value, expressed in network byte order.</returns>
-        public static Int16 HostToNetworkOrder(this Int16 host)
+        public static short HostToNetworkOrder(this short host)
         {
             return IPAddress.HostToNetworkOrder(host);
         }
@@ -409,7 +409,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="network">The number to convert, expressed in network byte order.</param>
         /// <returns>A short value, expressed in host byte order.</returns>
-        public static Int16 NetworkToHostOrder(this Int16 network)
+        public static short NetworkToHostOrder(this short network)
         {
             return IPAddress.NetworkToHostOrder(network);
         }
@@ -426,7 +426,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Int16 @this, Int16 minValue, Int16 maxValue)
+        public static bool Between(this short @this, short minValue, short maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -442,7 +442,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Int16 @this, params Int16[] values)
+        public static bool InZ(this short @this, params short[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -459,7 +459,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Int16 @this, Int16 minValue, Int16 maxValue)
+        public static bool InRange(this short @this, short minValue, short maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -475,7 +475,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Int16 @this, params Int16[] values)
+        public static bool NotIn(this short @this, params short[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }

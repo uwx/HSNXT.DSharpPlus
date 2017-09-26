@@ -590,7 +590,7 @@ namespace TestProj47
         /// </returns>
         public static bool IsNotNullOrEmpty(this string input)
         {
-            return !String.IsNullOrEmpty(input);
+            return !string.IsNullOrEmpty(input);
         }
         #endregion
 

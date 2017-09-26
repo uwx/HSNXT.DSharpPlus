@@ -82,7 +82,7 @@ namespace TestProj47
         ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
         ///     attribute.
         /// </returns>
-        public static Attribute GetCustomAttribute(this MemberInfo element, Type attributeType, Boolean inherit)
+        public static Attribute GetCustomAttribute(this MemberInfo element, Type attributeType, bool inherit)
         {
             return Attribute.GetCustomAttribute(element, attributeType, inherit);
         }
@@ -122,7 +122,7 @@ namespace TestProj47
         ///     An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
         ///     attributes exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes(this MemberInfo element, Type type, Boolean inherit)
+        public static Attribute[] GetCustomAttributes(this MemberInfo element, Type type, bool inherit)
         {
             return Attribute.GetCustomAttributes(element, type, inherit);
         }
@@ -156,7 +156,7 @@ namespace TestProj47
         ///     An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
         ///     exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes(this MemberInfo element, Boolean inherit)
+        public static Attribute[] GetCustomAttributes(this MemberInfo element, bool inherit)
         {
             return Attribute.GetCustomAttributes(element, inherit);
         }
@@ -174,7 +174,7 @@ namespace TestProj47
         /// </param>
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
         /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-        public static Boolean IsDefined(this MemberInfo element, Type attributeType)
+        public static bool IsDefined(this MemberInfo element, Type attributeType)
         {
             return Attribute.IsDefined(element, attributeType);
         }
@@ -190,7 +190,7 @@ namespace TestProj47
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
         /// <param name="inherit">If true, specifies to also search the ancestors of  for custom attributes.</param>
         /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-        public static Boolean IsDefined(this MemberInfo element, Type attributeType, Boolean inherit)
+        public static bool IsDefined(this MemberInfo element, Type attributeType, bool inherit)
         {
             return Attribute.IsDefined(element, attributeType, inherit);
         }

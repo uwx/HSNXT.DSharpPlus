@@ -54,7 +54,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a Decimal.</returns>
-        public static Decimal ToMoney(this Decimal @this)
+        public static decimal ToMoney(this decimal @this)
         {
             return Math.Round(@this, 2);
         }
@@ -68,9 +68,9 @@ namespace TestProj47
         /// <param name="d1">The dividend.</param>
         /// <param name="d2">The divisor.</param>
         /// <returns>The result of dividing  by .</returns>
-        public static Decimal Divide(this Decimal d1, Decimal d2)
+        public static decimal Divide(this decimal d1, decimal d2)
         {
-            return Decimal.Divide(d1, d2);
+            return decimal.Divide(d1, d2);
         }
     }
 
@@ -81,9 +81,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The value to convert.</param>
         /// <returns>A 32-bit signed integer array with four elements that contain the binary representation of .</returns>
-        public static Int32[] GetBits(this Decimal d)
+        public static int[] GetBits(this decimal d)
         {
-            return Decimal.GetBits(d);
+            return decimal.GetBits(d);
         }
     }
 
@@ -95,9 +95,9 @@ namespace TestProj47
         /// <param name="d1">The multiplicand.</param>
         /// <param name="d2">The multiplier.</param>
         /// <returns>The result of multiplying  and .</returns>
-        public static Decimal Multiply(this Decimal d1, Decimal d2)
+        public static decimal Multiply(this decimal d1, decimal d2)
         {
-            return Decimal.Multiply(d1, d2);
+            return decimal.Multiply(d1, d2);
         }
     }
 
@@ -108,9 +108,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The value to negate.</param>
         /// <returns>A decimal number with the value of , but the opposite sign.-or- Zero, if  is zero.</returns>
-        public static Decimal Negate(this Decimal d)
+        public static decimal Negate(this decimal d)
         {
-            return Decimal.Negate(d);
+            return decimal.Negate(d);
         }
     }
 
@@ -122,9 +122,9 @@ namespace TestProj47
         /// <param name="d1">The dividend.</param>
         /// <param name="d2">The divisor.</param>
         /// <returns>The remainder after dividing  by .</returns>
-        public static Decimal Remainder(this Decimal d1, Decimal d2)
+        public static decimal Remainder(this decimal d1, decimal d2)
         {
-            return Decimal.Remainder(d1, d2);
+            return decimal.Remainder(d1, d2);
         }
     }
 
@@ -136,9 +136,9 @@ namespace TestProj47
         /// <param name="d1">The minuend.</param>
         /// <param name="d2">The subtrahend.</param>
         /// <returns>The result of subtracting  from .</returns>
-        public static Decimal Subtract(this Decimal d1, Decimal d2)
+        public static decimal Subtract(this decimal d1, decimal d2)
         {
-            return Decimal.Subtract(d1, d2);
+            return decimal.Subtract(d1, d2);
         }
     }
 
@@ -149,9 +149,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>An 8-bit unsigned integer equivalent to .</returns>
-        public static Byte ToByte(this Decimal value)
+        public static byte ToByte(this decimal value)
         {
-            return Decimal.ToByte(value);
+            return decimal.ToByte(value);
         }
     }
 
@@ -162,9 +162,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A double-precision floating-point number equivalent to .</returns>
-        public static Double ToDoubleZ(this Decimal d)
+        public static double ToDoubleZ(this decimal d)
         {
-            return Decimal.ToDouble(d);
+            return decimal.ToDouble(d);
         }
     }
 
@@ -175,9 +175,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>A 16-bit signed integer equivalent to .</returns>
-        public static Int16 ToInt16(this Decimal value)
+        public static short ToInt16(this decimal value)
         {
-            return Decimal.ToInt16(value);
+            return decimal.ToInt16(value);
         }
     }
 
@@ -188,9 +188,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A 32-bit signed integer equivalent to the value of .</returns>
-        public static Int32 ToInt32(this Decimal d)
+        public static int ToInt32(this decimal d)
         {
-            return Decimal.ToInt32(d);
+            return decimal.ToInt32(d);
         }
     }
 
@@ -201,9 +201,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A 64-bit signed integer equivalent to the value of .</returns>
-        public static Int64 ToInt64(this Decimal d)
+        public static long ToInt64(this decimal d)
         {
-            return Decimal.ToInt64(d);
+            return decimal.ToInt64(d);
         }
     }
 
@@ -215,9 +215,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>A 64-bit signed integer that contains the OLE Automation equivalent of .</returns>
-        public static Int64 ToOACurrency(this Decimal value)
+        public static long ToOACurrency(this decimal value)
         {
-            return Decimal.ToOACurrency(value);
+            return decimal.ToOACurrency(value);
         }
     }
 
@@ -228,9 +228,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>An 8-bit signed integer equivalent to .</returns>
-        public static SByte ToSByte(this Decimal value)
+        public static sbyte ToSByte(this decimal value)
         {
-            return Decimal.ToSByte(value);
+            return decimal.ToSByte(value);
         }
     }
 
@@ -241,9 +241,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A single-precision floating-point number equivalent to the value of .</returns>
-        public static Single ToSingle(this Decimal d)
+        public static float ToSingle(this decimal d)
         {
-            return Decimal.ToSingle(d);
+            return decimal.ToSingle(d);
         }
     }
 
@@ -254,9 +254,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">The decimal number to convert.</param>
         /// <returns>A 16-bit unsigned integer equivalent to the value of .</returns>
-        public static UInt16 ToUInt16(this Decimal value)
+        public static ushort ToUInt16(this decimal value)
         {
-            return Decimal.ToUInt16(value);
+            return decimal.ToUInt16(value);
         }
     }
 
@@ -267,9 +267,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A 32-bit unsigned integer equivalent to the value of .</returns>
-        public static UInt32 ToUInt32(this Decimal d)
+        public static uint ToUInt32(this decimal d)
         {
-            return Decimal.ToUInt32(d);
+            return decimal.ToUInt32(d);
         }
     }
 
@@ -280,9 +280,9 @@ namespace TestProj47
         /// </summary>
         /// <param name="d">The decimal number to convert.</param>
         /// <returns>A 64-bit unsigned integer equivalent to the value of .</returns>
-        public static UInt64 ToUInt64(this Decimal d)
+        public static ulong ToUInt64(this decimal d)
         {
-            return Decimal.ToUInt64(d);
+            return decimal.ToUInt64(d);
         }
     }
 
@@ -293,7 +293,7 @@ namespace TestProj47
         /// </summary>
         /// <param name="value">A number that is greater than or equal to , but less than or equal to .</param>
         /// <returns>A decimal number, x, such that 0 ? x ?.</returns>
-        public static Decimal Abs(this Decimal value)
+        public static decimal Abs(this decimal value)
         {
             return Math.Abs(value);
         }
@@ -309,7 +309,7 @@ namespace TestProj47
         ///     The smallest integral value that is greater than or equal to . Note that this method returns a  instead of an
         ///     integral type.
         /// </returns>
-        public static Decimal Ceiling(this Decimal d)
+        public static decimal Ceiling(this decimal d)
         {
             return Math.Ceiling(d);
         }
@@ -324,7 +324,7 @@ namespace TestProj47
         /// <returns>
         ///     The largest integer less than or equal to .  Note that the method returns an integral value of type .
         /// </returns>
-        public static Decimal Floor(this Decimal d)
+        public static decimal Floor(this decimal d)
         {
             return Math.Floor(d);
         }
@@ -338,7 +338,7 @@ namespace TestProj47
         /// <param name="val1">The first of two decimal numbers to compare.</param>
         /// <param name="val2">The second of two decimal numbers to compare.</param>
         /// <returns>Parameter  or , whichever is larger.</returns>
-        public static Decimal Max(this Decimal val1, Decimal val2)
+        public static decimal Max(this decimal val1, decimal val2)
         {
             return Math.Max(val1, val2);
         }
@@ -352,7 +352,7 @@ namespace TestProj47
         /// <param name="val1">The first of two decimal numbers to compare.</param>
         /// <param name="val2">The second of two decimal numbers to compare.</param>
         /// <returns>Parameter  or , whichever is smaller.</returns>
-        public static Decimal Min(this Decimal val1, Decimal val2)
+        public static decimal Min(this decimal val1, decimal val2)
         {
             return Math.Min(val1, val2);
         }
@@ -369,7 +369,7 @@ namespace TestProj47
         ///     is even and the other odd, the even number is returned. Note that this method returns a  instead of an
         ///     integral type.
         /// </returns>
-        public static Decimal Round(this Decimal d)
+        public static decimal Round(this decimal d)
         {
             return Math.Round(d);
         }
@@ -380,7 +380,7 @@ namespace TestProj47
         /// <param name="d">A decimal number to be rounded.</param>
         /// <param name="decimals">The number of decimal places in the return value.</param>
         /// <returns>The number nearest to  that contains a number of fractional digits equal to .</returns>
-        public static Decimal Round(this Decimal d, Int32 decimals)
+        public static decimal Round(this decimal d, int decimals)
         {
             return Math.Round(d, decimals);
         }
@@ -395,7 +395,7 @@ namespace TestProj47
         ///     The integer nearest . If  is halfway between two numbers, one of which is even and the other odd, then
         ///     determines which of the two is returned.
         /// </returns>
-        public static Decimal Round(this Decimal d, MidpointRounding mode)
+        public static decimal Round(this decimal d, MidpointRounding mode)
         {
             return Math.Round(d, mode);
         }
@@ -411,7 +411,7 @@ namespace TestProj47
         ///     The number nearest to  that contains a number of fractional digits equal to . If  has fewer fractional digits
         ///     than ,  is returned unchanged.
         /// </returns>
-        public static Decimal Round(this Decimal d, Int32 decimals, MidpointRounding mode)
+        public static decimal Round(this decimal d, int decimals, MidpointRounding mode)
         {
             return Math.Round(d, decimals, mode);
         }
@@ -427,7 +427,7 @@ namespace TestProj47
         ///     A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
         ///     zero. 0  is equal to zero. 1  is greater than zero.
         /// </returns>
-        public static Int32 Sign(this Decimal value)
+        public static int Sign(this decimal value)
         {
             return Math.Sign(value);
         }
@@ -442,7 +442,7 @@ namespace TestProj47
         /// <returns>
         ///     The integral part of ; that is, the number that remains after any fractional digits have been discarded.
         /// </returns>
-        public static Decimal TruncateZ(this Decimal d)
+        public static decimal TruncateZ(this decimal d)
         {
             return Math.Truncate(d);
         }
@@ -459,7 +459,7 @@ namespace TestProj47
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool Between(this Decimal @this, Decimal minValue, Decimal maxValue)
+        public static bool Between(this decimal @this, decimal minValue, decimal maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
@@ -475,7 +475,7 @@ namespace TestProj47
         /// <returns>true if the values list contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InZ(this Decimal @this, params Decimal[] values)
+        public static bool InZ(this decimal @this, params decimal[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
@@ -492,7 +492,7 @@ namespace TestProj47
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool InRange(this Decimal @this, Decimal minValue, Decimal maxValue)
+        public static bool InRange(this decimal @this, decimal minValue, decimal maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -508,7 +508,7 @@ namespace TestProj47
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
         /// ###
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        public static bool NotIn(this Decimal @this, params Decimal[] values)
+        public static bool NotIn(this decimal @this, params decimal[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }
