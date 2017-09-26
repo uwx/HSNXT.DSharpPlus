@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Collections/System.Collections.Generic.IDictionary[string, object]/IDictionary[string, object].ToExpando.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Core/System.ByteArray/ByteArray.ToImage.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Core/System.Char/Char.Repeat.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Core/System.DateTimeOffset/DateTimeOffset.SetTime.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Core/System.UInt16/_CoreObject/UInt16.Between.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Data.MySql/MySql.Data.MySqlClient.MySqlCommand/MySqlCommand.ExecuteDataSet.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Data.SqlServerCe/_Internal/IDataReader.ToEntities.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Data.SqlServerCe/_Internal/IDataReader.ToEntity.cs" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/TestProj47/src/Z.Serialization/System.String/String.DeserializeJavaScript.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Collections/System.Collections.Generic.IDictionary[string, object]/IDictionary[string, object].ToExpando.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Core/System.ByteArray/ByteArray.ToImage.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Core/System.Char/Char.Repeat.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Core/System.DateTimeOffset/DateTimeOffset.SetTime.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Core/System.UInt16/_CoreObject/UInt16.Between.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Data.MySql/MySql.Data.MySqlClient.MySqlCommand/MySqlCommand.ExecuteDataSet.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Data.SqlServerCe/_Internal/IDataReader.ToEntities.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Data.SqlServerCe/_Internal/IDataReader.ToEntity.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/TestProj47/ZExtensions/Z.Serialization/System.String/String.DeserializeJavaScript.cs" charset="windows-1252" />
   </component>
 </project>

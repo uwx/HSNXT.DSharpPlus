@@ -58,11 +58,11 @@
 		/// <param name="percent">The percent</param>
 		/// <param name="number">The Number</param>
 		/// <returns>The result</returns>
-		public static decimal PercentOf(this int position, float total)
+		public static decimal PercentOf(this int number, float percent)
 		{
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / (decimal)total * 100;
+            if (number > 0 && percent > 0)
+                result = number / (decimal)percent * 100;
             return result;
 		}
 
