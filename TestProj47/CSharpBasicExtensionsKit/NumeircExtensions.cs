@@ -25,13 +25,5 @@ namespace TestProj47
         return new int?();
       return new int?((int) Math.Round(result));
     }
-
-    public static double? ToDouble(this string value)
-    {
-      double result = double.MinValue;
-      if (!double.TryParse(value, out result))
-        return new double?();
-      return new double?(result);
-    }
   }
 }

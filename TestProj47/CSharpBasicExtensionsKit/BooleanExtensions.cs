@@ -10,12 +10,6 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static bool IfTrue(this bool expression, Action action)
-    {
-      if (expression)
-        action();
-      return expression;
-    }
 
     public static bool IfTrue(this bool expression, Action<bool> action)
     {
@@ -29,13 +23,6 @@ namespace TestProj47
       if (expression)
         return action(expression);
       return default (T);
-    }
-
-    public static bool IfFalse(this bool expression, Action action)
-    {
-      if (!expression)
-        action();
-      return expression;
     }
 
     public static bool IfFalse(this bool expression, Action<bool> action)

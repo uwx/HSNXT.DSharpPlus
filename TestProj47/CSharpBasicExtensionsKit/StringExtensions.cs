@@ -10,16 +10,6 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static bool IsEmpty(this string value)
-    {
-      return string.IsNullOrEmpty(value);
-    }
-
-    public static bool IsNotEmpty(this string value)
-    {
-      return !string.IsNullOrEmpty(value);
-    }
-
     public static string IfEmpty(this string value, Action action)
     {
       if (value.IsEmpty())

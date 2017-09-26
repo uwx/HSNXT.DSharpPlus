@@ -25,7 +25,7 @@ namespace TestProj47
     public static DateTime ToDateTimeFromStr(this string obj)
     {
       DateTime result;
-      if (!DateTime.TryParse(obj, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.None, out result) && !DateTime.TryParseExact(obj, StringDateTimeExtensions.dateFormats, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result) && !DateTime.TryParseExact(StringDateTimeExtensions.ReplaceRfcDate(obj), StringDateTimeExtensions.dateFormats, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result))
+      if (!DateTime.TryParse(obj, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.None, out result) && !DateTime.TryParseExact(obj, dateFormats, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result) && !DateTime.TryParseExact(ReplaceRfcDate(obj), dateFormats, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result))
         DateTime.TryParse(obj, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out result);
       DateTime dateTime1;
       if (result == DateTime.MinValue)
@@ -33,8 +33,8 @@ namespace TestProj47
         string lower = obj.ToLower();
         dateTime1 = DateTime.Now;
         int year = dateTime1.Year;
-        int month = StringDateTimeExtensions.GuessMonth(lower);
-        int day = StringDateTimeExtensions.GuessDay(lower);
+        int month = GuessMonth(lower);
+        int day = GuessDay(lower);
         dateTime1 = DateTime.Now;
         int hour = dateTime1.Hour;
         dateTime1 = DateTime.Now;

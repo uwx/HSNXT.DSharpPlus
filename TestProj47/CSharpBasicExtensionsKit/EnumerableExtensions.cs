@@ -58,13 +58,5 @@ namespace TestProj47
         rets = action();
       return rets ?? (IEnumerable<TRet>) new TRet[0];
     }
-
-    public static IEnumerable<TItem> ForEach<TItem>(this IEnumerable<TItem> sequence, Action<TItem> action)
-    {
-      IEnumerable<TItem> objs = (IEnumerable<TItem>) ((object) sequence ?? (object) new TItem[0]);
-      foreach (TItem obj in objs)
-        action(obj);
-      return objs;
-    }
   }
 }
