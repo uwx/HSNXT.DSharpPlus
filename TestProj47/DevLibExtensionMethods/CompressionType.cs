@@ -6,12 +6,12 @@
 
 namespace TestProj47
 {
-  /// <summary>
-  /// Defines the various compression types that are available.
-  /// </summary>
-  public enum CompressionType
-  {
-    GZip,
-    Deflate
-  }
+    /// <summary>
+    /// Defines the various compression types that are available.
+    /// </summary>
+    public enum CompressionType
+    {
+        GZip,
+        Deflate
+    }
 }

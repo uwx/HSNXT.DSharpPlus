@@ -7,6 +7,7 @@
 using System;
 using System.Globalization;
 using System.Linq;
+
 // ReSharper disable StringIndexOfIsCultureSpecific.1
 
 namespace TestProj47

@@ -8,32 +8,32 @@ using System.Collections.Generic;
 
 namespace TestProj47
 {
-  /// <summary>Represents the JSON array.</summary>
-  internal class JsonArray : List<object>
-  {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
-    /// </summary>
-    public JsonArray()
+    /// <summary>Represents the JSON array.</summary>
+    internal class JsonArray : List<object>
     {
-    }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
+        /// </summary>
+        public JsonArray()
+        {
+        }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
-    /// </summary>
-    /// <param name="capacity">The capacity of the json array.</param>
-    public JsonArray(int capacity)
-      : base(capacity)
-    {
-    }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
+        /// </summary>
+        /// <param name="capacity">The capacity of the json array.</param>
+        public JsonArray(int capacity)
+            : base(capacity)
+        {
+        }
 
-    /// <summary>
-    /// Returns a <see cref="T:System.String" /> that represents this instance.
-    /// </summary>
-    /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
-    public override string ToString()
-    {
-      return JsonSerializer.Serialize(this) ?? string.Empty;
+        /// <summary>
+        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this) ?? string.Empty;
+        }
     }
-  }
 }

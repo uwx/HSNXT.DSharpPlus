@@ -11,17 +11,17 @@ namespace TestProj47
 {
     public static partial class Extensions
 
-  {
-    /// <summary>Thread safety raise event.</summary>
-    /// <param name="source">Source EventHandler.</param>
-    /// <param name="sender">The sender of the event.</param>
-    /// <param name="e">A System.EventArgs that contains the event data.</param>
-    public static void RaiseEvent(this EventHandler source, object sender, EventArgs e = null)
     {
-      var eventHandler = Interlocked.CompareExchange(ref source, null, null);
-      if (eventHandler == null)
-        return;
-      eventHandler(sender, e);
+        /// <summary>Thread safety raise event.</summary>
+        /// <param name="source">Source EventHandler.</param>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">A System.EventArgs that contains the event data.</param>
+        public static void RaiseEvent(this EventHandler source, object sender, EventArgs e = null)
+        {
+            var eventHandler = Interlocked.CompareExchange(ref source, null, null);
+            if (eventHandler == null)
+                return;
+            eventHandler(sender, e);
+        }
     }
-  }
 }

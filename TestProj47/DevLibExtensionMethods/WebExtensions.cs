@@ -11,36 +11,36 @@ namespace TestProj47
 {
     public static partial class Extensions
 
-  {
-    /// <summary>Downloads data from a url.</summary>
-    /// <param name="url">Url to retrieve the data.</param>
-    /// <param name="useSystemWebProxy">true to use "IE Proxy" based on the currently impersonated user's proxy settings; false to not use proxy.</param>
-    /// <returns>Byte array of data from the url.</returns>
-    public static byte[] DownloadData(this string url, bool useSystemWebProxy = false)
     {
-      var webRequest = WebRequest.Create(url);
-      if (useSystemWebProxy)
-        webRequest.Proxy = WebRequest.GetSystemWebProxy();
-      using (var response = webRequest.GetResponse())
-      {
-        using (var responseStream = response.GetResponseStream())
+        /// <summary>Downloads data from a url.</summary>
+        /// <param name="url">Url to retrieve the data.</param>
+        /// <param name="useSystemWebProxy">true to use "IE Proxy" based on the currently impersonated user's proxy settings; false to not use proxy.</param>
+        /// <returns>Byte array of data from the url.</returns>
+        public static byte[] DownloadData(this string url, bool useSystemWebProxy = false)
         {
-          using (var memoryStream = new MemoryStream())
-          {
-            var buffer = new byte[1024];
-            while (true)
+            var webRequest = WebRequest.Create(url);
+            if (useSystemWebProxy)
+                webRequest.Proxy = WebRequest.GetSystemWebProxy();
+            using (var response = webRequest.GetResponse())
             {
-              var count = responseStream.Read(buffer, 0, buffer.Length);
-              if (count != 0)
-                memoryStream.Write(buffer, 0, count);
-              else
-                break;
+                using (var responseStream = response.GetResponseStream())
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        var buffer = new byte[1024];
+                        while (true)
+                        {
+                            var count = responseStream.Read(buffer, 0, buffer.Length);
+                            if (count != 0)
+                                memoryStream.Write(buffer, 0, count);
+                            else
+                                break;
+                        }
+                        memoryStream.Flush();
+                        return memoryStream.ToArray();
+                    }
+                }
             }
-            memoryStream.Flush();
-            return memoryStream.ToArray();
-          }
         }
-      }
     }
-  }
 }
