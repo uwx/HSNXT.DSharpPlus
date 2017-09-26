@@ -10,42 +10,42 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static bool IsNull(this object obj)
-    {
-      return obj == null;
-    }
+        public static bool IsNull(this object obj)
+        {
+            return obj == null;
+        }
 
-    public static bool IsNotNull(this object obj)
-    {
-      return obj != null;
-    }
+        public static bool IsNotNull(this object obj)
+        {
+            return obj != null;
+        }
 
-    public static T IfNull<T>(this T value, Action action)
-    {
-      if (((object) value).IsNull())
-        action();
-      return value;
-    }
+        public static T IfNull<T>(this T value, Action action)
+        {
+            if (((object) value).IsNull())
+                action();
+            return value;
+        }
 
-    public static TRet IfNull<T, TRet>(this T source, Func<TRet> func) where TRet : class
-    {
-      if (!((object) source).IsNull())
-        return (object) source as TRet;
-      return func();
-    }
+        public static TRet IfNull<T, TRet>(this T source, Func<TRet> func) where TRet : class
+        {
+            if (!((object) source).IsNull())
+                return (object) source as TRet;
+            return func();
+        }
 
-    public static T IfNotNull<T>(this T source, Action action)
-    {
-      if (((object) source).IsNotNull())
-        action();
-      return source;
-    }
+        public static T IfNotNull<T>(this T source, Action action)
+        {
+            if (((object) source).IsNotNull())
+                action();
+            return source;
+        }
 
-    public static TR IfNotNull<T, TR>(this T source, Func<TR> action)
-    {
-      if (((object) source).IsNotNull())
-        return action();
-      return default (TR);
+        public static TR IfNotNull<T, TR>(this T source, Func<TR> action)
+        {
+            if (((object) source).IsNotNull())
+                return action();
+            return default(TR);
+        }
     }
-  }
 }

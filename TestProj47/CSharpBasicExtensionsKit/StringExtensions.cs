@@ -10,60 +10,60 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static string IfEmpty(this string value, Action action)
-    {
-      if (value.IsEmpty())
-        action();
-      return value;
-    }
+        public static string IfEmpty(this string value, Action action)
+        {
+            if (value.IsEmpty())
+                action();
+            return value;
+        }
 
-    public static string IfEmpty(this string value, Func<string> action)
-    {
-      if (!value.IsEmpty())
-        return value;
-      return action();
-    }
+        public static string IfEmpty(this string value, Func<string> action)
+        {
+            if (!value.IsEmpty())
+                return value;
+            return action();
+        }
 
-    public static string IfNotEmpty(this string value, Action action)
-    {
-      if (value.IsNotEmpty())
-        action();
-      return value;
-    }
+        public static string IfNotEmpty(this string value, Action action)
+        {
+            if (value.IsNotEmpty())
+                action();
+            return value;
+        }
 
-    public static string IfNotEmpty(this string value, Action<string> action)
-    {
-      if (value.IsNotEmpty())
-        action(value);
-      return value;
-    }
+        public static string IfNotEmpty(this string value, Action<string> action)
+        {
+            if (value.IsNotEmpty())
+                action(value);
+            return value;
+        }
 
-    public static string IfNotEmpty(this string value, Func<string, string> action)
-    {
-      if (!value.IsNotEmpty())
-        return value;
-      return action(value);
-    }
+        public static string IfNotEmpty(this string value, Func<string, string> action)
+        {
+            if (!value.IsNotEmpty())
+                return value;
+            return action(value);
+        }
 
-    public static TRet IfNotEmpty<TRet>(this string value, Func<string, TRet> action)
-    {
-      if (!value.IsNotEmpty())
-        return default (TRet);
-      return action(value);
-    }
+        public static TRet IfNotEmpty<TRet>(this string value, Func<string, TRet> action)
+        {
+            if (!value.IsNotEmpty())
+                return default(TRet);
+            return action(value);
+        }
 
-    public static string Call(this Func<string> action)
-    {
-      if (!action.IsNull())
-        return action();
-      return string.Empty;
-    }
+        public static string Call(this Func<string> action)
+        {
+            if (!action.IsNull())
+                return action();
+            return string.Empty;
+        }
 
-    public static string IfNullEmptyStr(this string source)
-    {
-      if (source.IsEmpty())
-        return string.Empty;
-      return source;
+        public static string IfNullEmptyStr(this string source)
+        {
+            if (source.IsEmpty())
+                return string.Empty;
+            return source;
+        }
     }
-  }
 }

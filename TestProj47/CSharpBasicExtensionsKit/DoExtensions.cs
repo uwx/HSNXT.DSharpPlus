@@ -10,15 +10,15 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static T Do<T>(this T target, Action<T> action) where T : class
-    {
-      action(target);
-      return target;
-    }
+        public static T Do<T>(this T target, Action<T> action) where T : class
+        {
+            action(target);
+            return target;
+        }
 
-    public static TRet Do<T, TRet>(this T target, Func<T, TRet> action) where T : class
-    {
-      return action(target);
+        public static TRet Do<T, TRet>(this T target, Func<T, TRet> action) where T : class
+        {
+            return action(target);
+        }
     }
-  }
 }

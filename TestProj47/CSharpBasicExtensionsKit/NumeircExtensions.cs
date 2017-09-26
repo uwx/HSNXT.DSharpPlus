@@ -10,20 +10,20 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static int ToInt(this string value)
-    {
-      double result = 0.0;
-      if (!double.TryParse(value, out result))
-        return 0;
-      return (int) Math.Round(result);
-    }
+        public static int ToInt(this string value)
+        {
+            double result = 0.0;
+            if (!double.TryParse(value, out result))
+                return 0;
+            return (int) Math.Round(result);
+        }
 
-    public static int? ToIntNullable(this string value)
-    {
-      double result = 0.0;
-      if (!double.TryParse(value, out result))
-        return new int?();
-      return new int?((int) Math.Round(result));
+        public static int? ToIntNullable(this string value)
+        {
+            double result = 0.0;
+            if (!double.TryParse(value, out result))
+                return new int?();
+            return new int?((int) Math.Round(result));
+        }
     }
-  }
 }

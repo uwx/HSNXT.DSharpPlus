@@ -10,50 +10,50 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    public static bool IsEqualTo(this string str, string value)
-    {
-      if (str.IsNull() && value.IsNull())
-        return true;
-      if (str.IsNull() || value.IsNull())
-        return false;
-      return str.Equals(value, StringComparison.CurrentCultureIgnoreCase);
-    }
+        public static bool IsEqualTo(this string str, string value)
+        {
+            if (str.IsNull() && value.IsNull())
+                return true;
+            if (str.IsNull() || value.IsNull())
+                return false;
+            return str.Equals(value, StringComparison.CurrentCultureIgnoreCase);
+        }
 
-    public static bool IsNotEqualTo(this string str, string value)
-    {
-      if (str.IsNull() && value.IsNull())
-        return false;
-      if (str.IsNull() || value.IsNull())
-        return true;
-      return !str.Equals(value, StringComparison.CurrentCultureIgnoreCase);
-    }
+        public static bool IsNotEqualTo(this string str, string value)
+        {
+            if (str.IsNull() && value.IsNull())
+                return false;
+            if (str.IsNull() || value.IsNull())
+                return true;
+            return !str.Equals(value, StringComparison.CurrentCultureIgnoreCase);
+        }
 
-    public static string IfNotEqualTo(this string left, string right, Action<string, string> action)
-    {
-      if (left.IsNotEqualTo(right))
-        action(left, right);
-      return left;
-    }
+        public static string IfNotEqualTo(this string left, string right, Action<string, string> action)
+        {
+            if (left.IsNotEqualTo(right))
+                action(left, right);
+            return left;
+        }
 
-    public static TRet IfNotEqualTo<TRet>(this string left, string right, Func<string, string, TRet> func)
-    {
-      if (left.IsNotEqualTo(right))
-        return func(left, right);
-      return default (TRet);
-    }
+        public static TRet IfNotEqualTo<TRet>(this string left, string right, Func<string, string, TRet> func)
+        {
+            if (left.IsNotEqualTo(right))
+                return func(left, right);
+            return default(TRet);
+        }
 
-    public static string IfEqualTo(this string left, string right, Action<string, string> action)
-    {
-      if (left.IsEqualTo(right))
-        action(left, right);
-      return left;
-    }
+        public static string IfEqualTo(this string left, string right, Action<string, string> action)
+        {
+            if (left.IsEqualTo(right))
+                action(left, right);
+            return left;
+        }
 
-    public static TRet IfEqualTo<TRet>(this string left, string right, Func<string, string, TRet> func)
-    {
-      if (left.IsEqualTo(right))
-        return func(left, right);
-      return default (TRet);
+        public static TRet IfEqualTo<TRet>(this string left, string right, Func<string, string, TRet> func)
+        {
+            if (left.IsEqualTo(right))
+                return func(left, right);
+            return default(TRet);
+        }
     }
-  }
 }
