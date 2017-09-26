@@ -39,7 +39,7 @@ namespace TestProj47
         {
             if (left.IsNotEqualTo(right))
                 return func(left, right);
-            return default(TRet);
+            return default;
         }
 
         public static string IfEqualTo(this string left, string right, Action<string, string> action)
@@ -53,7 +53,7 @@ namespace TestProj47
         {
             if (left.IsEqualTo(right))
                 return func(left, right);
-            return default(TRet);
+            return default;
         }
     }
 }

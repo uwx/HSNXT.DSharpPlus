@@ -13,29 +13,25 @@ namespace TestProj47
         public static bool IfTrue(this bool expression, Action<bool> action)
         {
             if (expression)
-                action(expression);
+                action(true);
             return expression;
         }
 
         public static T IfTrue<T>(this bool expression, Func<bool, T> action)
         {
-            if (expression)
-                return action(expression);
-            return default(T);
+            return expression ? action(true) : default;
         }
 
         public static bool IfFalse(this bool expression, Action<bool> action)
         {
             if (!expression)
-                action(expression);
+                action(false);
             return expression;
         }
 
         public static T IfFalse<T>(this bool expression, Func<bool, T> action)
         {
-            if (!expression)
-                return action(expression);
-            return default(T);
+            return !expression ? action(false) : default;
         }
     }
 }

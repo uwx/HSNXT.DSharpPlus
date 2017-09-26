@@ -12,17 +12,17 @@ namespace TestProj47
     {
         public static void Call(this Action action)
         {
-            action.IfNotNull<Action>((Action<Action>) (x => x()));
+            action.IfNotNull(x => x());
         }
 
         public static void Call<T>(this Action<T> action, T param)
         {
-            action.IfNotNull<Action<T>>((Action<Action<T>>) (x => x(param)));
+            action.IfNotNull(x => x(param));
         }
 
         public static void Call<T1, T2>(this Action<T1, T2> action, T1 param1, T2 param2)
         {
-            action.IfNotNull<Action<T1, T2>>((Action<Action<T1, T2>>) (x => x(param1, param2)));
+            action.IfNotNull(x => x(param1, param2));
         }
     }
 }

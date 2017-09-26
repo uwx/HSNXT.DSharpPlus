@@ -5,15 +5,15 @@
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\CSharpBasicExtensionsKit.dll
 
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+// ReSharper disable StringIndexOfIsCultureSpecific.1
 
 namespace TestProj47
 {
     public static partial class Extensions
     {
-        private static readonly string[] dateFormats = new string[5]
+        private static readonly string[] DateFormats = new string[]
         {
             "ddd, d MMM yyyy HH:mm:ss zzz",
             "ddd, dd MMM yyyy HH:mm:ss zzz",
@@ -24,35 +24,34 @@ namespace TestProj47
 
         public static DateTime ToDateTimeFromStr(this string obj)
         {
-            DateTime result;
             if (
-                !DateTime.TryParse(obj, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.None,
-                    out result) &&
-                !DateTime.TryParseExact(obj, dateFormats, (IFormatProvider) CultureInfo.InvariantCulture,
+                !DateTime.TryParse(obj, CultureInfo.InvariantCulture, DateTimeStyles.None,
+                    out var result) &&
+                !DateTime.TryParseExact(obj, DateFormats, CultureInfo.InvariantCulture,
                     DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result) &&
-                !DateTime.TryParseExact(ReplaceRfcDate(obj), dateFormats,
-                    (IFormatProvider) CultureInfo.InvariantCulture,
+                !DateTime.TryParseExact(ReplaceRfcDate(obj), DateFormats,
+                    CultureInfo.InvariantCulture,
                     DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out result))
-                DateTime.TryParse(obj, (IFormatProvider) CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal,
+                DateTime.TryParse(obj, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal,
                     out result);
             DateTime dateTime1;
             if (result == DateTime.MinValue)
             {
-                string lower = obj.ToLower();
+                var lower = obj.ToLower();
                 dateTime1 = DateTime.Now;
-                int year = dateTime1.Year;
-                int month = GuessMonth(lower);
-                int day = GuessDay(lower);
+                var year = dateTime1.Year;
+                var month = GuessMonth(lower);
+                var day = GuessDay(lower);
                 dateTime1 = DateTime.Now;
-                int hour = dateTime1.Hour;
+                var hour = dateTime1.Hour;
                 dateTime1 = DateTime.Now;
-                int minute = dateTime1.Minute;
-                int second = 0;
+                var minute = dateTime1.Minute;
+                var second = 0;
                 dateTime1 = new DateTime(year, month, day, hour, minute, second);
                 result = dateTime1.ToUniversalTime();
-                DateTime dateTime2 = result;
+                var dateTime2 = result;
                 dateTime1 = DateTime.Now;
-                DateTime universalTime = dateTime1.ToUniversalTime();
+                var universalTime = dateTime1.ToUniversalTime();
                 if (dateTime2 > universalTime)
                     result = result.AddYears(-1);
             }
@@ -96,17 +95,16 @@ namespace TestProj47
 
         private static int GuessDay(string dt)
         {
-            int num = ((IEnumerable<string>) dt.Split(' ')).Select<string, int>((Func<string, int>) (x =>
+            var num = dt.Split(' ').Select(x =>
             {
-                int result;
-                int.TryParse(x, out result);
+                int.TryParse(x, out var result);
                 return result;
-            })).FirstOrDefault<int>((Func<int, bool>) (x =>
+            }).FirstOrDefault(x =>
             {
                 if (x > 0)
                     return x <= 27;
                 return false;
-            }));
+            });
             if (num != 0)
                 return num;
             return DateTime.Now.Day;

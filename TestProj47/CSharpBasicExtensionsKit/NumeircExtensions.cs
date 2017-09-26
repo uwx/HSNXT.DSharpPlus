@@ -12,18 +12,16 @@ namespace TestProj47
     {
         public static int ToInt(this string value)
         {
-            double result = 0.0;
-            if (!double.TryParse(value, out result))
+            if (!double.TryParse(value, out var result))
                 return 0;
             return (int) Math.Round(result);
         }
 
         public static int? ToIntNullable(this string value)
         {
-            double result = 0.0;
-            if (!double.TryParse(value, out result))
+            if (!double.TryParse(value, out var result))
                 return new int?();
-            return new int?((int) Math.Round(result));
+            return (int) Math.Round(result);
         }
     }
 }

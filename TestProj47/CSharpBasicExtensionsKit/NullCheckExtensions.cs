@@ -43,9 +43,7 @@ namespace TestProj47
 
         public static TR IfNotNull<T, TR>(this T source, Func<TR> action)
         {
-            if (((object) source).IsNotNull())
-                return action();
-            return default(TR);
+            return ((object) source).IsNotNull() ? action() : default;
         }
     }
 }

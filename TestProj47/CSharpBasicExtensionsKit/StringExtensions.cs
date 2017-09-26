@@ -19,9 +19,7 @@ namespace TestProj47
 
         public static string IfEmpty(this string value, Func<string> action)
         {
-            if (!value.IsEmpty())
-                return value;
-            return action();
+            return !value.IsEmpty() ? value : action();
         }
 
         public static string IfNotEmpty(this string value, Action action)
@@ -40,30 +38,22 @@ namespace TestProj47
 
         public static string IfNotEmpty(this string value, Func<string, string> action)
         {
-            if (!value.IsNotEmpty())
-                return value;
-            return action(value);
+            return !value.IsNotEmpty() ? value : action(value);
         }
 
         public static TRet IfNotEmpty<TRet>(this string value, Func<string, TRet> action)
         {
-            if (!value.IsNotEmpty())
-                return default(TRet);
-            return action(value);
+            return !value.IsNotEmpty() ? default : action(value);
         }
 
         public static string Call(this Func<string> action)
         {
-            if (!action.IsNull())
-                return action();
-            return string.Empty;
+            return !action.IsNull() ? action() : string.Empty;
         }
 
         public static string IfNullEmptyStr(this string source)
         {
-            if (source.IsEmpty())
-                return string.Empty;
-            return source;
+            return source.IsEmpty() ? string.Empty : source;
         }
     }
 }

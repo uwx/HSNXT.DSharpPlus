@@ -191,29 +191,27 @@ namespace TestProj47
             sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
 
             // GenericArguments
-            if (@this.IsGenericType)
+            if (!@this.IsGenericType) return sb.ToString();
+            var arguments = @this.GetGenericArguments();
+            sb.Append("<");
+            sb.Append(string.Join(", ", arguments.Select(x =>
             {
-                var arguments = @this.GetGenericArguments();
-                sb.Append("<");
-                sb.Append(string.Join(", ", arguments.Select(x =>
+                var constraints = x.GetGenericParameterConstraints();
+
+                foreach (var constraint in constraints)
                 {
-                    var constraints = x.GetGenericParameterConstraints();
+                    var gpa = constraint.GenericParameterAttributes;
+                    var variance = gpa & GenericParameterAttributes.VarianceMask;
 
-                    foreach (var constraint in constraints)
+                    if (variance != GenericParameterAttributes.None)
                     {
-                        var gpa = constraint.GenericParameterAttributes;
-                        var variance = gpa & GenericParameterAttributes.VarianceMask;
-
-                        if (variance != GenericParameterAttributes.None)
-                        {
-                            sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
-                        }
+                        sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
                     }
+                }
 
-                    return x.GetShortDeclaraction();
-                })));
-                sb.Append(">");
-            }
+                return x.GetShortDeclaraction();
+            })));
+            sb.Append(">");
 
             return sb.ToString();
         }
