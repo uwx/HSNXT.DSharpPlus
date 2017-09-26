@@ -17,6 +17,36 @@
           <e p="StringEqualityExtensions.cs" t="Include" />
           <e p="StringExtensions.cs" t="Include" />
         </e>
+        <e p="DevLibExtensionMethods" t="Include">
+          <e p="ArrayExtensions.cs" t="Include" />
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="BitStream.cs" t="Include" />
+          <e p="BoolExtensions.cs" t="Include" />
+          <e p="ByteExtensions.cs" t="Include" />
+          <e p="CollectionExtensions.cs" t="Include" />
+          <e p="CompressionType.cs" t="Include" />
+          <e p="ControlExtensions.cs" t="Include" />
+          <e p="DateTimeExtensions.cs" t="Include" />
+          <e p="EnumExtensions.cs" t="Include" />
+          <e p="EventHandlerExtensions.cs" t="Include" />
+          <e p="IOExtensions.cs" t="Include" />
+          <e p="JsonArray.cs" t="Include" />
+          <e p="JsonObject.cs" t="Include" />
+          <e p="JsonSerializer.cs" t="Include" />
+          <e p="ObjectExtensions.cs" t="Include" />
+          <e p="PocoJsonSerializerStrategy.cs" t="Include" />
+          <e p="ReflectionExtensions.cs" t="Include" />
+          <e p="ReflectionUtilities.cs" t="Include" />
+          <e p="SecurityExtensions.cs" t="Include" />
+          <e p="SerializationExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+          <e p="TextExtensions.cs" t="Include" />
+          <e p="TimeZoneInfoId.cs" t="Include" />
+          <e p="ValidationExtensions.cs" t="Include" />
+          <e p="WebExtensions.cs" t="Include" />
+          <e p="XmlExtensions.cs" t="Include" />
+          <e p="XmlSyntaxHighlightColor.cs" t="Include" />
+        </e>
         <e p="ExtensionOverflow" t="Include">
           <e p="ClassExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />
