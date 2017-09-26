@@ -110,11 +110,11 @@ namespace TestProj47
         /// <returns>@this as a string.</returns>
         public static string ToMD5Hash(this Stream @this)
         {
-            using (MD5 md5 = MD5.Create())
+            using (var md5 = MD5.Create())
             {
-                byte[] hashBytes = md5.ComputeHash(@this);
+                var hashBytes = md5.ComputeHash(@this);
                 var sb = new StringBuilder();
-                foreach (byte bytes in hashBytes)
+                foreach (var bytes in hashBytes)
                 {
                     sb.Append(bytes.ToString("X2"));
                 }

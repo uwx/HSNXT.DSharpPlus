@@ -164,7 +164,7 @@ namespace TestProj47
         {
             while (startIndex < @this.Length)
             {
-                char ch = @this[startIndex];
+                var ch = @this[startIndex];
                 startIndex++;
 
                 char nextChar;
@@ -217,7 +217,7 @@ namespace TestProj47
         {
             while (startIndex < @this.Length)
             {
-                char ch = @this[startIndex];
+                var ch = @this[startIndex];
                 startIndex++;
 
                 char nextChar;

@@ -28,7 +28,7 @@ namespace TestProj47
         /// <returns>A TValue.</returns>
         public static TValue FromCache<T, TValue>(this T @this, MemoryCache cache, string key, TValue value)
         {
-            object item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
+            var item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
 
             return (TValue) item;
         }
@@ -57,7 +57,7 @@ namespace TestProj47
             Expression<Func<T, TValue>> valueFactory)
         {
             var lazy = new Lazy<TValue>(() => valueFactory.Compile()(@this));
-            Lazy<TValue> item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, new CacheItemPolicy()) ?? lazy;
+            var item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, new CacheItemPolicy()) ?? lazy;
             return item.Value;
         }
 
@@ -81,7 +81,7 @@ namespace TestProj47
         /// <returns>A TValue.</returns>
         public static TValue FromCache<TKey, TValue>(this TKey @this, Expression<Func<TKey, TValue>> valueFactory)
         {
-            string key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
+            var key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
             return @this.FromCache(MemoryCache.Default, key, valueFactory);
         }
 
@@ -95,7 +95,7 @@ namespace TestProj47
         public static TValue FromCache<TKey, TValue>(this TKey @this, MemoryCache cache,
             Expression<Func<TKey, TValue>> valueFactory)
         {
-            string key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
+            var key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
             return @this.FromCache(cache, key, valueFactory);
         }
 
@@ -107,7 +107,7 @@ namespace TestProj47
         /// <returns>A TValue.</returns>
         public static TValue AddOrGetExisting<TValue>(this MemoryCache cache, string key, TValue value)
         {
-            object item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
+            var item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
 
             return (TValue) item;
         }
@@ -123,7 +123,7 @@ namespace TestProj47
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));
 
-            Lazy<TValue> item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, new CacheItemPolicy()) ?? lazy;
+            var item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, new CacheItemPolicy()) ?? lazy;
 
             return item.Value;
         }
@@ -141,7 +141,7 @@ namespace TestProj47
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));
 
-            Lazy<TValue> item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, policy, regionName) ?? lazy;
+            var item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, policy, regionName) ?? lazy;
 
             return item.Value;
         }
@@ -159,7 +159,7 @@ namespace TestProj47
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));
 
-            Lazy<TValue> item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, absoluteExpiration, regionName) ??
+            var item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, absoluteExpiration, regionName) ??
                                 lazy;
 
             return item.Value;

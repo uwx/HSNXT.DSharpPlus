@@ -635,8 +635,8 @@ namespace TestProj47
         /// <returns>The field value.</returns>
         public static object GetFieldValue<T>(this T @this, string fieldName)
         {
-            Type type = @this.GetType();
-            FieldInfo field = type.GetField(fieldName,
+            var type = @this.GetType();
+            var field = type.GetField(fieldName,
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 
             return field.GetValue(@this);
@@ -649,15 +649,15 @@ namespace TestProj47
         /// <returns>An array of member information.</returns>
         public static MemberInfo[] GetMemberPaths<T>(this T @this, string path)
         {
-            Type lastType = @this.GetType();
-            string[] paths = path.Split('.');
+            var lastType = @this.GetType();
+            var paths = path.Split('.');
 
             var memberPaths = new List<MemberInfo>();
 
-            foreach (string item in paths)
+            foreach (var item in paths)
             {
-                PropertyInfo propertyInfo = lastType.GetProperty(item);
-                FieldInfo fieldInfo = lastType.GetField(item);
+                var propertyInfo = lastType.GetProperty(item);
+                var fieldInfo = lastType.GetField(item);
 
                 if (propertyInfo != null)
                 {
@@ -790,7 +790,7 @@ namespace TestProj47
                 return property;
             }
 
-            FieldInfo field = @this.GetField(name);
+            var field = @this.GetField(name);
             if (field != null)
             {
                 return field;
@@ -808,8 +808,8 @@ namespace TestProj47
         /// <returns>The property value.</returns>
         public static object GetPropertyValue<T>(this T @this, string propertyName)
         {
-            Type type = @this.GetType();
-            PropertyInfo property = type.GetProperty(propertyName,
+            var type = @this.GetType();
+            var property = type.GetProperty(propertyName,
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 
             return property.GetValue(@this, null);
@@ -825,8 +825,8 @@ namespace TestProj47
         /// <returns>An object.</returns>
         public static object InvokeMethod<T>(this T obj, string methodName, params object[] parameters)
         {
-            Type type = obj.GetType();
-            MethodInfo method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
+            var type = obj.GetType();
+            var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
             return method.Invoke(obj, parameters);
         }
@@ -841,10 +841,10 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T InvokeMethod<T>(this object obj, string methodName, params object[] parameters)
         {
-            Type type = obj.GetType();
-            MethodInfo method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
+            var type = obj.GetType();
+            var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
-            object value = method.Invoke(obj, parameters);
+            var value = method.Invoke(obj, parameters);
             return (value is T ? (T) value : default(T));
         }
 
@@ -881,8 +881,8 @@ namespace TestProj47
         /// <param name="value">The value.</param>
         public static void SetFieldValue<T>(this T @this, string fieldName, object value)
         {
-            Type type = @this.GetType();
-            FieldInfo field = type.GetField(fieldName,
+            var type = @this.GetType();
+            var field = type.GetField(fieldName,
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
             field.SetValue(@this, value);
         }
@@ -896,8 +896,8 @@ namespace TestProj47
         /// <param name="value">The value.</param>
         public static void SetPropertyValue<T>(this T @this, string propertyName, object value)
         {
-            Type type = @this.GetType();
-            PropertyInfo property = type.GetProperty(propertyName,
+            var type = @this.GetType();
+            var property = type.GetProperty(propertyName,
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
             property.SetValue(@this, value, null);
         }
@@ -968,7 +968,7 @@ namespace TestProj47
         /// <returns>true if type or inherits of, false if not.</returns>
         public static bool IsTypeOrInheritsOf<T>(this T @this, Type type)
         {
-            Type objectType = @this.GetType();
+            var objectType = @this.GetType();
 
             while (true)
             {

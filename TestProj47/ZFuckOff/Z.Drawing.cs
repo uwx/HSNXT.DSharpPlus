@@ -62,7 +62,7 @@ namespace TestProj47
             var destinationRectange = new Rectangle(0, 0, width, height);
             var sourceRectangle = new Rectangle(x, y, width, height);
 
-            using (Graphics g = Graphics.FromImage(r))
+            using (var g = Graphics.FromImage(r))
             {
                 g.DrawImage(@this, destinationRectange, sourceRectangle, GraphicsUnit.Pixel);
             }
@@ -78,12 +78,12 @@ namespace TestProj47
         /// <returns>The scaled image to the specific ratio.</returns>
         public static Image Scale(this Image @this, double ratio)
         {
-            int width = Convert.ToInt32(@this.Width * ratio);
-            int height = Convert.ToInt32(@this.Height * ratio);
+            var width = Convert.ToInt32(@this.Width * ratio);
+            var height = Convert.ToInt32(@this.Height * ratio);
 
             var r = new Bitmap(width, height);
 
-            using (Graphics g = Graphics.FromImage(r))
+            using (var g = Graphics.FromImage(r))
             {
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.SmoothingMode = SmoothingMode.HighQuality;
@@ -106,7 +106,7 @@ namespace TestProj47
         {
             var r = new Bitmap(width, height);
 
-            using (Graphics g = Graphics.FromImage(r))
+            using (var g = Graphics.FromImage(r))
             {
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.SmoothingMode = SmoothingMode.HighQuality;

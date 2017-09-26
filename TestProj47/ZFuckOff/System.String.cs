@@ -109,7 +109,7 @@ namespace TestProj47
         /// <returns>true if it contains all values, otherwise false.</returns>
         public static bool ContainsAll(this string @this, params string[] values)
         {
-            foreach (string value in values)
+            foreach (var value in values)
             {
                 if (@this.IndexOf(value) == -1)
                 {
@@ -128,7 +128,7 @@ namespace TestProj47
         /// <returns>true if it contains all values, otherwise false.</returns>
         public static bool ContainsAll(this string @this, StringComparison comparisonType, params string[] values)
         {
-            foreach (string value in values)
+            foreach (var value in values)
             {
                 if (@this.IndexOf(value, comparisonType) == -1)
                 {
@@ -146,7 +146,7 @@ namespace TestProj47
         /// <returns>true if it contains any values, otherwise false.</returns>
         public static bool ContainsAny(this string @this, params string[] values)
         {
-            foreach (string value in values)
+            foreach (var value in values)
             {
                 if (@this.IndexOf(value) != -1)
                 {
@@ -165,7 +165,7 @@ namespace TestProj47
         /// <returns>true if it contains any values, otherwise false.</returns>
         public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
         {
-            foreach (string value in values)
+            foreach (var value in values)
             {
                 if (@this.IndexOf(value, comparisonType) != -1)
                 {
@@ -195,10 +195,10 @@ namespace TestProj47
         {
             var cspp = new CspParameters {KeyContainerName = key};
             var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
-            string[] decryptArray = @this.Split(new[] {"-"}, StringSplitOptions.None);
-            byte[] decryptByteArray =
+            var decryptArray = @this.Split(new[] {"-"}, StringSplitOptions.None);
+            var decryptByteArray =
                 Array.ConvertAll(decryptArray, (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
-            byte[] bytes = rsa.Decrypt(decryptByteArray, true);
+            var bytes = rsa.Decrypt(decryptByteArray, true);
 
             return Encoding.UTF8.GetString(bytes);
         }
@@ -223,7 +223,7 @@ namespace TestProj47
         {
             var cspp = new CspParameters {KeyContainerName = key};
             var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
-            byte[] bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(@this), true);
+            var bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(@this), true);
 
             return BitConverter.ToString(bytes);
         }
@@ -372,9 +372,9 @@ namespace TestProj47
         /// <returns>The string between the two specified string.</returns>
         public static string GetBetween(this string @this, string before, string after)
         {
-            int beforeStartIndex = @this.IndexOf(before);
-            int startIndex = beforeStartIndex + before.Length;
-            int afterStartIndex = @this.IndexOf(after, startIndex);
+            var beforeStartIndex = @this.IndexOf(before);
+            var startIndex = beforeStartIndex + before.Length;
+            var afterStartIndex = @this.IndexOf(after, startIndex);
 
             if (beforeStartIndex == -1 || afterStartIndex == -1)
             {
@@ -447,7 +447,7 @@ namespace TestProj47
         public static bool IsLike(this string @this, string pattern)
         {
             // Turn the pattern into regex pattern, and match the whole string with ^$
-            string regexPattern = "^" + Regex.Escape(pattern) + "$";
+            var regexPattern = "^" + Regex.Escape(pattern) + "$";
 
             // Escape special character ?, #, *, [], and [!]
             regexPattern = regexPattern.Replace(@"\[!", "[^")
@@ -574,7 +574,7 @@ namespace TestProj47
         /// </returns>
         public static string PathCombine(this string @this, params string[] paths)
         {
-            List<string> list = paths.ToList();
+            var list = paths.ToList();
             list.Insert(0, @this);
             return Path.Combine(list.ToArray());
         }
@@ -586,12 +586,12 @@ namespace TestProj47
         /// <returns>The string without diacritics character.</returns>
         public static string RemoveDiacritics(this string @this)
         {
-            string normalizedString = @this.Normalize(NormalizationForm.FormD);
+            var normalizedString = @this.Normalize(NormalizationForm.FormD);
             var sb = new StringBuilder();
 
-            foreach (char t in normalizedString)
+            foreach (var t in normalizedString)
             {
-                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(t);
+                var uc = CharUnicodeInfo.GetUnicodeCategory(t);
                 if (uc != UnicodeCategory.NonSpacingMark)
                 {
                     sb.Append(t);
@@ -675,7 +675,7 @@ namespace TestProj47
         /// <returns>A string with all specified values replaced by an empty string.</returns>
         public static string ReplaceByEmpty(this string @this, params string[] values)
         {
-            foreach (string value in values)
+            foreach (var value in values)
             {
                 @this = @this.Replace(value, "");
             }
@@ -692,7 +692,7 @@ namespace TestProj47
         /// <returns>The string with the first occurence of old value replace by new value.</returns>
         public static string ReplaceFirst(this string @this, string oldValue, string newValue)
         {
-            int startindex = @this.IndexOf(oldValue);
+            var startindex = @this.IndexOf(oldValue);
 
             if (startindex == -1)
             {
@@ -712,10 +712,10 @@ namespace TestProj47
         /// <returns>The string with the numbers of occurences of old value replace by new value.</returns>
         public static string ReplaceFirst(this string @this, int number, string oldValue, string newValue)
         {
-            List<string> list = @this.Split(oldValue).ToList();
-            int old = number + 1;
-            IEnumerable<string> listStart = list.Take(old);
-            IEnumerable<string> listEnd = list.Skip(old);
+            var list = @this.Split(oldValue).ToList();
+            var old = number + 1;
+            var listStart = list.Take(old);
+            var listEnd = list.Skip(old);
 
             return string.Join(newValue, listStart) +
                    (listEnd.Any() ? oldValue : "") +
@@ -731,7 +731,7 @@ namespace TestProj47
         /// <returns>The string with the last occurence of old value replace by new value.</returns>
         public static string ReplaceLast(this string @this, string oldValue, string newValue)
         {
-            int startindex = @this.LastIndexOf(oldValue);
+            var startindex = @this.LastIndexOf(oldValue);
 
             if (startindex == -1)
             {
@@ -751,10 +751,10 @@ namespace TestProj47
         /// <returns>The string with the last numbers occurences of old value replace by new value.</returns>
         public static string ReplaceLast(this string @this, int number, string oldValue, string newValue)
         {
-            List<string> list = @this.Split(oldValue).ToList();
-            int old = Math.Max(0, list.Count - number - 1);
-            IEnumerable<string> listStart = list.Take(old);
-            IEnumerable<string> listEnd = list.Skip(old);
+            var list = @this.Split(oldValue).ToList();
+            var old = Math.Max(0, list.Count - number - 1);
+            var listStart = list.Take(old);
+            var listEnd = list.Skip(old);
 
             return string.Join(oldValue, listStart) +
                    (old > 0 ? oldValue : "") +
@@ -785,7 +785,7 @@ namespace TestProj47
                 return @this;
             }
 
-            char[] chars = @this.ToCharArray();
+            var chars = @this.ToCharArray();
             Array.Reverse(chars);
             return new string(chars);
         }
@@ -977,11 +977,11 @@ namespace TestProj47
             var path = new StringBuilder(@this);
             var sb = new StringBuilder();
 
-            int pos = 0;
+            var pos = 0;
 
             while (pos < path.Length)
             {
-                char ch = path[pos];
+                var ch = path[pos];
                 pos++;
 
                 if (ch == '<')
@@ -1047,7 +1047,7 @@ namespace TestProj47
         /// <returns>@this as a T.</returns>
         public static T ToEnumZ<T>(this string @this)
         {
-            Type enumType = typeof(T);
+            var enumType = typeof(T);
             return (T) Enum.Parse(enumType, @this);
         }
 
@@ -1101,7 +1101,7 @@ namespace TestProj47
         public static SecureString ToSecureString(this string @this)
         {
             var secureString = new SecureString();
-            foreach (char c in @this)
+            foreach (var c in @this)
                 secureString.AppendChar(c);
 
             return secureString;
@@ -1186,7 +1186,7 @@ namespace TestProj47
                 return @this;
             }
 
-            int strLength = maxLength - suffix.Length;
+            var strLength = maxLength - suffix.Length;
             return @this.Substring(0, strLength) + suffix;
         }
 
@@ -1204,7 +1204,7 @@ namespace TestProj47
                 return @this;
             }
 
-            int strLength = maxLength - suffix.Length;
+            var strLength = maxLength - suffix.Length;
             return @this.Substring(0, strLength) + suffix;
         }
 
@@ -2034,7 +2034,7 @@ namespace TestProj47
         public static decimal ExtractDecimal(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]) || @this[i] == '.')
                 {
@@ -2057,7 +2057,7 @@ namespace TestProj47
         public static double ExtractDouble(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]) || @this[i] == '.')
                 {
@@ -2080,7 +2080,7 @@ namespace TestProj47
         public static short ExtractInt16(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {
@@ -2103,7 +2103,7 @@ namespace TestProj47
         public static int ExtractInt32(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {
@@ -2126,7 +2126,7 @@ namespace TestProj47
         public static long ExtractInt64(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {
@@ -2253,7 +2253,7 @@ namespace TestProj47
         public static ushort ExtractUInt16(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {
@@ -2272,7 +2272,7 @@ namespace TestProj47
         public static uint ExtractUInt32(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {
@@ -2291,7 +2291,7 @@ namespace TestProj47
         public static ulong ExtractUInt64(this string @this)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
                 if (char.IsDigit(@this[i]))
                 {

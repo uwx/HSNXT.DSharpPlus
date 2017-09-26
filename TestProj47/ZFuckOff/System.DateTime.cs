@@ -72,8 +72,8 @@ namespace TestProj47
         /// <returns>A DateTime.</returns>
         public static DateTime EndOfWeek(this DateTime dt, DayOfWeek startDayOfWeek = DayOfWeek.Sunday)
         {
-            DateTime end = dt;
-            DayOfWeek endDayOfWeek = startDayOfWeek - 1;
+            var end = dt;
+            var endDayOfWeek = startDayOfWeek - 1;
             if (endDayOfWeek < 0)
             {
                 endDayOfWeek = DayOfWeek.Saturday;
@@ -312,7 +312,7 @@ namespace TestProj47
 
             if (start.DayOfWeek != startDayOfWeek)
             {
-                int d = startDayOfWeek - start.DayOfWeek;
+                var d = startDayOfWeek - start.DayOfWeek;
                 if (startDayOfWeek <= start.DayOfWeek)
                 {
                     return start.AddDays(d);

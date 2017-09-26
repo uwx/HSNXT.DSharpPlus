@@ -66,7 +66,7 @@ namespace TestProj47
         /// <returns>The response stream as a string, from the current position to the end.</returns>
         public static string ReadToEnd(this WebResponse @this)
         {
-            using (Stream stream = @this.GetResponseStream())
+            using (var stream = @this.GetResponseStream())
             {
                 using (var reader = new StreamReader(stream))
                 {
@@ -82,9 +82,9 @@ namespace TestProj47
         /// <returns>The response stream as a string, from the current position to the end.</returns>
         public static string ReadToEndAndDispose(this WebResponse @this)
         {
-            using (WebResponse response = @this)
+            using (var response = @this)
             {
-                using (Stream stream = response.GetResponseStream())
+                using (var stream = response.GetResponseStream())
                 {
                     using (var reader = new StreamReader(stream, Encoding.Default))
                     {

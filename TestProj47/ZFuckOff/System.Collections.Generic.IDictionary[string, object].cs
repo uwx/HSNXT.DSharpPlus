@@ -28,7 +28,7 @@ namespace TestProj47
         {
             return @this.Select(x =>
             {
-                DbParameter parameter = command.CreateParameter();
+                var parameter = command.CreateParameter();
                 parameter.ParameterName = x.Key;
                 parameter.Value = x.Value;
                 return parameter;
@@ -43,11 +43,11 @@ namespace TestProj47
         /// <returns>The given data converted to a DbParameter[].</returns>
         public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbConnection connection)
         {
-            DbCommand command = connection.CreateCommand();
+            var command = connection.CreateCommand();
 
             return @this.Select(x =>
             {
-                DbParameter parameter = command.CreateParameter();
+                var parameter = command.CreateParameter();
                 parameter.ParameterName = x.Key;
                 parameter.Value = x.Value;
                 return parameter;

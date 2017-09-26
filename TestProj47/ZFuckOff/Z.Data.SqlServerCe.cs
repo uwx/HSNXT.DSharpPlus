@@ -1791,9 +1791,9 @@ namespace Z.Data.SQLite
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
         public static IEnumerable<T> ToEntitiesSqLite<T>(this IDataReader @this) where T : new()
         {
-            Type type = typeof(T);
-            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            var type = typeof(T);
+            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
             var list = new List<T>();
 
@@ -1804,20 +1804,20 @@ namespace Z.Data.SQLite
             {
                 var entity = new T();
 
-                foreach (PropertyInfo property in properties)
+                foreach (var property in properties)
                 {
                     if (hash.Contains(property.Name))
                     {
-                        Type valueType = property.PropertyType;
+                        var valueType = property.PropertyType;
                         property.SetValue(entity, @this[property.Name].To(valueType), null);
                     }
                 }
 
-                foreach (FieldInfo field in fields)
+                foreach (var field in fields)
                 {
                     if (hash.Contains(field.Name))
                     {
-                        Type valueType = field.FieldType;
+                        var valueType = field.FieldType;
                         field.SetValue(entity, @this[field.Name].To(valueType));
                     }
                 }
@@ -1853,29 +1853,29 @@ namespace Z.Data.SQLite
         /// <returns>@this as a T.</returns>
         public static T ToEntitySqLite<T>(this IDataReader @this) where T : new()
         {
-            Type type = typeof(T);
-            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            var type = typeof(T);
+            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
             var entity = new T();
 
             var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
                 .Select(@this.GetName));
 
-            foreach (PropertyInfo property in properties)
+            foreach (var property in properties)
             {
                 if (hash.Contains(property.Name))
                 {
-                    Type valueType = property.PropertyType;
+                    var valueType = property.PropertyType;
                     property.SetValue(entity, @this[property.Name].To(valueType), null);
                 }
             }
 
-            foreach (FieldInfo field in fields)
+            foreach (var field in fields)
             {
                 if (hash.Contains(field.Name))
                 {
-                    Type valueType = field.FieldType;
+                    var valueType = field.FieldType;
                     field.SetValue(entity, @this[field.Name].To(valueType));
                 }
             }
@@ -1906,7 +1906,7 @@ namespace Z.Data.SQLite
         /// <returns>@this as a dynamic.</returns>
         public static dynamic ToExpandoObject2(this IDataReader @this)
         {
-            Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
+            var columnNames = Enumerable.Range(0, @this.FieldCount)
                 .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
                 .ToDictionary(pair => pair.Key);
 
@@ -1943,7 +1943,7 @@ namespace Z.Data.SQLite
         /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
         public static IEnumerable<dynamic> ToExpandoObjects2(this IDataReader @this)
         {
-            Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
+            var columnNames = Enumerable.Range(0, @this.FieldCount)
                 .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
                 .ToDictionary(pair => pair.Key);
 
@@ -2078,14 +2078,14 @@ namespace Z.Data.SQLite
         {
             if (@this != null)
             {
-                Type targetType = typeof(T);
+                var targetType = typeof(T);
 
                 if (@this.GetType() == targetType)
                 {
                     return (T) @this;
                 }
 
-                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                var converter = TypeDescriptor.GetConverter(@this);
                 if (converter != null)
                 {
                     if (converter.CanConvertTo(targetType))
@@ -2192,14 +2192,14 @@ namespace Z.Data.SQLite
         {
             if (@this != null)
             {
-                Type targetType = type;
+                var targetType = type;
 
                 if (@this.GetType() == targetType)
                 {
                     return @this;
                 }
 
-                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                var converter = TypeDescriptor.GetConverter(@this);
                 if (converter != null)
                 {
                     if (converter.CanConvertTo(targetType))

@@ -23,7 +23,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         public static void Delete(this IEnumerable<DirectoryInfo> @this)
         {
-            foreach (DirectoryInfo t in @this)
+            foreach (var t in @this)
             {
                 t.Delete();
             }
@@ -38,7 +38,7 @@ namespace TestProj47
         public static IEnumerable<DirectoryInfo> ForEach(this IEnumerable<DirectoryInfo> @this,
             Action<DirectoryInfo> action)
         {
-            foreach (DirectoryInfo t in @this)
+            foreach (var t in @this)
             {
                 action(t);
             }

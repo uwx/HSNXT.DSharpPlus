@@ -65,7 +65,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void AddRange<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 @this.Add(value);
             }
@@ -81,7 +81,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void AddRangeIf<T>(this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (predicate(value))
                 {
@@ -98,7 +98,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void AddRangeIfNotContains<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (!@this.Contains(value))
                 {
@@ -116,7 +116,7 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAll<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (!@this.Contains(value))
                 {
@@ -136,7 +136,7 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAny<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (@this.Contains(value))
                 {
@@ -228,7 +228,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void RemoveRange<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 @this.Remove(value);
             }
@@ -243,7 +243,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void RemoveRangeIf<T>(this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (predicate(value))
                 {
@@ -260,7 +260,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void RemoveRangeIfContains<T>(this ICollection<T> @this, params T[] values)
         {
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (@this.Contains(value))
                 {
@@ -277,8 +277,8 @@ namespace TestProj47
         /// <param name="predicate">The predicate.</param>
         public static void RemoveWhere<T>(this ICollection<T> @this, Func<T, bool> predicate)
         {
-            List<T> list = @this.Where(predicate).ToList();
-            foreach (T item in list)
+            var list = @this.Where(predicate).ToList();
+            foreach (var item in list)
             {
                 @this.Remove(item);
             }
@@ -494,7 +494,7 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAllKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
-            foreach (TKey value in keys)
+            foreach (var value in keys)
             {
                 if (!@this.ContainsKey(value))
                 {
@@ -515,7 +515,7 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAnyKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
-            foreach (TKey value in keys)
+            foreach (var value in keys)
             {
                 if (@this.ContainsKey(value))
                 {
@@ -623,7 +623,7 @@ namespace TestProj47
         /// </returns>
         public static IEnumerable<T> MergeDistinctInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
         {
-            List<IEnumerable<T>> listItem = @this.ToList();
+            var listItem = @this.ToList();
 
             var list = new List<T>();
 
@@ -644,7 +644,7 @@ namespace TestProj47
         /// </returns>
         public static IEnumerable<T> MergeInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
         {
-            List<IEnumerable<T>> listItem = @this.ToList();
+            var listItem = @this.ToList();
 
             var list = new List<T>();
 
@@ -665,8 +665,8 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAll<T>(this IEnumerable<T> @this, params T[] values)
         {
-            T[] list = @this.ToArray();
-            foreach (T value in values)
+            var list = @this.ToArray();
+            foreach (var value in values)
             {
                 if (!list.Contains(value))
                 {
@@ -686,8 +686,8 @@ namespace TestProj47
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAny<T>(this IEnumerable<T> @this, params T[] values)
         {
-            T[] list = @this.ToArray();
-            foreach (T value in values)
+            var list = @this.ToArray();
+            foreach (var value in values)
             {
                 if (list.Contains(value))
                 {
@@ -707,8 +707,8 @@ namespace TestProj47
         /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
-            T[] array = @this.ToArray();
-            foreach (T t in array)
+            var array = @this.ToArray();
+            foreach (var t in array)
             {
                 action(t);
             }
@@ -722,9 +722,9 @@ namespace TestProj47
         /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
-            T[] array = @this.ToArray();
+            var array = @this.ToArray();
 
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 action(array[i], i);
             }
@@ -834,7 +834,7 @@ namespace TestProj47
 
             if (@this != null)
             {
-                foreach (string key in @this.AllKeys)
+                foreach (var key in @this.AllKeys)
                 {
                     dict.Add(key, @this[key]);
                 }

@@ -33,7 +33,7 @@ namespace TestProj47
         public static IEnumerable<T> ExecuteEntities<T>(this DbConnection @this, string cmdText,
             DbParameter[] parameters, CommandType commandType, DbTransaction transaction) where T : new()
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -61,7 +61,7 @@ namespace TestProj47
         public static IEnumerable<T> ExecuteEntities<T>(this DbConnection @this, Action<DbCommand> commandFactory)
             where T : new()
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -184,7 +184,7 @@ namespace TestProj47
         public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters,
             CommandType commandType, DbTransaction transaction) where T : new()
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -212,7 +212,7 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T ExecuteEntity<T>(this DbConnection @this, Action<DbCommand> commandFactory) where T : new()
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -335,7 +335,7 @@ namespace TestProj47
         public static dynamic ExecuteExpandoObject(this DbConnection @this, string cmdText, DbParameter[] parameters,
             CommandType commandType, DbTransaction transaction)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -362,7 +362,7 @@ namespace TestProj47
         /// <returns>A dynamic.</returns>
         public static dynamic ExecuteExpandoObject(this DbConnection @this, Action<DbCommand> commandFactory)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -477,7 +477,7 @@ namespace TestProj47
         public static IEnumerable<dynamic> ExecuteExpandoObjects(this DbConnection @this, string cmdText,
             DbParameter[] parameters, CommandType commandType, DbTransaction transaction)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -506,7 +506,7 @@ namespace TestProj47
         public static IEnumerable<dynamic> ExecuteExpandoObjects(this DbConnection @this,
             Action<DbCommand> commandFactory)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -634,7 +634,7 @@ namespace TestProj47
         public static void ExecuteNonQuery(this DbConnection @this, string cmdText, DbParameter[] parameters,
             CommandType commandType, DbTransaction transaction)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -656,7 +656,7 @@ namespace TestProj47
         /// <param name="commandFactory">The command factory.</param>
         public static void ExecuteNonQuery(this DbConnection @this, Action<DbCommand> commandFactory)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -758,7 +758,7 @@ namespace TestProj47
         public static DbDataReader ExecuteReader(this DbConnection @this, string cmdText, DbParameter[] parameters,
             CommandType commandType, DbTransaction transaction)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -781,7 +781,7 @@ namespace TestProj47
         /// <returns>A DbDataReader.</returns>
         public static DbDataReader ExecuteReader(this DbConnection @this, Action<DbCommand> commandFactory)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 
@@ -890,7 +890,7 @@ namespace TestProj47
         public static object ExecuteScalar(this DbConnection @this, string cmdText, DbParameter[] parameters,
             CommandType commandType, DbTransaction transaction)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 command.CommandText = cmdText;
                 command.CommandType = commandType;
@@ -913,7 +913,7 @@ namespace TestProj47
         /// <returns>An object.</returns>
         public static object ExecuteScalar(this DbConnection @this, Action<DbCommand> commandFactory)
         {
-            using (DbCommand command = @this.CreateCommand())
+            using (var command = @this.CreateCommand())
             {
                 commandFactory(command);
 

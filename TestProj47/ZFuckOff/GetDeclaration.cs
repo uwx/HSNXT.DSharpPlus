@@ -54,7 +54,7 @@ namespace TestProj47
                 : @this.ReflectedType.Name);
 
             // Parameters
-            ParameterInfo[] parameters = @this.GetParameters();
+            var parameters = @this.GetParameters();
             sb.Append("(");
             sb.Append(string.Join(", ", parameters.Select(x => x.GetDeclaraction())));
             sb.Append(")");
@@ -76,8 +76,8 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
-            bool isConstant = false;
-            Type[] requiredTypes = @this.GetRequiredCustomModifiers();
+            var isConstant = false;
+            var requiredTypes = @this.GetRequiredCustomModifiers();
 
             // Visibility
             if (@this.IsPublic)
@@ -227,7 +227,7 @@ namespace TestProj47
             {
                 sb.Append("<");
 
-                Type[] arguments = @this.GetGenericArguments();
+                var arguments = @this.GetGenericArguments();
 
                 sb.Append(string.Join(", ", arguments.Select(x => x.GetShortDeclaraction())));
 
@@ -235,7 +235,7 @@ namespace TestProj47
             }
 
             // Parameters
-            ParameterInfo[] parameters = @this.GetParameters();
+            var parameters = @this.GetParameters();
             sb.Append("(");
             sb.Append(string.Join(", ", parameters.Select(x => x.GetDeclaraction())));
             sb.Append(")");
@@ -260,7 +260,7 @@ namespace TestProj47
             var attributes = new List<string>();
 
             string typeName;
-            Type elementType = @this.ParameterType.GetElementType();
+            var elementType = @this.ParameterType.GetElementType();
 
             if (elementType != null)
             {
@@ -320,7 +320,7 @@ namespace TestProj47
             }
 
 
-            string attribute = attributes.Count > 0 ? "[" + string.Join(", ", attributes) + "] " : "";
+            var attribute = attributes.Count > 0 ? "[" + string.Join(", ", attributes) + "] " : "";
             sb.Insert(0, attribute);
         }
 
@@ -333,23 +333,23 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
-            bool canRead = @this.CanRead;
-            bool canWrite = @this.CanWrite;
-            int readLevel = 9;
-            int writeLevel = 9;
-            string readVisibility = "";
-            string writeVisibility = "";
+            var canRead = @this.CanRead;
+            var canWrite = @this.CanWrite;
+            var readLevel = 9;
+            var writeLevel = 9;
+            var readVisibility = "";
+            var writeVisibility = "";
 
             // Variable Method
-            bool isAbstract = false;
-            bool isOverride = false;
-            bool isStatic = false;
-            bool isVirtual = false;
+            var isAbstract = false;
+            var isOverride = false;
+            var isStatic = false;
+            var isVirtual = false;
 
             // Set visibility
             if (canRead)
             {
-                MethodInfo method = @this.GetGetMethod(true);
+                var method = @this.GetGetMethod(true);
                 isAbstract = method.IsAbstract;
                 isOverride = method.GetBaseDefinition().DeclaringType != method.DeclaringType;
                 isStatic = method.IsStatic;
@@ -383,7 +383,7 @@ namespace TestProj47
             }
             if (canWrite)
             {
-                MethodInfo method = @this.GetSetMethod(true);
+                var method = @this.GetSetMethod(true);
 
                 if (readLevel != 9)
                 {
@@ -457,7 +457,7 @@ namespace TestProj47
             sb.Append(" ");
 
             // [Name | Indexer]
-            ParameterInfo[] indexerParameter = @this.GetIndexParameters();
+            var indexerParameter = @this.GetIndexParameters();
             if (indexerParameter.Length == 0)
             {
                 // Name
@@ -508,7 +508,7 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
-            bool hasInheritedClass = false;
+            var hasInheritedClass = false;
 
             // Visibility
             sb.Append(@this.IsPublic ? "public " : "internal ");
@@ -525,16 +525,16 @@ namespace TestProj47
             // Name
             sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
 
-            List<string> constraintType = new List<string>();
+            var constraintType = new List<string>();
 
             // GenericArguments
             if (@this.IsGenericType)
             {
-                Type[] arguments = @this.GetGenericArguments();
+                var arguments = @this.GetGenericArguments();
                 sb.Append("<");
                 sb.Append(string.Join(", ", arguments.Select(x =>
                 {
-                    GenericParameterAttributes sConstraints = x.GenericParameterAttributes;
+                    var sConstraints = x.GenericParameterAttributes;
 
                     if (GenericParameterAttributes.None != (sConstraints & GenericParameterAttributes.Contravariant))
                     {
@@ -545,7 +545,7 @@ namespace TestProj47
                         sb.Append("out ");
                     }
 
-                    List<string> parameterConstraint = new List<string>();
+                    var parameterConstraint = new List<string>();
 
                     if (GenericParameterAttributes.None !=
                         (sConstraints & GenericParameterAttributes.ReferenceTypeConstraint))
@@ -572,12 +572,12 @@ namespace TestProj47
 
                 foreach (var argument in arguments)
                 {
-                    GenericParameterAttributes sConstraints =
+                    var sConstraints =
                         argument.GenericParameterAttributes & GenericParameterAttributes.SpecialConstraintMask;
                 }
             }
 
-            List<string> constaints = new List<string>();
+            var constaints = new List<string>();
 
             // Inherited Class
             if (@this.BaseType != null && @this.BaseType != typeof(object))
@@ -586,7 +586,7 @@ namespace TestProj47
             }
 
             // Inherited Interface
-            Type[] interfaces = @this.GetInterfaces();
+            var interfaces = @this.GetInterfaces();
             if (interfaces.Length > 0)
             {
                 constaints.AddRange(interfaces.Select(x => x.Name));

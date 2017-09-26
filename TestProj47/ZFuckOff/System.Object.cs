@@ -309,7 +309,7 @@ namespace TestProj47
         /// <returns>true if assignable from, false if not.</returns>
         public static bool IsAssignableFrom<T>(this object @this)
         {
-            Type type = @this.GetType();
+            var type = @this.GetType();
             return type.IsAssignableFrom(typeof(T));
         }
 
@@ -321,7 +321,7 @@ namespace TestProj47
         /// <returns>true if assignable from, false if not.</returns>
         public static bool IsAssignableFrom(this object @this, Type targetType)
         {
-            Type type = @this.GetType();
+            var type = @this.GetType();
             return type.IsAssignableFrom(targetType);
         }
 
@@ -364,7 +364,7 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T ShallowCopy<T>(this T @this)
         {
-            MethodInfo method = @this.GetType()
+            var method = @this.GetType()
                 .GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
             return (T) method.Invoke(@this, null);
         }
@@ -547,14 +547,14 @@ namespace TestProj47
         {
             if (@this != null)
             {
-                Type targetType = typeof(T);
+                var targetType = typeof(T);
 
                 if (@this.GetType() == targetType)
                 {
                     return (T) @this;
                 }
 
-                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                var converter = TypeDescriptor.GetConverter(@this);
                 if (converter != null)
                 {
                     if (converter.CanConvertTo(targetType))
@@ -661,14 +661,14 @@ namespace TestProj47
         {
             if (@this != null)
             {
-                Type targetType = type;
+                var targetType = type;
 
                 if (@this.GetType() == targetType)
                 {
                     return @this;
                 }
 
-                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                var converter = TypeDescriptor.GetConverter(@this);
                 if (converter != null)
                 {
                     if (converter.CanConvertTo(targetType))
@@ -807,14 +807,14 @@ namespace TestProj47
             {
                 if (@this != null)
                 {
-                    Type targetType = typeof(T);
+                    var targetType = typeof(T);
 
                     if (@this.GetType() == targetType)
                     {
                         return (T) @this;
                     }
 
-                    TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                    var converter = TypeDescriptor.GetConverter(@this);
                     if (converter != null)
                     {
                         if (converter.CanConvertTo(targetType))
@@ -5517,7 +5517,7 @@ namespace TestProj47
                 return @this;
             }
 
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (value != null)
                 {
@@ -5542,7 +5542,7 @@ namespace TestProj47
                 return @this;
             }
 
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (value != null)
                 {
@@ -5677,7 +5677,7 @@ namespace TestProj47
                 return @this;
             }
 
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (value != null)
                 {
@@ -5812,7 +5812,7 @@ namespace TestProj47
                 return @this;
             }
 
-            foreach (T value in values)
+            foreach (var value in values)
             {
                 if (value != null)
                 {

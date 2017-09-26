@@ -269,7 +269,7 @@ namespace TestProj47
         /// <param name="timeSpan">The time span.</param>
         public static void DeleteOlderThan(this DirectoryInfo obj, TimeSpan timeSpan)
         {
-            DateTime minDate = DateTime.Now.Subtract(timeSpan);
+            var minDate = DateTime.Now.Subtract(timeSpan);
             obj.GetFiles().Where(x => x.LastWriteTime < minDate).ToList().ForEach(x => x.Delete());
             obj.GetDirectories().Where(x => x.LastWriteTime < minDate).ToList().ForEach(x => x.Delete());
         }
@@ -282,7 +282,7 @@ namespace TestProj47
         /// <param name="timeSpan">The time span.</param>
         public static void DeleteOlderThan(this DirectoryInfo obj, SearchOption searchOption, TimeSpan timeSpan)
         {
-            DateTime minDate = DateTime.Now.Subtract(timeSpan);
+            var minDate = DateTime.Now.Subtract(timeSpan);
             obj.GetFiles("*.*", searchOption).Where(x => x.LastWriteTime < minDate).ToList().ForEach(x => x.Delete());
             obj.GetDirectories("*.*", searchOption).Where(x => x.LastWriteTime < minDate).ToList()
                 .ForEach(x => x.Delete());
@@ -4491,7 +4491,7 @@ namespace TestProj47
         /// </returns>
         public static string PathCombine(this DirectoryInfo @this, params string[] paths)
         {
-            List<string> list = paths.ToList();
+            var list = paths.ToList();
             list.Insert(0, @this.FullName);
             return Path.Combine(list.ToArray());
         }
@@ -4507,7 +4507,7 @@ namespace TestProj47
         /// </returns>
         public static DirectoryInfo PathCombineDirectory(this DirectoryInfo @this, params string[] paths)
         {
-            List<string> list = paths.ToList();
+            var list = paths.ToList();
             list.Insert(0, @this.FullName);
             return new DirectoryInfo(Path.Combine(list.ToArray()));
         }
@@ -4523,7 +4523,7 @@ namespace TestProj47
         /// </returns>
         public static FileInfo PathCombineFile(this DirectoryInfo @this, params string[] paths)
         {
-            List<string> list = paths.ToList();
+            var list = paths.ToList();
             list.Insert(0, @this.FullName);
             return new FileInfo(Path.Combine(list.ToArray()));
         }

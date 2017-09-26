@@ -30,7 +30,7 @@ namespace TestProj47
                 : @this.ReflectedType.Name);
 
             // Parameters
-            ParameterInfo[] parameters = @this.GetParameters();
+            var parameters = @this.GetParameters();
             sb.Append("(");
             sb.Append(string.Join(", ", parameters.Select(x => x.GetSignature())));
             sb.Append(")");
@@ -92,7 +92,7 @@ namespace TestProj47
             {
                 sb.Append("<");
 
-                Type[] arguments = @this.GetGenericArguments();
+                var arguments = @this.GetGenericArguments();
 
                 sb.Append(string.Join(", ", arguments.Select(x => x.GetShortSignature())));
 
@@ -100,7 +100,7 @@ namespace TestProj47
             }
 
             // Parameters
-            ParameterInfo[] parameters = @this.GetParameters();
+            var parameters = @this.GetParameters();
             sb.Append("(");
             sb.Append(string.Join(", ", parameters.Select(x => x.GetSignature())));
             sb.Append(")");
@@ -124,7 +124,7 @@ namespace TestProj47
             // retval attribute
 
             string typeName;
-            Type elementType = @this.ParameterType.GetElementType();
+            var elementType = @this.ParameterType.GetElementType();
 
             if (elementType != null)
             {
@@ -184,7 +184,7 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
-            bool hasInheritedClass = false;
+            var hasInheritedClass = false;
 
             // Name
             sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
@@ -192,16 +192,16 @@ namespace TestProj47
             // GenericArguments
             if (@this.IsGenericType)
             {
-                Type[] arguments = @this.GetGenericArguments();
+                var arguments = @this.GetGenericArguments();
                 sb.Append("<");
                 sb.Append(string.Join(", ", arguments.Select(x =>
                 {
-                    Type[] constraints = x.GetGenericParameterConstraints();
+                    var constraints = x.GetGenericParameterConstraints();
 
-                    foreach (Type constraint in constraints)
+                    foreach (var constraint in constraints)
                     {
-                        GenericParameterAttributes gpa = constraint.GenericParameterAttributes;
-                        GenericParameterAttributes variance = gpa & GenericParameterAttributes.VarianceMask;
+                        var gpa = constraint.GenericParameterAttributes;
+                        var variance = gpa & GenericParameterAttributes.VarianceMask;
 
                         if (variance != GenericParameterAttributes.None)
                         {

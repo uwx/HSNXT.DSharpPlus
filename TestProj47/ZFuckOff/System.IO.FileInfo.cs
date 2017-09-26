@@ -869,7 +869,7 @@ namespace TestProj47
         /// </returns>
         public static string ReadToEnd(this FileInfo @this)
         {
-            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (var reader = new StreamReader(stream, Encoding.Default))
                 {
@@ -889,7 +889,7 @@ namespace TestProj47
         /// </returns>
         public static string ReadToEnd(this FileInfo @this, long position)
         {
-            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 stream.Position = position;
 
@@ -911,7 +911,7 @@ namespace TestProj47
         /// </returns>
         public static string ReadToEnd(this FileInfo @this, Encoding encoding)
         {
-            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (var reader = new StreamReader(stream, encoding))
                 {
@@ -932,7 +932,7 @@ namespace TestProj47
         /// </returns>
         public static string ReadToEnd(this FileInfo @this, Encoding encoding, long position)
         {
-            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 stream.Position = position;
 
@@ -952,7 +952,7 @@ namespace TestProj47
         /// <returns>.</returns>
         public static void Rename(this FileInfo @this, string newName)
         {
-            string filePath = Path.Combine(@this.Directory.FullName, newName);
+            var filePath = Path.Combine(@this.Directory.FullName, newName);
             @this.MoveTo(filePath);
         }
 
@@ -982,7 +982,7 @@ namespace TestProj47
         /// </exception>
         public static void RenameExtension(this FileInfo @this, string extension)
         {
-            string filePath = Path.ChangeExtension(@this.FullName, extension);
+            var filePath = Path.ChangeExtension(@this.FullName, extension);
             @this.MoveTo(filePath);
         }
 
@@ -995,8 +995,8 @@ namespace TestProj47
         /// <returns>.</returns>
         public static void RenameFileWithoutExtension(this FileInfo @this, string newName)
         {
-            string fileName = string.Concat(newName, @this.Extension);
-            string filePath = Path.Combine(@this.Directory.FullName, fileName);
+            var fileName = string.Concat(newName, @this.Extension);
+            var filePath = Path.Combine(@this.Directory.FullName, fileName);
             @this.MoveTo(filePath);
         }
 

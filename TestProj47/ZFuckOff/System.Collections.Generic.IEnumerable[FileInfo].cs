@@ -23,7 +23,7 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         public static void Delete(this IEnumerable<FileInfo> @this)
         {
-            foreach (FileInfo t in @this)
+            foreach (var t in @this)
             {
                 t.Delete();
             }
@@ -37,7 +37,7 @@ namespace TestProj47
         /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
         public static IEnumerable<FileInfo> ForEach(this IEnumerable<FileInfo> @this, Action<FileInfo> action)
         {
-            foreach (FileInfo t in @this)
+            foreach (var t in @this)
             {
                 action(t);
             }

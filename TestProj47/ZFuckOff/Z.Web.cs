@@ -22,7 +22,7 @@ namespace TestProj47
         /// <param name="values">A variable-length parameters list containing values.</param>
         public static void Redirect(this HttpResponse @this, string urlFormat, params object[] values)
         {
-            string url = string.Format(urlFormat, values);
+            var url = string.Format(urlFormat, values);
             @this.Redirect(url, true);
         }
 
@@ -340,7 +340,7 @@ namespace TestProj47
         /// <returns>The specified control, or a null reference if the specified control does not exist.</returns>
         public static Control FindControlRecursive(this Control @this, string id)
         {
-            Control rControl = @this.FindControl(id);
+            var rControl = @this.FindControl(id);
 
             if (rControl == null)
             {
@@ -367,7 +367,7 @@ namespace TestProj47
         /// <returns>The specified control, or a null reference if the specified control does not exist.</returns>
         public static T FindControlRecursive<T>(this Control @this, string id) where T : class
         {
-            Control rControl = @this.FindControl(id);
+            var rControl = @this.FindControl(id);
 
             if (rControl == null)
             {

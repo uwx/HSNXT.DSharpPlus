@@ -21,7 +21,7 @@ namespace TestProj47
         /// <param name="columns">A variable-length parameters list containing columns.</param>
         public static void AddRange(this DataColumnCollection @this, params string[] columns)
         {
-            foreach (string column in columns)
+            foreach (var column in columns)
             {
                 @this.Add(column);
             }

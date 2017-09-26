@@ -34,7 +34,7 @@ namespace TestProj47
                     using (var outStream = new MemoryStream())
                     {
                         var buffer = new byte[bufferSize];
-                        int totalBytes = 0;
+                        var totalBytes = 0;
                         int readBytes;
                         while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
                         {
@@ -64,7 +64,7 @@ namespace TestProj47
                     using (var outStream = new MemoryStream())
                     {
                         var buffer = new byte[bufferSize];
-                        int totalBytes = 0;
+                        var totalBytes = 0;
                         int readBytes;
                         while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
                         {
@@ -83,9 +83,9 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         public static void CreateGZip(this FileInfo @this)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                using (FileStream compressedFileStream = File.Create(@this.FullName + ".gz"))
+                using (var compressedFileStream = File.Create(@this.FullName + ".gz"))
                 {
                     using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
                     {
@@ -102,9 +102,9 @@ namespace TestProj47
         /// <param name="destination">Destination for the zip.</param>
         public static void CreateGZip(this FileInfo @this, string destination)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                using (FileStream compressedFileStream = File.Create(destination))
+                using (var compressedFileStream = File.Create(destination))
                 {
                     using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
                     {
@@ -121,9 +121,9 @@ namespace TestProj47
         /// <param name="destination">Destination for the zip.</param>
         public static void CreateGZip(this FileInfo @this, FileInfo destination)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                using (FileStream compressedFileStream = File.Create(destination.FullName))
+                using (var compressedFileStream = File.Create(destination.FullName))
                 {
                     using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
                     {
@@ -140,11 +140,11 @@ namespace TestProj47
         /// <param name="this">The @this to act on.</param>
         public static void ExtractGZipToDirectory(this FileInfo @this)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                string newFileName = Path.GetFileNameWithoutExtension(@this.FullName);
+                var newFileName = Path.GetFileNameWithoutExtension(@this.FullName);
 
-                using (FileStream decompressedFileStream = File.Create(newFileName))
+                using (var decompressedFileStream = File.Create(newFileName))
                 {
                     using (var decompressionStream = new GZipStream(originalFileStream, CompressionMode.Decompress))
                     {
@@ -162,9 +162,9 @@ namespace TestProj47
         /// <param name="destination">Destination for the.</param>
         public static void ExtractGZipToDirectory(this FileInfo @this, string destination)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                using (FileStream compressedFileStream = File.Create(destination))
+                using (var compressedFileStream = File.Create(destination))
                 {
                     using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
                     {
@@ -182,9 +182,9 @@ namespace TestProj47
         /// <param name="destination">Destination for the.</param>
         public static void ExtractGZipToDirectory(this FileInfo @this, FileInfo destination)
         {
-            using (FileStream originalFileStream = @this.OpenRead())
+            using (var originalFileStream = @this.OpenRead())
             {
-                using (FileStream compressedFileStream = File.Create(destination.FullName))
+                using (var compressedFileStream = File.Create(destination.FullName))
                 {
                     using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
                     {
@@ -201,7 +201,7 @@ namespace TestProj47
         /// <returns>The string compressed into a GZip byte array.</returns>
         public static byte[] CompressGZip(this string @this)
         {
-            byte[] stringAsBytes = Encoding.Default.GetBytes(@this);
+            var stringAsBytes = Encoding.Default.GetBytes(@this);
             using (var memoryStream = new MemoryStream())
             {
                 using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -221,7 +221,7 @@ namespace TestProj47
         /// <returns>The string compressed into a GZip byte array.</returns>
         public static byte[] CompressGZip(this string @this, Encoding encoding)
         {
-            byte[] stringAsBytes = encoding.GetBytes(@this);
+            var stringAsBytes = encoding.GetBytes(@this);
             using (var memoryStream = new MemoryStream())
             {
                 using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
