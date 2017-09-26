@@ -784,7 +784,7 @@ namespace TestProj47
         /// <returns>The property or field.</returns>
         public static MemberInfo GetPropertyOrField<T>(this T @this, string name)
         {
-            PropertyInfo property = @this.GetProperty(name);
+            var property = @this.GetProperty(name);
             if (property != null)
             {
                 return property;

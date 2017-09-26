@@ -100,7 +100,7 @@ namespace TestProj47
             
             // ascii 60 = '<' and ascii 62 = '>'
 			xml = xml.Substring(xml.IndexOf(Convert.ToChar(60)));
-			xml = xml.Substring(0, (xml.LastIndexOf(Convert.ToChar(62)) + 1)); 
+			xml = xml.Substring(0, xml.LastIndexOf(Convert.ToChar(62)) + 1); 
 			return xml;
 		}
 
@@ -307,7 +307,7 @@ namespace TestProj47
             if (string.IsNullOrEmpty(value)) return "";
             var valuearray = value.ToLower().ToCharArray();
             var nextupper = true;
-            for (var i = 0; i < (valuearray.Count() -1); i++)
+            for (var i = 0; i < valuearray.Count() -1; i++)
             {
                 if (nextupper)
                 {

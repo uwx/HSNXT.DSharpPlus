@@ -335,7 +335,7 @@ namespace TestProj47
         /// <returns>Boolean value indicating if given input string passes HTML Injection validation</returns>
         public static bool IsValidHtmlInjection(this string strBuff)
         {
-            return (!Regex.IsMatch(HttpUtility.HtmlDecode(strBuff) ?? throw new ArgumentException(), "<(.|\n)+?>"));
+            return !Regex.IsMatch(HttpUtility.HtmlDecode(strBuff) ?? throw new ArgumentException(), "<(.|\n)+?>");
         }
 
         /// <summary>
@@ -573,11 +573,7 @@ namespace TestProj47
             {
                 return $"{dayDiff} days ago";
             }
-            if (dayDiff < 31)
-            {
-                return $"{Math.Ceiling((double) dayDiff / 7)} weeks ago";
-            }
-            return null;
+            return dayDiff < 31 ? $"{Math.Ceiling((double) dayDiff / 7)} weeks ago" : null;
         }
         
         public static IEnumerable<string> SplitLazy(this string self, char c)
