@@ -19,7 +19,7 @@ namespace TestProj47
             Console.WriteLine("Hello World!");
         }
     }
-    
+
     public class LazySplitter : IEnumerable<string>
     {
         private readonly string _self;
@@ -144,12 +144,12 @@ namespace TestProj47
         {
             return o.ToString(CultureInfo.InvariantCulture);
         }
-        
+
         public static string ToStringCurrent(this DateTime o)
         {
             return o.ToString(CultureInfo.CurrentCulture);
         }
-        
+
         public static bool In<T>(this T source, params T[] list)
         {
             if (null == source) throw new ArgumentNullException(nameof(source));
@@ -576,7 +576,7 @@ namespace TestProj47
             }
             return dayDiff < 31 ? $"{Math.Ceiling((double) dayDiff / 7)} weeks ago" : null;
         }
-        
+
         public static IEnumerable<string> SplitLazy(this string self, char c)
         {
             return new LazySplitter(self, c);
@@ -616,10 +616,10 @@ namespace TestProj47
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// <paramref name="indexA" /> is greater than <paramref name="strA" />.<see cref="P:System.String.Length" />.-or- <paramref name="indexB" /> is greater than <paramref name="strB" />.<see cref="P:System.String.Length" />.-or- <paramref name="indexA" />, <paramref name="indexB" />, or <paramref name="length" /> is negative. -or-Either <paramref name="indexA" /> or <paramref name="indexB" /> is null, and <paramref name="length" /> is greater than zero.</exception>
         /// <filterpriority>1</filterpriority>
-        public static int Compare(this string strA, int indexA, string strB, int indexB, int length) 
+        public static int Compare(this string strA, int indexA, string strB, int indexB, int length)
             => string.Compare(strA, indexA, strB, indexB, length);
 
-        public static int Compare(this string strA, int indexA, string strB, int indexB, int length, bool ignoreCase) 
+        public static int Compare(this string strA, int indexA, string strB, int indexB, int length, bool ignoreCase)
             => string.Compare(strA, indexA, strB, indexB, length, ignoreCase);
 
         /// <summary>Compares substrings of two specified <see cref="T:System.String" /> objects using the specified rules, and returns an integer that indicates their relative position in the sort order. </summary>
@@ -636,7 +636,7 @@ namespace TestProj47
         /// <paramref name="comparisonType" /> is not a <see cref="T:System.StringComparison" /> value. </exception>
         /// <filterpriority>1</filterpriority>
         public static int Compare(this string strA, int indexA, string strB, int indexB, int length,
-            StringComparison comparisonType) 
+            StringComparison comparisonType)
             => string.Compare(strA, indexA, strB, indexB, length, comparisonType);
 
         /// <summary>Compares two specified <see cref="T:System.String" /> objects and returns an integer that indicates their relative position in the sort order.</summary>
@@ -644,7 +644,7 @@ namespace TestProj47
         /// <param name="strA">The first string to compare. </param>
         /// <param name="strB">The second string to compare. </param>
         /// <filterpriority>1</filterpriority>
-        public static int Compare(this string strA, string strB) 
+        public static int Compare(this string strA, string strB)
             => string.Compare(strA, strB);
 
         /// <summary>Compares two specified <see cref="T:System.String" /> objects, ignoring or honoring their case, and returns an integer that indicates their relative position in the sort order.</summary>
@@ -653,21 +653,22 @@ namespace TestProj47
         /// <param name="strB">The second string to compare. </param>
         /// <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
         /// <filterpriority>1</filterpriority>
-        public static int Compare(this string strA, string strB, bool ignoreCase) 
+        public static int Compare(this string strA, string strB, bool ignoreCase)
             => string.Compare(strA, strB, ignoreCase);
 
-        public static int Compare(this string strA, string strB, bool ignoreCase, CultureInfo culture) 
+        public static int Compare(this string strA, string strB, bool ignoreCase, CultureInfo culture)
             => string.Compare(strA, strB, ignoreCase, culture);
 
-        public static int Compare(this string strA, string strB, CultureInfo culture, CompareOptions options) 
+        public static int Compare(this string strA, string strB, CultureInfo culture, CompareOptions options)
             => string.Compare(strA, strB, culture, options);
 
         public static int Compare(this string strA, int indexA, string strB, int indexB, int length, bool ignoreCase,
-            CultureInfo culture) 
+            CultureInfo culture)
             => string.Compare(strA, indexA, strB, indexB, length, ignoreCase, culture);
 
-        public static int Compare(this string strA, int indexA, string strB, int indexB, int length, CultureInfo culture,
-            CompareOptions options) 
+        public static int Compare(this string strA, int indexA, string strB, int indexB, int length,
+            CultureInfo culture,
+            CompareOptions options)
             => string.Compare(strA, indexA, strB, indexB, length, culture, options);
 
         /// <summary>Compares two specified <see cref="T:System.String" /> objects using the specified rules, and returns an integer that indicates their relative position in the sort order.</summary>
@@ -680,7 +681,7 @@ namespace TestProj47
         /// <exception cref="T:System.NotSupportedException">
         /// <see cref="T:System.StringComparison" /> is not supported.</exception>
         /// <filterpriority>1</filterpriority>
-        public static int Compare(this string strA, string strB, StringComparison comparisonType) 
+        public static int Compare(this string strA, string strB, StringComparison comparisonType)
             => string.Compare(strA, strB, comparisonType);
 
         /// <summary>Compares substrings of two specified <see cref="T:System.String" /> objects by evaluating the numeric values of the corresponding <see cref="T:System.Char" /> objects in each substring. </summary>
@@ -693,7 +694,7 @@ namespace TestProj47
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// <paramref name="strA" /> is not null and <paramref name="indexA" /> is greater than <paramref name="strA" />.<see cref="P:System.String.Length" />.-or- <paramref name="strB" /> is not null and<paramref name="indexB" /> is greater than <paramref name="strB" />.<see cref="P:System.String.Length" />.-or- <paramref name="indexA" />, <paramref name="indexB" />, or <paramref name="length" /> is negative. </exception>
         /// <filterpriority>2</filterpriority>
-        public static int CompareOrdinal(this string strA, int indexA, string strB, int indexB, int length) 
+        public static int CompareOrdinal(this string strA, int indexA, string strB, int indexB, int length)
             => string.CompareOrdinal(strA, indexA, strB, indexB, length);
 
         /// <summary>Compares two specified <see cref="T:System.String" /> objects by evaluating the numeric values of the corresponding <see cref="T:System.Char" /> objects in each string.</summary>
@@ -701,7 +702,7 @@ namespace TestProj47
         /// <param name="strA">The first string to compare. </param>
         /// <param name="strB">The second string to compare. </param>
         /// <filterpriority>2</filterpriority>
-        public static int CompareOrdinal(this string strA, string strB) 
+        public static int CompareOrdinal(this string strA, string strB)
             => string.CompareOrdinal(strA, strB);
     }
 }

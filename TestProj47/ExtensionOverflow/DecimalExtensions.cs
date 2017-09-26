@@ -6,81 +6,81 @@
     public static partial class Extensions
     {
         #region PercentageOf calculations
-        
+
         /// <summary>
-		/// The numbers percentage
+        /// The numbers percentage
         /// </summary>
-		/// <param name="number">The number.</param>
-		/// <param name="percent">The percent.</param>
+        /// <param name="number">The number.</param>
+        /// <param name="percent">The percent.</param>
         /// <returns>The result</returns>
         public static decimal PercentageOf(this decimal number, int percent)
         {
-			return number * percent / 100;
+            return number * percent / 100;
         }
 
-		/// <summary>
-		/// Percentage of the number.
-		/// </summary>
-		/// <param name="percent">The percent</param>
-		/// <param name="number">The Number</param>
-		/// <returns>The result</returns>
-		public static decimal PercentOf(this decimal position, int total)
-		{
+        /// <summary>
+        /// Percentage of the number.
+        /// </summary>
+        /// <param name="percent">The percent</param>
+        /// <param name="number">The Number</param>
+        /// <returns>The result</returns>
+        public static decimal PercentOf(this decimal position, int total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
                 result = position / total * 100;
             return result;
-		}
+        }
 
-		/// <summary>
-		/// The numbers percentage
-		/// </summary>
-		/// <param name="number">The number.</param>
-		/// <param name="percent">The percent.</param>
-		/// <returns>The result</returns>
+        /// <summary>
+        /// The numbers percentage
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <param name="percent">The percent.</param>
+        /// <returns>The result</returns>
         public static decimal PercentageOf(this decimal number, decimal percent)
         {
             return number * percent / 100;
         }
 
-		/// <summary>
-		/// Percentage of the number.
-		/// </summary>
-		/// <param name="percent">The percent</param>
-		/// <param name="number">The Number</param>
-		/// <returns>The result</returns>
-		public static decimal PercentOf(this decimal position, decimal total)
-		{
+        /// <summary>
+        /// Percentage of the number.
+        /// </summary>
+        /// <param name="percent">The percent</param>
+        /// <param name="number">The Number</param>
+        /// <returns>The result</returns>
+        public static decimal PercentOf(this decimal position, decimal total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
                 result = position / total * 100;
             return result;
-		}
-
-		/// <summary>
-		/// The numbers percentage
-		/// </summary>
-		/// <param name="number">The number.</param>
-		/// <param name="percent">The percent.</param>
-		/// <returns>The result</returns>
-        public static decimal PercentageOf(this decimal number, long percent)
-        {
-			return number * percent / 100;
         }
 
-		/// <summary>
-		/// Percentage of the number.
-		/// </summary>
-		/// <param name="percent">The percent</param>
-		/// <param name="number">The Number</param>
-		/// <returns>The result</returns>
-		public static decimal PercentOf(this decimal position, long total)
-		{
+        /// <summary>
+        /// The numbers percentage
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <param name="percent">The percent.</param>
+        /// <returns>The result</returns>
+        public static decimal PercentageOf(this decimal number, long percent)
+        {
+            return number * percent / 100;
+        }
+
+        /// <summary>
+        /// Percentage of the number.
+        /// </summary>
+        /// <param name="percent">The percent</param>
+        /// <param name="number">The Number</param>
+        /// <returns>The result</returns>
+        public static decimal PercentOf(this decimal position, long total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
                 result = position / total * 100;
             return result;
-		}
+        }
 
         #endregion
     }

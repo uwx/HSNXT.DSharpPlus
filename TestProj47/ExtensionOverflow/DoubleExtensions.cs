@@ -6,58 +6,58 @@
     public static partial class Extensions
     {
         #region PercentageOf calculations
-        
+
         public static decimal PercentageOf(this double number, int percent)
         {
-            return (decimal)(number * percent / 100);
+            return (decimal) (number * percent / 100);
         }
-        
-		public static decimal PercentageOf(this double number, float percent)
+
+        public static decimal PercentageOf(this double number, float percent)
         {
-			return (decimal)(number * percent / 100);
+            return (decimal) (number * percent / 100);
         }
-        
-		public static decimal PercentageOf(this double number, double percent)
+
+        public static decimal PercentageOf(this double number, double percent)
         {
-			return (decimal)(number * percent / 100);
+            return (decimal) (number * percent / 100);
         }
 
-		public static decimal PercentageOf(this double number, long percent)
+        public static decimal PercentageOf(this double number, long percent)
         {
-			return (decimal)(number * percent / 100);
+            return (decimal) (number * percent / 100);
         }
 
-		public static decimal PercentOf(this double position, int total)
-		{
+        public static decimal PercentOf(this double position, int total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
-                result = (decimal)position / total * 100;
+                result = (decimal) position / total * 100;
             return result;
-		}
+        }
 
-		public static decimal PercentOf(this double position, float total)
-		{
+        public static decimal PercentOf(this double position, float total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
-                result = (decimal)position / (decimal)total * 100;
+                result = (decimal) position / (decimal) total * 100;
             return result;
-		}
+        }
 
-		public static decimal PercentOf(this double position, double total)
-		{
+        public static decimal PercentOf(this double position, double total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
-                result = (decimal)position / (decimal)total * 100;
+                result = (decimal) position / (decimal) total * 100;
             return result;
-		}
+        }
 
-		public static decimal PercentOf(this double position, long total)
-		{
+        public static decimal PercentOf(this double position, long total)
+        {
             decimal result = 0;
             if (position > 0 && total > 0)
-                result = (decimal)position / total * 100;
+                result = (decimal) position / total * 100;
             return result;
-		}
+        }
 
         #endregion
     }

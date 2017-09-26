@@ -55,7 +55,7 @@ namespace TestProj47
             }).ToArray();
         }
     }
-    
+
 #if MYSQL
     public static partial class Extensions
     {

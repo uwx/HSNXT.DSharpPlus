@@ -161,7 +161,7 @@ namespace TestProj47
             var lazy = new Lazy<TValue>(() => valueFactory(key));
 
             var item = (Lazy<TValue>) cache.AddOrGetExisting(key, lazy, absoluteExpiration, regionName) ??
-                                lazy;
+                       lazy;
 
             return item.Value;
         }

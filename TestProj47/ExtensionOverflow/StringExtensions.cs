@@ -20,120 +20,124 @@ namespace TestProj47
     public static partial class Extensions
     {
         #region FormatWith
+
         /// <summary>
-		/// Formats a string with one literal placeholder.
-		/// </summary>
-		/// <param name="text">The extension text</param>
-		/// <param name="arg0">Argument 0</param>
-		/// <returns>The formatted string</returns>
+        /// Formats a string with one literal placeholder.
+        /// </summary>
+        /// <param name="text">The extension text</param>
+        /// <param name="arg0">Argument 0</param>
+        /// <returns>The formatted string</returns>
         public static string FormatWith(this string text, object arg0)
         {
-			return string.Format(text, arg0);
+            return string.Format(text, arg0);
         }
 
-		/// <summary>
-		/// Formats a string with two literal placeholders.
-		/// </summary>
-		/// <param name="text">The extension text</param>
-		/// <param name="arg0">Argument 0</param>
-		/// <param name="arg1">Argument 1</param>
-		/// <returns>The formatted string</returns>
+        /// <summary>
+        /// Formats a string with two literal placeholders.
+        /// </summary>
+        /// <param name="text">The extension text</param>
+        /// <param name="arg0">Argument 0</param>
+        /// <param name="arg1">Argument 1</param>
+        /// <returns>The formatted string</returns>
         public static string FormatWith(this string text, object arg0, object arg1)
         {
-			return string.Format(text, arg0, arg1);
+            return string.Format(text, arg0, arg1);
         }
 
-		/// <summary>
-		/// Formats a string with tree literal placeholders.
-		/// </summary>
-		/// <param name="text">The extension text</param>
-		/// <param name="arg0">Argument 0</param>
-		/// <param name="arg1">Argument 1</param>
-		/// <param name="arg2">Argument 2</param>
-		/// <returns>The formatted string</returns>
+        /// <summary>
+        /// Formats a string with tree literal placeholders.
+        /// </summary>
+        /// <param name="text">The extension text</param>
+        /// <param name="arg0">Argument 0</param>
+        /// <param name="arg1">Argument 1</param>
+        /// <param name="arg2">Argument 2</param>
+        /// <returns>The formatted string</returns>
         public static string FormatWith(this string text, object arg0, object arg1, object arg2)
         {
-			return string.Format(text, arg0, arg1, arg2);
+            return string.Format(text, arg0, arg1, arg2);
         }
 
-		/// <summary>
-		/// Formats a string with a list of literal placeholders.
-		/// </summary>
-		/// <param name="text">The extension text</param>
-		/// <param name="args">The argument list</param>
-		/// <returns>The formatted string</returns>
+        /// <summary>
+        /// Formats a string with a list of literal placeholders.
+        /// </summary>
+        /// <param name="text">The extension text</param>
+        /// <param name="args">The argument list</param>
+        /// <returns>The formatted string</returns>
         public static string FormatWith(this string text, params object[] args)
         {
-			return string.Format(text, args);
+            return string.Format(text, args);
         }
 
-		/// <summary>
-		/// Formats a string with a list of literal placeholders.
-		/// </summary>
-		/// <param name="text">The extension text</param>
-		/// <param name="provider">The format provider</param>
-		/// <param name="args">The argument list</param>
-		/// <returns>The formatted string</returns>
+        /// <summary>
+        /// Formats a string with a list of literal placeholders.
+        /// </summary>
+        /// <param name="text">The extension text</param>
+        /// <param name="provider">The format provider</param>
+        /// <param name="args">The argument list</param>
+        /// <returns>The formatted string</returns>
         public static string FormatWith(this string text, IFormatProvider provider, params object[] args)
         {
             return string.Format(provider, text, args);
         }
+
         #endregion
 
         #region XmlSerialize XmlDeserialize
+
         /// <summary>Serialises an object of type T in to an xml string</summary>
-		/// <typeparam name="T">Any class type</typeparam>
-		/// <param name="objectToSerialise">Object to serialise</param>
-		/// <returns>A string that represents Xml, empty oterwise</returns>
-		public static string XmlSerializeZ<T>(this T objectToSerialise) where T : class
-		{
-			var serialiser = new XmlSerializer(typeof(T));
-			string xml;
-			using (var memStream = new MemoryStream())
-			{
-				using (var xmlWriter = new XmlTextWriter(memStream, Encoding.UTF8))
-				{
-					serialiser.Serialize(xmlWriter, objectToSerialise);
-					xml = Encoding.UTF8.GetString(memStream.GetBuffer());
-				}
-			}
-            
+        /// <typeparam name="T">Any class type</typeparam>
+        /// <param name="objectToSerialise">Object to serialise</param>
+        /// <returns>A string that represents Xml, empty oterwise</returns>
+        public static string XmlSerializeZ<T>(this T objectToSerialise) where T : class
+        {
+            var serialiser = new XmlSerializer(typeof(T));
+            string xml;
+            using (var memStream = new MemoryStream())
+            {
+                using (var xmlWriter = new XmlTextWriter(memStream, Encoding.UTF8))
+                {
+                    serialiser.Serialize(xmlWriter, objectToSerialise);
+                    xml = Encoding.UTF8.GetString(memStream.GetBuffer());
+                }
+            }
+
             // ascii 60 = '<' and ascii 62 = '>'
-			xml = xml.Substring(xml.IndexOf(Convert.ToChar(60)));
-			xml = xml.Substring(0, xml.LastIndexOf(Convert.ToChar(62)) + 1); 
-			return xml;
-		}
-
-		/// <summary>Deserialises an xml string in to an object of Type T</summary>
-		/// <typeparam name="T">Any class type</typeparam>
-		/// <param name="xml">Xml as string to deserialise from</param>
-		/// <returns>A new object of type T is successful, null if failed</returns>
-		public static T XmlDeserializeZ<T>(this string xml) where T : class
-		{
-			var serialiser = new XmlSerializer(typeof(T));
-			T newObject;
-
-			using (var stringReader = new StringReader(xml))
-			{
-				using (var xmlReader = new XmlTextReader(stringReader))
-				{
-					try
-					{
-						newObject = serialiser.Deserialize(xmlReader) as T;
-					}
-					catch (InvalidOperationException) // String passed is not Xml, return null
-					{
-						return null;
-					}
-
-				}
-			}
-
-			return newObject;
+            xml = xml.Substring(xml.IndexOf(Convert.ToChar(60)));
+            xml = xml.Substring(0, xml.LastIndexOf(Convert.ToChar(62)) + 1);
+            return xml;
         }
+
+        /// <summary>Deserialises an xml string in to an object of Type T</summary>
+        /// <typeparam name="T">Any class type</typeparam>
+        /// <param name="xml">Xml as string to deserialise from</param>
+        /// <returns>A new object of type T is successful, null if failed</returns>
+        public static T XmlDeserializeZ<T>(this string xml) where T : class
+        {
+            var serialiser = new XmlSerializer(typeof(T));
+            T newObject;
+
+            using (var stringReader = new StringReader(xml))
+            {
+                using (var xmlReader = new XmlTextReader(stringReader))
+                {
+                    try
+                    {
+                        newObject = serialiser.Deserialize(xmlReader) as T;
+                    }
+                    catch (InvalidOperationException) // String passed is not Xml, return null
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            return newObject;
+        }
+
         #endregion
 
         #region To X conversions
+
         /// <summary>
         /// Parses a string into an Enum
         /// </summary>
@@ -152,11 +156,11 @@ namespace TestProj47
         /// <param name="value">String value to parse</param>
         /// <param name="ignorecase">Ignore the case of the string being parsed</param>
         /// <returns>The Enum corresponding to the stringExtensions</returns>
-        public static T ToEnum<T>(this string value,bool ignorecase)
+        public static T ToEnum<T>(this string value, bool ignorecase)
         {
             if (value == null)
                 throw new ArgumentNullException("Value");
-            
+
             value = value.Trim();
 
             if (value.Length == 0)
@@ -166,9 +170,9 @@ namespace TestProj47
             if (!t.IsEnum)
                 throw new ArgumentException("Type provided must be an Enum.", "T");
 
-            return (T)Enum.Parse(t, value, ignorecase);
+            return (T) Enum.Parse(t, value, ignorecase);
         }
-        
+
         /// <summary>
         /// Toes the integer.
         /// </summary>
@@ -177,8 +181,9 @@ namespace TestProj47
         /// <returns></returns>
         public static int ToInteger(this string value, int defaultvalue)
         {
-            return (int)ToDouble(value, defaultvalue);
+            return (int) ToDouble(value, defaultvalue);
         }
+
         /// <summary>
         /// Toes the integer.
         /// </summary>
@@ -225,6 +230,7 @@ namespace TestProj47
             }
             return defaultvalue;
         }
+
         /// <summary>
         /// Toes the double.
         /// </summary>
@@ -250,6 +256,7 @@ namespace TestProj47
             }
             return defaultvalue;
         }
+
         /// <summary>
         /// Toes the date time.
         /// </summary>
@@ -267,7 +274,7 @@ namespace TestProj47
         /// <returns>A bool based on the string value</returns>
         public static bool? ToBoolean(this string value)
         {
-            if (string.Compare("T",value,true) == 0)
+            if (string.Compare("T", value, true) == 0)
             {
                 return true;
             }
@@ -282,21 +289,26 @@ namespace TestProj47
             }
             return null;
         }
+
         #endregion
 
         #region ValueOrDefault
+
         public static string GetValueOrEmpty(this string value)
         {
             return GetValueOrDefault(value, string.Empty);
         }
+
         public static string GetValueOrDefault(this string value, string defaultvalue)
         {
             if (value != null) return value;
             return defaultvalue;
         }
+
         #endregion
 
         #region ToUpperLowerNameVariant
+
         /// <summary>
         /// Converts string to a Name-Format where each first letter is Uppercase.
         /// </summary>
@@ -307,17 +319,17 @@ namespace TestProj47
             if (string.IsNullOrEmpty(value)) return "";
             var valuearray = value.ToLower().ToCharArray();
             var nextupper = true;
-            for (var i = 0; i < valuearray.Count() -1; i++)
+            for (var i = 0; i < valuearray.Count() - 1; i++)
             {
                 if (nextupper)
                 {
                     valuearray[i] = char.Parse(valuearray[i].ToString().ToUpper());
                     nextupper = false;
-                } 
+                }
                 else
                 {
                     switch (valuearray[i])
-	                {
+                    {
                         case ' ':
                         case '-':
                         case '.':
@@ -325,17 +337,19 @@ namespace TestProj47
                         case '\n':
                             nextupper = true;
                             break;
-		                default:
+                        default:
                             nextupper = false;
                             break;
-	                }
+                    }
                 }
             }
             return new string(valuearray);
         }
+
         #endregion
 
         #region Encrypt Decrypt
+
         /// <summary>
         /// Encryptes a string using the supplied key. Encoding is done using RSA encryption.
         /// </summary>
@@ -394,14 +408,14 @@ namespace TestProj47
                 var rsa = new RSACryptoServiceProvider(cspp);
                 rsa.PersistKeyInCsp = true;
 
-                var decryptArray = stringToDecrypt.Split(new[] { "-" }, StringSplitOptions.None);
-                var decryptByteArray = Array.ConvertAll(decryptArray, (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
+                var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
+                var decryptByteArray = Array.ConvertAll(decryptArray,
+                    (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
 
 
                 var bytes = rsa.Decrypt(decryptByteArray, true);
 
                 result = UTF8Encoding.UTF8.GetString(bytes);
-
             }
             finally
             {
@@ -410,9 +424,11 @@ namespace TestProj47
 
             return result;
         }
+
         #endregion
 
         #region IsValidUrl
+
         /// <summary>
         /// Determines whether it is a valid URL.
         /// </summary>
@@ -424,9 +440,11 @@ namespace TestProj47
             var rx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
             return rx.IsMatch(text);
         }
+
         #endregion
 
         #region IsValidEmailAddress
+
         /// <summary>
         /// Determines whether it is a valid email address
         /// </summary>
@@ -438,9 +456,11 @@ namespace TestProj47
             var regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
             return regex.IsMatch(email);
         }
+
         #endregion
 
         #region Email
+
         /// <summary>
         /// Send an email using the supplied string.
         /// </summary>
@@ -475,14 +495,18 @@ namespace TestProj47
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not send mail from: " + sender + " to: " + recipient + " thru smtp server: " + server + "\n\n" + ex.Message, ex);
+                throw new Exception(
+                    "Could not send mail from: " + sender + " to: " + recipient + " thru smtp server: " + server +
+                    "\n\n" + ex.Message, ex);
             }
 
             return true;
         }
+
         #endregion
 
         #region Truncate
+
         /// <summary>
         /// Truncates the string to a specified length and replace the truncated to a ...
         /// </summary>
@@ -506,6 +530,7 @@ namespace TestProj47
             truncatedString += suffix;
             return truncatedString;
         }
+
         #endregion
 
         #region HTMLHelper
@@ -562,9 +587,11 @@ namespace TestProj47
         {
             return HttpUtility.UrlPathEncode(url);
         }
+
         #endregion
 
         #region Format
+
         /// <summary>
         /// Replaces the format item in a specified System.String with the text equivalent
         /// of the value of a specified System.Object instance.
@@ -577,11 +604,13 @@ namespace TestProj47
             {
                 return string.Format(format, arg);
             }
-            return string.Format(format, new[] { arg }.Concat(additionalArgs).ToArray());
+            return string.Format(format, new[] {arg}.Concat(additionalArgs).ToArray());
         }
+
         #endregion
 
         #region IsNullOrEmpty
+
         /// <summary>
         /// Determines whether [is not null or empty] [the specified input].
         /// </summary>
@@ -592,8 +621,7 @@ namespace TestProj47
         {
             return !string.IsNullOrEmpty(input);
         }
-        #endregion
 
-        
+        #endregion
     }
 }

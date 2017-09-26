@@ -9,6 +9,7 @@ namespace TestProj47
     public static partial class Extensions
     {
         #region Elapsed extension
+
         /// <summary>
         /// Elapseds the time.
         /// </summary>
@@ -18,9 +19,11 @@ namespace TestProj47
         {
             return DateTime.Now - datetime;
         }
+
         #endregion
 
         #region Week of year
+
         /// <summary>
         /// Weeks the of year.
         /// </summary>
@@ -33,6 +36,7 @@ namespace TestProj47
             var ciCurr = CultureInfo.CurrentCulture;
             return ciCurr.Calendar.GetWeekOfYear(datetime, weekrule, firstDayOfWeek);
         }
+
         /// <summary>
         /// Weeks the of year.
         /// </summary>
@@ -45,6 +49,7 @@ namespace TestProj47
             var weekrule = dateinf.CalendarWeekRule;
             return WeekOfYear(datetime, weekrule, firstDayOfWeek);
         }
+
         /// <summary>
         /// Weeks the of year.
         /// </summary>
@@ -70,9 +75,11 @@ namespace TestProj47
             var firstDayOfWeek = dateinf.FirstDayOfWeek;
             return WeekOfYear(datetime, weekrule, firstDayOfWeek);
         }
+
         #endregion
 
         #region Get Datetime for Day of Week
+
         /// <summary>
         /// Gets the date time for day of week.
         /// </summary>
@@ -86,12 +93,14 @@ namespace TestProj47
             var resultday = DaysFromFirstDayOfWeek(day, firstDayOfWeek);
             return datetime.AddDays(resultday - current);
         }
+
         public static DateTime GetDateTimeForDayOfWeek(this DateTime datetime, DayOfWeek day)
         {
             var dateinf = new DateTimeFormatInfo();
             var firstDayOfWeek = dateinf.FirstDayOfWeek;
             return GetDateTimeForDayOfWeek(datetime, day, firstDayOfWeek);
         }
+
         /// <summary>
         /// Firsts the date time of week.
         /// </summary>
@@ -103,6 +112,7 @@ namespace TestProj47
             var firstDayOfWeek = dateinf.FirstDayOfWeek;
             return FirstDateTimeOfWeek(datetime, firstDayOfWeek);
         }
+
         /// <summary>
         /// Firsts the date time of week.
         /// </summary>
@@ -127,6 +137,7 @@ namespace TestProj47
             if (daysbetween < 0) daysbetween = 7 + daysbetween;
             return daysbetween;
         }
+
         #endregion
 
         public static string GetValueOrDefaultToString(this DateTime? datetime, string defaultvalue)

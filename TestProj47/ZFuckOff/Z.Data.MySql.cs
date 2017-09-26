@@ -36,7 +36,6 @@ using System.Reflection;
 // Copyright � ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -67,7 +66,6 @@ public static partial class Extensions
 // Copyright (c) ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -99,7 +97,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -255,7 +252,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -413,7 +409,6 @@ public static partial class Extensions
 //using System.Data;
 //using MySql.Data.MySqlClient;
 //using Z.Data.MySql;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -573,7 +568,6 @@ public static partial class Extensions
 //using System.Data;
 //using MySql.Data.MySqlClient;
 //using Z.Data.MySql;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -735,7 +729,6 @@ public static partial class Extensions
 //using System.Data;
 //using MySql.Data.MySqlClient;
 //using Z.Data.MySql;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -889,7 +882,6 @@ public static partial class Extensions
 //using System.Data;
 //using MySql.Data.MySqlClient;
 //using Z.Data.MySql;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1057,7 +1049,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1192,7 +1183,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1336,7 +1326,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1480,7 +1469,6 @@ public static partial class Extensions
 //using System;
 //using System.Data;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1625,7 +1613,6 @@ public static partial class Extensions
 //using System.Data;
 //using MySql.Data.MySqlClient;
 //using Z.Data.MySql;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1768,7 +1755,6 @@ public static partial class Extensions
 // Copyright � ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 //using System.Collections.Generic;
 //using MySql.Data.MySqlClient;
-
 namespace TestProj47 {
 public static partial class Extensions
 {
@@ -1848,7 +1834,7 @@ namespace Z.Data.MySql
             return list;
         }
     }
-}// Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
+} // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
@@ -1897,7 +1883,7 @@ namespace Z.Data.MySql
             return entity;
         }
     }
-}// Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
+} // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
@@ -1929,7 +1915,7 @@ namespace Z.Data.MySql
             return entity;
         }
     }
-}// Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
+} // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
@@ -1969,7 +1955,7 @@ namespace Z.Data.MySql
             return list;
         }
     }
-}// Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
+} // Description: C# Extension Methods Library to enhances the .NET Framework by adding hundreds of new methods. It drastically increases developers productivity and code readability. Support C# and VB.NET
 // Website & Documentation: https://github.com/zzzprojects/Z.ExtensionMethods
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE

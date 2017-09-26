@@ -8,7 +8,6 @@ namespace TestProj47
     /// </summary>
     public static partial class Extensions
     {
-
         /// <summary>
         /// Converts the Linq data to a commaseperated string including header.
         /// </summary>
@@ -44,7 +43,7 @@ namespace TestProj47
             var replaceDelimiter = ";";
             var headers = data.ElementType.GetProperties();
             switch (replaceFrom)
-	        {
+            {
                 case ";":
                     replaceDelimiter = ":";
                     break;
@@ -54,9 +53,9 @@ namespace TestProj47
                 case "\t":
                     replaceDelimiter = "    ";
                     break;
-		        default:
+                default:
                     break;
-	        }
+            }
             if (headers.Length > 0)
             {
                 foreach (var head in headers)
@@ -69,28 +68,29 @@ namespace TestProj47
             {
                 var fields = row.GetType().GetProperties();
                 for (var i = 0; i < fields.Length; i++)
-			    {
+                {
                     object value = null;
                     try
                     {
                         value = fields[i].GetValue(row, null);
                     }
-                    catch { }
+                    catch
+                    {
+                    }
                     if (value != null)
                     {
-                        csvdata.Append(value.ToString().Replace("\r", "\f").Replace("\n", " \f").Replace("_", " ").Replace(replaceFrom, replaceDelimiter) + delimiter);
+                        csvdata.Append(value.ToString().Replace("\r", "\f").Replace("\n", " \f").Replace("_", " ")
+                                           .Replace(replaceFrom, replaceDelimiter) + delimiter);
                     }
                     else
                     {
                         csvdata.Append(nullvalue);
                         csvdata.Append(delimiter);
                     }
-			    }
+                }
                 csvdata.Append("\n");
             }
             return csvdata.ToString();
         }
-
-        
     }
 }

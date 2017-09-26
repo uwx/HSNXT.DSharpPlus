@@ -8,6 +8,7 @@ namespace TestProj47
     public static partial class Extensions
     {
         #region FormValue extension
+
         /// <summary>
         /// The form value for this textbox.
         /// </summary>
@@ -31,6 +32,7 @@ namespace TestProj47
         //    if (textbox.UniqueID != null) value = textbox.Page.Request.Form[textbox.UniqueID];
         //    return value ?? ((textbox.Text.ToInteger() == 0) ? defaultvalue: textbox.Text.ToInteger());
         //}
+
         #endregion
     }
 }
