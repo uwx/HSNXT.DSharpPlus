@@ -660,37 +660,35 @@ namespace TestProj47
         /// <typeparam name="T">Generic type parameter.</typeparam>
         public static object To(this object @this, Type type)
         {
-            if (@this != null)
+            if (@this == null) return @this;
+            var targetType = type;
+
+            if (@this.GetType() == targetType)
             {
-                var targetType = type;
+                return @this;
+            }
 
-                if (@this.GetType() == targetType)
+            var converter = TypeDescriptor.GetConverter(@this);
+            if (converter != null)
+            {
+                if (converter.CanConvertTo(targetType))
                 {
-                    return @this;
+                    return converter.ConvertTo(@this, targetType);
                 }
+            }
 
-                var converter = TypeDescriptor.GetConverter(@this);
-                if (converter != null)
+            converter = TypeDescriptor.GetConverter(targetType);
+            if (converter != null)
+            {
+                if (converter.CanConvertFrom(@this.GetType()))
                 {
-                    if (converter.CanConvertTo(targetType))
-                    {
-                        return converter.ConvertTo(@this, targetType);
-                    }
+                    return converter.ConvertFrom(@this);
                 }
+            }
 
-                converter = TypeDescriptor.GetConverter(targetType);
-                if (converter != null)
-                {
-                    if (converter.CanConvertFrom(@this.GetType()))
-                    {
-                        return converter.ConvertFrom(@this);
-                    }
-                }
-
-                if (@this == DBNull.Value)
-                {
-                    return null;
-                }
+            if (@this == DBNull.Value)
+            {
+                return null;
             }
 
             return @this;
@@ -806,37 +804,35 @@ namespace TestProj47
         {
             try
             {
-                if (@this != null)
+                if (@this == null) return (T) @this;
+                var targetType = typeof(T);
+
+                if (@this.GetType() == targetType)
                 {
-                    var targetType = typeof(T);
+                    return (T) @this;
+                }
 
-                    if (@this.GetType() == targetType)
+                var converter = TypeDescriptor.GetConverter(@this);
+                if (converter != null)
+                {
+                    if (converter.CanConvertTo(targetType))
                     {
-                        return (T) @this;
+                        return (T) converter.ConvertTo(@this, targetType);
                     }
+                }
 
-                    var converter = TypeDescriptor.GetConverter(@this);
-                    if (converter != null)
+                converter = TypeDescriptor.GetConverter(targetType);
+                if (converter != null)
+                {
+                    if (converter.CanConvertFrom(@this.GetType()))
                     {
-                        if (converter.CanConvertTo(targetType))
-                        {
-                            return (T) converter.ConvertTo(@this, targetType);
-                        }
+                        return (T) converter.ConvertFrom(@this);
                     }
+                }
 
-                    converter = TypeDescriptor.GetConverter(targetType);
-                    if (converter != null)
-                    {
-                        if (converter.CanConvertFrom(@this.GetType()))
-                        {
-                            return (T) converter.ConvertFrom(@this);
-                        }
-                    }
-
-                    if (@this == DBNull.Value)
-                    {
-                        return (T) (object) null;
-                    }
+                if (@this == DBNull.Value)
+                {
+                    return (T) (object) null;
                 }
 
                 return (T) @this;
@@ -1047,13 +1043,7 @@ namespace TestProj47
         /// <returns>true if valid System.DateTimeOffset, false if not.</returns>
         public static bool IsValidDateTimeOffSet(this object @this)
         {
-            if (@this == null)
-            {
-                return true;
-            }
-
-            DateTimeOffset result;
-            return DateTimeOffset.TryParse(@this.ToString(), out result);
+            return @this == null || DateTimeOffset.TryParse(@this.ToString(), out var result);
         }
 
         /// <summary>
@@ -6147,11 +6137,7 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T NullIf<T>(this T @this, Func<T, bool> predicate) where T : class
         {
-            if (predicate(@this))
-            {
-                return null;
-            }
-            return @this;
+            return predicate(@this) ? null : @this;
         }
 
         /// <summary>
@@ -6163,11 +6149,7 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T NullIfEquals<T>(this T @this, T value) where T : class
         {
-            if (@this.Equals(value))
-            {
-                return null;
-            }
-            return @this;
+            return @this.Equals(value) ? null : @this;
         }
 
         /// <summary>
@@ -6179,11 +6161,7 @@ namespace TestProj47
         /// <returns>A T.</returns>
         public static T NullIfEqualsAny<T>(this T @this, params T[] values) where T : class
         {
-            if (Array.IndexOf(values, @this) != -1)
-            {
-                return null;
-            }
-            return @this;
+            return Array.IndexOf(values, @this) != -1 ? null : @this;
         }
 
         /// <summary>
@@ -6193,7 +6171,7 @@ namespace TestProj47
         /// <returns>@this as a string or empty if the value is null.</returns>
         public static string ToStringSafe(this object @this)
         {
-            return @this == null ? "" : @this.ToString();
+            return @this?.ToString() ?? "";
         }
 
         /// <summary>A TType extension method that tries.</summary>
