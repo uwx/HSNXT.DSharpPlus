@@ -26,10 +26,7 @@ namespace TestProj47
         {
             return ColorTranslator.ToHtml(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Translates the specified  structure to an OLE color.
         /// </summary>
@@ -39,10 +36,7 @@ namespace TestProj47
         {
             return ColorTranslator.ToOle(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Translates the specified  structure to a Windows color.
         /// </summary>
@@ -52,10 +46,7 @@ namespace TestProj47
         {
             return ColorTranslator.ToWin32(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Image extension method that cuts an image.
         /// </summary>
@@ -78,10 +69,7 @@ namespace TestProj47
 
             return r;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Image extension method that scales an image to the specific ratio.
         /// </summary>

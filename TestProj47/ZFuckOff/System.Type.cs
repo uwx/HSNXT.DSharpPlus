@@ -98,10 +98,7 @@ namespace TestProj47
         {
             return (T) Activator.CreateInstance(@this, nonPublic);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates an instance of the specified type using the constructor that best matches the specified parameters.
         /// </summary>
@@ -221,10 +218,7 @@ namespace TestProj47
         {
             return Activator.CreateInstance(type, nonPublic);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a proxy for the well-known object indicated by the specified type and URL.
         /// </summary>

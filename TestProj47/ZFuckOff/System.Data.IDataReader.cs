@@ -71,10 +71,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that applies an operation to all items in this collection.
         /// </summary>
@@ -90,10 +87,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Gets the column names in this collection.
         /// </summary>
@@ -105,10 +99,7 @@ namespace TestProj47
                 .Select(@this.GetName)
                 .ToList();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that gets value as.
         /// </summary>
@@ -132,10 +123,7 @@ namespace TestProj47
         {
             return (T) @this.GetValue(@this.GetOrdinal(columnName));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that gets value as or default.
         /// </summary>
@@ -255,10 +243,7 @@ namespace TestProj47
                 return defaultValueFactory(@this, columnName);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that gets value to.
         /// </summary>
@@ -282,10 +267,7 @@ namespace TestProj47
         {
             return @this.GetValue(@this.GetOrdinal(columnName)).To<T>();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that gets value to or default.
         /// </summary>
@@ -405,10 +387,7 @@ namespace TestProj47
                 return defaultValueFactory(@this, columnName);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that query if '@this' is database null.
         /// </summary>
@@ -419,10 +398,7 @@ namespace TestProj47
         {
             return @this.IsDBNull(@this.GetOrdinal(name));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that converts the @this to a data table.
         /// </summary>
@@ -434,10 +410,7 @@ namespace TestProj47
             dt.Load(@this);
             return dt;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates to entities in this collection.
         /// </summary>
@@ -482,10 +455,7 @@ namespace TestProj47
 
             return list;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that converts the @this to an entity.
         /// </summary>
@@ -523,10 +493,7 @@ namespace TestProj47
 
             return entity;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDataReader extension method that converts the @this to an expando object.
         /// </summary>
@@ -547,10 +514,7 @@ namespace TestProj47
 
             return entity;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates to expando objects in this collection.
         /// </summary>

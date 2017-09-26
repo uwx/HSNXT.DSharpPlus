@@ -98,10 +98,7 @@ namespace TestProj47
             string key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
             return @this.FromCache(cache, key, valueFactory);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A MemoryCache extension method that adds an or get existing.</summary>
         /// <typeparam name="TValue">Type of the value.</typeparam>
         /// <param name="cache">The cache to act on.</param>

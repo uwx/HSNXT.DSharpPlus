@@ -66,10 +66,7 @@ namespace TestProj47
 
             return ds;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Executes the query, and returns the first result set as DataTable.
         /// </summary>

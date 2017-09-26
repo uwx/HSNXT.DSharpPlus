@@ -25,10 +25,7 @@ namespace TestProj47
             string url = string.Format(urlFormat, values);
             @this.Redirect(url, true);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that reloads the given this.
         /// </summary>
@@ -37,10 +34,7 @@ namespace TestProj47
         {
             @this.Redirect(HttpContext.Current.Request.Url.ToString(), true);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sends an attachment.
         /// </summary>
@@ -55,10 +49,7 @@ namespace TestProj47
             @this.ContentType = "";
             @this.End();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the status.
         /// </summary>
@@ -114,10 +105,7 @@ namespace TestProj47
                 @this.End();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 202 (Accepted.).
         /// </summary>
@@ -127,10 +115,7 @@ namespace TestProj47
             @this.StatusCode = 202;
             @this.StatusDescription = "Accepted.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 406 (Client browser does not accept the
         ///     MIME type of the requested page.).
@@ -141,10 +126,7 @@ namespace TestProj47
             @this.StatusCode = 406;
             @this.StatusDescription = "Client browser does not accept the MIME type of the requested page.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 100 (Continue.).
         /// </summary>
@@ -154,10 +136,7 @@ namespace TestProj47
             @this.StatusCode = 100;
             @this.StatusDescription = "Continue.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 201 (Created.).
         /// </summary>
@@ -167,10 +146,7 @@ namespace TestProj47
             @this.StatusCode = 201;
             @this.StatusDescription = "Created.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 500 (Internal server error. ).
         /// </summary>
@@ -180,10 +156,7 @@ namespace TestProj47
             @this.StatusCode = 500;
             @this.StatusDescription = "Internal server error. ";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 501 (Header values specify a
         ///     configuration that is not implemented.).
@@ -194,10 +167,7 @@ namespace TestProj47
             @this.StatusCode = 501;
             @this.StatusDescription = "Header values specify a configuration that is not implemented.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 502 (Web server received an invalid
         ///     response while acting as a gateway or proxy. ).
@@ -208,10 +178,7 @@ namespace TestProj47
             @this.StatusCode = 502;
             @this.StatusDescription = "Web server received an invalid response while acting as a gateway or proxy. ";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 405 (Method Not Allowed.).
         /// </summary>
@@ -221,10 +188,7 @@ namespace TestProj47
             @this.StatusCode = 405;
             @this.StatusDescription = "Method Not Allowed.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 301 (Moved permanently.).
         /// </summary>
@@ -234,10 +198,7 @@ namespace TestProj47
             @this.StatusCode = 301;
             @this.StatusDescription = "Moved permanently.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 204 (No content.).
         /// </summary>
@@ -247,10 +208,7 @@ namespace TestProj47
             @this.StatusCode = 204;
             @this.StatusDescription = "No content.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 203 (Nonauthoritative information.).
         /// </summary>
@@ -260,10 +218,7 @@ namespace TestProj47
             @this.StatusCode = 203;
             @this.StatusDescription = "Nonauthoritative information.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 404 (Not found. ).
         /// </summary>
@@ -273,10 +228,7 @@ namespace TestProj47
             @this.StatusCode = 404;
             @this.StatusDescription = "Not found. ";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 304 (Not modified.).
         /// </summary>
@@ -286,10 +238,7 @@ namespace TestProj47
             @this.StatusCode = 304;
             @this.StatusDescription = "Not modified.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 302 (Object moved.).
         /// </summary>
@@ -299,10 +248,7 @@ namespace TestProj47
             @this.StatusCode = 302;
             @this.StatusDescription = "Object moved.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 206 (Partial content.).
         /// </summary>
@@ -312,10 +258,7 @@ namespace TestProj47
             @this.StatusCode = 206;
             @this.StatusDescription = "Partial content.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 412 (Precondition failed.).
         /// </summary>
@@ -325,10 +268,7 @@ namespace TestProj47
             @this.StatusCode = 412;
             @this.StatusDescription = "Precondition failed.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 408 (Request timed out.).
         /// </summary>
@@ -338,10 +278,7 @@ namespace TestProj47
             @this.StatusCode = 408;
             @this.StatusDescription = "Request timed out.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 205 (Reset content.).
         /// </summary>
@@ -351,10 +288,7 @@ namespace TestProj47
             @this.StatusCode = 205;
             @this.StatusDescription = "Reset content.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 503 (Service unavailable. ).
         /// </summary>
@@ -364,10 +298,7 @@ namespace TestProj47
             @this.StatusCode = 503;
             @this.StatusDescription = "Service unavailable. ";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 101 (Switching protocols.).
         /// </summary>
@@ -377,10 +308,7 @@ namespace TestProj47
             @this.StatusCode = 101;
             @this.StatusDescription = "Switching protocols.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A HttpResponse extension method that sets the response to status code 307 (Temporary redirect.).
         /// </summary>
@@ -390,10 +318,7 @@ namespace TestProj47
             @this.StatusCode = 307;
             @this.StatusDescription = "Temporary redirect.";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches the current naming container for a server control with the specified id parameter.
         /// </summary>
@@ -405,10 +330,7 @@ namespace TestProj47
         {
             return (@this.FindControl(id) as T);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches recursively in the container and child container for a server control with the specified id
         ///     parameter.

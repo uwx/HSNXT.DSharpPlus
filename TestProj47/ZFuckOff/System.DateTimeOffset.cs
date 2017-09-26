@@ -64,10 +64,7 @@ namespace TestProj47
         {
             return new DateTime(current.Year, current.Month, current.Day, hour, minute, second, millisecond);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a time to the time in a particular time zone.
         /// </summary>
@@ -78,10 +75,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTime(dateTimeOffset, destinationTimeZone);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a time to the time in another time zone based on the time zone&#39;s identifier.
         /// </summary>
@@ -93,10 +87,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTimeOffset, destinationTimeZoneId);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -110,10 +101,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -126,10 +114,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -143,10 +128,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

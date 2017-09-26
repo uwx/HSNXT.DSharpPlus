@@ -13,10 +13,7 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An XElement extension method that removes all namespaces described by @this.
         /// </summary>

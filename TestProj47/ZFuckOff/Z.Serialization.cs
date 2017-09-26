@@ -55,10 +55,7 @@ namespace TestProj47
                 return encoding.GetString(memoryStream.ToArray());
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that serialize java script.
         /// </summary>
@@ -70,10 +67,7 @@ namespace TestProj47
             var serializer = new JavaScriptSerializer();
             return serializer.Serialize(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that serialize an object to Json.
         /// </summary>
@@ -108,10 +102,7 @@ namespace TestProj47
                 return encoding.GetString(memoryStream.ToArray());
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that serialize a string to XML.
         /// </summary>
@@ -130,10 +121,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that deserialize a string binary as &lt;T&gt;.
         /// </summary>
@@ -164,10 +152,7 @@ namespace TestProj47
                 return (T) binaryRead.Deserialize(stream);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that deserialize a string binary as &lt;T&gt;.
         /// </summary>
@@ -179,10 +164,7 @@ namespace TestProj47
             var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that deserialize a Json string to object.
         /// </summary>
@@ -215,10 +197,7 @@ namespace TestProj47
                 return (T) serializer.ReadObject(stream);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that deserialize an Xml as &lt;T&gt;.
         /// </summary>

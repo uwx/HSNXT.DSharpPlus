@@ -38,10 +38,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that add value if the ICollection doesn't contains it already.
         /// </summary>
@@ -59,10 +56,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that adds a range to 'values'.
         /// </summary>
@@ -76,10 +70,7 @@ namespace TestProj47
                 @this.Add(value);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that adds a collection of objects to the end of this collection only
         ///     for value who satisfies the predicate.
@@ -98,10 +89,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that adds a range of values that's not already in the ICollection.
         /// </summary>
@@ -118,10 +106,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that query if '@this' contains all values.
         /// </summary>
@@ -141,10 +126,7 @@ namespace TestProj47
 
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that query if '@this' contains any value.
         /// </summary>
@@ -164,10 +146,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that query if the collection is empty.
         /// </summary>
@@ -178,10 +157,7 @@ namespace TestProj47
         {
             return @this.Count == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that query if the collection is not empty.
         /// </summary>
@@ -192,10 +168,7 @@ namespace TestProj47
         {
             return @this.Count != 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that queries if the collection is not (null or is empty).
         /// </summary>
@@ -206,10 +179,7 @@ namespace TestProj47
         {
             return @this != null && @this.Count != 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that queries if the collection is null or is empty.
         /// </summary>
@@ -220,10 +190,7 @@ namespace TestProj47
         {
             return @this == null || @this.Count == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes if.
         /// </summary>
@@ -238,10 +205,7 @@ namespace TestProj47
                 @this.Remove(value);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes if contains.
         /// </summary>
@@ -255,10 +219,7 @@ namespace TestProj47
                 @this.Remove(value);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes the range.
         /// </summary>
@@ -272,10 +233,7 @@ namespace TestProj47
                 @this.Remove(value);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes range item that satisfy the predicate.
         /// </summary>
@@ -293,10 +251,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes the range if contains.
         /// </summary>
@@ -313,10 +268,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An ICollection&lt;T&gt; extension method that removes value that satisfy the predicate.
         /// </summary>
@@ -331,10 +283,7 @@ namespace TestProj47
                 @this.Remove(item);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;string,object&gt; extension method that converts the @this to an expando.
         /// </summary>
@@ -360,10 +309,7 @@ namespace TestProj47
 
             return expando;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;string,string&gt; extension method that converts the @this to a name value collection.
         /// </summary>
@@ -383,10 +329,7 @@ namespace TestProj47
             }
             return col;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;TKey,TValue&gt; extension method that adds if not contains key.
         /// </summary>
@@ -449,10 +392,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Uses the specified functions to add a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does
         ///     not already exist, or to update a key/value pair in the IDictionary&lt;TKey, TValue&gt;> if the key already
@@ -543,10 +483,7 @@ namespace TestProj47
 
             return @this[key];
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this' contains all key.
         /// </summary>
@@ -567,10 +504,7 @@ namespace TestProj47
 
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this' contains any key.
         /// </summary>
@@ -591,10 +525,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Adds a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does not already exist.
         /// </summary>
@@ -640,10 +571,7 @@ namespace TestProj47
 
             return @this[key];
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;TKey,TValue&gt; extension method that removes if contains key.
         /// </summary>
@@ -658,10 +586,7 @@ namespace TestProj47
                 @this.Remove(key);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary&lt;TKey,TValue&gt; extension method that converts the @this to a sorted dictionary.
         /// </summary>
@@ -688,10 +613,7 @@ namespace TestProj47
         {
             return new SortedDictionary<TKey, TValue>(@this, comparer);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>Enumerates merge distinct inner enumerable in this collection.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -712,10 +634,7 @@ namespace TestProj47
 
             return list;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>Enumerates merge inner enumerable in this collection.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -736,10 +655,7 @@ namespace TestProj47
 
             return list;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that query if '@this' contains all.
         /// </summary>
@@ -760,10 +676,7 @@ namespace TestProj47
 
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that query if '@this' contains any.
         /// </summary>
@@ -784,10 +697,7 @@ namespace TestProj47
 
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates for each in this collection.
         /// </summary>
@@ -821,10 +731,7 @@ namespace TestProj47
 
             return array;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that query if 'collection' is empty.
         /// </summary>
@@ -835,10 +742,7 @@ namespace TestProj47
         {
             return !@this.Any();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that queries if a not is empty.
         /// </summary>
@@ -849,10 +753,7 @@ namespace TestProj47
         {
             return @this.Any();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that queries if a not null or is empty.
         /// </summary>
@@ -863,10 +764,7 @@ namespace TestProj47
         {
             return @this != null && @this.Any();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that queries if a null or is empty.
         /// </summary>
@@ -877,10 +775,7 @@ namespace TestProj47
         {
             return @this == null || !@this.Any();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Concatenates all the elements of a IEnumerable, using the specified separator between each element.
         /// </summary>
@@ -917,10 +812,7 @@ namespace TestProj47
         {
             return string.Join(separator.ToString(), @this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An IDictionary extension method that converts the @this to a hashtable.
         /// </summary>
@@ -930,10 +822,7 @@ namespace TestProj47
         {
             return new Hashtable(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A NameValueCollection extension method that converts the @this to a dictionary.
         /// </summary>

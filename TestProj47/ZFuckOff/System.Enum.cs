@@ -29,10 +29,7 @@ namespace TestProj47
                 .GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
             return attr.Description;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -43,10 +40,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

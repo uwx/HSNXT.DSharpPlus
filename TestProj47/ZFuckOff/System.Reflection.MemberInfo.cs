@@ -52,10 +52,7 @@ namespace TestProj47
         {
             return Attribute.GetCustomAttribute(element, attributeType, inherit);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Retrieves an array of the custom attributes applied to a member of a type. Parameters specify the member, and
         ///     the type of the custom attribute to search for.
@@ -126,10 +123,7 @@ namespace TestProj47
         {
             return Attribute.GetCustomAttributes(element, inherit);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Determines whether any custom attributes are applied to a member of a type. Parameters specify the member,
         ///     and the type of the custom attribute to search for.

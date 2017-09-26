@@ -30,10 +30,7 @@ namespace TestProj47
             }
             return DateTime.Today.Year - @this.Year;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that elapsed the given datetime.
         /// </summary>
@@ -43,10 +40,7 @@ namespace TestProj47
         {
             return DateTime.Now - datetime;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime with the time set to "23:59:59:999". The last moment of
         ///     the day. Use "DateTime2" column type in sql to keep the precision.
@@ -57,10 +51,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime of the last day of the month with the time set to
         ///     "23:59:59:999". The last moment of the last day of the month.  Use "DateTime2" column type in sql to keep the
@@ -72,10 +63,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, 1).AddMonths(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A System.DateTime extension method that ends of week.
         /// </summary>
@@ -105,10 +93,7 @@ namespace TestProj47
 
             return new DateTime(end.Year, end.Month, end.Day, 23, 59, 59, 999);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime of the last day of the year with the time set to
         ///     "23:59:59:999". The last moment of the last day of the year.  Use "DateTime2" column type in sql to keep the
@@ -120,10 +105,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, 1, 1).AddYears(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that first day of week.
         /// </summary>
@@ -133,10 +115,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(-(int) @this.DayOfWeek);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is afternoon.
         /// </summary>
@@ -146,10 +125,7 @@ namespace TestProj47
         {
             return @this.TimeOfDay >= new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if 'date' is date equal.
         /// </summary>
@@ -160,10 +136,7 @@ namespace TestProj47
         {
             return (date.Date == dateToCompare.Date);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is in the future.
         /// </summary>
@@ -173,10 +146,7 @@ namespace TestProj47
         {
             return @this > DateTime.Now;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is morning.
         /// </summary>
@@ -186,10 +156,7 @@ namespace TestProj47
         {
             return @this.TimeOfDay < new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is now.
         /// </summary>
@@ -199,10 +166,7 @@ namespace TestProj47
         {
             return @this == DateTime.Now;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is in the past.
         /// </summary>
@@ -212,10 +176,7 @@ namespace TestProj47
         {
             return @this < DateTime.Now;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if 'time' is time equal.
         /// </summary>
@@ -226,10 +187,7 @@ namespace TestProj47
         {
             return (time.TimeOfDay == timeToCompare.TimeOfDay);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is today.
         /// </summary>
@@ -239,10 +197,7 @@ namespace TestProj47
         {
             return @this.Date == DateTime.Today;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is a week day.
         /// </summary>
@@ -252,10 +207,7 @@ namespace TestProj47
         {
             return !(@this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that query if '@this' is a weekend day.
         /// </summary>
@@ -265,10 +217,7 @@ namespace TestProj47
         {
             return (@this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that last day of week.
         /// </summary>
@@ -278,10 +227,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(6 - (int) @this.DayOfWeek);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Sets the time of the current date with minute precision.
         /// </summary>
@@ -331,10 +277,7 @@ namespace TestProj47
         {
             return new DateTime(current.Year, current.Month, current.Day, hour, minute, second, millisecond);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime with the time set to "00:00:00:000". The first moment of
         ///     the day.
@@ -345,10 +288,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, @this.Day);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime of the first day of the month with the time set to
         ///     "00:00:00:000". The first moment of the first day of the month.
@@ -359,10 +299,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, @this.Month, 1);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that starts of week.
         /// </summary>
@@ -385,10 +322,7 @@ namespace TestProj47
 
             return start;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that return a DateTime of the first day of the year with the time set to
         ///     "00:00:00:000". The first moment of the first day of the year.
@@ -399,10 +333,7 @@ namespace TestProj47
         {
             return new DateTime(@this.Year, 1, 1);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts the @this to an epoch time span.
         /// </summary>
@@ -412,10 +343,7 @@ namespace TestProj47
         {
             return @this.Subtract(new DateTime(1970, 1, 1));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that tomorrows the given this.
         /// </summary>
@@ -425,10 +353,7 @@ namespace TestProj47
         {
             return @this.AddDays(1);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that yesterdays the given this.
         /// </summary>
@@ -438,10 +363,7 @@ namespace TestProj47
         {
             return @this.AddDays(-1);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified date and time is within the specified daylight saving time
         ///     period.
@@ -453,10 +375,7 @@ namespace TestProj47
         {
             return TimeZone.IsDaylightSavingTime(time, daylightTimes);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a time to the time in a particular time zone.
         /// </summary>
@@ -482,10 +401,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTime(dateTime, sourceTimeZone, destinationTimeZone);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a time to the time in another time zone based on the time zone&#39;s identifier.
         /// </summary>
@@ -511,10 +427,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTime, sourceTimeZoneId, destinationTimeZoneId);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a Coordinated Universal Time (UTC) to the time in a specified time zone.
         /// </summary>
@@ -527,10 +440,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTimeFromUtc(dateTime, destinationTimeZone);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the current date and time to Coordinated Universal Time (UTC).
         /// </summary>
@@ -557,10 +467,7 @@ namespace TestProj47
         {
             return TimeZoneInfo.ConvertTimeToUtc(dateTime, sourceTimeZone);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a full date time string.
         /// </summary>
@@ -592,10 +499,7 @@ namespace TestProj47
         {
             return @this.ToString("F", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a long date short time string.
         /// </summary>
@@ -627,10 +531,7 @@ namespace TestProj47
         {
             return @this.ToString("f", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a long date string.
         /// </summary>
@@ -662,10 +563,7 @@ namespace TestProj47
         {
             return @this.ToString("D", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a long date time string.
         /// </summary>
@@ -697,10 +595,7 @@ namespace TestProj47
         {
             return @this.ToString("F", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a long time string.
         /// </summary>
@@ -732,10 +627,7 @@ namespace TestProj47
         {
             return @this.ToString("T", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a month day string.
         /// </summary>
@@ -767,10 +659,7 @@ namespace TestProj47
         {
             return @this.ToString("m", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a rfc 1123 string.
         /// </summary>
@@ -802,10 +691,7 @@ namespace TestProj47
         {
             return @this.ToString("r", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a short date long time string.
         /// </summary>
@@ -837,10 +723,7 @@ namespace TestProj47
         {
             return @this.ToString("G", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a short date string.
         /// </summary>
@@ -872,10 +755,7 @@ namespace TestProj47
         {
             return @this.ToString("d", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a short date time string.
         /// </summary>
@@ -907,10 +787,7 @@ namespace TestProj47
         {
             return @this.ToString("g", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a short time string.
         /// </summary>
@@ -942,10 +819,7 @@ namespace TestProj47
         {
             return @this.ToString("t", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a sortable date time string.
         /// </summary>
@@ -977,10 +851,7 @@ namespace TestProj47
         {
             return @this.ToString("s", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to an universal sortable date time string.
         /// </summary>
@@ -1012,10 +883,7 @@ namespace TestProj47
         {
             return @this.ToString("u", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to an universal sortable long date time string.
         /// </summary>
@@ -1047,10 +915,7 @@ namespace TestProj47
         {
             return @this.ToString("U", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DateTime extension method that converts this object to a year month string.
         /// </summary>
@@ -1082,10 +947,7 @@ namespace TestProj47
         {
             return @this.ToString("y", culture);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -1099,10 +961,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -1115,10 +974,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -1132,10 +988,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

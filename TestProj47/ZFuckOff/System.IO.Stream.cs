@@ -88,10 +88,7 @@ namespace TestProj47
                 return sr.ReadToEnd();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A Stream extension method that converts the Stream to a byte array.
         /// </summary>
@@ -105,10 +102,7 @@ namespace TestProj47
                 return ms.ToArray();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A Stream extension method that converts the @this to a md 5 hash.
         /// </summary>

@@ -21,10 +21,7 @@ namespace TestProj47
         {
             return @this == Guid.Empty;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A GUID extension method that queries if a not is empty.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if a not is empty, false if not.</returns>
@@ -32,10 +29,7 @@ namespace TestProj47
         {
             return @this != Guid.Empty;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -48,10 +42,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

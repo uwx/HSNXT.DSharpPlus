@@ -28,10 +28,7 @@ namespace TestProj47
                 t.Delete();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates for each in this collection.
         /// </summary>

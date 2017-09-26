@@ -24,10 +24,7 @@ namespace TestProj47
         {
             return TimeSpan.FromDays(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that factor of.
         /// </summary>
@@ -38,10 +35,7 @@ namespace TestProj47
         {
             return factorNumer % @this == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that hours the given this.
         /// </summary>
@@ -51,10 +45,7 @@ namespace TestProj47
         {
             return TimeSpan.FromHours(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that query if '@this' is even.
         /// </summary>
@@ -64,10 +55,7 @@ namespace TestProj47
         {
             return @this % 2 == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that query if '@this' is multiple of.
         /// </summary>
@@ -78,10 +66,7 @@ namespace TestProj47
         {
             return @this % factor == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that query if '@this' is odd.
         /// </summary>
@@ -91,10 +76,7 @@ namespace TestProj47
         {
             return @this % 2 != 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that query if '@this' is prime.
         /// </summary>
@@ -123,10 +105,7 @@ namespace TestProj47
 
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that milliseconds the given this.
         /// </summary>
@@ -136,10 +115,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMilliseconds(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that minutes the given this.
         /// </summary>
@@ -149,10 +125,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMinutes(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that seconds the given this.
         /// </summary>
@@ -162,10 +135,7 @@ namespace TestProj47
         {
             return TimeSpan.FromSeconds(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that weeks the given this.
         /// </summary>
@@ -175,10 +145,7 @@ namespace TestProj47
         {
             return TimeSpan.FromDays(@this * 7);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the specified 64-bit signed integer value as an array of bytes.
         /// </summary>
@@ -188,10 +155,7 @@ namespace TestProj47
         {
             return BitConverter.GetBytes(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified 64-bit signed integer to a double-precision floating point number.
         /// </summary>
@@ -201,10 +165,7 @@ namespace TestProj47
         {
             return BitConverter.Int64BitsToDouble(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Deserializes a 64-bit binary value and recreates an original serialized  object.
         /// </summary>
@@ -217,10 +178,7 @@ namespace TestProj47
         {
             return DateTime.FromBinary(dateData);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified Windows file time to an equivalent local time.
         /// </summary>
@@ -232,10 +190,7 @@ namespace TestProj47
         {
             return DateTime.FromFileTime(fileTime);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified Windows file time to an equivalent UTC time.
         /// </summary>
@@ -247,10 +202,7 @@ namespace TestProj47
         {
             return DateTime.FromFileTimeUtc(fileTime);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified 64-bit signed integer, which contains an OLE Automation Currency value, to the
         ///     equivalent  value.
@@ -261,10 +213,7 @@ namespace TestProj47
         {
             return decimal.FromOACurrency(cy);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the absolute value of a 64-bit signed integer.
         /// </summary>
@@ -274,10 +223,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int64 extension method that div rem.
         /// </summary>
@@ -289,10 +235,7 @@ namespace TestProj47
         {
             return Math.DivRem(a, b, out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two 64-bit signed integers.
         /// </summary>
@@ -303,10 +246,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two 64-bit signed integers.
         /// </summary>
@@ -317,10 +257,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of a 64-bit signed integer.
         /// </summary>
@@ -333,10 +270,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a long value from host byte order to network byte order.
         /// </summary>
@@ -346,10 +280,7 @@ namespace TestProj47
         {
             return IPAddress.HostToNetworkOrder(host);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a long value from network byte order to host byte order.
         /// </summary>
@@ -359,10 +290,7 @@ namespace TestProj47
         {
             return IPAddress.NetworkToHostOrder(network);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified time, where the specification is in units of ticks.
         /// </summary>
@@ -372,10 +300,7 @@ namespace TestProj47
         {
             return TimeSpan.FromTicks(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -389,10 +314,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -405,10 +327,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -422,10 +341,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

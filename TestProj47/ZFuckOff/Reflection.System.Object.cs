@@ -96,10 +96,7 @@ namespace TestProj47
         {
             return (T) Attribute.GetCustomAttribute(@this, typeof(T), inherit);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A MemberInfo extension method that gets custom attribute by full name.</summary>
         /// <exception cref="Exception">Thrown when an exception error condition occurs.</exception>
         /// <param name="this">The @this to act on.</param>
@@ -207,10 +204,7 @@ namespace TestProj47
                 "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
                 attributes.Length));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets custom attribute by name.</summary>
         /// <exception cref="Exception">Thrown when an exception error condition occurs.</exception>
         /// <param name="this">The @this to act on.</param>
@@ -317,10 +311,7 @@ namespace TestProj47
                 "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
                 attributes.Length));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that gets description attribute.
         /// </summary>
@@ -416,10 +407,7 @@ namespace TestProj47
                 "Ambiguous attribute. Multiple custom attributes of the same type found: {0} attributes found.",
                 attributes.Length));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets custom attributes.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>An array of object.</returns>
@@ -492,10 +480,7 @@ namespace TestProj47
         {
             return (T[]) @this.GetCustomAttributes(typeof(T), inherit);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets custom attributes by full name.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="fullName">Name of the full.</param>
@@ -543,10 +528,7 @@ namespace TestProj47
         {
             return @this.GetCustomAttributes(inherit).Where(x => x.GetType().FullName == fullName).ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets custom attributes by name.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="name">The name.</param>
@@ -593,10 +575,7 @@ namespace TestProj47
         {
             return @this.GetCustomAttributes(inherit).Where(x => x.GetType().Name == name).ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A T extension method that searches for the public field with the specified name.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -629,10 +608,7 @@ namespace TestProj47
         {
             return @this.GetType().GetField(name, bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets the fields.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>An array of field information.</returns>
@@ -649,10 +625,7 @@ namespace TestProj47
         {
             return @this.GetType().GetFields(bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that gets a field value (Public | NonPublic | Instance | Static)
         /// </summary>
@@ -668,10 +641,7 @@ namespace TestProj47
 
             return field.GetValue(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A T extension method that gets member paths.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -703,10 +673,7 @@ namespace TestProj47
 
             return memberPaths.ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that searches for the public method with the specified name.
         /// </summary>
@@ -736,10 +703,7 @@ namespace TestProj47
         {
             return @this.GetType().GetMethod(name, bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that returns all the public methods of the current Type.
         /// </summary>
@@ -770,10 +734,7 @@ namespace TestProj47
         {
             return @this.GetType().GetMethods(bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An object extension method that gets the properties.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>An array of property information.</returns>
@@ -790,10 +751,7 @@ namespace TestProj47
         {
             return @this.GetType().GetProperties(bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that gets a property.
         /// </summary>
@@ -818,10 +776,7 @@ namespace TestProj47
         {
             return @this.GetType().GetProperty(name, bindingAttr);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A T extension method that gets property or field.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -843,10 +798,7 @@ namespace TestProj47
 
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that gets property value.
         /// </summary>
@@ -862,10 +814,7 @@ namespace TestProj47
 
             return property.GetValue(@this, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that executes the method on a different thread, and waits for the result.
         /// </summary>
@@ -898,10 +847,7 @@ namespace TestProj47
             object value = method.Invoke(obj, parameters);
             return (value is T ? (T) value : default(T));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is attribute defined.
         /// </summary>
@@ -925,10 +871,7 @@ namespace TestProj47
         {
             return @this.GetType().IsDefined(typeof(T), inherit);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that sets field value.
         /// </summary>
@@ -943,10 +886,7 @@ namespace TestProj47
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
             field.SetValue(@this, value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that sets property value.
         /// </summary>
@@ -961,10 +901,7 @@ namespace TestProj47
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
             property.SetValue(@this, value, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is array.
         /// </summary>
@@ -975,10 +912,7 @@ namespace TestProj47
         {
             return @this.GetType().IsArray;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is class.
         /// </summary>
@@ -989,10 +923,7 @@ namespace TestProj47
         {
             return @this.GetType().IsClass;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is enum.
         /// </summary>
@@ -1003,10 +934,7 @@ namespace TestProj47
         {
             return @this.GetType().IsEnum;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is subclass of.
         /// </summary>
@@ -1018,10 +946,7 @@ namespace TestProj47
         {
             return @this.GetType().IsSubclassOf(type);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is type of.
         /// </summary>
@@ -1033,10 +958,7 @@ namespace TestProj47
         {
             return @this.GetType() == type;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is type or inherits of.
         /// </summary>

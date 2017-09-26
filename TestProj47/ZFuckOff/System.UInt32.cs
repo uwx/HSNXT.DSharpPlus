@@ -24,10 +24,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two 32-bit unsigned integers.
         /// </summary>
@@ -38,10 +35,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -55,10 +49,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -71,10 +62,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -88,10 +76,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

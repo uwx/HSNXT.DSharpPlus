@@ -121,10 +121,7 @@ namespace TestProj47
                         @this));
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that days the given this.
         /// </summary>
@@ -134,10 +131,7 @@ namespace TestProj47
         {
             return TimeSpan.FromDays(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that factor of.
         /// </summary>
@@ -148,10 +142,7 @@ namespace TestProj47
         {
             return factorNumer % @this == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that hours the given this.
         /// </summary>
@@ -161,10 +152,7 @@ namespace TestProj47
         {
             return TimeSpan.FromHours(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that query if '@this' is even.
         /// </summary>
@@ -174,10 +162,7 @@ namespace TestProj47
         {
             return @this % 2 == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that query if '@this' is multiple of.
         /// </summary>
@@ -188,10 +173,7 @@ namespace TestProj47
         {
             return @this % factor == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that query if '@this' is odd.
         /// </summary>
@@ -201,10 +183,7 @@ namespace TestProj47
         {
             return @this % 2 != 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that query if '@this' is prime.
         /// </summary>
@@ -233,10 +212,7 @@ namespace TestProj47
 
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that milliseconds the given this.
         /// </summary>
@@ -246,10 +222,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMilliseconds(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that minutes the given this.
         /// </summary>
@@ -259,10 +232,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMinutes(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that seconds the given this.
         /// </summary>
@@ -272,10 +242,7 @@ namespace TestProj47
         {
             return TimeSpan.FromSeconds(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that weeks the given this.
         /// </summary>
@@ -285,10 +252,7 @@ namespace TestProj47
         {
             return TimeSpan.FromDays(@this * 7);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the specified 32-bit signed integer value as an array of bytes.
         /// </summary>
@@ -298,10 +262,7 @@ namespace TestProj47
         {
             return BitConverter.GetBytes(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified Unicode code point into a UTF-16 encoded string.
         /// </summary>
@@ -314,10 +275,7 @@ namespace TestProj47
         {
             return char.ConvertFromUtf32(utf32);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the number of days in the specified month and year.
         /// </summary>
@@ -331,10 +289,7 @@ namespace TestProj47
         {
             return DateTime.DaysInMonth(year, month);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns an indication whether the specified year is a leap year.
         /// </summary>
@@ -344,10 +299,7 @@ namespace TestProj47
         {
             return DateTime.IsLeapYear(year);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a  structure from a 32-bit ARGB value.
         /// </summary>
@@ -403,10 +355,7 @@ namespace TestProj47
         {
             return Color.FromArgb(argb, green, blue);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Translates an OLE color value to a GDI+  structure.
         /// </summary>
@@ -416,10 +365,7 @@ namespace TestProj47
         {
             return ColorTranslator.FromOle(oleColor);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Translates a Windows color value to a GDI+  structure.
         /// </summary>
@@ -429,10 +375,7 @@ namespace TestProj47
         {
             return ColorTranslator.FromWin32(win32Color);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the absolute value of a 32-bit signed integer.
         /// </summary>
@@ -442,10 +385,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Produces the full product of two 32-bit numbers.
         /// </summary>
@@ -456,10 +396,7 @@ namespace TestProj47
         {
             return Math.BigMul(a, b);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Int32 extension method that div rem.
         /// </summary>
@@ -471,10 +408,7 @@ namespace TestProj47
         {
             return Math.DivRem(a, b, out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two 32-bit signed integers.
         /// </summary>
@@ -485,10 +419,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two 32-bit signed integers.
         /// </summary>
@@ -499,10 +430,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of a 32-bit signed integer.
         /// </summary>
@@ -515,10 +443,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts an integer value from host byte order to network byte order.
         /// </summary>
@@ -528,10 +453,7 @@ namespace TestProj47
         {
             return IPAddress.HostToNetworkOrder(host);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts an integer value from network byte order to host byte order.
         /// </summary>
@@ -541,10 +463,7 @@ namespace TestProj47
         {
             return IPAddress.NetworkToHostOrder(network);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -558,10 +477,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -574,10 +490,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -591,10 +504,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

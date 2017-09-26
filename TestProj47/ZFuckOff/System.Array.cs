@@ -23,10 +23,7 @@ namespace TestProj47
         {
             Array.Clear(@this, 0, @this.Length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An Array extension method that check if the array is lower then the specified index.
         /// </summary>
@@ -49,10 +46,7 @@ namespace TestProj47
         {
             return index >= @this.GetLowerBound(dimension) && index <= @this.GetUpperBound(dimension);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches an entire one-dimensional sorted  for a specific element, using the  interface implemented by each
         ///     element of the  and by the specified object.
@@ -130,10 +124,7 @@ namespace TestProj47
         {
             return Array.BinarySearch(array, index, length, value, comparer);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Sets a range of elements in the  to zero, to false, or to null, depending on the element type.
         /// </summary>
@@ -144,10 +135,7 @@ namespace TestProj47
         {
             Array.Clear(array, index, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
         ///     starting at the specified destination index.  Guarantees that all changes are undone if the copy does not
@@ -163,10 +151,7 @@ namespace TestProj47
         {
             Array.ConstrainedCopy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Copies a range of elements from an  starting at the first element and pastes them into another  starting at
         ///     the first element. The length is specified as a 32-bit integer.
@@ -226,10 +211,7 @@ namespace TestProj47
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches for the specified object and returns the index of the first occurrence within the entire one-
         ///     dimensional .
@@ -277,10 +259,7 @@ namespace TestProj47
         {
             return Array.IndexOf(array, value, startIndex, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches for the specified object and returns the index of the last occurrence within the entire one-
         ///     dimensional .
@@ -328,10 +307,7 @@ namespace TestProj47
         {
             return Array.LastIndexOf(array, value, startIndex, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Reverses the sequence of the elements in the entire one-dimensional .
         /// </summary>
@@ -351,10 +327,7 @@ namespace TestProj47
         {
             Array.Reverse(array, index, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Sorts the elements in an entire one-dimensional  using the  implementation of each element of the .
         /// </summary>
@@ -479,10 +452,7 @@ namespace TestProj47
         {
             Array.Sort(array, items, index, length, comparer);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Copies a specified number of bytes from a source array starting at a particular offset to a destination array
         ///     starting at a particular offset.
@@ -496,10 +466,7 @@ namespace TestProj47
         {
             Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the number of bytes in the specified array.
         /// </summary>
@@ -509,10 +476,7 @@ namespace TestProj47
         {
             return Buffer.ByteLength(array);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Retrieves the byte at a specified location in a specified array.
         /// </summary>
@@ -523,10 +487,7 @@ namespace TestProj47
         {
             return Buffer.GetByte(array, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Assigns a specified value to a byte at a particular location in a specified array.
         /// </summary>

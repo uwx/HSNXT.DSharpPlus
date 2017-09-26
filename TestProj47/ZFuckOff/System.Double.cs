@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return Math.Round(@this, 2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  equivalent to the specified OLE Automation Date.
         /// </summary>
@@ -36,10 +33,7 @@ namespace TestProj47
         {
             return DateTime.FromOADate(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to negative or positive infinity.
         /// </summary>
@@ -49,10 +43,7 @@ namespace TestProj47
         {
             return double.IsInfinity(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value that indicates whether the specified value is not a number ().
         /// </summary>
@@ -62,10 +53,7 @@ namespace TestProj47
         {
             return double.IsNaN(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to negative infinity.
         /// </summary>
@@ -75,10 +63,7 @@ namespace TestProj47
         {
             return double.IsNegativeInfinity(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to positive infinity.
         /// </summary>
@@ -88,10 +73,7 @@ namespace TestProj47
         {
             return double.IsPositiveInfinity(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the absolute value of a double-precision floating-point number.
         /// </summary>
@@ -101,10 +83,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the angle whose cosine is the specified number.
         /// </summary>
@@ -117,10 +96,7 @@ namespace TestProj47
         {
             return Math.Acos(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the angle whose sine is the specified number.
         /// </summary>
@@ -135,10 +111,7 @@ namespace TestProj47
         {
             return Math.Asin(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the angle whose tangent is the specified number.
         /// </summary>
@@ -151,10 +124,7 @@ namespace TestProj47
         {
             return Math.Atan(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the angle whose tangent is the quotient of two specified numbers.
         /// </summary>
@@ -172,10 +142,7 @@ namespace TestProj47
         {
             return Math.Atan2(y, x);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smallest integral value that is greater than or equal to the specified double-precision floating-
         ///     point number.
@@ -189,10 +156,7 @@ namespace TestProj47
         {
             return Math.Ceiling(a);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the cosine of the specified angle.
         /// </summary>
@@ -202,10 +166,7 @@ namespace TestProj47
         {
             return Math.Cos(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the hyperbolic cosine of the specified angle.
         /// </summary>
@@ -215,10 +176,7 @@ namespace TestProj47
         {
             return Math.Cosh(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns e raised to the specified power.
         /// </summary>
@@ -230,10 +188,7 @@ namespace TestProj47
         {
             return Math.Exp(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the largest integer less than or equal to the specified double-precision floating-point number.
         /// </summary>
@@ -243,10 +198,7 @@ namespace TestProj47
         {
             return Math.Floor(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the remainder resulting from the division of a specified number by another specified number.
         /// </summary>
@@ -261,10 +213,7 @@ namespace TestProj47
         {
             return Math.IEEERemainder(x, y);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the natural (base e) logarithm of a specified number.
         /// </summary>
@@ -295,10 +244,7 @@ namespace TestProj47
         {
             return Math.Log(d, newBase);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the base 10 logarithm of a specified number.
         /// </summary>
@@ -311,10 +257,7 @@ namespace TestProj47
         {
             return Math.Log10(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two double-precision floating-point numbers.
         /// </summary>
@@ -325,10 +268,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two double-precision floating-point numbers.
         /// </summary>
@@ -339,10 +279,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a specified number raised to the specified power.
         /// </summary>
@@ -353,10 +290,7 @@ namespace TestProj47
         {
             return Math.Pow(x, y);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Rounds a double-precision floating-point value to the nearest integral value.
         /// </summary>
@@ -418,10 +352,7 @@ namespace TestProj47
         {
             return Math.Round(a, digits, mode);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of a double-precision floating-point number.
         /// </summary>
@@ -434,10 +365,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the sine of the specified angle.
         /// </summary>
@@ -447,10 +375,7 @@ namespace TestProj47
         {
             return Math.Sin(a);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the hyperbolic sine of the specified angle.
         /// </summary>
@@ -460,10 +385,7 @@ namespace TestProj47
         {
             return Math.Sinh(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the square root of a specified number.
         /// </summary>
@@ -476,10 +398,7 @@ namespace TestProj47
         {
             return Math.Sqrt(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the tangent of the specified angle.
         /// </summary>
@@ -489,10 +408,7 @@ namespace TestProj47
         {
             return Math.Tan(a);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the hyperbolic tangent of the specified angle.
         /// </summary>
@@ -505,10 +421,7 @@ namespace TestProj47
         {
             return Math.Tanh(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Calculates the integral part of a specified double-precision floating-point number.
         /// </summary>
@@ -521,10 +434,7 @@ namespace TestProj47
         {
             return Math.Truncate(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified number of days, where the specification is accurate to the nearest
         ///     millisecond.
@@ -535,10 +445,7 @@ namespace TestProj47
         {
             return TimeSpan.FromDays(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified number of hours, where the specification is accurate to the nearest
         ///     millisecond.
@@ -549,10 +456,7 @@ namespace TestProj47
         {
             return TimeSpan.FromHours(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified number of milliseconds.
         /// </summary>
@@ -562,10 +466,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMilliseconds(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified number of minutes, where the specification is accurate to the nearest
         ///     millisecond.
@@ -576,10 +477,7 @@ namespace TestProj47
         {
             return TimeSpan.FromMinutes(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a  that represents a specified number of seconds, where the specification is accurate to the nearest
         ///     millisecond.
@@ -590,10 +488,7 @@ namespace TestProj47
         {
             return TimeSpan.FromSeconds(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -607,10 +502,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -623,10 +515,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -640,10 +529,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

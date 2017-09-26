@@ -40,10 +40,7 @@ namespace TestProj47
         {
             File.AppendAllLines(@this.FullName, contents, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist,
         ///     this method creates a file, writes the specified string to the file, then closes the file.
@@ -153,10 +150,7 @@ namespace TestProj47
         {
             File.AppendAllText(@this.FullName, contents, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Changes the extension of a @this string.
         /// </summary>
@@ -198,10 +192,7 @@ namespace TestProj47
         {
             return Path.ChangeExtension(@this.FullName, extension);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates all directories and subdirectories in the specified @this.
         /// </summary>
@@ -292,10 +283,7 @@ namespace TestProj47
         {
             return Directory.CreateDirectory(@this.Directory.FullName, directorySecurity);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates all directories and subdirectories in the specified @this if the directory doesn't already exists.
         ///     This methods is the same as FileInfo.CreateDirectory however it's less ambigues about what happen if the
@@ -390,10 +378,7 @@ namespace TestProj47
         {
             return Directory.CreateDirectory(@this.Directory.FullName, directorySecurity);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that gets directory full name.
         /// </summary>
@@ -403,10 +388,7 @@ namespace TestProj47
         {
             return @this.Directory.FullName;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that gets directory name.
         /// </summary>
@@ -416,10 +398,7 @@ namespace TestProj47
         {
             return @this.Directory.Name;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the file name of the specified @this string without the extension.
         /// </summary>
@@ -440,10 +419,7 @@ namespace TestProj47
         {
             return Path.GetFileNameWithoutExtension(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Gets the root directory information of the specified @this.
         /// </summary>
@@ -470,10 +446,7 @@ namespace TestProj47
         {
             return Path.GetPathRoot(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Determines whether a @this includes a file name extension.
         /// </summary>
@@ -494,10 +467,7 @@ namespace TestProj47
         {
             return Path.HasExtension(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Gets a value indicating whether the specified @this string contains a root.
         /// </summary>
@@ -517,10 +487,7 @@ namespace TestProj47
         {
             return Path.IsPathRooted(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
         /// </summary>
@@ -572,10 +539,7 @@ namespace TestProj47
         {
             return File.ReadAllBytes(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
@@ -684,10 +648,7 @@ namespace TestProj47
         {
             return File.ReadAllLines(@this.FullName, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
@@ -796,10 +757,7 @@ namespace TestProj47
         {
             return File.ReadAllText(@this.FullName, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Reads the lines of a file.
         /// </summary>
@@ -900,10 +858,7 @@ namespace TestProj47
         {
             return File.ReadLines(@this.FullName, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that reads the file to the end.
         /// </summary>
@@ -987,10 +942,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that renames.
         /// </summary>
@@ -1003,10 +955,7 @@ namespace TestProj47
             string filePath = Path.Combine(@this.Directory.FullName, newName);
             @this.MoveTo(filePath);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Changes the extension of a @this string.
         /// </summary>
@@ -1036,10 +985,7 @@ namespace TestProj47
             string filePath = Path.ChangeExtension(@this.FullName, extension);
             @this.MoveTo(filePath);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that rename file without extension.
         /// </summary>
@@ -1053,10 +999,7 @@ namespace TestProj47
             string filePath = Path.Combine(@this.Directory.FullName, fileName);
             @this.MoveTo(filePath);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file
         ///     already exists, it is overwritten.
@@ -1106,10 +1049,7 @@ namespace TestProj47
         {
             File.WriteAllBytes(@this.FullName, bytes);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a new file, write the specified string array to the file, and then closes the file.
         /// </summary>
@@ -1239,10 +1179,7 @@ namespace TestProj47
         {
             File.WriteAllLines(@this.FullName, contents, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a new file, writes the specified string to the file, and then closes the file. If the target file
         ///     already exists, it is overwritten.

@@ -119,10 +119,7 @@ namespace TestProj47
                         @this));
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two 8-bit unsigned integers.
         /// </summary>
@@ -133,10 +130,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two 8-bit unsigned integers.
         /// </summary>

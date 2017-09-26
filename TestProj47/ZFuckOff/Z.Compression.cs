@@ -76,10 +76,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that creates a zip file.
         /// </summary>
@@ -135,10 +132,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A FileInfo extension method that extracts the g zip to directory described by
         ///     @this.
@@ -199,10 +193,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that compress the given string to GZip byte array.
         /// </summary>
@@ -241,10 +232,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a zip archive that contains the files and directories from the specified
         ///     directory.
@@ -394,10 +382,7 @@ namespace TestProj47
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName, compressionLevel,
                 includeBaseDirectory, entryNameEncoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Extracts all the files in the specified zip archive to a directory on the file system
         /// </summary>
@@ -457,10 +442,7 @@ namespace TestProj47
         {
             ZipFile.ExtractToDirectory(@this.FullName, destinationDirectory.FullName, entryNameEncoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as
         ///     relative to the current working directory.
@@ -474,10 +456,7 @@ namespace TestProj47
         {
             return ZipFile.OpenRead(@this.FullName);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>Opens a zip archive at the specified path and in the specified mode.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="mode">

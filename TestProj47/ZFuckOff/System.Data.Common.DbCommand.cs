@@ -32,10 +32,7 @@ namespace TestProj47
                 return reader.ToEntities<T>();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the entity operation.
         /// </summary>
@@ -50,10 +47,7 @@ namespace TestProj47
                 return reader.ToEntity<T>();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the expando object operation.
         /// </summary>
@@ -67,10 +61,7 @@ namespace TestProj47
                 return reader.ToExpandoObject();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates execute expando objects in this collection.
         /// </summary>
@@ -85,10 +76,7 @@ namespace TestProj47
                 return reader.ToExpandoObjects();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the scalar as operation.
         /// </summary>
@@ -99,10 +87,7 @@ namespace TestProj47
         {
             return (T) @this.ExecuteScalar();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the scalar as or default operation.
         /// </summary>
@@ -158,10 +143,7 @@ namespace TestProj47
                 return defaultValueFactory(@this);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to operation.
         /// </summary>
@@ -172,10 +154,7 @@ namespace TestProj47
         {
             return @this.ExecuteScalar().To<T>();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to or default operation.
         /// </summary>

@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return DateTime.Now.Subtract(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A TimeSpan extension method that add the specified TimeSpan to the current DateTime.
         /// </summary>
@@ -36,10 +33,7 @@ namespace TestProj47
         {
             return DateTime.Now.Add(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A TimeSpan extension method that substract the specified TimeSpan to the current UTC (Coordinated Universal
         ///     Time)
@@ -50,10 +44,7 @@ namespace TestProj47
         {
             return DateTime.UtcNow.Subtract(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A TimeSpan extension method that add the specified TimeSpan to the current UTC (Coordinated Universal Time)
         /// </summary>

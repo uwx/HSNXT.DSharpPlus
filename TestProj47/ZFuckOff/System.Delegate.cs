@@ -28,10 +28,7 @@ namespace TestProj47
         {
             return Delegate.Combine(a, b);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Removes the last occurrence of the invocation list of a delegate from the invocation list of another delegate.
         /// </summary>
@@ -48,10 +45,7 @@ namespace TestProj47
         {
             return Delegate.Remove(source, value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Removes all occurrences of the invocation list of a delegate from the invocation list of another delegate.
         /// </summary>

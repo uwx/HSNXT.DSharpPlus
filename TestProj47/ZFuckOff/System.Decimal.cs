@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return Math.Round(@this, 2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Divides two specified  values.
         /// </summary>
@@ -37,10 +34,7 @@ namespace TestProj47
         {
             return decimal.Divide(d1, d2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a specified instance of  to its equivalent binary representation.
         /// </summary>
@@ -50,10 +44,7 @@ namespace TestProj47
         {
             return decimal.GetBits(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Multiplies two specified  values.
         /// </summary>
@@ -64,10 +55,7 @@ namespace TestProj47
         {
             return decimal.Multiply(d1, d2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the result of multiplying the specified  value by negative one.
         /// </summary>
@@ -77,10 +65,7 @@ namespace TestProj47
         {
             return decimal.Negate(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Computes the remainder after dividing two  values.
         /// </summary>
@@ -91,10 +76,7 @@ namespace TestProj47
         {
             return decimal.Remainder(d1, d2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Subtracts one specified  value from another.
         /// </summary>
@@ -105,10 +87,7 @@ namespace TestProj47
         {
             return decimal.Subtract(d1, d2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 8-bit unsigned integer.
         /// </summary>
@@ -118,10 +97,7 @@ namespace TestProj47
         {
             return decimal.ToByte(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent double-precision floating-point number.
         /// </summary>
@@ -131,10 +107,7 @@ namespace TestProj47
         {
             return decimal.ToDouble(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 16-bit signed integer.
         /// </summary>
@@ -144,10 +117,7 @@ namespace TestProj47
         {
             return decimal.ToInt16(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 32-bit signed integer.
         /// </summary>
@@ -157,10 +127,7 @@ namespace TestProj47
         {
             return decimal.ToInt32(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 64-bit signed integer.
         /// </summary>
@@ -170,10 +137,7 @@ namespace TestProj47
         {
             return decimal.ToInt64(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified  value to the equivalent OLE Automation Currency value, which is contained in a 64-bit
         ///     signed integer.
@@ -184,10 +148,7 @@ namespace TestProj47
         {
             return decimal.ToOACurrency(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 8-bit signed integer.
         /// </summary>
@@ -197,10 +158,7 @@ namespace TestProj47
         {
             return decimal.ToSByte(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent single-precision floating-point number.
         /// </summary>
@@ -210,10 +168,7 @@ namespace TestProj47
         {
             return decimal.ToSingle(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 16-bit unsigned integer.
         /// </summary>
@@ -223,10 +178,7 @@ namespace TestProj47
         {
             return decimal.ToUInt16(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 32-bit unsigned integer.
         /// </summary>
@@ -236,10 +188,7 @@ namespace TestProj47
         {
             return decimal.ToUInt32(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of the specified  to the equivalent 64-bit unsigned integer.
         /// </summary>
@@ -249,10 +198,7 @@ namespace TestProj47
         {
             return decimal.ToUInt64(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the absolute value of a  number.
         /// </summary>
@@ -262,10 +208,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smallest integral value that is greater than or equal to the specified decimal number.
         /// </summary>
@@ -278,10 +221,7 @@ namespace TestProj47
         {
             return Math.Ceiling(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the largest integer less than or equal to the specified decimal number.
         /// </summary>
@@ -293,10 +233,7 @@ namespace TestProj47
         {
             return Math.Floor(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two decimal numbers.
         /// </summary>
@@ -307,10 +244,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two decimal numbers.
         /// </summary>
@@ -321,10 +255,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Rounds a decimal value to the nearest integral value.
         /// </summary>
@@ -380,10 +311,7 @@ namespace TestProj47
         {
             return Math.Round(d, decimals, mode);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of a decimal number.
         /// </summary>
@@ -396,10 +324,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Calculates the integral part of a specified decimal number.
         /// </summary>
@@ -411,10 +336,7 @@ namespace TestProj47
         {
             return Math.Truncate(d);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -428,10 +350,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -444,10 +363,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -461,10 +377,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

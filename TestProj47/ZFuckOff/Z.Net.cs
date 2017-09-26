@@ -28,10 +28,7 @@ namespace TestProj47
                 smtpClient.Send(@this);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A MailMessage extension method that sends this message asynchronous.
         /// </summary>
@@ -44,10 +41,7 @@ namespace TestProj47
                 smtpClient.SendAsync(@this, userToken);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A WebRequest extension method that gets the WebRequest response or the WebException response.
         /// </summary>
@@ -64,10 +58,7 @@ namespace TestProj47
                 return e.Response;
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A WebResponse extension method that reads the response stream to the end.
         /// </summary>
@@ -83,10 +74,7 @@ namespace TestProj47
                 }
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A WebRequest extension method that gets the WebRequest response and read the response stream.
         /// </summary>

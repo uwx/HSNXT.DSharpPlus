@@ -26,10 +26,7 @@ namespace TestProj47
                 action();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A bool extension method that execute an Action if the value is true.
         /// </summary>
@@ -42,10 +39,7 @@ namespace TestProj47
                 action();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A bool extension method that convert this object into a binary representation.
         /// </summary>
@@ -55,10 +49,7 @@ namespace TestProj47
         {
             return Convert.ToByte(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A bool extension method that show the trueValue when the @this value is true; otherwise show the falseValue.
         /// </summary>

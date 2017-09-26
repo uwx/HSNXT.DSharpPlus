@@ -61,18 +61,12 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         public static string GetDeclaraction(this EventInfo @this)
         {
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A FieldInfo extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -147,10 +141,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A MemberInfo extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -176,10 +167,7 @@ namespace TestProj47
                     return null;
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A MethodInfo extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -254,10 +242,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A ParameterInfo extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -338,10 +323,7 @@ namespace TestProj47
             string attribute = attributes.Count > 0 ? "[" + string.Join(", ", attributes) + "] " : "";
             sb.Insert(0, attribute);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A PropertyInfo extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -516,10 +498,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A Type extension method that gets a declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The declaraction.</returns>
@@ -627,10 +606,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A Type extension method that gets short declaraction.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The short declaraction.</returns>

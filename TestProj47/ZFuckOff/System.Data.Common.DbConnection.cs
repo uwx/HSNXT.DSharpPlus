@@ -170,10 +170,7 @@ namespace TestProj47
         {
             return @this.ExecuteEntities<T>(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbConnection extension method that executes the entity operation.
         /// </summary>
@@ -325,10 +322,7 @@ namespace TestProj47
         {
             return @this.ExecuteEntity<T>(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbConnection extension method that executes the expando object operation.
         /// </summary>
@@ -468,10 +462,7 @@ namespace TestProj47
         {
             return @this.ExecuteExpandoObject(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates execute expando objects in this collection.
         /// </summary>
@@ -631,10 +622,7 @@ namespace TestProj47
         {
             return @this.ExecuteExpandoObjects(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbConnection extension method that executes the non query operation.
         /// </summary>
@@ -757,10 +745,7 @@ namespace TestProj47
         {
             @this.ExecuteNonQuery(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbConnection extension method that executes the reader operation.
         /// </summary>
@@ -892,10 +877,7 @@ namespace TestProj47
         {
             return @this.ExecuteReader(cmdText, parameters, commandType, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A DbConnection extension method that executes the scalar operation.
         /// </summary>

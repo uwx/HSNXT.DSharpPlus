@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two 8-bit signed integers.
         /// </summary>
@@ -37,10 +34,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two 8-bit signed integers.
         /// </summary>
@@ -51,10 +45,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of an 8-bit signed integer.
         /// </summary>
@@ -67,10 +58,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -83,10 +71,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

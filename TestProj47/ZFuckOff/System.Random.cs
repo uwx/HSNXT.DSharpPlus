@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return @this.Next(2) == 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A Random extension method that return a random value from the specified values.
         /// </summary>

@@ -35,10 +35,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that appends a join.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -61,10 +58,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that appends a line format.
         /// </summary>
@@ -91,10 +85,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that appends a line when.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -114,10 +105,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that appends a line join.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -140,10 +128,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that gets index after next double quote.</summary>
         /// <param name="this">The path to act on.</param>
         /// <returns>The index after next double quote.</returns>
@@ -196,10 +181,7 @@ namespace TestProj47
 
             return startIndex;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>Gets index after next single quote.</summary>
         /// <param name="this">Full pathname of the file.</param>
         /// <returns>The index after next single quote.</returns>
@@ -252,10 +234,7 @@ namespace TestProj47
 
             return startIndex;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that substrings.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="startIndex">The start index.</param>
@@ -274,10 +253,7 @@ namespace TestProj47
         {
             return @this.ToString(startIndex, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the character described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted character.</returns>
@@ -328,10 +304,7 @@ namespace TestProj47
 
             throw new Exception("Invalid char at position: " + startIndex);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the comment described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted comment.</returns>
@@ -391,10 +364,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the comment multi line described by
         ///     @this.
@@ -482,10 +452,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the comment single line described by
         ///     @this.
@@ -569,10 +536,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the hexadecimal described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted hexadecimal.</returns>
@@ -658,10 +622,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the keyword described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted keyword.</returns>
@@ -737,10 +698,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the number described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted number.</returns>
@@ -821,10 +779,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the operator described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted operator.</returns>
@@ -923,10 +878,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the string described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted string.</returns>
@@ -1000,10 +952,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the string arobas double quote
         ///     described by @this.
@@ -1094,10 +1043,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the string arobas single quote
         ///     described by @this.
@@ -1185,10 +1131,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the string double quote described by
         ///     @this.
@@ -1274,10 +1217,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the string single quote described by
         ///     @this.
@@ -1365,10 +1305,7 @@ namespace TestProj47
             endIndex = -1;
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A StringBuilder extension method that extracts the directive described by @this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The extracted directive.</returns>
@@ -1492,10 +1429,7 @@ namespace TestProj47
 
             throw new Exception("Invalid token");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A StringBuilder extension method that extracts the trivia tokens described by
         ///     @this.

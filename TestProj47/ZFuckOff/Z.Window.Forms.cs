@@ -11,10 +11,7 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A Form extension method that set the window form to full screen mode to the specified screen.
         /// </summary>

@@ -26,10 +26,7 @@ namespace TestProj47
                 @this.Open();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A DbConnection extension method that queries if a connection is open.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if a connection is open, false if not.</returns>
@@ -37,10 +34,7 @@ namespace TestProj47
         {
             return @this.State == ConnectionState.Open;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A DbConnection extension method that queries if a not connection is open.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if a not connection is open, false if not.</returns>

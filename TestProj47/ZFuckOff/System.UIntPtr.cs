@@ -24,10 +24,7 @@ namespace TestProj47
         {
             return UIntPtr.Add(pointer, offset);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Subtracts an offset from the value of an unsigned pointer.
         /// </summary>

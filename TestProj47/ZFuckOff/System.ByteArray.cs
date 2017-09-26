@@ -29,10 +29,7 @@ namespace TestProj47
             Array.Resize(ref @this, newSize);
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A byte[] extension method that converts the @this to an image.
         /// </summary>
@@ -45,10 +42,7 @@ namespace TestProj47
                 return Image.FromStream(ms);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A byte[] extension method that converts the @this to a memory stream.
         /// </summary>
@@ -58,10 +52,7 @@ namespace TestProj47
         {
             return new MemoryStream(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a subset of an 8-bit unsigned integer array to an equivalent subset of a Unicode character array
         ///     encoded with base-64 digits. Parameters specify the subsets as offsets in the input and output arrays, and
@@ -96,10 +87,7 @@ namespace TestProj47
         {
             return Convert.ToBase64CharArray(inArray, offsetIn, length, outArray, offsetOut, options);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts an array of 8-bit unsigned integers to its equivalent string representation that is encoded with
         ///     base-64 digits.
@@ -152,10 +140,7 @@ namespace TestProj47
         {
             return Convert.ToBase64String(inArray, offset, length, options);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Encodes a byte array into its equivalent string representation using base 64 digits, which is usable for
         ///     transmission on the URL.
@@ -169,10 +154,7 @@ namespace TestProj47
         {
             return HttpServerUtility.UrlTokenEncode(input);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a URL-encoded byte array into a decoded string using the specified decoding object.
         /// </summary>
@@ -197,10 +179,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlDecode(bytes, offset, count, e);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a URL-encoded array of bytes into a decoded array of bytes.
         /// </summary>
@@ -223,10 +202,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlDecodeToBytes(bytes, offset, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a byte array into an encoded URL string.
         /// </summary>
@@ -249,10 +225,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlEncode(bytes, offset, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts an array of bytes into a URL-encoded array of bytes.
         /// </summary>

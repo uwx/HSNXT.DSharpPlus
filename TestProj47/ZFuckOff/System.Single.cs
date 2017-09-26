@@ -23,10 +23,7 @@ namespace TestProj47
         {
             return Math.Abs(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the larger of two single-precision floating-point numbers.
         /// </summary>
@@ -37,10 +34,7 @@ namespace TestProj47
         {
             return Math.Max(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the smaller of two single-precision floating-point numbers.
         /// </summary>
@@ -51,10 +45,7 @@ namespace TestProj47
         {
             return Math.Min(val1, val2);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating the sign of a single-precision floating-point number.
         /// </summary>
@@ -67,10 +58,7 @@ namespace TestProj47
         {
             return Math.Sign(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to negative or positive infinity.
         /// </summary>
@@ -80,10 +68,7 @@ namespace TestProj47
         {
             return float.IsInfinity(f);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value that indicates whether the specified value is not a number ().
         /// </summary>
@@ -93,10 +78,7 @@ namespace TestProj47
         {
             return float.IsNaN(f);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to negative infinity.
         /// </summary>
@@ -106,10 +88,7 @@ namespace TestProj47
         {
             return float.IsNegativeInfinity(f);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a value indicating whether the specified number evaluates to positive infinity.
         /// </summary>
@@ -119,10 +98,7 @@ namespace TestProj47
         {
             return float.IsPositiveInfinity(f);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -136,10 +112,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -152,10 +125,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -169,10 +139,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

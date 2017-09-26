@@ -24,10 +24,7 @@ namespace TestProj47
         {
             return values.IndexOf(@this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A ConnectionState extension method that not in.
         /// </summary>

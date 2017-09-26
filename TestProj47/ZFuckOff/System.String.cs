@@ -35,10 +35,7 @@ namespace TestProj47
         {
             return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>An IEnumerable&lt;string&gt; extension method that concatenates the given this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A string.</returns>
@@ -69,10 +66,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that concatenate with.
         /// </summary>
@@ -83,10 +77,7 @@ namespace TestProj47
         {
             return string.Concat(@this, string.Concat(values));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if this object contains the given value.
         /// </summary>
@@ -109,10 +100,7 @@ namespace TestProj47
         {
             return @this.IndexOf(value, comparisonType) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' contains all values.
         /// </summary>
@@ -149,10 +137,7 @@ namespace TestProj47
             }
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' contains any values.
         /// </summary>
@@ -189,10 +174,7 @@ namespace TestProj47
             }
             return false;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that decode a Base64 String.
         /// </summary>
@@ -202,10 +184,7 @@ namespace TestProj47
         {
             return Encoding.ASCII.GetString(Convert.FromBase64String(@this));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that decrypt a string.
         /// </summary>
@@ -223,10 +202,7 @@ namespace TestProj47
 
             return Encoding.UTF8.GetString(bytes);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that encode the string to Base64.
         /// </summary>
@@ -236,10 +212,7 @@ namespace TestProj47
         {
             return Convert.ToBase64String(Activator.CreateInstance<ASCIIEncoding>().GetBytes(@this));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that encrypts the string.
         /// </summary>
@@ -254,10 +227,7 @@ namespace TestProj47
 
             return BitConverter.ToString(bytes);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that escape XML.
         /// </summary>
@@ -268,10 +238,7 @@ namespace TestProj47
             return @this.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;")
                 .Replace("'", "&apos;");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts this object.
         /// </summary>
@@ -282,10 +249,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(predicate).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the letter described by @this.
         /// </summary>
@@ -295,10 +259,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(x => char.IsLetter(x)).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the number described by @this.
         /// </summary>
@@ -308,10 +269,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(x => char.IsNumber(x)).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
         ///     Object instance in a specified array.
@@ -374,10 +332,7 @@ namespace TestProj47
         {
             return string.Format(@this, values);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that get the string after the specified string.
         /// </summary>
@@ -392,10 +347,7 @@ namespace TestProj47
             }
             return @this.Substring(@this.IndexOf(value) + value.Length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that get the string before the specified string.
         /// </summary>
@@ -410,10 +362,7 @@ namespace TestProj47
             }
             return @this.Substring(0, @this.IndexOf(value));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that get the string between the two specified string.
         /// </summary>
@@ -434,10 +383,7 @@ namespace TestProj47
 
             return @this.Substring(startIndex, afterStartIndex - startIndex);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that if empty.
         /// </summary>
@@ -448,10 +394,7 @@ namespace TestProj47
         {
             return (IsNotEmpty(value) ? value : defaultValue);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' is Alpha.
         /// </summary>
@@ -461,10 +404,7 @@ namespace TestProj47
         {
             return !Regex.IsMatch(@this, "[^a-zA-Z]");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' is Alphanumeric.
         /// </summary>
@@ -474,10 +414,7 @@ namespace TestProj47
         {
             return !Regex.IsMatch(@this, "[^a-zA-Z0-9]");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' is anagram of other String.
         /// </summary>
@@ -490,10 +427,7 @@ namespace TestProj47
                 .OrderBy(c => c)
                 .SequenceEqual(otherString.OrderBy(c => c));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' is empty.
         /// </summary>
@@ -503,10 +437,7 @@ namespace TestProj47
         {
             return @this == "";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' satisfy the specified pattern.
         /// </summary>
@@ -528,10 +459,7 @@ namespace TestProj47
 
             return Regex.IsMatch(@this, regexPattern);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that queries if a not is empty.
         /// </summary>
@@ -541,10 +469,7 @@ namespace TestProj47
         {
             return @this != "";
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that queries if '@this' is not (null or empty).
         /// </summary>
@@ -554,10 +479,7 @@ namespace TestProj47
         {
             return !string.IsNullOrEmpty(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether a specified string is not null, not empty, or not consists only of white-space characters.
         /// </summary>
@@ -567,10 +489,7 @@ namespace TestProj47
         {
             return !string.IsNullOrWhiteSpace(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that queries if '@this' is null or is empty.
         /// </summary>
@@ -580,10 +499,7 @@ namespace TestProj47
         {
             return string.IsNullOrEmpty(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if '@this' is numeric.
         /// </summary>
@@ -593,10 +509,7 @@ namespace TestProj47
         {
             return !Regex.IsMatch(@this, "[^0-9]");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A string extension method that query if '@this' is palindrome.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if palindrome, false if not.</returns>
@@ -608,10 +521,7 @@ namespace TestProj47
             @this = rgx.Replace(@this, "");
             return @this.SequenceEqual(Reverse(@this));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that return the left part of the string.
         /// </summary>
@@ -622,10 +532,7 @@ namespace TestProj47
         {
             return @this.Substring(0, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that left safe.
         /// </summary>
@@ -636,10 +543,7 @@ namespace TestProj47
         {
             return @this.Substring(0, Math.Min(length, @this.Length));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that newline 2 line break.
         /// </summary>
@@ -649,10 +553,7 @@ namespace TestProj47
         {
             return @this.Replace("\r\n", "<br />").Replace("\n", "<br />");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that return null if the value is empty else the value.
         /// </summary>
@@ -662,10 +563,7 @@ namespace TestProj47
         {
             return @this == "" ? null : @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Combines multiples string into a path.
         /// </summary>
@@ -680,10 +578,7 @@ namespace TestProj47
             list.Insert(0, @this);
             return Path.Combine(list.ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that removes the diacritics character from the strings.
         /// </summary>
@@ -705,10 +600,7 @@ namespace TestProj47
 
             return sb.ToString().Normalize(NormalizationForm.FormC);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that removes the letter described by @this.
         /// </summary>
@@ -718,10 +610,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(x => !char.IsLetter(x)).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that removes the number described by @this.
         /// </summary>
@@ -731,10 +620,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(x => !char.IsNumber(x)).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that removes the letter.
         /// </summary>
@@ -745,10 +631,7 @@ namespace TestProj47
         {
             return new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that repeats the string a specified number of times.
         /// </summary>
@@ -770,10 +653,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A string extension method that replaces.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="startIndex">The start index.</param>
@@ -786,10 +666,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that replace all values specified by an empty string.
         /// </summary>
@@ -805,10 +682,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that replace first occurence.
         /// </summary>
@@ -847,10 +721,7 @@ namespace TestProj47
                    (listEnd.Any() ? oldValue : "") +
                    string.Join(oldValue, listEnd);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that replace last occurence.
         /// </summary>
@@ -889,10 +760,7 @@ namespace TestProj47
                    (old > 0 ? oldValue : "") +
                    string.Join(newValue, listEnd);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that replace when equals.
         /// </summary>
@@ -904,10 +772,7 @@ namespace TestProj47
         {
             return @this == oldValue ? newValue : @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that reverses the given string.
         /// </summary>
@@ -924,10 +789,7 @@ namespace TestProj47
             Array.Reverse(chars);
             return new string(chars);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that return the right part of the string.
         /// </summary>
@@ -938,10 +800,7 @@ namespace TestProj47
         {
             return @this.Substring(@this.Length - length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that right safe.
         /// </summary>
@@ -952,10 +811,7 @@ namespace TestProj47
         {
             return @this.Substring(Math.Max(0, @this.Length - length));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that save the string into a file.
         /// </summary>
@@ -983,10 +839,7 @@ namespace TestProj47
                 tw.Write(@this);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns a String array containing the substrings in this string that are delimited by elements of a specified
         ///     String array. A parameter specifies whether to return empty array elements.
@@ -1005,10 +858,7 @@ namespace TestProj47
         {
             return @this.Split(new[] {separator}, option);
         }
-    }
 
-    public static partial class Extensions
-    {
         public static SqlDbType SqlTypeNameToSqlDbType(this string @this)
         {
             switch (@this.ToLower())
@@ -1118,10 +968,7 @@ namespace TestProj47
                         @this));
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A string extension method that strip HTML.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A string.</returns>
@@ -1170,10 +1017,7 @@ namespace TestProj47
 
             return sb.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a byte array.
         /// </summary>
@@ -1184,10 +1028,7 @@ namespace TestProj47
             Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
             return encoding.GetBytes(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a directory information.
         /// </summary>
@@ -1197,10 +1038,7 @@ namespace TestProj47
         {
             return new DirectoryInfo(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to an enum.
         /// </summary>
@@ -1212,10 +1050,7 @@ namespace TestProj47
             Type enumType = typeof(T);
             return (T) Enum.Parse(enumType, @this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a file information.
         /// </summary>
@@ -1225,10 +1060,7 @@ namespace TestProj47
         {
             return new FileInfo(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a MemoryStream.
         /// </summary>
@@ -1239,10 +1071,7 @@ namespace TestProj47
             Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
             return new MemoryStream(encoding.GetBytes(@this));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a plural.
         /// </summary>
@@ -1263,10 +1092,7 @@ namespace TestProj47
         {
             return PluralizationService.CreateService(cultureInfo).Pluralize(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A String extension method that converts the @this to a secure string.
         /// </summary>
@@ -1280,10 +1106,7 @@ namespace TestProj47
 
             return secureString;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a title case.
         /// </summary>
@@ -1304,10 +1127,7 @@ namespace TestProj47
         {
             return cultureInfo.TextInfo.ToTitleCase(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         /// A string extension method that converts the @this to a valid date time or null.
         /// </summary>
@@ -1324,10 +1144,7 @@ namespace TestProj47
 
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to a XDocument.
         /// </summary>
@@ -1341,10 +1158,7 @@ namespace TestProj47
                 return XDocument.Load(ms);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that converts the @this to an XmlDocument.
         /// </summary>
@@ -1356,10 +1170,7 @@ namespace TestProj47
             doc.LoadXml(@this);
             return doc;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that truncates.
         /// </summary>
@@ -1396,10 +1207,7 @@ namespace TestProj47
             int strLength = maxLength - suffix.Length;
             return @this.Substring(0, strLength) + suffix;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a UTF-16 encoded character or surrogate pair at a specified position in a string into a
         ///     Unicode code point.
@@ -1414,10 +1222,7 @@ namespace TestProj47
         {
             return char.ConvertToUtf32(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the numeric Unicode character at the specified position in a specified string to a double-precision
         ///     floating point number.
@@ -1431,10 +1236,7 @@ namespace TestProj47
         {
             return char.GetNumericValue(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Categorizes the character at the specified position in a specified string into a group identified by one of
         ///     the  values.
@@ -1446,10 +1248,7 @@ namespace TestProj47
         {
             return char.GetUnicodeCategory(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a control
         ///     character.
@@ -1461,10 +1260,7 @@ namespace TestProj47
         {
             return char.IsControl(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a decimal
         ///     digit.
@@ -1476,10 +1272,7 @@ namespace TestProj47
         {
             return char.IsDigit(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the  object at the specified position in a string is a high surrogate.
         /// </summary>
@@ -1493,10 +1286,7 @@ namespace TestProj47
         {
             return char.IsHighSurrogate(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a Unicode
         ///     letter.
@@ -1508,10 +1298,7 @@ namespace TestProj47
         {
             return char.IsLetter(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a letter or
         ///     a decimal digit.
@@ -1523,10 +1310,7 @@ namespace TestProj47
         {
             return char.IsLetterOrDigit(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a lowercase
         ///     letter.
@@ -1538,10 +1322,7 @@ namespace TestProj47
         {
             return char.IsLower(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the  object at the specified position in a string is a low surrogate.
         /// </summary>
@@ -1555,10 +1336,7 @@ namespace TestProj47
         {
             return char.IsLowSurrogate(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a number.
         /// </summary>
@@ -1569,10 +1347,7 @@ namespace TestProj47
         {
             return char.IsNumber(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a
         ///     punctuation mark.
@@ -1584,10 +1359,7 @@ namespace TestProj47
         {
             return char.IsPunctuation(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a separator
         ///     character.
@@ -1599,10 +1371,7 @@ namespace TestProj47
         {
             return char.IsSeparator(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string has a surrogate code unit.
         /// </summary>
@@ -1615,10 +1384,7 @@ namespace TestProj47
         {
             return char.IsSurrogate(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether two adjacent  objects at a specified position in a string form a surrogate pair.
         /// </summary>
@@ -1633,10 +1399,7 @@ namespace TestProj47
         {
             return char.IsSurrogatePair(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as a symbol
         ///     character.
@@ -1648,10 +1411,7 @@ namespace TestProj47
         {
             return char.IsSymbol(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as an
         ///     uppercase letter.
@@ -1663,10 +1423,7 @@ namespace TestProj47
         {
             return char.IsUpper(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the character at the specified position in a specified string is categorized as white space.
         /// </summary>
@@ -1677,10 +1434,7 @@ namespace TestProj47
         {
             return char.IsWhiteSpace(s, index);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Compares two specified  objects by evaluating the numeric values of the corresponding  objects in each string.
         /// </summary>
@@ -1713,10 +1467,7 @@ namespace TestProj47
         {
             return string.CompareOrdinal(strA, indexA, strB, indexB, length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Concatenates two specified instances of .
         /// </summary>
@@ -1752,10 +1503,7 @@ namespace TestProj47
         {
             return string.Concat(str0, str1, str2, str3);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Creates a new instance of  with the same value as a specified .
         /// </summary>
@@ -1765,10 +1513,7 @@ namespace TestProj47
         {
             return string.Copy(str);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Replaces one or more format items in a specified string with the string representation of a specified object.
         /// </summary>
@@ -1821,10 +1566,7 @@ namespace TestProj47
         {
             return string.Format(format, args);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Retrieves the system&#39;s reference to the specified .
         /// </summary>
@@ -1836,10 +1578,7 @@ namespace TestProj47
         {
             return string.Intern(str);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Retrieves a reference to a specified .
         /// </summary>
@@ -1849,10 +1588,7 @@ namespace TestProj47
         {
             return string.IsInterned(str);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether a specified string is null, empty, or consists only of white-space characters.
         /// </summary>
@@ -1862,10 +1598,7 @@ namespace TestProj47
         {
             return string.IsNullOrWhiteSpace(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Concatenates all the elements of a string array, using the specified separator between each element.
         /// </summary>
@@ -1950,10 +1683,7 @@ namespace TestProj47
         {
             return string.Join(separator, value, startIndex, count);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified regular expression finds a match in the specified input string.
         /// </summary>
@@ -1977,10 +1707,7 @@ namespace TestProj47
         {
             return Regex.IsMatch(input, pattern, options);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches the specified input string for the first occurrence of the specified regular expression.
         /// </summary>
@@ -2004,10 +1731,7 @@ namespace TestProj47
         {
             return Regex.Match(input, pattern, options);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Searches the specified input string for all occurrences of a specified regular expression.
         /// </summary>
@@ -2037,10 +1761,7 @@ namespace TestProj47
         {
             return Regex.Matches(input, pattern, options);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Minimally converts a string to an HTML-encoded string.
         /// </summary>
@@ -2060,10 +1781,7 @@ namespace TestProj47
         {
             HttpUtility.HtmlAttributeEncode(s, output);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a string that has been HTML-encoded for HTTP transmission into a decoded string.
         /// </summary>
@@ -2084,10 +1802,7 @@ namespace TestProj47
         {
             HttpUtility.HtmlDecode(s, output);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a string to an HTML-encoded string.
         /// </summary>
@@ -2107,10 +1822,7 @@ namespace TestProj47
         {
             HttpUtility.HtmlEncode(s, output);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Encodes a string.
         /// </summary>
@@ -2134,10 +1846,7 @@ namespace TestProj47
         {
             return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Parses a query string into a  using  encoding.
         /// </summary>
@@ -2158,10 +1867,7 @@ namespace TestProj47
         {
             return HttpUtility.ParseQueryString(query, encoding);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a string that has been encoded for transmission in a URL into a decoded string.
         /// </summary>
@@ -2182,10 +1888,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlDecode(str, e);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a URL-encoded string into a decoded array of bytes.
         /// </summary>
@@ -2206,10 +1909,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlDecodeToBytes(str, e);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Encodes a URL string.
         /// </summary>
@@ -2230,10 +1930,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlEncode(str, e);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts a string into a URL-encoded array of bytes.
         /// </summary>
@@ -2254,10 +1951,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlEncodeToBytes(str, e);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Encodes the path portion of a URL string for reliable HTTP transmission from the Web server to a client.
         /// </summary>
@@ -2267,10 +1961,7 @@ namespace TestProj47
         {
             return HttpUtility.UrlPathEncode(str);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if 'obj' is valid email.
         /// </summary>
@@ -2281,10 +1972,7 @@ namespace TestProj47
             return Regex.IsMatch(obj,
                 @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z0-9]{1,30})(\]?)$");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that query if 'obj' is valid IP.
         /// </summary>
@@ -2295,10 +1983,7 @@ namespace TestProj47
             return Regex.IsMatch(obj,
                 @"^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$");
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -2309,10 +1994,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is not null.
         /// </summary>
@@ -2322,10 +2004,7 @@ namespace TestProj47
         {
             return @this != null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is null.
         /// </summary>
@@ -2335,10 +2014,7 @@ namespace TestProj47
         {
             return @this == null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>
@@ -2349,10 +2025,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the Decimal from the string.
         /// </summary>
@@ -2375,10 +2048,7 @@ namespace TestProj47
 
             return Convert.ToDecimal(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the Double from the string.
         /// </summary>
@@ -2401,10 +2071,7 @@ namespace TestProj47
 
             return Convert.ToDouble(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the Int16 from the string.
         /// </summary>
@@ -2427,10 +2094,7 @@ namespace TestProj47
 
             return Convert.ToInt16(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the Int32 from the string.
         /// </summary>
@@ -2453,10 +2117,7 @@ namespace TestProj47
 
             return Convert.ToInt32(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the Int64 from the string.
         /// </summary>
@@ -2479,10 +2140,7 @@ namespace TestProj47
 
             return Convert.ToInt64(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all Decimal from the string.
         /// </summary>
@@ -2495,10 +2153,7 @@ namespace TestProj47
                 .Select(x => Convert.ToDecimal(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all Double from the string.
         /// </summary>
@@ -2511,10 +2166,7 @@ namespace TestProj47
                 .Select(x => Convert.ToDouble(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all Int16 from the string.
         /// </summary>
@@ -2527,10 +2179,7 @@ namespace TestProj47
                 .Select(x => Convert.ToInt16(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all Int32 from the string.
         /// </summary>
@@ -2543,10 +2192,7 @@ namespace TestProj47
                 .Select(x => Convert.ToInt32(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all Int64 from the string.
         /// </summary>
@@ -2559,10 +2205,7 @@ namespace TestProj47
                 .Select(x => Convert.ToInt64(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all UInt16 from the string.
         /// </summary>
@@ -2575,10 +2218,7 @@ namespace TestProj47
                 .Select(x => Convert.ToUInt16(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all UInt32 from the string.
         /// </summary>
@@ -2591,10 +2231,7 @@ namespace TestProj47
                 .Select(x => Convert.ToUInt32(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts all UInt64 from the string.
         /// </summary>
@@ -2607,10 +2244,7 @@ namespace TestProj47
                 .Select(x => Convert.ToUInt64(x.Value))
                 .ToArray();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the UInt16 from the string.
         /// </summary>
@@ -2629,10 +2263,7 @@ namespace TestProj47
 
             return Convert.ToUInt16(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the UInt32 from the string.
         /// </summary>
@@ -2651,10 +2282,7 @@ namespace TestProj47
 
             return Convert.ToUInt32(sb.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A string extension method that extracts the UInt64 from the string.
         /// </summary>

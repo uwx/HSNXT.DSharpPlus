@@ -28,10 +28,7 @@ namespace TestProj47
         {
             Array.Clear(@this, 0, @this.Length);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that clears at.
         /// </summary>
@@ -42,10 +39,7 @@ namespace TestProj47
         {
             Array.Clear(@this, at, 1);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that converts the @this to a data table.
         /// </summary>
@@ -90,10 +84,7 @@ namespace TestProj47
 
             return dt;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that converts an array to a read only.
         /// </summary>
@@ -104,10 +95,7 @@ namespace TestProj47
         {
             return Array.AsReadOnly(array);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that exists.
         /// </summary>
@@ -119,10 +107,7 @@ namespace TestProj47
         {
             return Array.Exists(array, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that searches for the first match.
         /// </summary>
@@ -134,10 +119,7 @@ namespace TestProj47
         {
             return Array.Find(array, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that searches for the first all.
         /// </summary>
@@ -149,10 +131,7 @@ namespace TestProj47
         {
             return Array.FindAll(array, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that searches for the first index.
         /// </summary>
@@ -191,10 +170,7 @@ namespace TestProj47
         {
             return Array.FindIndex(array, startIndex, count, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that searches for the first last.
         /// </summary>
@@ -206,10 +182,7 @@ namespace TestProj47
         {
             return Array.FindLast(array, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that searches for the last index.
         /// </summary>
@@ -248,10 +221,7 @@ namespace TestProj47
         {
             return Array.FindLastIndex(array, startIndex, count, match);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that applies an operation to all items in this collection.
         /// </summary>
@@ -262,10 +232,7 @@ namespace TestProj47
         {
             Array.ForEach(array, action);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T[] extension method that true for all.
         /// </summary>

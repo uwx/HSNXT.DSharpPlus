@@ -25,10 +25,7 @@ namespace TestProj47
         {
             return new string(@this, repeatCount);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates from @this to toCharacter.
         /// </summary>
@@ -52,10 +49,7 @@ namespace TestProj47
 
             return result;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a UTF-16 encoded surrogate pair into a Unicode code point.
         /// </summary>
@@ -66,10 +60,7 @@ namespace TestProj47
         {
             return char.ConvertToUtf32(highSurrogate, lowSurrogate);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified numeric Unicode character to a double-precision floating point number.
         /// </summary>
@@ -79,10 +70,7 @@ namespace TestProj47
         {
             return char.GetNumericValue(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Categorizes a specified Unicode character into a group identified by one of the  values.
         /// </summary>
@@ -92,10 +80,7 @@ namespace TestProj47
         {
             return char.GetUnicodeCategory(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a control character.
         /// </summary>
@@ -105,10 +90,7 @@ namespace TestProj47
         {
             return char.IsControl(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a decimal digit.
         /// </summary>
@@ -118,10 +100,7 @@ namespace TestProj47
         {
             return char.IsDigit(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified  object is a high surrogate.
         /// </summary>
@@ -133,10 +112,7 @@ namespace TestProj47
         {
             return char.IsHighSurrogate(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a Unicode letter.
         /// </summary>
@@ -146,10 +122,7 @@ namespace TestProj47
         {
             return char.IsLetter(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a letter or a decimal digit.
         /// </summary>
@@ -159,10 +132,7 @@ namespace TestProj47
         {
             return char.IsLetterOrDigit(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a lowercase letter.
         /// </summary>
@@ -172,10 +142,7 @@ namespace TestProj47
         {
             return char.IsLower(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified  object is a low surrogate.
         /// </summary>
@@ -187,10 +154,7 @@ namespace TestProj47
         {
             return char.IsLowSurrogate(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a number.
         /// </summary>
@@ -200,10 +164,7 @@ namespace TestProj47
         {
             return char.IsNumber(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a punctuation mark.
         /// </summary>
@@ -213,10 +174,7 @@ namespace TestProj47
         {
             return char.IsPunctuation(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a separator character.
         /// </summary>
@@ -226,10 +184,7 @@ namespace TestProj47
         {
             return char.IsSeparator(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified character has a surrogate code unit.
         /// </summary>
@@ -239,10 +194,7 @@ namespace TestProj47
         {
             return char.IsSurrogate(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the two specified  objects form a surrogate pair.
         /// </summary>
@@ -256,10 +208,7 @@ namespace TestProj47
         {
             return char.IsSurrogatePair(highSurrogate, lowSurrogate);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as a symbol character.
         /// </summary>
@@ -269,10 +218,7 @@ namespace TestProj47
         {
             return char.IsSymbol(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as an uppercase letter.
         /// </summary>
@@ -282,10 +228,7 @@ namespace TestProj47
         {
             return char.IsUpper(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Indicates whether the specified Unicode character is categorized as white space.
         /// </summary>
@@ -295,10 +238,7 @@ namespace TestProj47
         {
             return char.IsWhiteSpace(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a specified Unicode character to its lowercase equivalent using specified culture-
         ///     specific formatting information.
@@ -325,10 +265,7 @@ namespace TestProj47
         {
             return char.ToLower(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a Unicode character to its lowercase equivalent using the casing rules of the invariant
         ///     culture.
@@ -342,10 +279,7 @@ namespace TestProj47
         {
             return char.ToLowerInvariant(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the specified Unicode character to its equivalent string representation.
         /// </summary>
@@ -355,10 +289,7 @@ namespace TestProj47
         {
             return char.ToString(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a specified Unicode character to its uppercase equivalent using specified culture-
         ///     specific formatting information.
@@ -386,10 +317,7 @@ namespace TestProj47
         {
             return char.ToUpper(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Converts the value of a Unicode character to its uppercase equivalent using the casing rules of the invariant
         ///     culture.
@@ -403,10 +331,7 @@ namespace TestProj47
         {
             return char.ToUpperInvariant(c);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -419,10 +344,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>

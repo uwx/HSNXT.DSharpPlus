@@ -27,10 +27,7 @@ namespace TestProj47
         {
             return @this.Rows[0];
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A DataTable extension method that last row.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A DataRow.</returns>
@@ -38,10 +35,7 @@ namespace TestProj47
         {
             return @this.Rows[@this.Rows.Count - 1];
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates to entities in this collection.
         /// </summary>
@@ -83,10 +77,7 @@ namespace TestProj47
 
             return list;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Enumerates to expando objects in this collection.
         /// </summary>

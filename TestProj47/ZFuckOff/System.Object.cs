@@ -27,10 +27,7 @@ namespace TestProj47
         {
             return (T) @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an or default.
         /// </summary>
@@ -303,10 +300,7 @@ namespace TestProj47
                 return defaultValueFactory(@this);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is assignable from.
         /// </summary>
@@ -330,10 +324,7 @@ namespace TestProj47
             Type type = @this.GetType();
             return type.IsAssignableFrom(targetType);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that chains actions.
         /// </summary>
@@ -347,10 +338,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that makes a deep copy of '@this' object.
         /// </summary>
@@ -367,10 +355,7 @@ namespace TestProj47
                 return (T) formatter.Deserialize(stream);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that shallow copy.
         /// </summary>
@@ -383,10 +368,7 @@ namespace TestProj47
                 .GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
             return (T) method.Invoke(@this, null);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns an object of the specified type whose value is equivalent to the specified object.
         /// </summary>
@@ -476,10 +458,7 @@ namespace TestProj47
         {
             return (T) Convert.ChangeType(value, typeof(T), provider);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns the  for the specified object.
         /// </summary>
@@ -489,10 +468,7 @@ namespace TestProj47
         {
             return Convert.GetTypeCode(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A System.Object extension method that toes the given this.
         /// </summary>
@@ -718,10 +694,7 @@ namespace TestProj47
 
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A System.Object extension method that converts this object to an or default.
         /// </summary>
@@ -1006,10 +979,7 @@ namespace TestProj47
         {
             return ToOrDefault(@this, x => defaultValue);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid bool.
         /// </summary>
@@ -1025,10 +995,7 @@ namespace TestProj47
             bool result;
             return bool.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid byte.
         /// </summary>
@@ -1044,10 +1011,7 @@ namespace TestProj47
             byte result;
             return byte.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid char.
         /// </summary>
@@ -1058,10 +1022,7 @@ namespace TestProj47
             char result;
             return char.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid System.DateTime.
         /// </summary>
@@ -1077,10 +1038,7 @@ namespace TestProj47
             DateTime result;
             return DateTime.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid System.DateTimeOffset.
         /// </summary>
@@ -1096,10 +1054,7 @@ namespace TestProj47
             DateTimeOffset result;
             return DateTimeOffset.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid decimal.
         /// </summary>
@@ -1115,10 +1070,7 @@ namespace TestProj47
             decimal result;
             return decimal.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid double.
         /// </summary>
@@ -1134,10 +1086,7 @@ namespace TestProj47
             double result;
             return double.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid float.
         /// </summary>
@@ -1153,10 +1102,7 @@ namespace TestProj47
             float result;
             return float.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid System.Guid.
         /// </summary>
@@ -1167,10 +1113,7 @@ namespace TestProj47
             Guid result;
             return Guid.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid short.
         /// </summary>
@@ -1186,10 +1129,7 @@ namespace TestProj47
             short result;
             return short.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid int.
         /// </summary>
@@ -1205,10 +1145,7 @@ namespace TestProj47
             int result;
             return int.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid long.
         /// </summary>
@@ -1224,10 +1161,7 @@ namespace TestProj47
             long result;
             return long.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid long.
         /// </summary>
@@ -1243,10 +1177,7 @@ namespace TestProj47
             long result;
             return long.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid sbyte.
         /// </summary>
@@ -1262,10 +1193,7 @@ namespace TestProj47
             sbyte result;
             return sbyte.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid short.
         /// </summary>
@@ -1281,10 +1209,7 @@ namespace TestProj47
             short result;
             return short.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid float.
         /// </summary>
@@ -1300,10 +1225,7 @@ namespace TestProj47
             float result;
             return float.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid string.
         /// </summary>
@@ -1313,10 +1235,7 @@ namespace TestProj47
         {
             return true;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid ushort.
         /// </summary>
@@ -1332,10 +1251,7 @@ namespace TestProj47
             ushort result;
             return ushort.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid uint.
         /// </summary>
@@ -1351,10 +1267,7 @@ namespace TestProj47
             uint result;
             return uint.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid ulong.
         /// </summary>
@@ -1370,10 +1283,7 @@ namespace TestProj47
             ulong result;
             return ulong.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid ulong.
         /// </summary>
@@ -1389,10 +1299,7 @@ namespace TestProj47
             ulong result;
             return ulong.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that query if '@this' is valid ushort.
         /// </summary>
@@ -1408,10 +1315,7 @@ namespace TestProj47
             ushort result;
             return ushort.TryParse(@this.ToString(), out result);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a boolean.
         /// </summary>
@@ -1421,10 +1325,7 @@ namespace TestProj47
         {
             return Convert.ToBoolean(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a boolean or default.
         /// </summary>
@@ -1525,10 +1426,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a byte.
         /// </summary>
@@ -1538,10 +1436,7 @@ namespace TestProj47
         {
             return Convert.ToByte(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a byte or default.
         /// </summary>
@@ -1638,10 +1533,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a character.
         /// </summary>
@@ -1651,10 +1543,7 @@ namespace TestProj47
         {
             return Convert.ToChar(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a character or default.
         /// </summary>
@@ -1755,10 +1644,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a date time.
         /// </summary>
@@ -1768,10 +1654,7 @@ namespace TestProj47
         {
             return Convert.ToDateTime(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a date time off set.
         /// </summary>
@@ -1781,10 +1664,7 @@ namespace TestProj47
         {
             return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a date time off set or default.
         /// </summary>
@@ -1888,10 +1768,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a date time or default.
         /// </summary>
@@ -1993,10 +1870,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a decimal.
         /// </summary>
@@ -2006,10 +1880,7 @@ namespace TestProj47
         {
             return Convert.ToDecimal(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a decimal or default.
         /// </summary>
@@ -2111,10 +1982,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a double.
         /// </summary>
@@ -2124,10 +1992,7 @@ namespace TestProj47
         {
             return Convert.ToDouble(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a double or default.
         /// </summary>
@@ -2229,10 +2094,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a float.
         /// </summary>
@@ -2242,10 +2104,7 @@ namespace TestProj47
         {
             return Convert.ToSingle(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a float or default.
         /// </summary>
@@ -2346,10 +2205,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a unique identifier.
         /// </summary>
@@ -2359,10 +2215,7 @@ namespace TestProj47
         {
             return new Guid(@this.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a unique identifier or default.
         /// </summary>
@@ -2463,10 +2316,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an int 16.
         /// </summary>
@@ -2476,10 +2326,7 @@ namespace TestProj47
         {
             return Convert.ToInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an int 16 or default.
         /// </summary>
@@ -2580,10 +2427,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an int 32.
         /// </summary>
@@ -2593,10 +2437,7 @@ namespace TestProj47
         {
             return Convert.ToInt32(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an int 32 or default.
         /// </summary>
@@ -2697,10 +2538,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an int 64.
         /// </summary>
@@ -2710,10 +2548,7 @@ namespace TestProj47
         {
             return Convert.ToInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an int 64 or default.
         /// </summary>
@@ -2814,10 +2649,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a long.
         /// </summary>
@@ -2827,10 +2659,7 @@ namespace TestProj47
         {
             return Convert.ToInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a long or default.
         /// </summary>
@@ -2927,10 +2756,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable boolean.
         /// </summary>
@@ -2945,10 +2771,7 @@ namespace TestProj47
 
             return Convert.ToBoolean(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable boolean or default.
         /// </summary>
@@ -3016,10 +2839,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable byte.
         /// </summary>
@@ -3034,10 +2854,7 @@ namespace TestProj47
 
             return Convert.ToByte(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable byte or default.
         /// </summary>
@@ -3105,10 +2922,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable character.
         /// </summary>
@@ -3123,10 +2937,7 @@ namespace TestProj47
 
             return Convert.ToChar(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable character or default.
         /// </summary>
@@ -3194,10 +3005,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable date time.
         /// </summary>
@@ -3212,10 +3020,7 @@ namespace TestProj47
 
             return Convert.ToDateTime(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable date time off set.
         /// </summary>
@@ -3230,10 +3035,7 @@ namespace TestProj47
 
             return new DateTimeOffset(Convert.ToDateTime(@this), TimeSpan.Zero);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable date time off set or default.
         /// </summary>
@@ -3302,10 +3104,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable date time or default.
         /// </summary>
@@ -3373,10 +3172,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable decimal.
         /// </summary>
@@ -3391,10 +3187,7 @@ namespace TestProj47
 
             return Convert.ToDecimal(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable decimal or default.
         /// </summary>
@@ -3462,10 +3255,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable double.
         /// </summary>
@@ -3480,10 +3270,7 @@ namespace TestProj47
 
             return Convert.ToDouble(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable double or default.
         /// </summary>
@@ -3551,10 +3338,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable float.
         /// </summary>
@@ -3569,10 +3353,7 @@ namespace TestProj47
 
             return Convert.ToSingle(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable float or default.
         /// </summary>
@@ -3640,10 +3421,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable unique identifier.
         /// </summary>
@@ -3658,10 +3436,7 @@ namespace TestProj47
 
             return new Guid(@this.ToString());
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable unique identifier or default.
         /// </summary>
@@ -3729,10 +3504,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable int 16.
         /// </summary>
@@ -3747,10 +3519,7 @@ namespace TestProj47
 
             return Convert.ToInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable int 16 or default.
         /// </summary>
@@ -3818,10 +3587,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable int 32.
         /// </summary>
@@ -3836,10 +3602,7 @@ namespace TestProj47
 
             return Convert.ToInt32(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable int 32 or default.
         /// </summary>
@@ -3907,10 +3670,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable int 64.
         /// </summary>
@@ -3925,10 +3685,7 @@ namespace TestProj47
 
             return Convert.ToInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable int 64 or default.
         /// </summary>
@@ -3996,10 +3753,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable long.
         /// </summary>
@@ -4014,10 +3768,7 @@ namespace TestProj47
 
             return Convert.ToInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable long or default.
         /// </summary>
@@ -4085,10 +3836,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable s byte.
         /// </summary>
@@ -4103,10 +3851,7 @@ namespace TestProj47
 
             return Convert.ToSByte(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable s byte or default.
         /// </summary>
@@ -4174,10 +3919,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable short.
         /// </summary>
@@ -4192,10 +3934,7 @@ namespace TestProj47
 
             return Convert.ToInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable short or default.
         /// </summary>
@@ -4263,10 +4002,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable single.
         /// </summary>
@@ -4281,10 +4017,7 @@ namespace TestProj47
 
             return Convert.ToSingle(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable single or default.
         /// </summary>
@@ -4352,10 +4085,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable u int 16.
         /// </summary>
@@ -4370,10 +4100,7 @@ namespace TestProj47
 
             return Convert.ToUInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable u int 16 or default.
         /// </summary>
@@ -4441,10 +4168,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable u int 32.
         /// </summary>
@@ -4459,10 +4183,7 @@ namespace TestProj47
 
             return Convert.ToUInt32(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable u int 32 or default.
         /// </summary>
@@ -4530,10 +4251,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable u int 64.
         /// </summary>
@@ -4548,10 +4266,7 @@ namespace TestProj47
 
             return Convert.ToUInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable u int 64 or default.
         /// </summary>
@@ -4619,10 +4334,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable u long.
         /// </summary>
@@ -4637,10 +4349,7 @@ namespace TestProj47
 
             return Convert.ToUInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable u long or default.
         /// </summary>
@@ -4708,10 +4417,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a nullable u short.
         /// </summary>
@@ -4726,10 +4432,7 @@ namespace TestProj47
 
             return Convert.ToUInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a nullable u short or default.
         /// </summary>
@@ -4797,10 +4500,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to the s byte.
         /// </summary>
@@ -4810,10 +4510,7 @@ namespace TestProj47
         {
             return Convert.ToSByte(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to the s byte or default.
         /// </summary>
@@ -4914,10 +4611,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a short.
         /// </summary>
@@ -4927,10 +4621,7 @@ namespace TestProj47
         {
             return Convert.ToInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a short or default.
         /// </summary>
@@ -5031,10 +4722,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to a single.
         /// </summary>
@@ -5044,10 +4732,7 @@ namespace TestProj47
         {
             return Convert.ToSingle(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a single or default.
         /// </summary>
@@ -5148,10 +4833,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that convert this object into a string representation.
         /// </summary>
@@ -5161,10 +4843,7 @@ namespace TestProj47
         {
             return Convert.ToString(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to a string or default.
         /// </summary>
@@ -5266,10 +4945,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an u int 16.
         /// </summary>
@@ -5279,10 +4955,7 @@ namespace TestProj47
         {
             return Convert.ToUInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an u int 16 or default.
         /// </summary>
@@ -5384,10 +5057,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an u int 32.
         /// </summary>
@@ -5397,10 +5067,7 @@ namespace TestProj47
         {
             return Convert.ToUInt32(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an u int 32 or default.
         /// </summary>
@@ -5501,10 +5168,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an u int 64.
         /// </summary>
@@ -5514,10 +5178,7 @@ namespace TestProj47
         {
             return Convert.ToUInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an u int 64 or default.
         /// </summary>
@@ -5618,10 +5279,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an u long.
         /// </summary>
@@ -5631,10 +5289,7 @@ namespace TestProj47
         {
             return Convert.ToUInt64(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an u long or default.
         /// </summary>
@@ -5735,10 +5390,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to an u short.
         /// </summary>
@@ -5748,10 +5400,7 @@ namespace TestProj47
         {
             return Convert.ToUInt16(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts this object to an u short or default.
         /// </summary>
@@ -5853,10 +5502,7 @@ namespace TestProj47
                 return defaultValueFactory();
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that that return the first not null value (including the @this).
         /// </summary>
@@ -5881,10 +5527,7 @@ namespace TestProj47
 
             return null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that that return the first not null value (including the @this) or a default value.
         /// </summary>
@@ -6179,10 +5822,7 @@ namespace TestProj47
 
             return defaultValueFactory(@this);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that gets value or default.
         /// </summary>
@@ -6441,10 +6081,7 @@ namespace TestProj47
                 return defaultValueFactory(@this);
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A T extension method that execute an action when the value is not null.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
@@ -6499,10 +6136,7 @@ namespace TestProj47
         {
             return @this != null ? func(@this) : defaultValueFactory();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that null if.
         /// </summary>
@@ -6518,10 +6152,7 @@ namespace TestProj47
             }
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that null if equals.
         /// </summary>
@@ -6537,10 +6168,7 @@ namespace TestProj47
             }
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that null if equals any.
         /// </summary>
@@ -6556,10 +6184,7 @@ namespace TestProj47
             }
             return @this;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     An object extension method that converts the @this to string or return an empty string if the value is null.
         /// </summary>
@@ -6569,10 +6194,7 @@ namespace TestProj47
         {
             return @this == null ? "" : @this.ToString();
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>A TType extension method that tries.</summary>
         /// <typeparam name="TType">Type of the type.</typeparam>
         /// <typeparam name="TResult">Type of the result.</typeparam>
@@ -6735,10 +6357,7 @@ namespace TestProj47
                 return false;
             }
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between (exclusif) the minValue and maxValue.
         /// </summary>
@@ -6751,10 +6370,7 @@ namespace TestProj47
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is equal to any of the provided values.
         /// </summary>
@@ -6766,10 +6382,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) != -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that check if the value is between inclusively the minValue and maxValue.
         /// </summary>
@@ -6782,10 +6395,7 @@ namespace TestProj47
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Returns an indication whether the specified object is of type .
         /// </summary>
@@ -6796,10 +6406,7 @@ namespace TestProj47
         {
             return Convert.IsDBNull(value);
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if 'source' is the default value.
         /// </summary>
@@ -6810,10 +6417,7 @@ namespace TestProj47
         {
             return source.Equals(default(T));
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is not null.
         /// </summary>
@@ -6824,10 +6428,7 @@ namespace TestProj47
         {
             return @this != null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method that query if '@this' is null.
         /// </summary>
@@ -6838,10 +6439,7 @@ namespace TestProj47
         {
             return @this == null;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     A T extension method to determines whether the object is not equal to any of the provided values.
         /// </summary>
@@ -6853,10 +6451,7 @@ namespace TestProj47
         {
             return Array.IndexOf(values, @this) == -1;
         }
-    }
 
-    public static partial class Extensions
-    {
         /// <summary>
         ///     Determines whether the specified  instances are the same instance.
         /// </summary>
