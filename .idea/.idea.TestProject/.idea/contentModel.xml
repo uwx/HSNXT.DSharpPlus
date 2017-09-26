@@ -19,7 +19,6 @@
         </e>
         <e p="DevLibExtensionMethods" t="Include">
           <e p="ArrayExtensions.cs" t="Include" />
-          <e p="AssemblyInfo.cs" t="Include" />
           <e p="BitStream.cs" t="Include" />
           <e p="BoolExtensions.cs" t="Include" />
           <e p="ByteExtensions.cs" t="Include" />
