@@ -7,63 +7,61 @@
       <e p="TestProj47" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="C5" t="Include">
-          <e p="C5" t="Include">
-            <e p="arrays" t="Include">
-              <e p="ArrayList.cs" t="Include" />
-              <e p="CircularQueue.cs" t="Include" />
-              <e p="HashedArrayList.cs" t="Include" />
-              <e p="SortedArray.cs" t="Include" />
-            </e>
-            <e p="C5.csproj" t="Include" />
-            <e p="C5.snk" t="Include" />
-            <e p="Collections.cs" t="Include" />
-            <e p="comparers" t="Include">
-              <e p="ComparerFactory.cs" t="Include" />
-              <e p="EqualityComparer.cs" t="Include" />
-              <e p="InternalComparer.cs" t="Include" />
-              <e p="InternalEqualityComparer.cs" t="Include" />
-            </e>
-            <e p="Debug.cs" t="Include" />
-            <e p="Dictionaries.cs" t="Include" />
-            <e p="EnumerableBase.cs" t="Include" />
-            <e p="Enums.cs" t="Include" />
-            <e p="Events.cs" t="Include" />
-            <e p="Exceptions.cs" t="Include" />
-            <e p="Formatting.cs" t="Include" />
-            <e p="Hashers.cs" t="Include" />
-            <e p="hashing" t="Include">
-              <e p="HashBag.cs" t="Include" />
-              <e p="HashDictionary.cs" t="Include" />
-              <e p="HashTable.cs" t="Include" />
-            </e>
-            <e p="heaps" t="Include">
-              <e p="IntervalHeap.cs" t="Include" />
-            </e>
-            <e p="Interfaces.cs" t="Include" />
-            <e p="IReadOnlyCollection.cs" t="Include" />
-            <e p="IReadOnlyList.cs" t="Include" />
-            <e p="linkedlists" t="Include">
-              <e p="HashedLinkedList.cs" t="Include" />
-              <e p="LinkedList.cs" t="Include" />
-            </e>
-            <e p="Logger.cs" t="Include" />
-            <e p="MappedEnumerators.cs" t="Include" />
-            <e p="MemorySafeEnumerator.cs" t="Include" />
-            <e p="PortableExtensions.cs" t="Include" />
-            <e p="public.pk" t="Include" />
-            <e p="Random.cs" t="Include" />
-            <e p="Records.cs" t="Include" />
-            <e p="SerializableAttribute.cs" t="Include" />
-            <e p="Sorting.cs" t="Include" />
-            <e p="trees" t="Include">
-              <e p="RedBlackTreeBag.cs" t="Include" />
-              <e p="RedBlackTreeDictionary.cs" t="Include" />
-              <e p="RedBlackTreeSet.cs" t="Include" />
-            </e>
-            <e p="ViewSupport.cs" t="Include" />
-            <e p="WrappedArray.cs" t="Include" />
-            <e p="Wrappers.cs" t="Include" />
+          <e p="arrays" t="Include">
+            <e p="ArrayList.cs" t="Include" />
+            <e p="CircularQueue.cs" t="Include" />
+            <e p="HashedArrayList.cs" t="Include" />
+            <e p="SortedArray.cs" t="Include" />
           </e>
+          <e p="C5.csproj" t="Include" />
+          <e p="C5.snk" t="Include" />
+          <e p="Collections.cs" t="Include" />
+          <e p="comparers" t="Include">
+            <e p="ComparerFactory.cs" t="Include" />
+            <e p="EqualityComparer.cs" t="Include" />
+            <e p="InternalComparer.cs" t="Include" />
+            <e p="InternalEqualityComparer.cs" t="Include" />
+          </e>
+          <e p="Debug.cs" t="Include" />
+          <e p="Dictionaries.cs" t="Include" />
+          <e p="EnumerableBase.cs" t="Include" />
+          <e p="Enums.cs" t="Include" />
+          <e p="Events.cs" t="Include" />
+          <e p="Exceptions.cs" t="Include" />
+          <e p="Formatting.cs" t="Include" />
+          <e p="Hashers.cs" t="Include" />
+          <e p="hashing" t="Include">
+            <e p="HashBag.cs" t="Include" />
+            <e p="HashDictionary.cs" t="Include" />
+            <e p="HashTable.cs" t="Include" />
+          </e>
+          <e p="heaps" t="Include">
+            <e p="IntervalHeap.cs" t="Include" />
+          </e>
+          <e p="Interfaces.cs" t="Include" />
+          <e p="IReadOnlyCollection.cs" t="Include" />
+          <e p="IReadOnlyList.cs" t="Include" />
+          <e p="linkedlists" t="Include">
+            <e p="HashedLinkedList.cs" t="Include" />
+            <e p="LinkedList.cs" t="Include" />
+          </e>
+          <e p="Logger.cs" t="Include" />
+          <e p="MappedEnumerators.cs" t="Include" />
+          <e p="MemorySafeEnumerator.cs" t="Include" />
+          <e p="PortableExtensions.cs" t="Include" />
+          <e p="public.pk" t="Include" />
+          <e p="Random.cs" t="Include" />
+          <e p="Records.cs" t="Include" />
+          <e p="SerializableAttribute.cs" t="Include" />
+          <e p="Sorting.cs" t="Include" />
+          <e p="trees" t="Include">
+            <e p="RedBlackTreeBag.cs" t="Include" />
+            <e p="RedBlackTreeDictionary.cs" t="Include" />
+            <e p="RedBlackTreeSet.cs" t="Include" />
+          </e>
+          <e p="ViewSupport.cs" t="Include" />
+          <e p="WrappedArray.cs" t="Include" />
+          <e p="Wrappers.cs" t="Include" />
         </e>
         <e p="CSharpBasicExtensionsKit" t="Include">
           <e p="ActionExtensions.cs" t="Include" />
