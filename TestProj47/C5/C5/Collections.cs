@@ -39,6 +39,7 @@ namespace C5
         /// <value></value>
         public virtual EventTypeEnum ListenableEvents => 0;
 
+        /// <inheritdoc />
         /// <summary>
         /// A flag bitmap of the events currently subscribed to by this collection.
         /// </summary>
