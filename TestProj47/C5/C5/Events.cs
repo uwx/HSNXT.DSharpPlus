@@ -76,7 +76,7 @@ namespace C5
     {
         internal EventTypeEnum events;
 
-        event CollectionChangedHandler<T> collectionChanged;
+        private event CollectionChangedHandler<T> collectionChanged;
         internal event CollectionChangedHandler<T> CollectionChanged
         {
             add
@@ -94,7 +94,7 @@ namespace C5
         internal void raiseCollectionChanged(object sender)
         { if (collectionChanged != null) collectionChanged(sender); }
 
-        event CollectionClearedHandler<T> collectionCleared;
+        private event CollectionClearedHandler<T> collectionCleared;
         internal event CollectionClearedHandler<T> CollectionCleared
         {
             add
@@ -114,7 +114,7 @@ namespace C5
         internal void raiseCollectionCleared(object sender, bool full, int count, int? start)
         { if (collectionCleared != null) collectionCleared(sender, new ClearedRangeEventArgs(full, count, start)); }
 
-        event ItemsAddedHandler<T> itemsAdded;
+        private event ItemsAddedHandler<T> itemsAdded;
         internal event ItemsAddedHandler<T> ItemsAdded
         {
             add
@@ -132,7 +132,7 @@ namespace C5
         internal void raiseItemsAdded(object sender, T item, int count)
         { if (itemsAdded != null) itemsAdded(sender, new ItemCountEventArgs<T>(item, count)); }
 
-        event ItemsRemovedHandler<T> itemsRemoved;
+        private event ItemsRemovedHandler<T> itemsRemoved;
         internal event ItemsRemovedHandler<T> ItemsRemoved
         {
             add
@@ -150,7 +150,7 @@ namespace C5
         internal void raiseItemsRemoved(object sender, T item, int count)
         { if (itemsRemoved != null) itemsRemoved(sender, new ItemCountEventArgs<T>(item, count)); }
 
-        event ItemInsertedHandler<T> itemInserted;
+        private event ItemInsertedHandler<T> itemInserted;
         internal event ItemInsertedHandler<T> ItemInserted
         {
             add
@@ -168,7 +168,7 @@ namespace C5
         internal void raiseItemInserted(object sender, T item, int index)
         { if (itemInserted != null) itemInserted(sender, new ItemAtEventArgs<T>(item, index)); }
 
-        event ItemRemovedAtHandler<T> itemRemovedAt;
+        private event ItemRemovedAtHandler<T> itemRemovedAt;
         internal event ItemRemovedAtHandler<T> ItemRemovedAt
         {
             add
@@ -195,14 +195,14 @@ namespace C5
     [Serializable]
     internal sealed class ProxyEventBlock<T>
     {
-        readonly ICollectionValue<T> proxy;
-        readonly ICollectionValue<T> real;
+        private readonly ICollectionValue<T> proxy;
+        private readonly ICollectionValue<T> real;
 
         internal ProxyEventBlock(ICollectionValue<T> proxy, ICollectionValue<T> real)
         { this.proxy = proxy; this.real = real; }
 
-        event CollectionChangedHandler<T> collectionChanged;
-        CollectionChangedHandler<T> collectionChangedProxy;
+        private event CollectionChangedHandler<T> collectionChanged;
+        private CollectionChangedHandler<T> collectionChangedProxy;
         internal event CollectionChangedHandler<T> CollectionChanged
         {
             add
@@ -223,8 +223,8 @@ namespace C5
             }
         }
 
-        event CollectionClearedHandler<T> collectionCleared;
-        CollectionClearedHandler<T> collectionClearedProxy;
+        private event CollectionClearedHandler<T> collectionCleared;
+        private CollectionClearedHandler<T> collectionClearedProxy;
         internal event CollectionClearedHandler<T> CollectionCleared
         {
             add
@@ -245,8 +245,8 @@ namespace C5
             }
         }
 
-        event ItemsAddedHandler<T> itemsAdded;
-        ItemsAddedHandler<T> itemsAddedProxy;
+        private event ItemsAddedHandler<T> itemsAdded;
+        private ItemsAddedHandler<T> itemsAddedProxy;
         internal event ItemsAddedHandler<T> ItemsAdded
         {
             add
@@ -267,8 +267,8 @@ namespace C5
             }
         }
 
-        event ItemInsertedHandler<T> itemInserted;
-        ItemInsertedHandler<T> itemInsertedProxy;
+        private event ItemInsertedHandler<T> itemInserted;
+        private ItemInsertedHandler<T> itemInsertedProxy;
         internal event ItemInsertedHandler<T> ItemInserted
         {
             add
@@ -289,8 +289,8 @@ namespace C5
             }
         }
 
-        event ItemsRemovedHandler<T> itemsRemoved;
-        ItemsRemovedHandler<T> itemsRemovedProxy;
+        private event ItemsRemovedHandler<T> itemsRemoved;
+        private ItemsRemovedHandler<T> itemsRemovedProxy;
         internal event ItemsRemovedHandler<T> ItemsRemoved
         {
             add
@@ -311,8 +311,8 @@ namespace C5
             }
         }
 
-        event ItemRemovedAtHandler<T> itemRemovedAt;
-        ItemRemovedAtHandler<T> itemRemovedAtProxy;
+        private event ItemRemovedAtHandler<T> itemRemovedAt;
+        private ItemRemovedAtHandler<T> itemRemovedAtProxy;
         internal event ItemRemovedAtHandler<T> ItemRemovedAt
         {
             add

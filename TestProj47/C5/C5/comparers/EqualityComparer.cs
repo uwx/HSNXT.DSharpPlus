@@ -17,9 +17,9 @@ namespace C5
     {
         private static SCG.IEqualityComparer<T> _default;
 
-        readonly static Type SequencedCollectionEqualityComparer = typeof(SequencedCollectionEqualityComparer<,>);
+        private readonly static Type SequencedCollectionEqualityComparer = typeof(SequencedCollectionEqualityComparer<,>);
 
-        readonly static Type UnsequencedCollectionEqualityComparer = typeof(UnsequencedCollectionEqualityComparer<,>);
+        private readonly static Type UnsequencedCollectionEqualityComparer = typeof(UnsequencedCollectionEqualityComparer<,>);
 
         /// <summary>
         /// A default generic equality comparer for type T. The procedure is as follows:

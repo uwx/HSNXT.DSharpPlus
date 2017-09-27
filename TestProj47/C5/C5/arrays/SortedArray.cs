@@ -41,7 +41,7 @@ namespace C5
 
         #region Fields
 
-        readonly SCG.IComparer<T> _comparer;
+        private readonly SCG.IComparer<T> _comparer;
 
         #endregion
 

@@ -40,26 +40,27 @@ namespace C5
         /// <summary>
         /// Has this list or view not been invalidated by some operation (by someone calling Dispose())
         /// </summary>
-        bool isValid = true;
+        private bool isValid = true;
 
         //TODO: wonder if we should save some memory on none-view situations by 
         //      putting these three fields into a single ref field?
         /// <summary>
         /// The underlying list if we are a view, null else.
         /// </summary>
-        ArrayList<T> underlying;
-        WeakViewList<ArrayList<T>> views;
-        WeakViewList<ArrayList<T>>.Node myWeakReference;
+        private ArrayList<T> underlying;
+
+        private WeakViewList<ArrayList<T>> views;
+        private WeakViewList<ArrayList<T>>.Node myWeakReference;
 
         /// <summary>
         /// The size of the underlying list.
         /// </summary>
-        int underlyingsize { get { return (underlying ?? this).size; } }
+        private int underlyingsize { get { return (underlying ?? this).size; } }
 
         /// <summary>
         /// The underlying field of the FIFO property
         /// </summary>
-        bool fIFO = false;
+        private bool fIFO = false;
 
         #endregion
         #region Events
@@ -208,13 +209,13 @@ namespace C5
         #endregion
         #region Util
 
-        bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
+        private bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
 
         /// <summary>
         /// Increment or decrement the private size fields
         /// </summary>
         /// <param name="delta">Increment (with sign)</param>
-        void addtosize(int delta)
+        private void addtosize(int delta)
         {
             size += delta;
             if (underlying != null)
@@ -270,7 +271,7 @@ namespace C5
         /// modification of the base collection.</para>
         /// </summary>
         /// <exception cref="ViewDisposedException"> if check fails.</exception>
-        void validitycheck()
+        private void validitycheck()
         {
             if (!isValid)
                 throw new ViewDisposedException();
@@ -300,7 +301,7 @@ namespace C5
         /// </summary>
         /// <param name="item">Item to look for</param>
         /// <returns>The index of first occurrence</returns>
-        int indexOf(T item)
+        private int indexOf(T item)
         {
             for (int i = 0; i < size; i++)
                 if (equals(item, array[offsetField + i]))
@@ -313,7 +314,7 @@ namespace C5
         /// </summary>
         /// <param name="item">Item to look for</param>
         /// <returns>The index of last occurrence</returns>
-        int lastIndexOf(T item)
+        private int lastIndexOf(T item)
         {
             for (int i = size - 1; i >= 0; i--)
                 if (equals(item, array[offsetField + i]))
@@ -354,7 +355,7 @@ namespace C5
         /// </summary>
         /// <param name="i">Index to remove at</param>
         /// <returns>The removed item</returns>
-        T removeAt(int i)
+        private T removeAt(int i)
         {
             i += offsetField;
             fixViewsBeforeSingleRemove(i);
@@ -379,7 +380,7 @@ namespace C5
         /// </summary>
         /// <param name="added">The actual number of inserted nodes</param>
         /// <param name="realInsertionIndex"></param>
-        void fixViewsAfterInsert(int added, int realInsertionIndex)
+        private void fixViewsAfterInsert(int added, int realInsertionIndex)
         {
             if (views != null)
                 foreach (ArrayList<T> view in views)
@@ -394,7 +395,7 @@ namespace C5
                 }
         }
 
-        void fixViewsBeforeSingleRemove(int realRemovalIndex)
+        private void fixViewsBeforeSingleRemove(int realRemovalIndex)
         {
             if (views != null)
                 foreach (ArrayList<T> view in views)
@@ -414,7 +415,7 @@ namespace C5
         /// </summary>
         /// <param name="start">the start of the interval relative to the array/underlying</param>
         /// <param name="count"></param>
-        void fixViewsBeforeRemove(int start, int count)
+        private void fixViewsBeforeRemove(int start, int count)
         {
             int clearend = start + count - 1;
             if (views != null)
@@ -444,7 +445,7 @@ namespace C5
         /// <param name="otherOffset"></param>
         /// <param name="otherSize"></param>
         /// <returns>The position of View(otherOffset, otherSize) wrt. this view</returns>
-        MutualViewPosition viewPosition(int otherOffset, int otherSize)
+        private MutualViewPosition viewPosition(int otherOffset, int otherSize)
         {
             int end = offsetField + size, otherEnd = otherOffset + otherSize;
             if (otherOffset >= end || otherEnd <= offsetField)
@@ -457,7 +458,7 @@ namespace C5
         }
 
         //TODO: make version that fits the new, more forgiving rules for disposing
-        void disposeOverlappingViews(bool reverse)
+        private void disposeOverlappingViews(bool reverse)
         {
             if (views != null)
                 foreach (ArrayList<T> view in views)
@@ -488,7 +489,7 @@ namespace C5
 
         #region Position, PositionComparer and ViewHandler nested types
         [Serializable]
-        class PositionComparer : SCG.IComparer<Position>
+        private class PositionComparer : SCG.IComparer<Position>
         {
             public int Compare(Position a, Position b)
             {
@@ -498,7 +499,7 @@ namespace C5
         /// <summary>
         /// During RemoveAll, we need to cache the original endpoint indices of views (??? also for ArrayList?)
         /// </summary>
-        struct Position
+        private struct Position
         {
             public readonly ArrayList<T> view;
             public readonly int index;
@@ -513,11 +514,11 @@ namespace C5
         /// <summary>
         /// Handle the update of (other) views during a multi-remove operation.
         /// </summary>
-        struct ViewHandler
+        private struct ViewHandler
         {
-            readonly ArrayList<Position> leftEnds;
-            readonly ArrayList<Position> rightEnds;
-            int leftEndIndex, rightEndIndex;
+            private readonly ArrayList<Position> leftEnds;
+            private readonly ArrayList<Position> rightEnds;
+            private int leftEndIndex, rightEndIndex;
             internal readonly int viewCount;
             internal ViewHandler(ArrayList<T> list)
             {
@@ -1292,7 +1293,8 @@ namespace C5
 
             (underlying ?? this).raiseForRemoveInterval(start, count);
         }
-        void raiseForRemoveInterval(int start, int count)
+
+        private void raiseForRemoveInterval(int start, int count)
         {
             if (ActiveEvents != 0)
             {
@@ -1566,7 +1568,7 @@ namespace C5
         /// 
         /// </summary>
         /// <param name="predicate"></param>
-        void RemoveAll(Func<T, bool> predicate)
+        private void RemoveAll(Func<T, bool> predicate)
         {
             updatecheck();
             if (size == 0)
@@ -1696,7 +1698,7 @@ namespace C5
         /// 
         /// </summary>
         /// <param name="predicate"></param>
-        void RetainAll(Func<T, bool> predicate)
+        private void RetainAll(Func<T, bool> predicate)
         {
             updatecheck();
             if (size == 0)
@@ -2101,7 +2103,7 @@ namespace C5
             Dispose(false);
         }
 
-        void Dispose(bool disposingUnderlying)
+        private void Dispose(bool disposingUnderlying)
         {
             if (isValid)
             {

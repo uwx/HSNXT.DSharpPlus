@@ -92,7 +92,7 @@ namespace C5
         /// </summary>
         /// <param name="format"></param>
         /// <returns></returns>
-        static int maxLength(String format)
+        private static int maxLength(String format)
         {
             //TODO: validate format string
             if (format == null)

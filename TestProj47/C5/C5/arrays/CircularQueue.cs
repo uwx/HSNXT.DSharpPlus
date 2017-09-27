@@ -39,12 +39,13 @@ namespace C5
         else size = array.Length + back - front + 1;
 
         */
-        int front, back;
+        private int front, back;
         /// <summary>
         /// The internal container array is doubled when necessary, but never shrinked.
         /// </summary>
-        T[] array;
-        bool forwards = true, original = true;
+        private T[] array;
+
+        private bool forwards = true, original = true;
         #endregion
 
         #region Events
@@ -58,7 +59,8 @@ namespace C5
         #endregion
 
         #region Util
-        void expand()
+
+        private void expand()
         {
             int newlength = 2 * array.Length;
             T[] newarray = new T[newlength];

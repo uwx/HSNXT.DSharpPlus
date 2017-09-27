@@ -154,7 +154,7 @@ namespace C5
     [Serializable]
     public class KeyValuePairComparer<K, V> : SCG.IComparer<KeyValuePair<K, V>>
     {
-        readonly SCG.IComparer<K> comparer;
+        private readonly SCG.IComparer<K> comparer;
 
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace C5
     [Serializable]
     public sealed class KeyValuePairEqualityComparer<K, V> : SCG.IEqualityComparer<KeyValuePair<K, V>>
     {
-        readonly SCG.IEqualityComparer<K> keyequalityComparer;
+        private readonly SCG.IEqualityComparer<K> keyequalityComparer;
 
 
         /// <summary>
@@ -246,14 +246,14 @@ namespace C5
         /// </summary>
         protected ICollection<KeyValuePair<K, V>> pairs;
 
-        readonly SCG.IEqualityComparer<K> keyequalityComparer;
+        private readonly SCG.IEqualityComparer<K> keyequalityComparer;
 
         private readonly KeysCollection _keyCollection;
         private readonly ValuesCollection _valueCollection;
 
         #region Events
 
-        ProxyEventBlock<KeyValuePair<K, V>> eventBlock;
+        private ProxyEventBlock<KeyValuePair<K, V>> eventBlock;
 
         /// <summary>
         /// The change event. Will be raised for every change operation on the collection.
@@ -433,9 +433,9 @@ namespace C5
         }
 
         [Serializable]
-        class LiftedEnumerable<H> : SCG.IEnumerable<KeyValuePair<K, V>> where H : K
+        private class LiftedEnumerable<H> : SCG.IEnumerable<KeyValuePair<K, V>> where H : K
         {
-            readonly SCG.IEnumerable<H> keys;
+            private readonly SCG.IEnumerable<H> keys;
             public LiftedEnumerable(SCG.IEnumerable<H> keys) { this.keys = keys; }
             public SCG.IEnumerator<KeyValuePair<K, V>> GetEnumerator() { foreach (H key in keys) yield return new KeyValuePair<K, V>(key); }
 
@@ -672,7 +672,7 @@ namespace C5
         [Serializable]
         internal class KeysCollection : CollectionValueBase<K>, ICollectionValue<K>
         {
-            ICollection<KeyValuePair<K, V>> _pairs;
+            private ICollection<KeyValuePair<K, V>> _pairs;
 
             private readonly KeyEnumerator _keyEnumerator;
 
@@ -905,7 +905,7 @@ namespace C5
         /// </summary>
         protected ISorted<KeyValuePair<K, V>> sortedpairs;
 
-        readonly SCG.IComparer<K> keycomparer;
+        private readonly SCG.IComparer<K> keycomparer;
 
         /// <summary>
         /// 
@@ -1166,9 +1166,9 @@ namespace C5
 
         #endregion
         [Serializable]
-        class KeyValuePairComparable : IComparable<KeyValuePair<K, V>>
+        private class KeyValuePairComparable : IComparable<KeyValuePair<K, V>>
         {
-            readonly IComparable<K> cutter;
+            private readonly IComparable<K> cutter;
 
             internal KeyValuePairComparable(IComparable<K> cutter) { this.cutter = cutter; }
 
@@ -1178,7 +1178,7 @@ namespace C5
         }
 
         [Serializable]
-        class ProjectedDirectedEnumerable : MappedDirectedEnumerable<KeyValuePair<K, V>, K>
+        private class ProjectedDirectedEnumerable : MappedDirectedEnumerable<KeyValuePair<K, V>, K>
         {
             public ProjectedDirectedEnumerable(IDirectedEnumerable<KeyValuePair<K, V>> directedpairs) : base(directedpairs) { }
 
@@ -1187,7 +1187,7 @@ namespace C5
         }
 
         [Serializable]
-        class ProjectedDirectedCollectionValue : MappedDirectedCollectionValue<KeyValuePair<K, V>, K>
+        private class ProjectedDirectedCollectionValue : MappedDirectedCollectionValue<KeyValuePair<K, V>, K>
         {
             public ProjectedDirectedCollectionValue(IDirectedCollectionValue<KeyValuePair<K, V>> directedpairs) : base(directedpairs) { }
 
@@ -1196,7 +1196,7 @@ namespace C5
         }
 
         [Serializable]
-        sealed class SortedKeysCollection : SequencedBase<K>, ISorted<K>
+        private sealed class SortedKeysCollection : SequencedBase<K>, ISorted<K>
         {
 
             #region Private Enumerator
@@ -1278,12 +1278,12 @@ namespace C5
 
             private readonly KeyEnumerator _internalEnumerator;
 
-            readonly ISortedDictionary<K, V> sorteddict;
+            private readonly ISortedDictionary<K, V> sorteddict;
             //TODO: eliminate this. Only problem is the Find method because we lack method on dictionary that also
             //      returns the actual key.
-            readonly ISorted<KeyValuePair<K, V>> sortedpairs;
+            private readonly ISorted<KeyValuePair<K, V>> sortedpairs;
 
-            readonly SCG.IComparer<K> comparer;
+            private readonly SCG.IComparer<K> comparer;
 
             internal SortedKeysCollection(ISortedDictionary<K, V> sorteddict, ISorted<KeyValuePair<K, V>> sortedpairs, SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> itemequalityComparer, MemoryType memoryType)
                 : base(itemequalityComparer, memoryType)
@@ -1532,7 +1532,7 @@ namespace C5
     }
 
     [Serializable]
-    class SortedArrayDictionary<K, V> : SortedDictionaryBase<K, V>
+    internal class SortedArrayDictionary<K, V> : SortedDictionaryBase<K, V>
     {
         #region Constructors
 
