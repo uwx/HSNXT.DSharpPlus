@@ -72,13 +72,13 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public T First { get { return innerlist.First; } }
+		public T First => innerlist.First;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public T Last { get { return innerlist.Last; } }
+		public T Last => innerlist.Last;
 
 		/// <summary>
 		/// 
@@ -87,8 +87,8 @@ namespace C5
 		/// <returns></returns>
 		public T this [ int index ]
 		{
-			get { return innerlist [ index ]; }
-			set { innerlist [ index ] = value; }
+			get => innerlist [ index ];
+			set => innerlist [ index ] = value;
 		}
 
 		/// <summary>
@@ -130,17 +130,14 @@ namespace C5
 		/// <value></value>
 		public bool FIFO
 		{
-			get { throw new FixedSizeCollectionException ( ); }
-			set { throw new FixedSizeCollectionException ( ); }
+			get => throw new FixedSizeCollectionException ( );
+			set => throw new FixedSizeCollectionException ( );
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public virtual bool IsFixedSize
-		{
-			get { return true; }
-		}
+		public virtual bool IsFixedSize => true;
 
 		/// <summary>
 		/// 
@@ -252,19 +249,19 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public IList<T> Underlying { get { return underlying; } }
+		public IList<T> Underlying => underlying;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public int Offset { get { return innerlist.Offset; } }
+		public int Offset => innerlist.Offset;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public bool IsValid { get { return innerlist.IsValid; } }
+		public bool IsValid => innerlist.IsValid;
 
 		/// <summary>
 		/// 
@@ -387,7 +384,7 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public Speed IndexingSpeed { get { return Speed.Constant; } }
+		public Speed IndexingSpeed => Speed.Constant;
 
 		/// <summary>
 		/// 
@@ -395,7 +392,7 @@ namespace C5
 		/// <param name="start"></param>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		public IDirectedCollectionValue<T> this [ int start, int count ] { get { return innerlist [ start, count ]; } }
+		public IDirectedCollectionValue<T> this [ int start, int count ] => innerlist [ start, count ];
 
 		/// <summary>
 		/// 
@@ -488,7 +485,7 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public Speed ContainsSpeed { get { return Speed.Linear; } }
+		public Speed ContainsSpeed => Speed.Linear;
 
 		/// <summary>
 		/// 
@@ -683,31 +680,25 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public bool IsReadOnly { get { return true; } }
+		public bool IsReadOnly => true;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public bool AllowsDuplicates
-		{
-			get { return true; }
-		}
+		public bool AllowsDuplicates => true;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public SCG.IEqualityComparer<T> EqualityComparer { get { return innerlist.EqualityComparer; } }
+		public SCG.IEqualityComparer<T> EqualityComparer => innerlist.EqualityComparer;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public bool DuplicatesByCounting
-		{
-			get { return false; }
-		}
+		public bool DuplicatesByCounting => false;
 
 		/// <summary>
 		/// 
@@ -745,13 +736,13 @@ namespace C5
 		/// No listeners may be installed
 		/// </summary>
 		/// <value>0</value>
-		public virtual EventTypeEnum ListenableEvents { get { return 0; } }
+		public virtual EventTypeEnum ListenableEvents => 0;
 
 		/// <summary>
 		/// No listeners ever installed
 		/// </summary>
 		/// <value>0</value>
-		public virtual EventTypeEnum ActiveEvents { get { return 0; } }
+		public virtual EventTypeEnum ActiveEvents => 0;
 
 		/// <summary>
 		/// 
@@ -759,8 +750,8 @@ namespace C5
 		/// <value></value>
 		public event CollectionChangedHandler<T> CollectionChanged
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
@@ -769,8 +760,8 @@ namespace C5
 		/// <value></value>
 		public event CollectionClearedHandler<T> CollectionCleared
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
@@ -779,8 +770,8 @@ namespace C5
 		/// <value></value>
 		public event ItemsAddedHandler<T> ItemsAdded
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
@@ -789,8 +780,8 @@ namespace C5
 		/// <value></value>
 		public event ItemInsertedHandler<T> ItemInserted
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
@@ -799,8 +790,8 @@ namespace C5
 		/// <value></value>
 		public event ItemsRemovedHandler<T> ItemsRemoved
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
@@ -809,27 +800,27 @@ namespace C5
 		/// <value></value>
 		public event ItemRemovedAtHandler<T> ItemRemovedAt
 		{
-			add { throw new UnlistenableEventException ( ); }
-			remove { throw new UnlistenableEventException ( ); }
+			add => throw new UnlistenableEventException ( );
+			remove => throw new UnlistenableEventException ( );
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public bool IsEmpty { get { return innerlist.IsEmpty; } }
+		public bool IsEmpty => innerlist.IsEmpty;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public int Count { get { return innerlist.Count; } }
+		public int Count => innerlist.Count;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <value></value>
-		public Speed CountSpeed { get { return innerlist.CountSpeed; } }
+		public Speed CountSpeed => innerlist.CountSpeed;
 
 		/// <summary>
 		/// 
@@ -1000,7 +991,7 @@ namespace C5
 		/// 
 		/// </summary>
 		/// <value></value>
-		public EnumerationDirection Direction { get { return EnumerationDirection.Forwards; } }
+		public EnumerationDirection Direction => EnumerationDirection.Forwards;
 
 		#endregion
 
@@ -1036,16 +1027,10 @@ namespace C5
 
 		#region System.Collections.ICollection Members
 
-		bool System.Collections.ICollection.IsSynchronized
-		{
-			get { return false; }
-		}
+		bool System.Collections.ICollection.IsSynchronized => false;
 
 		[Obsolete]
-		Object System.Collections.ICollection.SyncRoot
-		{
-			get { return ( ( System.Collections.IList ) innerlist ).SyncRoot; }
-		}
+		Object System.Collections.ICollection.SyncRoot => ( ( System.Collections.IList ) innerlist ).SyncRoot;
 
 		void System.Collections.ICollection.CopyTo ( Array arr, int index )
 		{
@@ -1062,8 +1047,8 @@ namespace C5
 
 		Object System.Collections.IList.this [ int index ]
 		{
-			get { return this [ index ]; }
-			set { this [ index ] = ( T ) value; }
+			get => this [ index ];
+			set => this [ index ] = ( T ) value;
 		}
 
 		int System.Collections.IList.Add ( Object o )

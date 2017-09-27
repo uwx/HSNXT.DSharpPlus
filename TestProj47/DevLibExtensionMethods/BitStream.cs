@@ -36,37 +36,25 @@ namespace TestProj47
         /// When overridden in a derived class, gets a value indicating whether the current stream supports reading.
         /// </summary>
         /// <value><c>true</c> if this instance can read; otherwise, <c>false</c>.</value>
-        public override bool CanRead
-        {
-            get { return true; }
-        }
+        public override bool CanRead => true;
 
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports seeking.
         /// </summary>
         /// <value><c>true</c> if this instance can seek; otherwise, <c>false</c>.</value>
-        public override bool CanSeek
-        {
-            get { return true; }
-        }
+        public override bool CanSeek => true;
 
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports writing.
         /// </summary>
         /// <value><c>true</c> if this instance can write; otherwise, <c>false</c>.</value>
-        public override bool CanWrite
-        {
-            get { return true; }
-        }
+        public override bool CanWrite => true;
 
         /// <summary>
         /// When overridden in a derived class, gets the length in bytes of the stream.
         /// </summary>
         /// <value>The length.</value>
-        public override long Length
-        {
-            get { return this._source.Length * 8; }
-        }
+        public override long Length => this._source.Length * 8;
 
         /// <summary>
         /// When overridden in a derived class, gets or sets the position within the current stream.

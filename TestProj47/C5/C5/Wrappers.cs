@@ -61,7 +61,7 @@ namespace C5
         /// Undefined if enumerator is not valid (MoveNext hash been called returning true)
         /// </summary>
         /// <value>The current item of the wrapped enumerator.</value>
-        public T Current { get { return enumerator.Current; } }
+        public T Current => enumerator.Current;
 
         #endregion
 
@@ -78,10 +78,7 @@ namespace C5
 
         #region IEnumerator Members
 
-        object System.Collections.IEnumerator.Current
-        {
-            get { return enumerator.Current; }
-        }
+        object System.Collections.IEnumerator.Current => enumerator.Current;
 
         void System.Collections.IEnumerator.Reset()
         {
@@ -182,8 +179,7 @@ namespace C5
         /// <code>Forwards</code> if same, else <code>Backwards</code>
         /// </summary>
         /// <value>The enumeration direction relative to the original collection.</value>
-        public EnumerationDirection Direction
-        { get { return directedenumerable.Direction; } }
+        public EnumerationDirection Direction => directedenumerable.Direction;
 
         #endregion
     }
@@ -203,13 +199,13 @@ namespace C5
         /// The ListenableEvents value of the wrapped collection
         /// </summary>
         /// <value></value>
-        public virtual EventTypeEnum ListenableEvents { get { return collectionvalue.ListenableEvents; } }
+        public virtual EventTypeEnum ListenableEvents => collectionvalue.ListenableEvents;
 
         /// <summary>
         /// The ActiveEvents value of the wrapped collection
         /// </summary>
         /// <value></value>
-        public virtual EventTypeEnum ActiveEvents { get { return collectionvalue.ActiveEvents; } }
+        public virtual EventTypeEnum ActiveEvents => collectionvalue.ActiveEvents;
 
         private ProxyEventBlock<T> eventBlock;
         /// <summary>
@@ -217,7 +213,7 @@ namespace C5
         /// </summary>
         public event CollectionChangedHandler<T> CollectionChanged
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).CollectionChanged += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).CollectionChanged += value;
             remove { if (eventBlock != null) eventBlock.CollectionChanged -= value; }
         }
 
@@ -226,7 +222,7 @@ namespace C5
         /// </summary>
         public event CollectionClearedHandler<T> CollectionCleared
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).CollectionCleared += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).CollectionCleared += value;
             remove { if (eventBlock != null) eventBlock.CollectionCleared -= value; }
         }
 
@@ -235,7 +231,7 @@ namespace C5
         /// </summary>
         public event ItemsAddedHandler<T> ItemsAdded
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemsAdded += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemsAdded += value;
             remove { if (eventBlock != null) eventBlock.ItemsAdded -= value; }
         }
 
@@ -244,7 +240,7 @@ namespace C5
         /// </summary>
         public event ItemInsertedHandler<T> ItemInserted
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemInserted += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemInserted += value;
             remove { if (eventBlock != null) eventBlock.ItemInserted -= value; }
         }
 
@@ -253,7 +249,7 @@ namespace C5
         /// </summary>
         public event ItemsRemovedHandler<T> ItemsRemoved
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemsRemoved += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemsRemoved += value;
             remove { if (eventBlock != null) eventBlock.ItemsRemoved -= value; }
         }
 
@@ -262,7 +258,7 @@ namespace C5
         /// </summary>
         public event ItemRemovedAtHandler<T> ItemRemovedAt
         {
-            add { (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemRemovedAt += value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<T>(this, collectionvalue))).ItemRemovedAt += value;
             remove { if (eventBlock != null) eventBlock.ItemRemovedAt -= value; }
         }
         #endregion
@@ -291,13 +287,13 @@ namespace C5
         /// Get the size of the wrapped collection
         /// </summary>
         /// <value>The size</value>
-        public virtual bool IsEmpty { get { return collectionvalue.IsEmpty; } }
+        public virtual bool IsEmpty => collectionvalue.IsEmpty;
 
         /// <summary>
         /// Get the size of the wrapped collection
         /// </summary>
         /// <value>The size</value>
-        public virtual int Count { get { return collectionvalue.Count; } }
+        public virtual int Count => collectionvalue.Count;
 
         /// <summary>
         /// The value is symbolic indicating the type of asymptotic complexity
@@ -306,7 +302,7 @@ namespace C5
         /// </summary>
         /// <value>A characterization of the speed of the 
         /// <code>Count</code> property in this collection.</value>
-        public virtual Speed CountSpeed { get { return collectionvalue.CountSpeed; } }
+        public virtual Speed CountSpeed => collectionvalue.CountSpeed;
 
         /// <summary>
         /// Copy the items of the wrapped collection to an array
@@ -460,8 +456,7 @@ namespace C5
         /// <code>Forwards</code> if same, else <code>Backwards</code>
         /// </summary>
         /// <value>The enumeration direction relative to the original collection.</value>
-        public EnumerationDirection Direction
-        { get { return directedcollection.Direction; } }
+        public EnumerationDirection Direction => directedcollection.Direction;
 
         #endregion
     }
@@ -503,12 +498,12 @@ namespace C5
         /// (This is a read-only wrapper)
         /// </summary>
         /// <value>True</value>
-        public virtual bool IsReadOnly { get { return true; } }
+        public virtual bool IsReadOnly => true;
 
 
         /// <summary> </summary>
         /// <value>Speed of wrapped collection</value>
-        public virtual Speed ContainsSpeed { get { return collection.ContainsSpeed; } }
+        public virtual Speed ContainsSpeed => collection.ContainsSpeed;
 
         /// <summary>
         /// 
@@ -674,26 +669,26 @@ namespace C5
 
         /// <summary> </summary>
         /// <value>False if wrapped collection has set semantics</value>
-        public virtual bool AllowsDuplicates { get { return collection.AllowsDuplicates; } }
+        public virtual bool AllowsDuplicates => collection.AllowsDuplicates;
 
         //TODO: the equalityComparer should be guarded
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual System.Collections.Generic.IEqualityComparer<T> EqualityComparer { get { return collection.EqualityComparer; } }
+        public virtual System.Collections.Generic.IEqualityComparer<T> EqualityComparer => collection.EqualityComparer;
 
         /// <summary>
         /// By convention this is true for any collection with set semantics.
         /// </summary>
         /// <value>True if only one representative of a group of equal items 
         /// is kept in the collection together with the total count.</value>
-        public virtual bool DuplicatesByCounting { get { return collection.DuplicatesByCounting; } }
+        public virtual bool DuplicatesByCounting => collection.DuplicatesByCounting;
 
 
         /// <summary> </summary>
         /// <value>True if wrapped collection is empty</value>
-        public override bool IsEmpty { get { return collection.IsEmpty; } }
+        public override bool IsEmpty => collection.IsEmpty;
 
 
         /// <summary>
@@ -841,8 +836,7 @@ namespace C5
         /// <code>Forwards</code> if same, else <code>Backwards</code>
         /// </summary>
         /// <value>The enumeration direction relative to the original collection.</value>
-        public EnumerationDirection Direction
-        { get { return EnumerationDirection.Forwards; } }
+        public EnumerationDirection Direction => EnumerationDirection.Forwards;
 
         #endregion
     }
@@ -1068,7 +1062,8 @@ namespace C5
         /// The comparer object supplied at creation time for the underlying collection
         /// </summary>
         /// <value>The comparer</value>
-        public System.Collections.Generic.IComparer<T> Comparer { get { return sorted.Comparer; } }
+        public System.Collections.Generic.IComparer<T> Comparer => sorted.Comparer;
+
         #endregion
 
         #region IDirectedEnumerable<T> Members
@@ -1193,18 +1188,17 @@ namespace C5
         /// 
         /// </summary>
         /// <value>The i'th item of the wrapped sorted collection</value>
-        public T this[int i] { get { return indexedsorted[i]; } }
+        public T this[int i] => indexedsorted[i];
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual Speed IndexingSpeed { get { return indexedsorted.IndexingSpeed; } }
+        public virtual Speed IndexingSpeed => indexedsorted.IndexingSpeed;
 
         /// <summary> </summary>
         /// <value>A directed collection of the items in the indicated interval of the wrapped collection</value>
-        public IDirectedCollectionValue<T> this[int start, int end]
-        { get { return new GuardedDirectedCollectionValue<T>(indexedsorted[start, end]); } }
+        public IDirectedCollectionValue<T> this[int start, int end] => new GuardedDirectedCollectionValue<T>(indexedsorted[start, end]);
 
 
         /// <summary>
@@ -1302,14 +1296,14 @@ namespace C5
         /// 
         /// </summary>
         /// <value>The first item of the wrapped list</value>
-        public T First { get { return innerlist.First; } }
+        public T First => innerlist.First;
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <value>The last item of the wrapped list</value>
-        public T Last { get { return innerlist.Last; } }
+        public T Last => innerlist.Last;
 
 
         /// <summary>
@@ -1318,17 +1312,14 @@ namespace C5
         /// <value>True if wrapped list has FIFO semantics for the Add(T item) and Remove() methods</value>
         public bool FIFO
         {
-            get { return innerlist.FIFO; }
-            set { throw new ReadOnlyCollectionException("List is read only"); }
+            get => innerlist.FIFO;
+            set => throw new ReadOnlyCollectionException("List is read only");
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual bool IsFixedSize
-        {
-            get { return true; }
-        }
+        public virtual bool IsFixedSize => true;
 
 
         /// <summary>
@@ -1337,15 +1328,15 @@ namespace C5
         /// <value>The i'th item of the wrapped list</value>
         public T this[int i]
         {
-            get { return innerlist[i]; }
-            set { throw new ReadOnlyCollectionException("List is read only"); }
+            get => innerlist[i];
+            set => throw new ReadOnlyCollectionException("List is read only");
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual Speed IndexingSpeed { get { return innerlist.IndexingSpeed; } }
+        public virtual Speed IndexingSpeed => innerlist.IndexingSpeed;
 
         /// <summary>
         /// </summary>
@@ -1488,20 +1479,20 @@ namespace C5
         /// <summary>
         /// </summary>
         /// <value>The wrapped underlying list of the wrapped view </value>
-        public IList<T> Underlying { get { return underlying; } }
+        public IList<T> Underlying => underlying;
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <value>The offset of the wrapped list as a view.</value>
-        public int Offset { get { return innerlist.Offset; } }
+        public int Offset => innerlist.Offset;
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual bool IsValid { get { return innerlist.IsValid; } }
+        public virtual bool IsValid => innerlist.IsValid;
 
         /// <summary>
         /// </summary>
@@ -1646,8 +1637,7 @@ namespace C5
 
         /// <summary> </summary>
         /// <value>A directed collection of the items in the indicated interval of the wrapped collection</value>
-        public IDirectedCollectionValue<T> this[int start, int end]
-        { get { return new GuardedDirectedCollectionValue<T>(innerlist[start, end]); } }
+        public IDirectedCollectionValue<T> this[int start, int end] => new GuardedDirectedCollectionValue<T>(innerlist[start, end]);
 
 
         /// <summary>
@@ -1758,16 +1748,10 @@ namespace C5
 
         #region System.Collections.ICollection Members
 
-        bool System.Collections.ICollection.IsSynchronized
-        {
-            get { return false; }
-        }
+        bool System.Collections.ICollection.IsSynchronized => false;
 
         [Obsolete]
-        Object System.Collections.ICollection.SyncRoot
-        {
-            get { return innerlist.SyncRoot; }
-        }
+        Object System.Collections.ICollection.SyncRoot => innerlist.SyncRoot;
 
         void System.Collections.ICollection.CopyTo(Array arr, int index)
         {
@@ -1784,11 +1768,8 @@ namespace C5
 
         Object System.Collections.IList.this[int index]
         {
-            get { return this[index]; }
-            set
-            {
-                throw new ReadOnlyCollectionException("Collection cannot be modified through this guard object");
-            }
+            get => this[index];
+            set => throw new ReadOnlyCollectionException("Collection cannot be modified through this guard object");
         }
 
         int System.Collections.IList.Add(Object o)
@@ -1854,14 +1835,14 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public bool AllowsDuplicates { get { return queue.AllowsDuplicates; } }
+        public bool AllowsDuplicates => queue.AllowsDuplicates;
 
         /// <summary>
         /// Index into the wrapped queue
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public T this[int i] { get { return queue[i]; } }
+        public T this[int i] => queue[i];
 
         /// <summary>
         /// 
@@ -1912,7 +1893,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public System.Collections.Generic.IEqualityComparer<K> EqualityComparer { get { return dict.EqualityComparer; } }
+        public System.Collections.Generic.IEqualityComparer<K> EqualityComparer => dict.EqualityComparer;
 
         /// <summary>
         /// </summary>
@@ -1921,27 +1902,26 @@ namespace C5
         /// <value>Get the value corresponding to a key in the wrapped dictionary</value>
         public V this[K key]
         {
-            get { return dict[key]; }
-            set { throw new ReadOnlyCollectionException(); }
+            get => dict[key];
+            set => throw new ReadOnlyCollectionException();
         }
 
         /// <summary>
         /// (This is a read-only wrapper)
         /// </summary>
         /// <value>True</value>
-        public bool IsReadOnly { get { return true; } }
+        public bool IsReadOnly => true;
 
 
         //TODO: guard with a read-only wrapper? Probably so!
         /// <summary> </summary>
         /// <value>The collection of keys of the wrapped dictionary</value>
-        public ICollectionValue<K> Keys
-        { get { return dict.Keys; } }
+        public ICollectionValue<K> Keys => dict.Keys;
 
 
         /// <summary> </summary>
         /// <value>The collection of values of the wrapped dictionary</value>
-        public ICollectionValue<V> Values { get { return dict.Values; } }
+        public ICollectionValue<V> Values => dict.Values;
 
         /// <summary>
         /// 
@@ -1995,7 +1975,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public Speed ContainsSpeed { get { return dict.ContainsSpeed; } }
+        public Speed ContainsSpeed => dict.ContainsSpeed;
 
         /// <summary>
         /// Check if the wrapped dictionary contains a specific key
@@ -2113,13 +2093,13 @@ namespace C5
         /// The key comparer used by this dictionary.
         /// </summary>
         /// <value></value>
-        public System.Collections.Generic.IComparer<K> Comparer { get { return sorteddict.Comparer; } }
+        public System.Collections.Generic.IComparer<K> Comparer => sorteddict.Comparer;
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public new ISorted<K> Keys { get { return null; } }
+        public new ISorted<K> Keys => null;
 
         /// <summary>
         /// Find the entry in the dictionary whose key is the

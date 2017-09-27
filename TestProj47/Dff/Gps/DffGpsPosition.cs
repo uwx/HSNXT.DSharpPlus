@@ -95,7 +95,7 @@ namespace dff.Extensions.Gps
                 this.CalcualteDecValues();
                 return this._decLongitude;
             }
-            set { this._decLongitude = value; }
+            set => this._decLongitude = value;
         }
 
         public double DecLatitude
@@ -107,19 +107,19 @@ namespace dff.Extensions.Gps
                 this.CalcualteDecValues();
                 return this._decLatitude;
             }
-            set { this._decLatitude = value; }
+            set => this._decLatitude = value;
         }
 
         public double DmsLongitude
         {
-            get { return this._dmsLongitude; }
-            set { this._dmsLongitude = value; }
+            get => this._dmsLongitude;
+            set => this._dmsLongitude = value;
         }
 
         public double DmsLatitude
         {
-            get { return this._dmsLatitude; }
-            set { this._dmsLatitude = value; }
+            get => this._dmsLatitude;
+            set => this._dmsLatitude = value;
         }
 
         public int MercatorX
@@ -131,7 +131,7 @@ namespace dff.Extensions.Gps
                 this.CalculateMercatorValues();
                 return this._mrcX;
             }
-            set { this._mrcX = value; }
+            set => this._mrcX = value;
         }
 
         public int MercatorY
@@ -143,7 +143,7 @@ namespace dff.Extensions.Gps
                 this.CalculateMercatorValues();
                 return this._mrcY;
             }
-            set { this._mrcY = value; }
+            set => this._mrcY = value;
         }
 
         public double Speed { get; set; }

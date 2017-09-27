@@ -36,43 +36,28 @@ namespace TestProj47
 
         /// <summary>Gets the count.</summary>
         /// <value>The count.</value>
-        public int Count
-        {
-            get { return this._members.Count; }
-        }
+        public int Count => this._members.Count;
 
         /// <summary>
         /// Gets a value indicating whether this instance is read only.
         /// </summary>
         /// <value><c>true</c> if this instance is read only; otherwise, <c>false</c>.</value>
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public bool IsReadOnly => false;
 
         /// <summary>Gets the keys.</summary>
         /// <value>The keys.</value>
-        public ICollection<string> Keys
-        {
-            get { return this._members.Keys; }
-        }
+        public ICollection<string> Keys => this._members.Keys;
 
         /// <summary>Gets the values.</summary>
         /// <value>The values.</value>
-        public ICollection<object> Values
-        {
-            get { return this._members.Values; }
-        }
+        public ICollection<object> Values => this._members.Values;
 
         /// <summary>
         /// Gets the <see cref="T:System.Object" /> at the specified index.
         /// </summary>
         /// <param name="index">The index.</param>
         /// <returns>The object.</returns>
-        public object this[int index]
-        {
-            get { return GetAtIndex(this._members, index); }
-        }
+        public object this[int index] => GetAtIndex(this._members, index);
 
         /// <summary>
         /// Gets or sets the <see cref="T:System.Object" /> with the specified key.
@@ -81,8 +66,8 @@ namespace TestProj47
         /// <returns>The object.</returns>
         public object this[string key]
         {
-            get { return this._members[key]; }
-            set { this._members[key] = value; }
+            get => this._members[key];
+            set => this._members[key] = value;
         }
 
         /// <summary>Adds the specified key.</summary>

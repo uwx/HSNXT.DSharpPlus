@@ -35,7 +35,7 @@ namespace C5
         ///
         /// </summary>
         /// <value></value>
-        public override EventTypeEnum ListenableEvents { get { return EventTypeEnum.Basic; } }
+        public override EventTypeEnum ListenableEvents => EventTypeEnum.Basic;
 
         #endregion
 
@@ -749,7 +749,7 @@ namespace C5
         /// in terms of the size of this collection (worst-case).
         /// </summary>
         /// <value>Speed.Log</value>
-        public Speed ContainsSpeed { get { return Speed.Log; } }
+        public Speed ContainsSpeed => Speed.Log;
 
         /// <summary>
         /// Remove all items from this collection, resetting internal array size.
@@ -1119,14 +1119,14 @@ namespace C5
         /// 
         /// </summary>
         /// <value>False since this collection has set semantics</value>
-        public bool AllowsDuplicates { get { return false; } }
+        public bool AllowsDuplicates => false;
 
         /// <summary>
         /// By convention this is true for any collection with set semantics.
         /// </summary>
         /// <value>True if only one representative of a group of equal items 
         /// is kept in the collection together with the total count.</value>
-        public virtual bool DuplicatesByCounting { get { return true; } }
+        public virtual bool DuplicatesByCounting => true;
 
         /// <summary>
         /// Add an item to this collection if possible. If this collection has set
@@ -1282,7 +1282,7 @@ namespace C5
         /// The comparer object supplied at creation time for this collection
         /// </summary>
         /// <value>The comparer</value>
-        public SCG.IComparer<T> Comparer { get { return _comparer; } }
+        public SCG.IComparer<T> Comparer => _comparer;
 
         #endregion
 
@@ -1309,7 +1309,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public virtual Speed IndexingSpeed { get { return Speed.Constant; } }
+        public virtual Speed IndexingSpeed => Speed.Constant;
 
         /// <summary>
         /// Searches for an item in the list going forwards from the start.

@@ -77,7 +77,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public override EventTypeEnum ListenableEvents { get { return EventTypeEnum.Basic; } }
+        public override EventTypeEnum ListenableEvents => EventTypeEnum.Basic;
 
         #endregion
         #region Util
@@ -401,10 +401,7 @@ namespace C5
 
             #region IEnumerator Members
 
-            object System.Collections.IEnumerator.Current
-            {
-                get { return Current; }
-            }
+            object System.Collections.IEnumerator.Current => Current;
 
             bool System.Collections.IEnumerator.MoveNext()
             {
@@ -533,10 +530,7 @@ namespace C5
 
             #region IEnumerator Members
 
-            object System.Collections.IEnumerator.Current
-            {
-                get { return Current; }
-            }
+            object System.Collections.IEnumerator.Current => Current;
 
             bool System.Collections.IEnumerator.MoveNext()
             {
@@ -1111,14 +1105,14 @@ namespace C5
 
         /// <summary></summary>
         /// <value>True since this collection has bag semantics.</value>
-        public bool AllowsDuplicates { get { return true; } }
+        public bool AllowsDuplicates => true;
 
         /// <summary>
         /// By convention this is true for any collection with set semantics.
         /// </summary>
         /// <value>True if only one representative of a group of equal items 
         /// is kept in the collection together with the total count.</value>
-        public virtual bool DuplicatesByCounting { get { return true; } }
+        public virtual bool DuplicatesByCounting => true;
 
         #endregion
 
@@ -1131,7 +1125,7 @@ namespace C5
         /// relevant).
         /// </summary>
         /// <value>Speed.Log</value>
-        public Speed ContainsSpeed { get { return Speed.Log; } }
+        public Speed ContainsSpeed => Speed.Log;
 
         /// <summary>
         /// Check if this collection contains (an item equivalent to according to the
@@ -2142,9 +2136,10 @@ namespace C5
                 }
             }
 
-            public override bool IsEmpty { get { return treebag.IsEmpty; } }
+            public override bool IsEmpty => treebag.IsEmpty;
             public override int Count { get { int i = 0; foreach (KeyValuePair<T, int> p in this) i++; return i; } } //TODO: make better
-            public override Speed CountSpeed { get { return Speed.Linear; } } //TODO: make better
+            public override Speed CountSpeed //TODO: make better
+                => Speed.Linear;
         }
 
 
@@ -2236,13 +2231,13 @@ namespace C5
         /// </summary>
         /// <value>The i'th item of this list.</value>
         /// <param name="i">the index to lookup</param>
-        public T this[int i] { get { return findNode(i).item; } }
+        public T this[int i] => findNode(i).item;
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual Speed IndexingSpeed { get { return Speed.Log; } }
+        public virtual Speed IndexingSpeed => Speed.Log;
 
 
         //TODO: return -upper instead of -1 in case of not found
@@ -2480,12 +2475,12 @@ namespace C5
                 this.tree = tree; this.stamp = tree.stamp;
             }
 
-            public override bool IsEmpty { get { return length == 0; } }
+            public override bool IsEmpty => length == 0;
 
-            public override int Count { get { return length; } }
+            public override int Count => length;
 
 
-            public override Speed CountSpeed { get { return Speed.Constant; } }
+            public override Speed CountSpeed => Speed.Constant;
 
 
             public override T Choose()
@@ -2640,13 +2635,7 @@ namespace C5
             { return Backwards(); }
 
 
-            public override EnumerationDirection Direction
-            {
-                get
-                {
-                    return forwards ? EnumerationDirection.Forwards : EnumerationDirection.Backwards;
-                }
-            }
+            public override EnumerationDirection Direction => forwards ? EnumerationDirection.Forwards : EnumerationDirection.Backwards;
         }
         #endregion
 
@@ -2670,7 +2659,7 @@ namespace C5
         /// The comparer object supplied at creation time for this collection
         /// </summary>
         /// <value>The comparer</value>
-        public SCG.IComparer<T> Comparer { get { return comparer; } }
+        public SCG.IComparer<T> Comparer => comparer;
 
 
         /// <summary>
@@ -3417,7 +3406,7 @@ namespace C5
 
         #region IPersistent<T> Members
 
-        private int maxsnapid { get { return snapList == null ? -1 : findLastLiveSnapShot(); } }
+        private int maxsnapid => snapList == null ? -1 : findLastLiveSnapShot();
 
         private int findLastLiveSnapShot()
         {
@@ -3783,10 +3772,7 @@ namespace C5
 
                 #region IEnumerator Members
 
-                object System.Collections.IEnumerator.Current
-                {
-                    get { return Current; }
-                }
+                object System.Collections.IEnumerator.Current => Current;
 
                 bool System.Collections.IEnumerator.MoveNext()
                 {
@@ -3813,8 +3799,7 @@ namespace C5
             public override SCG.IEnumerator<T> GetEnumerator() { return new Enumerator(this); }
 
 
-            public override EnumerationDirection Direction { get { return direction; } }
-
+            public override EnumerationDirection Direction => direction;
 
             #endregion
 
@@ -3849,13 +3834,12 @@ namespace C5
             IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return Backwards(); }
 
 
-            public override bool IsEmpty { get { return size == 0; } }
+            public override bool IsEmpty => size == 0;
 
-            public override int Count { get { return size; } }
+            public override int Count => size;
 
             //TODO: check that this is correct
-            public override Speed CountSpeed { get { return Speed.Constant; } }
-
+            public override Speed CountSpeed => Speed.Constant;
         }
 
         #endregion

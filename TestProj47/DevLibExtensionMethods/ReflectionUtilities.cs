@@ -430,45 +430,33 @@ namespace TestProj47
             /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
             /// </summary>
             /// <value>The count.</value>
-            public int Count
-            {
-                get { return this._dictionary.Count; }
-            }
+            public int Count => this._dictionary.Count;
 
             /// <summary>
             /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
             /// </summary>
             /// <value><c>true</c> if this instance is read only; otherwise, <c>false</c>.</value>
-            public bool IsReadOnly
-            {
-                get { throw new NotSupportedException(); }
-            }
+            public bool IsReadOnly => throw new NotSupportedException();
 
             /// <summary>
             /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
             /// </summary>
             /// <value>The keys.</value>
-            public ICollection<TKey> Keys
-            {
-                get { return this._dictionary.Keys; }
-            }
+            public ICollection<TKey> Keys => this._dictionary.Keys;
 
             /// <summary>
             /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
             /// </summary>
             /// <value>The values.</value>
-            public ICollection<TValue> Values
-            {
-                get { return this._dictionary.Values; }
-            }
+            public ICollection<TValue> Values => this._dictionary.Values;
 
             /// <summary>Gets or sets the element with the specified key.</summary>
             /// <param name="key">The key.</param>
             /// <returns>The Value.</returns>
             public TValue this[TKey key]
             {
-                get { return this.Get(key); }
-                set { throw new NotSupportedException(); }
+                get => this.Get(key);
+                set => throw new NotSupportedException();
             }
 
             /// <summary>

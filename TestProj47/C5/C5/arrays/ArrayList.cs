@@ -55,7 +55,7 @@ namespace C5
         /// <summary>
         /// The size of the underlying list.
         /// </summary>
-        private int underlyingsize { get { return (underlying ?? this).size; } }
+        private int underlyingsize => (underlying ?? this).size;
 
         /// <summary>
         /// The underlying field of the FIFO property
@@ -69,7 +69,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public override EventTypeEnum ListenableEvents { get { return underlying == null ? EventTypeEnum.All : EventTypeEnum.None; } }
+        public override EventTypeEnum ListenableEvents => underlying == null ? EventTypeEnum.All : EventTypeEnum.None;
 
         /*
             /// <summary>
@@ -722,7 +722,7 @@ namespace C5
         /// 
         /// </summary>
         /// <value></value>
-        public virtual Speed IndexingSpeed { get { return Speed.Constant; } }
+        public virtual Speed IndexingSpeed => Speed.Constant;
 
         /// <summary>
         /// Insert an item at a specific index location in this list. 
@@ -1034,19 +1034,19 @@ namespace C5
         /// Null if this list is not a view.
         /// </summary>
         /// <value>Underlying list for view.</value>
-        public virtual IList<T> Underlying { get { return underlying; } }
+        public virtual IList<T> Underlying => underlying;
 
 
         /// <summary>
         /// </summary>
         /// <value>Offset for this list view or 0 for an underlying list.</value>
-        public virtual int Offset { get { return offsetField; } }
+        public virtual int Offset => offsetField;
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual bool IsValid { get { return isValid; } }
+        public virtual bool IsValid => isValid;
 
         /// <summary>
         /// Slide this list view along the underlying list.
@@ -1312,13 +1312,7 @@ namespace C5
         /// relevant).
         /// </summary>
         /// <value>Speed.Linear</value>
-        public virtual Speed ContainsSpeed
-        {
-            get
-            {
-                return Speed.Linear;
-            }
-        }
+        public virtual Speed ContainsSpeed => Speed.Linear;
 
         /// <summary>
         /// 
@@ -1927,26 +1921,14 @@ namespace C5
         /// 
         /// </summary>
         /// <value>True, indicating array list has bag semantics.</value>
-        public virtual bool AllowsDuplicates
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public virtual bool AllowsDuplicates => true;
 
         /// <summary>
         /// By convention this is true for any collection with set semantics.
         /// </summary>
         /// <value>True if only one representative of a group of equal items 
         /// is kept in the collection together with the total count.</value>
-        public virtual bool DuplicatesByCounting
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public virtual bool DuplicatesByCounting => false;
 
         /// <summary>
         /// Add an item to end of this list.
@@ -2180,16 +2162,10 @@ namespace C5
 
         #region System.Collections.ICollection Members
 
-        bool System.Collections.ICollection.IsSynchronized
-        {
-            get { return false; }
-        }
+        bool System.Collections.ICollection.IsSynchronized => false;
 
         [Obsolete]
-        Object System.Collections.ICollection.SyncRoot
-        {
-            get { return underlying != null ? ((System.Collections.ICollection)underlying).SyncRoot : array; }
-        }
+        Object System.Collections.ICollection.SyncRoot => underlying != null ? ((System.Collections.ICollection)underlying).SyncRoot : array;
 
         void System.Collections.ICollection.CopyTo(Array arr, int index)
         {
@@ -2206,8 +2182,8 @@ namespace C5
 
         Object System.Collections.IList.this[int index]
         {
-            get { return this[index]; }
-            set { this[index] = (T)value; }
+            get => this[index];
+            set => this[index] = (T)value;
         }
 
         int System.Collections.IList.Add(Object o)

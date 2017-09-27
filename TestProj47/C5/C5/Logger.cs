@@ -28,7 +28,7 @@ namespace C5
         public static Action<string> Log
         {
             get { return _log ?? (x => { return; }); }
-            set { _log = value; }
+            set => _log = value;
         }
     }
 }

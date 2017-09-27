@@ -37,11 +37,11 @@ namespace C5
 
         public override V Choose() { return Map(directedcollectionvalue.Choose()); }
 
-        public override bool IsEmpty { get { return directedcollectionvalue.IsEmpty; } }
+        public override bool IsEmpty => directedcollectionvalue.IsEmpty;
 
-        public override int Count { get { return directedcollectionvalue.Count; } }
+        public override int Count => directedcollectionvalue.Count;
 
-        public override Speed CountSpeed { get { return directedcollectionvalue.CountSpeed; } }
+        public override Speed CountSpeed => directedcollectionvalue.CountSpeed;
 
         public override IDirectedCollectionValue<V> Backwards()
         {
@@ -59,10 +59,7 @@ namespace C5
                 yield return Map(item);
         }
 
-        public override EnumerationDirection Direction
-        {
-            get { return directedcollectionvalue.Direction; }
-        }
+        public override EnumerationDirection Direction => directedcollectionvalue.Direction;
 
         IDirectedEnumerable<V> IDirectedEnumerable<V>.Backwards()
         {
@@ -86,11 +83,11 @@ namespace C5
 
         public override V Choose() { return Map(collectionvalue.Choose()); }
 
-        public override bool IsEmpty { get { return collectionvalue.IsEmpty; } }
+        public override bool IsEmpty => collectionvalue.IsEmpty;
 
-        public override int Count { get { return collectionvalue.Count; } }
+        public override int Count => collectionvalue.Count;
 
-        public override Speed CountSpeed { get { return collectionvalue.CountSpeed; } }
+        public override Speed CountSpeed => collectionvalue.CountSpeed;
 
         public override SCG.IEnumerator<V> GetEnumerator()
         {
@@ -141,9 +138,6 @@ namespace C5
                 yield return Map(item);
         }
 
-        public EnumerationDirection Direction
-        {
-            get { return directedenumerable.Direction; }
-        }
+        public EnumerationDirection Direction => directedenumerable.Direction;
     }
 }
