@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -45,9 +45,9 @@ namespace C5
 			}
 		}
 
-		ArrayList<T> innerlist;
+		readonly ArrayList<T> innerlist;
 		//TODO: remember a ref to the wrapped array in WrappedArray to save a little on indexing?
-		WrappedArray<T> underlying;
+		readonly WrappedArray<T> underlying;
 
 		/// <summary>
 		/// 

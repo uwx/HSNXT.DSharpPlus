@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrï¿½m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -278,11 +278,12 @@ namespace C5
         internal class Enumerator : SCG.IEnumerator<T>
         {
             #region Private Fields
-            TreeBag<T> tree;
+
+            readonly TreeBag<T> tree;
 
             bool valid = false;
 
-            int stamp;
+            readonly int stamp;
 
             T current;
 
@@ -430,7 +431,7 @@ namespace C5
 
             bool valid = false;
 
-            int stamp;
+            readonly int stamp;
 
             int togo;
 
@@ -2102,8 +2103,8 @@ namespace C5
         [Serializable]
         class Multiplicities : CollectionValueBase<KeyValuePair<T, int>>, ICollectionValue<KeyValuePair<T, int>>
         {
-            TreeBag<T> treebag;
-            int origstamp;
+            readonly TreeBag<T> treebag;
+            readonly int origstamp;
             internal Multiplicities(TreeBag<T> treebag) { this.treebag = treebag; this.origstamp = treebag.stamp; }
             public override KeyValuePair<T, int> Choose() { return new KeyValuePair<T, int>(treebag.root.item, treebag.root.items); }
 
@@ -3441,7 +3442,7 @@ namespace C5
         class SnapRef
         {
             public SnapRef Prev, Next;
-            public WeakReference Tree;
+            public readonly WeakReference Tree;
             public SnapRef(TreeBag<T> tree) { Tree = new WeakReference(tree); }
             public void Dispose()
             {
@@ -3533,13 +3534,17 @@ namespace C5
         {
             //We actually need exclusive upper and lower bounds, and flags to 
             //indicate whether the bound is present (we canot rely on default(T))
-            private int stamp, size;
+            private int stamp;
 
-            private TreeBag<T> basis;
+            private readonly int size;
 
-            private T lowend, highend;
+            private readonly TreeBag<T> basis;
 
-            private bool haslowend, hashighend;
+            private readonly T lowend;
+            private readonly T highend;
+
+            private readonly bool haslowend;
+            private readonly bool hashighend;
 
             EnumerationDirection direction;
 
@@ -3586,7 +3591,7 @@ namespace C5
 
                 private Range range;
 
-                private bool forwards;
+                private readonly bool forwards;
 
                 #endregion
                 public Enumerator(Range range)

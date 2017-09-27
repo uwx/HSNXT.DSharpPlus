@@ -31,7 +31,7 @@ namespace C5
     [Serializable]
     public class C5Random : Random
     {
-        private uint[] _q = new uint[16];
+        private readonly uint[] _q = new uint[16];
 
         private uint _c = 362436;
 

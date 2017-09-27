@@ -32,13 +32,13 @@ namespace TestProj47
         };
 
         /// <summary>Field ConstructorCache.</summary>
-        private IDictionary<Type, ReflectionUtilities.ConstructorDelegate> ConstructorCache;
+        private readonly IDictionary<Type, ReflectionUtilities.ConstructorDelegate> ConstructorCache;
 
         /// <summary>Field GetCache.</summary>
-        private IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>> GetCache;
+        private readonly IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>> GetCache;
 
         /// <summary>Field SetCache.</summary>
-        private IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>> SetCache;
+        private readonly IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>> SetCache;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:TestProj47.PocoJsonSerializerStrategy" /> class.

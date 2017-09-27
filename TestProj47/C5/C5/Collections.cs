@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -334,7 +334,7 @@ namespace C5
         [Serializable]
         protected class RaiseForRemoveAllHandler
         {
-            CollectionValueBase<T> collection;
+            readonly CollectionValueBase<T> collection;
             CircularQueue<T> wasRemoved;
             bool wasChanged = false;
 
@@ -349,7 +349,7 @@ namespace C5
                 MustFire = (collection.ActiveEvents & (EventTypeEnum.Removed | EventTypeEnum.Changed)) != 0;
             }
 
-            bool mustFireRemoved;
+            readonly bool mustFireRemoved;
             /// <summary>
             /// 
             /// </summary>
@@ -1391,9 +1391,12 @@ namespace C5
         [Serializable]
         protected class Range : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
-            int start, count, delta, stamp;
+            int start;
+            readonly int count;
+            int delta;
+            readonly int stamp;
 
-            ArrayBase<T> thebase;
+            readonly ArrayBase<T> thebase;
 
             private readonly RangeEnumerator _rangeInternalEnumerator;
 

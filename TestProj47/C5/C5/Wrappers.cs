@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -32,7 +32,7 @@ namespace C5
     {
         #region Fields
 
-        IEnumerator<T> enumerator;
+        readonly IEnumerator<T> enumerator;
 
         #endregion
 
@@ -103,7 +103,7 @@ namespace C5
     {
         #region Fields
 
-        System.Collections.Generic.IEnumerable<T> enumerable;
+        readonly System.Collections.Generic.IEnumerable<T> enumerable;
 
         #endregion
 
@@ -152,7 +152,7 @@ namespace C5
     {
         #region Fields
 
-        IDirectedEnumerable<T> directedenumerable;
+        readonly IDirectedEnumerable<T> directedenumerable;
 
         #endregion
 
@@ -269,7 +269,7 @@ namespace C5
 
         #region Fields
 
-        ICollectionValue<T> collectionvalue;
+        readonly ICollectionValue<T> collectionvalue;
 
         #endregion
 
@@ -414,7 +414,7 @@ namespace C5
     {
         #region Fields
 
-        IDirectedCollectionValue<T> directedcollection;
+        readonly IDirectedCollectionValue<T> directedcollection;
 
         #endregion
 
@@ -479,7 +479,7 @@ namespace C5
     {
         #region Fields
 
-        ICollection<T> collection;
+        readonly ICollection<T> collection;
 
         #endregion
 
@@ -732,7 +732,7 @@ namespace C5
     {
         #region Fields
 
-        ISequenced<T> sequenced;
+        readonly ISequenced<T> sequenced;
 
         #endregion
 
@@ -858,7 +858,7 @@ namespace C5
     {
         #region Fields
 
-        ISorted<T> sorted;
+        readonly ISorted<T> sorted;
 
         #endregion
 
@@ -1091,7 +1091,7 @@ namespace C5
     {
         #region Fields
 
-        IIndexedSorted<T> indexedsorted;
+        readonly IIndexedSorted<T> indexedsorted;
 
         #endregion
 
@@ -1266,9 +1266,9 @@ namespace C5
     {
         #region Fields
 
-        IList<T> innerlist;
-        GuardedList<T> underlying;
-        bool slidableView = false;
+        readonly IList<T> innerlist;
+        readonly GuardedList<T> underlying;
+        readonly bool slidableView = false;
 
         #endregion
 
@@ -1835,7 +1835,7 @@ namespace C5
     {
         #region Fields
 
-        IQueue<T> queue;
+        readonly IQueue<T> queue;
 
         #endregion
 
@@ -1892,7 +1892,7 @@ namespace C5
     {
         #region Fields
 
-        IDictionary<K, V> dict;
+        readonly IDictionary<K, V> dict;
 
         #endregion
 
@@ -2091,7 +2091,7 @@ namespace C5
     {
         #region Fields
 
-        ISortedDictionary<K, V> sorteddict;
+        readonly ISortedDictionary<K, V> sorteddict;
 
         #endregion
 

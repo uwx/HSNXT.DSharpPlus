@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -79,7 +79,7 @@ namespace C5
         bool isValid = true;
 
 
-        HashDictionary<T, Node> dict;
+        readonly HashDictionary<T, Node> dict;
         /// <summary>
         /// Number of taggroups
         /// </summary>
@@ -842,7 +842,7 @@ namespace C5
         struct Position
         {
             public readonly HashedLinkedList<T> View;
-            public bool Left;
+            public readonly bool Left;
             public readonly Node Endpoint;
 
             public Position(HashedLinkedList<T> view, bool left)
@@ -862,8 +862,8 @@ namespace C5
         /// </summary>
         struct ViewHandler
         {
-            ArrayList<Position> leftEnds;
-            ArrayList<Position> rightEnds;
+            readonly ArrayList<Position> leftEnds;
+            readonly ArrayList<Position> rightEnds;
             int leftEndIndex, rightEndIndex, leftEndIndex2, rightEndIndex2;
             internal readonly int viewCount;
             internal ViewHandler(HashedLinkedList<T> list)
@@ -990,10 +990,13 @@ namespace C5
         [Serializable]
         class Range : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
-            int start, count, rangestamp;
-            Node startnode, endnode;
+            int start;
+            readonly int count;
+            readonly int rangestamp;
+            readonly Node startnode;
+            readonly Node endnode;
 
-            HashedLinkedList<T> list;
+            readonly HashedLinkedList<T> list;
 
             bool forwards;
 

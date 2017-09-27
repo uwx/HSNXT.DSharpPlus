@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -271,11 +271,12 @@ namespace C5
         internal class Enumerator : SCG.IEnumerator<T>
         {
             #region Private Fields
-            TreeSet<T> tree;
+
+            readonly TreeSet<T> tree;
 
             bool valid = false;
 
-            int stamp;
+            readonly int stamp;
 
             T current;
 
@@ -423,7 +424,7 @@ namespace C5
 
             bool valid = false;
 
-            int stamp;
+            readonly int stamp;
 
 
             T current;
@@ -3128,7 +3129,7 @@ namespace C5
         class SnapRef
         {
             public SnapRef Prev, Next;
-            public WeakReference Tree;
+            public readonly WeakReference Tree;
             public SnapRef(TreeSet<T> tree) { Tree = new WeakReference(tree); }
             public void Dispose()
             {
@@ -3220,13 +3221,17 @@ namespace C5
         {
             //We actually need exclusive upper and lower bounds, and flags to 
             //indicate whether the bound is present (we canot rely on default(T))
-            private int stamp, size;
+            private int stamp;
 
-            private TreeSet<T> basis;
+            private readonly int size;
 
-            private T lowend, highend;
+            private readonly TreeSet<T> basis;
 
-            private bool haslowend, hashighend;
+            private readonly T lowend;
+            private readonly T highend;
+
+            private readonly bool haslowend;
+            private readonly bool hashighend;
 
             EnumerationDirection direction;
 
@@ -3272,7 +3277,7 @@ namespace C5
 
                 private Range range;
 
-                private bool forwards;
+                private readonly bool forwards;
 
                 #endregion
                 public Enumerator(Range range)

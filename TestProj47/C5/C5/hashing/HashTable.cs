@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -72,7 +72,7 @@ namespace C5
         }
 
 
-        private static Feature features = Feature.Dummy
+        private static readonly Feature features = Feature.Dummy
                                           | Feature.RefTypeBucket
                                           | Feature.Chaining
                                           | Feature.RandomInterHashing;
@@ -87,11 +87,13 @@ namespace C5
 
         #region Fields
 
-        int indexmask, bits, bitsc, origbits, lastchosen; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        int indexmask, bits, bitsc; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        readonly int origbits; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        int lastchosen; //bitsc==32-bits; indexmask==(1<<bits)-1;
 
         Bucket[] table;
 
-        double fillfactor = 0.66;
+        readonly double fillfactor = 0.66;
 
         int resizethreshhold;
 
@@ -118,7 +120,7 @@ namespace C5
         {
             internal T item;
 
-            internal int hashval; //Cache!
+            internal readonly int hashval; //Cache!
 
             internal Bucket overflow;
 
