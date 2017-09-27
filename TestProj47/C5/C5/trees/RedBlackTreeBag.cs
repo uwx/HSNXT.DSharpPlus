@@ -42,7 +42,7 @@ namespace C5
     {
         #region Fields
 
-        SCG.IComparer<T> comparer;
+        private SCG.IComparer<T> comparer;
 
         private Node root;
 
@@ -132,7 +132,7 @@ namespace C5
         /// The type of node in a Red-Black binary tree
         /// </summary>
         [Serializable]
-        class Node
+        private class Node
         {
             public bool red = true;
 
@@ -279,19 +279,19 @@ namespace C5
         {
             #region Private Fields
 
-            readonly TreeBag<T> tree;
+            private readonly TreeBag<T> tree;
 
-            bool valid = false;
+            private bool valid = false;
 
-            readonly int stamp;
+            private readonly int stamp;
 
-            T current;
+            private T current;
 
-            Node cursor;
+            private Node cursor;
 
-            Node[] path; // stack of nodes
+            private Node[] path; // stack of nodes
 
-            int level = 0;
+            private int level = 0;
             #endregion
             /// <summary>
             /// Create a tree enumerator
@@ -355,7 +355,7 @@ namespace C5
 
             #region IDisposable Members for Enumerator
 
-            bool disposed;
+            private bool disposed;
 
 
             /// <summary>
@@ -427,22 +427,23 @@ namespace C5
         internal class SnapEnumerator : SCG.IEnumerator<T>
         {
             #region Private Fields
-            TreeBag<T> tree;
 
-            bool valid = false;
+            private TreeBag<T> tree;
 
-            readonly int stamp;
+            private bool valid = false;
 
-            int togo;
+            private readonly int stamp;
+
+            private int togo;
 
 
-            T current;
+            private T current;
 
-            Node cursor;
+            private Node cursor;
 
-            Node[] path; // stack of nodes
+            private Node[] path; // stack of nodes
 
-            int level;
+            private int level;
             #endregion
 
             /// <summary>
@@ -633,7 +634,7 @@ namespace C5
         /// <param name="update">whether item in node should be updated</param>
         /// <param name="wasfound">true if found in bag, false if not found or tree is a set</param>
         /// <returns>True if item was added</returns>
-        bool addIterative(T item, ref T founditem, bool update, out bool wasfound)
+        private bool addIterative(T item, ref T founditem, bool update, out bool wasfound)
         {
             wasfound = false;
             if (root == null)
@@ -977,7 +978,7 @@ namespace C5
         //singly linked list of red nodes using only the right child refs.
         //The x nodes at depth h+1 will be red, the rest black.
         //(h is the blackdepth of the resulting tree)
-        static Node maketreer(ref Node rest, int blackheight, int maxred, int red)
+        private static Node maketreer(ref Node rest, int blackheight, int maxred, int red)
         {
             if (blackheight == 1)
             {
@@ -1031,7 +1032,7 @@ namespace C5
         }
 
 
-        void addSorted(SCG.IEnumerable<T> items, bool safe, bool raise)
+        private void addSorted(SCG.IEnumerable<T> items, bool safe, bool raise)
         {
             SCG.IEnumerator<T> e = items.GetEnumerator(); ;
             if (size > 0)
@@ -2101,10 +2102,10 @@ namespace C5
 
         //TODO: make work with snapshots
         [Serializable]
-        class Multiplicities : CollectionValueBase<KeyValuePair<T, int>>, ICollectionValue<KeyValuePair<T, int>>
+        private class Multiplicities : CollectionValueBase<KeyValuePair<T, int>>, ICollectionValue<KeyValuePair<T, int>>
         {
-            readonly TreeBag<T> treebag;
-            readonly int origstamp;
+            private readonly TreeBag<T> treebag;
+            private readonly int origstamp;
             internal Multiplicities(TreeBag<T> treebag) { this.treebag = treebag; this.origstamp = treebag.stamp; }
             public override KeyValuePair<T, int> Choose() { return new KeyValuePair<T, int>(treebag.root.item, treebag.root.items); }
 
@@ -2337,7 +2338,7 @@ namespace C5
             return retval;
         }
 
-        T removeAt(int i)
+        private T removeAt(int i)
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
@@ -2462,13 +2463,13 @@ namespace C5
 
         #region Interval nested class
         [Serializable]
-        class Interval : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
+        private class Interval : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
-            readonly int start, length, stamp;
+            private readonly int start, length, stamp;
 
-            readonly bool forwards;
+            private readonly bool forwards;
 
-            readonly TreeBag<T> tree;
+            private readonly TreeBag<T> tree;
 
 
             internal Interval(TreeBag<T> tree, int start, int count, bool forwards)
@@ -3415,9 +3416,10 @@ namespace C5
         #endregion
 
         #region IPersistent<T> Members
-        int maxsnapid { get { return snapList == null ? -1 : findLastLiveSnapShot(); } }
 
-        int findLastLiveSnapShot()
+        private int maxsnapid { get { return snapList == null ? -1 : findLastLiveSnapShot(); } }
+
+        private int findLastLiveSnapShot()
         {
             if (snapList == null)
                 return -1;
@@ -3439,7 +3441,7 @@ namespace C5
         }
 
         [Serializable]
-        class SnapRef
+        private class SnapRef
         {
             public SnapRef Prev, Next;
             public readonly WeakReference Tree;
@@ -3546,7 +3548,7 @@ namespace C5
             private readonly bool haslowend;
             private readonly bool hashighend;
 
-            EnumerationDirection direction;
+            private EnumerationDirection direction;
 
 
             public Range(TreeBag<T> basis, bool haslowend, T lowend, bool hashighend, T highend, EnumerationDirection direction)
@@ -3581,7 +3583,7 @@ namespace C5
 
                 private T current;
 
-                int togo;
+                private int togo;
 
                 private Node cursor;
 
@@ -3609,7 +3611,7 @@ namespace C5
                 }
 
 
-                int compare(T i1, T i2) { return comparer.Compare(i1, i2); }
+                private int compare(T i1, T i2) { return comparer.Compare(i1, i2); }
 
 
                 /// <summary>
@@ -3818,20 +3820,20 @@ namespace C5
 
             #region Utility
 
-            bool inside(T item)
+            private bool inside(T item)
             {
                 return (!haslowend || basis.comparer.Compare(item, lowend) >= 0) && (!hashighend || basis.comparer.Compare(item, highend) < 0);
             }
 
 
-            void checkstamp()
+            private void checkstamp()
             {
                 if (stamp < basis.stamp)
                     throw new CollectionModifiedException();
             }
 
 
-            void syncstamp() { stamp = basis.stamp; }
+            private void syncstamp() { stamp = basis.stamp; }
 
             #endregion
 
@@ -3920,7 +3922,7 @@ namespace C5
         /// </summary>
         /// <param name="msg">Identifying string of this call to dump</param>
         /// <param name="err">Extra (error)message to include</param>
-        void dump(string msg, string err)
+        private void dump(string msg, string err)
         {
             Logger.Log(string.Format(">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg, size, blackdepth, 0, generation, UniqueCount));
             minidump(root, "");
@@ -3978,7 +3980,7 @@ namespace C5
             return res;
         }
 
-        bool rbminisnapcheck(Node n, out int size, out T min, out T max)
+        private bool rbminisnapcheck(Node n, out int size, out T min, out T max)
         {
             bool res = true;
 
@@ -4044,7 +4046,7 @@ namespace C5
         }
 
 
-        bool check(string msg)
+        private bool check(string msg)
         {
             if (root != null)
             {

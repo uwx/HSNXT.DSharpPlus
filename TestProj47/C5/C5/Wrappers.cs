@@ -32,7 +32,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IEnumerator<T> enumerator;
+        private readonly IEnumerator<T> enumerator;
 
         #endregion
 
@@ -103,7 +103,7 @@ namespace C5
     {
         #region Fields
 
-        readonly System.Collections.Generic.IEnumerable<T> enumerable;
+        private readonly System.Collections.Generic.IEnumerable<T> enumerable;
 
         #endregion
 
@@ -152,7 +152,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IDirectedEnumerable<T> directedenumerable;
+        private readonly IDirectedEnumerable<T> directedenumerable;
 
         #endregion
 
@@ -211,7 +211,7 @@ namespace C5
         /// <value></value>
         public virtual EventTypeEnum ActiveEvents { get { return collectionvalue.ActiveEvents; } }
 
-        ProxyEventBlock<T> eventBlock;
+        private ProxyEventBlock<T> eventBlock;
         /// <summary>
         /// The change event. Will be raised for every change operation on the collection.
         /// </summary>
@@ -269,7 +269,7 @@ namespace C5
 
         #region Fields
 
-        readonly ICollectionValue<T> collectionvalue;
+        private readonly ICollectionValue<T> collectionvalue;
 
         #endregion
 
@@ -414,7 +414,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IDirectedCollectionValue<T> directedcollection;
+        private readonly IDirectedCollectionValue<T> directedcollection;
 
         #endregion
 
@@ -479,7 +479,7 @@ namespace C5
     {
         #region Fields
 
-        readonly ICollection<T> collection;
+        private readonly ICollection<T> collection;
 
         #endregion
 
@@ -732,7 +732,7 @@ namespace C5
     {
         #region Fields
 
-        readonly ISequenced<T> sequenced;
+        private readonly ISequenced<T> sequenced;
 
         #endregion
 
@@ -858,7 +858,7 @@ namespace C5
     {
         #region Fields
 
-        readonly ISorted<T> sorted;
+        private readonly ISorted<T> sorted;
 
         #endregion
 
@@ -1091,7 +1091,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IIndexedSorted<T> indexedsorted;
+        private readonly IIndexedSorted<T> indexedsorted;
 
         #endregion
 
@@ -1266,9 +1266,9 @@ namespace C5
     {
         #region Fields
 
-        readonly IList<T> innerlist;
-        readonly GuardedList<T> underlying;
-        readonly bool slidableView = false;
+        private readonly IList<T> innerlist;
+        private readonly GuardedList<T> underlying;
+        private readonly bool slidableView = false;
 
         #endregion
 
@@ -1289,7 +1289,7 @@ namespace C5
                 underlying = new GuardedList<T>(list.Underlying, null, false);
         }
 
-        GuardedList(IList<T> list, GuardedList<T> underlying, bool slidableView)
+        private GuardedList(IList<T> list, GuardedList<T> underlying, bool slidableView)
             : base(list)
         {
             this.innerlist = list; this.underlying = underlying; this.slidableView = slidableView;
@@ -1835,7 +1835,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IQueue<T> queue;
+        private readonly IQueue<T> queue;
 
         #endregion
 
@@ -1892,7 +1892,7 @@ namespace C5
     {
         #region Fields
 
-        readonly IDictionary<K, V> dict;
+        private readonly IDictionary<K, V> dict;
 
         #endregion
 
@@ -2091,7 +2091,7 @@ namespace C5
     {
         #region Fields
 
-        readonly ISortedDictionary<K, V> sorteddict;
+        private readonly ISortedDictionary<K, V> sorteddict;
 
         #endregion
 

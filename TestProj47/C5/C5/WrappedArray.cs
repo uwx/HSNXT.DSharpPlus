@@ -35,7 +35,7 @@ namespace C5
 	public class WrappedArray<T> : IList<T>, SCG.IList<T>
 	{
 		[Serializable]
-		class InnerList : ArrayList<T>
+		private class InnerList : ArrayList<T>
 		{
 			internal InnerList ( T [] array, MemoryType memoryType )
 				: base(memoryType)
@@ -45,9 +45,9 @@ namespace C5
 			}
 		}
 
-		readonly ArrayList<T> innerlist;
+		private readonly ArrayList<T> innerlist;
 		//TODO: remember a ref to the wrapped array in WrappedArray to save a little on indexing?
-		readonly WrappedArray<T> underlying;
+		private readonly WrappedArray<T> underlying;
 
 		/// <summary>
 		/// 
@@ -60,7 +60,7 @@ namespace C5
 		}
 
 		//for views
-		WrappedArray ( ArrayList<T> arraylist, WrappedArray<T> underlying )
+		private WrappedArray ( ArrayList<T> arraylist, WrappedArray<T> underlying )
 		{
 			innerlist = arraylist;
 			this.underlying = underlying;

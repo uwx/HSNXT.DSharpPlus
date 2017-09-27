@@ -33,7 +33,7 @@ namespace C5
     [Serializable]
     internal class ComparerZeroHashCodeEqualityComparer<T> : SCG.IEqualityComparer<T>
     {
-        readonly SCG.IComparer<T> comparer;
+        private readonly SCG.IComparer<T> comparer;
         /// <summary>
         /// Create a trivial <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> compatible with the 
         /// <see cref="T:System.Collections.Generic.IComparer`1"/> <code>comparer</code>
@@ -72,8 +72,8 @@ namespace C5
     public class SequencedCollectionEqualityComparer<T, W> : SCG.IEqualityComparer<T>
         where T : ISequenced<W>
     {
-        static SequencedCollectionEqualityComparer<T, W> cached;
-        SequencedCollectionEqualityComparer() { }
+        private static SequencedCollectionEqualityComparer<T, W> cached;
+        private SequencedCollectionEqualityComparer() { }
         /// <summary>
         /// 
         /// </summary>
@@ -108,8 +108,8 @@ namespace C5
     public class UnsequencedCollectionEqualityComparer<T, W> : SCG.IEqualityComparer<T>
         where T : ICollection<W>
     {
-        static UnsequencedCollectionEqualityComparer<T, W> cached;
-        UnsequencedCollectionEqualityComparer() { }
+        private static UnsequencedCollectionEqualityComparer<T, W> cached;
+        private UnsequencedCollectionEqualityComparer() { }
         /// <summary>
         /// 
         /// </summary>

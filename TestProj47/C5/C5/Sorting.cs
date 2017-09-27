@@ -28,7 +28,7 @@ namespace C5
     [Serializable]
     public class Sorting
     {
-        Sorting() { }
+        private Sorting() { }
 
         /// <summary>
         /// Sort part of array in place using IntroSort
@@ -91,11 +91,11 @@ namespace C5
         }
 
         [Serializable]
-        class Sorter<T>
+        private class Sorter<T>
         {
-            readonly T[] a;
+            private readonly T[] a;
 
-            readonly SCG.IComparer<T> c;
+            private readonly SCG.IComparer<T> c;
 
 
             internal Sorter(T[] a, SCG.IComparer<T> c) { this.a = a; this.c = c; }

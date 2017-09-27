@@ -87,20 +87,20 @@ namespace C5
 
         #region Fields
 
-        int indexmask, bits, bitsc; //bitsc==32-bits; indexmask==(1<<bits)-1;
-        readonly int origbits; //bitsc==32-bits; indexmask==(1<<bits)-1;
-        int lastchosen; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        private int indexmask, bits, bitsc; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        private readonly int origbits; //bitsc==32-bits; indexmask==(1<<bits)-1;
+        private int lastchosen; //bitsc==32-bits; indexmask==(1<<bits)-1;
 
-        Bucket[] table;
+        private Bucket[] table;
 
-        readonly double fillfactor = 0.66;
+        private readonly double fillfactor = 0.66;
 
-        int resizethreshhold;
+        private int resizethreshhold;
 
         private static readonly Random Random = new Random();
 
         private readonly HashEnumerator _hashEnumerator;
-        uint _randomhashfactor;
+        private uint _randomhashfactor;
 
         #endregion
 
@@ -116,7 +116,7 @@ namespace C5
 
         #region Bucket nested class(es)
         [Serializable]
-        class Bucket
+        private class Bucket
         {
             internal T item;
 
@@ -136,25 +136,25 @@ namespace C5
 
         #region Basic Util
 
-        bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
+        private bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
 
-        int gethashcode(T item) { return itemequalityComparer.GetHashCode(item); }
+        private int gethashcode(T item) { return itemequalityComparer.GetHashCode(item); }
 
 
-        int hv2i(int hashval)
+        private int hv2i(int hashval)
         {
             return (int)(((uint)hashval * _randomhashfactor) >> bitsc);
         }
 
 
-        void expand()
+        private void expand()
         {
             Logger.Log(string.Format(string.Format("Expand to {0} bits", bits + 1)));
             resize(bits + 1);
         }
 
 
-        void shrink()
+        private void shrink()
         {
             if (bits > 3)
             {
@@ -164,7 +164,7 @@ namespace C5
         }
 
 
-        void resize(int bits)
+        private void resize(int bits)
         {
             Logger.Log(string.Format(string.Format("Resize to {0} bits", bits)));
             this.bits = bits;
@@ -645,7 +645,7 @@ namespace C5
             private HashSet<T> _hashSet;
             private int _stamp;
             private int _index;
-            Bucket b;
+            private Bucket b;
              
             
             public HashEnumerator(MemoryType memoryType) : base(memoryType)

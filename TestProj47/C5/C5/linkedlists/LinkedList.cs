@@ -35,7 +35,7 @@ namespace C5
         /// IExtensible.Add(T) always does AddLast(T), fIFO determines 
         /// if T Remove() does RemoveFirst() or RemoveLast()
         /// </summary>
-        bool fIFO = true;
+        private bool fIFO = true;
 
         #region Events
 
@@ -53,30 +53,30 @@ namespace C5
         /// <summary>
         /// Node to the left of first node 
         /// </summary>
-        Node startsentinel;
+        private Node startsentinel;
         /// <summary>
         /// Node to the right of last node
         /// </summary>
-        Node endsentinel;
+        private Node endsentinel;
         /// <summary>
         /// Offset of this view in underlying list
         /// </summary>
-
-        int offset;
+        private int offset;
 
         /// <summary>
         /// underlying list of this view (or null for the underlying list)
         /// </summary>
-        LinkedList<T> underlying;
+        private LinkedList<T> underlying;
 
         //Note: all views will have the same views list since all view objects are created by MemberwiseClone()
-        WeakViewList<LinkedList<T>> views;
-        WeakViewList<LinkedList<T>>.Node myWeakReference;
+        private WeakViewList<LinkedList<T>> views;
+
+        private WeakViewList<LinkedList<T>>.Node myWeakReference;
 
         /// <summary>
         /// Has this list or view not been invalidated by some operation (by someone calling Dispose())
         /// </summary>
-        bool isValid = true;
+        private bool isValid = true;
 
 
 
@@ -84,7 +84,7 @@ namespace C5
 
         #region Util
 
-        bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
+        private bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
 
         #region Check utilities
         /// <summary>
@@ -110,7 +110,7 @@ namespace C5
         /// modification of the base collection.
         /// </summary>
         /// <exception cref="InvalidOperationException"> if check fails.</exception>
-        void validitycheck()
+        private void validitycheck()
         {
             if (!isValid)
                 throw new ViewDisposedException();
@@ -130,7 +130,8 @@ namespace C5
         #endregion
 
         #region Searching
-        bool contains(T item, out Node node)
+
+        private bool contains(T item, out Node node)
         {
 
             //TODO: search from both ends? Or search from the end selected by FIFO?
@@ -153,7 +154,7 @@ namespace C5
         /// <param name="index">If node was found, the value will be the number of links followed higher than 
         /// the value on input. If item was not found, the value on output is undefined.</param>
         /// <returns>True if node was found.</returns>
-        bool find(T item, ref Node node, ref int index)
+        private bool find(T item, ref Node node, ref int index)
         {
             while (node != endsentinel)
             {
@@ -168,7 +169,7 @@ namespace C5
             return false;
         }
 
-        bool dnif(T item, ref Node node, ref int index)
+        private bool dnif(T item, ref Node node, ref int index)
         {
             while (node != startsentinel)
             {
@@ -193,7 +194,7 @@ namespace C5
         /// </summary>
         /// <param name="pos"></param>
         /// <returns></returns>
-        Node get(int pos)
+        private Node get(int pos)
         {
             if (pos < 0 || pos >= size)
                 throw new IndexOutOfRangeException();
@@ -227,7 +228,7 @@ namespace C5
         /// <param name="positions"></param>
         /// <param name="nearest"></param>
         /// <returns></returns>
-        int dist(int pos, out int nearest, int[] positions)
+        private int dist(int pos, out int nearest, int[] positions)
         {
             nearest = -1;
             int bestdist = int.MaxValue;
@@ -248,7 +249,7 @@ namespace C5
         /// <param name="positions"></param>
         /// <param name="nodes"></param>
         /// <returns></returns>
-        Node get(int pos, int[] positions, Node[] nodes)
+        private Node get(int pos, int[] positions, Node[] nodes)
         {
             int nearest;
             int delta = dist(pos, out nearest, positions);
@@ -271,7 +272,7 @@ namespace C5
         /// <param name="n2"></param>
         /// <param name="positions"></param>
         /// <param name="nodes"></param>
-        void getPair(int p1, int p2, out Node n1, out Node n2, int[] positions, Node[] nodes)
+        private void getPair(int p1, int p2, out Node n1, out Node n2, int[] positions, Node[] nodes)
         {
             int nearest1, nearest2;
             int delta1 = dist(p1, out nearest1, positions), d1 = delta1 < 0 ? -delta1 : delta1;
@@ -299,7 +300,7 @@ namespace C5
         /// <param name="succ"></param>
         /// <param name="item"></param>
         /// <returns></returns>
-        Node insert(int index, Node succ, T item)
+        private Node insert(int index, Node succ, T item)
         {
             Node newnode = new Node(item, succ.prev, succ);
             succ.prev.next = newnode;
@@ -314,7 +315,8 @@ namespace C5
         #endregion
 
         #region Removal
-        T remove(Node node, int index)
+
+        private T remove(Node node, int index)
         {
             fixViewsBeforeSingleRemove(node, Offset + index);
             node.prev.next = node.next;
@@ -337,7 +339,7 @@ namespace C5
         /// <param name="pred">The predecessor of the inserted nodes</param>
         /// <param name="succ">The successor of the added nodes</param>
         /// <param name="realInsertionIndex"></param>
-        void fixViewsAfterInsert(Node succ, Node pred, int added, int realInsertionIndex)
+        private void fixViewsAfterInsert(Node succ, Node pred, int added, int realInsertionIndex)
         {
             if (views != null)
                 foreach (LinkedList<T> view in views)
@@ -358,7 +360,7 @@ namespace C5
                 }
         }
 
-        void fixViewsBeforeSingleRemove(Node node, int realRemovalIndex)
+        private void fixViewsBeforeSingleRemove(Node node, int realRemovalIndex)
         {
             if (views != null)
                 foreach (LinkedList<T> view in views)
@@ -379,7 +381,7 @@ namespace C5
         }
 
 
-        void fixViewsBeforeRemove(int start, int count, Node first, Node last)
+        private void fixViewsBeforeRemove(int start, int count, Node first, Node last)
         {
             int clearend = start + count - 1;
             if (views != null)
@@ -414,7 +416,7 @@ namespace C5
         /// </summary>
         /// <param name="otherView"></param>
         /// <returns>The position of View(otherOffset, otherSize) wrt. this view</returns>
-        MutualViewPosition viewPosition(LinkedList<T> otherView)
+        private MutualViewPosition viewPosition(LinkedList<T> otherView)
         {
 
             int end = offset + size, otherOffset = otherView.offset, otherSize = otherView.size, otherEnd = otherOffset + otherSize;
@@ -427,7 +429,7 @@ namespace C5
             return MutualViewPosition.Overlapping;
         }
 
-        void disposeOverlappingViews(bool reverse)
+        private void disposeOverlappingViews(bool reverse)
         {
             if (views != null)
             {
@@ -493,7 +495,7 @@ namespace C5
         /// An individual cell in the linked list
         /// </summary>
         [Serializable]
-        class Node
+        private class Node
         {
             public Node prev;
 
@@ -528,10 +530,10 @@ namespace C5
 
         #region Position, PositionComparer and ViewHandler nested types
         [Serializable]
-        class PositionComparer : SCG.IComparer<Position>
+        private class PositionComparer : SCG.IComparer<Position>
         {
-            static PositionComparer _default;
-            PositionComparer() { }
+            private static PositionComparer _default;
+            private PositionComparer() { }
             public static PositionComparer Default { get { return _default ?? (_default = new PositionComparer()); } }
             public int Compare(Position a, Position b)
             {
@@ -542,7 +544,7 @@ namespace C5
         /// <summary>
         /// During RemoveAll, we need to cache the original endpoint indices of views
         /// </summary>
-        struct Position
+        private struct Position
         {
             public readonly LinkedList<T> View;
             public readonly bool Left;
@@ -563,11 +565,11 @@ namespace C5
         /// <summary>
         /// Handle the update of (other) views during a multi-remove operation.
         /// </summary>
-        struct ViewHandler
+        private struct ViewHandler
         {
-            readonly ArrayList<Position> leftEnds;
-            readonly ArrayList<Position> rightEnds;
-            int leftEndIndex, rightEndIndex, leftEndIndex2, rightEndIndex2;
+            private readonly ArrayList<Position> leftEnds;
+            private readonly ArrayList<Position> rightEnds;
+            private int leftEndIndex, rightEndIndex, leftEndIndex2, rightEndIndex2;
             internal readonly int viewCount;
             internal ViewHandler(LinkedList<T> list)
             {
@@ -671,17 +673,17 @@ namespace C5
         #region Range nested class
 
         [Serializable]
-        class Range : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
+        private class Range : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
-            int start;
-            readonly int count;
-            readonly int rangestamp;
-            readonly Node startnode;
-            readonly Node endnode;
+            private int start;
+            private readonly int count;
+            private readonly int rangestamp;
+            private readonly Node startnode;
+            private readonly Node endnode;
 
-            readonly LinkedList<T> list;
+            private readonly LinkedList<T> list;
 
-            bool forwards;
+            private bool forwards;
 
             internal Range(LinkedList<T> list, int start, int count, bool forwards)
             {
@@ -764,7 +766,7 @@ namespace C5
             Dispose(false);
         }
 
-        void Dispose(bool disposingUnderlying)
+        private void Dispose(bool disposingUnderlying)
         {
             if (isValid)
             {
@@ -930,7 +932,7 @@ namespace C5
             InsertAll(i, items, true);
         }
 
-        void InsertAll(int i, SCG.IEnumerable<T> items, bool insertion)
+        private void InsertAll(int i, SCG.IEnumerable<T> items, bool insertion)
         {
             updatecheck();
             Node succ, node, pred;
@@ -1706,7 +1708,7 @@ namespace C5
                 (underlying ?? this).raiseForRemoveInterval(start + Offset, count);
         }
 
-        void raiseForRemoveInterval(int start, int count)
+        private void raiseForRemoveInterval(int start, int count)
         {
             if (ActiveEvents != 0)
             {
@@ -1996,7 +1998,7 @@ namespace C5
         /// 
         /// </summary>
         /// <param name="predicate"></param>
-        void RemoveAll(Func<T, bool> predicate)
+        private void RemoveAll(Func<T, bool> predicate)
         {
             updatecheck();
             if (size == 0)
@@ -2057,7 +2059,7 @@ namespace C5
             (underlying ?? this).raiseForRemoveInterval(Offset, oldsize);
         }
 
-        void clear()
+        private void clear()
         {
             if (size == 0)
                 return;
@@ -2131,7 +2133,7 @@ namespace C5
         /// 
         /// </summary>
         /// <param name="predicate"></param>
-        void RetainAll(Func<T, bool> predicate)
+        private void RetainAll(Func<T, bool> predicate)
         {
             updatecheck();
             if (size == 0)
@@ -2558,7 +2560,7 @@ namespace C5
             return retval;
         }
 
-        string zeitem(Node node)
+        private string zeitem(Node node)
         {
             return node == null ? "(null node)" : node.item.ToString();
         }

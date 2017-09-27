@@ -31,12 +31,13 @@ namespace C5
     public abstract class CollectionValueBase<T> : EnumerableBase<T>, ICollectionValue<T>, IShowable
     {
         #region Event handling
-        EventBlock<T> eventBlock;
+
+        private EventBlock<T> eventBlock;
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public virtual EventTypeEnum ListenableEvents { get { return 0; } }
+        public virtual EventTypeEnum ListenableEvents => 0;
 
         /// <summary>
         /// A flag bitmap of the events currently subscribed to by this collection.
@@ -334,9 +335,9 @@ namespace C5
         [Serializable]
         protected class RaiseForRemoveAllHandler
         {
-            readonly CollectionValueBase<T> collection;
-            CircularQueue<T> wasRemoved;
-            bool wasChanged = false;
+            private readonly CollectionValueBase<T> collection;
+            private CircularQueue<T> wasRemoved;
+            private bool wasChanged = false;
 
             /// <summary>
             /// 
@@ -349,7 +350,7 @@ namespace C5
                 MustFire = (collection.ActiveEvents & (EventTypeEnum.Removed | EventTypeEnum.Changed)) != 0;
             }
 
-            readonly bool mustFireRemoved;
+            private readonly bool mustFireRemoved;
             /// <summary>
             /// 
             /// </summary>
@@ -641,7 +642,7 @@ namespace C5
         /// </summary>
         protected readonly SCG.IEqualityComparer<T> itemequalityComparer;
 
-        int iUnSequencedHashCode, iUnSequencedHashCodeStamp = -1;
+        private int iUnSequencedHashCode, iUnSequencedHashCodeStamp = -1;
 
         #endregion
 
@@ -718,7 +719,7 @@ namespace C5
 
         }
 
-        static Type isortedtype = typeof(ISorted<T>);
+        private static Type isortedtype = typeof(ISorted<T>);
 
         /// <summary>
         /// Examine if collection1 and collection2 are equal as unsequenced collections
@@ -963,7 +964,7 @@ namespace C5
     {
         #region Fields
 
-        int iSequencedHashCode, iSequencedHashCodeStamp = -1;
+        private int iSequencedHashCode, iSequencedHashCodeStamp = -1;
 
         #endregion
 
@@ -977,7 +978,7 @@ namespace C5
         #region Util
 
         //TODO: make random for release
-        const int HASHFACTOR = 31;
+        private const int HASHFACTOR = 31;
 
         /// <summary>
         /// Compute the unsequenced hash code of a collection
@@ -1391,12 +1392,12 @@ namespace C5
         [Serializable]
         protected class Range : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
-            int start;
-            readonly int count;
-            int delta;
-            readonly int stamp;
+            private int start;
+            private readonly int count;
+            private int delta;
+            private readonly int stamp;
 
-            readonly ArrayBase<T> thebase;
+            private readonly ArrayBase<T> thebase;
 
             private readonly RangeEnumerator _rangeInternalEnumerator;
 

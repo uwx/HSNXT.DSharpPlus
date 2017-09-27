@@ -42,7 +42,8 @@ namespace C5
         #endregion
 
         #region Fields
-        struct Interval
+
+        private struct Interval
         {
             internal T first, last; internal Handle firsthandle, lasthandle;
 
@@ -50,14 +51,14 @@ namespace C5
             public override string ToString() { return string.Format("[{0}; {1}]", first, last); }
         }
 
-        int stamp;
+        private int stamp;
 
-        readonly SCG.IComparer<T> comparer;
-        readonly SCG.IEqualityComparer<T> itemequalityComparer;
+        private readonly SCG.IComparer<T> comparer;
+        private readonly SCG.IEqualityComparer<T> itemequalityComparer;
 
-        Interval[] heap;
+        private Interval[] heap;
 
-        int size;
+        private int size;
         #endregion
 
         #region Util
@@ -84,7 +85,7 @@ namespace C5
           updateFirst(cell1, first, firsthandle);
         }
 
-        bool heapifyMin(int cell) {
+        private bool heapifyMin(int cell) {
           bool swappedroot = false;
           // If first > last, swap them
           if (2 * cell + 1 < size && comparer.Compare(heap[cell].first, heap[cell].last) > 0) {
@@ -107,7 +108,7 @@ namespace C5
         }
 
 
-        bool heapifyMax(int cell) {
+        private bool heapifyMax(int cell) {
           bool swappedroot = false;
           if (2 * cell + 1 < size && comparer.Compare(heap[cell].last, heap[cell].first) < 0) {
             swappedroot = true;
@@ -149,7 +150,7 @@ namespace C5
           return swappedroot;
         }
 
-        void bubbleUpMin(int i)
+        private void bubbleUpMin(int i)
         {
             if (i > 0)
             {
@@ -174,7 +175,7 @@ namespace C5
         }
 
 
-        void bubbleUpMax(int i)
+        private void bubbleUpMax(int i)
         {
             if (i > 0)
             {
@@ -233,7 +234,7 @@ namespace C5
 		/// <param name = "memoryType"></param>
 		public IntervalHeap(int capacity, SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(capacity, comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType) { }
 
-		IntervalHeap(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        private IntervalHeap(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
         {
             if (comparer == null)
                 throw new NullReferenceException("Item comparer cannot be null");
@@ -614,7 +615,7 @@ namespace C5
         #region IPriorityQueue<T> Members
 
         [Serializable]
-        class Handle : IPriorityQueueHandle<T>
+        private class Handle : IPriorityQueueHandle<T>
         {
             /// <summary>
             /// To save space, the index is 2*cell for heap[cell].first, and 2*cell+1 for heap[cell].last
