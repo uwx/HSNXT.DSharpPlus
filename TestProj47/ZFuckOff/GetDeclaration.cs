@@ -509,7 +509,9 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
+#pragma warning disable 219
             var hasInheritedClass = false;
+#pragma warning restore 219
 
             // Visibility
             sb.Append(@this.IsPublic ? "public " : "internal ");

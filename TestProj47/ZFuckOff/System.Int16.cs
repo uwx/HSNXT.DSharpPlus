@@ -334,8 +334,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool Between(this short @this, short minValue, short maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
@@ -347,8 +345,6 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InZ(this short @this, params short[] values)
         {
             return Array.IndexOf(values, @this) != -1;
@@ -361,8 +357,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InRange(this short @this, short minValue, short maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;

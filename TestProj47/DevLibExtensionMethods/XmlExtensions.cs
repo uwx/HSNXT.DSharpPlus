@@ -4,7 +4,9 @@
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
+using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -22,7 +24,7 @@ namespace TestProj47
         {
             ReaderSettings.CheckCharacters = true;
             ReaderSettings.ConformanceLevel = ConformanceLevel.Document;
-            ReaderSettings.ProhibitDtd = false;
+            ReaderSettings.DtdProcessing = DtdProcessing.Prohibit;
             ReaderSettings.IgnoreComments = true;
             ReaderSettings.IgnoreProcessingInstructions = true;
             ReaderSettings.IgnoreWhitespace = true;
@@ -47,8 +49,9 @@ namespace TestProj47
             {
                 try
                 {
-                    do
-                        ; while (xmlReader.Read());
+                    while (xmlReader.Read())
+                    {
+                    }
                     return true;
                 }
                 catch
@@ -169,11 +172,7 @@ namespace TestProj47
                         flag2 = true;
                     }
                 }
-                var flag6 = false;
-                if (str1[index] == 62)
-                    flag6 = true;
-                if (index < str1.Length - 1 && str1[index + 1] == 62 && (str1[index] == 63 || str1[index] == 47))
-                    flag6 = true;
+                var flag6 = str1[index] == 62 || index < str1.Length - 1 && str1[index + 1] == 62 && (str1[index] == 63 || str1[index] == 47);
                 if (flag6)
                 {
                     if (flag4 && str1[index - 1] == 45 && str1[index - 2] == 45)
@@ -200,7 +199,7 @@ namespace TestProj47
                     stringBuilder.Append(str1[index]);
             }
             var str2 = stringBuilder.ToString();
-            var startIndex1 = str2.IndexOf("{\\colortbl;");
+            var startIndex1 = str2.IndexOfInvariant(@"{\colortbl;");
             string str3;
             if (startIndex1 != -1)
             {
@@ -210,10 +209,10 @@ namespace TestProj47
             }
             else
             {
-                var startIndex2 = str2.IndexOf("\\rtf");
+                var startIndex2 = str2.IndexOfInvariant(@"\rtf");
                 if (startIndex2 < 0)
                 {
-                    str3 = str2.Insert(0, "{\\rtf\\ansi\\deff0" + XmlSyntaxHighlightColor.ColorTable) + "}";
+                    str3 = str2.Insert(0, @"{\rtf\ansi\deff0" + XmlSyntaxHighlightColor.ColorTable) + "}";
                 }
                 else
                 {
@@ -233,8 +232,8 @@ namespace TestProj47
         public static XmlNode CreateChildNode(this XmlNode source, string childNode)
         {
             XmlNode element =
-                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode);
-            source.AppendChild(element);
+                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument)?.CreateElement(childNode);
+            source.AppendChild(element ?? throw new ArgumentException(nameof(element)));
             return element;
         }
 
@@ -246,9 +245,9 @@ namespace TestProj47
         public static XmlNode CreateChildNode(this XmlNode source, string childNode, string namespaceUri)
         {
             XmlNode element =
-                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateElement(childNode,
+                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument)?.CreateElement(childNode,
                     namespaceUri);
-            source.AppendChild(element);
+            source.AppendChild(element ?? throw new ArgumentException(nameof(element)));
             return element;
         }
 
@@ -269,8 +268,8 @@ namespace TestProj47
         public static XmlCDataSection CreateCDataSection(this XmlNode source, string cData)
         {
             var cdataSection =
-                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument).CreateCDataSection(cData);
-            source.AppendChild(cdataSection);
+                (source is XmlDocument ? (XmlDocument) source : source.OwnerDocument)?.CreateCDataSection(cData);
+            source.AppendChild(cdataSection ?? throw new ArgumentException(nameof(cdataSection)));
             return cdataSection;
         }
 
@@ -279,9 +278,8 @@ namespace TestProj47
         /// <param name="sourceNode">The parent node.</param>
         public static void AppendChildNodeTo(this string childNode, XmlNode sourceNode)
         {
-            XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)
-                .CreateElement(childNode);
-            sourceNode.AppendChild(element);
+            XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)?.CreateElement(childNode);
+            sourceNode.AppendChild(element ?? throw new ArgumentException(nameof(element)));
         }
 
         /// <summary>Appends a child to a XML node.</summary>
@@ -291,9 +289,9 @@ namespace TestProj47
         public static void AppendChildNodeTo(this string childNode, XmlNode sourceNode, string namespaceUri)
         {
             XmlNode element =
-                (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument).CreateElement(
+                (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)?.CreateElement(
                     childNode, namespaceUri);
-            sourceNode.AppendChild(element);
+            sourceNode.AppendChild(element ?? throw new ArgumentException(nameof(element)));
         }
 
         /// <summary>
@@ -303,9 +301,8 @@ namespace TestProj47
         /// <param name="sourceNode">The parent node.</param>
         public static void AppendCDataSectionTo(this string cData, XmlNode sourceNode)
         {
-            var cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)
-                .CreateCDataSection(cData);
-            sourceNode.AppendChild(cdataSection);
+            var cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)?.CreateCDataSection(cData);
+            sourceNode.AppendChild(cdataSection ?? throw new ArgumentException(nameof(cdataSection)));
         }
 
         /// <summary>Returns the value of a nested CData section.</summary>
@@ -313,12 +310,7 @@ namespace TestProj47
         /// <returns>The CData section content.</returns>
         public static string GetCDataSection(this XmlNode source)
         {
-            foreach (var childNode in source.ChildNodes)
-            {
-                if (childNode is XmlCDataSection)
-                    return ((XmlNode) childNode).Value;
-            }
-            return null;
+            return source.ChildNodes.OfType<XmlCDataSection>().Select(childNode => childNode.Value).FirstOrDefault();
         }
 
         /// <summary>Gets an attribute value.</summary>
@@ -340,10 +332,8 @@ namespace TestProj47
         /// <returns>The attribute value.</returns>
         public static string GetAttribute(this XmlNode source, string attributeName, string defaultValue)
         {
-            var attribute = source.Attributes[attributeName];
-            if (attribute == null)
-                return defaultValue;
-            return attribute.InnerText;
+            var attribute = source.Attributes?[attributeName];
+            return attribute?.InnerText ?? defaultValue;
         }
 
         /// <summary>
@@ -370,9 +360,7 @@ namespace TestProj47
         public static T GetAttribute<T>(this XmlNode source, string attributeName, T defaultValue)
         {
             var attribute = source.GetAttribute(attributeName);
-            if (attribute.IsNullOrEmpty())
-                return defaultValue;
-            return attribute.ConvertTo(defaultValue, false);
+            return attribute.IsNullOrEmpty() ? defaultValue : attribute.ConvertTo(defaultValue);
         }
 
         /// <summary>
@@ -383,7 +371,7 @@ namespace TestProj47
         /// <param name="value">The attribute value.</param>
         public static void SetAttribute(this XmlNode source, string name, object value)
         {
-            source.SetAttribute(name, value != null ? value.ToString() : null);
+            source.SetAttribute(name, value?.ToString());
         }
 
         /// <summary>
@@ -396,12 +384,13 @@ namespace TestProj47
         {
             if (source == null)
                 return;
-            var attribute = source.Attributes[name, source.NamespaceURI];
+            var attribute = source.Attributes?[name, source.NamespaceURI];
             if (attribute == null)
             {
-                attribute = source.OwnerDocument.CreateAttribute(name, source.OwnerDocument.NamespaceURI);
-                source.Attributes.Append(attribute);
+                attribute = source.OwnerDocument?.CreateAttribute(name, source.OwnerDocument.NamespaceURI);
+                source.Attributes?.Append(attribute ?? throw new ArgumentException(nameof(attribute)));
             }
+            if (attribute == null) throw new ArgumentException(nameof(attribute));
             attribute.InnerText = value;
         }
     }

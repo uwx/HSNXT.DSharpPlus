@@ -309,8 +309,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool Between(this long @this, long minValue, long maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
@@ -322,8 +320,6 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InZ(this long @this, params long[] values)
         {
             return Array.IndexOf(values, @this) != -1;
@@ -336,8 +332,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InRange(this long @this, long minValue, long maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
@@ -349,8 +343,6 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool NotIn(this long @this, params long[] values)
         {
             return Array.IndexOf(values, @this) == -1;

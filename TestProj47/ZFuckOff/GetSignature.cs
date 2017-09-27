@@ -185,7 +185,9 @@ namespace TestProj47
             var sb = new StringBuilder();
 
             // Variable
+#pragma warning disable 219
             var hasInheritedClass = false;
+#pragma warning restore 219
 
             // Name
             sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);

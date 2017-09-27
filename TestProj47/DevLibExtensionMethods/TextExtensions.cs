@@ -168,10 +168,13 @@ namespace TestProj47
                     source,
                     source
                 };
+#pragma warning disable 618
             var str = FormsAuthentication.HashPasswordForStoringInConfigFile(source, "md5");
+#pragma warning restore 618
             var strArray = new string[4];
             for (var index1 = 0; index1 < 4; ++index1)
             {
+                if (str == null) throw new ArgumentException(nameof(str));
                 var num = 1073741823 & Convert.ToInt32("0x" + str.Substring(index1 * 8, 8), 16);
                 var empty = string.Empty;
                 for (var index2 = 0; index2 < 6; ++index2)

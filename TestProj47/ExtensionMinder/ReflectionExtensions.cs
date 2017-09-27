@@ -34,19 +34,19 @@ namespace TestProj47
                 .Where(pi => !ignoreList.Contains(pi.Name)).Select(pi => new
                 {
                     pi,
-                    selfValue = type.GetProperty(pi.Name).GetValue(self, null)
-                }).Select(_param1 => new
+                    selfValue = type.GetProperty(pi.Name)?.GetValue(self, null)
+                }).Select(p1 => new
                 {
-                    \u003C\u003Eh__TransparentIdentifier0 = _param1,
-                    toValue = type.GetProperty(_param1.pi.Name).GetValue(to, null)
-                }).Where(_param0 =>
+                    tf0 = p1,
+                    toValue = type.GetProperty(p1.pi.Name)?.GetValue(to, null)
+                }).Where(p0 =>
                 {
-                    if (_param0.\u003C\u003Eh__TransparentIdentifier0.selfValue == _param0.toValue)
+                    if (p0.tf0.selfValue == p0.toValue)
                         return false;
-                    if (_param0.\u003C\u003Eh__TransparentIdentifier0.selfValue != null)
-                        return !_param0.\u003C\u003Eh__TransparentIdentifier0.selfValue.Equals(_param0.toValue);
+                    if (p0.tf0.selfValue != null)
+                        return !p0.tf0.selfValue.Equals(p0.toValue);
                     return true;
-                }).Select(_param0 => _param0.\u003C\u003Eh__TransparentIdentifier0.selfValue).Any();
+                }).Select(param0 => param0.tf0.selfValue).Any();
         }
     }
 }

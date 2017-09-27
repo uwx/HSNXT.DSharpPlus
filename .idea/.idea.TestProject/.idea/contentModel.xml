@@ -6,6 +6,65 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="TestProj47" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="C5" t="Include">
+          <e p="C5" t="Include">
+            <e p="arrays" t="Include">
+              <e p="ArrayList.cs" t="Include" />
+              <e p="CircularQueue.cs" t="Include" />
+              <e p="HashedArrayList.cs" t="Include" />
+              <e p="SortedArray.cs" t="Include" />
+            </e>
+            <e p="C5.csproj" t="Include" />
+            <e p="C5.snk" t="Include" />
+            <e p="Collections.cs" t="Include" />
+            <e p="comparers" t="Include">
+              <e p="ComparerFactory.cs" t="Include" />
+              <e p="EqualityComparer.cs" t="Include" />
+              <e p="InternalComparer.cs" t="Include" />
+              <e p="InternalEqualityComparer.cs" t="Include" />
+            </e>
+            <e p="Debug.cs" t="Include" />
+            <e p="Dictionaries.cs" t="Include" />
+            <e p="EnumerableBase.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="Events.cs" t="Include" />
+            <e p="Exceptions.cs" t="Include" />
+            <e p="Formatting.cs" t="Include" />
+            <e p="Hashers.cs" t="Include" />
+            <e p="hashing" t="Include">
+              <e p="HashBag.cs" t="Include" />
+              <e p="HashDictionary.cs" t="Include" />
+              <e p="HashTable.cs" t="Include" />
+            </e>
+            <e p="heaps" t="Include">
+              <e p="IntervalHeap.cs" t="Include" />
+            </e>
+            <e p="Interfaces.cs" t="Include" />
+            <e p="IReadOnlyCollection.cs" t="Include" />
+            <e p="IReadOnlyList.cs" t="Include" />
+            <e p="linkedlists" t="Include">
+              <e p="HashedLinkedList.cs" t="Include" />
+              <e p="LinkedList.cs" t="Include" />
+            </e>
+            <e p="Logger.cs" t="Include" />
+            <e p="MappedEnumerators.cs" t="Include" />
+            <e p="MemorySafeEnumerator.cs" t="Include" />
+            <e p="PortableExtensions.cs" t="Include" />
+            <e p="public.pk" t="Include" />
+            <e p="Random.cs" t="Include" />
+            <e p="Records.cs" t="Include" />
+            <e p="SerializableAttribute.cs" t="Include" />
+            <e p="Sorting.cs" t="Include" />
+            <e p="trees" t="Include">
+              <e p="RedBlackTreeBag.cs" t="Include" />
+              <e p="RedBlackTreeDictionary.cs" t="Include" />
+              <e p="RedBlackTreeSet.cs" t="Include" />
+            </e>
+            <e p="ViewSupport.cs" t="Include" />
+            <e p="WrappedArray.cs" t="Include" />
+            <e p="Wrappers.cs" t="Include" />
+          </e>
+        </e>
         <e p="CSharpBasicExtensionsKit" t="Include">
           <e p="ActionExtensions.cs" t="Include" />
           <e p="BooleanExtensions.cs" t="Include" />
@@ -71,9 +130,7 @@
           <e p="NullableExtensions.cs" t="Include" />
           <e p="StringExtensions.cs" t="Include" />
         </e>
-        <e p="ExtensionMethodsCore.Collections" t="Include">
-          <e p="Extensions.cs" t="Include" />
-        </e>
+        <e p="ExtensionMethodsCore.Collections.cs" t="Include" />
         <e p="ExtensionMinder" t="Include">
           <e p="CollectionExtensions.cs" t="Include" />
           <e p="DateTimeExtensions.cs" t="Include" />
@@ -105,11 +162,26 @@
             <e p="WebTextBoxExtensions.cs" t="Include" />
           </e>
         </e>
+        <e p="ExtensionsHelper.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SimpleExtension" t="Include">
+          <e p="ControlExtension.cs" t="Include" />
+          <e p="DateTimeExtension.cs" t="Include" />
+          <e p="EnumExtension.cs" t="Include" />
+          <e p="ExceptionExtension.cs" t="Include" />
+          <e p="FileExtension.cs" t="Include" />
+          <e p="ImageExtension.cs" t="Include" />
+          <e p="LinqExtension.cs" t="Include" />
+          <e p="MemoryStreamExtension.cs" t="Include" />
+          <e p="ObjectExtension.cs" t="Include" />
+          <e p="ObjectToStringTypes.cs" t="Include" />
+          <e p="StringExtension.cs" t="Include" />
+          <e p="TimespanExtension.cs" t="Include" />
         </e>
         <e p="TestProj47.csproj" t="IncludeRecursive" />
         <e p="ZFuckOff" t="Include">

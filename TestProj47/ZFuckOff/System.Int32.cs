@@ -319,8 +319,6 @@ namespace TestProj47
         /// <param name="green">The green component. Valid values are 0 through 255.</param>
         /// <param name="blue">The blue component. Valid values are 0 through 255.</param>
         /// <returns>The  that this method creates.</returns>
-        /// ###
-        /// <param name="alpha">The alpha component. Valid values are 0 through 255.</param>
         public static Color FromArgb(this int argb, int red, int green, int blue)
         {
             return Color.FromArgb(argb, red, green, blue);
@@ -333,8 +331,6 @@ namespace TestProj47
         /// <param name="argb">A value specifying the 32-bit ARGB value.</param>
         /// <param name="baseColor">The  from which to create the new .</param>
         /// <returns>The  that this method creates.</returns>
-        /// ###
-        /// <param name="alpha">The alpha value for the new . Valid values are 0 through 255.</param>
         public static Color FromArgb(this int argb, Color baseColor)
         {
             return Color.FromArgb(argb, baseColor);
@@ -349,8 +345,6 @@ namespace TestProj47
         /// <param name="green">The green component value for the new . Valid values are 0 through 255.</param>
         /// <param name="blue">The blue component value for the new . Valid values are 0 through 255.</param>
         /// <returns>The  that this method creates.</returns>
-        /// ###
-        /// <param name="red">The red component value for the new . Valid values are 0 through 255.</param>
         public static Color FromArgb(this int argb, int green, int blue)
         {
             return Color.FromArgb(argb, green, blue);
@@ -471,8 +465,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool Between(this int @this, int minValue, int maxValue)
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
@@ -484,8 +476,6 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InZ(this int @this, params int[] values)
         {
             return Array.IndexOf(values, @this) != -1;
@@ -498,8 +488,6 @@ namespace TestProj47
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool InRange(this int @this, int minValue, int maxValue)
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
@@ -511,8 +499,6 @@ namespace TestProj47
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list doesn't contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
         public static bool NotIn(this int @this, params int[] values)
         {
             return Array.IndexOf(values, @this) == -1;
