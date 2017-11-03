@@ -35,7 +35,9 @@ namespace TestProj47.C5
         /// Initial capacity of internal table will be 16 entries and threshold for 
         /// expansion is 66% fill.
         /// </summary>
-        public HashDictionary(MemoryType memoryType = MemoryType.Normal) : this(EqualityComparer<K>.Default, memoryType) { }
+        public HashDictionary(MemoryType memoryType = MemoryType.Normal) : this(EqualityComparer<K>.Default, memoryType)
+        {
+        }
 
         /// <summary>
         /// Create a hash dictionary using a custom equalityComparer for the keys.
@@ -47,7 +49,8 @@ namespace TestProj47.C5
         public HashDictionary(SCG.IEqualityComparer<K> keyequalityComparer, MemoryType memoryType = MemoryType.Normal)
             : base(keyequalityComparer, memoryType)
         {
-            pairs = new HashSet<KeyValuePair<K, V>>(new KeyValuePairEqualityComparer<K, V>(keyequalityComparer), memoryType);
+            pairs = new HashSet<KeyValuePair<K, V>>(new KeyValuePairEqualityComparer<K, V>(keyequalityComparer),
+                memoryType);
         }
 
         /// <summary>
@@ -59,10 +62,12 @@ namespace TestProj47.C5
         /// <param name="fill">The expansion threshold. Must be between 10% and 90%.</param>
         /// <param name="keyequalityComparer">The external key equalitySCG.Comparer</param>
         /// <param name="memoryType">The memory type of the enumerator used to iterate the collection</param>
-        public HashDictionary(int capacity, double fill, SCG.IEqualityComparer<K> keyequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        public HashDictionary(int capacity, double fill, SCG.IEqualityComparer<K> keyequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(keyequalityComparer, memoryType)
         {
-            pairs = new HashSet<KeyValuePair<K, V>>(capacity, fill, new KeyValuePairEqualityComparer<K, V>(keyequalityComparer), memoryType);
+            pairs = new HashSet<KeyValuePair<K, V>>(capacity, fill,
+                new KeyValuePairEqualityComparer<K, V>(keyequalityComparer), memoryType);
         }
     }
 }

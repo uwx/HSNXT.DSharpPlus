@@ -40,7 +40,9 @@ namespace TestProj47
         /// <returns>A capitalized string</returns>
         public static string Capitalize(this string value)
         {
-            return string.IsNullOrWhiteSpace(value) ? value : RegexCapitalize.Replace(value, m => m.Groups[1].Value.ToUpperInvariant());
+            return string.IsNullOrWhiteSpace(value)
+                ? value
+                : RegexCapitalize.Replace(value, m => m.Groups[1].Value.ToUpperInvariant());
         }
 
         /// <summary>
@@ -125,7 +127,9 @@ namespace TestProj47
                 var uri = match.ToString();
                 var str = match.Groups["scheme"].Value == "https" ? Uri.UriSchemeHttps : Uri.UriSchemeHttp;
                 return
-                    $@"<a href=""{(object) new UriBuilder(uri) {Scheme = str}.Uri.ToString()}"">{(object) (value ?? uri)}</a>";
+                    $@"<a href=""{
+                            (object) new UriBuilder(uri) {Scheme = str}.Uri.ToString()
+                        }"">{(object) (value ?? uri)}</a>";
             });
         }
 

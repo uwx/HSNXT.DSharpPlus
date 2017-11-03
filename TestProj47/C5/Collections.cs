@@ -22,9 +22,9 @@
 using System;
 using System.Text;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
-
     /// <summary>
     /// Base class for classes implementing ICollectionValue[T]
     /// </summary>
@@ -34,6 +34,7 @@ namespace TestProj47.C5
         #region Event handling
 
         private EventBlock<T> eventBlock;
+
         /// <summary>
         /// 
         /// </summary>
@@ -58,7 +59,11 @@ namespace TestProj47.C5
         /// </summary>
         public virtual event CollectionChangedHandler<T> CollectionChanged
         {
-            add { checkWillListen(EventTypeEnum.Changed); (eventBlock ?? (eventBlock = new EventBlock<T>())).CollectionChanged += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.Changed);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).CollectionChanged += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.Changed);
@@ -69,18 +74,25 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary>
         /// Fire the CollectionChanged event
         /// </summary>
         protected virtual void raiseCollectionChanged()
-        { if (eventBlock != null) eventBlock.raiseCollectionChanged(this); }
+        {
+            if (eventBlock != null) eventBlock.raiseCollectionChanged(this);
+        }
 
         /// <summary>
         /// The clear event. Will be raised for every Clear operation on the collection.
         /// </summary>
         public virtual event CollectionClearedHandler<T> CollectionCleared
         {
-            add { checkWillListen(EventTypeEnum.Cleared); (eventBlock ?? (eventBlock = new EventBlock<T>())).CollectionCleared += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.Cleared);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).CollectionCleared += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.Cleared);
@@ -91,24 +103,33 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary>
         /// Fire the CollectionCleared event
         /// </summary>
         protected virtual void raiseCollectionCleared(bool full, int count)
-        { if (eventBlock != null) eventBlock.raiseCollectionCleared(this, full, count); }
+        {
+            if (eventBlock != null) eventBlock.raiseCollectionCleared(this, full, count);
+        }
 
         /// <summary>
         /// Fire the CollectionCleared event
         /// </summary>
         protected virtual void raiseCollectionCleared(bool full, int count, int? offset)
-        { if (eventBlock != null) eventBlock.raiseCollectionCleared(this, full, count, offset); }
+        {
+            if (eventBlock != null) eventBlock.raiseCollectionCleared(this, full, count, offset);
+        }
 
         /// <summary>
         /// The item added  event. Will be raised for every individual addition to the collection.
         /// </summary>
         public virtual event ItemsAddedHandler<T> ItemsAdded
         {
-            add { checkWillListen(EventTypeEnum.Added); (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemsAdded += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.Added);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemsAdded += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.Added);
@@ -119,20 +140,27 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary>
         /// Fire the ItemsAdded event
         /// </summary>
         /// <param name="item">The item that was added</param>
         /// <param name="count"></param>
         protected virtual void raiseItemsAdded(T item, int count)
-        { if (eventBlock != null) eventBlock.raiseItemsAdded(this, item, count); }
+        {
+            if (eventBlock != null) eventBlock.raiseItemsAdded(this, item, count);
+        }
 
         /// <summary>
         /// The item removed event. Will be raised for every individual removal from the collection.
         /// </summary>
         public virtual event ItemsRemovedHandler<T> ItemsRemoved
         {
-            add { checkWillListen(EventTypeEnum.Removed); (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemsRemoved += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.Removed);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemsRemoved += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.Removed);
@@ -143,20 +171,27 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary>
         /// Fire the ItemsRemoved event
         /// </summary>
         /// <param name="item">The item that was removed</param>
         /// <param name="count"></param>
         protected virtual void raiseItemsRemoved(T item, int count)
-        { if (eventBlock != null) eventBlock.raiseItemsRemoved(this, item, count); }
+        {
+            if (eventBlock != null) eventBlock.raiseItemsRemoved(this, item, count);
+        }
 
         /// <summary>
         /// The item added  event. Will be raised for every individual addition to the collection.
         /// </summary>
         public virtual event ItemInsertedHandler<T> ItemInserted
         {
-            add { checkWillListen(EventTypeEnum.Inserted); (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemInserted += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.Inserted);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemInserted += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.Inserted);
@@ -167,20 +202,27 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary>
         /// Fire the ItemInserted event
         /// </summary>
         /// <param name="item">The item that was added</param>
         /// <param name="index"></param>
         protected virtual void raiseItemInserted(T item, int index)
-        { if (eventBlock != null) eventBlock.raiseItemInserted(this, item, index); }
+        {
+            if (eventBlock != null) eventBlock.raiseItemInserted(this, item, index);
+        }
 
         /// <summary>
         /// The item removed event. Will be raised for every individual removal from the collection.
         /// </summary>
         public virtual event ItemRemovedAtHandler<T> ItemRemovedAt
         {
-            add { checkWillListen(EventTypeEnum.RemovedAt); (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemRemovedAt += value; }
+            add
+            {
+                checkWillListen(EventTypeEnum.RemovedAt);
+                (eventBlock ?? (eventBlock = new EventBlock<T>())).ItemRemovedAt += value;
+            }
             remove
             {
                 checkWillListen(EventTypeEnum.RemovedAt);
@@ -191,15 +233,19 @@ namespace TestProj47.C5
                 }
             }
         }
+
         /// <summary> 
         /// Fire the ItemRemovedAt event
         /// </summary>
         /// <param name="item">The item that was removed</param>
         /// <param name="index"></param>
         protected virtual void raiseItemRemovedAt(T item, int index)
-        { if (eventBlock != null) eventBlock.raiseItemRemovedAt(this, item, index); }
+        {
+            if (eventBlock != null) eventBlock.raiseItemRemovedAt(this, item, index);
+        }
 
         #region Event support for IList
+
         /// <summary>
         /// 
         /// </summary>
@@ -217,6 +263,7 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -277,6 +324,7 @@ namespace TestProj47.C5
         #endregion
 
         #region Event  Support for ICollection
+
         /// <summary>
         /// 
         /// </summary>
@@ -291,6 +339,7 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -306,6 +355,7 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -318,6 +368,7 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -353,6 +404,7 @@ namespace TestProj47.C5
             }
 
             private readonly bool mustFireRemoved;
+
             /// <summary>
             /// 
             /// </summary>
@@ -386,10 +438,11 @@ namespace TestProj47.C5
                     collection.raiseCollectionChanged();
             }
         }
+
         #endregion
 
         #endregion
-         
+
         internal MemoryType MemoryType { get; set; }
 
         /// <summary>
@@ -519,7 +572,8 @@ namespace TestProj47.C5
         /// <returns>The filtered enumerable</returns>
         public virtual SCG.IEnumerable<T> Filter(Func<T, bool> predicate)
         {
-            if (MemoryType == MemoryType.Strict) throw new Exception("This is not a memory safe function and cannot be used in MemoryType.Strict");
+            if (MemoryType == MemoryType.Strict)
+                throw new Exception("This is not a memory safe function and cannot be used in MemoryType.Strict");
 
             foreach (var item in this)
                 if (predicate(item))
@@ -532,7 +586,7 @@ namespace TestProj47.C5
         /// <exception cref="NoSuchItemException">if collection is empty.</exception>
         /// <returns></returns>
         public abstract T Choose();
- 
+
 
         #region IShowable Members
 
@@ -547,6 +601,7 @@ namespace TestProj47.C5
         {
             return Showing.ShowCollectionValue(this, stringbuilder, ref rest, formatProvider);
         }
+
         #endregion
 
         #region IFormattable Members
@@ -593,7 +648,10 @@ namespace TestProj47.C5
         /// <returns></returns>
         public abstract IDirectedCollectionValue<T> Backwards();
 
-        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return this.Backwards(); }
+        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
+        {
+            return this.Backwards();
+        }
 
         /// <summary>
         /// Check if there exists an item  that satisfies a
@@ -694,9 +752,9 @@ namespace TestProj47.C5
             //Two products is too few
             foreach (var item in items)
             {
-                var h1 = (uint)itemequalityComparer.GetHashCode(item);
+                var h1 = (uint) itemequalityComparer.GetHashCode(item);
 
-                h += (int)((h1 * 1529784657 + 1) ^ (h1 * 2912831877) ^ (h1 * 1118771817 + 2));
+                h += (int) ((h1 * 1529784657 + 1) ^ (h1 * 2912831877) ^ (h1 * 1118771817 + 2));
             }
 
             return h;
@@ -718,7 +776,6 @@ namespace TestProj47.C5
                       }
                   }
                   */
-
         }
 
         private static Type isortedtype = typeof(ISorted<T>);
@@ -731,7 +788,8 @@ namespace TestProj47.C5
         /// <param name="collection2">The second collection</param>
         /// <param name="itemequalityComparer">The item equalityComparer to use for comparison</param>
         /// <returns>True if equal</returns>
-        public static bool StaticEquals(ICollection<T> collection1, ICollection<T> collection2, SCG.IEqualityComparer<T> itemequalityComparer)
+        public static bool StaticEquals(ICollection<T> collection1, ICollection<T> collection2,
+            SCG.IEqualityComparer<T> itemequalityComparer)
         {
             if (ReferenceEquals(collection1, collection2))
                 return true;
@@ -753,7 +811,8 @@ namespace TestProj47.C5
             //Really depends on speed of InstanceOfType: we could save a cast
             {
                 ISorted<T> stit, stat;
-                if ((stit = collection1 as ISorted<T>) != null && (stat = collection2 as ISorted<T>) != null && stit.Comparer == stat.Comparer)
+                if ((stit = collection1 as ISorted<T>) != null && (stat = collection2 as ISorted<T>) != null &&
+                    stit.Comparer == stat.Comparer)
                 {
                     using (SCG.IEnumerator<T> dat = collection2.GetEnumerator(), dit = collection1.GetEnumerator())
                     {
@@ -768,7 +827,8 @@ namespace TestProj47.C5
                 }
             }
 
-            if (!collection1.AllowsDuplicates && (collection2.AllowsDuplicates || collection2.ContainsSpeed >= collection1.ContainsSpeed))
+            if (!collection1.AllowsDuplicates &&
+                (collection2.AllowsDuplicates || collection2.ContainsSpeed >= collection1.ContainsSpeed))
             {
                 foreach (var x in collection1) if (!collection2.Contains(x)) return false;
             }
@@ -779,7 +839,8 @@ namespace TestProj47.C5
             // Now tit.AllowsDuplicates && tat.AllowsDuplicates
             else if (collection1.DuplicatesByCounting && collection2.DuplicatesByCounting)
             {
-                foreach (var item in collection2) if (collection1.ContainsCount(item) != collection2.ContainsCount(item)) return false;
+                foreach (var item in collection2)
+                    if (collection1.ContainsCount(item) != collection2.ContainsCount(item)) return false;
             }
             else
             {
@@ -832,7 +893,8 @@ namespace TestProj47.C5
         /// <returns>True if  equal</returns>
         public virtual bool UnsequencedEquals(ICollection<T> otherCollection)
         {
-            return otherCollection != null && StaticEquals((ICollection<T>)this, otherCollection, itemequalityComparer);
+            return otherCollection != null &&
+                   StaticEquals((ICollection<T>) this, otherCollection, itemequalityComparer);
         }
 
 
@@ -874,6 +936,7 @@ namespace TestProj47.C5
         #endregion
 
         #region ICollectionValue<T> members
+
         /// <summary>
         /// 
         /// </summary>
@@ -906,7 +969,6 @@ namespace TestProj47.C5
         public override bool IsEmpty => size == 0;
 
         #endregion
-
     }
 
     /// <summary>
@@ -921,7 +983,11 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="itemequalityComparer"></param>
         /// <param name = "memoryType">The type of memory for the enumerator used to iterate the collection</param>
-        protected DirectedCollectionBase(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType) : base(itemequalityComparer, memoryType) { }
+        protected DirectedCollectionBase(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType) : base(
+            itemequalityComparer, memoryType)
+        {
+        }
+
         /// <summary>
         /// <code>Forwards</code> if same, else <code>Backwards</code>
         /// </summary>
@@ -934,7 +1000,10 @@ namespace TestProj47.C5
         /// <returns></returns>
         public abstract IDirectedCollectionValue<T> Backwards();
 
-        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return Backwards(); }
+        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
+        {
+            return Backwards();
+        }
 
         /// <summary>
         /// Check if there exists an item  that satisfies a
@@ -974,7 +1043,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="itemequalityComparer"></param>
         /// <param name = "memoryType">The type of memory for the enumerator used to iterate the collection</param>
-        protected SequencedBase(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType) : base(itemequalityComparer, memoryType) { }
+        protected SequencedBase(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType) : base(
+            itemequalityComparer, memoryType)
+        {
+        }
 
         #region Util
 
@@ -1012,7 +1084,8 @@ namespace TestProj47.C5
         /// <param name="collection2">The second collection</param>
         /// <param name="itemequalityComparer">The item equalityComparer to use for comparison</param>
         /// <returns>True if equal</returns>
-        public static bool StaticEquals(ISequenced<T> collection1, ISequenced<T> collection2, SCG.IEqualityComparer<T> itemequalityComparer)
+        public static bool StaticEquals(ISequenced<T> collection1, ISequenced<T> collection2,
+            SCG.IEqualityComparer<T> itemequalityComparer)
         {
             if (ReferenceEquals(collection1, collection2))
                 return true;
@@ -1049,7 +1122,7 @@ namespace TestProj47.C5
             if (iSequencedHashCodeStamp == stamp)
                 return iSequencedHashCode;
 
-            iSequencedHashCode = ComputeHashCode((ISequenced<T>)this, itemequalityComparer);
+            iSequencedHashCode = ComputeHashCode((ISequenced<T>) this, itemequalityComparer);
             iSequencedHashCodeStamp = stamp;
             return iSequencedHashCode;
         }
@@ -1063,12 +1136,11 @@ namespace TestProj47.C5
         /// <returns>True if  equal</returns>
         public virtual bool SequencedEquals(ISequenced<T> otherCollection)
         {
-            return StaticEquals((ISequenced<T>)this, otherCollection, itemequalityComparer);
+            return StaticEquals((ISequenced<T>) this, otherCollection, itemequalityComparer);
         }
 
-
         #endregion
-         
+
         /// <summary>
         /// <code>Forwards</code> if same, else <code>Backwards</code>
         /// </summary>
@@ -1110,7 +1182,6 @@ namespace TestProj47.C5
             }
             return -1;
         }
-
     }
 
 
@@ -1121,6 +1192,7 @@ namespace TestProj47.C5
     public abstract class ArrayBase<T> : SequencedBase<T>
     {
         #region Fields
+
         /// <summary>
         /// The actual internal array container. Will be extended on demand.
         /// </summary>
@@ -1133,9 +1205,11 @@ namespace TestProj47.C5
         protected int offsetField;
 
         private readonly Enumerator _internalEnumerator;
+
         #endregion
 
         #region Util
+
         /// <summary>
         /// Double the size of the internal array.
         /// </summary>
@@ -1206,11 +1280,10 @@ namespace TestProj47.C5
             _internalEnumerator = new Enumerator(this, memoryType);
         }
 
-
-
         #endregion
 
         #region IIndexed members
+
         /// <summary>
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">If the arguments does not describe a 
@@ -1230,6 +1303,7 @@ namespace TestProj47.C5
         #endregion
 
         #region IEditableCollection members
+
         /// <summary>
         /// Remove all items and reset size of internal array container.
         /// </summary>
@@ -1289,7 +1363,10 @@ namespace TestProj47.C5
         /// opposite enumeration sequence.
         /// </summary>
         /// <returns>The mirrored collection.</returns>
-        public override IDirectedCollectionValue<T> Backwards() { return this[0, size].Backwards(); }
+        public override IDirectedCollectionValue<T> Backwards()
+        {
+            return this[0, size].Backwards();
+        }
 
         #endregion
 
@@ -1299,7 +1376,11 @@ namespace TestProj47.C5
         /// </summary>
         /// <exception cref="NoSuchItemException">if collection is empty.</exception>
         /// <returns></returns>
-        public override T Choose() { if (size > 0) return array[size - 1]; throw new NoSuchItemException(); }
+        public override T Choose()
+        {
+            if (size > 0) return array[size - 1];
+            throw new NoSuchItemException();
+        }
 
 
         #region Private Enumerator
@@ -1312,14 +1393,12 @@ namespace TestProj47.C5
             private int _internalIncrementalIndex;
             private int _theStamp;
             private int _end;
-            
 
 
             public Enumerator(ArrayBase<T> list, MemoryType memoryType)
                 : base(memoryType)
             {
                 _internalList = list;
-
             }
 
             internal void UpdateReference(ArrayBase<T> list, int start, int end, int theStamp)
@@ -1330,7 +1409,7 @@ namespace TestProj47.C5
                 Current = default;
                 _theStamp = theStamp;
             }
-             
+
 
             public override bool MoveNext()
             {
@@ -1363,13 +1442,15 @@ namespace TestProj47.C5
                 var enumerator = new Enumerator(_internalList, MemoryType)
                 {
                     Current = default
-
                 };
                 return enumerator;
             }
         }
+
         #endregion
+
         #region IEnumerable<T> Members
+
         /// <summary>
         /// Create an enumerator for this array based collection.
         /// </summary>
@@ -1378,15 +1459,17 @@ namespace TestProj47.C5
         {
             int thestamp = stamp, theend = size + offsetField, thestart = offsetField;
 
-            var enumerator = (Enumerator)_internalEnumerator.GetEnumerator();
+            var enumerator = (Enumerator) _internalEnumerator.GetEnumerator();
 
             enumerator.UpdateReference(this, thestart, theend, thestamp);
 
             return enumerator;
         }
+
         #endregion
 
         #region Range nested class
+
         /// <summary>
         /// A helper class for defining results of interval queries on array based collections.
         /// </summary>
@@ -1402,13 +1485,15 @@ namespace TestProj47.C5
 
             private readonly RangeEnumerator _rangeInternalEnumerator;
 
-            internal Range(ArrayBase<T> thebase, int start, int count, bool forwards, MemoryType memoryType = MemoryType.Normal)
+            internal Range(ArrayBase<T> thebase, int start, int count, bool forwards,
+                MemoryType memoryType = MemoryType.Normal)
             {
-
-                this.thebase = thebase; stamp = thebase.stamp;
+                this.thebase = thebase;
+                stamp = thebase.stamp;
                 delta = forwards ? 1 : -1;
 
-                this.start = start + thebase.offsetField; this.count = count;
+                this.start = start + thebase.offsetField;
+                this.count = count;
                 _rangeInternalEnumerator = new RangeEnumerator(thebase, memoryType);
             }
 
@@ -1417,7 +1502,14 @@ namespace TestProj47.C5
             /// </summary>
             /// <exception cref="CollectionModifiedException">if underlying collection has been modified.</exception>
             /// <value>True if this collection is empty.</value>
-            public override bool IsEmpty { get { thebase.modifycheck(stamp); return count == 0; } }
+            public override bool IsEmpty
+            {
+                get
+                {
+                    thebase.modifycheck(stamp);
+                    return count == 0;
+                }
+            }
 
 
             /// <summary>
@@ -1425,7 +1517,14 @@ namespace TestProj47.C5
             /// </summary>
             /// <exception cref="CollectionModifiedException">if underlying collection has been modified.</exception>
             /// <value>The number of items in the range</value>
-            public override int Count { get { thebase.modifycheck(stamp); return count; } }
+            public override int Count
+            {
+                get
+                {
+                    thebase.modifycheck(stamp);
+                    return count;
+                }
+            }
 
             /// <summary>
             /// The value is symbolic indicating the type of asymptotic complexity
@@ -1435,7 +1534,14 @@ namespace TestProj47.C5
             /// <value>A characterization of the speed of the 
             /// <exception cref="CollectionModifiedException">if underlying collection has been modified.</exception>
             /// <code>Count</code> property in this collection.</value>
-            public override Speed CountSpeed { get { thebase.modifycheck(stamp); return Speed.Constant; } }
+            public override Speed CountSpeed
+            {
+                get
+                {
+                    thebase.modifycheck(stamp);
+                    return Speed.Constant;
+                }
+            }
 
             /// <summary>
             /// Choose some item of this collection. 
@@ -1459,7 +1565,7 @@ namespace TestProj47.C5
             /// <returns>The enumerator</returns>
             public override SCG.IEnumerator<T> GetEnumerator()
             {
-                var enumerator = (RangeEnumerator)_rangeInternalEnumerator.GetEnumerator();
+                var enumerator = (RangeEnumerator) _rangeInternalEnumerator.GetEnumerator();
 
                 enumerator.UpdateReference(thebase, start, delta, stamp, count);
 
@@ -1477,7 +1583,7 @@ namespace TestProj47.C5
             {
                 thebase.modifycheck(stamp);
 
-                var res = (Range)MemberwiseClone();
+                var res = (Range) MemberwiseClone();
 
                 res.delta = -delta;
                 res.start = start + (count - 1) * delta;
@@ -1525,7 +1631,6 @@ namespace TestProj47.C5
                     var enumerator = new RangeEnumerator(_rangeEnumeratorArrayBase, MemoryType)
                     {
                         Current = default
-
                     };
                     return enumerator;
                 }
@@ -1568,6 +1673,7 @@ namespace TestProj47.C5
                 }
             }
         }
+
         #endregion
     }
 }

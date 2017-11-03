@@ -28,7 +28,9 @@ namespace TestProj47.C5
     /// <summary>
     /// A generic collection, that can be enumerated backwards.
     /// </summary>
-    public interface IDirectedEnumerable<out T> : IEnumerable<T> // TODO: Type parameter should be 'out T' when Silverlight supports is (version 5 and onwards)
+    public interface
+        IDirectedEnumerable<
+            out T> : IEnumerable<T> // TODO: Type parameter should be 'out T' when Silverlight supports is (version 5 and onwards)
     {
         /// <summary>
         /// Create a collection containing the same items as this collection, but
@@ -187,7 +189,6 @@ namespace TestProj47.C5
         /// <returns>The filtered enumerable</returns>
         IEnumerable<T> Filter(Func<T, bool> filter);
     }
-
 
 
     /// <summary>
@@ -514,7 +515,6 @@ namespace TestProj47.C5
     }
 
 
-
     /// <summary>
     /// An editable collection maintaining a definite sequence order of the items.
     ///
@@ -637,17 +637,20 @@ namespace TestProj47.C5
         /// </summary>
         /// <value></value>
         bool AllowsDuplicates { get; }
+
         /// <summary>
         /// Get the <code>index</code>'th element of the stack.  The bottom of the stack has index 0.
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
         T this[int index] { get; }
+
         /// <summary>
         /// Push an item to the top of the stack.
         /// </summary>
         /// <param name="item">The item</param>
         void Push(T item);
+
         /// <summary>
         /// Pop the item at the top of the stack from the stack.
         /// </summary>
@@ -666,17 +669,20 @@ namespace TestProj47.C5
         /// </summary>
         /// <value></value>
         bool AllowsDuplicates { get; }
+
         /// <summary>
         /// Get the <code>index</code>'th element of the queue.  The front of the queue has index 0.
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
         T this[int index] { get; }
+
         /// <summary>
         /// Enqueue an item at the back of the queue. 
         /// </summary>
         /// <param name="item">The item</param>
         void Enqueue(T item);
+
         /// <summary>
         /// Dequeue an item from the front of the queue.
         /// </summary>
@@ -725,6 +731,7 @@ namespace TestProj47.C5
         #region Ambiguous calls when extending System.Collections.Generic.IList<T>
 
         #region System.Collections.Generic.ICollection<T>
+
         /// <summary>
         /// 
         /// </summary>
@@ -1101,6 +1108,7 @@ namespace TestProj47.C5
         /// </summary>
         /// <value>The comparer</value>
         IComparer<T> Comparer { get; }
+
         /// <summary>
         /// Get or set the item corresponding to a handle. Throws exceptions on 
         /// invalid handles.
@@ -1159,7 +1167,6 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="handle">On return: the handle of the item.</param>
         /// <returns>The largest item.</returns>
-
         T FindMax(out IPriorityQueueHandle<T> handle);
 
         /// <summary>
@@ -1167,7 +1174,6 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="handle">On return: the handle of the removed item.</param>
         /// <returns>The removed item.</returns>
-
         T DeleteMin(out IPriorityQueueHandle<T> handle);
 
         /// <summary>
@@ -1177,7 +1183,6 @@ namespace TestProj47.C5
         /// <returns>The removed item.</returns>
         T DeleteMax(out IPriorityQueueHandle<T> handle);
     }
-
 
 
     /// <summary>
@@ -1453,7 +1458,6 @@ namespace TestProj47.C5
     }
 
 
-
     /// <summary>
     /// A collection where items are maintained in sorted order together
     /// with their indexes in that order.
@@ -1533,7 +1537,6 @@ namespace TestProj47.C5
     }
 
 
-
     /// <summary>
     /// The type of a sorted collection with persistence
     /// </summary>
@@ -1545,7 +1548,6 @@ namespace TestProj47.C5
         /// <returns>The snap shot.</returns>
         ISorted<T> Snapshot();
     }
-
 
 
     /*************************************************************************/
@@ -1613,8 +1615,7 @@ namespace TestProj47.C5
         /// <param name="entries"></param>
         void AddAll<U, W>(IEnumerable<KeyValuePair<U, W>> entries)
             where U : K
-            where W : V
-          ;
+            where W : V;
 
         /// <summary>
         /// The value is symbolic indicating the type of asymptotic complexity
@@ -1683,7 +1684,7 @@ namespace TestProj47.C5
         /// <param name="key">The key to look for</param>
         /// <param name="val">The new value</param>
         /// <returns>True if key was found</returns>
-        bool Update(K key, V val);          //no-adding				    	
+        bool Update(K key, V val); //no-adding				    	
 
 
         /// <summary>
@@ -1694,7 +1695,7 @@ namespace TestProj47.C5
         /// <param name="val">The new value</param>
         /// <param name="oldval">The old value if any</param>
         /// <returns>True if key was found</returns>
-        bool Update(K key, V val, out V oldval);          //no-adding				    	
+        bool Update(K key, V val, out V oldval); //no-adding				    	
 
         /// <summary>
         /// Look for a specific key in the dictionary. If found, report the corresponding value,
@@ -1704,7 +1705,7 @@ namespace TestProj47.C5
         /// <param name="val">On entry the value to add if the key is not found.
         /// On exit the value found if any.</param>
         /// <returns>True if key was found</returns>
-        bool FindOrAdd(K key, ref V val);   //mixture
+        bool FindOrAdd(K key, ref V val); //mixture
 
 
         /// <summary>
@@ -1735,7 +1736,6 @@ namespace TestProj47.C5
         /// <returns>True if check does not fail.</returns>
         bool Check();
     }
-
 
 
     /// <summary>
@@ -1894,7 +1894,8 @@ namespace TestProj47.C5
         /// on this collection.</param>
         /// <returns>True if the cut function is zero somewhere
         /// on this collection.</returns>
-        bool Cut(IComparable<K> cutFunction, out KeyValuePair<K, V> lowEntry, out bool lowIsValid, out KeyValuePair<K, V> highEntry, out bool highIsValid);
+        bool Cut(IComparable<K> cutFunction, out KeyValuePair<K, V> lowEntry, out bool lowIsValid,
+            out KeyValuePair<K, V> highEntry, out bool highIsValid);
 
         /// <summary>
         /// Query this sorted collection for items greater than or equal to a supplied value.
@@ -1972,7 +1973,6 @@ namespace TestProj47.C5
         /// <param name="hi">The upper threshold (exclusive).</param>
         void RemoveRangeTo(K hi);
     }
-
 
 
     /*******************************************************************/

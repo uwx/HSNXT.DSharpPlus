@@ -33,14 +33,17 @@ namespace TestProj47.C5
         /// B contains A(this)
         /// </summary>
         Contains,
+
         /// <summary>
         /// B is containd in A(this), but not vice versa
         /// </summary>
         ContainedIn,
+
         /// <summary>
         /// A and B does not overlap
         /// </summary>
         NonOverlapping,
+
         /// <summary>
         /// A and B overlap, but neither is contained in the other
         /// </summary>
@@ -48,6 +51,7 @@ namespace TestProj47.C5
     }
 
     #region View List Nested class
+
     /// <summary>
     /// This class is shared between the linked list and array list implementations.
     /// </summary>
@@ -60,21 +64,41 @@ namespace TestProj47.C5
         [Serializable]
         internal class Node
         {
-            internal WeakReference weakview; internal Node prev, next;
-            internal Node(V view) { weakview = new WeakReference(view); }
+            internal WeakReference weakview;
+            internal Node prev, next;
+
+            internal Node(V view)
+            {
+                weakview = new WeakReference(view);
+            }
         }
+
         internal Node Add(V view)
         {
             var newNode = new Node(view);
-            if (start != null) { start.prev = newNode; newNode.next = start; }
+            if (start != null)
+            {
+                start.prev = newNode;
+                newNode.next = start;
+            }
             start = newNode;
             return newNode;
         }
+
         internal void Remove(Node n)
         {
-            if (n == start) { start = start.next; if (start != null) start.prev = null; }
-            else { n.prev.next = n.next; if (n.next != null) n.next.prev = n.prev; }
+            if (n == start)
+            {
+                start = start.next;
+                if (start != null) start.prev = null;
+            }
+            else
+            {
+                n.prev.next = n.next;
+                if (n.next != null) n.next.prev = n.prev;
+            }
         }
+
         /// <summary>
         /// Note that it is safe to call views.Remove(view.myWeakReference) if view
         /// is the currently yielded object
@@ -87,7 +111,7 @@ namespace TestProj47.C5
             {
                 //V view = n.weakview.Target as V; //This provokes a bug in the beta1 verifyer
                 var o = n.weakview.Target;
-                var view = o is V ? (V)o : null;
+                var view = o is V ? (V) o : null;
                 if (view == null)
                     Remove(n);
                 else

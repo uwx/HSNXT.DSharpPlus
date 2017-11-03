@@ -74,12 +74,14 @@ namespace TestProj47.C5
                 case MemoryType.Strict:
                     if (!IsMainThread)
                     {
-                        throw new ConcurrentEnumerationException("Multithread access detected! In Strict memory mode is not possible to iterate the collection from different threads");
+                        throw new ConcurrentEnumerationException(
+                            "Multithread access detected! In Strict memory mode is not possible to iterate the collection from different threads");
                     }
 
                     if (IteratorState != -1)
                     {
-                        throw new MultipleEnumerationException("Multiple Enumeration detected! In Strict memory mode is not possible to iterate the collection multiple times");
+                        throw new MultipleEnumerationException(
+                            "Multiple Enumeration detected! In Strict memory mode is not possible to iterate the collection multiple times");
                     }
 
                     enumerator = this;

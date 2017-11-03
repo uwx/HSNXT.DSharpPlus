@@ -17,9 +17,11 @@ namespace TestProj47.C5
     {
         private static SCG.IEqualityComparer<T> _default;
 
-        private static readonly Type SequencedCollectionEqualityComparer = typeof(SequencedCollectionEqualityComparer<,>);
+        private static readonly Type SequencedCollectionEqualityComparer =
+            typeof(SequencedCollectionEqualityComparer<,>);
 
-        private static readonly Type UnsequencedCollectionEqualityComparer = typeof(UnsequencedCollectionEqualityComparer<,>);
+        private static readonly Type UnsequencedCollectionEqualityComparer =
+            typeof(UnsequencedCollectionEqualityComparer<,>);
 
         /// <summary>
         /// A default generic equality comparer for type T. The procedure is as follows:
@@ -48,24 +50,32 @@ namespace TestProj47.C5
 
                 if (type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition().Equals(typeof(ISequenced<>)))
                 {
-                    return CreateAndCache(SequencedCollectionEqualityComparer.MakeGenericType(type, type.GetTypeInfo().GetGenericArguments()[0]));
+                    return CreateAndCache(
+                        SequencedCollectionEqualityComparer.MakeGenericType(type,
+                            type.GetTypeInfo().GetGenericArguments()[0]));
                 }
 
-                var isequenced = interfaces.FirstOrDefault(i => i.GetTypeInfo().IsGenericType && i.GetGenericTypeDefinition().Equals(typeof(ISequenced<>)));
+                var isequenced = interfaces.FirstOrDefault(i =>
+                    i.GetTypeInfo().IsGenericType && i.GetGenericTypeDefinition().Equals(typeof(ISequenced<>)));
                 if (isequenced != null)
                 {
-                    return CreateAndCache(SequencedCollectionEqualityComparer.MakeGenericType(type, isequenced.GetTypeInfo().GetGenericArguments()[0]));
+                    return CreateAndCache(SequencedCollectionEqualityComparer.MakeGenericType(type,
+                        isequenced.GetTypeInfo().GetGenericArguments()[0]));
                 }
 
                 if (type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition().Equals(typeof(ICollection<>)))
                 {
-                    return CreateAndCache(UnsequencedCollectionEqualityComparer.MakeGenericType(type, type.GetTypeInfo().GetGenericArguments()[0]));
+                    return CreateAndCache(
+                        UnsequencedCollectionEqualityComparer.MakeGenericType(type,
+                            type.GetTypeInfo().GetGenericArguments()[0]));
                 }
 
-                var icollection = interfaces.FirstOrDefault(i => i.GetTypeInfo().IsGenericType && i.GetGenericTypeDefinition().Equals(typeof(ICollection<>)));
+                var icollection = interfaces.FirstOrDefault(i =>
+                    i.GetTypeInfo().IsGenericType && i.GetGenericTypeDefinition().Equals(typeof(ICollection<>)));
                 if (icollection != null)
                 {
-                    return CreateAndCache(UnsequencedCollectionEqualityComparer.MakeGenericType(type, icollection.GetTypeInfo().GetGenericArguments()[0]));
+                    return CreateAndCache(UnsequencedCollectionEqualityComparer.MakeGenericType(type,
+                        icollection.GetTypeInfo().GetGenericArguments()[0]));
                 }
 
                 return _default = SCG.EqualityComparer<T>.Default;
@@ -75,9 +85,11 @@ namespace TestProj47.C5
         private static SCG.IEqualityComparer<T> CreateAndCache(Type equalityComparertype)
         {
 #if NETSTANDARD1_0 || PROFILE259
-            return _default = (SCG.IEqualityComparer<T>)(equalityComparertype.GetTypeInfo().GetDeclaredProperty("Default").GetValue(null, null));
+            return _default =
+(SCG.IEqualityComparer<T>)(equalityComparertype.GetTypeInfo().GetDeclaredProperty("Default").GetValue(null, null));
 #else
-            return _default = (SCG.IEqualityComparer<T>)(equalityComparertype.GetTypeInfo().GetProperty("Default", BindingFlags.Static | BindingFlags.Public).GetValue(null, null));
+            return _default = (SCG.IEqualityComparer<T>) (equalityComparertype.GetTypeInfo()
+                .GetProperty("Default", BindingFlags.Static | BindingFlags.Public).GetValue(null, null));
 #endif
         }
     }

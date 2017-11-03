@@ -24,24 +24,24 @@ namespace TestProj47
     {
         public static char LastChar(this string input)
         {
-            return string.IsNullOrEmpty(input) ? (char)0 : input[input.Length - 1];
+            return string.IsNullOrEmpty(input) ? (char) 0 : input[input.Length - 1];
         }
-        
+
         public static char FirstChar(this string input)
         {
-            return string.IsNullOrEmpty(input) ? (char)0 : input[0];
+            return string.IsNullOrEmpty(input) ? (char) 0 : input[0];
         }
-        
+
         public static string ChopRight(this string input, int amt)
         {
             return string.IsNullOrEmpty(input) ? input : input.Substring(0, input.Length - amt);
         }
-        
+
         public static void PushSplit(this IList<string> list, string s)
         {
             list.AddAll(s.Contains("\r\n") ? s.Split("\r\n") : s.Split('\n'));
         }
-        
+
         public static bool IsDate(this string input)
         {
             return !string.IsNullOrEmpty(input) && DateTime.TryParse(input, out _);

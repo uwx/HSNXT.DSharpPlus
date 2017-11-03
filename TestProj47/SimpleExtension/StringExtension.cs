@@ -84,7 +84,9 @@ namespace TestProj47
                 return source.Substring(startIndex + beginDelim.Length);
             if (startIndex <= -1 || num <= 1)
                 return string.Empty;
-            return !returnDelimiters ? source.Substring(startIndex + beginDelim.Length, num - startIndex - beginDelim.Length) : source.Substring(startIndex, num - startIndex + endDelim.Length);
+            return !returnDelimiters
+                ? source.Substring(startIndex + beginDelim.Length, num - startIndex - beginDelim.Length)
+                : source.Substring(startIndex, num - startIndex + endDelim.Length);
         }
 
         public static string FixHtmlForDisplay(this string html)
@@ -175,7 +177,9 @@ namespace TestProj47
             if (string.IsNullOrEmpty(value) && oldValue != string.Empty)
                 return propertyString.Replace(oldValue, "");
             var newValue = $"<{(object) key}>{(object) value}</{(object) key}>";
-            return oldValue != string.Empty ? propertyString.Replace(oldValue, newValue) : $"{(object) propertyString}{(object) newValue}\r\n";
+            return oldValue != string.Empty
+                ? propertyString.Replace(oldValue, newValue)
+                : $"{(object) propertyString}{(object) newValue}\r\n";
         }
 
         public static Stream StringToStream(this string text, Encoding encoding)

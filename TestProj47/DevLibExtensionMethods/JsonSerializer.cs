@@ -30,7 +30,10 @@ namespace TestProj47
         };
 
         private static readonly string EscapeCharactersString = new string(EscapeCharacters);
-        private static readonly PocoJsonSerializerStrategy CurrentJsonSerializerStrategy = new PocoJsonSerializerStrategy();
+
+        private static readonly PocoJsonSerializerStrategy CurrentJsonSerializerStrategy =
+            new PocoJsonSerializerStrategy();
+
         private static readonly char[] EscapeTable = new char[93];
         private const int BUILDER_CAPACITY = 2000;
         private const int TOKEN_COLON = 5;

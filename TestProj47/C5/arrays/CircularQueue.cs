@@ -21,6 +21,7 @@
 
 using System;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     /// <summary>
@@ -31,6 +32,7 @@ namespace TestProj47.C5
     public class CircularQueue<T> : SequencedBase<T>, IQueue<T>, IStack<T>
     {
         #region Fields
+
         /*
         Invariant: the itemes in the queue ar the elements from front upwards, 
         possibly wrapping around at the end of array, to back.
@@ -40,12 +42,14 @@ namespace TestProj47.C5
 
         */
         private int front, back;
+
         /// <summary>
         /// The internal container array is doubled when necessary, but never shrinked.
         /// </summary>
         private T[] array;
 
         private bool forwards = true, original = true;
+
         #endregion
 
         #region Events
@@ -86,7 +90,9 @@ namespace TestProj47.C5
         /// <summary>
         /// 
         /// </summary>
-		public CircularQueue(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType) { }
+        public CircularQueue(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType)
+        {
+        }
 
         /// <summary>
         /// 
@@ -94,7 +100,7 @@ namespace TestProj47.C5
         /// <param name="capacity"></param>
         /// <param name="memoryType">The memory type strategy of the internal enumerator used to iterate over the collection</param>
         public CircularQueue(int capacity, MemoryType memoryType = MemoryType.Normal)
-			: base(EqualityComparer<T>.Default, memoryType)
+            : base(EqualityComparer<T>.Default, memoryType)
         {
             var newlength = 8;
             while (newlength < capacity) newlength *= 2;
@@ -104,6 +110,7 @@ namespace TestProj47.C5
         #endregion
 
         #region IQueue<T> Members
+
         /// <summary>
         /// 
         /// </summary>
@@ -205,6 +212,7 @@ namespace TestProj47.C5
                 raiseForRemove(retval);
             return retval;
         }
+
         #endregion
 
         #region ICollectionValue<T> Members
@@ -295,7 +303,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override IDirectedCollectionValue<T> Backwards()
         {
-            var retval = (CircularQueue<T>)MemberwiseClone();
+            var retval = (CircularQueue<T>) MemberwiseClone();
             retval.original = false;
             retval.forwards = !forwards;
             return retval;

@@ -113,7 +113,8 @@ namespace TestProj47.C5
         /// <param name="rest"></param>
         /// <param name="formatProvider"></param>
         /// <returns>True if collection was shown completely</returns>
-        public static bool ShowCollectionValue<T>(ICollectionValue<T> items, StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
+        public static bool ShowCollectionValue<T>(ICollectionValue<T> items, StringBuilder stringbuilder, ref int rest,
+            IFormatProvider formatProvider)
         {
             string startdelim = "{ ", enddelim = " }";
             var showIndexes = false;
@@ -211,11 +212,12 @@ namespace TestProj47.C5
         /// <param name="formatProvider"></param>
         /// <param name="rest"></param>
         /// <returns></returns>
-        public static bool ShowDictionary<K, V>(IDictionary<K, V> dictionary, StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
+        public static bool ShowDictionary<K, V>(IDictionary<K, V> dictionary, StringBuilder stringbuilder, ref int rest,
+            IFormatProvider formatProvider)
         {
             var sorted = dictionary is ISortedDictionary<K, V>;
             stringbuilder.Append(sorted ? "[ " : "{ ");
-            rest -= 4;				   // Account for "( " and " )"
+            rest -= 4; // Account for "( " and " )"
             var first = true;
             var complete = true;
 

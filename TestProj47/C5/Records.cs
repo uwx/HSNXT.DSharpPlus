@@ -28,6 +28,7 @@ namespace TestProj47.C5
     {
         public const int HASHFACTOR = 387281;
     }
+
     /// <summary>
     /// A generic record type with two fields. 
     /// <para>
@@ -47,6 +48,7 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly T1 X1;
+
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +61,8 @@ namespace TestProj47.C5
         /// <param name="x2"></param>
         public Rec(T1 x1, T2 x2)
         {
-            this.X1 = x1; this.X2 = x2;
+            this.X1 = x1;
+            this.X2 = x2;
         }
 
         /// <summary>
@@ -70,10 +73,11 @@ namespace TestProj47.C5
         public bool Equals(Rec<T1, T2> other)
         {
             return
-              (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
-              (X2 == null ? other.X2 == null : X2.Equals(other.X2))
-              ;
+                (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
+                (X2 == null ? other.X2 == null : X2.Equals(other.X2))
+                ;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -81,8 +85,9 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            return obj is Rec<T1, T2> ? Equals((Rec<T1, T2>)obj) : false;
+            return obj is Rec<T1, T2> ? Equals((Rec<T1, T2>) obj) : false;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -93,6 +98,7 @@ namespace TestProj47.C5
         {
             return record1.Equals(record2);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -103,6 +109,7 @@ namespace TestProj47.C5
         {
             return !record1.Equals(record2);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -158,6 +165,7 @@ namespace TestProj47.C5
             }
             return true;
         }
+
         #endregion
 
         #region IFormattable Members
@@ -175,6 +183,7 @@ namespace TestProj47.C5
 
         #endregion
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -187,14 +196,17 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly T1 X1;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly T2 X2;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly T3 X3;
+
         /// <summary>
         /// 
         /// </summary>
@@ -203,8 +215,11 @@ namespace TestProj47.C5
         /// <param name="x3"></param>
         public Rec(T1 x1, T2 x2, T3 x3)
         {
-            this.X1 = x1; this.X2 = x2; this.X3 = x3;
+            this.X1 = x1;
+            this.X2 = x2;
+            this.X3 = x3;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -213,11 +228,12 @@ namespace TestProj47.C5
         public bool Equals(Rec<T1, T2, T3> other)
         {
             return
-              (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
-              (X2 == null ? other.X2 == null : X2.Equals(other.X2)) &&
-              (X3 == null ? other.X3 == null : X3.Equals(other.X3))
-              ;
+                (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
+                (X2 == null ? other.X2 == null : X2.Equals(other.X2)) &&
+                (X3 == null ? other.X3 == null : X3.Equals(other.X3))
+                ;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -225,8 +241,9 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            return obj is Rec<T1, T2, T3> ? Equals((Rec<T1, T2, T3>)obj) : false;
+            return obj is Rec<T1, T2, T3> ? Equals((Rec<T1, T2, T3>) obj) : false;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -237,6 +254,7 @@ namespace TestProj47.C5
         {
             return record1.Equals(record2);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -247,6 +265,7 @@ namespace TestProj47.C5
         {
             return !record1.Equals(record2);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -268,6 +287,7 @@ namespace TestProj47.C5
         {
             return string.Format("({0}, {1}, {2})", X1, X2, X3);
         }
+
         #region IShowable Members
 
         /// <summary>
@@ -306,6 +326,7 @@ namespace TestProj47.C5
             }
             return true;
         }
+
         #endregion
 
         #region IFormattable Members
@@ -337,18 +358,22 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly T1 X1;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly T2 X2;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly T3 X3;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly T4 X4;
+
         /// <summary>
         /// 
         /// </summary>
@@ -358,8 +383,12 @@ namespace TestProj47.C5
         /// <param name="x4"></param>
         public Rec(T1 x1, T2 x2, T3 x3, T4 x4)
         {
-            this.X1 = x1; this.X2 = x2; this.X3 = x3; this.X4 = x4;
+            this.X1 = x1;
+            this.X2 = x2;
+            this.X3 = x3;
+            this.X4 = x4;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -368,12 +397,13 @@ namespace TestProj47.C5
         public bool Equals(Rec<T1, T2, T3, T4> other)
         {
             return
-              (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
-              (X2 == null ? other.X2 == null : X2.Equals(other.X2)) &&
-              (X3 == null ? other.X3 == null : X3.Equals(other.X3)) &&
-              (X4 == null ? other.X4 == null : X4.Equals(other.X4))
-              ;
+                (X1 == null ? other.X1 == null : X1.Equals(other.X1)) &&
+                (X2 == null ? other.X2 == null : X2.Equals(other.X2)) &&
+                (X3 == null ? other.X3 == null : X3.Equals(other.X3)) &&
+                (X4 == null ? other.X4 == null : X4.Equals(other.X4))
+                ;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -381,7 +411,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            return obj is Rec<T1, T2, T3, T4> ? Equals((Rec<T1, T2, T3, T4>)obj) : false;
+            return obj is Rec<T1, T2, T3, T4> ? Equals((Rec<T1, T2, T3, T4>) obj) : false;
         }
 
         /// <summary>
@@ -394,6 +424,7 @@ namespace TestProj47.C5
         {
             return record1.Equals(record2);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -427,6 +458,7 @@ namespace TestProj47.C5
         {
             return string.Format("({0}, {1}, {2}, {3})", X1, X2, X3, X4);
         }
+
         #region IShowable Members
 
         /// <summary>
@@ -469,6 +501,7 @@ namespace TestProj47.C5
             }
             return true;
         }
+
         #endregion
 
         #region IFormattable Members

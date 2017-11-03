@@ -23,6 +23,7 @@ using System;
 using System.Collections;
 using System.Text;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     /// <summary>
@@ -46,21 +47,32 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="key">The key</param>
         /// <param name="value">The value</param>
-        public KeyValuePair(K key, V value) { Key = key; Value = value; }
+        public KeyValuePair(K key, V value)
+        {
+            Key = key;
+            Value = value;
+        }
 
 
         /// <summary>
         /// Create an entry with a specified key. The value will be the default value of type <code>V</code>.
         /// </summary>
         /// <param name="key">The key</param>
-        public KeyValuePair(K key) { Key = key; Value = default; }
+        public KeyValuePair(K key)
+        {
+            Key = key;
+            Value = default;
+        }
 
 
         /// <summary>
         /// Pretty print an entry
         /// </summary>
         /// <returns>(key, value)</returns>
-        public override string ToString() { return "(" + Key + ", " + Value + ")"; }
+        public override string ToString()
+        {
+            return "(" + Key + ", " + Value + ")";
+        }
 
 
         /// <summary>
@@ -72,7 +84,7 @@ namespace TestProj47.C5
         {
             if (!(obj is KeyValuePair<K, V>))
                 return false;
-            var other = (KeyValuePair<K, V>)obj;
+            var other = (KeyValuePair<K, V>) obj;
             return Equals(other);
         }
 
@@ -80,7 +92,11 @@ namespace TestProj47.C5
         /// Get the hash code of the pair.
         /// </summary>
         /// <returns>The hash code</returns>
-        public override int GetHashCode() { return EqualityComparer<K>.Default.GetHashCode(Key) + 13984681 * EqualityComparer<V>.Default.GetHashCode(Value); }
+        public override int GetHashCode()
+        {
+            return EqualityComparer<K>.Default.GetHashCode(Key) +
+                   13984681 * EqualityComparer<V>.Default.GetHashCode(Value);
+        }
 
         /// <summary>
         /// 
@@ -89,7 +105,8 @@ namespace TestProj47.C5
         /// <returns></returns>
         public bool Equals(KeyValuePair<K, V> other)
         {
-            return EqualityComparer<K>.Default.Equals(Key, other.Key) && EqualityComparer<V>.Default.Equals(Value, other.Value);
+            return EqualityComparer<K>.Default.Equals(Key, other.Key) &&
+                   EqualityComparer<V>.Default.Equals(Value, other.Value);
         }
 
         /// <summary>
@@ -98,7 +115,10 @@ namespace TestProj47.C5
         /// <param name="pair1"></param>
         /// <param name="pair2"></param>
         /// <returns></returns>
-        public static bool operator ==(KeyValuePair<K, V> pair1, KeyValuePair<K, V> pair2) { return pair1.Equals(pair2); }
+        public static bool operator ==(KeyValuePair<K, V> pair1, KeyValuePair<K, V> pair2)
+        {
+            return pair1.Equals(pair2);
+        }
 
         /// <summary>
         /// 
@@ -106,7 +126,10 @@ namespace TestProj47.C5
         /// <param name="pair1"></param>
         /// <param name="pair2"></param>
         /// <returns></returns>
-        public static bool operator !=(KeyValuePair<K, V> pair1, KeyValuePair<K, V> pair2) { return !pair1.Equals(pair2); }
+        public static bool operator !=(KeyValuePair<K, V> pair1, KeyValuePair<K, V> pair2)
+        {
+            return !pair1.Equals(pair2);
+        }
 
         #region IShowable Members
 
@@ -129,6 +152,7 @@ namespace TestProj47.C5
                 return false;
             return rest >= 0;
         }
+
         #endregion
 
         #region IFormattable Members
@@ -146,7 +170,6 @@ namespace TestProj47.C5
 
         #endregion
     }
-
 
 
     /// <summary>
@@ -184,7 +207,6 @@ namespace TestProj47.C5
     }
 
 
-
     /// <summary>
     /// Default equalityComparer for dictionary entries.
     /// Operations only look at keys and uses an externally defined equalityComparer for that.
@@ -198,7 +220,10 @@ namespace TestProj47.C5
         /// <summary>
         /// Create an entry equalityComparer using the default equalityComparer for keys
         /// </summary>
-        public KeyValuePairEqualityComparer() { keyequalityComparer = EqualityComparer<K>.Default; }
+        public KeyValuePairEqualityComparer()
+        {
+            keyequalityComparer = EqualityComparer<K>.Default;
+        }
 
 
         /// <summary>
@@ -218,7 +243,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="entry">The entry</param>
         /// <returns>The hash code of the key</returns>
-        public int GetHashCode(KeyValuePair<K, V> entry) { return keyequalityComparer.GetHashCode(entry.Key); }
+        public int GetHashCode(KeyValuePair<K, V> entry)
+        {
+            return keyequalityComparer.GetHashCode(entry.Key);
+        }
 
 
         /// <summary>
@@ -232,7 +260,6 @@ namespace TestProj47.C5
             return keyequalityComparer.Equals(entry1.Key, entry2.Key);
         }
     }
-
 
 
     /// <summary>
@@ -262,8 +289,12 @@ namespace TestProj47.C5
         /// </summary>
         public override event CollectionChangedHandler<KeyValuePair<K, V>> CollectionChanged
         {
-            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).CollectionChanged += value;
-            remove { if (eventBlock != null) eventBlock.CollectionChanged -= value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs)))
+                .CollectionChanged += value;
+            remove
+            {
+                if (eventBlock != null) eventBlock.CollectionChanged -= value;
+            }
         }
 
         /// <summary>
@@ -271,8 +302,12 @@ namespace TestProj47.C5
         /// </summary>
         public override event CollectionClearedHandler<KeyValuePair<K, V>> CollectionCleared
         {
-            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).CollectionCleared += value;
-            remove { if (eventBlock != null) eventBlock.CollectionCleared -= value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs)))
+                .CollectionCleared += value;
+            remove
+            {
+                if (eventBlock != null) eventBlock.CollectionCleared -= value;
+            }
         }
 
         /// <summary>
@@ -280,8 +315,12 @@ namespace TestProj47.C5
         /// </summary>
         public override event ItemsAddedHandler<KeyValuePair<K, V>> ItemsAdded
         {
-            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).ItemsAdded += value;
-            remove { if (eventBlock != null) eventBlock.ItemsAdded -= value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).ItemsAdded +=
+                value;
+            remove
+            {
+                if (eventBlock != null) eventBlock.ItemsAdded -= value;
+            }
         }
 
         /// <summary>
@@ -289,8 +328,12 @@ namespace TestProj47.C5
         /// </summary>
         public override event ItemsRemovedHandler<KeyValuePair<K, V>> ItemsRemoved
         {
-            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).ItemsRemoved += value;
-            remove { if (eventBlock != null) eventBlock.ItemsRemoved -= value; }
+            add => (eventBlock ?? (eventBlock = new ProxyEventBlock<KeyValuePair<K, V>>(this, pairs))).ItemsRemoved +=
+                value;
+            remove
+            {
+                if (eventBlock != null) eventBlock.ItemsRemoved -= value;
+            }
         }
 
         /// <summary>
@@ -399,7 +442,10 @@ namespace TestProj47.C5
         /// <summary>
         /// Remove all entries from the dictionary
         /// </summary>
-        public virtual void Clear() { pairs.Clear(); }
+        public virtual void Clear()
+        {
+            pairs.Clear();
+        }
 
         /// <summary>
         /// 
@@ -423,8 +469,16 @@ namespace TestProj47.C5
         private class LiftedEnumerable<H> : SCG.IEnumerable<KeyValuePair<K, V>> where H : K
         {
             private readonly SCG.IEnumerable<H> keys;
-            public LiftedEnumerable(SCG.IEnumerable<H> keys) { this.keys = keys; }
-            public SCG.IEnumerator<KeyValuePair<K, V>> GetEnumerator() { foreach (var key in keys) yield return new KeyValuePair<K, V>(key); }
+
+            public LiftedEnumerable(SCG.IEnumerable<H> keys)
+            {
+                this.keys = keys;
+            }
+
+            public SCG.IEnumerator<KeyValuePair<K, V>> GetEnumerator()
+            {
+                foreach (var key in keys) yield return new KeyValuePair<K, V>(key);
+            }
 
             #region IEnumerable Members
 
@@ -444,7 +498,8 @@ namespace TestProj47.C5
         public virtual bool ContainsAll<H>(SCG.IEnumerable<H> keys) where H : K
         {
             if (MemoryType == MemoryType.Strict)
-                throw new Exception("The use of ContainsAll generates garbage as it still uses a non-memory safe enumerator");
+                throw new Exception(
+                    "The use of ContainsAll generates garbage as it still uses a non-memory safe enumerator");
             return pairs.ContainsAll(new LiftedEnumerable<H>(keys));
         }
 
@@ -552,8 +607,8 @@ namespace TestProj47.C5
         }
 
 
-
         #region Keys,Values support classes
+
         [Serializable]
         internal class ValuesCollection : CollectionValueBase<V>, ICollectionValue<V>
         {
@@ -576,7 +631,7 @@ namespace TestProj47.C5
                 private ICollection<KeyValuePair<K, V>> _keyValuePairs;
 
                 private SCG.IEnumerator<KeyValuePair<K, V>> _keyValuePairEnumerator;
-                 
+
                 public ValueEnumerator(ICollection<KeyValuePair<K, V>> keyValuePairs, MemoryType memoryType)
                     : base(memoryType)
                 {
@@ -588,7 +643,7 @@ namespace TestProj47.C5
                     _keyValuePairs = keyValuePairs;
                     Current = default;
                 }
-                 
+
                 public override bool MoveNext()
                 {
                     var list = _keyValuePairs;
@@ -612,6 +667,7 @@ namespace TestProj47.C5
                 {
                     Current = default;
                 }
+
                 protected override MemorySafeEnumerator<V> Clone()
                 {
                     var enumerator = new ValueEnumerator(_keyValuePairs, MemoryType)
@@ -633,7 +689,7 @@ namespace TestProj47.C5
             public override SCG.IEnumerator<V> GetEnumerator()
             {
                 //Updatecheck is performed by the pairs enumerator
-                var enumerator =(ValueEnumerator) _valueEnumerator.GetEnumerator();
+                var enumerator = (ValueEnumerator) _valueEnumerator.GetEnumerator();
                 enumerator.UpdateReference(_pairs);
                 return enumerator;
             }
@@ -665,7 +721,7 @@ namespace TestProj47.C5
                 private ICollection<KeyValuePair<K, V>> _internalList;
 
                 private SCG.IEnumerator<KeyValuePair<K, V>> _keyValuePairEnumerator;
-                 
+
                 public KeyEnumerator(ICollection<KeyValuePair<K, V>> list, MemoryType memoryType)
                     : base(memoryType)
                 {
@@ -677,8 +733,8 @@ namespace TestProj47.C5
                     _internalList = list;
                     Current = default;
                 }
-                 
-            
+
+
                 public override bool MoveNext()
                 {
                     var list = _internalList;
@@ -702,7 +758,7 @@ namespace TestProj47.C5
                 {
                     Current = default;
                 }
-                 
+
                 protected override MemorySafeEnumerator<K> Clone()
                 {
                     var enumerator = new KeyEnumerator(_internalList, MemoryType)
@@ -758,7 +814,6 @@ namespace TestProj47.C5
             {
                 _keyCollection.Update(pairs);
                 return _keyCollection;
-
             }
         }
 
@@ -779,7 +834,10 @@ namespace TestProj47.C5
         /// <summary>
         /// 
         /// </summary>
-        public virtual Func<K, V> Func { get { return delegate(K k) { return this[k]; }; } }
+        public virtual Func<K, V> Func
+        {
+            get { return delegate(K k) { return this[k]; }; }
+        }
 
         /// <summary>
         /// Indexer by key for dictionary. 
@@ -813,7 +871,10 @@ namespace TestProj47.C5
         /// Check the integrity of the internal data structures of this dictionary.
         /// </summary>
         /// <returns>True if check does not fail.</returns>
-        public virtual bool Check() { return pairs.Check(); }
+        public virtual bool Check()
+        {
+            return pairs.Check();
+        }
 
         #endregion
 
@@ -843,7 +904,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <exception cref="NoSuchItemException">if collection is empty.</exception>
         /// <returns></returns>
-        public override KeyValuePair<K, V> Choose() { return pairs.Choose(); }
+        public override KeyValuePair<K, V> Choose()
+        {
+            return pairs.Choose();
+        }
 
         /// <summary>
         /// Create an enumerator for the collection of entries of the dictionary
@@ -892,7 +956,8 @@ namespace TestProj47.C5
         /// <param name="keycomparer"></param>
         /// <param name="keyequalityComparer"></param>
         /// <param name="memoryType">The memory type of the enumerator used to iterate the collection.</param>
-        protected SortedDictionaryBase(SCG.IComparer<K> keycomparer, SCG.IEqualityComparer<K> keyequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        protected SortedDictionaryBase(SCG.IComparer<K> keycomparer, SCG.IEqualityComparer<K> keyequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(keyequalityComparer, memoryType)
         {
             this.keycomparer = keycomparer;
@@ -914,7 +979,8 @@ namespace TestProj47.C5
         /// </summary>
         /// <value></value>
         /// I should add something to return the same instance
-        public new ISorted<K> Keys => new SortedKeysCollection(this, sortedpairs, keycomparer, EqualityComparer, MemoryType);
+        public new ISorted<K> Keys =>
+            new SortedKeysCollection(this, sortedpairs, keycomparer, EqualityComparer, MemoryType);
 
         /// <summary>
         /// Find the entry in the dictionary whose key is the
@@ -1061,9 +1127,11 @@ namespace TestProj47.C5
         /// <param name="highEntry"></param>
         /// <param name="highIsValid"></param>
         /// <returns></returns>
-        public bool Cut(IComparable<K> cutter, out KeyValuePair<K, V> lowEntry, out bool lowIsValid, out KeyValuePair<K, V> highEntry, out bool highIsValid)
+        public bool Cut(IComparable<K> cutter, out KeyValuePair<K, V> lowEntry, out bool lowIsValid,
+            out KeyValuePair<K, V> highEntry, out bool highIsValid)
         {
-            return sortedpairs.Cut(new KeyValuePairComparable(cutter), out lowEntry, out lowIsValid, out highEntry, out highIsValid);
+            return sortedpairs.Cut(new KeyValuePairComparable(cutter), out lowEntry, out lowIsValid, out highEntry,
+                out highIsValid);
         }
 
         /// <summary>
@@ -1144,40 +1212,59 @@ namespace TestProj47.C5
         }
 
         #endregion
+
         [Serializable]
         private class KeyValuePairComparable : IComparable<KeyValuePair<K, V>>
         {
             private readonly IComparable<K> cutter;
 
-            internal KeyValuePairComparable(IComparable<K> cutter) { this.cutter = cutter; }
+            internal KeyValuePairComparable(IComparable<K> cutter)
+            {
+                this.cutter = cutter;
+            }
 
-            public int CompareTo(KeyValuePair<K, V> other) { return cutter.CompareTo(other.Key); }
+            public int CompareTo(KeyValuePair<K, V> other)
+            {
+                return cutter.CompareTo(other.Key);
+            }
 
-            public bool Equals(KeyValuePair<K, V> other) { return cutter.Equals(other.Key); }
+            public bool Equals(KeyValuePair<K, V> other)
+            {
+                return cutter.Equals(other.Key);
+            }
         }
 
         [Serializable]
         private class ProjectedDirectedEnumerable : MappedDirectedEnumerable<KeyValuePair<K, V>, K>
         {
-            public ProjectedDirectedEnumerable(IDirectedEnumerable<KeyValuePair<K, V>> directedpairs) : base(directedpairs) { }
+            public ProjectedDirectedEnumerable(IDirectedEnumerable<KeyValuePair<K, V>> directedpairs) : base(
+                directedpairs)
+            {
+            }
 
-            public override K Map(KeyValuePair<K, V> pair) { return pair.Key; }
-
+            public override K Map(KeyValuePair<K, V> pair)
+            {
+                return pair.Key;
+            }
         }
 
         [Serializable]
         private class ProjectedDirectedCollectionValue : MappedDirectedCollectionValue<KeyValuePair<K, V>, K>
         {
-            public ProjectedDirectedCollectionValue(IDirectedCollectionValue<KeyValuePair<K, V>> directedpairs) : base(directedpairs) { }
+            public ProjectedDirectedCollectionValue(IDirectedCollectionValue<KeyValuePair<K, V>> directedpairs) : base(
+                directedpairs)
+            {
+            }
 
-            public override K Map(KeyValuePair<K, V> pair) { return pair.Key; }
-
+            public override K Map(KeyValuePair<K, V> pair)
+            {
+                return pair.Key;
+            }
         }
 
         [Serializable]
         private sealed class SortedKeysCollection : SequencedBase<K>, ISorted<K>
         {
-
             #region Private Enumerator
 
             [Serializable]
@@ -1187,7 +1274,6 @@ namespace TestProj47.C5
 
                 private SCG.IEnumerator<KeyValuePair<K, V>> _internalEnumerator;
 
-              
 
                 public KeyEnumerator(ICollection<KeyValuePair<K, V>> list, MemoryType memoryType)
                     : base(memoryType)
@@ -1203,7 +1289,7 @@ namespace TestProj47.C5
 
 
                 public override void Dispose()
-                { 
+                {
                     _internalEnumerator.Dispose();
                     _internalEnumerator = null;
                 }
@@ -1212,7 +1298,8 @@ namespace TestProj47.C5
                 {
                     var list = _internalList;
 
-                    if (IteratorState == -1 || IteratorState == 0) // enumerator hasn't initialized yet or it has already run
+                    if (IteratorState == -1 || IteratorState == 0
+                    ) // enumerator hasn't initialized yet or it has already run
                         _internalEnumerator = list.GetEnumerator();
 
                     IteratorState = 1;
@@ -1226,6 +1313,7 @@ namespace TestProj47.C5
                     IteratorState = 0;
                     return false;
                 }
+
                 public override void Reset()
                 {
                     try
@@ -1258,13 +1346,15 @@ namespace TestProj47.C5
             private readonly KeyEnumerator _internalEnumerator;
 
             private readonly ISortedDictionary<K, V> sorteddict;
+
             //TODO: eliminate this. Only problem is the Find method because we lack method on dictionary that also
             //      returns the actual key.
             private readonly ISorted<KeyValuePair<K, V>> sortedpairs;
 
             private readonly SCG.IComparer<K> comparer;
 
-            internal SortedKeysCollection(ISortedDictionary<K, V> sorteddict, ISorted<KeyValuePair<K, V>> sortedpairs, SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> itemequalityComparer, MemoryType memoryType)
+            internal SortedKeysCollection(ISortedDictionary<K, V> sorteddict, ISorted<KeyValuePair<K, V>> sortedpairs,
+                SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> itemequalityComparer, MemoryType memoryType)
                 : base(itemequalityComparer, memoryType)
             {
                 this.sorteddict = sorteddict;
@@ -1295,13 +1385,25 @@ namespace TestProj47.C5
 
             #region ISorted<K> Members
 
-            public K FindMin() { return sorteddict.FindMin().Key; }
+            public K FindMin()
+            {
+                return sorteddict.FindMin().Key;
+            }
 
-            public K DeleteMin() { throw new ReadOnlyCollectionException(); }
+            public K DeleteMin()
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public K FindMax() { return sorteddict.FindMax().Key; }
+            public K FindMax()
+            {
+                return sorteddict.FindMax().Key;
+            }
 
-            public K DeleteMax() { throw new ReadOnlyCollectionException(); }
+            public K DeleteMax()
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
             public SCG.IComparer<K> Comparer => comparer;
 
@@ -1337,13 +1439,25 @@ namespace TestProj47.C5
                 return success;
             }
 
-            public K Predecessor(K item) { return sorteddict.Predecessor(item).Key; }
+            public K Predecessor(K item)
+            {
+                return sorteddict.Predecessor(item).Key;
+            }
 
-            public K Successor(K item) { return sorteddict.Successor(item).Key; }
+            public K Successor(K item)
+            {
+                return sorteddict.Successor(item).Key;
+            }
 
-            public K WeakPredecessor(K item) { return sorteddict.WeakPredecessor(item).Key; }
+            public K WeakPredecessor(K item)
+            {
+                return sorteddict.WeakPredecessor(item).Key;
+            }
 
-            public K WeakSuccessor(K item) { return sorteddict.WeakSuccessor(item).Key; }
+            public K WeakSuccessor(K item)
+            {
+                return sorteddict.WeakSuccessor(item).Key;
+            }
 
             public bool Cut(IComparable<K> c, out K low, out bool lowIsValid, out K high, out bool highIsValid)
             {
@@ -1374,21 +1488,42 @@ namespace TestProj47.C5
                 return new ProjectedDirectedCollectionValue(sorteddict.RangeAll());
             }
 
-            public void AddSorted(SCG.IEnumerable<K> items) { throw new ReadOnlyCollectionException(); }
+            public void AddSorted(SCG.IEnumerable<K> items)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RemoveRangeFrom(K low) { throw new ReadOnlyCollectionException(); }
+            public void RemoveRangeFrom(K low)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RemoveRangeFromTo(K low, K hi) { throw new ReadOnlyCollectionException(); }
+            public void RemoveRangeFromTo(K low, K hi)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RemoveRangeTo(K hi) { throw new ReadOnlyCollectionException(); }
+            public void RemoveRangeTo(K hi)
+            {
+                throw new ReadOnlyCollectionException();
+            }
+
             #endregion
 
             #region ICollection<K> Members
+
             public Speed ContainsSpeed => sorteddict.ContainsSpeed;
 
-            public bool Contains(K key) { return sorteddict.Contains(key); ;      }
+            public bool Contains(K key)
+            {
+                return sorteddict.Contains(key);
+                ;
+            }
 
-            public int ContainsCount(K item) { return sorteddict.Contains(item) ? 1 : 0; }
+            public int ContainsCount(K item)
+            {
+                return sorteddict.Contains(item) ? 1 : 0;
+            }
 
             /// <summary>
             /// 
@@ -1426,44 +1561,90 @@ namespace TestProj47.C5
                 return retval;
             }
 
-            public bool FindOrAdd(ref K item) { throw new ReadOnlyCollectionException(); }
+            public bool FindOrAdd(ref K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool Update(K item) { throw new ReadOnlyCollectionException(); }
+            public bool Update(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool Update(K item, out K olditem) { throw new ReadOnlyCollectionException(); }
+            public bool Update(K item, out K olditem)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool UpdateOrAdd(K item) { throw new ReadOnlyCollectionException(); }
+            public bool UpdateOrAdd(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool UpdateOrAdd(K item, out K olditem) { throw new ReadOnlyCollectionException(); }
+            public bool UpdateOrAdd(K item, out K olditem)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool Remove(K item) { throw new ReadOnlyCollectionException(); }
+            public bool Remove(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool Remove(K item, out K removeditem) { throw new ReadOnlyCollectionException(); }
+            public bool Remove(K item, out K removeditem)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RemoveAllCopies(K item) { throw new ReadOnlyCollectionException(); }
+            public void RemoveAllCopies(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RemoveAll(SCG.IEnumerable<K> items) { throw new ReadOnlyCollectionException(); }
+            public void RemoveAll(SCG.IEnumerable<K> items)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void Clear() { throw new ReadOnlyCollectionException(); }
+            public void Clear()
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void RetainAll(SCG.IEnumerable<K> items) { throw new ReadOnlyCollectionException(); }
+            public void RetainAll(SCG.IEnumerable<K> items)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
             #endregion
 
             #region IExtensible<K> Members
+
             public override bool IsReadOnly => true;
 
             public bool AllowsDuplicates => false;
 
             public bool DuplicatesByCounting => true;
 
-            public bool Add(K item) { throw new ReadOnlyCollectionException(); }
+            public bool Add(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            void SCG.ICollection<K>.Add(K item) { throw new ReadOnlyCollectionException(); }
+            void SCG.ICollection<K>.Add(K item)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public void AddAll(SCG.IEnumerable<K> items) { throw new ReadOnlyCollectionException(); }
+            public void AddAll(SCG.IEnumerable<K> items)
+            {
+                throw new ReadOnlyCollectionException();
+            }
 
-            public bool Check() { return sorteddict.Check(); }
+            public bool Check()
+            {
+                return sorteddict.Check();
+            }
 
             #endregion
 
@@ -1478,7 +1659,11 @@ namespace TestProj47.C5
 
             #region IDirectedEnumerable<K> Members
 
-            IDirectedEnumerable<K> IDirectedEnumerable<K>.Backwards() { return Backwards(); }
+            IDirectedEnumerable<K> IDirectedEnumerable<K>.Backwards()
+            {
+                return Backwards();
+            }
+
             #endregion
         }
 
@@ -1493,7 +1678,6 @@ namespace TestProj47.C5
         {
             return Showing.ShowDictionary(this, stringbuilder, ref rest, formatProvider);
         }
-
     }
 
     /// <summary>
@@ -1515,13 +1699,18 @@ namespace TestProj47.C5
     {
         #region Constructors
 
-        public SortedArrayDictionary() : this(SCG.Comparer<K>.Default, EqualityComparer<K>.Default) { }
+        public SortedArrayDictionary() : this(SCG.Comparer<K>.Default, EqualityComparer<K>.Default)
+        {
+        }
 
         /// <summary>
         /// Create a red-black tree dictionary using an external comparer for keys.
         /// </summary>
         /// <param name="comparer">The external comparer</param>
-        public SortedArrayDictionary(SCG.IComparer<K> comparer) : this(comparer, new ComparerZeroHashCodeEqualityComparer<K>(comparer)) { }
+        public SortedArrayDictionary(SCG.IComparer<K> comparer) : this(comparer,
+            new ComparerZeroHashCodeEqualityComparer<K>(comparer))
+        {
+        }
 
         /// <summary>
         /// 
@@ -1543,8 +1732,10 @@ namespace TestProj47.C5
         public SortedArrayDictionary(int capacity, SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> equalityComparer)
             : base(comparer, equalityComparer)
         {
-            pairs = sortedpairs = new SortedArray<KeyValuePair<K, V>>(capacity, new KeyValuePairComparer<K, V>(comparer));
+            pairs = sortedpairs =
+                new SortedArray<KeyValuePair<K, V>>(capacity, new KeyValuePairComparer<K, V>(comparer));
         }
+
         #endregion
     }
 }

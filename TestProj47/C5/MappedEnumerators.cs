@@ -22,10 +22,12 @@
 using System;
 using System.Linq;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     [Serializable]
-    internal abstract class MappedDirectedCollectionValue<T, V> : DirectedCollectionValueBase<V>, IDirectedCollectionValue<V>
+    internal abstract class MappedDirectedCollectionValue<T, V> : DirectedCollectionValueBase<V>,
+        IDirectedCollectionValue<V>
     {
         private IDirectedCollectionValue<T> directedcollectionvalue;
 
@@ -36,7 +38,10 @@ namespace TestProj47.C5
             this.directedcollectionvalue = directedcollectionvalue;
         }
 
-        public override V Choose() { return Map(directedcollectionvalue.Choose()); }
+        public override V Choose()
+        {
+            return Map(directedcollectionvalue.Choose());
+        }
 
         public override bool IsEmpty => directedcollectionvalue.IsEmpty;
 
@@ -46,7 +51,7 @@ namespace TestProj47.C5
 
         public override IDirectedCollectionValue<V> Backwards()
         {
-            var retval = (MappedDirectedCollectionValue<T, V>)MemberwiseClone();
+            var retval = (MappedDirectedCollectionValue<T, V>) MemberwiseClone();
             retval.directedcollectionvalue = directedcollectionvalue.Backwards();
             return retval;
             //If we made this classs non-abstract we could do
@@ -65,8 +70,6 @@ namespace TestProj47.C5
         {
             return Backwards();
         }
-
-
     }
 
     [Serializable]
@@ -81,7 +84,10 @@ namespace TestProj47.C5
             this.collectionvalue = collectionvalue;
         }
 
-        public override V Choose() { return Map(collectionvalue.Choose()); }
+        public override V Choose()
+        {
+            return Map(collectionvalue.Choose());
+        }
 
         public override bool IsEmpty => collectionvalue.IsEmpty;
 
@@ -99,15 +105,27 @@ namespace TestProj47.C5
     [Serializable]
     internal class MultiplicityOne<K> : MappedCollectionValue<K, KeyValuePair<K, int>>
     {
-        public MultiplicityOne(ICollectionValue<K> coll) : base(coll) { }
-        public override KeyValuePair<K, int> Map(K k) { return new KeyValuePair<K, int>(k, 1); }
+        public MultiplicityOne(ICollectionValue<K> coll) : base(coll)
+        {
+        }
+
+        public override KeyValuePair<K, int> Map(K k)
+        {
+            return new KeyValuePair<K, int>(k, 1);
+        }
     }
 
     [Serializable]
     internal class DropMultiplicity<K> : MappedCollectionValue<KeyValuePair<K, int>, K>
     {
-        public DropMultiplicity(ICollectionValue<KeyValuePair<K, int>> coll) : base(coll) { }
-        public override K Map(KeyValuePair<K, int> kvp) { return kvp.Key; }
+        public DropMultiplicity(ICollectionValue<KeyValuePair<K, int>> coll) : base(coll)
+        {
+        }
+
+        public override K Map(KeyValuePair<K, int> kvp)
+        {
+            return kvp.Key;
+        }
     }
 
     [Serializable]
@@ -124,7 +142,7 @@ namespace TestProj47.C5
 
         public IDirectedEnumerable<V> Backwards()
         {
-            var retval = (MappedDirectedEnumerable<T, V>)MemberwiseClone();
+            var retval = (MappedDirectedEnumerable<T, V>) MemberwiseClone();
             retval.directedenumerable = directedenumerable.Backwards();
             return retval;
             //If we made this classs non-abstract we could do

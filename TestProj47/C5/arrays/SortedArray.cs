@@ -21,6 +21,7 @@
 
 using System;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     /// <summary>
@@ -46,6 +47,7 @@ namespace TestProj47.C5
         #endregion
 
         #region Util
+
         /// <summary>
         /// 
         /// </summary>
@@ -68,15 +70,15 @@ namespace TestProj47.C5
                 }
 
                 if (comparer > 0)
-                { 
-                    top = middle; 
+                {
+                    top = middle;
                 }
                 else
                 {
                     bottom = middle + 1;
                 }
 
-                middle = bottom + ((top - bottom) / 2); 
+                middle = bottom + ((top - bottom) / 2);
             }
 
             return false;
@@ -102,7 +104,9 @@ namespace TestProj47.C5
         /// </summary>
         /// <exception cref="NotComparableException">If <code>T</code> is not comparable.
         /// </exception>
-        public SortedArray(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType) { }
+        public SortedArray(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -115,7 +119,9 @@ namespace TestProj47.C5
         /// <param name="capacity">The capacity</param>
         /// <param name="memoryType">The type of memory for the enumerator used to iterate the collection</param>
         public SortedArray(int capacity, MemoryType memoryType = MemoryType.Normal)
-            : this(capacity, SCG.Comparer<T>.Default, EqualityComparer<T>.Default, memoryType) { }
+            : this(capacity, SCG.Comparer<T>.Default, EqualityComparer<T>.Default, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -131,7 +137,9 @@ namespace TestProj47.C5
         /// <param name="comparer">The comparer</param>
         /// <param name="memoryType">The type of memory for the enumerator used to iterate the collection</param>
         public SortedArray(SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal)
-            : this(8, comparer, memoryType) { }
+            : this(8, comparer, memoryType)
+        {
+        }
 
         /// <summary>
         /// Create a dynamic sorted array with an external comparer
@@ -148,7 +156,9 @@ namespace TestProj47.C5
         /// <param name="comparer">The comparer</param>
         /// <param name="memoryType">The type of memory for the enumerator used to iterate the collection</param>
         public SortedArray(int capacity, SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal)
-            : this(capacity, comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType) { }
+            : this(capacity, comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType)
+        {
+        }
 
         /// <summary>
         /// Create a dynamic sorted array with an external comparer, an external item equalityComparer
@@ -159,7 +169,8 @@ namespace TestProj47.C5
         /// <param name="comparer">The item comparer</param>
         /// <param name="equalityComparer">The item equalityComparer (assumed compatible)</param>
         /// <param name="memoryType">The type of memory for the enumerator used to iterate the collection</param>
-        public SortedArray(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> equalityComparer, MemoryType memoryType = MemoryType.Normal)
+        public SortedArray(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> equalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(capacity, equalityComparer, memoryType)
         {
             if (comparer == null)
@@ -533,18 +544,31 @@ namespace TestProj47.C5
                     break;
 
                 if (comp < 0)
-                { rbest = top = mid; }
+                {
+                    rbest = top = mid;
+                }
                 else
-                { lbest = mid; bot = mid + 1; }
+                {
+                    lbest = mid;
+                    bot = mid + 1;
+                }
 
                 mid = (bot + top) / 2;
             }
 
             if (comp != 0)
             {
-                if (lbest >= 0) { lowIsValid = true; low = array[lbest]; }
+                if (lbest >= 0)
+                {
+                    lowIsValid = true;
+                    low = array[lbest];
+                }
 
-                if (rbest < size) { highIsValid = true; high = array[rbest]; }
+                if (rbest < size)
+                {
+                    highIsValid = true;
+                    high = array[rbest];
+                }
 
                 return false;
             }
@@ -559,12 +583,20 @@ namespace TestProj47.C5
             {
                 mid = (bot + rbest) / 2;
                 if (c.CompareTo(array[mid]) < 0)
-                { rbest = mid; }
+                {
+                    rbest = mid;
+                }
                 else
-                { bot = mid + 1; }
+                {
+                    bot = mid + 1;
+                }
             }
 
-            if (rbest < size) { highIsValid = true; high = array[rbest]; }
+            if (rbest < size)
+            {
+                highIsValid = true;
+                high = array[rbest];
+            }
 
             top = sol + 1;
 
@@ -575,27 +607,41 @@ namespace TestProj47.C5
             {
                 mid = (lbest + top + 1) / 2;
                 if (c.CompareTo(array[mid]) > 0)
-                { lbest = mid; }
+                {
+                    lbest = mid;
+                }
                 else
-                { top = mid - 1; }
+                {
+                    top = mid - 1;
+                }
             }
 
-            if (lbest >= 0) { lowIsValid = true; low = array[lbest]; }
+            if (lbest >= 0)
+            {
+                lowIsValid = true;
+                low = array[lbest];
+            }
 
             return true;
         }
 
 
         IDirectedEnumerable<T> ISorted<T>.RangeFrom(T bot)
-        { return RangeFrom(bot); }
+        {
+            return RangeFrom(bot);
+        }
 
 
         IDirectedEnumerable<T> ISorted<T>.RangeFromTo(T bot, T top)
-        { return RangeFromTo(bot, top); }
+        {
+            return RangeFromTo(bot, top);
+        }
 
 
         IDirectedEnumerable<T> ISorted<T>.RangeTo(T top)
-        { return RangeTo(top); }
+        {
+            return RangeTo(top);
+        }
 
 
         /// <summary>
@@ -603,7 +649,9 @@ namespace TestProj47.C5
         /// </summary>
         /// <returns>The result directed collection.</returns>
         public IDirectedCollectionValue<T> RangeAll()
-        { return new Range(this, 0, size, true); }
+        {
+            return new Range(this, 0, size, true);
+        }
 
 
         /// <summary>
@@ -637,7 +685,7 @@ namespace TestProj47.C5
                     throw new ArgumentException("Argument not sorted");
 
                 addedItems[numAdded++] = lastitem = res.array[j++] = item;
-            next:
+                next:
                 c = -1;
             }
 
@@ -732,6 +780,7 @@ namespace TestProj47.C5
         #endregion
 
         #region ICollection<T> Members
+
         /// <summary>
         /// The value is symbolic indicating the type of asymptotic complexity
         /// in terms of the size of this collection (worst-case).
@@ -828,7 +877,10 @@ namespace TestProj47.C5
         /// <param name="item">Value to update.</param>
         /// <returns>True if the item was found and hence updated.</returns>
         public bool Update(T item)
-        { T olditem; return Update(item, out olditem); }
+        {
+            T olditem;
+            return Update(item, out olditem);
+        }
 
         /// <summary>
         /// 
@@ -863,7 +915,10 @@ namespace TestProj47.C5
         /// <param name="item">Value to add or update.</param>
         /// <returns>True if the item was found and updated (hence not added).</returns>
         public bool UpdateOrAdd(T item)
-        { T olditem; return UpdateOrAdd(item, out olditem); }
+        {
+            T olditem;
+            return UpdateOrAdd(item, out olditem);
+        }
 
         /// <summary>
         /// 
@@ -1048,7 +1103,10 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         /// <returns></returns>
-        public virtual ICollectionValue<T> UniqueItems() { return this; }
+        public virtual ICollectionValue<T> UniqueItems()
+        {
+            return this;
+        }
 
         /// <summary>
         /// 
@@ -1063,7 +1121,10 @@ namespace TestProj47.C5
         /// Remove all (0 or 1) items equivalent to a given value.
         /// </summary>
         /// <param name="item">The value to remove.</param>
-        public void RemoveAllCopies(T item) { Remove(item); }
+        public void RemoveAllCopies(T item)
+        {
+            Remove(item);
+        }
 
 
         /// <summary>
@@ -1157,7 +1218,10 @@ namespace TestProj47.C5
         {
             int toadd = countItems(items), newsize = array.Length;
 
-            while (newsize < size + toadd) { newsize *= 2; }
+            while (newsize < size + toadd)
+            {
+                newsize *= 2;
+            }
 
             var newarr = new T[newsize];
 
@@ -1304,7 +1368,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">Item to search for.</param>
         /// <returns>Index of item from start.</returns>
-        public int IndexOf(T item) { return indexOf(item); }
+        public int IndexOf(T item)
+        {
+            return indexOf(item);
+        }
 
 
         /// <summary>
@@ -1312,7 +1379,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">Item to search for.</param>
         /// <returns>Index of of item from the end.</returns>
-        public int LastIndexOf(T item) { return indexOf(item); }
+        public int LastIndexOf(T item)
+        {
+            return indexOf(item);
+        }
 
 
         /// <summary>
@@ -1375,7 +1445,9 @@ namespace TestProj47.C5
         /// </summary>
         /// <returns>The backwards collection.</returns>
         IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
-        { return Backwards(); }
+        {
+            return Backwards();
+        }
 
         #endregion
     }

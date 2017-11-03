@@ -130,7 +130,7 @@ namespace TestProj47
         /// <returns>An enumerator that can be used to iterate through the collection.</returns>
         public IEnumerator<SGC.KeyValuePair<string, object>> GetEnumerator()
         {
-            return (IEnumerator<SGC.KeyValuePair<string, object>>) ((IEnumerable)this).GetEnumerator();
+            return (IEnumerator<SGC.KeyValuePair<string, object>>) ((IEnumerable) this).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

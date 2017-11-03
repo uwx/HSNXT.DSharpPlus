@@ -172,7 +172,8 @@ namespace TestProj47
                         flag2 = true;
                     }
                 }
-                var flag6 = str1[index] == 62 || index < str1.Length - 1 && str1[index + 1] == 62 && (str1[index] == 63 || str1[index] == 47);
+                var flag6 = str1[index] == 62 || index < str1.Length - 1 && str1[index + 1] == 62 &&
+                            (str1[index] == 63 || str1[index] == 47);
                 if (flag6)
                 {
                     if (flag4 && str1[index - 1] == 45 && str1[index - 2] == 45)
@@ -278,7 +279,8 @@ namespace TestProj47
         /// <param name="sourceNode">The parent node.</param>
         public static void AppendChildNodeTo(this string childNode, XmlNode sourceNode)
         {
-            XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)?.CreateElement(childNode);
+            XmlNode element = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)
+                ?.CreateElement(childNode);
             sourceNode.AppendChild(element ?? throw new ArgumentException(nameof(element)));
         }
 
@@ -301,7 +303,8 @@ namespace TestProj47
         /// <param name="sourceNode">The parent node.</param>
         public static void AppendCDataSectionTo(this string cData, XmlNode sourceNode)
         {
-            var cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)?.CreateCDataSection(cData);
+            var cdataSection = (sourceNode is XmlDocument ? (XmlDocument) sourceNode : sourceNode.OwnerDocument)
+                ?.CreateCDataSection(cData);
             sourceNode.AppendChild(cdataSection ?? throw new ArgumentException(nameof(cdataSection)));
         }
 

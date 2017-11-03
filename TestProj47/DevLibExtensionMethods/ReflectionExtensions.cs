@@ -82,7 +82,9 @@ namespace TestProj47
                 return null;
             if (source.IsArray)
             {
-                return !lengths.IsNullOrEmpty() ? Array.CreateInstance(source.GetElementType(), lengths.Select(i => (long) i).ToArray()) : Array.CreateInstance(source.GetElementType(), 0);
+                return !lengths.IsNullOrEmpty()
+                    ? Array.CreateInstance(source.GetElementType(), lengths.Select(i => (long) i).ToArray())
+                    : Array.CreateInstance(source.GetElementType(), 0);
             }
             if (lengths.IsNullOrEmpty())
                 return (IList) Activator.CreateInstance(source);
@@ -205,10 +207,7 @@ namespace TestProj47
                 foreach (var methodInfo2 in source.GetType().GetMethods(isPublicOnly
                     ? BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public
                     : BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Where(
-                    p =>
-                    {
-                        return p.Name.Equals(method, StringComparison.OrdinalIgnoreCase) && p.IsGenericMethod;
-                    }))
+                    p => { return p.Name.Equals(method, StringComparison.OrdinalIgnoreCase) && p.IsGenericMethod; }))
                 {
                     if (methodInfo2.GetGenericArguments().Length != typeArguments.Length) continue;
                     var parameters1 = methodInfo2.GetParameters();

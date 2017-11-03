@@ -34,6 +34,7 @@ namespace TestProj47.C5
     internal class ComparerZeroHashCodeEqualityComparer<T> : SCG.IEqualityComparer<T>
     {
         private readonly SCG.IComparer<T> comparer;
+
         /// <summary>
         /// Create a trivial <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> compatible with the 
         /// <see cref="T:System.Collections.Generic.IComparer`1"/> <code>comparer</code>
@@ -47,19 +48,27 @@ namespace TestProj47.C5
             }
             this.comparer = comparer;
         }
+
         /// <summary>
         /// A trivial, inefficient hash function. Compatible with any equality relation.
         /// </summary>
         /// <param name="item"></param>
         /// <returns>0</returns>
-        public int GetHashCode(T item) { return 0; }
+        public int GetHashCode(T item)
+        {
+            return 0;
+        }
+
         /// <summary>
         /// Equality of two items as defined by the comparer.
         /// </summary>
         /// <param name="item1"></param>
         /// <param name="item2"></param>
         /// <returns></returns>
-        public bool Equals(T item1, T item2) { return comparer.Compare(item1, item2) == 0; }
+        public bool Equals(T item1, T item2)
+        {
+            return comparer.Compare(item1, item2) == 0;
+        }
     }
 
     /// <summary>
@@ -73,19 +82,27 @@ namespace TestProj47.C5
         where T : ISequenced<W>
     {
         private static SequencedCollectionEqualityComparer<T, W> cached;
-        private SequencedCollectionEqualityComparer() { }
+
+        private SequencedCollectionEqualityComparer()
+        {
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public static SequencedCollectionEqualityComparer<T, W> Default => cached ?? (cached = new SequencedCollectionEqualityComparer<T, W>());
+        public static SequencedCollectionEqualityComparer<T, W> Default =>
+            cached ?? (cached = new SequencedCollectionEqualityComparer<T, W>());
 
         /// <summary>
         /// Get the hash code with respect to this sequenced equalityComparer
         /// </summary>
         /// <param name="collection">The collection</param>
         /// <returns>The hash code</returns>
-        public int GetHashCode(T collection) { return collection.GetSequencedHashCode(); }
+        public int GetHashCode(T collection)
+        {
+            return collection.GetSequencedHashCode();
+        }
 
         /// <summary>
         /// Check if two items are equal with respect to this sequenced equalityComparer
@@ -93,7 +110,10 @@ namespace TestProj47.C5
         /// <param name="collection1">first collection</param>
         /// <param name="collection2">second collection</param>
         /// <returns>True if equal</returns>
-        public bool Equals(T collection1, T collection2) { return collection1 == null ? collection2 == null : collection1.SequencedEquals(collection2); }
+        public bool Equals(T collection1, T collection2)
+        {
+            return collection1 == null ? collection2 == null : collection1.SequencedEquals(collection2);
+        }
     }
 
     /// <summary>
@@ -107,19 +127,27 @@ namespace TestProj47.C5
         where T : ICollection<W>
     {
         private static UnsequencedCollectionEqualityComparer<T, W> cached;
-        private UnsequencedCollectionEqualityComparer() { }
+
+        private UnsequencedCollectionEqualityComparer()
+        {
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public static UnsequencedCollectionEqualityComparer<T, W> Default => cached ?? (cached = new UnsequencedCollectionEqualityComparer<T, W>());
+        public static UnsequencedCollectionEqualityComparer<T, W> Default =>
+            cached ?? (cached = new UnsequencedCollectionEqualityComparer<T, W>());
 
         /// <summary>
         /// Get the hash code with respect to this unsequenced equalityComparer
         /// </summary>
         /// <param name="collection">The collection</param>
         /// <returns>The hash code</returns>
-        public int GetHashCode(T collection) { return collection.GetUnsequencedHashCode(); }
+        public int GetHashCode(T collection)
+        {
+            return collection.GetUnsequencedHashCode();
+        }
 
 
         /// <summary>
@@ -128,6 +156,9 @@ namespace TestProj47.C5
         /// <param name="collection1">first collection</param>
         /// <param name="collection2">second collection</param>
         /// <returns>True if equal</returns>
-        public bool Equals(T collection1, T collection2) { return collection1 == null ? collection2 == null : collection1.UnsequencedEquals(collection2); }
+        public bool Equals(T collection1, T collection2)
+        {
+            return collection1 == null ? collection2 == null : collection1.UnsequencedEquals(collection2);
+        }
     }
 }

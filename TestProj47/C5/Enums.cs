@@ -20,9 +20,9 @@
 */
 
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
-
     /// <summary>
     /// The symbolic characterization of the speed of lookups for a collection.
     /// The values may refer to worst-case, amortized and/or expected asymtotic 
@@ -35,18 +35,21 @@ namespace TestProj47.C5
         /// (for a synthetic and potentially infinite collection).
         /// </summary>
         PotentiallyInfinite = 1,
+
         /// <summary>
         /// Lookup operations like <code>Contains(T item)</code> or the <code>Count</code>
         /// property may take time O(n),
         /// where n is the size of the collection.
         /// </summary>
         Linear = 2,
+
         /// <summary>
         /// Lookup operations like <code>Contains(T item)</code> or the <code>Count</code>
         /// property  takes time O(log n),
         /// where n is the size of the collection.
         /// </summary>
         Log = 3,
+
         /// <summary>
         /// Lookup operations like <code>Contains(T item)</code> or the <code>Count</code>
         /// property  takes time O(1),
@@ -88,6 +91,7 @@ namespace TestProj47.C5
         /// Same direction
         /// </summary>
         Forwards,
+
         /// <summary>
         /// Opposite direction
         /// </summary>
@@ -104,10 +108,12 @@ namespace TestProj47.C5
         /// for multithread safety purposes.
         /// </summary>
         Normal,
+
         /// <summary>
         /// Safe returns the same enumerator instance and updates references or a new instance in case of multiple enumeration and multithread access  
         /// </summary>
         Safe,
+
         /// <summary>
         /// Strict always returns the same enumerator instance. An exception is raised if the collection is enumerated more than once or
         /// if the collection is accessed by multiple threads concurrently.

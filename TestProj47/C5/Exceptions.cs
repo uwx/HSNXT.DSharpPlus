@@ -29,7 +29,9 @@ namespace TestProj47.C5
     [Serializable]
     public class InternalException : Exception
     {
-        internal InternalException(string message) : base(message) { }
+        internal InternalException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -45,12 +47,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public ReadOnlyCollectionException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public ReadOnlyCollectionException(string message) : base(message) { }
+        public ReadOnlyCollectionException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -63,12 +69,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public FixedSizeCollectionException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public FixedSizeCollectionException(string message) : base(message) { }
+        public FixedSizeCollectionException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -81,12 +91,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public UnlistenableEventException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public UnlistenableEventException(string message) : base(message) { }
+        public UnlistenableEventException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -100,15 +114,17 @@ namespace TestProj47.C5
         /// </summary>
         public ConcurrentEnumerationException()
         {
-
         }
 
         /// <summary>
         /// Create a simple exception with the an explanation contained in the error message.
         /// </summary>
         /// <param name="message"></param>
-        public ConcurrentEnumerationException(string message) : base(message) { }
+        public ConcurrentEnumerationException(string message) : base(message)
+        {
+        }
     }
+
     /// <summary>
     /// An exception thrown by the MemorySafeEnumerator if the collection is enumerated multiple times when the 
     /// memory mode is set to Strict 
@@ -121,15 +137,17 @@ namespace TestProj47.C5
         /// </summary>
         public MultipleEnumerationException()
         {
-
         }
 
         /// <summary>
         /// Create a simple exception with the an explanation contained in the error message.
         /// </summary>
         /// <param name="message"></param>
-        public MultipleEnumerationException(string message) : base(message) { }
+        public MultipleEnumerationException(string message) : base(message)
+        {
+        }
     }
+
     /// <summary>
     /// An exception thrown by enumerators, range views etc. when accessed after 
     /// the underlying collection has been modified.
@@ -141,12 +159,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public CollectionModifiedException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public CollectionModifiedException(string message) : base(message) { }
+        public CollectionModifiedException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -165,12 +187,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public ViewDisposedException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public ViewDisposedException(string message) : base(message) { }
+        public ViewDisposedException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -186,12 +212,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public NoSuchItemException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public NoSuchItemException(string message) : base(message) { }
+        public NoSuchItemException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -205,12 +235,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public NotAViewException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public NotAViewException(string message) : base(message) { }
+        public NotAViewException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -228,12 +262,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public DuplicateNotAllowedException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public DuplicateNotAllowedException(string message) : base(message) { }
+        public DuplicateNotAllowedException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -246,12 +284,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public InvalidPriorityQueueHandleException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public InvalidPriorityQueueHandleException(string message) : base(message) { }
+        public InvalidPriorityQueueHandleException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -265,12 +307,16 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public NotComparableException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public NotComparableException(string message) : base(message) { }
+        public NotComparableException(string message) : base(message)
+        {
+        }
     }
 
     /// <summary>
@@ -284,12 +330,15 @@ namespace TestProj47.C5
         /// Create a simple exception with no further explanation.
         /// </summary>
         public IncompatibleViewException()
-        { }
+        {
+        }
+
         /// <summary>
         /// Create the exception with an explanation of the reason.
         /// </summary>
         /// <param name="message"></param>
-        public IncompatibleViewException(string message) : base(message) { }
+        public IncompatibleViewException(string message) : base(message)
+        {
+        }
     }
-
 }

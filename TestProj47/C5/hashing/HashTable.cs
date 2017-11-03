@@ -31,6 +31,7 @@ namespace TestProj47.C5
     public class HashSet<T> : CollectionBase<T>, ICollection<T>
     {
         #region Feature
+
         /// <summary>
         /// Enum class to assist printing of compilation alternatives.
         /// </summary>
@@ -41,30 +42,37 @@ namespace TestProj47.C5
             /// Nothing
             /// </summary>
             Dummy = 0,
+
             /// <summary>
             /// Buckets are of reference type
             /// </summary>
             RefTypeBucket = 1,
+
             /// <summary>
             /// Primary buckets are of value type
             /// </summary>
             ValueTypeBucket = 2,
+
             /// <summary>
             /// Using linear probing to resolve index clashes
             /// </summary>
             LinearProbing = 4,
+
             /// <summary>
             /// Shrink table when very sparsely filled
             /// </summary>
             ShrinkTable = 8,
+
             /// <summary>
             /// Use chaining to resolve index clashes
             /// </summary>
             Chaining = 16,
+
             /// <summary>
             /// Use hash function on item hash code
             /// </summary>
             InterHashing = 32,
+
             /// <summary>
             /// Use a universal family of hash functions on item hash code
             /// </summary>
@@ -73,9 +81,9 @@ namespace TestProj47.C5
 
 
         private static readonly Feature features = Feature.Dummy
-                                          | Feature.RefTypeBucket
-                                          | Feature.Chaining
-                                          | Feature.RandomInterHashing;
+                                                   | Feature.RefTypeBucket
+                                                   | Feature.Chaining
+                                                   | Feature.RandomInterHashing;
 
 
         /// <summary>
@@ -115,6 +123,7 @@ namespace TestProj47.C5
         #endregion
 
         #region Bucket nested class(es)
+
         [Serializable]
         private class Bucket
         {
@@ -136,14 +145,20 @@ namespace TestProj47.C5
 
         #region Basic Util
 
-        private bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
+        private bool equals(T i1, T i2)
+        {
+            return itemequalityComparer.Equals(i1, i2);
+        }
 
-        private int gethashcode(T item) { return itemequalityComparer.GetHashCode(item); }
+        private int gethashcode(T item)
+        {
+            return itemequalityComparer.GetHashCode(item);
+        }
 
 
         private int hv2i(int hashval)
         {
-            return (int)(((uint)hashval * _randomhashfactor) >> bitsc);
+            return (int) (((uint) hashval * _randomhashfactor) >> bitsc);
         }
 
 
@@ -184,11 +199,10 @@ namespace TestProj47.C5
                     newtable[j] = new Bucket(b.item, b.hashval, newtable[j]);
                     b = b.overflow;
                 }
-
             }
 
             table = newtable;
-            resizethreshhold = (int)(table.Length * fillfactor);
+            resizethreshhold = (int) (table.Length * fillfactor);
             Logger.Log(string.Format("Resize to {0} bits done", bits));
         }
 
@@ -202,7 +216,6 @@ namespace TestProj47.C5
         /// <returns>True if found</returns>
         private bool searchoradd(ref T item, bool add, bool update, bool raise)
         {
-
             var hashval = gethashcode(item);
             var i = hv2i(hashval);
             Bucket b = table[i], bold = null;
@@ -242,7 +255,7 @@ namespace TestProj47.C5
             size++;
             if (size > resizethreshhold)
                 expand();
-        notfound:
+            notfound:
             if (raise && add)
                 raiseForAdd(item);
             if (update)
@@ -253,7 +266,6 @@ namespace TestProj47.C5
 
         private bool remove(ref T item)
         {
-
             if (size == 0)
                 return false;
             var hashval = gethashcode(item);
@@ -299,7 +311,7 @@ namespace TestProj47.C5
             indexmask = (1 << bits) - 1;
             size = 0;
             table = new Bucket[indexmask + 1];
-            resizethreshhold = (int)(table.Length * fillfactor);
+            resizethreshhold = (int) (table.Length * fillfactor);
         }
 
         #endregion
@@ -309,10 +321,9 @@ namespace TestProj47.C5
         /// <summary>
         /// 
         /// </summary>
-        public HashSet() 
+        public HashSet()
             : this(MemoryType.Normal)
         {
-                
         }
 
         /// <summary>
@@ -320,7 +331,9 @@ namespace TestProj47.C5
         /// and initial table size (16).
         /// </summary>
         public HashSet(MemoryType memoryType = MemoryType.Normal)
-            : this(EqualityComparer<T>.Default, memoryType) { }
+            : this(EqualityComparer<T>.Default, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -330,7 +343,9 @@ namespace TestProj47.C5
         /// <param name="itemequalityComparer">The external item equalitySCG.Comparer</param>
         /// <param name="memoryType"></param>
         public HashSet(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
-            : this(16, itemequalityComparer, memoryType) { }
+            : this(16, itemequalityComparer, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -339,8 +354,11 @@ namespace TestProj47.C5
         /// <param name="capacity">Initial table size (rounded to power of 2, at least 16)</param>
         /// <param name="itemequalityComparer">The external item equalitySCG.Comparer</param>
         /// <param name="memoryType"></param>
-        public HashSet(int capacity, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
-            : this(capacity, 0.66, itemequalityComparer, memoryType) { }
+        public HashSet(int capacity, SCG.IEqualityComparer<T> itemequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
+            : this(capacity, 0.66, itemequalityComparer, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -350,10 +368,13 @@ namespace TestProj47.C5
         /// <param name="fill">Fill threshold (in range 10% to 90%)</param>
         /// <param name="itemequalityComparer">The external item equalitySCG.Comparer</param>
         /// <param name="memoryType"></param>
-        public HashSet(int capacity, double fill, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        public HashSet(int capacity, double fill, SCG.IEqualityComparer<T> itemequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(itemequalityComparer, memoryType)
         {
-            _randomhashfactor = (Debug.UseDeterministicHashing) ? 1529784659 : (2 * (uint)Random.Next() + 1) * 1529784659;
+            _randomhashfactor = (Debug.UseDeterministicHashing)
+                ? 1529784659
+                : (2 * (uint) Random.Next() + 1) * 1529784659;
 
             if (fill < 0.1 || fill > 0.9)
                 throw new ArgumentException("Fill outside valid range [0.1, 0.9]");
@@ -365,8 +386,6 @@ namespace TestProj47.C5
             clear();
             _hashEnumerator = new HashEnumerator(memoryType);
         }
-
-
 
         #endregion
 
@@ -383,7 +402,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">The item to look for</param>
         /// <returns>True if set contains item</returns>
-        public virtual bool Contains(T item) { return searchoradd(ref item, false, false, false); }
+        public virtual bool Contains(T item)
+        {
+            return searchoradd(ref item, false, false, false);
+        }
 
 
         /// <summary>
@@ -393,7 +415,10 @@ namespace TestProj47.C5
         /// <param name="item">On entry, the item to look for.
         /// On exit the item found, if any</param>
         /// <returns>True if set contains item</returns>
-        public virtual bool Find(ref T item) { return searchoradd(ref item, false, false, false); }
+        public virtual bool Find(ref T item)
+        {
+            return searchoradd(ref item, false, false, false);
+        }
 
 
         /// <summary>
@@ -403,7 +428,10 @@ namespace TestProj47.C5
         /// <param name="item">The item object to update with</param>
         /// <returns>True if item was found (and updated)</returns>
         public virtual bool Update(T item)
-        { updatecheck(); return searchoradd(ref item, false, true, true); }
+        {
+            updatecheck();
+            return searchoradd(ref item, false, true, true);
+        }
 
         /// <summary>
         /// Check if an item (collection equal to a given one) is in the set and
@@ -413,7 +441,11 @@ namespace TestProj47.C5
         /// <param name="olditem"></param>
         /// <returns>True if item was found (and updated)</returns>
         public virtual bool Update(T item, out T olditem)
-        { updatecheck(); olditem = item; return searchoradd(ref olditem, false, true, true); }
+        {
+            updatecheck();
+            olditem = item;
+            return searchoradd(ref olditem, false, true, true);
+        }
 
 
         /// <summary>
@@ -425,7 +457,10 @@ namespace TestProj47.C5
         /// On exit the actual object found, if any.</param>
         /// <returns>True if item was found</returns>
         public virtual bool FindOrAdd(ref T item)
-        { updatecheck(); return searchoradd(ref item, true, false, true); }
+        {
+            updatecheck();
+            return searchoradd(ref item, true, false, true);
+        }
 
 
         /// <summary>
@@ -436,7 +471,10 @@ namespace TestProj47.C5
         /// <param name="item">The item to look for and update or add</param>
         /// <returns>True if item was updated</returns>
         public virtual bool UpdateOrAdd(T item)
-        { updatecheck(); return searchoradd(ref item, true, true, true); }
+        {
+            updatecheck();
+            return searchoradd(ref item, true, true, true);
+        }
 
 
         /// <summary>
@@ -448,7 +486,11 @@ namespace TestProj47.C5
         /// <param name="olditem"></param>
         /// <returns>True if item was updated</returns>
         public virtual bool UpdateOrAdd(T item, out T olditem)
-        { updatecheck(); olditem = item; return searchoradd(ref olditem, true, true, true); }
+        {
+            updatecheck();
+            olditem = item;
+            return searchoradd(ref olditem, true, true, true);
+        }
 
 
         /// <summary>
@@ -498,7 +540,10 @@ namespace TestProj47.C5
             var raise = raiseHandler.MustFire;
             T jtem;
             foreach (var item in items)
-            { jtem = item; if (remove(ref jtem) && raise) raiseHandler.Remove(jtem); }
+            {
+                jtem = item;
+                if (remove(ref jtem) && raise) raiseHandler.Remove(jtem);
+            }
 
             if (raise) raiseHandler.Raise();
         }
@@ -610,13 +655,19 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">The item to look for.</param>
         /// <returns>1 if item is in set, 0 else</returns>
-        public virtual int ContainsCount(T item) { return Contains(item) ? 1 : 0; }
+        public virtual int ContainsCount(T item)
+        {
+            return Contains(item) ? 1 : 0;
+        }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public virtual ICollectionValue<T> UniqueItems() { return this; }
+        public virtual ICollectionValue<T> UniqueItems()
+        {
+            return this;
+        }
 
         /// <summary>
         /// 
@@ -631,7 +682,10 @@ namespace TestProj47.C5
         /// Remove all (at most 1) copies of item from this set.
         /// </summary>
         /// <param name="item">The item to remove</param>
-        public virtual void RemoveAllCopies(T item) { Remove(item); }
+        public virtual void RemoveAllCopies(T item)
+        {
+            Remove(item);
+        }
 
         #endregion
 
@@ -644,11 +698,10 @@ namespace TestProj47.C5
             private int _stamp;
             private int _index;
             private Bucket b;
-             
-            
+
+
             public HashEnumerator(MemoryType memoryType) : base(memoryType)
             {
-
                 _index = -1;
                 Current = default;
             }
@@ -670,7 +723,7 @@ namespace TestProj47.C5
                 _index = -1;
                 b = null;
             }
-            
+
             protected override MemorySafeEnumerator<T> Clone()
             {
                 var enumerator = new HashEnumerator(MemoryType)
@@ -710,14 +763,14 @@ namespace TestProj47.C5
 
             public override void Reset()
             {
-                throw new NotImplementedException(); 
+                throw new NotImplementedException();
             }
         }
+
         #endregion
 
 
         #region IEnumerable<T> Members
-
 
         /// <summary>
         /// Choose some item of this collection. 
@@ -729,7 +782,10 @@ namespace TestProj47.C5
             var len = table.Length;
             if (size == 0)
                 throw new NoSuchItemException();
-            do { if (++lastchosen >= len) lastchosen = 0; } while (table[lastchosen] == null);
+            do
+            {
+                if (++lastchosen >= len) lastchosen = 0;
+            } while (table[lastchosen] == null);
 
             return table[lastchosen].item;
         }
@@ -740,7 +796,7 @@ namespace TestProj47.C5
         /// <returns>The enumerator</returns>
         public override SCG.IEnumerator<T> GetEnumerator()
         {
-            var enumerator = (HashEnumerator)_hashEnumerator.GetEnumerator();
+            var enumerator = (HashEnumerator) _hashEnumerator.GetEnumerator();
 
             enumerator.UpdateReference(this, stamp);
 
@@ -750,6 +806,7 @@ namespace TestProj47.C5
         #endregion
 
         #region ISink<T> Members
+
         /// <summary>
         /// Report if this is a set collection.
         /// </summary>
@@ -815,7 +872,6 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
         }
 
-
         #endregion
 
         #region Diagnostics
@@ -846,7 +902,8 @@ namespace TestProj47.C5
             }
             if (bitsc != 32 - bits)
             {
-                Logger.Log(string.Format("resizethreshhold != (int)(table.Length * fillfactor) ({0}, {1}, {2})", resizethreshhold, table.Length, fillfactor));
+                Logger.Log(string.Format("resizethreshhold != (int)(table.Length * fillfactor) ({0}, {1}, {2})",
+                    resizethreshhold, table.Length, fillfactor));
                 retval = false;
             }
 
@@ -858,7 +915,8 @@ namespace TestProj47.C5
                 {
                     if (i != hv2i(b.hashval))
                     {
-                        Logger.Log(string.Format("Bad cell item={0}, hashval={1}, index={2}, level={3}", b.item, b.hashval, i, level));
+                        Logger.Log(string.Format("Bad cell item={0}, hashval={1}, index={2}, level={3}", b.item,
+                            b.hashval, i, level));
                         retval = false;
                     }
 

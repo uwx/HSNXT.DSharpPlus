@@ -45,8 +45,8 @@ namespace TestProj47.C5
 
             _i = (_i + 1) & 15;
             var t = a * _q[_i] + _c;
-            _c = (uint)(t >> 32);
-            var x = (uint)(t + _c);
+            _c = (uint) (t >> 32);
+            var x = (uint) (t + _c);
             if (x >= _c) return _q[_i] = r - x;
             x++;
             _c++;
@@ -80,7 +80,7 @@ namespace TestProj47.C5
         /// <returns>The random int</returns>
         public override int Next()
         {
-            return (int)Cmwc();
+            return (int) Cmwc();
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace TestProj47.C5
                 throw new ArgumentException("max must be non-negative");
             }
 
-            return (int)(Cmwc() / 4294967296.0 * max);
+            return (int) (Cmwc() / 4294967296.0 * max);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace TestProj47.C5
                 throw new ArgumentException("min must be less than or equal to max");
             }
 
-            return min + (int)(Cmwc() / 4294967296.0 * (max - min));
+            return min + (int) (Cmwc() / 4294967296.0 * (max - min));
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace TestProj47.C5
         {
             for (int i = 0, length = buffer.Length; i < length; i++)
             {
-                buffer[i] = (byte)Cmwc();
+                buffer[i] = (byte) Cmwc();
             }
         }
 
@@ -150,7 +150,7 @@ namespace TestProj47.C5
                 throw new ArgumentException("Seed must be non-zero");
             }
 
-            var j = (uint)(seed & 0xFFFFFFFF);
+            var j = (uint) (seed & 0xFFFFFFFF);
 
             for (var i = 0; i < 16; i++)
             {
@@ -160,7 +160,7 @@ namespace TestProj47.C5
                 _q[i] = j;
             }
 
-            _q[15] = (uint)(seed ^ (seed >> 32));
+            _q[15] = (uint) (seed ^ (seed >> 32));
         }
 
         /// <inheritdoc />

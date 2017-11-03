@@ -14,11 +14,11 @@ namespace TestProj47
         public static string FormatForHuman(this Exception exception)
         {
             return string.Join("\n", exception.GetType().GetProperties().Select(property => new
-                 {
-                     property.Name,
-                     Value = property.GetValue(exception, null)
-                 }).Select(x => $"{x.Name} = {x.Value?.ToString() ?? string.Empty}") as string[] ??
-                 new[] {$"<formatting failed>\n{exception}"});
+                                     {
+                                         property.Name,
+                                         Value = property.GetValue(exception, null)
+                                     }).Select(x => $"{x.Name} = {x.Value?.ToString() ?? string.Empty}") as string[] ??
+                                     new[] {$"<formatting failed>\n{exception}"});
         }
     }
 }

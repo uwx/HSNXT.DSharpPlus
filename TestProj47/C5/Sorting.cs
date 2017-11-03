@@ -21,6 +21,7 @@
 
 using System;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     /// <summary>
@@ -29,7 +30,9 @@ namespace TestProj47.C5
     [Serializable]
     public class Sorting
     {
-        private Sorting() { }
+        private Sorting()
+        {
+        }
 
         /// <summary>
         /// Sort part of array in place using IntroSort
@@ -99,14 +102,18 @@ namespace TestProj47.C5
             private readonly SCG.IComparer<T> c;
 
 
-            internal Sorter(T[] a, SCG.IComparer<T> c) { this.a = a; this.c = c; }
+            internal Sorter(T[] a, SCG.IComparer<T> c)
+            {
+                this.a = a;
+                this.c = c;
+            }
 
 
             internal void IntroSort(int f, int b)
             {
                 if (b - f > 31)
                 {
-                    var depth_limit = (int)Math.Floor(2.5 * Math.Log(b - f, 2));
+                    var depth_limit = (int) Math.Floor(2.5 * Math.Log(b - f, 2));
 
                     introSort(f, b, depth_limit);
                 }
@@ -117,7 +124,7 @@ namespace TestProj47.C5
 
             private void introSort(int f, int b, int depth_limit)
             {
-                const int size_threshold = 14;//24;
+                const int size_threshold = 14; //24;
 
                 if (depth_limit-- == 0)
                     HeapSort(f, b);
@@ -133,7 +140,10 @@ namespace TestProj47.C5
             }
 
 
-            private int compare(T i1, T i2) { return c.Compare(i1, i2); }
+            private int compare(T i1, T i2)
+            {
+                return c.Compare(i1, i2);
+            }
 
 
             private int partition(int f, int b)
@@ -143,20 +153,37 @@ namespace TestProj47.C5
 
                 if (compare(abot, amid) < 0)
                 {
-                    if (compare(atop, abot) < 0)//atop<abot<amid
-                    { a[top] = amid; amid = a[mid] = abot; a[bot] = atop; }
+                    if (compare(atop, abot) < 0) //atop<abot<amid
+                    {
+                        a[top] = amid;
+                        amid = a[mid] = abot;
+                        a[bot] = atop;
+                    }
                     else if (compare(atop, amid) < 0) //abot<=atop<amid
-                    { a[top] = amid; amid = a[mid] = atop; }
+                    {
+                        a[top] = amid;
+                        amid = a[mid] = atop;
+                    }
                     //else abot<amid<=atop
                 }
                 else
                 {
                     if (compare(amid, atop) > 0) //atop<amid<=abot
-                    { a[bot] = atop; a[top] = abot; }
+                    {
+                        a[bot] = atop;
+                        a[top] = abot;
+                    }
                     else if (compare(abot, atop) > 0) //amid<=atop<abot
-                    { a[bot] = amid; amid = a[mid] = atop; a[top] = abot; }
+                    {
+                        a[bot] = amid;
+                        amid = a[mid] = atop;
+                        a[top] = abot;
+                    }
                     else //amid<=abot<=atop
-                    { a[bot] = amid; amid = a[mid] = abot; }
+                    {
+                        a[bot] = amid;
+                        amid = a[mid] = abot;
+                    }
                 }
 
                 int i = bot, j = top;
@@ -169,7 +196,9 @@ namespace TestProj47.C5
 
                     if (i < j)
                     {
-                        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+                        var tmp = a[i];
+                        a[i] = a[j];
+                        a[j] = tmp;
                     }
                     else
                         return i;
@@ -187,7 +216,10 @@ namespace TestProj47.C5
                     if (c.Compare(other = a[i], key) > 0)
                     {
                         a[j] = other;
-                        while (i > f && c.Compare(other = a[i - 1], key) > 0) { a[i--] = other; }
+                        while (i > f && c.Compare(other = a[i - 1], key) > 0)
+                        {
+                            a[i--] = other;
+                        }
 
                         a[i] = key;
                     }
@@ -201,7 +233,9 @@ namespace TestProj47.C5
 
                 for (var i = b - 1; i > f; i--)
                 {
-                    var tmp = a[f]; a[f] = a[i]; a[i] = tmp;
+                    var tmp = a[f];
+                    a[f] = a[i];
+                    a[i] = tmp;
                     heapify(f, i, f);
                 }
             }
@@ -216,9 +250,17 @@ namespace TestProj47.C5
                 {
                     int l = 2 * j - f + 1, r = l + 1;
 
-                    if (l < b && compare(lv = a[l], max) > 0) { maxpt = l; max = lv; }
+                    if (l < b && compare(lv = a[l], max) > 0)
+                    {
+                        maxpt = l;
+                        max = lv;
+                    }
 
-                    if (r < b && compare(rv = a[r], max) > 0) { maxpt = r; max = rv; }
+                    if (r < b && compare(rv = a[r], max) > 0)
+                    {
+                        maxpt = r;
+                        max = rv;
+                    }
 
                     if (maxpt == j)
                         break;

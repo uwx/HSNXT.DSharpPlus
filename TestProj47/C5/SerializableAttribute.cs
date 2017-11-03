@@ -1,5 +1,4 @@
 ﻿#if NETSTANDARD1_0 || PROFILE328 || PROFILE259
-
 namespace TestProj47.C5
 {
     /// <summary>

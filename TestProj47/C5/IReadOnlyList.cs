@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 
 #if NET35 || NET40 || PROFILE328
-
 namespace System.Collections.Generic
 {
     /// <summary>

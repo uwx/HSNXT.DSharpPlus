@@ -1,4 +1,3 @@
-
 /*
  Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,6 +22,7 @@
 using System;
 using System.Collections;
 using SCG = System.Collections.Generic;
+
 namespace TestProj47.C5
 {
     /// <summary>
@@ -65,7 +65,9 @@ namespace TestProj47.C5
         private bool fIFO;
 
         private readonly HashSet<KeyValuePair<T, int>> itemIndex;
+
         #endregion
+
         #region Events
 
         /// <summary>
@@ -210,9 +212,13 @@ namespace TestProj47.C5
               */
 
         #endregion
+
         #region Util
 
-        private bool equals(T i1, T i2) { return itemequalityComparer.Equals(i1, i2); }
+        private bool equals(T i1, T i2)
+        {
+            return itemequalityComparer.Equals(i1, i2);
+        }
 
         /// <summary>
         /// Increment or decrement the private size fields
@@ -226,11 +232,14 @@ namespace TestProj47.C5
         }
 
         #region Array handling
+
         /// <summary>
         /// Double the size of the internal array.
         /// </summary>
         protected override void expand()
-        { expand(2 * array.Length, underlyingsize); }
+        {
+            expand(2 * array.Length, underlyingsize);
+        }
 
 
         /// <summary>
@@ -254,6 +263,7 @@ namespace TestProj47.C5
         #endregion
 
         #region Checks
+
         /// <summary>
         /// Check if it is valid to perform updates and increment stamp if so.
         /// </summary>
@@ -321,8 +331,8 @@ namespace TestProj47.C5
         private int lastIndexOf(T item)
         {
             return indexOf(item);
-
         }
+
         #endregion
 
         #region Inserting
@@ -353,6 +363,7 @@ namespace TestProj47.C5
             addtosize(1);
             fixViewsAfterInsert(1, i);
         }
+
         #endregion
 
         #region Removing
@@ -375,17 +386,22 @@ namespace TestProj47.C5
             reindex(i);
             return retval;
         }
+
         #endregion
 
         #region Indexing
 
-        private void reindex(int start) { reindex(start, underlyingsize); }
+        private void reindex(int start)
+        {
+            reindex(start, underlyingsize);
+        }
 
         private void reindex(int start, int end)
         {
             for (var j = start; j < end; j++)
                 itemIndex.UpdateOrAdd(new KeyValuePair<T, int>(array[j], j));
         }
+
         #endregion
 
         #region fixView utilities
@@ -404,7 +420,8 @@ namespace TestProj47.C5
                     {
                         if (view.offsetField < realInsertionIndex && view.offsetField + view.size > realInsertionIndex)
                             view.size += added;
-                        if (view.offsetField > realInsertionIndex || (view.offsetField == realInsertionIndex && view.size > 0))
+                        if (view.offsetField > realInsertionIndex ||
+                            (view.offsetField == realInsertionIndex && view.size > 0))
                             view.offsetField += added;
                     }
                 }
@@ -498,11 +515,13 @@ namespace TestProj47.C5
                     }
                 }
         }
+
         #endregion
 
         #endregion
 
         #region Position, PositionComparer and ViewHandler nested types
+
         [Serializable]
         private class PositionComparer : SCG.IComparer<Position>
         {
@@ -511,6 +530,7 @@ namespace TestProj47.C5
                 return a.index.CompareTo(b.index);
             }
         }
+
         /// <summary>
         /// During RemoveAll, we need to cache the original endpoint indices of views (??? also for HashedArrayList?)
         /// </summary>
@@ -518,12 +538,18 @@ namespace TestProj47.C5
         {
             public readonly HashedArrayList<T> view;
             public readonly int index;
+
             public Position(HashedArrayList<T> view, bool left)
             {
                 this.view = view;
                 index = left ? view.offsetField : view.offsetField + view.size - 1;
             }
-            public Position(int index) { this.index = index; view = null; }
+
+            public Position(int index)
+            {
+                this.index = index;
+                view = null;
+            }
         }
 
         /// <summary>
@@ -535,6 +561,7 @@ namespace TestProj47.C5
             private readonly HashedArrayList<Position> rightEnds;
             private int leftEndIndex, rightEndIndex;
             internal readonly int viewCount;
+
             internal ViewHandler(HashedArrayList<T> list)
             {
                 leftEndIndex = rightEndIndex = viewCount = 0;
@@ -557,6 +584,7 @@ namespace TestProj47.C5
                 leftEnds.Sort(new PositionComparer());
                 rightEnds.Sort(new PositionComparer());
             }
+
             /// <summary>
             /// This is to be called with realindex pointing to the first node to be removed after a (stretch of) node that was not removed
             /// </summary>
@@ -581,6 +609,7 @@ namespace TestProj47.C5
                     }
                 }
             }
+
             internal void updateViewSizesAndCounts(int removed, int realindex)
             {
                 if (viewCount > 0)
@@ -601,20 +630,25 @@ namespace TestProj47.C5
                 }
             }
         }
+
         #endregion
 
         #region Constructors
+
         /// <summary>
         /// 
         /// </summary>
-        public HashedArrayList() : this(8) { }
-
+        public HashedArrayList() : this(8)
+        {
+        }
 
 
         /// <summary>
         /// Create an array list with default item equalityComparer and initial capacity 8 items.
         /// </summary>
-        public HashedArrayList(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType) { }
+        public HashedArrayList(MemoryType memoryType = MemoryType.Normal) : this(8, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -622,7 +656,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="itemequalityComparer">The external item equalitySCG.Comparer</param>
         /// <param name="memoryType"></param>
-        public HashedArrayList(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal) : this(8, itemequalityComparer, memoryType) { }
+        public HashedArrayList(SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
+            : this(8, itemequalityComparer, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -630,7 +667,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="capacity">The prescribed capacity</param>
         /// <param name="memoryType"></param>
-        public HashedArrayList(int capacity, MemoryType memoryType = MemoryType.Normal) : this(capacity, EqualityComparer<T>.Default, memoryType) { }
+        public HashedArrayList(int capacity, MemoryType memoryType = MemoryType.Normal) : this(capacity,
+            EqualityComparer<T>.Default, memoryType)
+        {
+        }
 
         /// <summary>
         /// Create an array list with external item equalityComparer and prescribed initial capacity.
@@ -638,10 +678,12 @@ namespace TestProj47.C5
         /// <param name="capacity">The prescribed capacity</param>
         /// <param name="itemequalityComparer">The external item equalitySCG.Comparer</param>
         /// <param name="memoryType"></param>
-        public HashedArrayList(int capacity, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        public HashedArrayList(int capacity, SCG.IEqualityComparer<T> itemequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(capacity, itemequalityComparer, memoryType)
         {
-            itemIndex = new HashSet<KeyValuePair<T, int>>(new KeyValuePairEqualityComparer<T, int>(itemequalityComparer));
+            itemIndex = new HashSet<KeyValuePair<T, int>>(
+                new KeyValuePairEqualityComparer<T, int>(itemequalityComparer));
         }
 
         #endregion
@@ -690,8 +732,16 @@ namespace TestProj47.C5
         /// start of the list, false if it removes from the end. The default for a new array list is false.</value>
         public virtual bool FIFO
         {
-            get { validitycheck(); return fIFO; }
-            set { updatecheck(); fIFO = value; }
+            get
+            {
+                validitycheck();
+                return fIFO;
+            }
+            set
+            {
+                updatecheck();
+                fIFO = value;
+            }
         }
 
         /// <summary>
@@ -699,7 +749,11 @@ namespace TestProj47.C5
         /// </summary>
         public virtual bool IsFixedSize
         {
-            get { validitycheck(); return false; }
+            get
+            {
+                validitycheck();
+                return false;
+            }
         }
 
 
@@ -822,7 +876,6 @@ namespace TestProj47.C5
             var i = index;
             try
             {
-
                 foreach (var item in items)
                 {
                     var p = new KeyValuePair<T, int>(item, i);
@@ -848,6 +901,7 @@ namespace TestProj47.C5
                 }
             }
         }
+
         private void raiseForInsertAll(int index, int added)
         {
             if (ActiveEvents != 0)
@@ -1039,7 +1093,7 @@ namespace TestProj47.C5
             checkRange(start, count);
             if (views == null)
                 views = new WeakViewList<HashedArrayList<T>>();
-            var retval = (HashedArrayList<T>)MemberwiseClone();
+            var retval = (HashedArrayList<T>) MemberwiseClone();
 
 
             retval.underlying = underlying != null ? underlying : this;
@@ -1206,7 +1260,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <exception cref="NotComparableException">if T is not comparable</exception>
         /// <returns>True if the list is sorted, else false.</returns>
-        public bool IsSorted() { return IsSorted(SCG.Comparer<T>.Default); }
+        public bool IsSorted()
+        {
+            return IsSorted(SCG.Comparer<T>.Default);
+        }
 
         /// <summary>
         /// Check if this list is sorted according to a specific sorting order.
@@ -1254,7 +1311,10 @@ namespace TestProj47.C5
         /// <summary>
         /// Randomly shuffle the items of this list. 
         /// </summary>
-        public virtual void Shuffle() { Shuffle(new C5Random()); }
+        public virtual void Shuffle()
+        {
+            Shuffle(new C5Random());
+        }
 
 
         /// <summary>
@@ -1280,6 +1340,7 @@ namespace TestProj47.C5
             reindex(offsetField, offsetField + size);
             (underlying ?? this).raiseCollectionChanged();
         }
+
         #endregion
 
         #region IIndexed<T> Members
@@ -1289,7 +1350,11 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">Item to search for.</param>
         /// <returns>Index of item from start.</returns>
-        public virtual int IndexOf(T item) { validitycheck(); return indexOf(item); }
+        public virtual int IndexOf(T item)
+        {
+            validitycheck();
+            return indexOf(item);
+        }
 
 
         /// <summary>
@@ -1297,7 +1362,11 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="item">Item to search for.</param>
         /// <returns>Index of item from the end.</returns>
-        public virtual int LastIndexOf(T item) { validitycheck(); return lastIndexOf(item); }
+        public virtual int LastIndexOf(T item)
+        {
+            validitycheck();
+            return lastIndexOf(item);
+        }
 
 
         /// <summary>
@@ -1355,6 +1424,7 @@ namespace TestProj47.C5
                 raiseCollectionChanged();
             }
         }
+
         #endregion
 
         #region ICollection<T> Members
@@ -1372,7 +1442,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <returns></returns>
         public override int GetUnsequencedHashCode()
-        { validitycheck(); return base.GetUnsequencedHashCode(); }
+        {
+            validitycheck();
+            return base.GetUnsequencedHashCode();
+        }
 
         /// <summary>
         /// 
@@ -1380,7 +1453,10 @@ namespace TestProj47.C5
         /// <param name="that"></param>
         /// <returns></returns>
         public override bool UnsequencedEquals(ICollection<T> that)
-        { validitycheck(); return base.UnsequencedEquals(that); }
+        {
+            validitycheck();
+            return base.UnsequencedEquals(that);
+        }
 
         /// <summary>
         /// Check if this collection contains (an item equivalent to according to the
@@ -1389,7 +1465,10 @@ namespace TestProj47.C5
         /// <param name="item">The value to check for.</param>
         /// <returns>True if the items is in this collection.</returns>
         public virtual bool Contains(T item)
-        { validitycheck(); return indexOf(item) >= 0; }
+        {
+            validitycheck();
+            return indexOf(item) >= 0;
+        }
 
 
         /// <summary>
@@ -1593,7 +1672,8 @@ namespace TestProj47.C5
                     }
                     //if (j<i)
                     array[j] = item;
-                    i++; j++;
+                    i++;
+                    j++;
                 }
                 viewHandler.skipEndpoints(removed, i);
                 //Remove a stretch of nodes
@@ -1650,7 +1730,8 @@ namespace TestProj47.C5
                     }
                     //if (j<i)
                     array[j] = item;
-                    i++; j++;
+                    i++;
+                    j++;
                 }
                 updatecheck();
                 viewHandler.skipEndpoints(removed, i);
@@ -1738,7 +1819,8 @@ namespace TestProj47.C5
                     }
                     //if (j<i)
                     array[j] = item;
-                    i++; j++;
+                    i++;
+                    j++;
                 }
                 viewHandler.skipEndpoints(removed, i);
                 //Remove a stretch of nodes
@@ -1794,7 +1876,8 @@ namespace TestProj47.C5
                     }
                     //if (j<i)
                     array[j] = item;
-                    i++; j++;
+                    i++;
+                    j++;
                 }
                 updatecheck();
                 viewHandler.skipEndpoints(removed, i);
@@ -1838,7 +1921,6 @@ namespace TestProj47.C5
                     return false;
 
             return true;
-
         }
 
 
@@ -1852,7 +1934,6 @@ namespace TestProj47.C5
         {
             validitycheck();
             return indexOf(item) >= 0 ? 1 : 0;
-
         }
 
         /// <summary>
@@ -1862,7 +1943,6 @@ namespace TestProj47.C5
         public virtual ICollectionValue<T> UniqueItems()
         {
             return this;
-
         }
 
         /// <summary>
@@ -1872,11 +1952,7 @@ namespace TestProj47.C5
         public virtual ICollectionValue<KeyValuePair<T, int>> ItemMultiplicities()
         {
             return new MultiplicityOne<T>(this);
-
         }
-
-
-
 
 
         /// <summary>
@@ -1886,7 +1962,6 @@ namespace TestProj47.C5
         public virtual void RemoveAllCopies(T item)
         {
             Remove(item);
-
         }
 
 
@@ -1907,7 +1982,8 @@ namespace TestProj47.C5
 
             if (offsetField + size > underlyingsize)
             {
-                Logger.Log(string.Format("offset({0})+size({1}) > underlyingsize ({2})", offsetField, size, underlyingsize));
+                Logger.Log(string.Format("offset({0})+size({1}) > underlyingsize ({2})", offsetField, size,
+                    underlyingsize));
                 return false;
             }
 
@@ -1942,7 +2018,9 @@ namespace TestProj47.C5
                     {
                         if (u.array != v.array)
                         {
-                            Logger.Log(string.Format("View from {0} of length has different base array than the underlying list", v.offsetField, v.size));
+                            Logger.Log(string.Format(
+                                "View from {0} of length has different base array than the underlying list",
+                                v.offsetField, v.size));
                             retval = false;
                         }
                     }
@@ -2053,6 +2131,7 @@ namespace TestProj47.C5
                 }
             }
         }
+
         private void raiseForAddAll(int start, int added)
         {
             if ((ActiveEvents & EventTypeEnum.Added) != 0)
@@ -2072,19 +2151,32 @@ namespace TestProj47.C5
         /// <code>foreach (T x in coll.Backwards()) {...}</code>
         /// </summary>
         /// <returns>The backwards collection.</returns>
-        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return Backwards(); }
+        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
+        {
+            return Backwards();
+        }
 
         #endregion
 
         #region ICollectionValue<T> Members
+
         /// <summary>
         /// 
         /// </summary>
         /// <value>The number of items in this collection</value>
-        public override int Count { get { validitycheck(); return size; } }
+        public override int Count
+        {
+            get
+            {
+                validitycheck();
+                return size;
+            }
+        }
+
         #endregion
 
         #region IEnumerable<T> Members
+
         //TODO: make tests of all calls on a disposed view throws the right exception! (Which should be C5.InvalidListViewException)
         /// <summary>
         /// Create an enumerator for the collection
@@ -2095,6 +2187,7 @@ namespace TestProj47.C5
             validitycheck();
             return base.GetEnumerator();
         }
+
         #endregion
 
         #region IDisposable Members
@@ -2135,6 +2228,7 @@ namespace TestProj47.C5
         #endregion
 
         #region ISerializable Members
+
         /*
     /// <summary>
     /// 
@@ -2167,6 +2261,7 @@ namespace TestProj47.C5
       }
     }
 */
+
         #endregion
 
         #region System.Collections.Generic.IList<T> Members
@@ -2188,7 +2283,7 @@ namespace TestProj47.C5
         bool ICollection.IsSynchronized => false;
 
         [Obsolete]
-        Object ICollection.SyncRoot => underlying != null ? ((ICollection)underlying).SyncRoot : array;
+        Object ICollection.SyncRoot => underlying != null ? ((ICollection) underlying).SyncRoot : array;
 
         void ICollection.CopyTo(Array arr, int index)
         {
@@ -2206,34 +2301,34 @@ namespace TestProj47.C5
         Object IList.this[int index]
         {
             get => this[index];
-            set => this[index] = (T)value;
+            set => this[index] = (T) value;
         }
 
         int IList.Add(Object o)
         {
-            var added = Add((T)o);
+            var added = Add((T) o);
             // What position to report if item not added? SC.IList.Add doesn't say
             return added ? Count - 1 : -1;
         }
 
         bool IList.Contains(Object o)
         {
-            return Contains((T)o);
+            return Contains((T) o);
         }
 
         int IList.IndexOf(Object o)
         {
-            return Math.Max(-1, IndexOf((T)o));
+            return Math.Max(-1, IndexOf((T) o));
         }
 
         void IList.Insert(int index, Object o)
         {
-            Insert(index, (T)o);
+            Insert(index, (T) o);
         }
 
         void IList.Remove(Object o)
         {
-            Remove((T)o);
+            Remove((T) o);
         }
 
         void IList.RemoveAt(int index)

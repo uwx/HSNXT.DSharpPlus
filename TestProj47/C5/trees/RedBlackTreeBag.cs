@@ -81,6 +81,7 @@ namespace TestProj47.C5
         public override EventTypeEnum ListenableEvents => EventTypeEnum.Basic;
 
         #endregion
+
         #region Util
 
         /// <summary>
@@ -93,7 +94,6 @@ namespace TestProj47.C5
         {
             if (isSnapShot)
             {
-
                 if (n.lastgeneration >= generation && n.leftnode)
                     return n.oldref;
             }
@@ -105,7 +105,6 @@ namespace TestProj47.C5
         {
             if (isSnapShot)
             {
-
                 if (n.lastgeneration >= generation && !n.leftnode)
                     return n.oldref;
             }
@@ -127,7 +126,6 @@ namespace TestProj47.C5
         #endregion
 
         #region Node nested class
-
 
         /// <summary>
         /// The type of node in a Red-Black binary tree
@@ -209,7 +207,7 @@ namespace TestProj47.C5
             {
                 if (cursor.generation <= maxsnapid)
                 {
-                    cursor = (Node)(cursor.MemberwiseClone());
+                    cursor = (Node) (cursor.MemberwiseClone());
                     cursor.generation = generation;
                     cursor.lastgeneration = -1;
                     return true;
@@ -230,7 +228,10 @@ namespace TestProj47.C5
         /// </summary>
         /// <exception cref="NotComparableException">If <code>T</code> is not comparable.
         /// </exception>
-		public TreeBag(MemoryType memoryType = MemoryType.Normal) : this(SCG.Comparer<T>.Default, EqualityComparer<T>.Default, memoryType) { }
+        public TreeBag(MemoryType memoryType = MemoryType.Normal) : this(SCG.Comparer<T>.Default,
+            EqualityComparer<T>.Default, memoryType)
+        {
+        }
 
 
         /// <summary>
@@ -244,8 +245,11 @@ namespace TestProj47.C5
         /// </para>
         /// </summary>
         /// <param name="comparer">The external comparer</param>
-		/// <param name = "memoryType"></param>
-		public TreeBag(SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType) { }
+        /// <param name = "memoryType"></param>
+        public TreeBag(SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(comparer,
+            new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType)
+        {
+        }
 
         /// <summary>
         /// Create a red-black tree collection with an external comparer and an external
@@ -253,8 +257,9 @@ namespace TestProj47.C5
         /// </summary>
         /// <param name="comparer">The external comparer</param>
         /// <param name="equalityComparer">The external item equalitySCG.Comparer</param>
-		/// <param name = "memoryType"></param>
-		public TreeBag(SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> equalityComparer, MemoryType memoryType = MemoryType.Normal)
+        /// <param name = "memoryType"></param>
+        public TreeBag(SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> equalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
             : base(equalityComparer, memoryType)
         {
             if (comparer == null)
@@ -293,7 +298,9 @@ namespace TestProj47.C5
             private Node[] path; // stack of nodes
 
             private int level;
+
             #endregion
+
             /// <summary>
             /// Create a tree enumerator
             /// </summary>
@@ -396,6 +403,7 @@ namespace TestProj47.C5
             {
                 Dispose(false);
             }
+
             #endregion
 
 
@@ -441,6 +449,7 @@ namespace TestProj47.C5
             private Node[] path; // stack of nodes
 
             private int level;
+
             #endregion
 
             /// <summary>
@@ -468,7 +477,7 @@ namespace TestProj47.C5
             /// <returns>True if enumerator is valid now</returns>
             public bool MoveNext()
             {
-                tree.modifycheck(stamp);//???
+                tree.modifycheck(stamp); //???
 
 
                 if (--togo > 0)
@@ -612,7 +621,6 @@ namespace TestProj47.C5
                 return new SnapEnumerator(this);
 
             return getEnumerator(root, stamp);
-
         }
 
         #endregion
@@ -676,7 +684,6 @@ namespace TestProj47.C5
 
                             if (!update)
                                 cursor.size++;
-
                         }
 
                         path[level] = null;
@@ -686,7 +693,6 @@ namespace TestProj47.C5
                     root = cursor;
 
                     return !update;
-
                 }
 
                 //else
@@ -756,14 +762,16 @@ namespace TestProj47.C5
                     if (comp > 0)
                     {
                         if (childcomp > 0)
-                        {//zagzag
+                        {
+//zagzag
                             Node.update(ref cursor, true, child.right, maxsnapid, generation);
                             Node.update(ref child, false, cursor, maxsnapid, generation);
 
                             cursor = child;
                         }
                         else
-                        {//zagzig
+                        {
+//zagzig
                             var badgrandchild = child.right;
                             Node.update(ref cursor, true, badgrandchild.right, maxsnapid, generation);
                             Node.update(ref child, false, badgrandchild.left, maxsnapid, generation);
@@ -775,16 +783,19 @@ namespace TestProj47.C5
                         }
                     }
                     else
-                    {//comp < 0
+                    {
+//comp < 0
                         if (childcomp < 0)
-                        {//zigzig
+                        {
+//zigzig
                             Node.update(ref cursor, false, child.left, maxsnapid, generation);
                             Node.update(ref child, true, cursor, maxsnapid, generation);
 
                             cursor = child;
                         }
                         else
-                        {//zigzag
+                        {
+//zigzag
                             var badgrandchild = child.left;
                             Node.update(ref cursor, false, badgrandchild.left, maxsnapid, generation);
                             Node.update(ref child, true, badgrandchild.right, maxsnapid, generation);
@@ -801,7 +812,8 @@ namespace TestProj47.C5
                     Node n;
 
                     n = cursor.right;
-                    cursor.size = n.size = (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) + n.items;
+                    cursor.size = n.size = (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) +
+                                           n.items;
                     n = cursor.left;
                     n.size = (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) + n.items;
                     cursor.size += n.size + cursor.items;
@@ -831,7 +843,6 @@ namespace TestProj47.C5
                 if (stillmore)
                     stillmore = Node.update(ref cursor, dirs[level] > 0, child, maxsnapid, generation);
                 cursor.size++;
-
             }
 
             root = cursor;
@@ -981,7 +992,6 @@ namespace TestProj47.C5
 
                 if (red > 0)
                 {
-
                     top.size += rest.size;
 
                     top.right = rest;
@@ -1016,7 +1026,8 @@ namespace TestProj47.C5
 
         private void addSorted(SCG.IEnumerable<T> items, bool safe, bool raise)
         {
-            var e = items.GetEnumerator(); ;
+            var e = items.GetEnumerator();
+            ;
             if (size > 0)
                 throw new InternalException("This can't happen");
 
@@ -1032,7 +1043,6 @@ namespace TestProj47.C5
 
             while (e.MoveNext())
             {
-
                 var thisitem = e.Current;
                 var comp = comparer.Compare(lastitem, thisitem);
                 if (comp > 0)
@@ -1051,7 +1061,6 @@ namespace TestProj47.C5
                     lastitem = tail.item = thisitem;
                     tail.generation = generation;
                 }
-
             }
 
             tail.size = tail.items;
@@ -1105,7 +1114,6 @@ namespace TestProj47.C5
 
         #region IEditableCollection<T> Members
 
-
         /// <summary>
         /// The value is symbolic indicating the type of asymptotic complexity
         /// in terms of the size of this collection (worst-case or amortized as
@@ -1124,7 +1132,8 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            Node next; var comp = 0;
+            Node next;
+            var comp = 0;
 
             next = root;
             while (next != null)
@@ -1153,7 +1162,8 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            Node next; var comp = 0;
+            Node next;
+            var comp = 0;
 
             next = root;
             while (next != null)
@@ -1257,7 +1267,6 @@ namespace TestProj47.C5
                         cursor = path[--level];
                         path[level] = null;
                         Node.update(ref cursor, dirs[level] > 0, child, maxsnapid, generation);
-
                     }
 
                     root = cursor;
@@ -1287,7 +1296,10 @@ namespace TestProj47.C5
         /// <param name="item">Value to add or update.</param>
         /// <returns>True if the item was found and updated (hence not added).</returns>
         public bool UpdateOrAdd(T item)
-        { T olditem; return UpdateOrAdd(item, out olditem); }
+        {
+            T olditem;
+            return UpdateOrAdd(item, out olditem);
+        }
 
         /// <summary>
         /// 
@@ -1457,7 +1469,6 @@ namespace TestProj47.C5
                 path[level_of_item].item = cursor.item;
 
                 path[level_of_item].items = cursor.items;
-
             }
 
             //Stage 3: splice out node to be removed
@@ -1486,7 +1497,8 @@ namespace TestProj47.C5
 
             childsibling = comp > 0 ? cursor.right : cursor.left;
 
-            cursor.size = cursor.items + (newchild == null ? 0 : newchild.size) + (childsibling == null ? 0 : childsibling.size);
+            cursor.size = cursor.items + (newchild == null ? 0 : newchild.size) +
+                          (childsibling == null ? 0 : childsibling.size);
 
 
             //Stage 4: demote till we must rotate
@@ -1528,7 +1540,8 @@ namespace TestProj47.C5
                 childsibling = comp > 0 ? cursor.right : cursor.left;
                 Node.update(ref cursor, comp > 0, child, maxsnapid, generation);
 
-                cursor.size = cursor.items + (child == null ? 0 : child.size) + (childsibling == null ? 0 : childsibling.size);
+                cursor.size = cursor.items + (child == null ? 0 : child.size) +
+                              (childsibling == null ? 0 : childsibling.size);
             }
 
             //Stage 5: rotate 
@@ -1541,7 +1554,8 @@ namespace TestProj47.C5
                 var parent = cursor;
 
                 if (childsibling.red)
-                {//Case 2 and perhaps more. 
+                {
+//Case 2 and perhaps more. 
                     //The y.rank == px.rank >= x.rank+2 >=2 so both nephews are != null 
                     //(and black). The grandnephews are children of nearnephew
                     Node neargrandnephew, fargrandnephew;
@@ -1562,7 +1576,8 @@ namespace TestProj47.C5
                     }
 
                     if (fargrandnephew != null && fargrandnephew.red)
-                    {//Case 2+1b
+                    {
+//Case 2+1b
                         Node.CopyNode(ref nearnephew, maxsnapid, generation);
 
                         //The end result of this will always be e copy of parent
@@ -1587,10 +1602,10 @@ namespace TestProj47.C5
                         cursor.size = parent.size;
                         nearnephew.size = cursor.size - cursor.items - farnephew.size;
                         parent.size = nearnephew.size - nearnephew.items - fargrandnephew.size;
-
                     }
                     else if (neargrandnephew != null && neargrandnephew.red)
-                    {//Case 2+1c
+                    {
+//Case 2+1c
                         Node.CopyNode(ref neargrandnephew, maxsnapid, generation);
                         if (comp > 0)
                         {
@@ -1613,13 +1628,15 @@ namespace TestProj47.C5
                         childsibling.red = false;
 
                         cursor.size = parent.size;
-                        parent.size = parent.items + (parent.left == null ? 0 : parent.left.size) + (parent.right == null ? 0 : parent.right.size);
-                        nearnephew.size = nearnephew.items + (nearnephew.left == null ? 0 : nearnephew.left.size) + (nearnephew.right == null ? 0 : nearnephew.right.size);
+                        parent.size = parent.items + (parent.left == null ? 0 : parent.left.size) +
+                                      (parent.right == null ? 0 : parent.right.size);
+                        nearnephew.size = nearnephew.items + (nearnephew.left == null ? 0 : nearnephew.left.size) +
+                                          (nearnephew.right == null ? 0 : nearnephew.right.size);
                         neargrandnephew.size = neargrandnephew.items + parent.size + nearnephew.size;
-
                     }
                     else
-                    {//Case 2 only
+                    {
+//Case 2 only
                         Node.update(ref parent, comp < 0, nearnephew, maxsnapid, generation);
                         Node.update(ref childsibling, comp > 0, parent, maxsnapid, generation);
 
@@ -1629,11 +1646,11 @@ namespace TestProj47.C5
 
                         cursor.size = parent.size;
                         parent.size -= farnephew.size + cursor.items;
-
                     }
                 }
                 else if (farnephew != null && farnephew.red)
-                {//Case 1b
+                {
+//Case 1b
                     nearnephew = comp > 0 ? childsibling.left : childsibling.right;
                     Node.update(ref parent, comp < 0, nearnephew, maxsnapid, generation);
                     Node.CopyNode(ref childsibling, maxsnapid, generation);
@@ -1656,10 +1673,10 @@ namespace TestProj47.C5
 
                     cursor.size = parent.size;
                     parent.size -= farnephew.size + cursor.items;
-
                 }
                 else if (nearnephew != null && nearnephew.red)
-                {//Case 1c
+                {
+//Case 1c
                     Node.CopyNode(ref nearnephew, maxsnapid, generation);
                     if (comp > 0)
                     {
@@ -1683,12 +1700,14 @@ namespace TestProj47.C5
                     parent.red = false;
 
                     cursor.size = parent.size;
-                    parent.size = parent.items + (parent.left == null ? 0 : parent.left.size) + (parent.right == null ? 0 : parent.right.size);
-                    childsibling.size = childsibling.items + (childsibling.left == null ? 0 : childsibling.left.size) + (childsibling.right == null ? 0 : childsibling.right.size);
-
+                    parent.size = parent.items + (parent.left == null ? 0 : parent.left.size) +
+                                  (parent.right == null ? 0 : parent.right.size);
+                    childsibling.size = childsibling.items + (childsibling.left == null ? 0 : childsibling.left.size) +
+                                        (childsibling.right == null ? 0 : childsibling.right.size);
                 }
                 else
-                {//Case 1a can't happen
+                {
+//Case 1a can't happen
                     throw new InternalException("Case 1a can't happen here");
                 }
 
@@ -1706,8 +1725,8 @@ namespace TestProj47.C5
                     Node.update(ref cursor, dirs[level] > 0, swap, maxsnapid, generation);
 
 
-                    cursor.size = cursor.items + (cursor.right == null ? 0 : cursor.right.size) + (cursor.left == null ? 0 : cursor.left.size);
-
+                    cursor.size = cursor.items + (cursor.right == null ? 0 : cursor.right.size) +
+                                  (cursor.left == null ? 0 : cursor.left.size);
                 }
             }
 
@@ -1722,8 +1741,8 @@ namespace TestProj47.C5
                     Node.update(ref cursor, dirs[level] > 0, child, maxsnapid, generation);
 
 
-                cursor.size = cursor.items + (cursor.right == null ? 0 : cursor.right.size) + (cursor.left == null ? 0 : cursor.left.size);
-
+                cursor.size = cursor.items + (cursor.right == null ? 0 : cursor.right.size) +
+                              (cursor.left == null ? 0 : cursor.left.size);
             }
 
             root = cursor;
@@ -1804,7 +1823,7 @@ namespace TestProj47.C5
             //Well, it is unclear how efficient it would be.
             //We could use a marking method!?
 //#warning how does this work together with persistence?
-            var t = (TreeBag<T>)MemberwiseClone();
+            var t = (TreeBag<T>) MemberwiseClone();
 
             T jtem = default;
             t.clear();
@@ -1829,7 +1848,6 @@ namespace TestProj47.C5
                     {
                         if (comparer.Compare(ie.Current.Key, p.Key) == 0)
                         {
-
                             var removed = ie.Current.Value - p.Value;
                             if (removed > 0)
                                 wasRemoved.Enqueue(new KeyValuePair<T, int>(p.Key, removed));
@@ -1914,7 +1932,6 @@ namespace TestProj47.C5
                     }
                     else
                     {
-
                         tail.size = tail.items;
                         tail.right = new Node();
                         tail = tail.right;
@@ -2054,7 +2071,8 @@ namespace TestProj47.C5
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
 
-            Node next; var comp = 0;
+            Node next;
+            var comp = 0;
 
             next = root;
             while (next != null)
@@ -2067,7 +2085,6 @@ namespace TestProj47.C5
             }
 
             return 0;
-
         }
 
 
@@ -2077,8 +2094,17 @@ namespace TestProj47.C5
         {
             private readonly TreeBag<T> treebag;
             private readonly int origstamp;
-            internal Multiplicities(TreeBag<T> treebag) { this.treebag = treebag; this.origstamp = treebag.stamp; }
-            public override KeyValuePair<T, int> Choose() { return new KeyValuePair<T, int>(treebag.root.item, treebag.root.items); }
+
+            internal Multiplicities(TreeBag<T> treebag)
+            {
+                this.treebag = treebag;
+                this.origstamp = treebag.stamp;
+            }
+
+            public override KeyValuePair<T, int> Choose()
+            {
+                return new KeyValuePair<T, int>(treebag.root.item, treebag.root.items);
+            }
 
             public override SCG.IEnumerator<KeyValuePair<T, int>> GetEnumerator()
             {
@@ -2114,7 +2140,17 @@ namespace TestProj47.C5
             }
 
             public override bool IsEmpty => treebag.IsEmpty;
-            public override int Count { get { var i = 0; foreach (var p in this) i++; return i; } } //TODO: make better
+
+            public override int Count
+            {
+                get
+                {
+                    var i = 0;
+                    foreach (var p in this) i++;
+                    return i;
+                }
+            } //TODO: make better
+
             public override Speed CountSpeed //TODO: make better
                 => Speed.Linear;
         }
@@ -2130,7 +2166,6 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
 
             return new DropMultiplicity<T>(ItemMultiplicities());
-
         }
 
 
@@ -2144,7 +2179,6 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
 
             return new Multiplicities(this);
-
         }
 
         /// <summary>
@@ -2153,7 +2187,6 @@ namespace TestProj47.C5
         /// <param name="item">The value to remove.</param>
         public void RemoveAllCopies(T item)
         {
-
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
@@ -2162,9 +2195,7 @@ namespace TestProj47.C5
             {
                 raiseForRemove(item, removed);
             }
-
         }
-
 
         #endregion
 
@@ -2184,7 +2215,6 @@ namespace TestProj47.C5
 
                     if (i > j)
                     {
-
                         i -= j + next.items;
                         if (i < 0)
                             return next;
@@ -2198,7 +2228,6 @@ namespace TestProj47.C5
                 }
 
             throw new IndexOutOfRangeException();
-
         }
 
 
@@ -2239,7 +2268,8 @@ namespace TestProj47.C5
             if (isSnapShot)
                 throw new NotSupportedException("Indexing not supported for snapshots");
 
-            var ind = 0; var next = root;
+            var ind = 0;
+            var next = root;
 
             while (next != null)
             {
@@ -2253,10 +2283,8 @@ namespace TestProj47.C5
 
                     if (comp == 0)
                     {
-
                         upper = ind + leftcnt + next.items - 1;
                         return ind + leftcnt;
-
                     }
                     ind = ind + next.items + leftcnt;
 
@@ -2284,7 +2312,6 @@ namespace TestProj47.C5
             int res;
             indexOf(item, out res);
             return res;
-
         }
 
 
@@ -2331,7 +2358,6 @@ namespace TestProj47.C5
 
                 if (i > j)
                 {
-
                     i -= j + cursor.items;
                     if (i < 0)
                         break;
@@ -2362,7 +2388,6 @@ namespace TestProj47.C5
 
             removeIterativePhase2(cursor, level);
             return retval;
-
         }
 
 
@@ -2430,6 +2455,7 @@ namespace TestProj47.C5
         }
 
         #region Interval nested class
+
         [Serializable]
         private class Interval : DirectedCollectionValueBase<T>, IDirectedCollectionValue<T>
         {
@@ -2444,8 +2470,11 @@ namespace TestProj47.C5
             {
                 if (tree.isSnapShot)
                     throw new NotSupportedException("Indexing not supported for snapshots");
-                this.start = start; this.length = count; this.forwards = forwards;
-                this.tree = tree; this.stamp = tree.stamp;
+                this.start = start;
+                this.length = count;
+                this.forwards = forwards;
+                this.tree = tree;
+                this.stamp = tree.stamp;
             }
 
             public override bool IsEmpty => length == 0;
@@ -2465,7 +2494,6 @@ namespace TestProj47.C5
 
             public override SCG.IEnumerator<T> GetEnumerator()
             {
-
                 tree.modifycheck(stamp);
 
                 int togo;
@@ -2487,7 +2515,6 @@ namespace TestProj47.C5
 
                         if (i > j)
                         {
-
                             if (cursor.items > i - j)
                             {
                                 togo = cursor.items - (i - j);
@@ -2499,7 +2526,6 @@ namespace TestProj47.C5
                         }
                         else if (i == j)
                         {
-
                             togo = cursor.items;
 
                             break;
@@ -2558,7 +2584,6 @@ namespace TestProj47.C5
                         }
                         else if (i == j)
                         {
-
                             togo = 1;
 
                             break;
@@ -2593,23 +2618,27 @@ namespace TestProj47.C5
                         current = cursor.item;
 
                         togo = cursor.items;
-
                     }
                 }
-
             }
 
 
             public override IDirectedCollectionValue<T> Backwards()
-            { return new Interval(tree, start, length, !forwards); }
+            {
+                return new Interval(tree, start, length, !forwards);
+            }
 
 
             IDirectedEnumerable<T> TestProj47.C5.IDirectedEnumerable<T>.Backwards()
-            { return Backwards(); }
+            {
+                return Backwards();
+            }
 
 
-            public override EnumerationDirection Direction => forwards ? EnumerationDirection.Forwards : EnumerationDirection.Backwards;
+            public override EnumerationDirection Direction =>
+                forwards ? EnumerationDirection.Forwards : EnumerationDirection.Backwards;
         }
+
         #endregion
 
         /// <summary>
@@ -2619,10 +2648,16 @@ namespace TestProj47.C5
         /// <code>foreach (T x in coll.Backwards()) {...}</code>
         /// </summary>
         /// <returns>The backwards collection.</returns>
-        public override IDirectedCollectionValue<T> Backwards() { return RangeAll().Backwards(); }
+        public override IDirectedCollectionValue<T> Backwards()
+        {
+            return RangeAll().Backwards();
+        }
 
 
-        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return Backwards(); }
+        IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
+        {
+            return Backwards();
+        }
 
         #endregion
 
@@ -2783,6 +2818,7 @@ namespace TestProj47.C5
             removeIterativePhase2(cursor, level);
             return retval;
         }
+
         #endregion
 
         #region ISorted<T> Members
@@ -3077,13 +3113,22 @@ namespace TestProj47.C5
         }
 
 
-        IDirectedEnumerable<T> ISorted<T>.RangeFrom(T bot) { return RangeFrom(bot); }
+        IDirectedEnumerable<T> ISorted<T>.RangeFrom(T bot)
+        {
+            return RangeFrom(bot);
+        }
 
 
-        IDirectedEnumerable<T> ISorted<T>.RangeFromTo(T bot, T top) { return RangeFromTo(bot, top); }
+        IDirectedEnumerable<T> ISorted<T>.RangeFromTo(T bot, T top)
+        {
+            return RangeFromTo(bot, top);
+        }
 
 
-        IDirectedEnumerable<T> ISorted<T>.RangeTo(T top) { return RangeTo(top); }
+        IDirectedEnumerable<T> ISorted<T>.RangeTo(T top)
+        {
+            return RangeTo(top);
+        }
 
 
         //Utility for CountXxxx. Actually always called with strict = true.
@@ -3092,7 +3137,8 @@ namespace TestProj47.C5
             if (isSnapShot)
                 throw new NotSupportedException("Indexing not supported for snapshots");
 
-            int ind = 0, comp = 0; var next = root;
+            int ind = 0, comp = 0;
+            var next = root;
 
             while (next != null)
             {
@@ -3112,7 +3158,6 @@ namespace TestProj47.C5
 
             //if we get here, we are at the same side of the whole collection:
             return ind;
-
         }
 
 
@@ -3379,7 +3424,7 @@ namespace TestProj47.C5
                 snapList.Prev = lastLiveSnapRef;
                 lastLiveSnapRef.Next = snapList;
             }
-            return ((TreeBag<T>)_snapshot).generation;
+            return ((TreeBag<T>) _snapshot).generation;
         }
 
         [Serializable]
@@ -3387,7 +3432,12 @@ namespace TestProj47.C5
         {
             public SnapRef Prev, Next;
             public readonly WeakReference Tree;
-            public SnapRef(TreeBag<T> tree) { Tree = new WeakReference(tree); }
+
+            public SnapRef(TreeBag<T> tree)
+            {
+                Tree = new WeakReference(tree);
+            }
+
             public void Dispose()
             {
                 Next.Prev = Prev;
@@ -3425,7 +3475,6 @@ namespace TestProj47.C5
                 snapList = null;
                 Clear();
             }
-
         }
 
         private void snapDispose()
@@ -3447,7 +3496,7 @@ namespace TestProj47.C5
             if (isSnapShot)
                 throw new InvalidOperationException("Cannot snapshot a snapshot");
 
-            var res = (TreeBag<T>)MemberwiseClone();
+            var res = (TreeBag<T>) MemberwiseClone();
             var newSnapRef = new SnapRef(res);
             res.isReadOnlyBase = true;
             res.isSnapShot = true;
@@ -3493,25 +3542,25 @@ namespace TestProj47.C5
             private EnumerationDirection direction;
 
 
-            public Range(TreeBag<T> basis, bool haslowend, T lowend, bool hashighend, T highend, EnumerationDirection direction)
+            public Range(TreeBag<T> basis, bool haslowend, T lowend, bool hashighend, T highend,
+                EnumerationDirection direction)
             {
                 this.basis = basis;
                 stamp = basis.stamp;
 
                 //lowind will be const; should we cache highind?
                 this.lowend = lowend; //Inclusive
-                this.highend = highend;//Exclusive
+                this.highend = highend; //Exclusive
                 this.haslowend = haslowend;
                 this.hashighend = hashighend;
                 this.direction = direction;
                 if (!basis.isSnapShot)
-                    size = haslowend ?
-                        (hashighend ? basis.CountFromTo(lowend, highend) : basis.CountFrom(lowend)) :
-                        (hashighend ? basis.CountTo(highend) : basis.Count);
+                    size = haslowend
+                        ? (hashighend ? basis.CountFromTo(lowend, highend) : basis.CountFrom(lowend))
+                        : (hashighend ? basis.CountTo(highend) : basis.Count);
             }
 
             #region IEnumerable<T> Members
-
 
             #region TreeBag.Range.Enumerator nested class
 
@@ -3519,6 +3568,7 @@ namespace TestProj47.C5
             internal class Enumerator : SCG.IEnumerator<T>
             {
                 #region Private Fields
+
                 private bool valid, ready = true;
 
                 private SCG.IComparer<T> comparer;
@@ -3538,6 +3588,7 @@ namespace TestProj47.C5
                 private readonly bool forwards;
 
                 #endregion
+
                 public Enumerator(Range range)
                 {
                     comparer = range.basis.comparer;
@@ -3553,7 +3604,10 @@ namespace TestProj47.C5
                 }
 
 
-                private int compare(T i1, T i2) { return comparer.Compare(i1, i2); }
+                private int compare(T i1, T i2)
+                {
+                    return comparer.Compare(i1, i2);
+                }
 
 
                 /// <summary>
@@ -3604,12 +3658,10 @@ namespace TestProj47.C5
                                 {
                                     path[level++] = cursor;
                                     cursor = range.basis.left(cursor);
-
                                 }
                                 else if (comp < 0)
                                 {
                                     cursor = range.basis.right(cursor);
-
                                 }
                                 else
                                 {
@@ -3663,12 +3715,10 @@ namespace TestProj47.C5
                             {
                                 path[level++] = cursor;
                                 cursor = range.basis.right(cursor);
-
                             }
                             else
                             {
                                 cursor = range.basis.left(cursor);
-
                             }
                         }
 
@@ -3743,7 +3793,10 @@ namespace TestProj47.C5
                 return lowend;
             }
 
-            public override SCG.IEnumerator<T> GetEnumerator() { return new Enumerator(this); }
+            public override SCG.IEnumerator<T> GetEnumerator()
+            {
+                return new Enumerator(this);
+            }
 
 
             public override EnumerationDirection Direction => direction;
@@ -3754,7 +3807,8 @@ namespace TestProj47.C5
 
             private bool inside(T item)
             {
-                return (!haslowend || basis.comparer.Compare(item, lowend) >= 0) && (!hashighend || basis.comparer.Compare(item, highend) < 0);
+                return (!haslowend || basis.comparer.Compare(item, lowend) >= 0) &&
+                       (!hashighend || basis.comparer.Compare(item, highend) < 0);
             }
 
 
@@ -3765,20 +3819,28 @@ namespace TestProj47.C5
             }
 
 
-            private void syncstamp() { stamp = basis.stamp; }
+            private void syncstamp()
+            {
+                stamp = basis.stamp;
+            }
 
             #endregion
 
             public override IDirectedCollectionValue<T> Backwards()
             {
-                var b = (Range)MemberwiseClone();
+                var b = (Range) MemberwiseClone();
 
-                b.direction = direction == EnumerationDirection.Forwards ? EnumerationDirection.Backwards : EnumerationDirection.Forwards;
+                b.direction = direction == EnumerationDirection.Forwards
+                    ? EnumerationDirection.Backwards
+                    : EnumerationDirection.Forwards;
                 return b;
             }
 
 
-            IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards() { return Backwards(); }
+            IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
+            {
+                return Backwards();
+            }
 
 
             public override bool IsEmpty => size == 0;
@@ -3792,6 +3854,7 @@ namespace TestProj47.C5
         #endregion
 
         #region Diagnostics
+
         /// <summary>
         /// Display this node on the console, and recursively its subnodes.
         /// </summary>
@@ -3807,21 +3870,18 @@ namespace TestProj47.C5
             {
                 minidump(n.right, space + "  ");
                 Logger.Log(string.Format("{0} {4} (size={1}, items={8}, h={2}, gen={3}, id={6}){7}", space + n.item,
-
- n.size,
-
- 0,
- n.generation,
- n.red ? "RED" : "BLACK",
-         0,
-         0,
-
- n.lastgeneration == -1 ? "" : string.Format(" [extra: lg={0}, c={1}, i={2}]", n.lastgeneration, n.leftnode ? "L" : "R", n.oldref == null ? "()" : "" + n.oldref.item),
-
-
- n.items
-
-));
+                    n.size,
+                    0,
+                    n.generation,
+                    n.red ? "RED" : "BLACK",
+                    0,
+                    0,
+                    n.lastgeneration == -1
+                        ? ""
+                        : string.Format(" [extra: lg={0}, c={1}, i={2}]", n.lastgeneration, n.leftnode ? "L" : "R",
+                            n.oldref == null ? "()" : "" + n.oldref.item),
+                    n.items
+                ));
                 minidump(n.left, space + "  ");
             }
         }
@@ -3830,7 +3890,10 @@ namespace TestProj47.C5
         /// <summary>
         /// Print the tree structure to the console stdout.
         /// </summary>
-        public void dump() { dump(""); }
+        public void dump()
+        {
+            dump("");
+        }
 
 
         /// <summary>
@@ -3838,13 +3901,16 @@ namespace TestProj47.C5
         /// </summary>
         public void dump(string msg)
         {
-            Logger.Log(string.Format(">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg, size, blackdepth,
-            0
-            ,
- generation, UniqueCount
-));
+            Logger.Log(string.Format(
+                ">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg,
+                size, blackdepth,
+                0
+                ,
+                generation, UniqueCount
+            ));
             minidump(root, "");
-            check(""); Logger.Log("<<<<<<<<<<<<<<<<<<<");
+            check("");
+            Logger.Log("<<<<<<<<<<<<<<<<<<<");
         }
 
 
@@ -3855,7 +3921,9 @@ namespace TestProj47.C5
         /// <param name="err">Extra (error)message to include</param>
         private void dump(string msg, string err)
         {
-            Logger.Log(string.Format(">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg, size, blackdepth, 0, generation, UniqueCount));
+            Logger.Log(string.Format(
+                ">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg,
+                size, blackdepth, 0, generation, UniqueCount));
             minidump(root, "");
             Logger.Log(err);
             Logger.Log("<<<<<<<<<<<<<<<<<<<");
@@ -3882,8 +3950,10 @@ namespace TestProj47.C5
             var res = true;
 
             res = massert(!(n.red && redp), n, "RED parent of RED node") && res;
-            res = massert(n.left == null || n.right != null || n.left.red, n, "Left child black, but right child empty") && res;
-            res = massert(n.right == null || n.left != null || n.right.red, n, "Right child black, but left child empty") && res;
+            res = massert(n.left == null || n.right != null || n.left.red, n,
+                      "Left child black, but right child empty") && res;
+            res = massert(n.right == null || n.left != null || n.right.red, n,
+                      "Right child black, but left child empty") && res;
 
             var sb = n.size == (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) + n.items;
 
@@ -3999,6 +4069,7 @@ namespace TestProj47.C5
             }
             return false;
         }
+
         #endregion
     }
 }

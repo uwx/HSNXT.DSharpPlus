@@ -33,34 +33,42 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         None = 0x00000000,
+
         /// <summary>
         /// 
         /// </summary>
         Changed = 0x00000001,
+
         /// <summary>
         /// 
         /// </summary>
         Cleared = 0x00000002,
+
         /// <summary>
         /// 
         /// </summary>
         Added = 0x00000004,
+
         /// <summary>
         /// 
         /// </summary>
         Removed = 0x00000008,
+
         /// <summary>
         /// 
         /// </summary>
         Basic = 0x0000000f,
+
         /// <summary>
         /// 
         /// </summary>
         Inserted = 0x00000010,
+
         /// <summary>
         /// 
         /// </summary>
         RemovedAt = 0x00000020,
+
         /// <summary>
         /// 
         /// </summary>
@@ -77,6 +85,7 @@ namespace TestProj47.C5
         internal EventTypeEnum events;
 
         private event CollectionChangedHandler<T> collectionChanged;
+
         internal event CollectionChangedHandler<T> CollectionChanged
         {
             add
@@ -91,10 +100,14 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.Changed;
             }
         }
+
         internal void raiseCollectionChanged(object sender)
-        { if (collectionChanged != null) collectionChanged(sender); }
+        {
+            if (collectionChanged != null) collectionChanged(sender);
+        }
 
         private event CollectionClearedHandler<T> collectionCleared;
+
         internal event CollectionClearedHandler<T> CollectionCleared
         {
             add
@@ -109,12 +122,19 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.Cleared;
             }
         }
+
         internal void raiseCollectionCleared(object sender, bool full, int count)
-        { if (collectionCleared != null) collectionCleared(sender, new ClearedEventArgs(full, count)); }
+        {
+            if (collectionCleared != null) collectionCleared(sender, new ClearedEventArgs(full, count));
+        }
+
         internal void raiseCollectionCleared(object sender, bool full, int count, int? start)
-        { if (collectionCleared != null) collectionCleared(sender, new ClearedRangeEventArgs(full, count, start)); }
+        {
+            if (collectionCleared != null) collectionCleared(sender, new ClearedRangeEventArgs(full, count, start));
+        }
 
         private event ItemsAddedHandler<T> itemsAdded;
+
         internal event ItemsAddedHandler<T> ItemsAdded
         {
             add
@@ -129,10 +149,14 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.Added;
             }
         }
+
         internal void raiseItemsAdded(object sender, T item, int count)
-        { if (itemsAdded != null) itemsAdded(sender, new ItemCountEventArgs<T>(item, count)); }
+        {
+            if (itemsAdded != null) itemsAdded(sender, new ItemCountEventArgs<T>(item, count));
+        }
 
         private event ItemsRemovedHandler<T> itemsRemoved;
+
         internal event ItemsRemovedHandler<T> ItemsRemoved
         {
             add
@@ -147,10 +171,14 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.Removed;
             }
         }
+
         internal void raiseItemsRemoved(object sender, T item, int count)
-        { if (itemsRemoved != null) itemsRemoved(sender, new ItemCountEventArgs<T>(item, count)); }
+        {
+            if (itemsRemoved != null) itemsRemoved(sender, new ItemCountEventArgs<T>(item, count));
+        }
 
         private event ItemInsertedHandler<T> itemInserted;
+
         internal event ItemInsertedHandler<T> ItemInserted
         {
             add
@@ -165,10 +193,14 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.Inserted;
             }
         }
+
         internal void raiseItemInserted(object sender, T item, int index)
-        { if (itemInserted != null) itemInserted(sender, new ItemAtEventArgs<T>(item, index)); }
+        {
+            if (itemInserted != null) itemInserted(sender, new ItemAtEventArgs<T>(item, index));
+        }
 
         private event ItemRemovedAtHandler<T> itemRemovedAt;
+
         internal event ItemRemovedAtHandler<T> ItemRemovedAt
         {
             add
@@ -183,8 +215,11 @@ namespace TestProj47.C5
                     events &= ~EventTypeEnum.RemovedAt;
             }
         }
+
         internal void raiseItemRemovedAt(object sender, T item, int index)
-        { if (itemRemovedAt != null) itemRemovedAt(sender, new ItemAtEventArgs<T>(item, index)); }
+        {
+            if (itemRemovedAt != null) itemRemovedAt(sender, new ItemAtEventArgs<T>(item, index));
+        }
     }
 
     /// <summary>
@@ -199,10 +234,14 @@ namespace TestProj47.C5
         private readonly ICollectionValue<T> real;
 
         internal ProxyEventBlock(ICollectionValue<T> proxy, ICollectionValue<T> real)
-        { this.proxy = proxy; this.real = real; }
+        {
+            this.proxy = proxy;
+            this.real = real;
+        }
 
         private event CollectionChangedHandler<T> collectionChanged;
         private CollectionChangedHandler<T> collectionChangedProxy;
+
         internal event CollectionChangedHandler<T> CollectionChanged
         {
             add
@@ -225,6 +264,7 @@ namespace TestProj47.C5
 
         private event CollectionClearedHandler<T> collectionCleared;
         private CollectionClearedHandler<T> collectionClearedProxy;
+
         internal event CollectionClearedHandler<T> CollectionCleared
         {
             add
@@ -232,7 +272,10 @@ namespace TestProj47.C5
                 if (collectionCleared == null)
                 {
                     if (collectionClearedProxy == null)
-                        collectionClearedProxy = delegate(object sender, ClearedEventArgs e) { collectionCleared(proxy, e); };
+                        collectionClearedProxy = delegate(object sender, ClearedEventArgs e)
+                        {
+                            collectionCleared(proxy, e);
+                        };
                     real.CollectionCleared += collectionClearedProxy;
                 }
                 collectionCleared += value;
@@ -247,6 +290,7 @@ namespace TestProj47.C5
 
         private event ItemsAddedHandler<T> itemsAdded;
         private ItemsAddedHandler<T> itemsAddedProxy;
+
         internal event ItemsAddedHandler<T> ItemsAdded
         {
             add
@@ -269,6 +313,7 @@ namespace TestProj47.C5
 
         private event ItemInsertedHandler<T> itemInserted;
         private ItemInsertedHandler<T> itemInsertedProxy;
+
         internal event ItemInsertedHandler<T> ItemInserted
         {
             add
@@ -291,6 +336,7 @@ namespace TestProj47.C5
 
         private event ItemsRemovedHandler<T> itemsRemoved;
         private ItemsRemovedHandler<T> itemsRemovedProxy;
+
         internal event ItemsRemovedHandler<T> ItemsRemoved
         {
             add
@@ -298,7 +344,10 @@ namespace TestProj47.C5
                 if (itemsRemoved == null)
                 {
                     if (itemsRemovedProxy == null)
-                        itemsRemovedProxy = delegate(object sender, ItemCountEventArgs<T> e) { itemsRemoved(proxy, e); };
+                        itemsRemovedProxy = delegate(object sender, ItemCountEventArgs<T> e)
+                        {
+                            itemsRemoved(proxy, e);
+                        };
                     real.ItemsRemoved += itemsRemovedProxy;
                 }
                 itemsRemoved += value;
@@ -313,6 +362,7 @@ namespace TestProj47.C5
 
         private event ItemRemovedAtHandler<T> itemRemovedAt;
         private ItemRemovedAtHandler<T> itemRemovedAtProxy;
+
         internal event ItemRemovedAtHandler<T> ItemRemovedAt
         {
             add
@@ -345,16 +395,23 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly T Item;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly int Index;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="item"></param>
         /// <param name="index"></param>
-        public ItemAtEventArgs(T item, int index) { Item = item; Index = index; }
+        public ItemAtEventArgs(T item, int index)
+        {
+            Item = item;
+            Index = index;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -376,16 +433,23 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly T Item;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly int Count;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="count"></param>
         /// <param name="item"></param>
-        public ItemCountEventArgs(T item, int count) { Item = item; Count = count; }
+        public ItemCountEventArgs(T item, int count)
+        {
+            Item = item;
+            Count = count;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -395,7 +459,6 @@ namespace TestProj47.C5
             return string.Format("(ItemCountEventArgs {0} '{1}')", Count, Item);
         }
     }
-
 
 
     /// <summary>
@@ -408,17 +471,24 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly bool Full;
+
         /// <summary>
         /// 
         /// </summary>
         public readonly int Count;
+
         /// <summary>
         /// 
         /// </summary>
         /// 
         /// <param name="full">True if the operation cleared all of the collection</param>
         /// <param name="count">The number of items removed by the clear.</param>
-        public ClearedEventArgs(bool full, int count) { Full = full; Count = count; }
+        public ClearedEventArgs(bool full, int count)
+        {
+            Full = full;
+            Count = count;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -440,13 +510,18 @@ namespace TestProj47.C5
         /// 
         /// </summary>
         public readonly int? Start;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="full"></param>
         /// <param name="count"></param>
         /// <param name="start"></param>
-        public ClearedRangeEventArgs(bool full, int count, int? start) : base(full, count) { Start = start; }
+        public ClearedRangeEventArgs(bool full, int count, int? start) : base(full, count)
+        {
+            Start = start;
+        }
+
         /// <summary>
         /// 
         /// </summary>

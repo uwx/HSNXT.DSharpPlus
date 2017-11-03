@@ -30,29 +30,34 @@ namespace TestProj47.C5
     [Serializable]
     public class TreeDictionary<K, V> : SortedDictionaryBase<K, V>, IDictionary<K, V>, ISortedDictionary<K, V>
     {
-
         #region Constructors
 
         /// <summary>
         /// Create a red-black tree dictionary using the natural comparer for keys.
         /// <exception cref="ArgumentException"/> if the key type K is not comparable.
         /// </summary>
-		public TreeDictionary(MemoryType memoryType = MemoryType.Normal) : this(SCG.Comparer<K>.Default, EqualityComparer<K>.Default, memoryType) { }
+        public TreeDictionary(MemoryType memoryType = MemoryType.Normal) : this(SCG.Comparer<K>.Default,
+            EqualityComparer<K>.Default, memoryType)
+        {
+        }
 
         /// <summary>
         /// Create a red-black tree dictionary using an external comparer for keys.
         /// </summary>
         /// <param name="comparer">The external comparer</param>
-		/// <param name = "memoryType"></param>
-		public TreeDictionary(SCG.IComparer<K> comparer, MemoryType memoryType = MemoryType.Normal) : this(comparer, new ComparerZeroHashCodeEqualityComparer<K>(comparer)) { }
+        /// <param name = "memoryType"></param>
+        public TreeDictionary(SCG.IComparer<K> comparer, MemoryType memoryType = MemoryType.Normal) : this(comparer,
+            new ComparerZeroHashCodeEqualityComparer<K>(comparer))
+        {
+        }
 
-	    private TreeDictionary(SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> equalityComparer, MemoryType memoryType = MemoryType.Normal)
-			: base(comparer, equalityComparer, memoryType)
+        private TreeDictionary(SCG.IComparer<K> comparer, SCG.IEqualityComparer<K> equalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
+            : base(comparer, equalityComparer, memoryType)
         {
             pairs = sortedpairs = new TreeSet<KeyValuePair<K, V>>(new KeyValuePairComparer<K, V>(comparer));
-			if ( memoryType != MemoryType.Normal )
-				throw new Exception ( "TreeDictionary doesn't support MemoryType Strict or Safe" );
-			
+            if (memoryType != MemoryType.Normal)
+                throw new Exception("TreeDictionary doesn't support MemoryType Strict or Safe");
         }
 
         #endregion
@@ -64,9 +69,9 @@ namespace TestProj47.C5
         /// <returns>The snapshot</returns>
         public SCG.IEnumerable<KeyValuePair<K, V>> Snapshot()
         {
-            var res = (TreeDictionary<K, V>)MemberwiseClone();
+            var res = (TreeDictionary<K, V>) MemberwiseClone();
 
-            res.pairs = (TreeSet<KeyValuePair<K, V>>)((TreeSet<KeyValuePair<K, V>>)sortedpairs).Snapshot();
+            res.pairs = (TreeSet<KeyValuePair<K, V>>) ((TreeSet<KeyValuePair<K, V>>) sortedpairs).Snapshot();
             return res;
         }
     }

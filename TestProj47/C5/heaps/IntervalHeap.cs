@@ -45,10 +45,14 @@ namespace TestProj47.C5
 
         private struct Interval
         {
-            internal T first, last; internal Handle firsthandle, lasthandle;
+            internal T first, last;
+            internal Handle firsthandle, lasthandle;
 
 
-            public override string ToString() { return string.Format("[{0}; {1}]", first, last); }
+            public override string ToString()
+            {
+                return string.Format("[{0}; {1}]", first, last);
+            }
         }
 
         private int stamp;
@@ -59,95 +63,116 @@ namespace TestProj47.C5
         private Interval[] heap;
 
         private int size;
+
         #endregion
 
         #region Util
+
         // heapifyMin and heapifyMax and their auxiliaries
 
-        private void swapFirstWithLast(int cell1, int cell2) {
-          var first = heap[cell1].first;
-          var firsthandle = heap[cell1].firsthandle;
-          updateFirst(cell1, heap[cell2].last, heap[cell2].lasthandle);
-          updateLast(cell2, first, firsthandle);
+        private void swapFirstWithLast(int cell1, int cell2)
+        {
+            var first = heap[cell1].first;
+            var firsthandle = heap[cell1].firsthandle;
+            updateFirst(cell1, heap[cell2].last, heap[cell2].lasthandle);
+            updateLast(cell2, first, firsthandle);
         }
 
-        private void swapLastWithLast(int cell1, int cell2) {
-          var last = heap[cell2].last;
-          var lasthandle = heap[cell2].lasthandle;
-          updateLast(cell2, heap[cell1].last, heap[cell1].lasthandle);
-          updateLast(cell1, last, lasthandle);
+        private void swapLastWithLast(int cell1, int cell2)
+        {
+            var last = heap[cell2].last;
+            var lasthandle = heap[cell2].lasthandle;
+            updateLast(cell2, heap[cell1].last, heap[cell1].lasthandle);
+            updateLast(cell1, last, lasthandle);
         }
 
-        private void swapFirstWithFirst(int cell1, int cell2) {
-          var first = heap[cell2].first;
-          var firsthandle = heap[cell2].firsthandle;
-          updateFirst(cell2, heap[cell1].first, heap[cell1].firsthandle);
-          updateFirst(cell1, first, firsthandle);
+        private void swapFirstWithFirst(int cell1, int cell2)
+        {
+            var first = heap[cell2].first;
+            var firsthandle = heap[cell2].firsthandle;
+            updateFirst(cell2, heap[cell1].first, heap[cell1].firsthandle);
+            updateFirst(cell1, first, firsthandle);
         }
 
-        private bool heapifyMin(int cell) {
-          var swappedroot = false;
-          // If first > last, swap them
-          if (2 * cell + 1 < size && comparer.Compare(heap[cell].first, heap[cell].last) > 0) {
-            swappedroot = true;
-            swapFirstWithLast(cell, cell);
-          }
-
-          int currentmin = cell, l = 2 * cell + 1, r = l + 1;
-          if (2 * l < size && comparer.Compare(heap[l].first, heap[currentmin].first) < 0) 
-            currentmin = l;
-          if (2 * r < size && comparer.Compare(heap[r].first, heap[currentmin].first) < 0) 
-            currentmin = r; 
-
-          if (currentmin != cell) {
-            // cell has at least one daughter, and it contains the min
-            swapFirstWithFirst(currentmin, cell);
-            heapifyMin(currentmin);
-          }
-          return swappedroot;
-        }
-
-
-        private bool heapifyMax(int cell) {
-          var swappedroot = false;
-          if (2 * cell + 1 < size && comparer.Compare(heap[cell].last, heap[cell].first) < 0) {
-            swappedroot = true;
-            swapFirstWithLast(cell, cell);
-          }
-
-          int currentmax = cell, l = 2 * cell + 1, r = l + 1;
-          var firstmax = false;  // currentmax's first field holds max
-          if (2 * l + 1 < size) {  // both l.first and l.last exist
-            if (comparer.Compare(heap[l].last, heap[currentmax].last) > 0)
-              currentmax = l;
-          }
-          else if (2 * l + 1 == size) {  // only l.first exists
-            if (comparer.Compare(heap[l].first, heap[currentmax].last) > 0) {
-              currentmax = l;
-              firstmax = true;
+        private bool heapifyMin(int cell)
+        {
+            var swappedroot = false;
+            // If first > last, swap them
+            if (2 * cell + 1 < size && comparer.Compare(heap[cell].first, heap[cell].last) > 0)
+            {
+                swappedroot = true;
+                swapFirstWithLast(cell, cell);
             }
-          }
 
-          if (2 * r + 1 < size) {  // both r.first and r.last exist
-            if (comparer.Compare(heap[r].last, heap[currentmax].last) > 0)
-              currentmax = r;
-          }
-          else if (2 * r + 1 == size) {  // only r.first exists
-            if (comparer.Compare(heap[r].first, heap[currentmax].last) > 0) {
-              currentmax = r;
-              firstmax = true;
+            int currentmin = cell, l = 2 * cell + 1, r = l + 1;
+            if (2 * l < size && comparer.Compare(heap[l].first, heap[currentmin].first) < 0)
+                currentmin = l;
+            if (2 * r < size && comparer.Compare(heap[r].first, heap[currentmin].first) < 0)
+                currentmin = r;
+
+            if (currentmin != cell)
+            {
+                // cell has at least one daughter, and it contains the min
+                swapFirstWithFirst(currentmin, cell);
+                heapifyMin(currentmin);
             }
-          }
+            return swappedroot;
+        }
 
-          if (currentmax != cell) {
-            // The cell has at least one daughter, and it contains the max
-            if (firstmax)
-              swapFirstWithLast(currentmax, cell);
-            else
-              swapLastWithLast(currentmax, cell);
-            heapifyMax(currentmax);
-          }
-          return swappedroot;
+
+        private bool heapifyMax(int cell)
+        {
+            var swappedroot = false;
+            if (2 * cell + 1 < size && comparer.Compare(heap[cell].last, heap[cell].first) < 0)
+            {
+                swappedroot = true;
+                swapFirstWithLast(cell, cell);
+            }
+
+            int currentmax = cell, l = 2 * cell + 1, r = l + 1;
+            var firstmax = false; // currentmax's first field holds max
+            if (2 * l + 1 < size)
+            {
+                // both l.first and l.last exist
+                if (comparer.Compare(heap[l].last, heap[currentmax].last) > 0)
+                    currentmax = l;
+            }
+            else if (2 * l + 1 == size)
+            {
+                // only l.first exists
+                if (comparer.Compare(heap[l].first, heap[currentmax].last) > 0)
+                {
+                    currentmax = l;
+                    firstmax = true;
+                }
+            }
+
+            if (2 * r + 1 < size)
+            {
+                // both r.first and r.last exist
+                if (comparer.Compare(heap[r].last, heap[currentmax].last) > 0)
+                    currentmax = r;
+            }
+            else if (2 * r + 1 == size)
+            {
+                // only r.first exists
+                if (comparer.Compare(heap[r].first, heap[currentmax].last) > 0)
+                {
+                    currentmax = r;
+                    firstmax = true;
+                }
+            }
+
+            if (currentmax != cell)
+            {
+                // The cell has at least one daughter, and it contains the max
+                if (firstmax)
+                    swapFirstWithLast(currentmax, cell);
+                else
+                    swapLastWithLast(currentmax, cell);
+                heapifyMax(currentmax);
+            }
+            return swappedroot;
         }
 
         private void bubbleUpMin(int i)
@@ -196,25 +221,30 @@ namespace TestProj47.C5
                 }
 
                 updateLast(i, iv, maxhandle);
-
             }
         }
 
         #endregion
 
         #region Constructors
+
         /// <summary>
         /// Create an interval heap with natural item comparer and default initial capacity (16)
         /// </summary>
-		public IntervalHeap(MemoryType memoryType = MemoryType.Normal) : this(16, memoryType) { }
+        public IntervalHeap(MemoryType memoryType = MemoryType.Normal) : this(16, memoryType)
+        {
+        }
 
 
         /// <summary>
         /// Create an interval heap with external item comparer and default initial capacity (16)
         /// </summary>
-		/// <param name="comparer">The external comparer</param>
-		/// <param name = "memoryType"></param>
-		public IntervalHeap(SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(16, comparer, memoryType) { }
+        /// <param name="comparer">The external comparer</param>
+        /// <param name = "memoryType"></param>
+        public IntervalHeap(SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(16, comparer,
+            memoryType)
+        {
+        }
 
 
         //TODO: maybe remove
@@ -222,28 +252,35 @@ namespace TestProj47.C5
         /// Create an interval heap with natural item comparer and prescribed initial capacity
         /// </summary>
         /// <param name="capacity">The initial capacity</param>
-		/// <param name = "memoryType"></param>
-		public IntervalHeap(int capacity, MemoryType memoryType = MemoryType.Normal) : this(capacity, SCG.Comparer<T>.Default, EqualityComparer<T>.Default, memoryType) { }
+        /// <param name = "memoryType"></param>
+        public IntervalHeap(int capacity, MemoryType memoryType = MemoryType.Normal) : this(capacity,
+            SCG.Comparer<T>.Default, EqualityComparer<T>.Default, memoryType)
+        {
+        }
 
 
         /// <summary>
         /// Create an interval heap with external item comparer and prescribed initial capacity
         /// </summary>
         /// <param name="comparer">The external comparer</param>
-		/// <param name="capacity">The initial capacity</param>
-		/// <param name = "memoryType"></param>
-		public IntervalHeap(int capacity, SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(capacity, comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType) { }
+        /// <param name="capacity">The initial capacity</param>
+        /// <param name = "memoryType"></param>
+        public IntervalHeap(int capacity, SCG.IComparer<T> comparer, MemoryType memoryType = MemoryType.Normal) : this(
+            capacity, comparer, new ComparerZeroHashCodeEqualityComparer<T>(comparer), memoryType)
+        {
+        }
 
-        private IntervalHeap(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType = MemoryType.Normal)
+        private IntervalHeap(int capacity, SCG.IComparer<T> comparer, SCG.IEqualityComparer<T> itemequalityComparer,
+            MemoryType memoryType = MemoryType.Normal)
         {
             if (comparer == null)
                 throw new NullReferenceException("Item comparer cannot be null");
             if (itemequalityComparer == null)
                 throw new NullReferenceException("Item equality comparer cannot be null");
 
-			if ( memoryType != MemoryType.Normal )
-				throw new Exception ( "IntervalHeap still doesn't support MemoryType Strict or Safe" );
-			
+            if (memoryType != MemoryType.Normal)
+                throw new Exception("IntervalHeap still doesn't support MemoryType Strict or Safe");
+
             this.comparer = comparer;
             this.itemequalityComparer = itemequalityComparer;
             var length = 1;
@@ -512,15 +549,14 @@ namespace TestProj47.C5
             }
         }
 
-
         #endregion
 
         #region Diagnostics
 
-      // Check invariants: 
-      // * first <= last in a cell if both are valid
-      // * a parent interval (cell) contains both its daughter intervals (cells)
-      // * a handle, if non-null, points to the cell it is associated with
+        // Check invariants: 
+        // * first <= last in a cell if both are valid
+        // * a parent interval (cell) contains both its daughter intervals (cells)
+        // * a handle, if non-null, points to the cell it is associated with
         private bool check(int i, T min, T max)
         {
             var retval = true;
@@ -531,18 +567,21 @@ namespace TestProj47.C5
             {
                 if (comparer.Compare(min, first) > 0)
                 {
-                    Logger.Log(string.Format("Cell {0}: parent.first({1}) > first({2})  [size={3}]", i, min, first, size));
+                    Logger.Log(string.Format("Cell {0}: parent.first({1}) > first({2})  [size={3}]", i, min, first,
+                        size));
                     retval = false;
                 }
 
                 if (comparer.Compare(first, max) > 0)
                 {
-                    Logger.Log(string.Format("Cell {0}: first({1}) > parent.last({2})  [size={3}]", i, first, max, size));
+                    Logger.Log(
+                        string.Format("Cell {0}: first({1}) > parent.last({2})  [size={3}]", i, first, max, size));
                     retval = false;
                 }
                 if (interval.firsthandle != null && interval.firsthandle.index != 2 * i)
                 {
-                    Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i, interval.firsthandle.index, 2 * i, size));
+                    Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i,
+                        interval.firsthandle.index, 2 * i, size));
                     retval = false;
                 }
 
@@ -567,12 +606,14 @@ namespace TestProj47.C5
             }
             if (interval.firsthandle != null && interval.firsthandle.index != 2 * i)
             {
-                Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i, interval.firsthandle.index, 2 * i, size));
+                Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i,
+                    interval.firsthandle.index, 2 * i, size));
                 retval = false;
             }
             if (interval.lasthandle != null && interval.lasthandle.index != 2 * i + 1)
             {
-                Logger.Log(string.Format("Cell {0}: lasthandle.index({1}) != 2*cell+1({2})  [size={3}]", i, interval.lasthandle.index, 2 * i + 1, size));
+                Logger.Log(string.Format("Cell {0}: lasthandle.index({1}) != 2*cell+1({2})  [size={3}]", i,
+                    interval.lasthandle.index, 2 * i + 1, size));
                 retval = false;
             }
 
@@ -620,7 +661,6 @@ namespace TestProj47.C5
             {
                 return string.Format("[{0}]", index);
             }
-
         }
 
         /// <summary>
@@ -693,12 +733,11 @@ namespace TestProj47.C5
         public bool Add(ref IPriorityQueueHandle<T> handle, T item)
         {
             stamp++;
-            var myhandle = (Handle)handle;
+            var myhandle = (Handle) handle;
             if (myhandle == null)
                 handle = myhandle = new Handle();
-            else
-                if (myhandle.index != -1)
-                    throw new InvalidPriorityQueueHandleException("Handle not valid for reuse");
+            else if (myhandle.index != -1)
+                throw new InvalidPriorityQueueHandleException("Handle not valid for reuse");
             if (add(myhandle, item))
             {
                 raiseItemsAdded(item, 1);
@@ -805,7 +844,7 @@ namespace TestProj47.C5
 
         private Handle checkHandle(IPriorityQueueHandle<T> handle, out int cell, out bool isfirst)
         {
-            var myhandle = (Handle)handle;
+            var myhandle = (Handle) handle;
             var toremove = myhandle.index;
             cell = toremove / 2;
             isfirst = toremove % 2 == 0;
@@ -959,7 +998,6 @@ namespace TestProj47.C5
             raiseItemsRemoved(retval, 1);
             raiseCollectionChanged();
             return retval;
-
         }
 
         /// <summary>

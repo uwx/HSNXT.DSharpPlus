@@ -38,7 +38,8 @@ namespace TestProj47
         private readonly IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>> GetCache;
 
         /// <summary>Field SetCache.</summary>
-        private readonly IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>> SetCache;
+        private readonly IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>
+            SetCache;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:TestProj47.PocoJsonSerializerStrategy" /> class.
