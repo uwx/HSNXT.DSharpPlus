@@ -119,12 +119,17 @@ namespace TestProj47
 
     public static partial class Extensions
     {
+        private const string IsEmailBigRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                                               @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                                               @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
         private static readonly Regex ObjNotWholePattern = new Regex("[^0-9]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaNumericPattern = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaNumericPatternWhite = new Regex("[^a-zA-Z0-9\\s]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaPatternWhite = new Regex("[^a-zA-Z\\s]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaDashPattern = new Regex("[^a-zA-Z\\-]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaPattern = new Regex("[^a-zA-Z]", RegexOptions.Compiled);
+        private static readonly Regex IsEmailBigRe = new Regex(IsEmailBigRegex, RegexOptions.Compiled);
 
         public static string ToStringInvariant(this DateTime o)
         {
@@ -567,12 +572,7 @@ namespace TestProj47
         /// <returns>True if valid, False otherwise</returns>
         public static bool IsEmail(this string inputEmail)
         {
-            if (inputEmail.IsNullOrEmpty()) return (false);
-            const string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
-                                    @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
-                                    @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-            var re = new Regex(strRegex);
-            return re.IsMatch(inputEmail);
+            return !inputEmail.IsNullOrEmpty() && IsEmailBigRe.IsMatch(inputEmail);
         }
 
         /// <summary>

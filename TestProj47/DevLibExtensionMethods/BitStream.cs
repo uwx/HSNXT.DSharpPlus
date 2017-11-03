@@ -8,6 +8,7 @@ using System.IO;
 
 namespace TestProj47
 {
+    /// <inheritdoc />
     /// <summary>Utility that read and write bits in byte array.</summary>
     internal class BitStream : Stream
     {
@@ -32,44 +33,50 @@ namespace TestProj47
             this._source = source;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports reading.
         /// </summary>
         /// <value><c>true</c> if this instance can read; otherwise, <c>false</c>.</value>
         public override bool CanRead => true;
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports seeking.
         /// </summary>
         /// <value><c>true</c> if this instance can seek; otherwise, <c>false</c>.</value>
         public override bool CanSeek => true;
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports writing.
         /// </summary>
         /// <value><c>true</c> if this instance can write; otherwise, <c>false</c>.</value>
         public override bool CanWrite => true;
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, gets the length in bytes of the stream.
         /// </summary>
         /// <value>The length.</value>
         public override long Length => this._source.Length * 8;
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, gets or sets the position within the current stream.
         /// </summary>
         /// <value>The position.</value>
         public override long Position { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, clears all buffers for this stream and causes any buffered data to be written to the underlying device.
         /// </summary>
         public override void Flush()
         {
-            this.Flush();
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
         /// </summary>
@@ -110,6 +117,7 @@ namespace TestProj47
             return num4;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, sets the position within the current stream.
         /// </summary>
@@ -133,6 +141,7 @@ namespace TestProj47
             return this.Position;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, sets the length of the current stream.
         /// </summary>
@@ -141,6 +150,7 @@ namespace TestProj47
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// When overridden in a derived class, writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
         /// </summary>

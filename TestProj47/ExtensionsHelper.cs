@@ -22,30 +22,23 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-        public static char LastChar(this string input)
-        {
-            return string.IsNullOrEmpty(input) ? (char) 0 : input[input.Length - 1];
-        }
+        private static readonly Regex IsEmailRegex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", RegexOptions.Compiled);
 
-        public static char FirstChar(this string input)
-        {
-            return string.IsNullOrEmpty(input) ? (char) 0 : input[0];
-        }
+        public static char LastChar(this string input) =>
+            string.IsNullOrEmpty(input) ? (char) 0 : input[input.Length - 1];
 
-        public static string ChopRight(this string input, int amt)
-        {
-            return string.IsNullOrEmpty(input) ? input : input.Substring(0, input.Length - amt);
-        }
+        public static char FirstChar(this string input) => string.IsNullOrEmpty(input) ? (char) 0 : input[0];
 
-        public static void PushSplit(this IList<string> list, string s)
-        {
+        public static char Char(this string input, int ch) =>
+            string.IsNullOrEmpty(input) || input.Length < ch ? (char) 0 : input[ch];
+
+        public static string ChopRight(this string input, int amt) =>
+            string.IsNullOrEmpty(input) ? input : input.Substring(0, input.Length - amt);
+
+        public static void PushSplit(this IList<string> list, string s) =>
             list.AddAll(s.Contains("\r\n") ? s.Split("\r\n") : s.Split('\n'));
-        }
 
-        public static bool IsDate(this string input)
-        {
-            return !string.IsNullOrEmpty(input) && DateTime.TryParse(input, out _);
-        }
+        public static bool IsDate(this string input) => !string.IsNullOrEmpty(input) && DateTime.TryParse(input, out _);
 
         public static string EncryptAes(this string inText, string password)
         {
@@ -129,10 +122,8 @@ namespace TestProj47
             return arg0 == null ? value : string.Format(value, arg0);
         }
 
-        public static bool IsEmailAddress(this string str)
-        {
-            return new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").IsMatch(str);
-        }
+        public static bool IsEmailAddress(this string str) =>
+            IsEmailRegex.IsMatch(str);
 
         public static T Parse<T>(this string value)
         {

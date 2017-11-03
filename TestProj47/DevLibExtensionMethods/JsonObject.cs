@@ -11,9 +11,9 @@ using SGC = System.Collections.Generic;
 
 namespace TestProj47
 {
+    /// <inheritdoc />
     /// <summary>Represents the JSON object.</summary>
-    internal class JsonObject : SGC.IDictionary<string, object>, SGC.ICollection<SGC.KeyValuePair<string, object>>,
-        IEnumerable<SGC.KeyValuePair<string, object>>, IEnumerable
+    internal class JsonObject : SGC.IDictionary<string, object>
     {
         /// <summary>The internal member dictionary.</summary>
         private readonly SGC.Dictionary<string, object> _members;
