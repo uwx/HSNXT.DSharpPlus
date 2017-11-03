@@ -65,28 +65,28 @@ namespace TestProj47.C5
         // heapifyMin and heapifyMax and their auxiliaries
 
         private void swapFirstWithLast(int cell1, int cell2) {
-          T first = heap[cell1].first;
-          Handle firsthandle = heap[cell1].firsthandle;
+          var first = heap[cell1].first;
+          var firsthandle = heap[cell1].firsthandle;
           updateFirst(cell1, heap[cell2].last, heap[cell2].lasthandle);
           updateLast(cell2, first, firsthandle);
         }
 
         private void swapLastWithLast(int cell1, int cell2) {
-          T last = heap[cell2].last;
-          Handle lasthandle = heap[cell2].lasthandle;
+          var last = heap[cell2].last;
+          var lasthandle = heap[cell2].lasthandle;
           updateLast(cell2, heap[cell1].last, heap[cell1].lasthandle);
           updateLast(cell1, last, lasthandle);
         }
 
         private void swapFirstWithFirst(int cell1, int cell2) {
-          T first = heap[cell2].first;
-          Handle firsthandle = heap[cell2].firsthandle;
+          var first = heap[cell2].first;
+          var firsthandle = heap[cell2].firsthandle;
           updateFirst(cell2, heap[cell1].first, heap[cell1].firsthandle);
           updateFirst(cell1, first, firsthandle);
         }
 
         private bool heapifyMin(int cell) {
-          bool swappedroot = false;
+          var swappedroot = false;
           // If first > last, swap them
           if (2 * cell + 1 < size && comparer.Compare(heap[cell].first, heap[cell].last) > 0) {
             swappedroot = true;
@@ -109,14 +109,14 @@ namespace TestProj47.C5
 
 
         private bool heapifyMax(int cell) {
-          bool swappedroot = false;
+          var swappedroot = false;
           if (2 * cell + 1 < size && comparer.Compare(heap[cell].last, heap[cell].first) < 0) {
             swappedroot = true;
             swapFirstWithLast(cell, cell);
           }
 
           int currentmax = cell, l = 2 * cell + 1, r = l + 1;
-          bool firstmax = false;  // currentmax's first field holds max
+          var firstmax = false;  // currentmax's first field holds max
           if (2 * l + 1 < size) {  // both l.first and l.last exist
             if (comparer.Compare(heap[l].last, heap[currentmax].last) > 0)
               currentmax = l;
@@ -155,8 +155,8 @@ namespace TestProj47.C5
             if (i > 0)
             {
                 T min = heap[i].first, iv = min;
-                Handle minhandle = heap[i].firsthandle;
-                int p = (i + 1) / 2 - 1;
+                var minhandle = heap[i].firsthandle;
+                var p = (i + 1) / 2 - 1;
 
                 while (i > 0)
                 {
@@ -180,8 +180,8 @@ namespace TestProj47.C5
             if (i > 0)
             {
                 T max = heap[i].last, iv = max;
-                Handle maxhandle = heap[i].lasthandle;
-                int p = (i + 1) / 2 - 1;
+                var maxhandle = heap[i].lasthandle;
+                var p = (i + 1) / 2 - 1;
 
                 while (i > 0)
                 {
@@ -246,7 +246,7 @@ namespace TestProj47.C5
 			
             this.comparer = comparer;
             this.itemequalityComparer = itemequalityComparer;
-            int length = 1;
+            var length = 1;
             while (length < capacity) length <<= 1;
             heap = new Interval[length];
         }
@@ -373,7 +373,7 @@ namespace TestProj47.C5
 
             if (size == 2 * heap.Length)
             {
-                Interval[] newheap = new Interval[2 * heap.Length];
+                var newheap = new Interval[2 * heap.Length];
 
                 Array.Copy(heap, newheap, heap.Length);
                 heap = newheap;
@@ -382,7 +382,7 @@ namespace TestProj47.C5
             if (size % 2 == 0)
             {
                 int i = size / 2, p = (i + 1) / 2 - 1;
-                T tmp = heap[p].last;
+                var tmp = heap[p].last;
 
                 if (comparer.Compare(item, tmp) > 0)
                 {
@@ -400,8 +400,8 @@ namespace TestProj47.C5
             }
             else
             {
-                int i = size / 2;
-                T other = heap[i].first;
+                var i = size / 2;
+                var other = heap[i].first;
 
                 if (comparer.Compare(item, other) < 0)
                 {
@@ -445,13 +445,13 @@ namespace TestProj47.C5
         public void AddAll(SCG.IEnumerable<T> items)
         {
             stamp++;
-            int oldsize = size;
-            foreach (T item in items)
+            var oldsize = size;
+            foreach (var item in items)
                 add(null, item);
             if (size != oldsize)
             {
                 if ((ActiveEvents & EventTypeEnum.Added) != 0)
-                    foreach (T item in items)
+                    foreach (var item in items)
                         raiseItemsAdded(item, 1);
                 raiseCollectionChanged();
             }
@@ -504,8 +504,8 @@ namespace TestProj47.C5
         /// <returns>The enumerator(SIC)</returns>
         public override SCG.IEnumerator<T> GetEnumerator()
         {
-            int mystamp = stamp;
-            for (int i = 0; i < size; i++)
+            var mystamp = stamp;
+            for (var i = 0; i < size; i++)
             {
                 if (mystamp != stamp) throw new CollectionModifiedException();
                 yield return i % 2 == 0 ? heap[i >> 1].first : heap[i >> 1].last;
@@ -523,8 +523,8 @@ namespace TestProj47.C5
       // * a handle, if non-null, points to the cell it is associated with
         private bool check(int i, T min, T max)
         {
-            bool retval = true;
-            Interval interval = heap[i];
+            var retval = true;
+            var interval = heap[i];
             T first = interval.first, last = interval.last;
 
             if (2 * i + 1 == size)
@@ -651,22 +651,22 @@ namespace TestProj47.C5
         /// <returns>True if the handle is valid.</returns>
         public bool Find(IPriorityQueueHandle<T> handle, out T item)
         {
-            Handle myhandle = handle as Handle;
+            var myhandle = handle as Handle;
             if (myhandle == null)
             {
                 item = default;
                 return false;
             }
-            int toremove = myhandle.index;
-            int cell = toremove / 2;
-            bool isfirst = toremove % 2 == 0;
+            var toremove = myhandle.index;
+            var cell = toremove / 2;
+            var isfirst = toremove % 2 == 0;
             {
                 if (toremove == -1 || toremove >= size)
                 {
                     item = default;
                     return false;
                 }
-                Handle actualhandle = isfirst ? heap[cell].firsthandle : heap[cell].lasthandle;
+                var actualhandle = isfirst ? heap[cell].firsthandle : heap[cell].lasthandle;
                 if (actualhandle != myhandle)
                 {
                     item = default;
@@ -693,7 +693,7 @@ namespace TestProj47.C5
         public bool Add(ref IPriorityQueueHandle<T> handle, T item)
         {
             stamp++;
-            Handle myhandle = (Handle)handle;
+            var myhandle = (Handle)handle;
             if (myhandle == null)
                 handle = myhandle = new Handle();
             else
@@ -719,11 +719,11 @@ namespace TestProj47.C5
             stamp++;
             int cell;
             bool isfirst;
-            Handle myhandle = checkHandle(handle, out cell, out isfirst);
+            var myhandle = checkHandle(handle, out cell, out isfirst);
 
             T retval;
             myhandle.index = -1;
-            int lastcell = (size - 1) / 2;
+            var lastcell = (size - 1) / 2;
 
             if (cell == lastcell)
             {
@@ -805,14 +805,14 @@ namespace TestProj47.C5
 
         private Handle checkHandle(IPriorityQueueHandle<T> handle, out int cell, out bool isfirst)
         {
-            Handle myhandle = (Handle)handle;
-            int toremove = myhandle.index;
+            var myhandle = (Handle)handle;
+            var toremove = myhandle.index;
             cell = toremove / 2;
             isfirst = toremove % 2 == 0;
             {
                 if (toremove == -1 || toremove >= size)
                     throw new InvalidPriorityQueueHandleException("Invalid handle, index out of range");
-                Handle actualhandle = isfirst ? heap[cell].firsthandle : heap[cell].lasthandle;
+                var actualhandle = isfirst ? heap[cell].firsthandle : heap[cell].lasthandle;
                 if (actualhandle != myhandle)
                     throw new InvalidPriorityQueueHandleException("Invalid handle, doesn't match queue");
             }
@@ -847,10 +847,10 @@ namespace TestProj47.C5
                 }
                 else if (size == 2 * cell + 1) // cell == lastcell
                 {
-                    int p = (cell + 1) / 2 - 1;
+                    var p = (cell + 1) / 2 - 1;
                     if (comparer.Compare(item, heap[p].last) > 0)
                     {
-                        Handle thehandle = heap[cell].firsthandle;
+                        var thehandle = heap[cell].firsthandle;
                         updateFirst(cell, heap[p].last, heap[p].lasthandle);
                         updateLast(p, item, thehandle);
                         bubbleUpMax(p);
@@ -923,8 +923,8 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException();
 
-            T retval = heap[0].first;
-            Handle myhandle = heap[0].firsthandle;
+            var retval = heap[0].first;
+            var myhandle = heap[0].firsthandle;
             handle = myhandle;
             if (myhandle != null)
                 myhandle.index = -1;
@@ -937,7 +937,7 @@ namespace TestProj47.C5
             }
             else
             {
-                int lastcell = (size - 1) / 2;
+                var lastcell = (size - 1) / 2;
 
                 if (size % 2 == 0)
                 {
@@ -993,7 +993,7 @@ namespace TestProj47.C5
                 if (myhandle != null)
                     myhandle.index = -1;
 
-                int lastcell = (size - 1) / 2;
+                var lastcell = (size - 1) / 2;
 
                 if (size % 2 == 0)
                 {

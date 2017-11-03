@@ -162,12 +162,12 @@ namespace TestProj47.C5
             /// <returns>True if node was *copied*</returns>
             internal static bool update(ref Node cursor, bool leftnode, Node child, int maxsnapid, int generation)
             {
-                Node oldref = leftnode ? cursor.left : cursor.right;
+                var oldref = leftnode ? cursor.left : cursor.right;
 
                 if (child == oldref)
                     return false;
 
-                bool retval = false;
+                var retval = false;
 
                 if (cursor.generation <= maxsnapid)
                 {
@@ -463,7 +463,7 @@ namespace TestProj47.C5
                 tree.modifycheck(stamp);//???
 
 
-                Node next = tree.right(cursor);
+                var next = tree.right(cursor);
 
                 if (next != null)
                 {
@@ -595,18 +595,18 @@ namespace TestProj47.C5
 
             stackcheck();
 
-            int level = 0;
-            Node cursor = root;
+            var level = 0;
+            var cursor = root;
 
             while (true)
             {
-                int comp = comparer.Compare(cursor.item, item);
+                var comp = comparer.Compare(cursor.item, item);
 
                 if (comp == 0)
                 {
                     founditem = cursor.item;
 
-                    bool nodeWasUpdated = update;
+                    var nodeWasUpdated = update;
                     if (update)
                     {
                         Node.CopyNode(ref cursor, maxsnapid, generation);
@@ -618,7 +618,7 @@ namespace TestProj47.C5
                     {
                         if (nodeWasUpdated)
                         {
-                            Node kid = cursor;
+                            var kid = cursor;
 
                             cursor = path[level];
                             Node.update(ref cursor, dirs[level] > 0, kid, maxsnapid, generation);
@@ -636,7 +636,7 @@ namespace TestProj47.C5
                 }
 
                 //else
-                Node child = comp > 0 ? cursor.left : cursor.right;
+                var child = comp > 0 ? cursor.left : cursor.right;
 
                 if (child == null)
                 {
@@ -659,14 +659,14 @@ namespace TestProj47.C5
             while (cursor.red)
             {
                 //take one step up:
-                Node child = cursor;
+                var child = cursor;
 
                 cursor = path[--level];
                 path[level] = null;
                 Node.update(ref cursor, dirs[level] > 0, child, maxsnapid, generation);
                 cursor.size++;
-                int comp = dirs[level];
-                Node childsibling = comp > 0 ? cursor.right : cursor.left;
+                var comp = dirs[level];
+                var childsibling = comp > 0 ? cursor.right : cursor.left;
 
                 if (childsibling != null && childsibling.red)
                 {
@@ -692,7 +692,7 @@ namespace TestProj47.C5
                 else
                 {
                     //ROTATE!!!
-                    int childcomp = dirs[level + 1];
+                    var childcomp = dirs[level + 1];
 
                     cursor.red = true;
                     if (comp > 0)
@@ -706,7 +706,7 @@ namespace TestProj47.C5
                         }
                         else
                         {//zagzig
-                            Node badgrandchild = child.right;
+                            var badgrandchild = child.right;
                             Node.update(ref cursor, true, badgrandchild.right, maxsnapid, generation);
                             Node.update(ref child, false, badgrandchild.left, maxsnapid, generation);
                             Node.CopyNode(ref badgrandchild, maxsnapid, generation);
@@ -727,7 +727,7 @@ namespace TestProj47.C5
                         }
                         else
                         {//zigzag
-                            Node badgrandchild = child.left;
+                            var badgrandchild = child.left;
                             Node.update(ref cursor, false, badgrandchild.left, maxsnapid, generation);
                             Node.update(ref child, true, badgrandchild.right, maxsnapid, generation);
                             Node.CopyNode(ref badgrandchild, maxsnapid, generation);
@@ -763,10 +763,10 @@ namespace TestProj47.C5
                     break;
                 }
             }
-            bool stillmore = true;
+            var stillmore = true;
             while (level > 0)
             {
-                Node child = cursor;
+                var child = cursor;
 
                 cursor = path[--level];
                 path[level] = null;
@@ -840,14 +840,14 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
 
-            int c = 0;
+            var c = 0;
             T j = default;
             bool tmp;
 
-            bool raiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
-            CircularQueue<T> wasAdded = raiseAdded ? new CircularQueue<T>() : null;
+            var raiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
+            var wasAdded = raiseAdded ? new CircularQueue<T>() : null;
 
-            foreach (T i in items)
+            foreach (var i in items)
                 if (addIterative(i, ref j, false, out tmp))
                 {
                     c++;
@@ -860,7 +860,7 @@ namespace TestProj47.C5
             size += c;
             //TODO: implement a RaiseForAddAll() method
             if (raiseAdded)
-                foreach (T item in wasAdded)
+                foreach (var item in wasAdded)
                     raiseItemsAdded(item, 1);
             if (((ActiveEvents & EventTypeEnum.Changed) != 0))
                 raiseCollectionChanged();
@@ -898,7 +898,7 @@ namespace TestProj47.C5
         {
             if (blackheight == 1)
             {
-                Node top = rest;
+                var top = rest;
 
                 rest = rest.right;
                 if (red > 0)
@@ -928,9 +928,9 @@ namespace TestProj47.C5
             {
                 maxred >>= 1;
 
-                int lred = red > maxred ? maxred : red;
-                Node left = maketreer(ref rest, blackheight - 1, maxred, lred);
-                Node top = rest;
+                var lred = red > maxred ? maxred : red;
+                var left = maketreer(ref rest, blackheight - 1, maxred, lred);
+                var top = rest;
 
                 rest = rest.right;
                 top.left = left;
@@ -944,7 +944,7 @@ namespace TestProj47.C5
 
         private void addSorted(SCG.IEnumerable<T> items, bool safe, bool raise)
         {
-            SCG.IEnumerator<T> e = items.GetEnumerator(); ;
+            var e = items.GetEnumerator(); ;
             if (size > 0)
                 throw new InternalException("This can't happen");
 
@@ -953,8 +953,8 @@ namespace TestProj47.C5
 
             //To count theCollect 
             Node head = new Node(), tail = head;
-            int z = 1;
-            T lastitem = tail.item = e.Current;
+            var z = 1;
+            var lastitem = tail.item = e.Current;
 
 
             while (e.MoveNext())
@@ -993,10 +993,10 @@ namespace TestProj47.C5
             {
                 if ((ActiveEvents & EventTypeEnum.Added) != 0)
                 {
-                    CircularQueue<T> wasAdded = new CircularQueue<T>();
-                    foreach (T item in this)
+                    var wasAdded = new CircularQueue<T>();
+                    foreach (var item in this)
                         wasAdded.Enqueue(item);
-                    foreach (T item in wasAdded)
+                    foreach (var item in wasAdded)
                         raiseItemsAdded(item, 1);
                 }
                 if ((ActiveEvents & EventTypeEnum.Changed) != 0)
@@ -1041,7 +1041,7 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            Node next; int comp = 0;
+            Node next; var comp = 0;
 
             next = root;
             while (next != null)
@@ -1070,7 +1070,7 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            Node next; int comp = 0;
+            Node next; var comp = 0;
 
             next = root;
             while (next != null)
@@ -1129,7 +1129,7 @@ namespace TestProj47.C5
         /// <returns>True if the item was found and hence updated.</returns>
         public bool Update(T item)
         {
-            T olditem = item;
+            var olditem = item;
             return Update(item, out olditem);
         }
 
@@ -1150,9 +1150,9 @@ namespace TestProj47.C5
             updatecheck();
             stackcheck();
 
-            int level = 0;
-            Node cursor = root;
-            int comp = 0;
+            var level = 0;
+            var cursor = root;
+            var comp = 0;
 
             while (cursor != null)
             {
@@ -1165,7 +1165,7 @@ namespace TestProj47.C5
                     cursor.item = item;
                     while (level > 0)
                     {
-                        Node child = cursor;
+                        var child = cursor;
 
                         cursor = path[--level];
                         path[level] = null;
@@ -1246,7 +1246,7 @@ namespace TestProj47.C5
                 return false;
 
             int junk;
-            bool retval = removeIterative(ref item, false, out junk);
+            var retval = removeIterative(ref item, false, out junk);
             if (ActiveEvents != 0 && retval)
                 raiseForRemove(item);
             return retval;
@@ -1272,7 +1272,7 @@ namespace TestProj47.C5
                 return false;
 
             int junk;
-            bool retval = removeIterative(ref removeditem, false, out junk);
+            var retval = removeIterative(ref removeditem, false, out junk);
             if (ActiveEvents != 0 && retval)
                 raiseForRemove(item);
             return retval;
@@ -1292,7 +1292,7 @@ namespace TestProj47.C5
             stackcheck();
 
             int level = 0, comp;
-            Node cursor = root;
+            var cursor = root;
 
             while (true)
             {
@@ -1306,7 +1306,7 @@ namespace TestProj47.C5
                     break;
                 }
 
-                Node child = comp > 0 ? cursor.left : cursor.right;
+                var child = comp > 0 ? cursor.left : cursor.right;
 
                 if (child == null)
                     return false;
@@ -1333,7 +1333,7 @@ namespace TestProj47.C5
             size--;
 
             //Stage 2: if item's node has no null child, find predecessor
-            int level_of_item = level;
+            var level_of_item = level;
 
             if (cursor.left != null && cursor.right != null)
             {
@@ -1352,8 +1352,8 @@ namespace TestProj47.C5
             }
 
             //Stage 3: splice out node to be removed
-            Node newchild = cursor.right == null ? cursor.left : cursor.right;
-            bool demote_or_rotate = newchild == null && !cursor.red;
+            var newchild = cursor.right == null ? cursor.left : cursor.right;
+            var demote_or_rotate = newchild == null && !cursor.red;
 
             //assert newchild.red 
             if (newchild != null)
@@ -1371,7 +1371,7 @@ namespace TestProj47.C5
             cursor = path[level];
             path[level] = null;
 
-            int comp = dirs[level];
+            var comp = dirs[level];
             Node childsibling;
             Node.update(ref cursor, comp > 0, newchild, maxsnapid, generation);
 
@@ -1409,7 +1409,7 @@ namespace TestProj47.C5
                     demote_or_rotate = false;
                     break; //No rotation
                 }
-                Node child = cursor;
+                var child = cursor;
 
                 cursor = path[--level];
                 path[level] = null;
@@ -1426,7 +1426,7 @@ namespace TestProj47.C5
                 //parent = cursor (temporary for swapping nodes)
                 //childsibling is the sibling of the updated child (x)
                 //cursor is always the top of the subtree
-                Node parent = cursor;
+                var parent = cursor;
 
                 if (childsibling.red)
                 {//Case 2 and perhaps more. 
@@ -1577,7 +1577,7 @@ namespace TestProj47.C5
                 }
                 else
                 {
-                    Node swap = cursor;
+                    var swap = cursor;
 
                     cursor = path[--level];
                     path[level] = null;
@@ -1590,7 +1590,7 @@ namespace TestProj47.C5
             //Stage 6: fixup to the root
             while (level > 0)
             {
-                Node child = cursor;
+                var child = cursor;
 
                 cursor = path[--level];
                 path[level] = null;
@@ -1615,7 +1615,7 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            int oldsize = size;
+            var oldsize = size;
             clear();
             if ((ActiveEvents & EventTypeEnum.Cleared) != 0)
                 raiseCollectionCleared(true, oldsize);
@@ -1645,10 +1645,10 @@ namespace TestProj47.C5
 
             T jtem;
 
-            bool mustRaise = (ActiveEvents & (EventTypeEnum.Removed | EventTypeEnum.Changed)) != 0;
-            RaiseForRemoveAllHandler raiseHandler = mustRaise ? new RaiseForRemoveAllHandler(this) : null;
+            var mustRaise = (ActiveEvents & (EventTypeEnum.Removed | EventTypeEnum.Changed)) != 0;
+            var raiseHandler = mustRaise ? new RaiseForRemoveAllHandler(this) : null;
 
-            foreach (T item in items)
+            foreach (var item in items)
             {
                 if (root == null)
                     break;
@@ -1677,11 +1677,11 @@ namespace TestProj47.C5
             //Well, it is unclear how efficient it would be.
             //We could use a marking method!?
 //#warning how does this work together with persistence?
-            TreeSet<T> t = (TreeSet<T>)MemberwiseClone();
+            var t = (TreeSet<T>)MemberwiseClone();
 
             T jtem = default;
             t.clear();
-            foreach (T item in items)
+            foreach (var item in items)
                 if (ContainsCount(item) > t.ContainsCount(item))
                 {
                     t.add(item, ref jtem);
@@ -1694,8 +1694,8 @@ namespace TestProj47.C5
             if ((ActiveEvents & EventTypeEnum.Removed) != 0)
             {
                 wasRemoved = new CircularQueue<KeyValuePair<T, int>>();
-                SCG.IEnumerator<KeyValuePair<T, int>> ie = ItemMultiplicities().GetEnumerator();
-                foreach (KeyValuePair<T, int> p in t.ItemMultiplicities())
+                var ie = ItemMultiplicities().GetEnumerator();
+                foreach (var p in t.ItemMultiplicities())
                 {
                     //We know p.Key is in this!
                     while (ie.MoveNext())
@@ -1716,7 +1716,7 @@ namespace TestProj47.C5
             size = t.size;
             blackdepth = t.blackdepth;
             if (wasRemoved != null)
-                foreach (KeyValuePair<T, int> p in wasRemoved)
+                foreach (var p in wasRemoved)
                     raiseItemsRemoved(p.Key, p.Value);
             if ((ActiveEvents & EventTypeEnum.Changed) != 0)
                 raiseCollectionChanged();
@@ -1736,7 +1736,7 @@ namespace TestProj47.C5
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
             //This is worst-case O(m*logn)
-            foreach (T item in items)
+            foreach (var item in items)
                 if (!Contains(item)) return false;
 
             return true;
@@ -1754,14 +1754,14 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            TreeSet<T> res = new TreeSet<T>(comparer);
-            SCG.IEnumerator<T> e = GetEnumerator();
+            var res = new TreeSet<T>(comparer);
+            var e = GetEnumerator();
             Node head = null, tail = null;
-            int z = 0;
+            var z = 0;
 
             while (e.MoveNext())
             {
-                T thisitem = e.Current;
+                var thisitem = e.Current;
 
                 if (filter(thisitem))
                 {
@@ -1816,21 +1816,21 @@ namespace TestProj47.C5
         {
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
-            TreeSet<V> res = new TreeSet<V>(c);
+            var res = new TreeSet<V>(c);
 
             if (size == 0)
                 return res;
 
-            SCG.IEnumerator<T> e = GetEnumerator();
+            var e = GetEnumerator();
             TreeSet<V>.Node head = null, tail = null;
             V oldv = default;
-            int z = 0;
+            var z = 0;
 
             while (e.MoveNext())
             {
-                T thisitem = e.Current;
+                var thisitem = e.Current;
 
-                V newv = mapper(thisitem);
+                var newv = mapper(thisitem);
 
                 if (head == null)
                 {
@@ -1839,7 +1839,7 @@ namespace TestProj47.C5
                 }
                 else
                 {
-                    int comp = c.Compare(oldv, newv);
+                    var comp = c.Compare(oldv, newv);
 
                     if (comp >= 0)
 
@@ -1936,12 +1936,12 @@ namespace TestProj47.C5
         {
             if (isSnapShot)
                 throw new NotSupportedException("Indexing not supported for snapshots");
-            Node next = root;
+            var next = root;
 
             if (i >= 0 && i < size)
                 while (true)
                 {
-                    int j = next.left == null ? 0 : next.left.size;
+                    var j = next.left == null ? 0 : next.left.size;
 
                     if (i > j)
                     {
@@ -1997,17 +1997,17 @@ namespace TestProj47.C5
         {
             if (isSnapShot)
                 throw new NotSupportedException("Indexing not supported for snapshots");
-            int ind = 0; Node next = root;
+            var ind = 0; var next = root;
 
             while (next != null)
             {
-                int comp = comparer.Compare(item, next.item);
+                var comp = comparer.Compare(item, next.item);
 
                 if (comp < 0)
                     next = next.left;
                 else
                 {
-                    int leftcnt = next.left == null ? 0 : next.left.size;
+                    var leftcnt = next.left == null ? 0 : next.left.size;
 
                     if (comp == 0)
                     {
@@ -2055,7 +2055,7 @@ namespace TestProj47.C5
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
-            T retval = removeAt(i);
+            var retval = removeAt(i);
             if (ActiveEvents != 0)
                 raiseForRemove(retval);
             return retval;
@@ -2076,12 +2076,12 @@ namespace TestProj47.C5
                 path = new Node[2 * dirs.Length];
             }
 
-            int level = 0;
-            Node cursor = root;
+            var level = 0;
+            var cursor = root;
 
             while (true)
             {
-                int j = cursor.left == null ? 0 : cursor.left.size;
+                var j = cursor.left == null ? 0 : cursor.left.size;
 
                 if (i > j)
                 {
@@ -2102,7 +2102,7 @@ namespace TestProj47.C5
                 }
             }
 
-            T retval = cursor.item;
+            var retval = cursor.item;
 
 
             removeIterativePhase2(cursor, level);
@@ -2133,7 +2133,7 @@ namespace TestProj47.C5
             //the endpoints of the range and fuse the parts!
             //We really need good internal destructive split and catenate functions!
             //Alternative for large counts: rebuild tree using maketree()
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
                 removeAt(start);
 
             if ((ActiveEvents & EventTypeEnum.Cleared) != 0)
@@ -2196,8 +2196,8 @@ namespace TestProj47.C5
             {
                 tree.modifycheck(stamp);
 
-                Node cursor = tree.root;
-                Node[] path = new Node[2 * tree.blackdepth];
+                var cursor = tree.root;
+                var path = new Node[2 * tree.blackdepth];
                 int level = 0, totaltogo = length;
 
                 if (totaltogo == 0)
@@ -2205,11 +2205,11 @@ namespace TestProj47.C5
 
                 if (forwards)
                 {
-                    int i = start;
+                    var i = start;
 
                     while (true)
                     {
-                        int j = cursor.left == null ? 0 : cursor.left.size;
+                        var j = cursor.left == null ? 0 : cursor.left.size;
 
                         if (i > j)
                         {
@@ -2230,7 +2230,7 @@ namespace TestProj47.C5
                         }
                     }
 
-                    T current = cursor.item;
+                    var current = cursor.item;
 
                     while (totaltogo-- > 0)
                     {
@@ -2254,11 +2254,11 @@ namespace TestProj47.C5
                 }
                 else // backwards
                 {
-                    int i = start + length - 1;
+                    var i = start + length - 1;
 
                     while (true)
                     {
-                        int j = cursor.left == null ? 0 : cursor.left.size;
+                        var j = cursor.left == null ? 0 : cursor.left.size;
 
                         if (i > j)
                         {
@@ -2279,7 +2279,7 @@ namespace TestProj47.C5
                         }
                     }
 
-                    T current = cursor.item;
+                    var current = cursor.item;
 
                     while (totaltogo-- > 0)
                     {
@@ -2380,7 +2380,7 @@ namespace TestProj47.C5
             //We must follow the pattern of removeIterative()
             stackcheck();
 
-            T retval = deleteMin();
+            var retval = deleteMin();
             if (ActiveEvents != 0)
             {
                 raiseItemsRemoved(retval, 1);
@@ -2391,8 +2391,8 @@ namespace TestProj47.C5
 
         private T deleteMin()
         {
-            int level = 0;
-            Node cursor = root;
+            var level = 0;
+            var cursor = root;
 
             while (cursor.left != null)
             {
@@ -2401,7 +2401,7 @@ namespace TestProj47.C5
                 cursor = cursor.left;
             }
 
-            T retval = cursor.item;
+            var retval = cursor.item;
 
             removeIterativePhase2(cursor, level);
             return retval;
@@ -2447,7 +2447,7 @@ namespace TestProj47.C5
             //We must follow the pattern of removeIterative()
             stackcheck();
 
-            T retval = deleteMax();
+            var retval = deleteMax();
             if (ActiveEvents != 0)
             {
                 raiseItemsRemoved(retval, 1);
@@ -2458,8 +2458,8 @@ namespace TestProj47.C5
 
         private T deleteMax()
         {
-            int level = 0;
-            Node cursor = root;
+            var level = 0;
+            var cursor = root;
 
             while (cursor.right != null)
             {
@@ -2468,7 +2468,7 @@ namespace TestProj47.C5
                 cursor = cursor.right;
             }
 
-            T retval = cursor.item;
+            var retval = cursor.item;
 
             removeIterativePhase2(cursor, level);
             return retval;
@@ -2492,7 +2492,7 @@ namespace TestProj47.C5
 
             while (cursor != null)
             {
-                int comp = comparer.Compare(cursor.item, item);
+                var comp = comparer.Compare(cursor.item, item);
 
                 if (comp < 0)
                 {
@@ -2536,7 +2536,7 @@ namespace TestProj47.C5
 
             while (cursor != null)
             {
-                int comp = comparer.Compare(cursor.item, item);
+                var comp = comparer.Compare(cursor.item, item);
 
                 if (comp > 0)
                 {
@@ -2581,7 +2581,7 @@ namespace TestProj47.C5
 
             while (cursor != null)
             {
-                int comp = comparer.Compare(cursor.item, item);
+                var comp = comparer.Compare(cursor.item, item);
 
                 if (comp < 0)
                 {
@@ -2621,7 +2621,7 @@ namespace TestProj47.C5
 
             while (cursor != null)
             {
-                int comp = comparer.Compare(cursor.item, item);
+                var comp = comparer.Compare(cursor.item, item);
 
                 if (comp == 0)
                 {
@@ -2781,7 +2781,7 @@ namespace TestProj47.C5
         {
             if (isSnapShot)
                 throw new NotSupportedException("Indexing not supported for snapshots");
-            int ind = 0, comp = 0; Node next = root;
+            int ind = 0, comp = 0; var next = root;
 
             while (next != null)
             {
@@ -2790,7 +2790,7 @@ namespace TestProj47.C5
                     next = next.left;
                 else
                 {
-                    int leftcnt = next.left == null ? 0 : next.left.size;
+                    var leftcnt = next.left == null ? 0 : next.left.size;
 
                     if (comp == 0)
                         return strict ? ind + leftcnt : ind + leftcnt + 1;
@@ -2829,11 +2829,11 @@ namespace TestProj47.C5
             if (!isValid)
                 throw new ViewDisposedException("Snapshot has been disposed");
             Node cursor = root, lbest = null, rbest = null;
-            bool res = false;
+            var res = false;
 
             while (cursor != null)
             {
-                int comp = c.CompareTo(cursor.item);
+                var comp = c.CompareTo(cursor.item);
 
                 if (comp > 0)
                 {
@@ -2849,7 +2849,7 @@ namespace TestProj47.C5
                 {
                     res = true;
 
-                    Node tmp = left(cursor);
+                    var tmp = left(cursor);
 
                     while (tmp != null && c.CompareTo(tmp.item) == 0)
                         tmp = left(tmp);
@@ -2961,17 +2961,17 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
 
-            int count = CountFrom(low);
+            var count = CountFrom(low);
 
             if (count == 0)
                 return;
 
             stackcheck();
-            CircularQueue<T> wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
+            var wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
 
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
-                T item = deleteMax();
+                var item = deleteMax();
                 if (wasRemoved != null)
                     wasRemoved.Enqueue(item);
             }
@@ -2993,16 +2993,16 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
 
-            int count = CountFromTo(low, hi);
+            var count = CountFromTo(low, hi);
 
             if (count == 0)
                 return;
 
-            CircularQueue<T> wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
+            var wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
             int junk;
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
-                T item = Predecessor(hi);
+                var item = Predecessor(hi);
                 removeIterative(ref item, false, out junk);
                 if (wasRemoved != null)
                     wasRemoved.Enqueue(item);
@@ -3024,17 +3024,17 @@ namespace TestProj47.C5
                 throw new ViewDisposedException("Snapshot has been disposed");
             updatecheck();
 
-            int count = CountTo(hi);
+            var count = CountTo(hi);
 
             if (count == 0)
                 return;
 
             stackcheck();
-            CircularQueue<T> wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
+            var wasRemoved = (ActiveEvents & EventTypeEnum.Removed) != 0 ? new CircularQueue<T>() : null;
 
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
-                T item = deleteMin();
+                var item = deleteMin();
                 if (wasRemoved != null)
                     wasRemoved.Enqueue(item);
             }
@@ -3054,7 +3054,7 @@ namespace TestProj47.C5
         {
             if (snapList == null)
                 return -1;
-            SnapRef lastLiveSnapRef = snapList.Prev;
+            var lastLiveSnapRef = snapList.Prev;
             object _snapshot = null;
             while (lastLiveSnapRef != null && (_snapshot = lastLiveSnapRef.Tree.Target) == null)
                 lastLiveSnapRef = lastLiveSnapRef.Prev;
@@ -3102,7 +3102,7 @@ namespace TestProj47.C5
             {
                 if (snapList != null)
                 {
-                    SnapRef someSnapRef = snapList.Prev;
+                    var someSnapRef = snapList.Prev;
                     while (someSnapRef != null)
                     {
                         TreeSet<T> lastsnap;
@@ -3136,8 +3136,8 @@ namespace TestProj47.C5
             if (isSnapShot)
                 throw new InvalidOperationException("Cannot snapshot a snapshot");
 
-            TreeSet<T> res = (TreeSet<T>)MemberwiseClone();
-            SnapRef newSnapRef = new SnapRef(res);
+            var res = (TreeSet<T>)MemberwiseClone();
+            var newSnapRef = new SnapRef(res);
             res.isReadOnlyBase = true;
             res.isSnapShot = true;
             res.snapList = newSnapRef;
@@ -3145,7 +3145,7 @@ namespace TestProj47.C5
             findLastLiveSnapShot();
             if (snapList == null)
                 snapList = new SnapRef(this);
-            SnapRef lastLiveSnapRef = snapList.Prev;
+            var lastLiveSnapRef = snapList.Prev;
 
             newSnapRef.Prev = lastLiveSnapRef;
             if (lastLiveSnapRef != null)
@@ -3283,7 +3283,7 @@ namespace TestProj47.C5
                             cursor = cursor.right;
                             while (cursor != null)
                             {
-                                int comp = compare(cursor.item, range.lowend);
+                                var comp = compare(cursor.item, range.lowend);
 
                                 if (comp > 0)
                                 {
@@ -3314,7 +3314,7 @@ namespace TestProj47.C5
                         {
                             path[level] = cursor = range.basis.right(cursor);
 
-                            Node next = range.basis.left(cursor);
+                            var next = range.basis.left(cursor);
 
                             while (next != null)
                             {
@@ -3340,7 +3340,7 @@ namespace TestProj47.C5
                         cursor = cursor.left;
                         while (cursor != null)
                         {
-                            int comp = compare(cursor.item, range.highend);
+                            var comp = compare(cursor.item, range.highend);
 
                             if (comp < 0)
                             {
@@ -3366,7 +3366,7 @@ namespace TestProj47.C5
                     {
                         path[level] = cursor = range.basis.left(cursor);
 
-                        Node next = range.basis.right(cursor);
+                        var next = range.basis.right(cursor);
 
                         while (next != null)
                         {
@@ -3452,7 +3452,7 @@ namespace TestProj47.C5
 
             public override IDirectedCollectionValue<T> Backwards()
             {
-                Range b = (Range)MemberwiseClone();
+                var b = (Range)MemberwiseClone();
 
                 b.direction = direction == EnumerationDirection.Forwards ? EnumerationDirection.Backwards : EnumerationDirection.Forwards;
                 return b;
@@ -3564,12 +3564,12 @@ namespace TestProj47.C5
 
         private bool rbminicheck(Node n, bool redp, out T min, out T max, out int blackheight)
         {//Red-Black invariant
-            bool res = true;
+            var res = true;
 
             res = massert(!(n.red && redp), n, "RED parent of RED node") && res;
             res = massert(n.left == null || n.right != null || n.left.red, n, "Left child black, but right child empty") && res;
             res = massert(n.right == null || n.left != null || n.right.red, n, "Right child black, but left child empty") && res;
-            bool sb = n.size == (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) + 1;
+            var sb = n.size == (n.left == null ? 0 : n.left.size) + (n.right == null ? 0 : n.right.size) + 1;
 
             res = massert(sb, n, "Bad size") && res;
             min = max = n.item;
@@ -3597,14 +3597,14 @@ namespace TestProj47.C5
 
         private bool rbminisnapcheck(Node n, out int size, out T min, out T max)
         {
-            bool res = true;
+            var res = true;
 
             min = max = n.item;
 
             int lsz = 0, rsz = 0;
             T otherext;
 
-            Node child = (n.lastgeneration >= generation && n.leftnode) ? n.oldref : n.left;
+            var child = (n.lastgeneration >= generation && n.leftnode) ? n.oldref : n.left;
             if (child != null)
             {
                 res = rbminisnapcheck(child, out lsz, out min, out otherext) && res;
@@ -3631,7 +3631,7 @@ namespace TestProj47.C5
         /// <returns>false if invariant violation</returns>
         public bool Check(string name)
         {
-            StringBuilder e = new StringBuilder();
+            var e = new StringBuilder();
 
             if (!check(name))
                 return true;
@@ -3664,12 +3664,12 @@ namespace TestProj47.C5
                 {
                     //Logger.Log("Im'a snapshot");
                     int thesize;
-                    bool rv = rbminisnapcheck(root, out thesize, out min, out max);
+                    var rv = rbminisnapcheck(root, out thesize, out min, out max);
 
                     rv = massert(size == thesize, root, "bad snapshot size") && rv;
                     return !rv;
                 }
-                bool res = rbminicheck(root, false, out min, out max, out blackheight);
+                var res = rbminicheck(root, false, out min, out max, out blackheight);
                 res = massert(blackheight == blackdepth, root, "bad blackh/d") && res;
                 res = massert(!root.red, root, "root is red") && res;
                 res = massert(root.size == size, root, "count!=root.size") && res;

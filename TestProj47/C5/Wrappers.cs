@@ -752,11 +752,11 @@ namespace TestProj47.C5
         /// <returns>the index, if found, a negative value else</returns>
         public int FindIndex(Func<T, bool> predicate)
         {
-            IIndexed<T> indexed = sequenced as IIndexed<T>;
+            var indexed = sequenced as IIndexed<T>;
             if (indexed != null)
                 return indexed.FindIndex(predicate);
-            int index = 0;
-            foreach (T item in this)
+            var index = 0;
+            foreach (var item in this)
             {
                 if (predicate(item))
                     return index;
@@ -774,11 +774,11 @@ namespace TestProj47.C5
         /// <returns>the index, if found, a negative value else</returns>
         public int FindLastIndex(Func<T, bool> predicate)
         {
-            IIndexed<T> indexed = sequenced as IIndexed<T>;
+            var indexed = sequenced as IIndexed<T>;
             if (indexed != null)
                 return indexed.FindLastIndex(predicate);
-            int index = Count - 1;
-            foreach (T item in Backwards())
+            var index = Count - 1;
+            foreach (var item in Backwards())
             {
                 if (predicate(item))
                     return index;
@@ -1451,7 +1451,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public IList<T> View(int start, int count)
         {
-            IList<T> view = innerlist.View(start, count);
+            var view = innerlist.View(start, count);
             return view == null ? null : new GuardedList<T>(view, underlying ?? this, true);
         }
 
@@ -1462,7 +1462,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public IList<T> ViewOf(T item)
         {
-            IList<T> view = innerlist.ViewOf(item);
+            var view = innerlist.ViewOf(item);
             return view == null ? null : new GuardedList<T>(view, underlying ?? this, true);
         }
 
@@ -1473,7 +1473,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public IList<T> LastViewOf(T item)
         {
-            IList<T> view = innerlist.LastViewOf(item);
+            var view = innerlist.LastViewOf(item);
             return view == null ? null : new GuardedList<T>(view, underlying ?? this, true);
         }
 
@@ -1561,10 +1561,10 @@ namespace TestProj47.C5
         /// <returns></returns>
         public IList<T> Span(IList<T> otherView)
         {
-            GuardedList<T> otherGuardedList = otherView as GuardedList<T>;
+            var otherGuardedList = otherView as GuardedList<T>;
             if (otherGuardedList == null)
                 throw new IncompatibleViewException();
-            IList<T> span = innerlist.Span(otherGuardedList.innerlist);
+            var span = innerlist.Span(otherGuardedList.innerlist);
             if (span == null)
                 return null;
             return new GuardedList<T>(span, underlying ?? otherGuardedList.underlying ?? this, true);
@@ -1756,7 +1756,7 @@ namespace TestProj47.C5
             if (index < 0 || index + Count > arr.Length)
                 throw new ArgumentOutOfRangeException();
 
-            foreach (T item in this)
+            foreach (var item in this)
                 arr.SetValue(item, index++);
         }
 

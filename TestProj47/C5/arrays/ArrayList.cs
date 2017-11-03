@@ -244,7 +244,7 @@ namespace TestProj47.C5
             {
                 base.expand(newcapacity, newsize);
                 if (views != null)
-                    foreach (ArrayList<T> v in views)
+                    foreach (var v in views)
                         v.array = array;
             }
         }
@@ -304,7 +304,7 @@ namespace TestProj47.C5
         /// <returns>The index of first occurrence</returns>
         private int indexOf(T item)
         {
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
                 if (equals(item, array[offsetField + i]))
                     return i;
             return ~size;
@@ -317,7 +317,7 @@ namespace TestProj47.C5
         /// <returns>The index of last occurrence</returns>
         private int lastIndexOf(T item)
         {
-            for (int i = size - 1; i >= 0; i--)
+            for (var i = size - 1; i >= 0; i--)
                 if (equals(item, array[offsetField + i]))
                     return i;
             return ~size;
@@ -360,7 +360,7 @@ namespace TestProj47.C5
         {
             i += offsetField;
             fixViewsBeforeSingleRemove(i);
-            T retval = array[i];
+            var retval = array[i];
             addtosize(-1);
             if (underlyingsize > i)
                 Array.Copy(array, i + 1, array, i, underlyingsize - i);
@@ -384,7 +384,7 @@ namespace TestProj47.C5
         private void fixViewsAfterInsert(int added, int realInsertionIndex)
         {
             if (views != null)
-                foreach (ArrayList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -399,7 +399,7 @@ namespace TestProj47.C5
         private void fixViewsBeforeSingleRemove(int realRemovalIndex)
         {
             if (views != null)
-                foreach (ArrayList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -418,9 +418,9 @@ namespace TestProj47.C5
         /// <param name="count"></param>
         private void fixViewsBeforeRemove(int start, int count)
         {
-            int clearend = start + count - 1;
+            var clearend = start + count - 1;
             if (views != null)
-                foreach (ArrayList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view == this)
                         continue;
@@ -462,7 +462,7 @@ namespace TestProj47.C5
         private void disposeOverlappingViews(bool reverse)
         {
             if (views != null)
-                foreach (ArrayList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -526,7 +526,7 @@ namespace TestProj47.C5
                 leftEndIndex = rightEndIndex = viewCount = 0;
                 leftEnds = rightEnds = null;
                 if (list.views != null)
-                    foreach (ArrayList<T> v in list.views)
+                    foreach (var v in list.views)
                         if (v != list)
                         {
                             if (leftEnds == null)
@@ -555,7 +555,7 @@ namespace TestProj47.C5
                     Position endpoint;
                     while (leftEndIndex < viewCount && (endpoint = leftEnds[leftEndIndex]).index <= realindex)
                     {
-                        ArrayList<T> view = endpoint.view;
+                        var view = endpoint.view;
                         view.offsetField = view.offsetField - removed;
                         view.size += removed;
                         leftEndIndex++;
@@ -574,7 +574,7 @@ namespace TestProj47.C5
                     Position endpoint;
                     while (leftEndIndex < viewCount && (endpoint = leftEnds[leftEndIndex]).index <= realindex)
                     {
-                        ArrayList<T> view = endpoint.view;
+                        var view = endpoint.view;
                         view.offsetField = view.Offset - removed;
                         view.size += removed;
                         leftEndIndex++;
@@ -711,7 +711,7 @@ namespace TestProj47.C5
                 if (index < 0 || index >= size)
                     throw new IndexOutOfRangeException();
                 index += offsetField;
-                T item = array[index];
+                var item = array[index];
 
                 array[index] = value;
 
@@ -778,25 +778,25 @@ namespace TestProj47.C5
             if (index < 0 || index > size)
                 throw new IndexOutOfRangeException();
             index += offsetField;
-            int toadd = countItems(items);
+            var toadd = countItems(items);
             if (toadd == 0)
                 return;
             if (toadd + underlyingsize > array.Length)
                 expand(toadd + underlyingsize, underlyingsize);
             if (underlyingsize > index)
                 Array.Copy(array, index, array, index + toadd, underlyingsize - index);
-            int i = index;
+            var i = index;
             try
             {
 
-                foreach (T item in items)
+                foreach (var item in items)
                 {
                     array[i++] = item;
                 }
             }
             finally
             {
-                int added = i - index;
+                var added = i - index;
                 if (added < toadd)
                 {
                     Array.Copy(array, index + toadd, array, i, underlyingsize - index);
@@ -816,7 +816,7 @@ namespace TestProj47.C5
             if (ActiveEvents != 0)
             {
                 if ((ActiveEvents & (EventTypeEnum.Added | EventTypeEnum.Inserted)) != 0)
-                    for (int j = index; j < index + added; j++)
+                    for (var j = index; j < index + added; j++)
                     {
                         raiseItemInserted(array[j], j);
                         raiseItemsAdded(array[j], 1);
@@ -859,13 +859,13 @@ namespace TestProj47.C5
         public virtual IList<T> FindAll(Func<T, bool> filter)
         {
             validitycheck();
-            int stamp = this.stamp;
-            ArrayList<T> res = new ArrayList<T>(itemequalityComparer);
+            var stamp = this.stamp;
+            var res = new ArrayList<T>(itemequalityComparer);
             int j = 0, rescap = res.array.Length;
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
-                T a = array[offsetField + i];
-                bool found = filter(a);
+                var a = array[offsetField + i];
+                var found = filter(a);
                 modifycheck(stamp);
                 if (found)
                 {
@@ -890,7 +890,7 @@ namespace TestProj47.C5
         {
             validitycheck();
 
-            ArrayList<V> res = new ArrayList<V>(size);
+            var res = new ArrayList<V>(size);
 
             return map(mapper, res);
         }
@@ -908,18 +908,18 @@ namespace TestProj47.C5
         {
             validitycheck();
 
-            ArrayList<V> res = new ArrayList<V>(size, itemequalityComparer);
+            var res = new ArrayList<V>(size, itemequalityComparer);
 
             return map(mapper, res);
         }
 
         private IList<V> map<V>(Func<T, V> mapper, ArrayList<V> res)
         {
-            int stamp = this.stamp;
+            var stamp = this.stamp;
             if (size > 0)
-                for (int i = 0; i < size; i++)
+                for (var i = 0; i < size; i++)
                 {
-                    V mappeditem = mapper(array[offsetField + i]);
+                    var mappeditem = mapper(array[offsetField + i]);
                     modifycheck(stamp);
 
                     res.array[i] = mappeditem;
@@ -940,7 +940,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
 
-            T item = removeAt(fIFO ? 0 : size - 1);
+            var item = removeAt(fIFO ? 0 : size - 1);
             (underlying ?? this).raiseForRemove(item);
             return item;
         }
@@ -956,7 +956,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
 
-            T item = removeAt(0);
+            var item = removeAt(0);
             (underlying ?? this).raiseForRemoveAt(offsetField, item);
             return item;
         }
@@ -973,7 +973,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
 
-            T item = removeAt(size - 1);
+            var item = removeAt(size - 1);
             (underlying ?? this).raiseForRemoveAt(size + offsetField, item);
             return item;
         }
@@ -992,7 +992,7 @@ namespace TestProj47.C5
             checkRange(start, count);
             if (views == null)
                 views = new WeakViewList<ArrayList<T>>();
-            ArrayList<T> retval = (ArrayList<T>)MemberwiseClone();
+            var retval = (ArrayList<T>)MemberwiseClone();
 
 
             retval.underlying = underlying != null ? underlying : this;
@@ -1010,7 +1010,7 @@ namespace TestProj47.C5
         /// <returns>The new list view.</returns>
         public virtual IList<T> ViewOf(T item)
         {
-            int index = indexOf(item);
+            var index = indexOf(item);
             if (index < 0)
                 return null;
             return View(index, 1);
@@ -1025,7 +1025,7 @@ namespace TestProj47.C5
         /// <returns>The new list view.</returns>
         public virtual IList<T> LastViewOf(T item)
         {
-            int index = lastIndexOf(item);
+            var index = lastIndexOf(item);
             if (index < 0)
                 return null;
             return View(index, 1);
@@ -1105,8 +1105,8 @@ namespace TestProj47.C5
             if (underlying == null)
                 throw new NotAViewException("Not a view");
 
-            int newoffset = this.offsetField + offset;
-            int newsize = size;
+            var newoffset = this.offsetField + offset;
+            var newsize = size;
 
             if (newoffset < 0 || newsize < 0 || newoffset + newsize > underlyingsize)
                 return false;
@@ -1142,7 +1142,7 @@ namespace TestProj47.C5
                 return;
             for (int i = 0, length = size / 2, end = offsetField + size - 1; i < length; i++)
             {
-                T swap = array[offsetField + i];
+                var swap = array[offsetField + i];
 
                 array[offsetField + i] = array[end - i];
                 array[end - i] = swap;
@@ -1221,10 +1221,10 @@ namespace TestProj47.C5
                 return;
             for (int i = offsetField, top = offsetField + size, end = top - 1; i < end; i++)
             {
-                int j = rnd.Next(i, top);
+                var j = rnd.Next(i, top);
                 if (j != i)
                 {
-                    T tmp = array[i];
+                    var tmp = array[i];
                     array[i] = array[j];
                     array[j] = tmp;
                 }
@@ -1266,7 +1266,7 @@ namespace TestProj47.C5
             if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("Index out of range for sequenced collection");
 
-            T item = removeAt(index);
+            var item = removeAt(index);
             (underlying ?? this).raiseForRemoveAt(offsetField + index, item);
             return item;
         }
@@ -1465,12 +1465,12 @@ namespace TestProj47.C5
         {
             updatecheck();
 
-            int i = fIFO ? indexOf(item) : lastIndexOf(item);
+            var i = fIFO ? indexOf(item) : lastIndexOf(item);
 
             if (i < 0)
                 return false;
 
-            T removeditem = removeAt(i);
+            var removeditem = removeAt(i);
             (underlying ?? this).raiseForRemove(removeditem);
             return true;
         }
@@ -1490,7 +1490,7 @@ namespace TestProj47.C5
         {
             updatecheck();
 
-            int i = fIFO ? indexOf(item) : lastIndexOf(item);
+            var i = fIFO ? indexOf(item) : lastIndexOf(item);
 
             if (i < 0)
             {
@@ -1516,15 +1516,15 @@ namespace TestProj47.C5
             if (size == 0)
                 return;
             //TODO: reactivate the old code for small sizes
-            HashBag<T> toremove = new HashBag<T>(itemequalityComparer);
+            var toremove = new HashBag<T>(itemequalityComparer);
             toremove.AddAll(items);
             if (toremove.Count == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
-            ViewHandler viewHandler = new ViewHandler(this);
-            int j = offsetField;
-            int removed = 0;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
+            var viewHandler = new ViewHandler(this);
+            var j = offsetField;
+            var removed = 0;
             int i = offsetField, end = offsetField + size;
 
             while (i < end)
@@ -1568,11 +1568,11 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
-            ViewHandler viewHandler = new ViewHandler(this);
-            int j = offsetField;
-            int removed = 0;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
+            var viewHandler = new ViewHandler(this);
+            var j = offsetField;
+            var removed = 0;
             int i = offsetField, end = offsetField + size;
 
             while (i < end)
@@ -1623,7 +1623,7 @@ namespace TestProj47.C5
                 updatecheck();
                 if (size == 0)
                     return;
-                int oldsize = size;
+                var oldsize = size;
                 fixViewsBeforeRemove(0, size);
 
                 array = new T[8];
@@ -1644,18 +1644,18 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            HashBag<T> toretain = new HashBag<T>(itemequalityComparer);
+            var toretain = new HashBag<T>(itemequalityComparer);
             toretain.AddAll(items);
             if (toretain.Count == 0)
             {
                 Clear();
                 return;
             }
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
-            ViewHandler viewHandler = new ViewHandler(this);
-            int j = offsetField;
-            int removed = 0;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
+            var viewHandler = new ViewHandler(this);
+            var j = offsetField;
+            var removed = 0;
             int i = offsetField, end = offsetField + size;
 
             while (i < end)
@@ -1698,11 +1698,11 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
-            ViewHandler viewHandler = new ViewHandler(this);
-            int j = offsetField;
-            int removed = 0;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
+            var viewHandler = new ViewHandler(this);
+            var j = offsetField;
+            var removed = 0;
             int i = offsetField, end = offsetField + size;
 
             while (i < end)
@@ -1755,7 +1755,7 @@ namespace TestProj47.C5
             validitycheck();
 
             //TODO: use aux hash bag to obtain linear time procedure
-            HashBag<T> tomatch = new HashBag<T>(itemequalityComparer);
+            var tomatch = new HashBag<T>(itemequalityComparer);
             tomatch.AddAll(items);
             if (tomatch.Count == 0)
                 return true;
@@ -1779,8 +1779,8 @@ namespace TestProj47.C5
         {
             validitycheck();
 
-            int count = 0;
-            for (int i = 0; i < size; i++)
+            var count = 0;
+            for (var i = 0; i < size; i++)
                 if (equals(item, array[offsetField + i]))
                     count++;
             return count;
@@ -1792,7 +1792,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual ICollectionValue<T> UniqueItems()
         {
-            HashBag<T> hashbag = new HashBag<T>(itemequalityComparer);
+            var hashbag = new HashBag<T>(itemequalityComparer);
             hashbag.AddAll(this);
             return hashbag.UniqueItems();
         }
@@ -1803,7 +1803,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual ICollectionValue<KeyValuePair<T, int>> ItemMultiplicities()
         {
-            HashBag<T> hashbag = new HashBag<T>(itemequalityComparer);
+            var hashbag = new HashBag<T>(itemequalityComparer);
             hashbag.AddAll(this);
             return hashbag.ItemMultiplicities();
         }
@@ -1821,11 +1821,11 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
-            ViewHandler viewHandler = new ViewHandler(this);
-            int j = offsetField;
-            int removed = 0;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
+            var viewHandler = new ViewHandler(this);
+            var j = offsetField;
+            var removed = 0;
             int i = offsetField, end = offsetField + size;
             while (i < end)
             {
@@ -1860,7 +1860,7 @@ namespace TestProj47.C5
         /// <returns>True if check does not fail.</returns>
         public override bool Check()
         {
-            bool retval = true;
+            var retval = true;
 
             if (underlyingsize > array.Length)
             {
@@ -1880,7 +1880,7 @@ namespace TestProj47.C5
                 return false;
             }
 
-            for (int i = 0; i < underlyingsize; i++)
+            for (var i = 0; i < underlyingsize; i++)
             {
                 if (array[i] == null)
                 {
@@ -1899,9 +1899,9 @@ namespace TestProj47.C5
             }
 
             {
-                ArrayList<T> u = underlying ?? this;
+                var u = underlying ?? this;
                 if (u.views != null)
-                    foreach (ArrayList<T> v in u.views)
+                    foreach (var v in u.views)
                     {
                         if (u.array != v.array)
                         {
@@ -1954,26 +1954,26 @@ namespace TestProj47.C5
         public virtual void AddAll(SCG.IEnumerable<T> items)
         {
             updatecheck();
-            int toadd = countItems(items);
+            var toadd = countItems(items);
             if (toadd == 0)
                 return;
 
             if (toadd + underlyingsize > array.Length)
                 expand(toadd + underlyingsize, underlyingsize);
 
-            int i = size + offsetField;
+            var i = size + offsetField;
             if (underlyingsize > i)
                 Array.Copy(array, i, array, i + toadd, underlyingsize - i);
             try
             {
-                foreach (T item in items)
+                foreach (var item in items)
                 {
                     array[i++] = item;
                 }
             }
             finally
             {
-                int added = i - size - offsetField;
+                var added = i - size - offsetField;
                 if (added < toadd)
                 {
                     Array.Copy(array, size + offsetField + toadd, array, i, underlyingsize - size - offsetField);
@@ -2103,7 +2103,7 @@ namespace TestProj47.C5
                 {
                     //isValid = false;
                     if (views != null)
-                        foreach (ArrayList<T> view in views)
+                        foreach (var view in views)
                             view.Dispose(true);
                     Clear();
                 }
@@ -2173,7 +2173,7 @@ namespace TestProj47.C5
             if (index < 0 || index + Count > arr.Length)
                 throw new ArgumentOutOfRangeException();
 
-            foreach (T item in this)
+            foreach (var item in this)
                 arr.SetValue(item, index++);
         }
 
@@ -2189,7 +2189,7 @@ namespace TestProj47.C5
 
         int IList.Add(Object o)
         {
-            bool added = Add((T)o);
+            var added = Add((T)o);
             // What position to report if item not added? SC.IList.Add doesn't say
             return added ? Count - 1 : -1;
         }

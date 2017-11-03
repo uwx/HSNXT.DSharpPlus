@@ -106,7 +106,7 @@ namespace TestProj47.C5
             {
                 if (b - f > 31)
                 {
-                    int depth_limit = (int)Math.Floor(2.5 * Math.Log(b - f, 2));
+                    var depth_limit = (int)Math.Floor(2.5 * Math.Log(b - f, 2));
 
                     introSort(f, b, depth_limit);
                 }
@@ -125,7 +125,7 @@ namespace TestProj47.C5
                     InsertionSort(f, b);
                 else
                 {
-                    int p = partition(f, b);
+                    var p = partition(f, b);
 
                     introSort(f, p, depth_limit);
                     introSort(p, b, depth_limit);
@@ -169,7 +169,7 @@ namespace TestProj47.C5
 
                     if (i < j)
                     {
-                        T tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+                        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
                     }
                     else
                         return i;
@@ -179,10 +179,10 @@ namespace TestProj47.C5
 
             internal void InsertionSort(int f, int b)
             {
-                for (int j = f + 1; j < b; j++)
+                for (var j = f + 1; j < b; j++)
                 {
                     T key = a[j], other;
-                    int i = j - 1;
+                    var i = j - 1;
 
                     if (c.Compare(other = a[i], key) > 0)
                     {
@@ -197,11 +197,11 @@ namespace TestProj47.C5
 
             internal void HeapSort(int f, int b)
             {
-                for (int i = (b + f) / 2; i >= f; i--) heapify(f, b, i);
+                for (var i = (b + f) / 2; i >= f; i--) heapify(f, b, i);
 
-                for (int i = b - 1; i > f; i--)
+                for (var i = b - 1; i > f; i--)
                 {
-                    T tmp = a[f]; a[f] = a[i]; a[i] = tmp;
+                    var tmp = a[f]; a[f] = a[i]; a[i] = tmp;
                     heapify(f, i, f);
                 }
             }

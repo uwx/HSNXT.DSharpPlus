@@ -214,18 +214,18 @@ namespace TestProj47.C5
                 throw new IndexOutOfRangeException();
             if (pos < size / 2)
             {              // Closer to front
-                Node node = startsentinel;
+                var node = startsentinel;
 
-                for (int i = 0; i <= pos; i++)
+                for (var i = 0; i <= pos; i++)
                     node = node.next;
 
                 return node;
             }
             else
             {                            // Closer to end
-                Node node = endsentinel;
+                var node = endsentinel;
 
-                for (int i = size; i > pos; i--)
+                for (var i = size; i > pos; i--)
                     node = node.prev;
 
                 return node;
@@ -245,11 +245,11 @@ namespace TestProj47.C5
         private int dist(int pos, out int nearest, int[] positions)
         {
             nearest = -1;
-            int bestdist = int.MaxValue;
-            int signeddist = bestdist;
-            for (int i = 0; i < positions.Length; i++)
+            var bestdist = int.MaxValue;
+            var signeddist = bestdist;
+            for (var i = 0; i < positions.Length; i++)
             {
-                int thisdist = positions[i] - pos;
+                var thisdist = positions[i] - pos;
                 if (thisdist >= 0 && thisdist < bestdist) { nearest = i; bestdist = thisdist; signeddist = thisdist; }
                 if (thisdist < 0 && -thisdist < bestdist) { nearest = i; bestdist = -thisdist; signeddist = thisdist; }
             }
@@ -266,13 +266,13 @@ namespace TestProj47.C5
         private Node get(int pos, int[] positions, Node[] nodes)
         {
             int nearest;
-            int delta = dist(pos, out nearest, positions);
-            Node node = nodes[nearest];
+            var delta = dist(pos, out nearest, positions);
+            var node = nodes[nearest];
             if (delta > 0)
-                for (int i = 0; i < delta; i++)
+                for (var i = 0; i < delta; i++)
                     node = node.prev;
             else
-                for (int i = 0; i > delta; i--)
+                for (var i = 0; i > delta; i--)
                     node = node.next;
             return node;
         }
@@ -309,7 +309,7 @@ namespace TestProj47.C5
 
         private void insert(int index, Node succ, T item)
         {
-            Node newnode = new Node(item);
+            var newnode = new Node(item);
             if (dict.FindOrAdd(item, ref newnode))
                 throw new DuplicateNotAllowedException("Item already in indexed list");
             insertNode(true, succ, newnode);
@@ -324,7 +324,7 @@ namespace TestProj47.C5
         private void insertNode(bool updateViews, Node succ, Node newnode)
         {
             newnode.next = succ;
-            Node pred = newnode.prev = succ.prev;
+            var pred = newnode.prev = succ.prev;
             succ.prev.next = newnode;
             succ.prev = newnode;
             size++;
@@ -381,7 +381,7 @@ namespace TestProj47.C5
         private void fixViewsAfterInsert(Node succ, Node pred, int added, int realInsertionIndex)
         {
             if (views != null)
-                foreach (HashedLinkedList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -401,7 +401,7 @@ namespace TestProj47.C5
         private void fixViewsBeforeSingleRemove(Node node, int realRemovalIndex)
         {
             if (views != null)
-                foreach (HashedLinkedList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -443,7 +443,7 @@ namespace TestProj47.C5
         {
             if (views != null)
             {
-                foreach (HashedLinkedList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -538,8 +538,8 @@ namespace TestProj47.C5
             {
                 //Debug.Assert(taggroup != null, "taggroup field null");
                 //Debug.Assert(that.taggroup != null, "that.taggroup field null");
-                int t1 = taggroup.tag;
-                int t2 = that.taggroup.tag;
+                var t1 = taggroup.tag;
+                var t2 = that.taggroup.tag;
 
                 return t1 < t2 ? true : t1 > t2 ? false : tag < that.tag;
             }
@@ -666,7 +666,7 @@ namespace TestProj47.C5
             {
                 System.Diagnostics.Debug.Assert(Taggroups == 0);
 
-                TagGroup newgroup = new TagGroup();
+                var newgroup = new TagGroup();
 
                 Taggroups = 1;
                 node.taggroup = newgroup;
@@ -684,7 +684,7 @@ namespace TestProj47.C5
         private void removefromtaggroup(Node node)
         {
 
-            TagGroup taggroup = node.taggroup;
+            var taggroup = node.taggroup;
 
             if (--taggroup.count == 0)
             {
@@ -714,7 +714,7 @@ namespace TestProj47.C5
             else
                 return;
 
-            Node n = otg.first;
+            var n = otg.first;
 
             for (int i = 0, length = otg.count; i < length; i++)
             {
@@ -742,25 +742,25 @@ namespace TestProj47.C5
         /// <param name="taggroup">The tag group</param>
         private void splittaggroup(TagGroup taggroup)
         {
-            Node n = taggroup.first;
-            int ptgt = taggroup.first.prev.taggroup.tag;
-            int ntgt = taggroup.last.next.taggroup.tag;
+            var n = taggroup.first;
+            var ptgt = taggroup.first.prev.taggroup.tag;
+            var ntgt = taggroup.last.next.taggroup.tag;
 
             System.Diagnostics.Debug.Assert(ptgt + 1 <= ntgt - 1);
 
-            int ofs = wordsize - hibits;
-            int newtgs = (taggroup.count - 1) / hisize;
+            var ofs = wordsize - hibits;
+            var newtgs = (taggroup.count - 1) / hisize;
             int tgtdelta = (int)((ntgt + 0.0 - ptgt) / (newtgs + 2)), tgtag = ptgt;
 
             tgtdelta = tgtdelta == 0 ? 1 : tgtdelta;
-            for (int j = 0; j < newtgs; j++)
+            for (var j = 0; j < newtgs; j++)
             {
-                TagGroup newtaggroup = new TagGroup();
+                var newtaggroup = new TagGroup();
 
                 newtaggroup.tag = (tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta);
                 newtaggroup.first = n;
                 newtaggroup.count = hisize;
-                for (int i = 0; i < hisize; i++)
+                for (var i = 0; i < hisize; i++)
                 {
                     n.taggroup = newtaggroup;
                     n.tag = (i - losize) << ofs; //(i-8)<<28 
@@ -770,12 +770,12 @@ namespace TestProj47.C5
                 newtaggroup.last = n.prev;
             }
 
-            int rest = taggroup.count - hisize * newtgs;
+            var rest = taggroup.count - hisize * newtgs;
 
             taggroup.first = n;
             taggroup.count = rest;
             taggroup.tag = (tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta); ofs--;
-            for (int i = 0; i < rest; i++)
+            for (var i = 0; i < rest; i++)
             {
                 n.tag = (i - hisize) << ofs; //(i-16)<<27 
                 n = n.next;
@@ -811,10 +811,10 @@ namespace TestProj47.C5
 
             //redistibute tags
             int lob = pred.first.prev.taggroup.tag, upb = succ.last.next.taggroup.tag;
-            int delta = upb / (count + 1) - lob / (count + 1);
+            var delta = upb / (count + 1) - lob / (count + 1);
 
             System.Diagnostics.Debug.Assert(delta > 0);
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 pred.tag = lob + (i + 1) * delta;
                 pred = pred.last.next.taggroup;
@@ -872,7 +872,7 @@ namespace TestProj47.C5
                 leftEndIndex = rightEndIndex = leftEndIndex2 = rightEndIndex2 = viewCount = 0;
                 leftEnds = rightEnds = null;
                 if (list.views != null)
-                    foreach (HashedLinkedList<T> v in list.views)
+                    foreach (var v in list.views)
                         if (v != list)
                         {
                             if (leftEnds == null)
@@ -896,14 +896,14 @@ namespace TestProj47.C5
                     Position endpoint;
                     while (leftEndIndex < viewCount && ((endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n)))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.offset = view.offset - removed;//TODO: extract offset.Value?
                         view.size += removed;
                         leftEndIndex++;
                     }
                     while (rightEndIndex < viewCount && (endpoint = rightEnds[rightEndIndex]).Endpoint.precedes(n))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.size -= removed;
                         rightEndIndex++;
                     }
@@ -936,14 +936,14 @@ namespace TestProj47.C5
                     Position endpoint;
                     while (leftEndIndex < viewCount && ((endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n)))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.offset = view.offset - removed; //TODO: fix use of offset
                         view.size += removed;
                         leftEndIndex++;
                     }
                     while (rightEndIndex < viewCount && (endpoint = rightEnds[rightEndIndex]).Endpoint.precedes(n))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.size -= removed;
                         rightEndIndex++;
                     }
@@ -970,13 +970,13 @@ namespace TestProj47.C5
                     Position endpoint;
                     while (leftEndIndex2 < viewCount && (endpoint = leftEnds[leftEndIndex2]).Endpoint.prev.precedes(n))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.startsentinel = newstart;
                         leftEndIndex2++;
                     }
                     while (rightEndIndex2 < viewCount && (endpoint = rightEnds[rightEndIndex2]).Endpoint.next.precedes(n))
                     {
-                        HashedLinkedList<T> view = endpoint.View;
+                        var view = endpoint.View;
                         view.endsentinel = newend;
                         rightEndIndex2++;
                     }
@@ -1031,13 +1031,13 @@ namespace TestProj47.C5
 
             public override SCG.IEnumerator<T> GetEnumerator()
             {
-                int togo = count;
+                var togo = count;
 
                 list.modifycheck(rangestamp);
                 if (togo == 0)
                     yield break;
 
-                Node cursor = forwards ? startnode : endnode;
+                var cursor = forwards ? startnode : endnode;
 
                 yield return cursor.item;
                 while (--togo > 0)
@@ -1053,7 +1053,7 @@ namespace TestProj47.C5
             {
                 list.modifycheck(rangestamp);
 
-                Range b = (Range)MemberwiseClone();
+                var b = (Range)MemberwiseClone();
 
                 b.forwards = !forwards;
                 return b;
@@ -1101,7 +1101,7 @@ namespace TestProj47.C5
                     //endsentinel = null;
                     //startsentinel = null;
                     if (views != null)
-                        foreach (HashedLinkedList<T> view in views)
+                        foreach (var view in views)
                             view.Dispose(true);
                     //views = null;
                     Clear();
@@ -1177,9 +1177,9 @@ namespace TestProj47.C5
             set
             {
                 updatecheck();
-                Node n = get(index);
+                var n = get(index);
                 //
-                T item = n.item;
+                var item = n.item;
 
                 if (itemequalityComparer.Equals(value, item))
                 {
@@ -1262,7 +1262,7 @@ namespace TestProj47.C5
         {
             updatecheck();
             Node succ, node, pred;
-            int count = 0;
+            var count = 0;
             succ = i == size ? endsentinel : get(i);
             pred = node = succ.prev;
             TagGroup taggroup = null;
@@ -1270,9 +1270,9 @@ namespace TestProj47.C5
             taggroup = gettaggroup(node, succ, out thetag, out taglimit);
             try
             {
-                foreach (T item in items)
+                foreach (var item in items)
                 {
-                    Node tmp = new Node(item, node, null);
+                    var tmp = new Node(item, node, null);
                     if (!dict.FindOrAdd(item, ref tmp))
                     {
                         tmp.tag = thetag < taglimit ? ++thetag : thetag;
@@ -1312,13 +1312,13 @@ namespace TestProj47.C5
         {
             if (ActiveEvents != 0)
             {
-                int index = Offset + i;
+                var index = Offset + i;
                 if ((ActiveEvents & (EventTypeEnum.Added | EventTypeEnum.Inserted)) != 0)
-                    for (int j = index; j < index + added; j++)
+                    for (var j = index; j < index + added; j++)
                     {
 //#warning must we check stamps here?
                         node = node.next;
-                        T item = node.item;
+                        var item = node.item;
                         if (insertion) raiseItemInserted(item, j);
                         raiseItemsAdded(item, 1);
                     }
@@ -1360,7 +1360,7 @@ namespace TestProj47.C5
         {
             validitycheck();
 
-            HashedLinkedList<V> retval = new HashedLinkedList<V>();
+            var retval = new HashedLinkedList<V>();
             return map(mapper, retval);
         }
 
@@ -1376,7 +1376,7 @@ namespace TestProj47.C5
         {
             validitycheck();
 
-            HashedLinkedList<V> retval = new HashedLinkedList<V>(equalityComparer);
+            var retval = new HashedLinkedList<V>(equalityComparer);
             return map(mapper, retval);
         }
 
@@ -1384,19 +1384,19 @@ namespace TestProj47.C5
         {
             if (size == 0)
                 return retval;
-            int stamp = this.stamp;
-            Node cursor = startsentinel.next;
-            HashedLinkedList<V>.Node mcursor = retval.startsentinel;
+            var stamp = this.stamp;
+            var cursor = startsentinel.next;
+            var mcursor = retval.startsentinel;
 
-            double tagdelta = int.MaxValue / (size + 1.0);
-            int count = 1;
+            var tagdelta = int.MaxValue / (size + 1.0);
+            var count = 1;
             HashedLinkedList<V>.TagGroup taggroup = null;
             taggroup = new HashedLinkedList<V>.TagGroup();
             retval.taggroups = 1;
             taggroup.count = size;
             while (cursor != endsentinel)
             {
-                V v = mapper(cursor.item);
+                var v = mapper(cursor.item);
                 modifycheck(stamp);
                 mcursor.next = new HashedLinkedList<V>.Node(v, mcursor, null);
                 cursor = cursor.next;
@@ -1426,7 +1426,7 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
-            T item = fIFO ? remove(startsentinel.next, 0) : remove(endsentinel.prev, size - 1);
+            var item = fIFO ? remove(startsentinel.next, 0) : remove(endsentinel.prev, size - 1);
             dict.Remove(item);
             (underlying ?? this).raiseForRemove(item);
             return item;
@@ -1443,7 +1443,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
 
-            T item = remove(startsentinel.next, 0);
+            var item = remove(startsentinel.next, 0);
             dict.Remove(item);
             if (ActiveEvents != EventTypeEnum.None)
                 (underlying ?? this).raiseForRemoveAt(Offset, item);
@@ -1461,7 +1461,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException("List is empty");
 
-            T item = remove(endsentinel.prev, size - 1);
+            var item = remove(endsentinel.prev, size - 1);
             dict.Remove(item);
             if (ActiveEvents != EventTypeEnum.None)
                 (underlying ?? this).raiseForRemoveAt(size + Offset, item);
@@ -1482,7 +1482,7 @@ namespace TestProj47.C5
             validitycheck();
             if (views == null)
                 views = new WeakViewList<HashedLinkedList<T>>();
-            HashedLinkedList<T> retval = (HashedLinkedList<T>)MemberwiseClone();
+            var retval = (HashedLinkedList<T>)MemberwiseClone();
             retval.underlying = underlying != null ? underlying : this;
             retval.offset = offset + start;
             retval.size = count;
@@ -1508,7 +1508,7 @@ namespace TestProj47.C5
             validitycheck();
             if (!contains(item, out n))
                 return null;
-            HashedLinkedList<T> retval = (HashedLinkedList<T>)MemberwiseClone();
+            var retval = (HashedLinkedList<T>)MemberwiseClone();
             retval.underlying = underlying != null ? underlying : this;
             retval.offset = null;
             retval.startsentinel = n.prev;
@@ -1554,8 +1554,8 @@ namespace TestProj47.C5
                 if (offset == null && underlying != null)
                 {
                     //TODO: search from both ends simultaneously!
-                    Node n = underlying.startsentinel;
-                    int i = 0;
+                    var n = underlying.startsentinel;
+                    var i = 0;
                     while (n != startsentinel) { n = n.next; i++; }
                     offset = i;
                 }
@@ -1631,7 +1631,7 @@ namespace TestProj47.C5
             {
                 if (offset + this.offset < 0 || offset + this.offset + size > underlying.size)
                     return false;
-                int oldoffset = (int)(this.offset);
+                var oldoffset = (int)(this.offset);
                 getPair(offset - 1, offset + size, out startsentinel, out endsentinel,
                     new[] { -oldoffset - 1, -1, this.size, underlying.size - oldoffset },
                     new[] { underlying.startsentinel, startsentinel, endsentinel, underlying.endsentinel });
@@ -1680,7 +1680,7 @@ namespace TestProj47.C5
             if (views != null)
             {
                 CircularQueue<Position> _positions = null;
-                foreach (HashedLinkedList<T> view in views)
+                foreach (var view in views)
                 {
                     if (view != this)
                     {
@@ -1708,7 +1708,7 @@ namespace TestProj47.C5
             }
 
             Node a = get(0), b = get(size - 1);
-            for (int i = 0; i < size / 2; i++)
+            for (var i = 0; i < size / 2; i++)
             {
                 T swap;
                 swap = a.item; a.item = b.item; b.item = swap;
@@ -1774,8 +1774,8 @@ namespace TestProj47.C5
             if (size <= 1)
                 return true;
 
-            Node node = startsentinel.next;
-            T prevItem = node.item;
+            var node = startsentinel.next;
+            var prevItem = node.item;
 
             node = node.next;
             while (node != endsentinel)
@@ -1812,7 +1812,7 @@ namespace TestProj47.C5
             disposeOverlappingViews(false);
             if (underlying != null)
             {
-                Node cursor = startsentinel.next;
+                var cursor = startsentinel.next;
                 while (cursor != endsentinel)
                 {
                     cursor.taggroup.count--;
@@ -1821,13 +1821,13 @@ namespace TestProj47.C5
             }
             // Build a linked list of non-empty runs.
             // The prev field in first node of a run points to next run's first node
-            Node runTail = startsentinel.next;
-            Node prevNode = startsentinel.next;
+            var runTail = startsentinel.next;
+            var prevNode = startsentinel.next;
 
             endsentinel.prev.next = null;
             while (prevNode != null)
             {
-                Node node = prevNode.next;
+                var node = prevNode.next;
 
                 while (node != null && c.Compare(prevNode.item, node.item) <= 0)
                 {
@@ -1848,13 +1848,13 @@ namespace TestProj47.C5
             // Repeatedly merge runs two and two, until only one run remains
             while (startsentinel.next.prev != null)
             {
-                Node run = startsentinel.next;
+                var run = startsentinel.next;
                 Node newRunTail = null;
 
                 while (run != null && run.prev != null)
                 { // At least two runs, merge
-                    Node nextRun = run.prev.prev;
-                    Node newrun = mergeRuns(run, run.prev, c);
+                    var nextRun = run.prev.prev;
+                    var newrun = mergeRuns(run, run.prev, c);
 
                     if (newRunTail != null)
                         newRunTail.prev = newrun;
@@ -1877,8 +1877,8 @@ namespace TestProj47.C5
             {
                 Node cursor = startsentinel.next, end = endsentinel;
                 int tag, taglimit;
-                TagGroup t = gettaggroup(startsentinel, endsentinel, out tag, out taglimit);
-                int tagdelta = taglimit / (size + 1) - tag / (size + 1);
+                var t = gettaggroup(startsentinel, endsentinel, out tag, out taglimit);
+                var tagdelta = taglimit / (size + 1) - tag / (size + 1);
                 tagdelta = tagdelta == 0 ? 1 : tagdelta;
                 if (underlying == null)
                     taggroups = 1;
@@ -1919,7 +1919,7 @@ namespace TestProj47.C5
                 run2 = run2.next;
             }
 
-            Node start = prev;
+            var start = prev;
 
             //assert start != null;
             start.prev = null;
@@ -1998,11 +1998,11 @@ namespace TestProj47.C5
             if (size == 0)
                 return;
             disposeOverlappingViews(false);
-            ArrayList<T> a = new ArrayList<T>();
+            var a = new ArrayList<T>();
             a.AddAll(this);
             a.Shuffle(rnd);
-            Node cursor = startsentinel.next;
-            int j = 0;
+            var cursor = startsentinel.next;
+            var j = 0;
             while (cursor != endsentinel)
             {
                 cursor.item = a[j++];
@@ -2044,7 +2044,7 @@ namespace TestProj47.C5
             if (!dict.Find(ref item, out node) || !insideview(node))
                 return ~size;
             node = startsentinel.next;
-            int index = 0;
+            var index = 0;
             if (find(item, ref node, ref index))
                 return index;
             return ~size;
@@ -2071,7 +2071,7 @@ namespace TestProj47.C5
         public virtual T RemoveAt(int i)
         {
             updatecheck();
-            T retval = remove(get(i), i);
+            var retval = remove(get(i), i);
             dict.Remove(retval);
             if (ActiveEvents != EventTypeEnum.None)
                 (underlying ?? this).raiseForRemoveAt(Offset + i, retval);
@@ -2240,7 +2240,7 @@ namespace TestProj47.C5
         {
             updatecheck();
             //This is an extended myinsert:
-            Node node = new Node(item);
+            var node = new Node(item);
             if (!dict.FindOrAdd(item, ref node))
             {
                 insertNode(true, endsentinel, node);
@@ -2272,7 +2272,7 @@ namespace TestProj47.C5
         public virtual bool UpdateOrAdd(T item, out T olditem)
         {
             updatecheck();
-            Node node = new Node(item);
+            var node = new Node(item);
             //NOTE: it is hard to do this without double access to the dictionary
             //in the update case
             if (dict.FindOrAdd(item, ref node))
@@ -2302,12 +2302,12 @@ namespace TestProj47.C5
         public virtual bool Remove(T item)
         {
             updatecheck();
-            int i = 0;
+            var i = 0;
             Node node;
             if (!dictremove(item, out node))
 
                 return false;
-            T removeditem = remove(node, i);
+            var removeditem = remove(node, i);
             (underlying ?? this).raiseForRemove(removeditem);
             return true;
         }
@@ -2323,7 +2323,7 @@ namespace TestProj47.C5
         public virtual bool Remove(T item, out T removeditem)
         {
             updatecheck();
-            int i = 0;
+            var i = 0;
             Node node;
 
             if (!dictremove(item, out node))
@@ -2353,10 +2353,10 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
             Node node;
-            foreach (T item in items)
+            foreach (var item in items)
                 if (dictremove(item, out node))
                 {
                     if (mustFire)
@@ -2376,14 +2376,14 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
             {
-                Node n = startsentinel.next;
+                var n = startsentinel.next;
 
                 while (n != endsentinel)
                 {
-                    bool removeIt = predicate(n.item);
+                    var removeIt = predicate(n.item);
                     updatecheck();
                     if (removeIt)
                     {
@@ -2408,11 +2408,11 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            int oldsize = size;
+            var oldsize = size;
             if (underlying == null)
                 dict.Clear();
             else
-                foreach (T item in this)
+                foreach (var item in this)
                     dict.Remove(item);
             clear();
             (underlying ?? this).raiseForRemoveInterval(Offset, oldsize);
@@ -2424,11 +2424,11 @@ namespace TestProj47.C5
                 return;
 
             //TODO: mix with tag maintenance to only run through list once?
-            ViewHandler viewHandler = new ViewHandler(this);
+            var viewHandler = new ViewHandler(this);
             if (viewHandler.viewCount > 0)
             {
-                int removed = 0;
-                Node n = startsentinel.next;
+                var removed = 0;
+                var n = startsentinel.next;
                 viewHandler.skipEndpoints(0, n);
                 while (n != endsentinel)
                 {
@@ -2443,7 +2443,7 @@ namespace TestProj47.C5
 
             if (underlying != null)
             {
-                Node n = startsentinel.next;
+                var n = startsentinel.next;
 
                 while (n != endsentinel)
                 {
@@ -2477,8 +2477,8 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
             /*if (underlying == null)
             {
               HashDictionary<T, Node> newdict = new HashDictionary<T, Node>(itemequalityComparer);
@@ -2503,15 +2503,15 @@ namespace TestProj47.C5
             }
             else*/
             {
-                HashSet<T> toremove = new HashSet<T>(itemequalityComparer);
+                var toremove = new HashSet<T>(itemequalityComparer);
 
-                foreach (T item in this)
+                foreach (var item in this)
                     toremove.Add(item);
 
-                foreach (T item in items)
+                foreach (var item in items)
                     toremove.Remove(item);
 
-                Node n = startsentinel.next;
+                var n = startsentinel.next;
 
                 while (n != endsentinel && toremove.Count > 0)
                 {
@@ -2539,14 +2539,14 @@ namespace TestProj47.C5
             updatecheck();
             if (size == 0)
                 return;
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(underlying ?? this);
+            var mustFire = raiseHandler.MustFire;
             {
-                Node n = startsentinel.next;
+                var n = startsentinel.next;
 
                 while (n != endsentinel)
                 {
-                    bool removeIt = !predicate(n.item);
+                    var removeIt = !predicate(n.item);
                     updatecheck();
                     if (removeIt)
                     {
@@ -2573,7 +2573,7 @@ namespace TestProj47.C5
         {
             validitycheck();
             Node node;
-            foreach (T item in items)
+            foreach (var item in items)
                 if (!contains(item, out node))
                     return false;
             return true;
@@ -2590,17 +2590,17 @@ namespace TestProj47.C5
         public IList<T> FindAll(Func<T, bool> filter)
         {
             validitycheck();
-            int stamp = this.stamp;
-            HashedLinkedList<T> retval = new HashedLinkedList<T>();
-            Node cursor = startsentinel.next;
-            Node mcursor = retval.startsentinel;
-            double tagdelta = int.MaxValue / (size + 1.0);
-            int count = 1;
-            TagGroup taggroup = new TagGroup();
+            var stamp = this.stamp;
+            var retval = new HashedLinkedList<T>();
+            var cursor = startsentinel.next;
+            var mcursor = retval.startsentinel;
+            var tagdelta = int.MaxValue / (size + 1.0);
+            var count = 1;
+            var taggroup = new TagGroup();
             retval.taggroups = 1;
             while (cursor != endsentinel)
             {
-                bool found = filter(cursor.item);
+                var found = filter(cursor.item);
                 modifycheck(stamp);
                 if (found)
                 {
@@ -2706,8 +2706,8 @@ namespace TestProj47.C5
         public override SCG.IEnumerator<T> GetEnumerator()
         {
             validitycheck();
-            Node cursor = startsentinel.next;
-            int enumeratorstamp = underlying != null ? underlying.stamp : this.stamp;
+            var cursor = startsentinel.next;
+            var enumeratorstamp = underlying != null ? underlying.stamp : this.stamp;
 
             while (cursor != endsentinel)
             {
@@ -2728,7 +2728,7 @@ namespace TestProj47.C5
         public virtual bool Add(T item)
         {
             updatecheck();
-            Node node = new Node(item);
+            var node = new Node(item);
             if (!dict.FindOrAdd(item, ref node))
             {
                 insertNode(true, endsentinel, node);
@@ -2761,11 +2761,11 @@ namespace TestProj47.C5
         {
 
             updatecheck();
-            int added = 0;
-            Node pred = endsentinel.prev;
+            var added = 0;
+            var pred = endsentinel.prev;
             foreach (var item in items)
             {
-                Node node = new Node(item);
+                var node = new Node(item);
                 if (!dict.FindOrAdd(item, ref node))
                 {
                     insertNode(false, endsentinel, node);
@@ -2792,18 +2792,18 @@ namespace TestProj47.C5
                 throw new InternalException("checkViews() called on a view");
             if (views == null)
                 return true;
-            bool retval = true;
+            var retval = true;
 
-            Node[] nodes = new Node[size + 2];
-            int i = 0;
-            Node n = startsentinel;
+            var nodes = new Node[size + 2];
+            var i = 0;
+            var n = startsentinel;
             while (n != null)
             {
                 nodes[i++] = n;
                 n = n.next;
             }
             //Logger.Log("###");
-            foreach (HashedLinkedList<T> view in views)
+            foreach (var view in views)
             {
                 if (!view.isValid)
                 {
@@ -2872,7 +2872,7 @@ namespace TestProj47.C5
         /// <returns>true if sane</returns>
         public virtual bool Check()
         {
-            bool retval = true;
+            var retval = true;
 
             /*if (underlying != null && underlying.stamp != stamp)
             {
@@ -2919,14 +2919,14 @@ namespace TestProj47.C5
                 return retval;
             }
 
-            int count = 0;
+            var count = 0;
             Node node = startsentinel.next, prev = startsentinel;
             int taggroupsize = 0, oldtaggroupsize = losize + 1, seentaggroups = 0;
             TagGroup oldtg = null;
 
             if (underlying == null)
             {
-                TagGroup tg = startsentinel.taggroup;
+                var tg = startsentinel.taggroup;
 
                 if (tg.count != 0 || tg.first != null || tg.last != null || tg.tag != int.MinValue)
                 {
@@ -2962,7 +2962,7 @@ namespace TestProj47.C5
 
                         if (node.taggroup.first != node)
                         {
-                            string ntfi = zeitem(node.taggroup.first);
+                            var ntfi = zeitem(node.taggroup.first);
                             Logger.Log(string.Format("Bad first pointer in taggroup: node.taggroup.first.item ({0}), node.item ({1}) at index={2} item={3}", ntfi, node.item, count, node.item));
                             retval = false;
                         }
@@ -3119,7 +3119,7 @@ namespace TestProj47.C5
             if (index < 0 || index + Count > arr.Length)
                 throw new ArgumentOutOfRangeException();
 
-            foreach (T item in this)
+            foreach (var item in this)
                 arr.SetValue(item, index++);
         }
 
@@ -3135,7 +3135,7 @@ namespace TestProj47.C5
 
         int IList.Add(Object o)
         {
-            bool added = Add((T)o);
+            var added = Add((T)o);
             // What position to report if item not added? SC.IList.Add doesn't say
             return added ? Count - 1 : -1;
         }

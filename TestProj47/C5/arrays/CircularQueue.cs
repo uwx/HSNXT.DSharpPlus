@@ -62,14 +62,14 @@ namespace TestProj47.C5
 
         private void expand()
         {
-            int newlength = 2 * array.Length;
-            T[] newarray = new T[newlength];
+            var newlength = 2 * array.Length;
+            var newarray = new T[newlength];
 
             if (front <= back)
                 Array.Copy(array, front, newarray, 0, size);
             else
             {
-                int half = array.Length - front;
+                var half = array.Length - front;
                 Array.Copy(array, front, newarray, 0, half);
                 Array.Copy(array, 0, newarray, half, size - half);
             }
@@ -96,7 +96,7 @@ namespace TestProj47.C5
         public CircularQueue(int capacity, MemoryType memoryType = MemoryType.Normal)
 			: base(EqualityComparer<T>.Default, memoryType)
         {
-            int newlength = 8;
+            var newlength = 8;
             while (newlength < capacity) newlength *= 2;
             array = new T[newlength];
         }
@@ -139,7 +139,7 @@ namespace TestProj47.C5
             stamp++;
             if (size == array.Length - 1) expand();
             size++;
-            int oldback = back++;
+            var oldback = back++;
             if (back == array.Length) back = 0;
             array[oldback] = item;
             if (ActiveEvents != 0)
@@ -158,9 +158,9 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException();
             size--;
-            int oldfront = front++;
+            var oldfront = front++;
             if (front == array.Length) front = 0;
-            T retval = array[oldfront];
+            var retval = array[oldfront];
             array[oldfront] = default;
             if (ActiveEvents != 0)
                 raiseForRemove(retval);
@@ -178,7 +178,7 @@ namespace TestProj47.C5
             stamp++;
             if (size == array.Length - 1) expand();
             size++;
-            int oldback = back++;
+            var oldback = back++;
             if (back == array.Length) back = 0;
             array[oldback] = item;
             if (ActiveEvents != 0)
@@ -199,7 +199,7 @@ namespace TestProj47.C5
             size--;
             back--;
             if (back == -1) back = array.Length - 1;
-            T retval = array[back];
+            var retval = array[back];
             array[back] = default;
             if (ActiveEvents != 0)
                 raiseForRemove(retval);
@@ -240,11 +240,11 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override SCG.IEnumerator<T> GetEnumerator()
         {
-            int stamp = this.stamp;
+            var stamp = this.stamp;
             if (forwards)
             {
-                int position = front;
-                int end = front <= back ? back : array.Length;
+                var position = front;
+                var end = front <= back ? back : array.Length;
                 while (position < end)
                 {
                     if (stamp != this.stamp)
@@ -264,8 +264,8 @@ namespace TestProj47.C5
             }
             else
             {
-                int position = back - 1;
-                int end = front <= back ? front : 0;
+                var position = back - 1;
+                var end = front <= back ? front : 0;
                 while (position >= end)
                 {
                     if (stamp != this.stamp)
@@ -295,7 +295,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override IDirectedCollectionValue<T> Backwards()
         {
-            CircularQueue<T> retval = (CircularQueue<T>)MemberwiseClone();
+            var retval = (CircularQueue<T>)MemberwiseClone();
             retval.original = false;
             retval.forwards = !forwards;
             return retval;

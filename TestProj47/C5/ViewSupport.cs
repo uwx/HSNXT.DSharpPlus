@@ -65,7 +65,7 @@ namespace TestProj47.C5
         }
         internal Node Add(V view)
         {
-            Node newNode = new Node(view);
+            var newNode = new Node(view);
             if (start != null) { start.prev = newNode; newNode.next = start; }
             start = newNode;
             return newNode;
@@ -82,12 +82,12 @@ namespace TestProj47.C5
         /// <returns></returns>
         public SCG.IEnumerator<V> GetEnumerator()
         {
-            Node n = start;
+            var n = start;
             while (n != null)
             {
                 //V view = n.weakview.Target as V; //This provokes a bug in the beta1 verifyer
-                object o = n.weakview.Target;
-                V view = o is V ? (V)o : null;
+                var o = n.weakview.Target;
+                var view = o is V ? (V)o : null;
                 if (view == null)
                     Remove(n);
                 else

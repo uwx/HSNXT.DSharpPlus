@@ -45,7 +45,7 @@ namespace TestProj47.C5
 
         public override IDirectedCollectionValue<V> Backwards()
         {
-            MappedDirectedCollectionValue<T, V> retval = (MappedDirectedCollectionValue<T, V>)MemberwiseClone();
+            var retval = (MappedDirectedCollectionValue<T, V>)MemberwiseClone();
             retval.directedcollectionvalue = directedcollectionvalue.Backwards();
             return retval;
             //If we made this classs non-abstract we could do
@@ -55,7 +55,7 @@ namespace TestProj47.C5
 
         public override SCG.IEnumerator<V> GetEnumerator()
         {
-            foreach (T item in directedcollectionvalue)
+            foreach (var item in directedcollectionvalue)
                 yield return Map(item);
         }
 
@@ -91,7 +91,7 @@ namespace TestProj47.C5
 
         public override SCG.IEnumerator<V> GetEnumerator()
         {
-            foreach (T item in collectionvalue)
+            foreach (var item in collectionvalue)
                 yield return Map(item);
         }
     }
@@ -124,7 +124,7 @@ namespace TestProj47.C5
 
         public IDirectedEnumerable<V> Backwards()
         {
-            MappedDirectedEnumerable<T, V> retval = (MappedDirectedEnumerable<T, V>)MemberwiseClone();
+            var retval = (MappedDirectedEnumerable<T, V>)MemberwiseClone();
             retval.directedenumerable = directedenumerable.Backwards();
             return retval;
             //If we made this classs non-abstract we could do
@@ -134,7 +134,7 @@ namespace TestProj47.C5
 
         public override SCG.IEnumerator<V> GetEnumerator()
         {
-            foreach (T item in directedenumerable)
+            foreach (var item in directedenumerable)
                 yield return Map(item);
         }
 

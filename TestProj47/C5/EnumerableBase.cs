@@ -23,14 +23,14 @@ namespace TestProj47.C5
         /// <returns>The size of the enumerable</returns>
         protected static int countItems(IEnumerable<T> items)
         {
-            ICollectionValue<T> jtems = items as ICollectionValue<T>;
+            var jtems = items as ICollectionValue<T>;
 
             if (jtems != null)
                 return jtems.Count;
 
-            int count = 0;
+            var count = 0;
 
-            using (IEnumerator<T> e = items.GetEnumerator())
+            using (var e = items.GetEnumerator())
                 while (e.MoveNext()) count++;
 
             return count;

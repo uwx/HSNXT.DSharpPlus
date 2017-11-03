@@ -64,7 +64,7 @@ namespace TestProj47.C5
         /// <returns>The snapshot</returns>
         public SCG.IEnumerable<KeyValuePair<K, V>> Snapshot()
         {
-            TreeDictionary<K, V> res = (TreeDictionary<K, V>)MemberwiseClone();
+            var res = (TreeDictionary<K, V>)MemberwiseClone();
 
             res.pairs = (TreeSet<KeyValuePair<K, V>>)((TreeSet<KeyValuePair<K, V>>)sortedpairs).Snapshot();
             return res;

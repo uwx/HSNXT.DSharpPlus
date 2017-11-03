@@ -127,7 +127,7 @@ namespace TestProj47.C5
         /// <returns>True if bag contains item</returns>
         public virtual bool Find(ref T item)
         {
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
 
             if (dict.Find(ref p))
             {
@@ -157,7 +157,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual bool Update(T item, out T olditem)
         {
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
 
             updatecheck();
 
@@ -239,7 +239,7 @@ namespace TestProj47.C5
         /// <returns>True if item was (found and) removed </returns>
         public virtual bool Remove(T item)
         {
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
 
             updatecheck();
             if (dict.Find(ref p))
@@ -270,7 +270,7 @@ namespace TestProj47.C5
         public virtual bool Remove(T item, out T removeditem)
         {
             updatecheck();
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
             if (dict.Find(ref p))
             {
                 removeditem = p.Key;
@@ -300,11 +300,11 @@ namespace TestProj47.C5
         {
 //#warning Improve if items is a counting bag
             updatecheck();
-            bool mustRaise = (ActiveEvents & (EventTypeEnum.Changed | EventTypeEnum.Removed)) != 0;
-            RaiseForRemoveAllHandler raiseHandler = mustRaise ? new RaiseForRemoveAllHandler(this) : null;
-            foreach (T item in items)
+            var mustRaise = (ActiveEvents & (EventTypeEnum.Changed | EventTypeEnum.Removed)) != 0;
+            var raiseHandler = mustRaise ? new RaiseForRemoveAllHandler(this) : null;
+            foreach (var item in items)
             {
-                KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+                var p = new KeyValuePair<T, int>(item, 0);
                 if (dict.Find(ref p))
                 {
                     size--;
@@ -332,7 +332,7 @@ namespace TestProj47.C5
             if (size == 0)
                 return;
             dict.Clear();
-            int oldsize = size;
+            var oldsize = size;
             size = 0;
             if ((ActiveEvents & EventTypeEnum.Cleared) != 0)
                 raiseCollectionCleared(true, oldsize);
@@ -350,14 +350,14 @@ namespace TestProj47.C5
         {
             updatecheck();
 
-            HashBag<T> res = new HashBag<T>(itemequalityComparer);
+            var res = new HashBag<T>(itemequalityComparer);
 
-            foreach (T item in items)
+            foreach (var item in items)
             {
-                KeyValuePair<T, int> p = new KeyValuePair<T, int>(item);
+                var p = new KeyValuePair<T, int>(item);
                 if (dict.Find(ref p))
                 {
-                    KeyValuePair<T, int> q = p;
+                    var q = p;
                     if (res.dict.Find(ref q))
                     {
                         if (q.Value < p.Value)
@@ -383,12 +383,12 @@ namespace TestProj47.C5
             if ((ActiveEvents & EventTypeEnum.Removed) != 0)
             {
                 wasRemoved = new CircularQueue<T>();
-                foreach (KeyValuePair<T, int> p in dict)
+                foreach (var p in dict)
                 {
-                    int removed = p.Value - res.ContainsCount(p.Key);
+                    var removed = p.Value - res.ContainsCount(p.Key);
                     if (removed > 0)
 //#warning We could send bag events here easily using a CircularQueue of (should?)
-                        for (int i = 0; i < removed; i++)
+                        for (var i = 0; i < removed; i++)
                             wasRemoved.Enqueue(p.Key);
                 }
             }
@@ -409,9 +409,9 @@ namespace TestProj47.C5
         /// <returns>True if all items are found.</returns>
         public virtual bool ContainsAll(SCG.IEnumerable<T> items)
         {
-            HashBag<T> res = new HashBag<T>(itemequalityComparer);
+            var res = new HashBag<T>(itemequalityComparer);
 
-            foreach (T item in items)
+            foreach (var item in items)
                 if (res.ContainsCount(item) < ContainsCount(item))
                     res.Add(item);
                 else
@@ -427,11 +427,11 @@ namespace TestProj47.C5
         /// <returns>The array</returns>
         public override T[] ToArray()
         {
-            T[] res = new T[size];
-            int ind = 0;
+            var res = new T[size];
+            var ind = 0;
 
-            foreach (KeyValuePair<T, int> p in dict)
-                for (int i = 0; i < p.Value; i++)
+            foreach (var p in dict)
+                for (var i = 0; i < p.Value; i++)
                     res[ind++] = p.Key;
 
             return res;
@@ -445,7 +445,7 @@ namespace TestProj47.C5
         /// <returns>The count</returns>
         public virtual int ContainsCount(T item)
         {
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
 
             if (dict.Find(ref p))
                 return p.Value;
@@ -476,7 +476,7 @@ namespace TestProj47.C5
         {
             updatecheck();
 
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 0);
+            var p = new KeyValuePair<T, int>(item, 0);
 
             if (dict.Find(ref p))
             {
@@ -506,8 +506,8 @@ namespace TestProj47.C5
             if (index < 0 || index + Count > array.Length)
                 throw new ArgumentOutOfRangeException();
 
-            foreach (KeyValuePair<T, int> p in dict)
-                for (int j = 0; j < p.Value; j++)
+            foreach (var p in dict)
+                for (var j = 0; j < p.Value; j++)
                     array[index++] = p.Key;
         }
 
@@ -553,7 +553,7 @@ namespace TestProj47.C5
 
         private void add(ref T item)
         {
-            KeyValuePair<T, int> p = new KeyValuePair<T, int>(item, 1);
+            var p = new KeyValuePair<T, int>(item, 1);
             if (dict.Find(ref p))
             {
                 p.Value++;
@@ -574,12 +574,12 @@ namespace TestProj47.C5
         {
             updatecheck();
 //#warning We could easily raise bag events
-            bool mustRaiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
-            CircularQueue<T> wasAdded = mustRaiseAdded ? new CircularQueue<T>() : null;
-            bool wasChanged = false;
-            foreach (T item in items)
+            var mustRaiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
+            var wasAdded = mustRaiseAdded ? new CircularQueue<T>() : null;
+            var wasChanged = false;
+            foreach (var item in items)
             {
-                T jtem = item;
+                var jtem = item;
                 add(ref jtem);
                 wasChanged = true;
                 if (mustRaiseAdded)
@@ -588,7 +588,7 @@ namespace TestProj47.C5
             if (!wasChanged)
                 return;
             if (mustRaiseAdded)
-                foreach (T item in wasAdded)
+                foreach (var item in wasAdded)
                     raiseItemsAdded(item, 1);
             if ((ActiveEvents & EventTypeEnum.Changed) != 0)
                 raiseCollectionChanged();
@@ -616,9 +616,9 @@ namespace TestProj47.C5
         public override SCG.IEnumerator<T> GetEnumerator()
         {
             int left;
-            int mystamp = stamp;
+            var mystamp = stamp;
 
-            foreach (KeyValuePair<T, int> p in dict)
+            foreach (var p in dict)
             {
                 left = p.Value;
                 while (left > 0)
@@ -640,10 +640,10 @@ namespace TestProj47.C5
         /// <returns>True if pass</returns>
         public virtual bool Check()
         {
-            bool retval = dict.Check();
-            int count = 0;
+            var retval = dict.Check();
+            var count = 0;
 
-            foreach (KeyValuePair<T, int> p in dict)
+            foreach (var p in dict)
                 count += p.Value;
 
             if (count != size)

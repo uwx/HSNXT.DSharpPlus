@@ -66,7 +66,7 @@ namespace TestProj47.C5
                 return false;
             if ((showable = obj as IShowable) != null)
                 return showable.Show(stringbuilder, ref rest, formatProvider);
-            int oldLength = stringbuilder.Length;
+            var oldLength = stringbuilder.Length;
             stringbuilder.AppendFormat(formatProvider, "{0}", obj);
             rest -= (stringbuilder.Length - oldLength);
             return true;
@@ -81,8 +81,8 @@ namespace TestProj47.C5
         /// <returns></returns>
         public static String ShowString(IShowable showable, String format, IFormatProvider formatProvider)
         {
-            int rest = maxLength(format);
-            StringBuilder sb = new StringBuilder();
+            var rest = maxLength(format);
+            var sb = new StringBuilder();
             showable.Show(sb, ref rest, formatProvider);
             return sb.ToString();
         }
@@ -116,12 +116,12 @@ namespace TestProj47.C5
         public static bool ShowCollectionValue<T>(ICollectionValue<T> items, StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
         {
             string startdelim = "{ ", enddelim = " }";
-            bool showIndexes = false;
-            bool showMultiplicities = false;
+            var showIndexes = false;
+            var showMultiplicities = false;
             //TODO: do not test here at run time, but select code at compile time
             //      perhaps by delivering the print type to this metod
             IList<T> list;
-            ICollection<T> coll = items as ICollection<T>;
+            var coll = items as ICollection<T>;
             if ((list = items as IList<T>) != null)
             {
                 startdelim = "[ ";
@@ -142,13 +142,13 @@ namespace TestProj47.C5
 
             stringbuilder.Append(startdelim);
             rest -= 2 * startdelim.Length;
-            bool first = true;
-            bool complete = true;
-            int index = 0;
+            var first = true;
+            var complete = true;
+            var index = 0;
 
             if (showMultiplicities)
             {
-                foreach (KeyValuePair<T, int> p in coll.ItemMultiplicities())
+                foreach (var p in coll.ItemMultiplicities())
                 {
                     complete = false;
                     if (rest <= 0)
@@ -162,7 +162,7 @@ namespace TestProj47.C5
                     }
                     if (complete = Show(p.Key, stringbuilder, ref rest, formatProvider))
                     {
-                        string multiplicityString = string.Format("(*{0})", p.Value);
+                        var multiplicityString = string.Format("(*{0})", p.Value);
                         stringbuilder.Append(multiplicityString);
                         rest -= multiplicityString.Length;
                     }
@@ -170,7 +170,7 @@ namespace TestProj47.C5
             }
             else
             {
-                foreach (T x in items)
+                foreach (var x in items)
                 {
                     complete = false;
                     if (rest <= 0)
@@ -184,7 +184,7 @@ namespace TestProj47.C5
                     }
                     if (showIndexes)
                     {
-                        string indexString = string.Format("{0}:", index++);
+                        var indexString = string.Format("{0}:", index++);
                         stringbuilder.Append(indexString);
                         rest -= indexString.Length;
                     }
@@ -213,13 +213,13 @@ namespace TestProj47.C5
         /// <returns></returns>
         public static bool ShowDictionary<K, V>(IDictionary<K, V> dictionary, StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
         {
-            bool sorted = dictionary is ISortedDictionary<K, V>;
+            var sorted = dictionary is ISortedDictionary<K, V>;
             stringbuilder.Append(sorted ? "[ " : "{ ");
             rest -= 4;				   // Account for "( " and " )"
-            bool first = true;
-            bool complete = true;
+            var first = true;
+            var complete = true;
 
-            foreach (KeyValuePair<K, V> p in dictionary)
+            foreach (var p in dictionary)
             {
                 complete = false;
                 if (rest <= 0)

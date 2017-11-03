@@ -1037,7 +1037,7 @@ namespace TestProj47.C5
 			if ( index < 0 || index + Count > arr.Length )
 				throw new ArgumentOutOfRangeException ( );
 
-			foreach ( T item in this )
+			foreach ( var item in this )
 				arr.SetValue ( item, index++ );
 		}
 
@@ -1053,7 +1053,7 @@ namespace TestProj47.C5
 
 		int IList.Add ( Object o )
 		{
-			bool added = Add ( ( T ) o );
+			var added = Add ( ( T ) o );
 			// What position to report if item not added? SC.IList.Add doesn't say
 			return added ? Count - 1 : -1;
 		}

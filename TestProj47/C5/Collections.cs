@@ -325,7 +325,7 @@ namespace TestProj47.C5
         protected virtual void raiseForRemoveAll(ICollectionValue<T> wasRemoved)
         {
             if ((ActiveEvents & EventTypeEnum.Removed) != 0)
-                foreach (T item in wasRemoved)
+                foreach (var item in wasRemoved)
                     raiseItemsRemoved(item, 1);
             if (wasRemoved != null && wasRemoved.Count > 0)
                 raiseCollectionChanged();
@@ -380,7 +380,7 @@ namespace TestProj47.C5
             public void Raise()
             {
                 if (wasRemoved != null)
-                    foreach (T item in wasRemoved)
+                    foreach (var item in wasRemoved)
                         collection.raiseItemsRemoved(item, 1);
                 if (wasChanged)
                     collection.raiseCollectionChanged();
@@ -427,7 +427,7 @@ namespace TestProj47.C5
             if (index < 0 || index + Count > array.Length)
                 throw new ArgumentOutOfRangeException();
 
-            foreach (T item in this) array[index++] = item;
+            foreach (var item in this) array[index++] = item;
         }
 
         /// <summary>
@@ -437,10 +437,10 @@ namespace TestProj47.C5
         /// <returns>The array</returns>
         public virtual T[] ToArray()
         {
-            T[] res = new T[Count];
-            int i = 0;
+            var res = new T[Count];
+            var i = 0;
 
-            foreach (T item in this) res[i++] = item;
+            foreach (var item in this) res[i++] = item;
 
             return res;
         }
@@ -451,7 +451,7 @@ namespace TestProj47.C5
         /// <param name="action">The action delegate</param>
         public virtual void Apply(Action<T> action)
         {
-            foreach (T item in this)
+            foreach (var item in this)
                 action(item);
         }
 
@@ -466,7 +466,7 @@ namespace TestProj47.C5
         /// <returns>True if such an item exists</returns>
         public virtual bool Exists(Func<T, bool> predicate)
         {
-            foreach (T item in this)
+            foreach (var item in this)
                 if (predicate(item))
                     return true;
 
@@ -483,7 +483,7 @@ namespace TestProj47.C5
         /// <returns>True is such an item exists</returns>
         public virtual bool Find(Func<T, bool> predicate, out T item)
         {
-            foreach (T jtem in this)
+            foreach (var jtem in this)
                 if (predicate(jtem))
                 {
                     item = jtem;
@@ -502,7 +502,7 @@ namespace TestProj47.C5
         /// <returns>True if all items satisfies the predicate</returns>
         public virtual bool All(Func<T, bool> predicate)
         {
-            foreach (T item in this)
+            foreach (var item in this)
                 if (!predicate(item))
                     return false;
 
@@ -521,7 +521,7 @@ namespace TestProj47.C5
         {
             if (MemoryType == MemoryType.Strict) throw new Exception("This is not a memory safe function and cannot be used in MemoryType.Strict");
 
-            foreach (T item in this)
+            foreach (var item in this)
                 if (predicate(item))
                     yield return item;
         }
@@ -605,7 +605,7 @@ namespace TestProj47.C5
         /// <returns>True is such an item exists</returns>
         public virtual bool FindLast(Func<T, bool> predicate, out T item)
         {
-            foreach (T jtem in Backwards())
+            foreach (var jtem in Backwards())
                 if (predicate(jtem))
                 {
                     item = jtem;
@@ -686,15 +686,15 @@ namespace TestProj47.C5
         /// <returns>The hash code</returns>
         public static int ComputeHashCode(ICollectionValue<T> items, SCG.IEqualityComparer<T> itemequalityComparer)
         {
-            int h = 0;
+            var h = 0;
 
             //But still heuristic: 
             //Note: the three odd factors should really be random, 
             //but there will be a problem with serialization/deserialization!
             //Two products is too few
-            foreach (T item in items)
+            foreach (var item in items)
             {
-                uint h1 = (uint)itemequalityComparer.GetHashCode(item);
+                var h1 = (uint)itemequalityComparer.GetHashCode(item);
 
                 h += (int)((h1 * 1529784657 + 1) ^ (h1 * 2912831877) ^ (h1 * 1118771817 + 2));
             }
@@ -770,29 +770,29 @@ namespace TestProj47.C5
 
             if (!collection1.AllowsDuplicates && (collection2.AllowsDuplicates || collection2.ContainsSpeed >= collection1.ContainsSpeed))
             {
-                foreach (T x in collection1) if (!collection2.Contains(x)) return false;
+                foreach (var x in collection1) if (!collection2.Contains(x)) return false;
             }
             else if (!collection2.AllowsDuplicates)
             {
-                foreach (T x in collection2) if (!collection1.Contains(x)) return false;
+                foreach (var x in collection2) if (!collection1.Contains(x)) return false;
             }
             // Now tit.AllowsDuplicates && tat.AllowsDuplicates
             else if (collection1.DuplicatesByCounting && collection2.DuplicatesByCounting)
             {
-                foreach (T item in collection2) if (collection1.ContainsCount(item) != collection2.ContainsCount(item)) return false;
+                foreach (var item in collection2) if (collection1.ContainsCount(item) != collection2.ContainsCount(item)) return false;
             }
             else
             {
                 // To avoid an O(n^2) algorithm, we make an aux hashtable to hold the count of items
                 // bug20101103: HashDictionary<T, int> dict = new HashDictionary<T, int>();
-                HashDictionary<T, int> dict = new HashDictionary<T, int>(itemequalityComparer);
-                foreach (T item in collection2)
+                var dict = new HashDictionary<T, int>(itemequalityComparer);
+                foreach (var item in collection2)
                 {
-                    int count = 1;
+                    var count = 1;
                     if (dict.FindOrAdd(item, ref count))
                         dict[item] = count + 1;
                 }
-                foreach (T item in collection1)
+                foreach (var item in collection1)
                 {
                     var i = item;
                     int count;
@@ -946,7 +946,7 @@ namespace TestProj47.C5
         /// <returns>True is such an item exists</returns>
         public virtual bool FindLast(Func<T, bool> predicate, out T item)
         {
-            foreach (T jtem in Backwards())
+            foreach (var jtem in Backwards())
                 if (predicate(jtem))
                 {
                     item = jtem;
@@ -995,9 +995,9 @@ namespace TestProj47.C5
             //(We would not want to have yet a flag to check for invalidation?!)
             //NBNBNB: the current hashcode has the very bad property that items with hashcode 0
             // is ignored.
-            int iIndexedHashCode = 0;
+            var iIndexedHashCode = 0;
 
-            foreach (T item in items)
+            foreach (var item in items)
                 iIndexedHashCode = iIndexedHashCode * HASHFACTOR + itemequalityComparer.GetHashCode(item);
 
             return iIndexedHashCode;
@@ -1083,8 +1083,8 @@ namespace TestProj47.C5
         /// <returns>the index, if found, a negative value else</returns>
         public int FindIndex(Func<T, bool> predicate)
         {
-            int index = 0;
-            foreach (T item in this)
+            var index = 0;
+            foreach (var item in this)
             {
                 if (predicate(item))
                     return index;
@@ -1101,8 +1101,8 @@ namespace TestProj47.C5
         /// <returns>the index, if found, a negative value else</returns>
         public int FindLastIndex(Func<T, bool> predicate)
         {
-            int index = Count - 1;
-            foreach (T item in Backwards())
+            var index = Count - 1;
+            foreach (var item in Backwards())
             {
                 if (predicate(item))
                     return index;
@@ -1155,12 +1155,12 @@ namespace TestProj47.C5
         {
             System.Diagnostics.Debug.Assert(newcapacity >= newsize);
 
-            int newlength = array.Length;
+            var newlength = array.Length;
 
             while (newlength < newcapacity)
                 newlength = checked(newlength * 2);
 
-            T[] newarray = new T[newlength];
+            var newarray = new T[newlength];
 
             Array.Copy(array, newarray, newsize);
             array = newarray;
@@ -1199,7 +1199,7 @@ namespace TestProj47.C5
         protected ArrayBase(int capacity, SCG.IEqualityComparer<T> itemequalityComparer, MemoryType memoryType)
             : base(itemequalityComparer, memoryType)
         {
-            int newlength = 8;
+            var newlength = 8;
             while (newlength < capacity) newlength *= 2;
             array = new T[newlength];
 
@@ -1247,7 +1247,7 @@ namespace TestProj47.C5
         /// <returns>The new array</returns>
         public override T[] ToArray()
         {
-            T[] res = new T[size];
+            var res = new T[size];
 
             Array.Copy(array, offsetField, res, 0, size);
             return res;
@@ -1260,7 +1260,7 @@ namespace TestProj47.C5
         /// <returns>True if test succeeds.</returns>
         public virtual bool Check()
         {
-            bool retval = true;
+            var retval = true;
 
             if (size > array.Length)
             {
@@ -1268,7 +1268,7 @@ namespace TestProj47.C5
                 return false;
             }
 
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
                 if (array[i] == null)
                 {
@@ -1334,7 +1334,7 @@ namespace TestProj47.C5
 
             public override bool MoveNext()
             {
-                ArrayBase<T> list = _internalList;
+                var list = _internalList;
 
                 if (list.stamp != _theStamp)
                     throw new CollectionModifiedException();
@@ -1477,7 +1477,7 @@ namespace TestProj47.C5
             {
                 thebase.modifycheck(stamp);
 
-                Range res = (Range)MemberwiseClone();
+                var res = (Range)MemberwiseClone();
 
                 res.delta = -delta;
                 res.start = start + (count - 1) * delta;
@@ -1532,7 +1532,7 @@ namespace TestProj47.C5
 
                 public override bool MoveNext()
                 {
-                    ArrayBase<T> list = _rangeEnumeratorArrayBase;
+                    var list = _rangeEnumeratorArrayBase;
 
                     list.modifycheck(_theStamp);
 

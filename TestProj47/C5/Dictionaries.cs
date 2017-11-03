@@ -72,7 +72,7 @@ namespace TestProj47.C5
         {
             if (!(obj is KeyValuePair<K, V>))
                 return false;
-            KeyValuePair<K, V> other = (KeyValuePair<K, V>)obj;
+            var other = (KeyValuePair<K, V>)obj;
             return Equals(other);
         }
 
@@ -338,7 +338,7 @@ namespace TestProj47.C5
         /// <param name="value">Value to add</param>
         public virtual void Add(K key, V value)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key, value);
+            var p = new KeyValuePair<K, V>(key, value);
 
             if (!pairs.Add(p))
                 throw new DuplicateNotAllowedException("Key being added: '" + key + "'");
@@ -355,9 +355,9 @@ namespace TestProj47.C5
             where L : K
             where W : V
         {
-            foreach (KeyValuePair<L, W> pair in entries)
+            foreach (var pair in entries)
             {
-                KeyValuePair<K, V> p = new KeyValuePair<K, V>(pair.Key, pair.Value);
+                var p = new KeyValuePair<K, V>(pair.Key, pair.Value);
                 if (!pairs.Add(p))
                     throw new DuplicateNotAllowedException("Key being added: '" + pair.Key + "'");
             }
@@ -370,7 +370,7 @@ namespace TestProj47.C5
         /// <returns>True if an entry was found (and removed)</returns>
         public virtual bool Remove(K key)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key);
+            var p = new KeyValuePair<K, V>(key);
 
             return pairs.Remove(p);
         }
@@ -384,7 +384,7 @@ namespace TestProj47.C5
         /// <returns>True if an entry was found (and removed)</returns>
         public virtual bool Remove(K key, out V value)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key);
+            var p = new KeyValuePair<K, V>(key);
 
             if (pairs.Remove(p, out p))
             {
@@ -414,7 +414,7 @@ namespace TestProj47.C5
         /// <returns>True if key was found</returns>
         public virtual bool Contains(K key)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key);
+            var p = new KeyValuePair<K, V>(key);
 
             return pairs.Contains(p);
         }
@@ -424,7 +424,7 @@ namespace TestProj47.C5
         {
             private readonly SCG.IEnumerable<H> keys;
             public LiftedEnumerable(SCG.IEnumerable<H> keys) { this.keys = keys; }
-            public SCG.IEnumerator<KeyValuePair<K, V>> GetEnumerator() { foreach (H key in keys) yield return new KeyValuePair<K, V>(key); }
+            public SCG.IEnumerator<KeyValuePair<K, V>> GetEnumerator() { foreach (var key in keys) yield return new KeyValuePair<K, V>(key); }
 
             #region IEnumerable Members
 
@@ -457,7 +457,7 @@ namespace TestProj47.C5
         /// <returns>True if key was found</returns>
         public virtual bool Find(ref K key, out V value)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key);
+            var p = new KeyValuePair<K, V>(key);
 
             if (pairs.Find(ref p))
             {
@@ -479,7 +479,7 @@ namespace TestProj47.C5
         /// <returns>True if key was found</returns>
         public virtual bool Update(K key, V value)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key, value);
+            var p = new KeyValuePair<K, V>(key, value);
 
             return pairs.Update(p);
         }
@@ -494,9 +494,9 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual bool Update(K key, V value, out V oldvalue)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key, value);
+            var p = new KeyValuePair<K, V>(key, value);
 
-            bool retval = pairs.Update(p, out p);
+            var retval = pairs.Update(p, out p);
             oldvalue = p.Value;
             return retval;
         }
@@ -512,7 +512,7 @@ namespace TestProj47.C5
         /// <returns>True if key was found</returns>
         public virtual bool FindOrAdd(K key, ref V value)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key, value);
+            var p = new KeyValuePair<K, V>(key, value);
 
             if (!pairs.FindOrAdd(ref p))
                 return false;
@@ -545,8 +545,8 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual bool UpdateOrAdd(K key, V value, out V oldvalue)
         {
-            KeyValuePair<K, V> p = new KeyValuePair<K, V>(key, value);
-            bool retval = pairs.UpdateOrAdd(p, out p);
+            var p = new KeyValuePair<K, V>(key, value);
+            var retval = pairs.UpdateOrAdd(p, out p);
             oldvalue = p.Value;
             return retval;
         }
@@ -591,7 +591,7 @@ namespace TestProj47.C5
                  
                 public override bool MoveNext()
                 {
-                    ICollection<KeyValuePair<K, V>> list = _keyValuePairs;
+                    var list = _keyValuePairs;
 
                     if (_keyValuePairEnumerator == null)
                         _keyValuePairEnumerator = list.GetEnumerator();
@@ -681,7 +681,7 @@ namespace TestProj47.C5
             
                 public override bool MoveNext()
                 {
-                    ICollection<KeyValuePair<K, V>> list = _internalList;
+                    var list = _internalList;
 
                     if (_keyValuePairEnumerator == null)
                         _keyValuePairEnumerator = list.GetEnumerator();
@@ -792,7 +792,7 @@ namespace TestProj47.C5
         {
             get
             {
-                KeyValuePair<K, V> p = new KeyValuePair<K, V>(key);
+                var p = new KeyValuePair<K, V>(key);
 
                 if (pairs.Find(ref p))
                     return p.Value;
@@ -1210,7 +1210,7 @@ namespace TestProj47.C5
 
                 public override bool MoveNext()
                 {
-                    ICollection<KeyValuePair<K, V>> list = _internalList;
+                    var list = _internalList;
 
                     if (IteratorState == -1 || IteratorState == 0) // enumerator hasn't initialized yet or it has already run
                         _internalEnumerator = list.GetEnumerator();
@@ -1308,7 +1308,7 @@ namespace TestProj47.C5
             public bool TryPredecessor(K item, out K res)
             {
                 KeyValuePair<K, V> pRes;
-                bool success = sorteddict.TryPredecessor(item, out pRes);
+                var success = sorteddict.TryPredecessor(item, out pRes);
                 res = pRes.Key;
                 return success;
             }
@@ -1316,7 +1316,7 @@ namespace TestProj47.C5
             public bool TrySuccessor(K item, out K res)
             {
                 KeyValuePair<K, V> pRes;
-                bool success = sorteddict.TrySuccessor(item, out pRes);
+                var success = sorteddict.TrySuccessor(item, out pRes);
                 res = pRes.Key;
                 return success;
             }
@@ -1324,7 +1324,7 @@ namespace TestProj47.C5
             public bool TryWeakPredecessor(K item, out K res)
             {
                 KeyValuePair<K, V> pRes;
-                bool success = sorteddict.TryWeakPredecessor(item, out pRes);
+                var success = sorteddict.TryWeakPredecessor(item, out pRes);
                 res = pRes.Key;
                 return success;
             }
@@ -1332,7 +1332,7 @@ namespace TestProj47.C5
             public bool TryWeakSuccessor(K item, out K res)
             {
                 KeyValuePair<K, V> pRes;
-                bool success = sorteddict.TryWeakSuccessor(item, out pRes);
+                var success = sorteddict.TryWeakSuccessor(item, out pRes);
                 res = pRes.Key;
                 return success;
             }
@@ -1348,7 +1348,7 @@ namespace TestProj47.C5
             public bool Cut(IComparable<K> c, out K low, out bool lowIsValid, out K high, out bool highIsValid)
             {
                 KeyValuePair<K, V> lowpair, highpair;
-                bool retval = sorteddict.Cut(c, out lowpair, out lowIsValid, out highpair, out highIsValid);
+                var retval = sorteddict.Cut(c, out lowpair, out lowIsValid, out highpair, out highIsValid);
                 low = lowpair.Key;
                 high = highpair.Key;
                 return retval;
@@ -1412,7 +1412,7 @@ namespace TestProj47.C5
             public bool ContainsAll(SCG.IEnumerable<K> items)
             {
                 //TODO: optimize?
-                foreach (K item in items)
+                foreach (var item in items)
                     if (!sorteddict.Contains(item))
                         return false;
                 return true;
@@ -1420,8 +1420,8 @@ namespace TestProj47.C5
 
             public bool Find(ref K item)
             {
-                KeyValuePair<K, V> p = new KeyValuePair<K, V>(item);
-                bool retval = sortedpairs.Find(ref p);
+                var p = new KeyValuePair<K, V>(item);
+                var retval = sortedpairs.Find(ref p);
                 item = p.Key;
                 return retval;
             }

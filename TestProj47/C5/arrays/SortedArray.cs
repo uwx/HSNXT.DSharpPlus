@@ -242,7 +242,7 @@ namespace TestProj47.C5
             BinarySearch(bot, out lo);
             BinarySearch(top, out hi);
 
-            int sz = hi - lo;
+            var sz = hi - lo;
 
             return new Range(this, lo, sz, true, MemoryType);
         }
@@ -270,12 +270,12 @@ namespace TestProj47.C5
         /// <returns>The new indexed sorted collection.</returns>
         public IIndexedSorted<T> FindAll(Func<T, bool> f)
         {
-            SortedArray<T> res = new SortedArray<T>(_comparer);
+            var res = new SortedArray<T>(_comparer);
             int j = 0, rescap = res.array.Length;
 
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
-                T a = array[i];
+                var a = array[i];
 
                 if (f(a))
                 {
@@ -302,13 +302,13 @@ namespace TestProj47.C5
         /// <returns>The new sorted collection.</returns>
         public IIndexedSorted<V> Map<V>(Func<T, V> m, SCG.IComparer<V> c)
         {
-            SortedArray<V> res = new SortedArray<V>(size, c);
+            var res = new SortedArray<V>(size, c);
 
             if (size > 0)
             {
                 V oldv = res.array[0] = m(array[0]), newv;
 
-                for (int i = 1; i < size; i++)
+                for (var i = 1; i < size; i++)
                 {
                     if (c.Compare(oldv, newv = res.array[i] = m(array[i])) >= 0)
                         throw new ArgumentException("mapper not monotonic");
@@ -620,11 +620,11 @@ namespace TestProj47.C5
             updatecheck();
 
             int j = 0, i = 0, c = -1, itemcount = countItems(items), numAdded = 0;
-            SortedArray<T> res = new SortedArray<T>(size + itemcount, _comparer);
+            var res = new SortedArray<T>(size + itemcount, _comparer);
             T lastitem = default;
-            T[] addedItems = new T[itemcount];
+            var addedItems = new T[itemcount];
 
-            foreach (T item in items)
+            foreach (var item in items)
             {
                 while (i < size && (c = _comparer.Compare(array[i], item)) <= 0)
                 {
@@ -661,7 +661,7 @@ namespace TestProj47.C5
             if (lowind == size)
                 return;
 
-            T[] removed = new T[size - lowind];
+            var removed = new T[size - lowind];
             Array.Copy(array, lowind, removed, 0, removed.Length);
             Array.Reverse(removed);
 
@@ -686,7 +686,7 @@ namespace TestProj47.C5
             if (highind <= lowind)
                 return;
 
-            T[] removed = new T[highind - lowind];
+            var removed = new T[highind - lowind];
             Array.Copy(array, lowind, removed, 0, removed.Length);
             Array.Reverse(removed);
 
@@ -710,7 +710,7 @@ namespace TestProj47.C5
             if (highind == 0)
                 return;
 
-            T[] removed = new T[highind];
+            var removed = new T[highind];
             Array.Copy(array, 0, removed, 0, removed.Length);
 
             Array.Copy(array, highind, array, 0, size - highind);
@@ -722,7 +722,7 @@ namespace TestProj47.C5
 
         private void raiseForRemoveRange(T[] removed)
         {
-            foreach (T item in removed)
+            foreach (var item in removed)
                 raiseItemsRemoved(item, 1);
 
             if (removed.Length > 0)
@@ -744,7 +744,7 @@ namespace TestProj47.C5
         /// </summary>
         public override void Clear()
         {
-            int oldCount = size;
+            var oldCount = size;
             base.Clear();
             if (oldCount > 0)
             {
@@ -909,7 +909,7 @@ namespace TestProj47.C5
             updatecheck();
             if (BinarySearch(item, out ind))
             {
-                T removeditem = array[ind];
+                var removeditem = array[ind];
                 Array.Copy(array, ind + 1, array, ind, size - ind - 1);
                 array[--size] = default;
                 raiseForRemove(removeditem);
@@ -959,17 +959,17 @@ namespace TestProj47.C5
             //(Not better to collect the m items and sort them)
             updatecheck();
 
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(this);
+            var mustFire = raiseHandler.MustFire;
 
-            int[] toremove = new int[(size >> 5) + 1];
+            var toremove = new int[(size >> 5) + 1];
             int ind, j = 0;
 
-            foreach (T item in items)
+            foreach (var item in items)
                 if (BinarySearch(item, out ind))
                     toremove[ind >> 5] |= 1 << (ind & 31);
 
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
                 if ((toremove[i >> 5] & (1 << (i & 31))) == 0)
                     array[j++] = array[i];
                 else if (mustFire)
@@ -991,17 +991,17 @@ namespace TestProj47.C5
             //(Not better to collect the m items and sort them)
             updatecheck();
 
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(this);
-            bool mustFire = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(this);
+            var mustFire = raiseHandler.MustFire;
 
-            int[] toretain = new int[(size >> 5) + 1];
+            var toretain = new int[(size >> 5) + 1];
             int ind, j = 0;
 
-            foreach (T item in items)
+            foreach (var item in items)
                 if (BinarySearch(item, out ind))
                     toretain[ind >> 5] |= 1 << (ind & 31);
 
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
                 if ((toretain[i >> 5] & (1 << (i & 31))) != 0)
                     array[j++] = array[i];
                 else if (mustFire)
@@ -1023,7 +1023,7 @@ namespace TestProj47.C5
         {
             int tmp;
 
-            foreach (T item in items)
+            foreach (var item in items)
                 if (!BinarySearch(item, out tmp))
                     return false;
 
@@ -1073,7 +1073,7 @@ namespace TestProj47.C5
         /// <returns>True if check does not fail.</returns>
         public override bool Check()
         {
-            bool retval = true;
+            var retval = true;
 
             if (size > array.Length)
             {
@@ -1081,7 +1081,7 @@ namespace TestProj47.C5
                 return false;
             }
 
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
                 if (array[i] == null)
                 {
@@ -1159,16 +1159,16 @@ namespace TestProj47.C5
 
             while (newsize < size + toadd) { newsize *= 2; }
 
-            T[] newarr = new T[newsize];
+            var newarr = new T[newsize];
 
             toadd = 0;
-            foreach (T item in items) newarr[size + toadd++] = item;
+            foreach (var item in items) newarr[size + toadd++] = item;
 
             Sorting.IntroSort(newarr, size, toadd, _comparer);
 
             int j = 0, i = 0, numAdded = 0;
             T lastitem = default;
-            T[] addedItems = new T[toadd];
+            var addedItems = new T[toadd];
 
             //The following eliminates duplicates (including duplicates in input)
             //while merging the old and new collection
@@ -1193,7 +1193,7 @@ namespace TestProj47.C5
         private void raiseForAddAll(T[] addedItems, int numAdded)
         {
             if ((ActiveEvents & EventTypeEnum.Added) != 0)
-                for (int i = 0; i < numAdded; i += 1)
+                for (var i = 0; i < numAdded; i += 1)
                     raiseItemsAdded(addedItems[i], 1);
             if (numAdded > 0)
                 raiseCollectionChanged();
@@ -1225,7 +1225,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException();
 
-            T retval = array[0];
+            var retval = array[0];
 
             size--;
             Array.Copy(array, 1, array, 0, size);
@@ -1258,7 +1258,7 @@ namespace TestProj47.C5
             if (size == 0)
                 throw new NoSuchItemException();
 
-            T retval = array[size - 1];
+            var retval = array[size - 1];
 
             size--;
             array[size] = default;
@@ -1329,7 +1329,7 @@ namespace TestProj47.C5
 
             updatecheck();
 
-            T retval = array[i];
+            var retval = array[i];
 
             size--;
             Array.Copy(array, i + 1, array, i, size - i);

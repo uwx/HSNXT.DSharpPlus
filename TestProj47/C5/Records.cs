@@ -110,7 +110,7 @@ namespace TestProj47.C5
         public override int GetHashCode()
         {
             //TODO: don't use 0 as hashcode for null, but something else!
-            int hashcode = X1 == null ? 0 : X1.GetHashCode();
+            var hashcode = X1 == null ? 0 : X1.GetHashCode();
             hashcode = hashcode * RecConst.HASHFACTOR + (X2 == null ? 0 : X2.GetHashCode());
             return hashcode;
         }
@@ -135,7 +135,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public bool Show(StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
         {
-            bool incomplete = true;
+            var incomplete = true;
             stringbuilder.Append("(");
             rest -= 2;
             try
@@ -254,7 +254,7 @@ namespace TestProj47.C5
         public override int GetHashCode()
         {
             //TODO: don't use 0 as hashcode for null, but something else!
-            int hashcode = X1 == null ? 0 : X1.GetHashCode();
+            var hashcode = X1 == null ? 0 : X1.GetHashCode();
             hashcode = hashcode * RecConst.HASHFACTOR + (X2 == null ? 0 : X2.GetHashCode());
             hashcode = hashcode * RecConst.HASHFACTOR + (X3 == null ? 0 : X3.GetHashCode());
             return hashcode;
@@ -279,7 +279,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public bool Show(StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
         {
-            bool incomplete = true;
+            var incomplete = true;
             stringbuilder.Append("(");
             rest -= 2;
             try
@@ -412,7 +412,7 @@ namespace TestProj47.C5
         public override int GetHashCode()
         {
             //TODO: don't use 0 as hashcode for null, but something else!
-            int hashcode = X1 == null ? 0 : X1.GetHashCode();
+            var hashcode = X1 == null ? 0 : X1.GetHashCode();
             hashcode = hashcode * RecConst.HASHFACTOR + (X2 == null ? 0 : X2.GetHashCode());
             hashcode = hashcode * RecConst.HASHFACTOR + (X3 == null ? 0 : X3.GetHashCode());
             hashcode = hashcode * RecConst.HASHFACTOR + (X4 == null ? 0 : X4.GetHashCode());
@@ -438,7 +438,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public bool Show(StringBuilder stringbuilder, ref int rest, IFormatProvider formatProvider)
         {
-            bool incomplete = true;
+            var incomplete = true;
             stringbuilder.Append("(");
             rest -= 2;
             try

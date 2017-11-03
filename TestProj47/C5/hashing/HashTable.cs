@@ -171,15 +171,15 @@ namespace TestProj47.C5
             bitsc = 32 - bits;
             indexmask = (1 << bits) - 1;
 
-            Bucket[] newtable = new Bucket[indexmask + 1];
+            var newtable = new Bucket[indexmask + 1];
 
             for (int i = 0, s = table.Length; i < s; i++)
             {
-                Bucket b = table[i];
+                var b = table[i];
 
                 while (b != null)
                 {
-                    int j = hv2i(b.hashval);
+                    var j = hv2i(b.hashval);
 
                     newtable[j] = new Bucket(b.item, b.hashval, newtable[j]);
                     b = b.overflow;
@@ -203,15 +203,15 @@ namespace TestProj47.C5
         private bool searchoradd(ref T item, bool add, bool update, bool raise)
         {
 
-            int hashval = gethashcode(item);
-            int i = hv2i(hashval);
+            var hashval = gethashcode(item);
+            var i = hv2i(hashval);
             Bucket b = table[i], bold = null;
 
             if (b != null)
             {
                 while (b != null)
                 {
-                    T olditem = b.item;
+                    var olditem = b.item;
                     if (equals(olditem, item))
                     {
                         if (update)
@@ -256,8 +256,8 @@ namespace TestProj47.C5
 
             if (size == 0)
                 return false;
-            int hashval = gethashcode(item);
-            int index = hv2i(hashval);
+            var hashval = gethashcode(item);
+            var index = hv2i(hashval);
             Bucket b = table[index], bold;
 
             if (b == null)
@@ -494,8 +494,8 @@ namespace TestProj47.C5
         public virtual void RemoveAll(SCG.IEnumerable<T> items)
         {
             updatecheck();
-            RaiseForRemoveAllHandler raiseHandler = new RaiseForRemoveAllHandler(this);
-            bool raise = raiseHandler.MustFire;
+            var raiseHandler = new RaiseForRemoveAllHandler(this);
+            var raise = raiseHandler.MustFire;
             T jtem;
             foreach (var item in items)
             { jtem = item; if (remove(ref jtem) && raise) raiseHandler.Remove(jtem); }
@@ -509,7 +509,7 @@ namespace TestProj47.C5
         public virtual void Clear()
         {
             updatecheck();
-            int oldsize = size;
+            var oldsize = size;
             clear();
             if (ActiveEvents != 0 && oldsize > 0)
             {
@@ -527,13 +527,13 @@ namespace TestProj47.C5
         {
             updatecheck();
 
-            HashSet<T> aux = new HashSet<T>(EqualityComparer);
+            var aux = new HashSet<T>(EqualityComparer);
 
             //This only works for sets:
             foreach (var item in items)
                 if (Contains(item))
                 {
-                    T jtem = item;
+                    var jtem = item;
 
                     aux.searchoradd(ref jtem, true, false, false);
                 }
@@ -545,7 +545,7 @@ namespace TestProj47.C5
             if ((ActiveEvents & EventTypeEnum.Removed) != 0)
             {
                 wasRemoved = new CircularQueue<T>();
-                foreach (T item in this)
+                foreach (var item in this)
                     if (!aux.Contains(item))
                         wasRemoved.Enqueue(item);
             }
@@ -587,12 +587,12 @@ namespace TestProj47.C5
         /// <returns>The array</returns>
         public override T[] ToArray()
         {
-            T[] res = new T[size];
-            int index = 0;
+            var res = new T[size];
+            var index = 0;
 
-            for (int i = 0; i < table.Length; i++)
+            for (var i = 0; i < table.Length; i++)
             {
-                Bucket b = table[i];
+                var b = table[i];
                 while (b != null)
                 {
                     res[index++] = b.item;
@@ -684,7 +684,7 @@ namespace TestProj47.C5
 
             public override bool MoveNext()
             {
-                int len = _hashSet.table.Length;
+                var len = _hashSet.table.Length;
 
                 if (_stamp != _hashSet.stamp)
                     throw new CollectionModifiedException();
@@ -726,7 +726,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override T Choose()
         {
-            int len = table.Length;
+            var len = table.Length;
             if (size == 0)
                 throw new NoSuchItemException();
             do { if (++lastchosen >= len) lastchosen = 0; } while (table[lastchosen] == null);
@@ -793,12 +793,12 @@ namespace TestProj47.C5
         public virtual void AddAll(SCG.IEnumerable<T> items)
         {
             updatecheck();
-            bool wasChanged = false;
-            bool raiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
-            CircularQueue<T> wasAdded = raiseAdded ? new CircularQueue<T>() : null;
-            foreach (T item in items)
+            var wasChanged = false;
+            var raiseAdded = (ActiveEvents & EventTypeEnum.Added) != 0;
+            var wasAdded = raiseAdded ? new CircularQueue<T>() : null;
+            foreach (var item in items)
             {
-                T jtem = item;
+                var jtem = item;
 
                 if (!searchoradd(ref jtem, true, false, false))
                 {
@@ -809,7 +809,7 @@ namespace TestProj47.C5
             }
             //TODO: implement a RaiseForAddAll() method
             if (raiseAdded & wasChanged)
-                foreach (T item in wasAdded)
+                foreach (var item in wasAdded)
                     raiseItemsAdded(item, 1);
             if (((ActiveEvents & EventTypeEnum.Changed) != 0 && wasChanged))
                 raiseCollectionChanged();
@@ -826,8 +826,8 @@ namespace TestProj47.C5
         /// <returns>True if pass</returns>
         public virtual bool Check()
         {
-            int count = 0;
-            bool retval = true;
+            var count = 0;
+            var retval = true;
 
             if (bitsc != 32 - bits)
             {
@@ -852,8 +852,8 @@ namespace TestProj47.C5
 
             for (int i = 0, s = table.Length; i < s; i++)
             {
-                int level = 0;
-                Bucket b = table[i];
+                var level = 0;
+                var b = table[i];
                 while (b != null)
                 {
                     if (i != hv2i(b.hashval))
@@ -884,11 +884,11 @@ namespace TestProj47.C5
         /// <returns>Histogram data.</returns>
         public ISortedDictionary<int, int> BucketCostDistribution()
         {
-            TreeDictionary<int, int> res = new TreeDictionary<int, int>();
+            var res = new TreeDictionary<int, int>();
             for (int i = 0, s = table.Length; i < s; i++)
             {
-                int count = 0;
-                Bucket b = table[i];
+                var count = 0;
+                var b = table[i];
 
                 while (b != null)
                 {

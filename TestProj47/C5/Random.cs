@@ -150,9 +150,9 @@ namespace TestProj47.C5
                 throw new ArgumentException("Seed must be non-zero");
             }
 
-            uint j = (uint)(seed & 0xFFFFFFFF);
+            var j = (uint)(seed & 0xFFFFFFFF);
 
-            for (int i = 0; i < 16; i++)
+            for (var i = 0; i < 16; i++)
             {
                 j ^= j << 13;
                 j ^= j >> 17;
