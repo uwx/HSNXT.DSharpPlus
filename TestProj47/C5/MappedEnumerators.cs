@@ -20,6 +20,7 @@
 */
 
 using System;
+using System.Linq;
 using SCG = System.Collections.Generic;
 namespace TestProj47.C5
 {
@@ -28,9 +29,9 @@ namespace TestProj47.C5
     {
         private IDirectedCollectionValue<T> directedcollectionvalue;
 
-        abstract public V Map(T item);
+        public abstract V Map(T item);
 
-        public MappedDirectedCollectionValue(IDirectedCollectionValue<T> directedcollectionvalue)
+        protected MappedDirectedCollectionValue(IDirectedCollectionValue<T> directedcollectionvalue)
         {
             this.directedcollectionvalue = directedcollectionvalue;
         }
@@ -55,8 +56,7 @@ namespace TestProj47.C5
 
         public override SCG.IEnumerator<V> GetEnumerator()
         {
-            foreach (var item in directedcollectionvalue)
-                yield return Map(item);
+            return directedcollectionvalue.Select(Map).GetEnumerator();
         }
 
         public override EnumerationDirection Direction => directedcollectionvalue.Direction;
@@ -74,7 +74,7 @@ namespace TestProj47.C5
     {
         private readonly ICollectionValue<T> collectionvalue;
 
-        abstract public V Map(T item);
+        public abstract V Map(T item);
 
         public MappedCollectionValue(ICollectionValue<T> collectionvalue)
         {
@@ -115,7 +115,7 @@ namespace TestProj47.C5
     {
         private IDirectedEnumerable<T> directedenumerable;
 
-        abstract public V Map(T item);
+        public abstract V Map(T item);
 
         public MappedDirectedEnumerable(IDirectedEnumerable<T> directedenumerable)
         {
