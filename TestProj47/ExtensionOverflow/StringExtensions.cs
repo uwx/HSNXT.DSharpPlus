@@ -159,12 +159,12 @@ namespace TestProj47
         public static T ToEnum<T>(this string value, bool ignorecase)
         {
             if (value == null)
-                throw new ArgumentNullException("Value");
+                throw new ArgumentNullException(nameof(value));
 
             value = value.Trim();
 
             if (value.Length == 0)
-                throw new ArgumentNullException("Must specify valid information for parsing in the string.", "value");
+                throw new ArgumentNullException(nameof(value),"Must specify valid information for parsing in the string.");
 
             var t = typeof(T);
             if (!t.IsEnum)

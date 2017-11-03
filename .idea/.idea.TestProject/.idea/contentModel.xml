@@ -138,6 +138,7 @@
           <e p="StringExtensions.cs" t="Include" />
           <e p="TimeSpanExtensions.cs" t="Include" />
         </e>
+        <e p="EnumerationExtensions.cs" t="Include" />
         <e p="ExtensionMethods" t="Include">
           <e p="BooleanExtensions.cs" t="Include" />
           <e p="ByteExtensions.cs" t="Include" />
@@ -182,6 +183,105 @@
           </e>
         </e>
         <e p="ExtensionsHelper.cs" t="Include" />
+        <e p="MoreLinq" t="Include">
+          <e p="Acquire.cs" t="Include" />
+          <e p="AggregateRight.cs" t="Include" />
+          <e p="Assert.cs" t="Include" />
+          <e p="AssertCount.cs" t="Include" />
+          <e p="Batch.cs" t="Include" />
+          <e p="Cartesian.cs" t="Include" />
+          <e p="Consume.cs" t="Include" />
+          <e p="CountBy.cs" t="Include" />
+          <e p="CountMethods.cs" t="Include" />
+          <e p="DistinctBy.cs" t="Include" />
+          <e p="EndsWith.cs" t="Include" />
+          <e p="EquiZip.cs" t="Include" />
+          <e p="Evaluate.cs" t="Include" />
+          <e p="ExceptBy.cs" t="Include" />
+          <e p="Exclude.cs" t="Include" />
+          <e p="FallbackIfEmpty.cs" t="Include" />
+          <e p="FillBackward.cs" t="Include" />
+          <e p="FillForward.cs" t="Include" />
+          <e p="Fold.cs" t="Include" />
+          <e p="Fold.g.cs" t="Include" />
+          <e p="Fold.g.tt" t="Include" />
+          <e p="From.cs" t="Include" />
+          <e p="FullGroupJoin.cs" t="Include" />
+          <e p="FullJoin.cs" t="Include" />
+          <e p="Generate.cs" t="Include" />
+          <e p="GenerateByIndex.cs" t="Include" />
+          <e p="GroupAdjacent.cs" t="Include" />
+          <e p="Incremental.cs" t="Include" />
+          <e p="Index.cs" t="Include" />
+          <e p="Insert.cs" t="Include" />
+          <e p="Interleave.cs" t="Include" />
+          <e p="key.snk" t="Include" />
+          <e p="Lag.cs" t="Include" />
+          <e p="Lead.cs" t="Include" />
+          <e p="LeftJoin.cs" t="Include" />
+          <e p="Lookup.cs" t="Include" />
+          <e p="MinBy.cs" t="Include" />
+          <e p="MoreLinq.csproj" t="Include" />
+          <e p="Move.cs" t="Include" />
+          <e p="NestedLoops.cs" t="Include" />
+          <e p="OrderBy.cs" t="Include" />
+          <e p="OrderByDirection.cs" t="Include" />
+          <e p="OrderedMerge.cs" t="Include" />
+          <e p="Pad.cs" t="Include" />
+          <e p="PadStart.cs" t="Include" />
+          <e p="Pairwise.cs" t="Include" />
+          <e p="PartialSort.cs" t="Include" />
+          <e p="Partition.cs" t="Include" />
+          <e p="PcNode.cs" t="Include" />
+          <e p="Permutations.cs" t="Include" />
+          <e p="Pipe.cs" t="Include" />
+          <e p="PreScan.cs" t="Include" />
+          <e p="Random.cs" t="Include" />
+          <e p="RandomSubset.cs" t="Include" />
+          <e p="Rank.cs" t="Include" />
+          <e p="Repeat.cs" t="Include" />
+          <e p="ReverseComparer.cs" t="Include" />
+          <e p="RightJoin.cs" t="Include" />
+          <e p="RunLengthEncode.cs" t="Include" />
+          <e p="Scan.cs" t="Include" />
+          <e p="ScanRight.cs" t="Include" />
+          <e p="Segment.cs" t="Include" />
+          <e p="Sequence.cs" t="Include" />
+          <e p="SequenceException.cs" t="Include" />
+          <e p="SingleOrFallback.cs" t="Include" />
+          <e p="SkipLast.cs" t="Include" />
+          <e p="SkipUntil.cs" t="Include" />
+          <e p="Slice.cs" t="Include" />
+          <e p="SortedMerge.cs" t="Include" />
+          <e p="Split.cs" t="Include" />
+          <e p="StartsWith.cs" t="Include" />
+          <e p="Subsets.cs" t="Include" />
+          <e p="TagFirstLast.cs" t="Include" />
+          <e p="TakeEvery.cs" t="Include" />
+          <e p="TakeLast.cs" t="Include" />
+          <e p="TakeUntil.cs" t="Include" />
+          <e p="ToArrayByIndex.cs" t="Include" />
+          <e p="ToDataTable.cs" t="Include" />
+          <e p="ToDelimitedString.cs" t="Include" />
+          <e p="ToDelimitedString.g.cs" t="Include" />
+          <e p="ToDelimitedString.g.tt" t="Include" />
+          <e p="ToDictionary.cs" t="Include" />
+          <e p="ToHashSet.cs" t="Include" />
+          <e p="ToLookup.cs" t="Include" />
+          <e p="Trace.cs" t="Include" />
+          <e p="Traverse.cs" t="Include" />
+          <e p="Unfold.cs" t="Include" />
+          <e p="Windowed.cs" t="Include" />
+          <e p="Zip.stub.cs" t="Include" />
+          <e p="ZipLongest.cs" t="Include" />
+          <e p="ZipShortest.cs" t="Include" />
+        </e>
+        <e p="NorthHorizon.Common.Xmp" t="Include">
+          <e p="CollectionExtensions.cs" t="Include" />
+          <e p="DictionaryExtensions.cs" t="Include" />
+          <e p="EnumerableExtensions.cs" t="Include" />
+          <e p="ObjectExtensions.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />

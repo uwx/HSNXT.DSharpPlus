@@ -130,7 +130,40 @@ namespace TestProj47
         private static readonly Regex ObjAlphaDashPattern = new Regex("[^a-zA-Z\\-]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaPattern = new Regex("[^a-zA-Z]", RegexOptions.Compiled);
         private static readonly Regex IsEmailBigRe = new Regex(IsEmailBigRegex, RegexOptions.Compiled);
+        
+        public static string OnlyDigits(this string value)
+        {
+            return new string(value?.Where(char.IsDigit).ToArray());
+        }
+        
+        private static readonly Dictionary<char, int> RomanMap = new Dictionary<char, int>()
+        {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}
+        };
 
+        public static int RomanToInteger(this string roman)
+        {
+            var number = 0;
+            for (var i = 0; i < roman.Length; i++)
+            {
+                if (i + 1 < roman.Length && RomanMap[roman[i]] < RomanMap[roman[i + 1]])
+                {
+                    number -= RomanMap[roman[i]];
+                }
+                else
+                {
+                    number += RomanMap[roman[i]];
+                }
+            }
+            return number;
+        }
+        
         public static string ToStringInvariant(this DateTime o)
         {
             return o.ToString(CultureInfo.InvariantCulture);

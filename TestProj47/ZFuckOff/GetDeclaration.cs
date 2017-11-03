@@ -310,7 +310,7 @@ namespace TestProj47
 
             if (@this.IsOptional)
             {
-                if (@this.DefaultValue != Missing.Value)
+                if (@this.DefaultValue != System.Reflection.Missing.Value)
                 {
                     sb.Append(" = " + @this.DefaultValue);
                 }
