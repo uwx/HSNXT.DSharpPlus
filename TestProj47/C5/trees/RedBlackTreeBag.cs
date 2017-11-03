@@ -24,7 +24,7 @@ using System.Collections;
 using System.Text;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// An implementation of Red-Black trees as an indexed, sorted collection with bag semantics,
@@ -2604,7 +2604,7 @@ namespace TestProj47
             { return new Interval(tree, start, length, !forwards); }
 
 
-            IDirectedEnumerable<T> TestProj47.IDirectedEnumerable<T>.Backwards()
+            IDirectedEnumerable<T> TestProj47.C5.IDirectedEnumerable<T>.Backwards()
             { return Backwards(); }
 
 

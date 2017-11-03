@@ -21,7 +21,7 @@
 
 using System;
 using SCG = System.Collections.Generic;
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// A utility class with functions for sorting arrays with respect to an IComparer&lt;T&gt;

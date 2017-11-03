@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// Defines methods to support the comparison of objects for equality.

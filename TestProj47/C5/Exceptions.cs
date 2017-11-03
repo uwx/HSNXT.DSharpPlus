@@ -21,7 +21,7 @@
 
 using System;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// An exception to throw from library code when an internal inconsistency is encountered.

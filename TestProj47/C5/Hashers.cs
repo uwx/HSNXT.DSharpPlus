@@ -22,7 +22,7 @@
 using System;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// An equalityComparer compatible with a given comparer. All hash codes are 0, 

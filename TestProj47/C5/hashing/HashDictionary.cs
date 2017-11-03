@@ -22,7 +22,7 @@
 using System;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// A generic dictionary class based on a hash set class <see cref="T:C5.HashSet`1"/>. 

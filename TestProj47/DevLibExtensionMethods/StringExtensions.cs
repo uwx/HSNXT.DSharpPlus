@@ -734,9 +734,7 @@ namespace TestProj47
         /// <returns>Empty string if source string is null or empty; otherwise, source string.</returns>
         public static string EmptyIfNullOrEmpty(this string source)
         {
-            if (!string.IsNullOrEmpty(source))
-                return source;
-            return string.Empty;
+            return !string.IsNullOrEmpty(source) ? source : string.Empty;
         }
 
         /// <summary>Gets empty string if string is null or white space.</summary>
@@ -744,9 +742,7 @@ namespace TestProj47
         /// <returns>Empty string if source string is null or white space; otherwise, source string.</returns>
         public static string EmptyIfNullOrWhiteSpace(this string source)
         {
-            if (!source.IsNullOrWhiteSpace())
-                return source;
-            return string.Empty;
+            return !source.IsNullOrWhiteSpace() ? source : string.Empty;
         }
 
         /// <summary>Gets null if string is null or empty.</summary>
@@ -754,9 +750,7 @@ namespace TestProj47
         /// <returns>Null if source string is null or empty; otherwise, source string.</returns>
         public static string NullIfNullOrEmpty(this string source)
         {
-            if (!string.IsNullOrEmpty(source))
-                return source;
-            return null;
+            return !string.IsNullOrEmpty(source) ? source : null;
         }
 
         /// <summary>Gets null if string is null or white space.</summary>
@@ -764,9 +758,7 @@ namespace TestProj47
         /// <returns>Null if source string is null or white space; otherwise, source string.</returns>
         public static string NullIfNullOrWhiteSpace(this string source)
         {
-            if (!source.IsNullOrWhiteSpace())
-                return source;
-            return null;
+            return !source.IsNullOrWhiteSpace() ? source : null;
         }
 
         /// <summary>Retrieves a substring from the left.</summary>

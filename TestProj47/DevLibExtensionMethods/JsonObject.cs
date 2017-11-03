@@ -7,15 +7,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SGC = System.Collections.Generic;
 
 namespace TestProj47
 {
     /// <summary>Represents the JSON object.</summary>
-    internal class JsonObject : IDictionary<string, object>, ICollection<KeyValuePair<string, object>>,
-        IEnumerable<KeyValuePair<string, object>>, IEnumerable
+    internal class JsonObject : SGC.IDictionary<string, object>, SGC.ICollection<SGC.KeyValuePair<string, object>>,
+        IEnumerable<SGC.KeyValuePair<string, object>>, IEnumerable
     {
         /// <summary>The internal member dictionary.</summary>
-        private readonly Dictionary<string, object> _members;
+        private readonly SGC.Dictionary<string, object> _members;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
@@ -46,11 +47,11 @@ namespace TestProj47
 
         /// <summary>Gets the keys.</summary>
         /// <value>The keys.</value>
-        public ICollection<string> Keys => this._members.Keys;
+        public SGC.ICollection<string> Keys => this._members.Keys;
 
         /// <summary>Gets the values.</summary>
         /// <value>The values.</value>
-        public ICollection<object> Values => this._members.Values;
+        public SGC.ICollection<object> Values => this._members.Values;
 
         /// <summary>
         /// Gets the <see cref="T:System.Object" /> at the specified index.
@@ -80,7 +81,7 @@ namespace TestProj47
 
         /// <summary>Adds the specified item.</summary>
         /// <param name="item">The item.</param>
-        public void Add(KeyValuePair<string, object> item)
+        public void Add(SGC.KeyValuePair<string, object> item)
         {
             this._members.Add(item.Key, item.Value);
         }
@@ -94,7 +95,7 @@ namespace TestProj47
         /// <summary>Determines whether [contains] [the specified item].</summary>
         /// <param name="item">The item.</param>
         /// <returns>true if contains the specified item; otherwise, false.</returns>
-        public bool Contains(KeyValuePair<string, object> item)
+        public bool Contains(SGC.KeyValuePair<string, object> item)
         {
             if (this._members.ContainsKey(item.Key))
                 return this._members[item.Key] == item.Value;
@@ -109,10 +110,10 @@ namespace TestProj47
             return this._members.ContainsKey(key);
         }
 
-        /// <summary>Copies KeyValuePair to array.</summary>
+        /// <summary>Copies SGC.KeyValuePair to array.</summary>
         /// <param name="array">The array.</param>
         /// <param name="arrayIndex">Index of the array.</param>
-        public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
+        public void CopyTo(SGC.KeyValuePair<string, object>[] array, int arrayIndex)
         {
             if (array == null)
                 throw new ArgumentNullException(nameof(array));
@@ -127,9 +128,9 @@ namespace TestProj47
 
         /// <summary>Gets the enumerator.</summary>
         /// <returns>An enumerator that can be used to iterate through the collection.</returns>
-        public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
+        public IEnumerator<SGC.KeyValuePair<string, object>> GetEnumerator()
         {
-            return this._members.GetEnumerator();
+            return (IEnumerator<SGC.KeyValuePair<string, object>>) ((IEnumerable)this).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -148,7 +149,7 @@ namespace TestProj47
         /// <summary>Removes the specified item.</summary>
         /// <param name="item">The item.</param>
         /// <returns>true if <paramref name="item" /> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        public bool Remove(KeyValuePair<string, object> item)
+        public bool Remove(SGC.KeyValuePair<string, object> item)
         {
             return this._members.Remove(item.Key);
         }
@@ -175,7 +176,7 @@ namespace TestProj47
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="index">The index.</param>
         /// <returns>The object.</returns>
-        internal static object GetAtIndex(IDictionary<string, object> dictionary, int index)
+        internal static object GetAtIndex(SGC.IDictionary<string, object> dictionary, int index)
         {
             if (dictionary == null)
                 throw new ArgumentNullException("obj");

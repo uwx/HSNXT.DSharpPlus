@@ -3,7 +3,7 @@
 
 using System;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// Class containing debugging symbols - to eliminate preprocessor directives

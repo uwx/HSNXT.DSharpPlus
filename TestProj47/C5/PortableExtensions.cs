@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     internal static class PortableExtensions
     {

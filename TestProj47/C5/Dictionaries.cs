@@ -23,7 +23,7 @@ using System;
 using System.Collections;
 using System.Text;
 using SCG = System.Collections.Generic;
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// An entry in a dictionary from K to V.

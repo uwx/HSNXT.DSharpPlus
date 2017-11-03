@@ -23,7 +23,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// A generic collection, that can be enumerated backwards.

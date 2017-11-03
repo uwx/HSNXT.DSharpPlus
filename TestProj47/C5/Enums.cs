@@ -20,7 +20,7 @@
 */
 
 using SCG = System.Collections.Generic;
-namespace TestProj47
+namespace TestProj47.C5
 {
 
     /// <summary>

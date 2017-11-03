@@ -21,7 +21,7 @@
 
 using System;
 using SCG = System.Collections.Generic;
-namespace TestProj47
+namespace TestProj47.C5
 {
     [Serializable]
     internal abstract class MappedDirectedCollectionValue<T, V> : DirectedCollectionValueBase<V>, IDirectedCollectionValue<V>

@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace TestProj47.C5
 {
     /// <summary>
     /// Defines a method that a type implements to compare two objects.
