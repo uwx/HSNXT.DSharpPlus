@@ -596,7 +596,7 @@ namespace TestProj47.C5
 
             public override string ToString()
             {
-                return string.Format("Node: (item={0}, tag={1})", item, tag);
+                return $"Node: (item={item}, tag={tag})";
             }
         }
 
@@ -622,7 +622,7 @@ namespace TestProj47.C5
             /// <returns>Formatted tag group</returns>
             public override string ToString()
             {
-                return string.Format("TagGroup(tag={0}, cnt={1}, fst={2}, lst={3})", tag, count, first, last);
+                return $"TagGroup(tag={tag}, cnt={count}, fst={first}, lst={last})";
             }
         }
 
@@ -2983,8 +2983,7 @@ namespace TestProj47.C5
             {
                 if (!view.isValid)
                 {
-                    Logger.Log(string.Format("Invalid view(hash {0}, offset {1}, size {2})",
-                        view.GetHashCode(), view.offset, view.size));
+                    Logger.Log($"Invalid view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size})");
                     retval = false;
                     continue;
                 }
@@ -2996,39 +2995,32 @@ namespace TestProj47.C5
                 }
                 else if (view.startsentinel != nodes[view.Offset])
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), startsentinel {3} should be {4}",
-                        view.GetHashCode(), view.offset, view.size,
-                        view.startsentinel + " " + view.startsentinel.GetHashCode(),
-                        nodes[view.Offset] + " " + nodes[view.Offset].GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), startsentinel {view.startsentinel + " " + view.startsentinel.GetHashCode()} should be {nodes[view.Offset] + " " + nodes[view.Offset].GetHashCode()}");
                     retval = false;
                 }
                 if (view.Offset + view.size > size || view.Offset + view.size < 0)
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), end index > underlying.size ({3})",
-                        view.GetHashCode(), view.offset, view.size, size));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), end index > underlying.size ({size})");
                     retval = false;
                 }
                 else if (view.endsentinel != nodes[view.Offset + view.size + 1])
                 {
-                    Logger.Log(string.Format("Bad view(hash {0}, offset {1}, size {2}), endsentinel {3} should be {4}",
-                        view.GetHashCode(), view.offset, view.size,
-                        view.endsentinel + " " + view.endsentinel.GetHashCode(),
-                        nodes[view.Offset + view.size + 1] + " " + nodes[view.Offset + view.size + 1].GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), endsentinel {view.endsentinel + " " + view.endsentinel.GetHashCode()} should be {nodes[view.Offset + view.size + 1] + " " + nodes[view.Offset + view.size + 1].GetHashCode()}");
                     retval = false;
                 }
                 if (view.views != views)
                 {
-                    Logger.Log(string.Format("Bad view(hash {0}, offset {1}, size {2}), wrong views list {3} <> {4}",
-                        view.GetHashCode(), view.offset, view.size, view.views.GetHashCode(), views.GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), wrong views list {view.views.GetHashCode()} <> {views.GetHashCode()}");
                     retval = false;
                 }
                 if (view.underlying != this)
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), wrong underlying {3} <> this {4}",
-                        view.GetHashCode(), view.offset, view.size, view.underlying.GetHashCode(), GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), wrong underlying {view.underlying.GetHashCode()} <> this {GetHashCode()}");
                     retval = false;
                 }
                 if (view.stamp != stamp)
@@ -3109,14 +3101,14 @@ namespace TestProj47.C5
 
                 if (tg.count != 0 || tg.first != null || tg.last != null || tg.tag != int.MinValue)
                 {
-                    Logger.Log(string.Format("Bad startsentinel tag group: {0}", tg));
+                    Logger.Log($"Bad startsentinel tag group: {tg}");
                     retval = false;
                 }
 
                 tg = endsentinel.taggroup;
                 if (tg.count != 0 || tg.first != null || tg.last != null || tg.tag != int.MaxValue)
                 {
-                    Logger.Log(string.Format("Bad endsentinel tag group: {0}", tg));
+                    Logger.Log($"Bad endsentinel tag group: {tg}");
                     retval = false;
                 }
             }
@@ -3125,16 +3117,15 @@ namespace TestProj47.C5
                 count++;
                 if (node.prev != prev)
                 {
-                    Logger.Log(string.Format("Bad backpointer at node {0}", count));
+                    Logger.Log($"Bad backpointer at node {count}");
                     retval = false;
                 }
                 if (underlying == null)
                 {
                     if (!node.prev.precedes(node))
                     {
-                        Logger.Log(string.Format(
-                            "node.prev.tag ({0}, {1}) >= node.tag ({2}, {3}) at index={4} item={5} ",
-                            node.prev.taggroup.tag, node.prev.tag, node.taggroup.tag, node.tag, count, node.item));
+                        Logger.Log(
+                            $"node.prev.tag ({node.prev.taggroup.tag}, {node.prev.tag}) >= node.tag ({node.taggroup.tag}, {node.tag}) at index={count} item={node.item} ");
                         retval = false;
                     }
 
@@ -3143,9 +3134,8 @@ namespace TestProj47.C5
                         if (node.taggroup.first != node)
                         {
                             var ntfi = zeitem(node.taggroup.first);
-                            Logger.Log(string.Format(
-                                "Bad first pointer in taggroup: node.taggroup.first.item ({0}), node.item ({1}) at index={2} item={3}",
-                                ntfi, node.item, count, node.item));
+                            Logger.Log(
+                                $"Bad first pointer in taggroup: node.taggroup.first.item ({ntfi}), node.item ({node.item}) at index={count} item={node.item}");
                             retval = false;
                         }
 
@@ -3153,33 +3143,29 @@ namespace TestProj47.C5
                         {
                             if (oldtg.count != taggroupsize)
                             {
-                                Logger.Log(string.Format(
-                                    "Bad taggroupsize: oldtg.count ({0}) != taggroupsize ({1}) at index={2} item={3}",
-                                    oldtg.count, taggroupsize, count, node.item));
+                                Logger.Log(
+                                    $"Bad taggroupsize: oldtg.count ({oldtg.count}) != taggroupsize ({taggroupsize}) at index={count} item={node.item}");
                                 retval = false;
                             }
 
                             if (oldtaggroupsize <= losize && taggroupsize <= losize)
                             {
-                                Logger.Log(string.Format(
-                                    "Two small taggroups in a row: oldtaggroupsize ({0}), taggroupsize ({1}) at index={2} item={3}",
-                                    oldtaggroupsize, taggroupsize, count, node.item));
+                                Logger.Log(
+                                    $"Two small taggroups in a row: oldtaggroupsize ({oldtaggroupsize}), taggroupsize ({taggroupsize}) at index={count} item={node.item}");
                                 retval = false;
                             }
 
                             if (node.taggroup.tag <= oldtg.tag)
                             {
-                                Logger.Log(string.Format(
-                                    "Taggroup tags not strictly increasing: oldtaggrouptag ({0}), taggrouptag ({1}) at index={2} item={3}",
-                                    oldtg.tag, node.taggroup.tag, count, node.item));
+                                Logger.Log(
+                                    $"Taggroup tags not strictly increasing: oldtaggrouptag ({oldtg.tag}), taggrouptag ({node.taggroup.tag}) at index={count} item={node.item}");
                                 retval = false;
                             }
 
                             if (oldtg.last != node.prev)
                             {
-                                Logger.Log(string.Format(
-                                    "Bad last pointer in taggroup: oldtg.last.item ({0}), node.prev.item ({1}) at index={2} item={3}",
-                                    oldtg.last.item, node.prev.item, count, node.item));
+                                Logger.Log(
+                                    $"Bad last pointer in taggroup: oldtg.last.item ({oldtg.last.item}), node.prev.item ({node.prev.item}) at index={count} item={node.item}");
                                 retval = false;
                             }
 
@@ -3200,14 +3186,14 @@ namespace TestProj47.C5
                 node = node.next;
                 if (node == null)
                 {
-                    Logger.Log(string.Format("Null next pointer at node {0}", count));
+                    Logger.Log($"Null next pointer at node {count}");
                     return false;
                 }
             }
 
             if (underlying == null && size == 0 && taggroups != 0)
             {
-                Logger.Log(string.Format("Bad taggroups for empty list: size={0}   taggroups={1}", size, taggroups));
+                Logger.Log($"Bad taggroups for empty list: size={size}   taggroups={taggroups}");
                 retval = false;
             }
             if (underlying == null && size > 0)
@@ -3217,47 +3203,42 @@ namespace TestProj47.C5
                 {
                     if (oldtg.count != taggroupsize)
                     {
-                        Logger.Log(string.Format(
-                            "Bad taggroupsize: oldtg.count ({0}) != taggroupsize ({1}) at index={2} item={3}",
-                            oldtg.count, taggroupsize, count, node.item));
+                        Logger.Log(
+                            $"Bad taggroupsize: oldtg.count ({oldtg.count}) != taggroupsize ({taggroupsize}) at index={count} item={node.item}");
                         retval = false;
                     }
 
                     if (oldtaggroupsize <= losize && taggroupsize <= losize)
                     {
-                        Logger.Log(string.Format(
-                            "Two small taggroups in a row: oldtaggroupsize ({0}), taggroupsize ({1}) at index={2} item={3}",
-                            oldtaggroupsize, taggroupsize, count, node.item));
+                        Logger.Log(
+                            $"Two small taggroups in a row: oldtaggroupsize ({oldtaggroupsize}), taggroupsize ({taggroupsize}) at index={count} item={node.item}");
                         retval = false;
                     }
 
                     if (node.taggroup.tag <= oldtg.tag)
                     {
-                        Logger.Log(string.Format(
-                            "Taggroup tags not strictly increasing: oldtaggrouptag ({0}), taggrouptag ({1}) at index={2} item={3}",
-                            oldtg.tag, node.taggroup.tag, count, node.item));
+                        Logger.Log(
+                            $"Taggroup tags not strictly increasing: oldtaggrouptag ({oldtg.tag}), taggrouptag ({node.taggroup.tag}) at index={count} item={node.item}");
                         retval = false;
                     }
 
                     if (oldtg.last != node.prev)
                     {
-                        Logger.Log(string.Format(
-                            "Bad last pointer in taggroup: oldtg.last.item ({0}), node.prev.item ({1}) at index={2} item={3}",
-                            zeitem(oldtg.last), zeitem(node.prev), count, node.item));
+                        Logger.Log(
+                            $"Bad last pointer in taggroup: oldtg.last.item ({zeitem(oldtg.last)}), node.prev.item ({zeitem(node.prev)}) at index={count} item={node.item}");
                         retval = false;
                     }
                 }
 
                 if (seentaggroups != taggroups)
                 {
-                    Logger.Log(string.Format("seentaggroups ({0}) != taggroups ({1}) (at size {2})", seentaggroups,
-                        taggroups, size));
+                    Logger.Log($"seentaggroups ({seentaggroups}) != taggroups ({taggroups}) (at size {size})");
                     retval = false;
                 }
             }
             if (count != size)
             {
-                Logger.Log(string.Format("size={0} but enumeration gives {1} nodes ", size, count));
+                Logger.Log($"size={size} but enumeration gives {count} nodes ");
                 retval = false;
             }
 
@@ -3269,7 +3250,7 @@ namespace TestProj47.C5
             {
                 if (size != dict.Count)
                 {
-                    Logger.Log(string.Format("list.size ({0}) != dict.Count ({1})", size, dict.Count));
+                    Logger.Log($"list.size ({size}) != dict.Count ({dict.Count})");
                     retval = false;
                 }
                 Node n = startsentinel.next, n2;
@@ -3277,12 +3258,12 @@ namespace TestProj47.C5
                 {
                     if (!dict.Find(ref n.item, out n2))
                     {
-                        Logger.Log(string.Format("Item in list but not dict: {0}", n.item));
+                        Logger.Log($"Item in list but not dict: {n.item}");
                         retval = false;
                     }
                     else if (n != n2)
                     {
-                        Logger.Log(string.Format("Wrong node in dict for item: {0}", n.item));
+                        Logger.Log($"Wrong node in dict for item: {n.item}");
                         retval = false;
                     }
                     n = n.next;

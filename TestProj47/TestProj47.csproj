@@ -170,6 +170,21 @@
     <Compile Include="C5\ViewSupport.cs" />
     <Compile Include="C5\WrappedArray.cs" />
     <Compile Include="C5\Wrappers.cs" />
+    <Compile Include="CodeBits\ASCIIEncoding.cs" />
+    <Compile Include="CodeBits\ByteArrayHelper.cs" />
+    <Compile Include="CodeBits\ByteSizeFriendlyName.cs" />
+    <Compile Include="CodeBits\EnumIterator.cs" />
+    <Compile Include="CodeBits\GeoDistance.cs" />
+    <Compile Include="CodeBits\IniFile.cs" />
+    <Compile Include="CodeBits\ListExtensions.cs" />
+    <Compile Include="CodeBits\MruCollection.cs" />
+    <Compile Include="CodeBits\ObservableCollection.cs" />
+    <Compile Include="CodeBits\OrderedCollection.cs" />
+    <Compile Include="CodeBits\OrderedObservableCollection.cs" />
+    <Compile Include="CodeBits\PasswordGenerator.cs" />
+    <Compile Include="CodeBits\SaltedHash.cs" />
+    <Compile Include="CodeBits\UniqueItemGenerator.cs" />
+    <Compile Include="CodeBits\WebScrapper.cs" />
     <Compile Include="CSharpBasicExtensionsKit\ActionExtensions.cs" />
     <Compile Include="CSharpBasicExtensionsKit\BooleanExtensions.cs" />
     <Compile Include="CSharpBasicExtensionsKit\DoExtensions.cs" />
@@ -214,6 +229,9 @@
     <Compile Include="Dff\ObjectExtensions.cs" />
     <Compile Include="Dff\StringExtensions.cs" />
     <Compile Include="Dff\TimeSpanExtensions.cs" />
+    <Compile Include="Eloquent\DateTimeExtensions.cs" />
+    <Compile Include="Eloquent\IntExtension.cs" />
+    <Compile Include="Eloquent\StringExtensions.cs" />
     <Compile Include="EnumerationExtensions.cs" />
     <Compile Include="ExtensionsHelper.cs" />
     <Compile Include="ExtensionMethodsCore.Collections.cs" />
@@ -249,6 +267,7 @@
     <Compile Include="ExtensionOverflow\LongExtensions.cs" />
     <Compile Include="ExtensionOverflow\StringExtensions.cs" />
     <Compile Include="ExtensionOverflow\WebControls\WebTextBoxExtensions.cs" />
+    <Compile Include="FunctionalWith.cs" />
     <Compile Include="MoreLinq\Acquire.cs" />
     <Compile Include="MoreLinq\AggregateRight.cs" />
     <Compile Include="MoreLinq\Assert.cs" />
@@ -433,7 +452,6 @@
     <Content Include="C5\public.pk" />
     <Content Include="MoreLinq\Fold.g.tt" />
     <Content Include="MoreLinq\key.snk" />
-    <Content Include="MoreLinq\MoreLinq.csproj" />
     <Content Include="MoreLinq\ToDelimitedString.g.tt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,7 +5,7 @@
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\dff.Extensions.dll
 
 using System;
-using dff.Extensions.HelperClasses;
+using TestProj47.dff.Extensions.HelperClasses;
 
 namespace TestProj47
 {

@@ -18,6 +18,7 @@ namespace TestProj47
         /// <param name="source">Source array.</param>
         /// <param name="action">Method for element.</param>
         /// <param name="throwOnError">true to throw any exception that occurs.-or- false to ignore any exception that occurs.</param>
+        // ReSharper disable once MethodOverloadWithOptionalParameter
         public static void ForEach<T>(this T[] source, Action<T> action, bool throwOnError = false)
         {
             if (source == null)
@@ -32,11 +33,11 @@ namespace TestProj47
             }
             else
             {
-                for (var index = 0; index < source.Length; ++index)
+                foreach (var t in source)
                 {
                     try
                     {
-                        action(source[index]);
+                        action(t);
                     }
                     catch
                     {

@@ -53,8 +53,6 @@ namespace TestProj47
                 case "\t":
                     replaceDelimiter = "    ";
                     break;
-                default:
-                    break;
             }
             if (headers.Length > 0)
             {
@@ -67,15 +65,16 @@ namespace TestProj47
             foreach (var row in data)
             {
                 var fields = row.GetType().GetProperties();
-                for (var i = 0; i < fields.Length; i++)
+                foreach (var t in fields)
                 {
                     object value = null;
                     try
                     {
-                        value = fields[i].GetValue(row, null);
+                        value = t.GetValue(row, null);
                     }
                     catch
                     {
+                        // ignored
                     }
                     if (value != null)
                     {

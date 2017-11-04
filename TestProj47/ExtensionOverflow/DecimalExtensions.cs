@@ -24,11 +24,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this decimal position, int total)
+        public static decimal PercentOf(this decimal position, int percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / total * 100;
+            if (position > 0 && percent > 0)
+                result = position / percent * 100;
             return result;
         }
 
@@ -49,11 +49,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this decimal position, decimal total)
+        public static decimal PercentOf(this decimal position, decimal percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / total * 100;
+            if (position > 0 && percent > 0)
+                result = position / percent * 100;
             return result;
         }
 
@@ -74,11 +74,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this decimal position, long total)
+        public static decimal PercentOf(this decimal position, long percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / total * 100;
+            if (position > 0 && percent > 0)
+                result = position / percent * 100;
             return result;
         }
 

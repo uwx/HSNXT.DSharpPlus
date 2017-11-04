@@ -1940,20 +1940,19 @@ namespace TestProj47.C5
 
             if (underlyingsize > array.Length)
             {
-                Logger.Log(string.Format("underlyingsize ({0}) > array.Length ({1})", size, array.Length));
+                Logger.Log($"underlyingsize ({size}) > array.Length ({array.Length})");
                 return false;
             }
 
             if (offsetField + size > underlyingsize)
             {
-                Logger.Log(string.Format("offset({0})+size({1}) > underlyingsize ({2})", offsetField, size,
-                    underlyingsize));
+                Logger.Log($"offset({offsetField})+size({size}) > underlyingsize ({underlyingsize})");
                 return false;
             }
 
             if (offsetField < 0)
             {
-                Logger.Log(string.Format("offset({0}) < 0", offsetField));
+                Logger.Log($"offset({offsetField}) < 0");
                 return false;
             }
 
@@ -1961,7 +1960,7 @@ namespace TestProj47.C5
             {
                 if (array[i] == null)
                 {
-                    Logger.Log(string.Format("Bad element: null at (base)index {0}", i));
+                    Logger.Log($"Bad element: null at (base)index {i}");
                     retval = false;
                 }
             }
@@ -1970,7 +1969,7 @@ namespace TestProj47.C5
             {
                 if (!equals(array[i], default))
                 {
-                    Logger.Log(string.Format("Bad element: != default(T) at (base)index {0}", i));
+                    Logger.Log($"Bad element: != default(T) at (base)index {i}");
                     retval = false;
                 }
             }

@@ -10,7 +10,7 @@ using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using dff.Extensions.Gps;
+using TestProj47.dff.Extensions.Gps;
 
 namespace TestProj47
 {
@@ -79,23 +79,17 @@ namespace TestProj47
 
         public static string GetLast(this string source, int tailLength)
         {
-            if (tailLength >= source.Length)
-                return source;
-            return source.Substring(source.Length - tailLength);
+            return tailLength >= source.Length ? source : source.Substring(source.Length - tailLength);
         }
 
         public static string RemoveLast(this string source, int removeCharacters)
         {
-            if (source.Length >= removeCharacters)
-                return source.Substring(0, source.Length - removeCharacters);
-            return source;
+            return source.Length >= removeCharacters ? source.Substring(0, source.Length - removeCharacters) : source;
         }
 
         public static string RemoveFirst(this string source, int removeCharacters)
         {
-            if (source.Length >= removeCharacters)
-                return source.Substring(removeCharacters);
-            return source;
+            return source.Length >= removeCharacters ? source.Substring(removeCharacters) : source;
         }
 
         public static string FillUpFirstCharacters(this string source, int totalLength, char fillUpWith)

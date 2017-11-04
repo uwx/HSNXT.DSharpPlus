@@ -163,7 +163,7 @@ namespace TestProj47.C5
                     }
                     if (complete = Show(p.Key, stringbuilder, ref rest, formatProvider))
                     {
-                        var multiplicityString = string.Format("(*{0})", p.Value);
+                        var multiplicityString = $"(*{p.Value})";
                         stringbuilder.Append(multiplicityString);
                         rest -= multiplicityString.Length;
                     }
@@ -185,7 +185,7 @@ namespace TestProj47.C5
                     }
                     if (showIndexes)
                     {
-                        var indexString = string.Format("{0}:", index++);
+                        var indexString = $"{index++}:";
                         stringbuilder.Append(indexString);
                         rest -= indexString.Length;
                     }

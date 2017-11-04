@@ -21,6 +21,7 @@ namespace TestProj47
         /// <exception cref="T:System.ArgumentNullException">source is null.</exception>
         public static Collection<TSource> ToCollection<TSource>(this IEnumerable<TSource> source)
         {
+            // ReSharper disable PossibleMultipleEnumeration
             Check.NotNull(source, nameof(source));
             if (source is IList<TSource> list)
                 return new Collection<TSource>(list);

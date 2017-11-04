@@ -418,7 +418,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("(ItemAtEventArgs {0} '{1}')", Index, Item);
+            return $"(ItemAtEventArgs {Index} '{Item}')";
         }
     }
 
@@ -456,7 +456,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("(ItemCountEventArgs {0} '{1}')", Count, Item);
+            return $"(ItemCountEventArgs {Count} '{Item}')";
         }
     }
 
@@ -495,7 +495,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("(ClearedEventArgs {0} {1})", Count, Full);
+            return $"(ClearedEventArgs {Count} {Full})";
         }
     }
 
@@ -528,7 +528,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("(ClearedRangeEventArgs {0} {1} {2})", Count, Full, Start);
+            return $"(ClearedRangeEventArgs {Count} {Full} {Start})";
         }
     }
 

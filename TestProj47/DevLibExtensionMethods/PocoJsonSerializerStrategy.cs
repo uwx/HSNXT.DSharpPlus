@@ -15,7 +15,7 @@ namespace TestProj47
     internal class PocoJsonSerializerStrategy
     {
         /// <summary>Field ArrayConstructorParameterTypes.</summary>
-        internal static readonly Type[] ArrayConstructorParameterTypes = new Type[1]
+        internal static readonly Type[] ArrayConstructorParameterTypes = new Type[]
         {
             typeof(int)
         };
@@ -24,7 +24,7 @@ namespace TestProj47
         internal static readonly Type[] EmptyTypes = new Type[0];
 
         /// <summary>Field Iso8601Format.</summary>
-        private static readonly string[] Iso8601Format = new string[3]
+        private static readonly string[] Iso8601Format = new string[]
         {
             "yyyy-MM-dd\\THH:mm:ss.FFFFFFF\\Z",
             "yyyy-MM-dd\\THH:mm:ss\\Z",
@@ -32,27 +32,27 @@ namespace TestProj47
         };
 
         /// <summary>Field ConstructorCache.</summary>
-        private readonly IDictionary<Type, ReflectionUtilities.ConstructorDelegate> ConstructorCache;
+        private readonly IDictionary<Type, ReflectionUtilities.ConstructorDelegate> _constructorCache;
 
         /// <summary>Field GetCache.</summary>
-        private readonly IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>> GetCache;
+        private readonly IDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>> _getCache;
 
         /// <summary>Field SetCache.</summary>
         private readonly IDictionary<Type, IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>
-            SetCache;
+            _setCache;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:TestProj47.PocoJsonSerializerStrategy" /> class.
         /// </summary>
         public PocoJsonSerializerStrategy()
         {
-            this.ConstructorCache =
+            this._constructorCache =
                 new ReflectionUtilities.ThreadSafeDictionary<Type, ReflectionUtilities.ConstructorDelegate>(
                     this.ConstructorDelegateFactory);
-            this.GetCache =
+            this._getCache =
                 new ReflectionUtilities.ThreadSafeDictionary<Type, IDictionary<string, ReflectionUtilities.GetDelegate>
                 >(this.GetterValueFactory);
-            this.SetCache =
+            this._setCache =
                 new ReflectionUtilities.ThreadSafeDictionary<Type,
                     IDictionary<string, KeyValuePair<Type, ReflectionUtilities.SetDelegate>>>(this.SetterValueFactory);
         }
@@ -67,9 +67,7 @@ namespace TestProj47
                 throw new ArgumentNullException(nameof(type));
             if (type.IsEnum)
             {
-                if (value == null)
-                    return ((IList) Enum.GetValues(type))[0];
-                return Enum.ToObject(type, value);
+                return value == null ? ((IList) Enum.GetValues(type))[0] : Enum.ToObject(type, value);
             }
             var str = value as string;
             if (type == typeof(Guid) && string.IsNullOrEmpty(str))
@@ -140,7 +138,7 @@ namespace TestProj47
                     var type1 = genericTypeArguments[0];
                     var type2 = genericTypeArguments[1];
                     var dictionary3 =
-                        (IDictionary) this.ConstructorCache[typeof(Dictionary<,>).MakeGenericType(type1, type2)]();
+                        (IDictionary) this._constructorCache[typeof(Dictionary<,>).MakeGenericType(type1, type2)]();
                     foreach (var keyValuePair in dictionary2)
                         dictionary3.Add(keyValuePair.Key, this.DeserializeObject(keyValuePair.Value, type2));
                     source = dictionary3;
@@ -151,8 +149,8 @@ namespace TestProj47
                 }
                 else
                 {
-                    source = this.ConstructorCache[type]();
-                    foreach (var keyValuePair in this.SetCache[type])
+                    source = this._constructorCache[type]();
+                    foreach (var keyValuePair in this._setCache[type])
                     {
                         object obj;
                         if (dictionary2.TryGetValue(keyValuePair.Key, out obj))
@@ -172,7 +170,7 @@ namespace TestProj47
                     IList list = null;
                     if (type.IsArray)
                     {
-                        list = (IList) this.ConstructorCache[type]((object) objectList2.Count);
+                        list = (IList) this._constructorCache[type]((object) objectList2.Count);
                         var num = 0;
                         foreach (var obj in objectList2)
                             list[num++] = this.DeserializeObject(obj, type.GetElementType());
@@ -181,11 +179,11 @@ namespace TestProj47
                              ReflectionUtilities.IsAssignableFrom(typeof(IList), type))
                     {
                         var genericListElementType = ReflectionUtilities.GetGenericListElementType(type);
-                        var constructorDelegate = this.ConstructorCache[type];
+                        var constructorDelegate = this._constructorCache[type];
                         if (constructorDelegate == null)
                             constructorDelegate =
-                                this.ConstructorCache[typeof(List<>).MakeGenericType(genericListElementType)];
-                        var objArray = new object[1]
+                                this._constructorCache[typeof(List<>).MakeGenericType(genericListElementType)];
+                        var objArray = new object[]
                         {
                             objectList2.Count
                         };
@@ -336,7 +334,7 @@ namespace TestProj47
             if (type.FullName == null)
                 return false;
             IDictionary<string, object> dictionary = new JsonObject(StringComparer.OrdinalIgnoreCase);
-            foreach (var keyValuePair in this.GetCache[type])
+            foreach (var keyValuePair in this._getCache[type])
             {
                 if (keyValuePair.Value != null)
                     dictionary.Add(this.MapClrMemberNameToJsonFieldName(keyValuePair.Key), keyValuePair.Value(input));

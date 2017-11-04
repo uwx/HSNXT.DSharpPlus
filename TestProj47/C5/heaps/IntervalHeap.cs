@@ -51,7 +51,7 @@ namespace TestProj47.C5
 
             public override string ToString()
             {
-                return string.Format("[{0}; {1}]", first, last);
+                return $"[{first}; {last}]";
             }
         }
 
@@ -567,21 +567,20 @@ namespace TestProj47.C5
             {
                 if (comparer.Compare(min, first) > 0)
                 {
-                    Logger.Log(string.Format("Cell {0}: parent.first({1}) > first({2})  [size={3}]", i, min, first,
-                        size));
+                    Logger.Log($"Cell {i}: parent.first({min}) > first({first})  [size={size}]");
                     retval = false;
                 }
 
                 if (comparer.Compare(first, max) > 0)
                 {
                     Logger.Log(
-                        string.Format("Cell {0}: first({1}) > parent.last({2})  [size={3}]", i, first, max, size));
+                        $"Cell {i}: first({first}) > parent.last({max})  [size={size}]");
                     retval = false;
                 }
                 if (interval.firsthandle != null && interval.firsthandle.index != 2 * i)
                 {
-                    Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i,
-                        interval.firsthandle.index, 2 * i, size));
+                    Logger.Log(
+                        $"Cell {i}: firsthandle.index({interval.firsthandle.index}) != 2*cell({2 * i})  [size={size}]");
                     retval = false;
                 }
 
@@ -589,31 +588,31 @@ namespace TestProj47.C5
             }
             if (comparer.Compare(min, first) > 0)
             {
-                Logger.Log(string.Format("Cell {0}: parent.first({1}) > first({2})  [size={3}]", i, min, first, size));
+                Logger.Log($"Cell {i}: parent.first({min}) > first({first})  [size={size}]");
                 retval = false;
             }
 
             if (comparer.Compare(first, last) > 0)
             {
-                Logger.Log(string.Format("Cell {0}: first({1}) > last({2})  [size={3}]", i, first, last, size));
+                Logger.Log($"Cell {i}: first({first}) > last({last})  [size={size}]");
                 retval = false;
             }
 
             if (comparer.Compare(last, max) > 0)
             {
-                Logger.Log(string.Format("Cell {0}: last({1}) > parent.last({2})  [size={3}]", i, last, max, size));
+                Logger.Log($"Cell {i}: last({last}) > parent.last({max})  [size={size}]");
                 retval = false;
             }
             if (interval.firsthandle != null && interval.firsthandle.index != 2 * i)
             {
-                Logger.Log(string.Format("Cell {0}: firsthandle.index({1}) != 2*cell({2})  [size={3}]", i,
-                    interval.firsthandle.index, 2 * i, size));
+                Logger.Log(
+                    $"Cell {i}: firsthandle.index({interval.firsthandle.index}) != 2*cell({2 * i})  [size={size}]");
                 retval = false;
             }
             if (interval.lasthandle != null && interval.lasthandle.index != 2 * i + 1)
             {
-                Logger.Log(string.Format("Cell {0}: lasthandle.index({1}) != 2*cell+1({2})  [size={3}]", i,
-                    interval.lasthandle.index, 2 * i + 1, size));
+                Logger.Log(
+                    $"Cell {i}: lasthandle.index({interval.lasthandle.index}) != 2*cell+1({2 * i + 1})  [size={size}]");
                 retval = false;
             }
 
@@ -659,7 +658,7 @@ namespace TestProj47.C5
 
             public override string ToString()
             {
-                return string.Format("[{0}]", index);
+                return $"[{index}]";
             }
         }
 

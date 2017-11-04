@@ -7,7 +7,7 @@
 using System;
 using System.Globalization;
 
-namespace dff.Extensions.Gps
+namespace TestProj47.dff.Extensions.Gps
 {
     public class DffGpsTools
     {
@@ -94,12 +94,8 @@ namespace dff.Extensions.Gps
             var provider = (IFormatProvider) new CultureInfo("en-US", true);
             var num1 = double.Parse(xGeodms);
             var num2 = double.Parse(yGeodms);
-            var flag1 = false;
-            if (num1 < 0.0)
-                flag1 = true;
-            var flag2 = false;
-            if (num2 < 0.0)
-                flag2 = true;
+            var flag1 = num1 < 0.0;
+            var flag2 = num2 < 0.0;
             var a1 = double.Parse(xGeodms.Substring(xGeodms.Length - 3), provider) * (5.0 / 18.0) * 10.0;
             var a2 = double.Parse(yGeodms.Substring(yGeodms.Length - 3), provider) * (5.0 / 18.0) * 10.0;
             var a3 = double.Parse(xGeodms.Substring(xGeodms.Length - 5, 2), provider) * (5.0 / 3.0) * 1000.0;
@@ -121,12 +117,8 @@ namespace dff.Extensions.Gps
                 throw new ArgumentNullException(nameof(xGeodms));
             var num1 = double.Parse(xGeodec);
             var num2 = double.Parse(yGeodec);
-            var flag1 = false;
-            if (num1 < 0.0)
-                flag1 = true;
-            var flag2 = false;
-            if (num2 < 0.0)
-                flag2 = true;
+            var flag1 = num1 < 0.0;
+            var flag2 = num2 < 0.0;
             var num3 = Math.Floor(num1 / 100000.0);
             var num4 = Math.Floor(num2 / 100000.0);
             var d1 = (num1 / 100000.0 - num3) * 100.0 / (5.0 / 3.0);
@@ -160,15 +152,15 @@ namespace dff.Extensions.Gps
 
         public static void GeodecimalToMercator(double fLongitude, double fLatitude, ref int mercatorX)
         {
-            var MercatorY = 0;
-            GeodecimalToMercator(fLongitude, fLatitude, ref mercatorX, ref MercatorY);
+            var mercatorY = 0;
+            GeodecimalToMercator(fLongitude, fLatitude, ref mercatorX, ref mercatorY);
         }
 
         public static void GeodecimalToMercator(double fLongitude, double fLatitude, ref int mercatorX,
-            ref int MercatorY)
+            ref int mercatorY)
         {
             mercatorX = (int) (fLongitude * 111194.926644559);
-            MercatorY = (int) (Math.Log(Math.Tan(fLatitude * (Math.PI / 360.0) + Math.PI / 4.0)) * 6371000.0);
+            mercatorY = (int) (Math.Log(Math.Tan(fLatitude * (Math.PI / 360.0) + Math.PI / 4.0)) * 6371000.0);
         }
 
         public static void MercatorToGeodecimal(int mercatorX, int mercatorY, ref double fLongitude,

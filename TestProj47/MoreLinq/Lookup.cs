@@ -54,8 +54,8 @@ namespace TestProj47
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             if (elementSelector == null) throw new ArgumentNullException(nameof(elementSelector));
-            Lookup<TKey, TElement> lookup = new Lookup<TKey, TElement>(comparer);
-            foreach (TSource item in source) {
+            var lookup = new Lookup<TKey, TElement>(comparer);
+            foreach (var item in source) {
                 lookup.GetGrouping(keySelector(item), true).Add(elementSelector(item));
             }
             return lookup;
@@ -63,9 +63,9 @@ namespace TestProj47
 
         internal static Lookup<TKey, TElement> CreateForJoin(IEnumerable<TElement> source, Func<TElement, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
-            Lookup<TKey, TElement> lookup = new Lookup<TKey, TElement>(comparer);
-            foreach (TElement item in source) {
-                TKey key = keySelector(item);
+            var lookup = new Lookup<TKey, TElement>(comparer);
+            foreach (var item in source) {
+                var key = keySelector(item);
                 if (key != null) lookup.GetGrouping(key, true).Add(item);
             }
             return lookup;
@@ -87,7 +87,7 @@ namespace TestProj47
         {
             get
             {
-                Grouping<TKey, TElement> grouping = GetGrouping(key, false);
+                var grouping = GetGrouping(key, false);
                 if (grouping != null) return grouping;
                 return Enumerable.Empty<TElement>();
             }
@@ -100,7 +100,7 @@ namespace TestProj47
 
         public IEnumerator<IGrouping<TKey, TElement>> GetEnumerator()
         {
-            Grouping<TKey, TElement> g = _lastGrouping;
+            var g = _lastGrouping;
             if (g != null) {
                 do {
                     g = g.next;
@@ -111,7 +111,7 @@ namespace TestProj47
 
         public IEnumerable<TResult> ApplyResultSelector<TResult>(Func<TKey, IEnumerable<TElement>, TResult> resultSelector)
         {
-            Grouping<TKey, TElement> g = _lastGrouping;
+            var g = _lastGrouping;
             if (g != null) {
                 do {
                     g = g.next;
@@ -134,13 +134,13 @@ namespace TestProj47
 
         internal Grouping<TKey, TElement> GetGrouping(TKey key, bool create)
         {
-            int hashCode = InternalGetHashCode(key);
-            for (Grouping<TKey, TElement> g = _groupings[hashCode % _groupings.Length]; g != null; g = g.hashNext)
+            var hashCode = InternalGetHashCode(key);
+            for (var g = _groupings[hashCode % _groupings.Length]; g != null; g = g.hashNext)
                 if (g.hashCode == hashCode && _comparer.Equals(g.key, key)) return g;
             if (create) {
                 if (_count == _groupings.Length) Resize();
-                int index = hashCode % _groupings.Length;
-                Grouping<TKey, TElement> g = new Grouping<TKey, TElement>();
+                var index = hashCode % _groupings.Length;
+                var g = new Grouping<TKey, TElement>();
                 g.key = key;
                 g.hashCode = hashCode;
                 g.elements = new TElement[1];
@@ -162,12 +162,12 @@ namespace TestProj47
 
         private void Resize()
         {
-            int newSize = checked(_count * 2 + 1);
-            Grouping<TKey, TElement>[] newGroupings = new Grouping<TKey, TElement>[newSize];
-            Grouping<TKey, TElement> g = _lastGrouping;
+            var newSize = checked(_count * 2 + 1);
+            var newGroupings = new Grouping<TKey, TElement>[newSize];
+            var g = _lastGrouping;
             do {
                 g = g.next;
-                int index = g.hashCode % newSize;
+                var index = g.hashCode % newSize;
                 g.hashNext = newGroupings[index];
                 newGroupings[index] = g;
             } while (g != _lastGrouping);
@@ -197,7 +197,7 @@ namespace TestProj47
 
         public IEnumerator<TElement> GetEnumerator()
         {
-            for (int i = 0; i < count; i++) yield return elements[i];
+            for (var i = 0; i < count; i++) yield return elements[i];
         }
 
         IEnumerator IEnumerable.GetEnumerator()

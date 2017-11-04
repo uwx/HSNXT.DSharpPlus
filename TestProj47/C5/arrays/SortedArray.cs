@@ -1138,7 +1138,7 @@ namespace TestProj47.C5
 
             if (size > array.Length)
             {
-                Logger.Log(string.Format("Bad size ({0}) > array.Length ({1})", size, array.Length));
+                Logger.Log($"Bad size ({size}) > array.Length ({array.Length})");
                 return false;
             }
 
@@ -1146,13 +1146,13 @@ namespace TestProj47.C5
             {
                 if (array[i] == null)
                 {
-                    Logger.Log(string.Format("Bad element: null at index {0}", i));
+                    Logger.Log($"Bad element: null at index {i}");
                     return false;
                 }
 
                 if (i > 0 && _comparer.Compare(array[i], array[i - 1]) <= 0)
                 {
-                    Logger.Log(string.Format("Inversion at index {0}", i));
+                    Logger.Log($"Inversion at index {i}");
                     retval = false;
                 }
             }

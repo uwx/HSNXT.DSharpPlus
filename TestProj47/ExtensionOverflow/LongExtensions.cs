@@ -13,7 +13,7 @@
         /// <returns>The result</returns>
         public static decimal PercentageOf(this long number, int percent)
         {
-            return number * percent / 100;
+            return number * percent / 100m;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@
         /// <returns>The result</returns>
         public static decimal PercentageOf(this long number, long percent)
         {
-            return number * percent / 100;
+            return number * percent / 100m;
         }
 
         /// <summary>
@@ -66,11 +66,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this long position, int total)
+        public static decimal PercentOf(this long number, int percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / (decimal) total * 100;
+            if (number > 0 && percent > 0)
+                result = number / (decimal) percent * 100;
             return result;
         }
 
@@ -80,11 +80,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this long position, float total)
+        public static decimal PercentOf(this long number, float percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / (decimal) total * 100;
+            if (number > 0 && percent > 0)
+                result = number / (decimal) percent * 100;
             return result;
         }
 
@@ -94,11 +94,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this long position, double total)
+        public static decimal PercentOf(this long number, double percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / (decimal) total * 100;
+            if (number > 0 && percent > 0)
+                result = number / (decimal) percent * 100;
             return result;
         }
 
@@ -108,11 +108,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this long position, decimal total)
+        public static decimal PercentOf(this long number, decimal percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / total * 100;
+            if (number > 0 && percent > 0)
+                result = number / percent * 100;
             return result;
         }
 
@@ -122,11 +122,11 @@
         /// <param name="percent">The percent</param>
         /// <param name="number">The Number</param>
         /// <returns>The result</returns>
-        public static decimal PercentOf(this long position, long total)
+        public static decimal PercentOf(this long number, long percent)
         {
             decimal result = 0;
-            if (position > 0 && total > 0)
-                result = position / (decimal) total * 100;
+            if (number > 0 && percent > 0)
+                result = number / (decimal) percent * 100;
             return result;
         }
     }

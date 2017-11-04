@@ -22,7 +22,7 @@ namespace TestProj47
         public static string FormValue(this TextBox textbox, string defaultvalue)
         {
             string value = null;
-            if (textbox.UniqueID != null) value = textbox.Page.Request.Form[textbox.UniqueID];
+            value = textbox.Page.Request.Form[textbox.UniqueID];
             return value ?? (!string.IsNullOrEmpty(textbox.Text) ? textbox.Text : defaultvalue);
         }
 

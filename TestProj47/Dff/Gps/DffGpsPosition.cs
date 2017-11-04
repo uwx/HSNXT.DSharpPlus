@@ -7,17 +7,15 @@
 using System;
 using System.Globalization;
 
-namespace dff.Extensions.Gps
+namespace TestProj47.dff.Extensions.Gps
 {
     public class DffGpsPosition
     {
         private double _decLatitude;
         private double _decLongitude;
-        private double _dmsLatitude;
-        private double _dmsLongitude;
         private int _mrcX;
         private int _mrcY;
-        private Exception _ex;
+        public Exception Ex { get; private set; }
 
         public DffGpsPosition(string dffPositionFormatString)
         {
@@ -42,6 +40,7 @@ namespace dff.Extensions.Gps
                 }
                 catch
                 {
+                    // ignored
                 }
             }
             DffGpsTools.DffPositionStringToMercator(dffPositionFormatString, ref this._mrcX, ref this._mrcY);
@@ -60,6 +59,7 @@ namespace dff.Extensions.Gps
             }
             catch
             {
+                // ignored
             }
         }
 
@@ -88,9 +88,9 @@ namespace dff.Extensions.Gps
         {
             get
             {
-                if (this._decLongitude != 0.0)
+                if (Math.Abs(this._decLongitude) > double.Epsilon)
                     return this._decLongitude;
-                if (this._dmsLongitude == 0.0)
+                if (Math.Abs(this.DmsLongitude) < double.Epsilon)
                     return 0.0;
                 this.CalcualteDecValues();
                 return this._decLongitude;
@@ -102,7 +102,7 @@ namespace dff.Extensions.Gps
         {
             get
             {
-                if (this._decLatitude != 0.0 || this._dmsLatitude == 0.0)
+                if (Math.Abs(this._decLatitude) > double.Epsilon || Math.Abs(this.DmsLatitude) < double.Epsilon)
                     return this._decLatitude;
                 this.CalcualteDecValues();
                 return this._decLatitude;
@@ -110,17 +110,9 @@ namespace dff.Extensions.Gps
             set => this._decLatitude = value;
         }
 
-        public double DmsLongitude
-        {
-            get => this._dmsLongitude;
-            set => this._dmsLongitude = value;
-        }
+        public double DmsLongitude { get; set; }
 
-        public double DmsLatitude
-        {
-            get => this._dmsLatitude;
-            set => this._dmsLatitude = value;
-        }
+        public double DmsLatitude { get; set; }
 
         public int MercatorX
         {
@@ -161,7 +153,7 @@ namespace dff.Extensions.Gps
                 var str1 = "";
                 try
                 {
-                    if (this.DmsLatitude == 0.0 & this.DmsLongitude == 0.0 &
+                    if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
                         (this.MercatorX != 0 & this.MercatorY != 0))
                     {
                         var fLatitude = 0.0;
@@ -170,13 +162,13 @@ namespace dff.Extensions.Gps
                         this.DecLatitude = fLatitude;
                         this.DecLongitude = fLongitude;
                     }
-                    if (this.DmsLatitude == 0.0 & this.DmsLongitude == 0.0 &
-                        (this.DecLatitude != 0.0 & this.DecLongitude != 0.0))
+                    if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
+                        (Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon))
                     {
                         var xGeodms = "";
                         var yGeodms = "";
-                        var str2 = this.DecLatitude.ToString().Replace(".", ",");
-                        var str3 = this.DecLongitude.ToString().Replace(".", ",");
+                        var str2 = this.DecLatitude.ToString(CultureInfo.InvariantCulture).Replace(".", ",");
+                        var str3 = this.DecLongitude.ToString(CultureInfo.InvariantCulture).Replace(".", ",");
                         while (str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1).Length < 5)
                             str2 += "0";
                         while (str3.Substring(str3.IndexOf(",", StringComparison.Ordinal) + 1).Length < 5)
@@ -190,7 +182,7 @@ namespace dff.Extensions.Gps
                         this.DmsLatitude = double.Parse(xGeodms) / 100000.0;
                         this.DmsLongitude = double.Parse(yGeodms) / 100000.0;
                     }
-                    if (this.DmsLatitude != 0.0 & this.DmsLongitude != 0.0)
+                    if (Math.Abs(this.DmsLatitude) > double.Epsilon & Math.Abs(this.DmsLongitude) > double.Epsilon)
                     {
                         var provider = (IFormatProvider) new CultureInfo("en-US", true);
                         var flag1 = false;
@@ -241,7 +233,7 @@ namespace dff.Extensions.Gps
                 }
                 catch (Exception ex)
                 {
-                    this._ex = ex;
+                    this.Ex = ex;
                 }
                 return str1.Trim();
             }
@@ -254,8 +246,8 @@ namespace dff.Extensions.Gps
                 var provider1 = (IFormatProvider) new CultureInfo("en-US", true);
                 var provider2 = (IFormatProvider) new CultureInfo("de-DE", true);
                 double num1;
-                if (this.DmsLatitude == 0.0 & this.DmsLongitude == 0.0 &
-                    (this.DecLatitude != 0.0 & this.DecLongitude != 0.0))
+                if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
+                    (Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon))
                 {
                     var xGeodms = "";
                     var yGeodms = "";
@@ -263,23 +255,23 @@ namespace dff.Extensions.Gps
                     var str1 = num1.ToString(provider2);
                     num1 = this.DecLongitude;
                     var str2 = num1.ToString(provider2);
-                    while (str1.Substring(str1.IndexOf(",") + 1).Length < 5)
+                    while (str1.Substring(str1.IndexOf(",", StringComparison.Ordinal) + 1).Length < 5)
                         str1 += "0";
-                    while (str2.Substring(str2.IndexOf(",") + 1).Length < 5)
+                    while (str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1).Length < 5)
                         str2 += "0";
                     DffGpsTools.Geodec2Geodms(
-                        (str1.Substring(0, str1.IndexOf(",")) + "," + str1.Substring(str1.IndexOf(",") + 1, 5)).Replace(
+                        (str1.Substring(0, str1.IndexOf(",", StringComparison.Ordinal)) + "," + str1.Substring(str1.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
                             ",", ""),
-                        (str2.Substring(0, str2.IndexOf(",")) + "," + str2.Substring(str2.IndexOf(",") + 1, 5)).Replace(
+                        (str2.Substring(0, str2.IndexOf(",", StringComparison.Ordinal)) + "," + str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
                             ",", ""), ref xGeodms, ref yGeodms);
                     this.DmsLatitude = double.Parse(xGeodms) / 100000.0;
                     this.DmsLongitude = double.Parse(yGeodms) / 100000.0;
                 }
-                var str3 = string.Format(provider2, "{0:0.00}", new object[1]
+                var str3 = string.Format(provider2, "{0:0.00}", new object[]
                 {
                     this.DmsLatitude * 100.0
                 });
-                var str4 = string.Format(provider2, "{0:0.00}", new object[1]
+                var str4 = string.Format(provider2, "{0:0.00}", new object[]
                 {
                     this.DmsLongitude * 100.0
                 });
@@ -287,12 +279,12 @@ namespace dff.Extensions.Gps
                 var strArray2 = str4.Split(',');
                 var str5 = strArray1[0].Length == 4 ? "0" + strArray1[0] : "00" + strArray1[0];
                 var str6 = strArray2[0].Length == 4 ? "0" + strArray2[0] : "00" + strArray2[0];
-                var num2 = Decimal.Parse(strArray1[1]) / new Decimal(60) * new Decimal(100);
+                var num2 = decimal.Parse(strArray1[1]) / new decimal(60) * new decimal(100);
                 var str7 = num2.ToString(provider2).Replace(",", "");
                 var str8 = str7.Length >= 10 ? str7.Substring(0, 9) : str7;
                 for (var length = str8.Length; length < 10; ++length)
                     str8 += "0";
-                num2 = Decimal.Parse(strArray2[1]) / new Decimal(60) * new Decimal(100);
+                num2 = decimal.Parse(strArray2[1]) / new decimal(60) * new decimal(100);
                 var str9 = num2.ToString(provider2).Replace(",", "");
                 var str10 = str9.Length >= 10 ? str9.Substring(0, 9) : str9;
                 for (var length = str10.Length; length < 10; ++length)
@@ -314,11 +306,11 @@ namespace dff.Extensions.Gps
             var yGeodec = "";
             var flag1 = false;
             var flag2 = false;
-            var str1 = this._dmsLatitude.ToString(provider);
-            var str2 = this._dmsLongitude.ToString(provider);
-            if (str1.IndexOf(".") == -1)
+            var str1 = this.DmsLatitude.ToString(provider);
+            var str2 = this.DmsLongitude.ToString(provider);
+            if (str1.IndexOf(".", StringComparison.Ordinal) == -1)
                 str1 += ".00000";
-            if (str2.IndexOf(".") == -1)
+            if (str2.IndexOf(".", StringComparison.Ordinal) == -1)
                 str2 += ".00000";
             if (str1.StartsWith("-"))
             {
@@ -330,9 +322,9 @@ namespace dff.Extensions.Gps
                 flag2 = true;
                 str2 = str2.Substring(1);
             }
-            while (str1.Substring(str1.IndexOf(".") + 1).Length < 5)
+            while (str1.Substring(str1.IndexOf(".", StringComparison.Ordinal) + 1).Length < 5)
                 str1 += "0";
-            while (str2.Substring(str2.IndexOf(".") + 1).Length < 5)
+            while (str2.Substring(str2.IndexOf(".", StringComparison.Ordinal) + 1).Length < 5)
                 str2 += "0";
             while (str1.Length < 8)
                 str1 = "0" + str1;
@@ -349,14 +341,14 @@ namespace dff.Extensions.Gps
 
         private void CalculateMercatorValues()
         {
-            if (this._decLongitude == 0.0 & this._decLatitude == 0.0 &
-                (this.DmsLatitude != 0.0 & this.DmsLongitude != 0.0))
+            if (Math.Abs(this._decLongitude) < double.Epsilon & Math.Abs(this._decLatitude) < double.Epsilon &
+                (Math.Abs(this.DmsLatitude) > double.Epsilon & Math.Abs(this.DmsLongitude) > double.Epsilon))
                 this.CalcualteDecValues();
             var mercatorX = 0;
-            var MercatorY = 0;
-            DffGpsTools.GeodecimalToMercator(this._decLongitude, this._decLatitude, ref mercatorX, ref MercatorY);
+            var mercatorY = 0;
+            DffGpsTools.GeodecimalToMercator(this._decLongitude, this._decLatitude, ref mercatorX, ref mercatorY);
             this._mrcX = mercatorX;
-            this._mrcY = MercatorY;
+            this._mrcY = mercatorY;
         }
 
         public TimeSpan GetAgeOfPosition()

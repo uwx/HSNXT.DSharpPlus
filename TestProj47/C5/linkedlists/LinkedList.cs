@@ -540,7 +540,7 @@ namespace TestProj47.C5
 
             public override string ToString()
             {
-                return string.Format("Node(item={0})", item);
+                return $"Node(item={item})";
             }
         }
 
@@ -2621,8 +2621,7 @@ namespace TestProj47.C5
             {
                 if (!view.isValid)
                 {
-                    Logger.Log(string.Format("Invalid view(hash {0}, offset {1}, size {2})",
-                        view.GetHashCode(), view.offset, view.size));
+                    Logger.Log($"Invalid view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size})");
                     retval = false;
                     continue;
                 }
@@ -2634,39 +2633,32 @@ namespace TestProj47.C5
                 }
                 else if (view.startsentinel != nodes[view.Offset])
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), startsentinel {3} should be {4}",
-                        view.GetHashCode(), view.offset, view.size,
-                        view.startsentinel + " " + view.startsentinel.GetHashCode(),
-                        nodes[view.Offset] + " " + nodes[view.Offset].GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), startsentinel {view.startsentinel + " " + view.startsentinel.GetHashCode()} should be {nodes[view.Offset] + " " + nodes[view.Offset].GetHashCode()}");
                     retval = false;
                 }
                 if (view.Offset + view.size > size || view.Offset + view.size < 0)
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), end index > underlying.size ({3})",
-                        view.GetHashCode(), view.offset, view.size, size));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), end index > underlying.size ({size})");
                     retval = false;
                 }
                 else if (view.endsentinel != nodes[view.Offset + view.size + 1])
                 {
-                    Logger.Log(string.Format("Bad view(hash {0}, offset {1}, size {2}), endsentinel {3} should be {4}",
-                        view.GetHashCode(), view.offset, view.size,
-                        view.endsentinel + " " + view.endsentinel.GetHashCode(),
-                        nodes[view.Offset + view.size + 1] + " " + nodes[view.Offset + view.size + 1].GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), endsentinel {view.endsentinel + " " + view.endsentinel.GetHashCode()} should be {nodes[view.Offset + view.size + 1] + " " + nodes[view.Offset + view.size + 1].GetHashCode()}");
                     retval = false;
                 }
                 if (view.views != views)
                 {
-                    Logger.Log(string.Format("Bad view(hash {0}, offset {1}, size {2}), wrong views list {3} <> {4}",
-                        view.GetHashCode(), view.offset, view.size, view.views.GetHashCode(), views.GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), wrong views list {view.views.GetHashCode()} <> {views.GetHashCode()}");
                     retval = false;
                 }
                 if (view.underlying != this)
                 {
-                    Logger.Log(string.Format(
-                        "Bad view(hash {0}, offset {1}, size {2}), wrong underlying {3} <> this {4}",
-                        view.GetHashCode(), view.offset, view.size, view.underlying.GetHashCode(), GetHashCode()));
+                    Logger.Log(
+                        $"Bad view(hash {view.GetHashCode()}, offset {view.offset}, size {view.size}), wrong underlying {view.underlying.GetHashCode()} <> this {GetHashCode()}");
                     retval = false;
                 }
                 if (view.stamp != stamp)
@@ -2744,7 +2736,7 @@ namespace TestProj47.C5
                 count++;
                 if (node.prev != prev)
                 {
-                    Logger.Log(string.Format("Bad backpointer at node {0}", count));
+                    Logger.Log($"Bad backpointer at node {count}");
                     retval = false;
                 }
 
@@ -2752,14 +2744,14 @@ namespace TestProj47.C5
                 node = node.next;
                 if (node == null)
                 {
-                    Logger.Log(string.Format("Null next pointer at node {0}", count));
+                    Logger.Log($"Null next pointer at node {count}");
                     return false;
                 }
             }
 
             if (count != size)
             {
-                Logger.Log(string.Format("size={0} but enumeration gives {1} nodes ", size, count));
+                Logger.Log($"size={size} but enumeration gives {count} nodes ");
                 retval = false;
             }
 

@@ -168,7 +168,7 @@ namespace TestProj47
 
             var t = typeof(T);
             if (!t.IsEnum)
-                throw new ArgumentException("Type provided must be an Enum.", "T");
+                throw new ArgumentException("Type provided must be an Enum.", nameof(t));
 
             return (T) Enum.Parse(t, value, ignorecase);
         }
@@ -223,12 +223,7 @@ namespace TestProj47
         /// <returns></returns>
         public static double ToDouble(this string value, double defaultvalue)
         {
-            double result;
-            if (double.TryParse(value, out result))
-            {
-                return result;
-            }
-            return defaultvalue;
+            return double.TryParse(value, out var result) ? result : defaultvalue;
         }
 
         /// <summary>
@@ -249,12 +244,7 @@ namespace TestProj47
         /// <returns></returns>
         public static DateTime? ToDateTimeZ(this string value, DateTime? defaultvalue)
         {
-            DateTime result;
-            if (DateTime.TryParse(value, out result))
-            {
-                return result;
-            }
-            return defaultvalue;
+            return DateTime.TryParse(value, out var result) ? result : defaultvalue;
         }
 
         /// <summary>
@@ -274,16 +264,15 @@ namespace TestProj47
         /// <returns>A bool based on the string value</returns>
         public static bool? ToBoolean(this string value)
         {
-            if (string.Compare("T", value, true) == 0)
+            if (String.Compare("T", value, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return true;
             }
-            if (string.Compare("F", value, true) == 0)
+            if (String.Compare("F", value, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return false;
             }
-            bool result;
-            if (bool.TryParse(value, out result))
+            if (bool.TryParse(value, out var result))
             {
                 return result;
             }
@@ -301,8 +290,7 @@ namespace TestProj47
 
         public static string GetValueOrDefault(this string value, string defaultvalue)
         {
-            if (value != null) return value;
-            return defaultvalue;
+            return value ?? defaultvalue;
         }
 
         #endregion
@@ -319,7 +307,7 @@ namespace TestProj47
             if (string.IsNullOrEmpty(value)) return "";
             var valuearray = value.ToLower().ToCharArray();
             var nextupper = true;
-            for (var i = 0; i < valuearray.Count() - 1; i++)
+            for (var i = 0; i < valuearray.Length - 1; i++)
             {
                 if (nextupper)
                 {
@@ -336,9 +324,6 @@ namespace TestProj47
                         case ':':
                         case '\n':
                             nextupper = true;
-                            break;
-                        default:
-                            nextupper = false;
                             break;
                     }
                 }
@@ -369,13 +354,11 @@ namespace TestProj47
                 throw new ArgumentException("Cannot encrypt using an empty key. Please supply an encryption key.");
             }
 
-            var cspp = new CspParameters();
-            cspp.KeyContainerName = key;
+            var cspp = new CspParameters {KeyContainerName = key};
 
-            var rsa = new RSACryptoServiceProvider(cspp);
-            rsa.PersistKeyInCsp = true;
+            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
 
-            var bytes = rsa.Encrypt(UTF8Encoding.UTF8.GetBytes(stringToEncrypt), true);
+            var bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(stringToEncrypt), true);
 
             return BitConverter.ToString(bytes);
         }
@@ -383,13 +366,12 @@ namespace TestProj47
         /// <summary>
         /// Decryptes a string using the supplied key. Decoding is done using RSA encryption.
         /// </summary>
+        /// <param name="stringToDecrypt">string to decrypt</param>
         /// <param name="key">Decryptionkey.</param>
         /// <returns>The decrypted string or null if decryption failed.</returns>
         /// <exception cref="ArgumentException">Occurs when stringToDecrypt or key is null or empty.</exception>
         public static string Decrypt(this string stringToDecrypt, string key)
         {
-            string result = null;
-
             if (string.IsNullOrEmpty(stringToDecrypt))
             {
                 throw new ArgumentException("An empty string value cannot be encrypted.");
@@ -400,27 +382,18 @@ namespace TestProj47
                 throw new ArgumentException("Cannot decrypt using an empty key. Please supply a decryption key.");
             }
 
-            try
-            {
-                var cspp = new CspParameters();
-                cspp.KeyContainerName = key;
+            var cspp = new CspParameters {KeyContainerName = key};
 
-                var rsa = new RSACryptoServiceProvider(cspp);
-                rsa.PersistKeyInCsp = true;
+            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
 
-                var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
-                var decryptByteArray = Array.ConvertAll(decryptArray,
-                    (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
+            var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
+            var decryptByteArray = Array.ConvertAll(decryptArray,
+                (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
 
 
-                var bytes = rsa.Decrypt(decryptByteArray, true);
+            var bytes = rsa.Decrypt(decryptByteArray, true);
 
-                result = UTF8Encoding.UTF8.GetString(bytes);
-            }
-            finally
-            {
-                // no need for further processing
-            }
+            var result = Encoding.UTF8.GetString(bytes);
 
             return result;
         }
@@ -510,6 +483,7 @@ namespace TestProj47
         /// <summary>
         /// Truncates the string to a specified length and replace the truncated to a ...
         /// </summary>
+        /// <param name="text">text to truncate</param>
         /// <param name="maxLength">total length of characters to maintain before the truncate happens</param>
         /// <returns>truncated string</returns>
         public static string Truncate(this string text, int maxLength)
@@ -596,6 +570,7 @@ namespace TestProj47
         /// Replaces the format item in a specified System.String with the text equivalent
         /// of the value of a specified System.Object instance.
         /// </summary>
+        /// <param name="format">text to format</param>
         /// <param name="arg">The arg.</param>
         /// <param name="additionalArgs">The additional args.</param>
         public static string Format(this string format, object arg, params object[] additionalArgs)

@@ -3878,8 +3878,7 @@ namespace TestProj47.C5
                     0,
                     n.lastgeneration == -1
                         ? ""
-                        : string.Format(" [extra: lg={0}, c={1}, i={2}]", n.lastgeneration, n.leftnode ? "L" : "R",
-                            n.oldref == null ? "()" : "" + n.oldref.item),
+                        : $" [extra: lg={n.lastgeneration}, c={(n.leftnode ? "L" : "R")}, i={(n.oldref == null ? "()" : "" + n.oldref.item)}]",
                     n.items
                 ));
                 minidump(n.left, space + "  ");
@@ -3901,13 +3900,8 @@ namespace TestProj47.C5
         /// </summary>
         public void dump(string msg)
         {
-            Logger.Log(string.Format(
-                ">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg,
-                size, blackdepth,
-                0
-                ,
-                generation, UniqueCount
-            ));
+            Logger.Log(
+                $">>>>>>>>>>>>>>>>>>> dump {msg} (count={size}, blackdepth={blackdepth}, depth={0}, gen={generation}, uniqueCount={UniqueCount})");
             minidump(root, "");
             check("");
             Logger.Log("<<<<<<<<<<<<<<<<<<<");
@@ -3921,9 +3915,8 @@ namespace TestProj47.C5
         /// <param name="err">Extra (error)message to include</param>
         private void dump(string msg, string err)
         {
-            Logger.Log(string.Format(
-                ">>>>>>>>>>>>>>>>>>> dump {0} (count={1}, blackdepth={2}, depth={3}, gen={4}, uniqueCount={5})", msg,
-                size, blackdepth, 0, generation, UniqueCount));
+            Logger.Log(
+                $">>>>>>>>>>>>>>>>>>> dump {msg} (count={size}, blackdepth={blackdepth}, depth={0}, gen={generation}, uniqueCount={UniqueCount})");
             minidump(root, "");
             Logger.Log(err);
             Logger.Log("<<<<<<<<<<<<<<<<<<<");
@@ -3939,7 +3932,7 @@ namespace TestProj47.C5
         /// <returns>b</returns>
         private bool massert(bool b, Node n, string m)
         {
-            if (!b) Logger.Log(string.Format("*** Node (item={0}, id={1}): {2}", n.item, 0, m));
+            if (!b) Logger.Log($"*** Node (item={n.item}, id={0}): {m}");
 
             return b;
         }

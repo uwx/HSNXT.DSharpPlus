@@ -175,7 +175,7 @@ namespace TestProj47
                     }
                     else
                     {
-                        var message = string.Format("{0} sequence too short.", !m2 ? "Second" : !m3 ? "Third" : "Fourth");
+                        var message = $"{(!m2 ? "Second" : !m3 ? "Third" : "Fourth")} sequence too short.";
                         throw new InvalidOperationException(message);
                     }
                 }

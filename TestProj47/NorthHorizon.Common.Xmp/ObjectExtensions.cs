@@ -86,7 +86,7 @@ namespace TestProj47
 
 			var members = new Stack<MemberAccessInfo>();
 
-			Expression expr = getExpression.Body;
+			var expr = getExpression.Body;
 			while (expr != null)
 			{
 				if (expr.NodeType == ExpressionType.Parameter)

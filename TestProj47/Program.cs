@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -119,6 +120,96 @@ namespace TestProj47
 
     public static partial class Extensions
     {
+        public static IEnumerable<T> ReturnEnumerable<T>(this T item)
+        {
+            return new[] { item };
+        }
+
+        public static string EnumerableToString(this IEnumerable<char> enumerable) => new string(enumerable.ToArray());
+
+        public static string EnumerableToString(this IEnumerable<string> enumerable) => enumerable.StringJoin("");
+
+        public static string EnumerableToString(this IEnumerable<IEnumerable<char>> enumerable) => new string(enumerable.SelectMany(e => e).ToArray());
+
+        /// <summary>
+        /// Converts the target float in to a string with the specified number of decimal places.
+        /// </summary>
+        /// <param name="this">The extended float.</param>
+        /// <param name="numDecimalPlaces">The number of decimal places to display.</param>
+        /// <returns>A string that represents the target float.</returns>
+        public static string ToString(this float @this, uint numDecimalPlaces) {
+            var formatString = "{0:n" + numDecimalPlaces + "}";
+            return string.Format(CultureInfo.InvariantCulture, formatString, @this);
+        }
+        
+        public static IEnumerable<T[]> TakeWindow<T>(this IEnumerable<T> e, int count)
+        {
+            var window = new LinkedList<T>();
+            foreach (var elem in e)
+            {
+                if (window.Count == count)
+                {
+                    yield return window.ToArray();
+                    window.RemoveFirst();
+                }
+                window.AddLast(elem);
+            }
+            yield return window.ToArray();
+        }
+        
+        public static string ToString<T>(this IEnumerable<T> list, Func<T, string> itemOutput, string seperator = ",")
+        {
+            list = list ?? new List<T>();
+            seperator = seperator ?? "";
+            itemOutput = itemOutput ?? (x => x.ToString());
+            var builder = new StringBuilder();
+            var tempSeperator = "";
+            foreach (var item in list)
+            {
+                builder.Append(tempSeperator).Append(itemOutput(item));
+                tempSeperator = seperator;
+            }
+            return builder.ToString();
+        }
+        
+        public static string ToStringOrDefault<T>(this T? nullable, string defaultValue) where T : struct
+        {
+            return nullable?.ToString() ?? defaultValue;
+        }
+
+        public static string ToStringOrDefault<T>(this T? nullable, string format, string defaultValue) where T : struct, IFormattable
+        {
+            return nullable?.ToString(format, CultureInfo.CurrentCulture) ?? defaultValue;
+        }
+        
+        /// <summary>
+        /// this is really missing from C# - returns the key of the highest value in a dictionary.
+        /// </summary>
+        /// <typeparam name="TKey">The key type (determined from the dictionary)</typeparam>
+        /// <typeparam name="TValue">Value type (determined from the dictionary), must implement IComparable&lt;Value&gt;</typeparam>
+        /// <param name="dictionary">The dictionary</param>
+        /// <returns>The key of the highest value in the dic.</returns>
+        public static TKey Max<TKey, TValue>(this IDictionary<TKey, TValue> dictionary) where TValue : IComparable<TValue>
+        {
+            if (dictionary == null || dictionary.Count == 0) return default;
+            var dicList = dictionary.ToList();
+            var maxKvp = dicList.First();
+            foreach (var kvp in dicList.Skip(1))
+            {
+                if (kvp.Value.CompareTo(maxKvp.Value) > 0)
+                {
+                    maxKvp = kvp;
+                }
+            }
+            return maxKvp.Key;
+        }
+        
+        public static IEnumerable<TDerived> WhereIs<TBase, TDerived>(this IEnumerable<TBase> source)
+            where TBase : class
+            where TDerived : class, TBase
+        {
+            return source.OfType<TDerived>();
+        }
         private const string IsEmailBigRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                                                @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                                                @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
@@ -844,11 +935,11 @@ namespace TestProj47
         public static string UppercaseFirstLetter(this string value)
         {
             // Uppercase the first letter in the string.
-            if (value.Length <= 0) return value;
+            if (value.IsNullOrEmpty()) return value;
             return char.ToUpper(value[0]) + value.Substring(1);
         }
 
-        public static void AddAll<T>(this IList<T> self, params T[] items) => self.AddRange(items);
+        public static void AddAll<T>(this ICollection<T> self, params T[] items) => self.AddRange(items);
 
         public static int IndexOfInvariant(this string self, string s) => self.IndexOf(s, StringComparison.Ordinal);
 
