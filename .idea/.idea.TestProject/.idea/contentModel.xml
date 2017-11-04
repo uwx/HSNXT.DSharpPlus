@@ -84,6 +84,23 @@
           <e p="WrappedArray.cs" t="Include" />
           <e p="Wrappers.cs" t="Include" />
         </e>
+        <e p="CodeBits" t="Include">
+          <e p="ASCIIEncoding.cs" t="Include" />
+          <e p="ByteArrayHelper.cs" t="Include" />
+          <e p="ByteSizeFriendlyName.cs" t="Include" />
+          <e p="EnumIterator.cs" t="Include" />
+          <e p="GeoDistance.cs" t="Include" />
+          <e p="IniFile.cs" t="Include" />
+          <e p="ListExtensions.cs" t="Include" />
+          <e p="MruCollection.cs" t="Include" />
+          <e p="ObservableCollection.cs" t="Include" />
+          <e p="OrderedCollection.cs" t="Include" />
+          <e p="OrderedObservableCollection.cs" t="Include" />
+          <e p="PasswordGenerator.cs" t="Include" />
+          <e p="SaltedHash.cs" t="Include" />
+          <e p="UniqueItemGenerator.cs" t="Include" />
+          <e p="WebScrapper.cs" t="Include" />
+        </e>
         <e p="CSharpBasicExtensionsKit" t="Include">
           <e p="ActionExtensions.cs" t="Include" />
           <e p="BooleanExtensions.cs" t="Include" />
@@ -138,6 +155,11 @@
           <e p="StringExtensions.cs" t="Include" />
           <e p="TimeSpanExtensions.cs" t="Include" />
         </e>
+        <e p="Eloquent" t="Include">
+          <e p="DateTimeExtensions.cs" t="Include" />
+          <e p="IntExtension.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
         <e p="EnumerationExtensions.cs" t="Include" />
         <e p="ExtensionMethods" t="Include">
           <e p="BooleanExtensions.cs" t="Include" />
@@ -183,6 +205,7 @@
           </e>
         </e>
         <e p="ExtensionsHelper.cs" t="Include" />
+        <e p="FunctionalWith.cs" t="Include" />
         <e p="MoreLinq" t="Include">
           <e p="Acquire.cs" t="Include" />
           <e p="AggregateRight.cs" t="Include" />
@@ -221,7 +244,6 @@
           <e p="LeftJoin.cs" t="Include" />
           <e p="Lookup.cs" t="Include" />
           <e p="MinBy.cs" t="Include" />
-          <e p="MoreLinq.csproj" t="Include" />
           <e p="Move.cs" t="Include" />
           <e p="NestedLoops.cs" t="Include" />
           <e p="OrderBy.cs" t="Include" />
@@ -376,6 +398,15 @@
         </e>
       </e>
       <e p="TestProject.sln" t="IncludeFlat" />
+      <e p="Wither" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Wither.csproj" t="IncludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
