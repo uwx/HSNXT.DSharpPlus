@@ -2,6 +2,9 @@ language: csharp
 mono: none
 solution: DSharpPlus.sln
 
+# don't build on tags
+if: tag IS blank
+
 git:
   depth: 6
   submodules: false
