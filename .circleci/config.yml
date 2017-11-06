@@ -9,5 +9,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: msbuild project
-          command: ./build.sh
+          name: Restore NuGet packages
+          command: dotnet restore -v Minimal
+      - run:
+          name: Build
+          command: dotnet build DSharpPlus.sln -v Minimal -c Release --version-suffix "$VERSION"
+      - run:
+          name: Package
+          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$VERSION"
