@@ -13,8 +13,14 @@ jobs:
           name: Restore NuGet packages
           command: dotnet restore -v Minimal
       - run:
-          name: Build
-          command: dotnet build DSharpPlus.sln -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build (netstandard1.1)
+          command: dotnet build DSharpPlus.sln -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
       - run:
-          name: Package
-          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build (netstandard1.3)
+          command: dotnet build DSharpPlus.sln -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build (netstandard2.0)
+          command: dotnet build DSharpPlus.sln -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+#      - run:
+#          name: Package
+#          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$CIRCLE_BUILD_NUM"
