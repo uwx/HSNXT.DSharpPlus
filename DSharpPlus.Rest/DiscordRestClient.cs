@@ -5,6 +5,7 @@ using DSharpPlus.Net.Abstractions;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System;
 
 namespace DSharpPlus
 {
@@ -30,9 +31,10 @@ namespace DSharpPlus
 
         public async Task DeleteGuildAsync(ulong id) => await ApiClient.DeleteGuildAsync(id);
 
-        public async Task<DiscordGuild> ModifyGuildAsync(ulong guild_id, string name, string region, VerificationLevel? verification_level,
-            DefaultMessageNotifications? default_message_notifications, ulong? afk_channel_id, int? afk_timeout, string iconb64, ulong? owner_id, string splashb64, string reason)
-            => await ApiClient.ModifyGuildAsync(guild_id, name, region, verification_level, default_message_notifications, afk_channel_id, afk_timeout, iconb64, owner_id, splashb64, reason);
+        public async Task<DiscordGuild> ModifyGuildAsync(ulong guild_id, string name, string region, VerificationLevel? verification_level, DefaultMessageNotifications? default_message_notifications, 
+            MfaLevel? mfa_level, ExplicitContentFilter? explicit_content_filter, ulong? afk_channel_id, int? afk_timeout, string iconb64, ulong? owner_id, string splashb64, string reason)
+            => await ApiClient.ModifyGuildAsync(guild_id, name, region, verification_level, default_message_notifications, mfa_level, explicit_content_filter, afk_channel_id, afk_timeout, iconb64, 
+                owner_id, splashb64, reason);
 
         public async Task<IReadOnlyList<DiscordBan>> GetGuildBansAsync(ulong guild_id) => await ApiClient.GetGuildBansAsync(guild_id);
 
@@ -73,11 +75,16 @@ namespace DSharpPlus
         #endregion
 
         #region Channel
-        public Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType? type, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, string reason)
-            => ApiClient.CreateGuildChannelAsync(id, name, type, bitrate, user_limit, overwrites, reason);
+        public Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, string reason)
+        {
+            if (type != ChannelType.Category && type != ChannelType.Text && type != ChannelType.Voice)
+                throw new ArgumentException("Channel type must be text, voice, or category.", nameof(type));
 
-        public Task ModifyChannelAsync(ulong id, string name, int? position, string topic, int? bitrate, int? user_limit, string reason)
-            => ApiClient.ModifyChannelAsync(id, name, position, topic, bitrate, user_limit, reason);
+            return ApiClient.CreateGuildChannelAsync(id, name, type, parent, bitrate, user_limit, overwrites, reason);
+        }
+
+        public Task ModifyChannelAsync(ulong id, string name, int? position, string topic, Optional<ulong?> parent, int? bitrate, int? user_limit, string reason)
+            => ApiClient.ModifyChannelAsync(id, name, position, topic, parent, bitrate, user_limit, reason);
 
         public Task<DiscordChannel> GetChannelAsync(ulong id) => ApiClient.GetChannelAsync(id);
 
@@ -85,7 +92,7 @@ namespace DSharpPlus
 
         public Task<DiscordMessage> GetMessageAsync(ulong channel_id, ulong message_id) => ApiClient.GetMessageAsync(channel_id, message_id);
 
-        public Task<DiscordMessage> CreateMessageAsync(ulong channel_id, Optional<string> content, bool? tts, Optional<DiscordEmbed> embed) =>
+        public Task<DiscordMessage> CreateMessageAsync(ulong channel_id, string content, bool? tts, DiscordEmbed embed) =>
             ApiClient.CreateMessageAsync(channel_id, content, tts, embed);
 
         public Task<DiscordMessage> UploadFileAsync(ulong channel_id, Stream file_data, string file_name, string content, bool? tts, DiscordEmbed embed)

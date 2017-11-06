@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace DSharpPlus.Entities
             set
             {
                 if (value != null && value.Length > 256)
-                    throw new ArgumentException("Title length cannot exceed 256 characters of length.", nameof(value));
+                    throw new ArgumentException("Title length cannot exceed 256 characters.", nameof(value));
                 this._title = value;
             }
         }
@@ -34,7 +34,7 @@ namespace DSharpPlus.Entities
             set
             {
                 if (value != null && value.Length > 2048)
-                    throw new ArgumentException("Description length cannot exceed 2048 characters of length.", nameof(value));
+                    throw new ArgumentException("Description length cannot exceed 2048 characters.", nameof(value));
                 this._description = value;
             }
         }
@@ -48,7 +48,7 @@ namespace DSharpPlus.Entities
             get { return this._url?.ToString(); }
             set
             {
-                if (value == null)
+                if (string.IsNullOrEmpty(value))
                     this._url = null;
                 else
                     this._url = new Uri(value);
@@ -84,7 +84,7 @@ namespace DSharpPlus.Entities
             get { return this._image_uri?.ToString(); }
             set
             {
-                if (value == null)
+                if (string.IsNullOrEmpty(value))
                     this._image_uri = null;
                 else
                     this._image_uri = new Uri(value);
@@ -100,7 +100,7 @@ namespace DSharpPlus.Entities
             get { return this._thumbnail_uri?.ToString(); }
             set
             {
-                if (value == null)
+                if (string.IsNullOrEmpty(value))
                     this._thumbnail_uri = null;
                 else
                     this._thumbnail_uri = new Uri(value);
@@ -240,7 +240,7 @@ namespace DSharpPlus.Entities
         /// <returns>This embed builder.</returns>
         public DiscordEmbedBuilder WithTimestamp(DateTime? timestamp)
         {
-            if (timestamp == null)
+            if (timestamp != null)
                 this.Timestamp = null;
             else
                 this.Timestamp = new DateTimeOffset(timestamp.Value);
@@ -311,7 +311,7 @@ namespace DSharpPlus.Entities
         /// <returns>This embed builder.</returns>
         public DiscordEmbedBuilder WithAuthor(string name = null, string url = null, string icon_url = null)
         {
-            if (name == null && url == null && icon_url == null)
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(url) && string.IsNullOrEmpty(icon_url))
                 this.Author = null;
             else
                 this.Author = new EmbedAuthor
@@ -333,7 +333,7 @@ namespace DSharpPlus.Entities
          * /// <returns>This embed builder.</returns>
          * public DiscordEmbedBuilder WithAuthor(string name = null, Uri url = null, Uri icon_url = null)
          * {
-         *     if (name == null && url == null && icon_url == null)
+         *     if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(url) && string.IsNullOrEmpty(icon_url))
          *         this.Author = null;
          *     else
          *         this.Author = new DiscordEmbedAuthor
@@ -355,9 +355,9 @@ namespace DSharpPlus.Entities
         public DiscordEmbedBuilder WithFooter(string text = null, string icon_url = null)
         {
             if (text != null && text.Length > 2048)
-                throw new ArgumentException("Footer text cannot exceed 2048 characters of length.");
+                throw new ArgumentException("Footer text length cannot exceed 2048 characters.");
 
-            if (text == null && icon_url == null)
+            if (string.IsNullOrEmpty(text) && string.IsNullOrEmpty(icon_url))
                 this.Footer = null;
             else
                 this.Footer = new EmbedFooter
@@ -380,7 +380,7 @@ namespace DSharpPlus.Entities
          *     if (text != null && text.Length > 2048)
          *         throw new ArgumentException("Footer text cannot exceed 2048 characters of length.");
          * 
-         *     if (text == null && icon_url == null)
+         *     if (string.IsNullOrEmpty(text) && string.IsNullOrEmpty(icon_url))
          *         this.Footer = null;
          *     else
          *         this.Footer = new DiscordEmbedFooter
@@ -407,9 +407,9 @@ namespace DSharpPlus.Entities
                 throw new ArgumentNullException(nameof(value));
 
             if (name.Length > 256)
-                throw new ArgumentException("Embed field name cannot exceet 256 characters of length.");
+                throw new ArgumentException("Embed field name length cannot exceed 256 characters.");
             if (value.Length > 1024)
-                throw new ArgumentException("Embed field value cannot exceed 1024 characters of length.");
+                throw new ArgumentException("Embed field value length cannot exceed 1024 characters.");
 
             if (this._fields.Count >= 25)
                 throw new InvalidOperationException("Cannot add more than 25 fields.");
@@ -499,7 +499,7 @@ namespace DSharpPlus.Entities
                 set
                 {
                     if (value != null && value.Length > 256)
-                        throw new ArgumentException("Author name cannot exceed 256 characters of length.");
+                        throw new ArgumentException("Author name length cannot exceed 256 characters.");
                     this._name = value;
                 }
             }
@@ -513,7 +513,7 @@ namespace DSharpPlus.Entities
                 get { return this._uri?.ToString(); }
                 set
                 {
-                    if (value == null)
+                    if (string.IsNullOrEmpty(value))
                         this._uri = null;
                     else
                         this._uri = new Uri(value);
@@ -529,7 +529,7 @@ namespace DSharpPlus.Entities
                 get { return this._icon_uri?.ToString(); }
                 set
                 {
-                    if (value == null)
+                    if (string.IsNullOrEmpty(value))
                         this._icon_uri = null;
                     else
                         this._icon_uri = new Uri(value);
@@ -549,7 +549,7 @@ namespace DSharpPlus.Entities
                 set
                 {
                     if (value != null && value.Length > 2048)
-                        throw new ArgumentException("Footer text cannot exceed 2048 characters of length.");
+                        throw new ArgumentException("Footer text length cannot exceed 2048 characters.");
                     this._text = value;
                 }
             }
@@ -563,7 +563,7 @@ namespace DSharpPlus.Entities
                 get { return this._icon_uri?.ToString(); }
                 set
                 {
-                    if (value == null)
+                    if (string.IsNullOrEmpty(value))
                         this._icon_uri = null;
                     else
                         this._icon_uri = new Uri(value);

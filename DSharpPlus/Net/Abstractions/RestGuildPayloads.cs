@@ -50,6 +50,12 @@ namespace DSharpPlus.Net.Abstractions
         [JsonProperty("afk_timeout", NullValueHandling = NullValueHandling.Ignore)]
         public int? AfkTimeout { get; set; }
 
+        [JsonProperty("mfa_level", NullValueHandling = NullValueHandling.Ignore)]
+        public MfaLevel? MfaLevel { get; set; }
+
+        [JsonProperty("explicit_content_filter", NullValueHandling = NullValueHandling.Ignore)]
+        public ExplicitContentFilter? ExplicitContentFilter { get; set; }
+
         // we no want that here
         [JsonIgnore]
         public new IEnumerable<DiscordRole> Roles { get; set; }
@@ -129,12 +135,6 @@ namespace DSharpPlus.Net.Abstractions
 
         [JsonProperty("mentionable", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Mentionable { get; set; }
-    }
-
-    internal sealed class RestGuildPrunePayload
-    {
-        [JsonProperty("days")]
-        public int Days { get; set; }
     }
 
     internal sealed class RestGuildPruneResultPayload

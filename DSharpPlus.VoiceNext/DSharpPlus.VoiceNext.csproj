@@ -11,6 +11,7 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.1</LangVersion>
     <Authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</Authors>
     <Company>DSharpPlus developers</Company>
     <Description>Voice implementation for DSharpPlus.</Description>
@@ -23,15 +24,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VersionSuffix)' != ''">
-    <Version>3.0.1-beta-$(VersionSuffix)</Version>
-    <AssemblyVersion>3.0.1.$(VersionSuffix)</AssemblyVersion>
-    <FileVersion>3.0.1.$(VersionSuffix)</FileVersion>
+    <Version>3.2.0-beta-$(VersionSuffix)</Version>
+    <AssemblyVersion>3.2.0.$(VersionSuffix)</AssemblyVersion>
+    <FileVersion>3.2.0.$(VersionSuffix)</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VersionSuffix)' == ''">
-    <Version>3.0.1</Version>
-    <AssemblyVersion>3.0.1.0</AssemblyVersion>
-    <FileVersion>3.0.1.0</FileVersion>
+    <Version>3.2.0</Version>
+    <AssemblyVersion>3.2.0.0</AssemblyVersion>
+    <FileVersion>3.2.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

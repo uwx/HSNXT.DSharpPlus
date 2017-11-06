@@ -1,9 +1,8 @@
-﻿using DSharpPlus.CommandsNext.Exceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.CommandsNext.Exceptions;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -45,7 +44,7 @@ namespace DSharpPlus.CommandsNext
                 if (ctx.Config.CaseSensitive)
                     cmd = this.Children.FirstOrDefault(xc => xc.Name == cn || (xc.Aliases != null && xc.Aliases.Contains(cn)));
                 else
-                    cmd = this.Children.FirstOrDefault(xc => xc.Name.ToLower() == cn.ToLower() || (xc.Aliases != null && xc.Aliases.Select(xs => xs.ToLower()).Contains(cn.ToLower())));
+                    cmd = this.Children.FirstOrDefault(xc => xc.Name.ToLowerInvariant() == cn.ToLowerInvariant() || (xc.Aliases != null && xc.Aliases.Select(xs => xs.ToLowerInvariant()).Contains(cn.ToLowerInvariant())));
 
                 if (cmd != null)
                 {
@@ -60,12 +59,8 @@ namespace DSharpPlus.CommandsNext
                         CommandsNext = ctx.CommandsNext,
                         Dependencies = ctx.Dependencies
                     };
-                    
-                    var fchecks = new List<CheckBaseAttribute>();
-                    if (cmd.ExecutionChecks != null && cmd.ExecutionChecks.Any())
-                        foreach (var ec in cmd.ExecutionChecks)
-                            if (!(await ec.CanExecute(xctx)))
-                                fchecks.Add(ec);
+
+                    var fchecks = await cmd.RunChecksAsync(xctx);
                     if (fchecks.Any())
                         return new CommandResult
                         {

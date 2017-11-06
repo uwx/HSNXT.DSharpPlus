@@ -2,13 +2,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <Optimize>True</Optimize>
     <OutputType>Exe</OutputType>
     <RootNamespace>DSharpPlus.Test</RootNamespace>
     <AssemblyName>DSharpPlus.Test</AssemblyName>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VersionSuffix)' != ''">

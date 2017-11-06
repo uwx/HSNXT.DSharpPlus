@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -23,7 +23,7 @@ namespace DSharpPlus.Entities
         {
             this.AvatarHash = user.AvatarHash;
             this.Discord = user.Discord;
-            this.DiscriminatorInt = user.DiscriminatorInt;
+            this.Discriminator = user.Discriminator;
             this.Email = user.Email;
             this.Id = user.Id;
             this.IsBot = user.IsBot;
@@ -123,6 +123,12 @@ namespace DSharpPlus.Entities
         public DiscordGuild Guild => this.Discord.Guilds[_guild_id];
 
         /// <summary>
+        /// Gets whether this member is the Guild owner.
+        /// </summary>
+        [JsonIgnore]
+        public bool IsOwner => this.Id == this.Guild.OwnerId;
+
+        /// <summary>
         /// Creates a direct message channel to this member.
         /// </summary>
         /// <returns>Direct message channel to this member.</returns>
@@ -135,7 +141,7 @@ namespace DSharpPlus.Entities
         /// <param name="is_tts">Whether the message is to be read using TTS.</param>
         /// <param name="embed">Embed to attach to the message.</param>
         /// <returns>The sent message.</returns>
-        public async Task<DiscordMessage> SendMessageAsync(Optional<string> content = default(Optional<string>), bool is_tts = false, Optional<DiscordEmbed> embed = default(Optional<DiscordEmbed>))
+        public async Task<DiscordMessage> SendMessageAsync(string content = null, bool is_tts = false, DiscordEmbed embed = null)
         {
             var chn = await this.CreateDmChannelAsync();
             return await chn.SendMessageAsync(content, is_tts, embed);
@@ -268,7 +274,40 @@ namespace DSharpPlus.Entities
         /// <returns></returns>
         public Task ReplaceRolesAsync(IEnumerable<DiscordRole> roles, string reason = null) =>
             this.Discord.ApiClient.ModifyGuildMemberAsync(this.Guild.Id, this.Id, null, roles.Select(xr => xr.Id), null, null, null, reason);
-        
+
+        /// <summary>
+        /// Bans a this member from their guild.
+        /// </summary>
+        /// <param name="delete_message_days">How many days to remove messages from.</param>
+        /// <param name="reason">Reason for audit logs.</param>
+        /// <returns></returns>
+        public Task BanAsync(int delete_message_days = 0, string reason = null) =>
+            this.Guild.BanMemberAsync(this, delete_message_days, reason);
+
+        /// <summary>
+        /// Kicks this member from their guild.
+        /// </summary>
+        /// <param name="reason">Reason for audit logs.</param>
+        /// <returns></returns>
+        public Task RemoveAsync(string reason = null) =>
+            this.Guild.RemoveMemberAsync(this, reason);
+
+        /// <summary>
+        /// Moves this member to the specified voice channel
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <returns></returns>
+        public Task PlaceInAsync(DiscordChannel channel) =>
+            channel.PlaceMemberAsync(this);
+
+        /// <summary>
+        /// Calculates permissions in a given channel for this member.
+        /// </summary>
+        /// <param name="channel">Channel to calculate permissions for.</param>
+        /// <returns>Calculated permissions for this member in the channel.</returns>
+        public Permissions PermissionsIn(DiscordChannel channel) =>
+            channel.PermissionsFor(this);
+
         /// <summary>
         /// Returns a string representation of this member.
         /// </summary>

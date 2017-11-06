@@ -177,7 +177,7 @@ namespace DSharpPlus.CommandsNext
 
             var cmd = this.TopLevelCommands.ContainsKey(cms) ? this.TopLevelCommands[cms] : null;
             if (cmd == null && !this.Config.CaseSensitive)
-                cmd = this.TopLevelCommands.FirstOrDefault(xkvp => xkvp.Key.ToLower() == cms.ToLower()).Value;
+                cmd = this.TopLevelCommands.FirstOrDefault(xkvp => xkvp.Key.ToLowerInvariant() == cms.ToLowerInvariant()).Value;
 
             var ctx = new CommandContext
             {
@@ -201,11 +201,7 @@ namespace DSharpPlus.CommandsNext
             {
                 try
                 {
-                    var fchecks = new List<CheckBaseAttribute>();
-                    if (cmd.ExecutionChecks != null && cmd.ExecutionChecks.Any())
-                        foreach (var ec in cmd.ExecutionChecks)
-                            if (!(await ec.CanExecute(ctx)))
-                                fchecks.Add(ec);
+                    var fchecks = await cmd.RunChecksAsync(ctx);
                     if (fchecks.Any())
                         throw new ChecksFailedException("One or more pre-execution checks failed.", cmd, ctx, fchecks);
 
@@ -544,15 +540,12 @@ namespace DSharpPlus.CommandsNext
                     if (this.Config.CaseSensitive)
                         cmd = search_in.FirstOrDefault(xc => xc.Name == c || (xc.Aliases != null && xc.Aliases.Contains(c)));
                     else
-                        cmd = search_in.FirstOrDefault(xc => xc.Name.ToLower() == c.ToLower() || (xc.Aliases != null && xc.Aliases.Select(xs => xs.ToLower()).Contains(c.ToLower())));
+                        cmd = search_in.FirstOrDefault(xc => xc.Name.ToLowerInvariant() == c.ToLowerInvariant() || (xc.Aliases != null && xc.Aliases.Select(xs => xs.ToLowerInvariant()).Contains(c.ToLowerInvariant())));
 
                     if (cmd == null)
                         break;
-                    
-                    var cfl = new List<CheckBaseAttribute>();
-                    foreach (var ec in cmd.ExecutionChecks)
-                        if (!(await ec.CanExecute(ctx)))
-                            cfl.Add(ec);
+
+                    var cfl = await cmd.RunChecksAsync(ctx);
                     if (cfl.Any())
                         throw new ChecksFailedException("You cannot access that command!", cmd, ctx, cfl);
 
@@ -588,10 +581,7 @@ namespace DSharpPlus.CommandsNext
                             continue;
                         }
 
-                        var cfl = new List<CheckBaseAttribute>();
-                        foreach (var ec in sc.ExecutionChecks)
-                            if (!(await ec.CanExecute(ctx)))
-                                cfl.Add(ec);
+                        var cfl = await sc.RunChecksAsync(ctx);
                         if (!cfl.Any())
                             scs.Add(sc);
                     }
@@ -611,11 +601,8 @@ namespace DSharpPlus.CommandsNext
                         scs.Add(sc);
                         continue;
                     }
-                    
-                    var cfl = new List<CheckBaseAttribute>();
-                    foreach (var ec in sc.ExecutionChecks)
-                        if (!(await ec.CanExecute(ctx)))
-                            cfl.Add(ec);
+
+                    var cfl = await sc.RunChecksAsync(ctx);
                     if (!cfl.Any())
                         scs.Add(sc);
                 }

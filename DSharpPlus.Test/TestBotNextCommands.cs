@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -97,7 +98,7 @@ namespace DSharpPlus.Test
 
             var embed = new DiscordEmbedBuilder()
                 .WithTitle("Results")
-                .AddField("Integer", one.ToString(), true)
+                .AddField("Integer", one.ToString(CultureInfo.InvariantCulture), true)
                 .AddField("String", content != null ? string.Join(" ", content) : "`<null>`", true)
                 .Build();
             await ctx.RespondAsync("", embed: embed);
@@ -112,7 +113,7 @@ namespace DSharpPlus.Test
             {
                 Title = "Results"
             };
-            embed.AddField("Integer", one.ToString(), true).AddField("String", content ?? "`<null>`", true);
+            embed.AddField("Integer", one.ToString(CultureInfo.InvariantCulture), true).AddField("String", content ?? "`<null>`", true);
             await ctx.RespondAsync("", embed: embed.Build());
         }
 
@@ -156,6 +157,18 @@ namespace DSharpPlus.Test
                 .AddField("Action", action);
 
             await ctx.RespondAsync(embed: eb);
+        }
+        
+        [Command("datetime"), Description("Tests DateTimeOffset binding.")]
+        public async Task ConvertDate(CommandContext ctx, [RemainingText, Description("DateTimeOffset to bind")] DateTimeOffset dto)
+        {
+            await ctx.RespondAsync(dto.ToString("yyyy-MM-dd HH:mm:ss"));
+        }
+
+        [Command("adminonly"), Description("For admin's eyes only."), RequirePermissions(Permissions.Administrator)]
+        public async Task AdminOnly(CommandContext ctx)
+        {
+            await ctx.RespondAsync("u my boi");
         }
 
         [Group("interactive"), Aliases("int", "interact", "interactivity"), Description("Interactivity commands."), RequireOwner]

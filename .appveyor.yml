@@ -1,0 +1,77 @@
+# version format
+version: uwx-nightly-{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_folder: c:\projects\dsp
+
+branches:
+  only:
+    - master
+
+environment:
+  access_token:
+    secure: ZCGkDJawCLuRgzYTYraor3+u8xB5hjlMC2RhZZYWKkAVWbJ8DBI/ws7qqpZ2c2L1
+  
+build: off
+
+build_script:
+ - ps: .\build.ps1
+ 
+on_success:
+ - git config --global credential.helper store
+ - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+ - git config --global user.email "me@m.es"
+ - git config --global user.name "Appveyor Build"
+ - cd C:\
+ - git clone https://github.com/uwx/DSharpPlus.git --branch=master
+ - cd DSharpPlus
+ - git remote add -f naam https://github.com/NaamloosDT/DSharpPlus.git
+ - git merge naam/master
+ - git push origin master
+
+artifacts:
+ - path: artifacts\dsharpplus-docs.tar.xz
+ - path: artifacts\*.nupkg
+ - path: "*\\bin\\Release\\net47\\*.dll"
+   name: Release DLLs (.NET 4.7)
+   type: zip
+ - path: "*\\bin\\Release\\net46\\*.dll"
+   name: Release DLLs (.NET 4.6)
+   type: zip
+ - path: "*\\bin\\Release\\net45\\*.dll"
+   name: Release DLLs (.NET 4.5)
+   type: zip
+ - path: "*\\bin\\Release\\netstandard1.1\\*.dll"
+   name: Release DLLs (.NET Standard 1.1)
+   type: zip
+ - path: "*\\bin\\Release\\netstandard1.3\\*.dll"
+   name: Release DLLs (.NET Standard 1.3)
+   type: zip
+ - path: "*\\bin\\Release\\netstandard2.0\\*.dll"
+   name: Release DLLs (.NET Standard 2.0)
+   type: zip
+
+# Automatically register private account and/or project AppVeyor NuGet feeds.
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
+
+deploy:
+    # Deploying to NuGet feed
+  - provider: NuGet
+    #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
+    #If server is not specified package will be pushed to NuGet.org.
+    server: https://www.myget.org/F/hansen-dsp/api/v2/package
+    api_key:
+      secure: yTsHQ3VLhxalxoRsOJvcg0J+ATpBEiKAZXArhQGHQyyTiwOXkFzAtbPBTQdIo8rS
+    skip_symbols: false
+    #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
+    #will be pushed to SymbolSource.org.
+    #symbol_server: https://your.symbol.server/feed
+    
+    #Artifact(s) (artifact) - artifact name or filename to push. If not specified all artifacts of type NuGet package
+    #will be pushed. This can be a regexp, e.g. /.*\.nupkg/
+    #artifact: DSharpPlus.nupkg

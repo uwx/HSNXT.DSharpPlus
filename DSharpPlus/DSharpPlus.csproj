@@ -3,13 +3,14 @@
 
   <PropertyGroup>
 	  <TargetFrameworks>net45;net46;net47;netstandard1.1;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>7.1</LangVersion>
     <NoWarn>1591</NoWarn>
     <Optimize>True</Optimize>
     <OutputType>Library</OutputType>
     <RootNamespace>DSharpPlus</RootNamespace>
     <AssemblyName>DSharpPlus</AssemblyName>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</Authors>
     <Company>DSharpPlus developers</Company>
@@ -23,15 +24,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VersionSuffix)' != ''">
-    <Version>3.0.1-beta-$(VersionSuffix)</Version>
-    <AssemblyVersion>3.0.1.$(VersionSuffix)</AssemblyVersion>
-    <FileVersion>3.0.1.$(VersionSuffix)</FileVersion>
+    <Version>3.2.0-beta-$(VersionSuffix)</Version>
+    <AssemblyVersion>3.2.0.$(VersionSuffix)</AssemblyVersion>
+    <FileVersion>3.2.0.$(VersionSuffix)</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VersionSuffix)' == ''">
-    <Version>3.0.1</Version>
-    <AssemblyVersion>3.0.1.0</AssemblyVersion>
-    <FileVersion>3.0.1.0</FileVersion>
+    <Version>3.2.0</Version>
+    <AssemblyVersion>3.2.0.0</AssemblyVersion>
+    <FileVersion>3.2.0.0</FileVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

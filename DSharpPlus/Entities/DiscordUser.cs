@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading.Tasks;
 using DSharpPlus.Net.Abstractions;
 using Newtonsoft.Json;
 
@@ -14,7 +16,7 @@ namespace DSharpPlus.Entities
         {
             this.Id = transport.Id;
             this.Username = transport.Username;
-            this.DiscriminatorInt = transport.DiscriminatorInt;
+            this.Discriminator = transport.Discriminator;
             this.AvatarHash = transport.AvatarHash;
             this.IsBot = transport.IsBot;
             this.MfaEnabled = transport.MfaEnabled;
@@ -31,10 +33,11 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Gets the user's 4-digit discriminator.
         /// </summary>
-        [JsonIgnore]
-        public string Discriminator => this.DiscriminatorInt.ToString("0000");
         [JsonProperty("discriminator", NullValueHandling = NullValueHandling.Ignore)]
-        internal int DiscriminatorInt { get; set; }
+        public string Discriminator { get; internal set; }
+
+        [JsonIgnore]
+        internal int DiscriminatorInt => int.Parse(this.Discriminator, NumberStyles.Integer, CultureInfo.InvariantCulture);
 
         /// <summary>
         /// Gets the user's avatar hash.
@@ -46,13 +49,13 @@ namespace DSharpPlus.Entities
         /// Gets the user's avatar URL.
         /// </summary>
         [JsonIgnore]
-        public string AvatarUrl => !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith("a_") ? $"https://cdn.discordapp.com/avatars/{Id}/{AvatarHash}.gif?size=1024" : $"https://cdn.discordapp.com/avatars/{Id}/{AvatarHash}.png?size=1024") : this.DefaultAvatarUrl;
+        public string AvatarUrl => !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith("a_") ? $"https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{AvatarHash}.gif?size=1024" : $"https://cdn.discordapp.com/avatars/{Id}/{AvatarHash}.png?size=1024") : this.DefaultAvatarUrl;
 
         /// <summary>
         /// Gets the URL of default avatar for this user.
         /// </summary>
         [JsonIgnore]
-        public string DefaultAvatarUrl => $"https://cdn.discordapp.com/embed/avatars/{this.DiscriminatorInt % 5}.png?size=1024";
+        public string DefaultAvatarUrl => $"https://cdn.discordapp.com/embed/avatars/{(this.DiscriminatorInt % 5).ToString(CultureInfo.InvariantCulture)}.png?size=1024";
 
         /// <summary>
         /// Gets whether the user is a bot.
@@ -83,6 +86,21 @@ namespace DSharpPlus.Entities
         /// </summary>
         [JsonIgnore]
         public string Mention => Formatter.Mention(this, this is DiscordMember);
+
+        /// <summary>
+        /// Gets whether this user is the Client which created this object.
+        /// </summary>
+        [JsonIgnore]
+        public bool IsCurrent => this.Id == this.Discord.CurrentUser.Id;
+
+        /// <summary>
+        /// Unbans this user from a guild.
+        /// </summary>
+        /// <param name="guild">Guild to unban this user from.</param>
+        /// <param name="reason">Reason for audit logs.</param>
+        /// <returns></returns>
+        public Task UnbanAsync(DiscordGuild guild, string reason = null) =>
+            guild.UnbanMemberAsync(this, reason);
 
         /// <summary>
         /// Gets this user's presence.

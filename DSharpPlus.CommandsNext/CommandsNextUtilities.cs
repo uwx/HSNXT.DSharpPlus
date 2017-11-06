@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -22,7 +23,7 @@ namespace DSharpPlus.CommandsNext
 
         static CommandsNextUtilities()
         {
-            UserRegex = new Regex(@"<@\!?(\d+?)> ");
+            UserRegex = new Regex(@"<@\!?(\d+?)> ", RegexOptions.ECMAScript);
 
             ArgumentConverters = new Dictionary<Type, IArgumentConverter>
             {
@@ -130,7 +131,7 @@ namespace DSharpPlus.CommandsNext
             if (!m.Success)
                 return -1;
 
-            var uid = ulong.Parse(m.Groups[1].Value);
+            var uid = ulong.Parse(m.Groups[1].Value, CultureInfo.InvariantCulture);
             if (user.Id != uid)
                 return -1;
 
@@ -322,7 +323,7 @@ namespace DSharpPlus.CommandsNext
             return str;
         }
 
-        internal static object[] BindArguments(CommandContext ctx)
+        internal static object[] BindArguments(CommandContext ctx, bool ignore_surplus)
         {
             var cmd = ctx.Command;
 
@@ -354,6 +355,7 @@ namespace DSharpPlus.CommandsNext
                         (lst as System.Collections.IList).CopyTo(arr, 0);
                         args[i + 1] = arr;
 
+                        argstr = string.Empty;
                         break;
                     }
                     else
@@ -374,6 +376,7 @@ namespace DSharpPlus.CommandsNext
                         argv = argstr;
                         args[i + 1] = ConvertArgument(argv, ctx, arg.Type);
 
+                        argstr = string.Empty;
                         break;
                     }
                 }
@@ -395,6 +398,9 @@ namespace DSharpPlus.CommandsNext
                 }
                 argstr = argrmd;
             }
+
+            if (!ignore_surplus && !string.IsNullOrWhiteSpace(argstr))
+                throw new ArgumentException("Too many arguments were supplied to this command.");
 
             return args;
         }
