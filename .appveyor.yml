@@ -60,6 +60,30 @@ nuget:
   disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
 
 deploy:
+    # deploying to GitHub releases
+  - provider: GitHub
+    tag: uwx-nightly-$(appveyor_build_version)
+    release: "uwx's personalized DSharpPlus build r$(appveyor_build_version)"
+    description: |
+      Build project $(APPVEYOR_PROJECT_ID)
+      Cloned $(APPVEYOR_REPO_PROVIDER) repo to $(APPVEYOR_BUILD_FOLDER)
+      Revision $(APPVEYOR_BUILD_NUMBER) ($(APPVEYOR_REPO_SCM) commit $(APPVEYOR_REPO_COMMIT) from $(APPVEYOR_REPO_BRANCH))
+      Commit info:
+      ```
+      $(APPVEYOR_REPO_COMMIT_TIMESTAMP) $(APPVEYOR_REPO_COMMIT_AUTHOR) <$(APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL)>:
+      $(APPVEYOR_REPO_COMMIT_MESSAGE)
+      $(APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED)
+      ```
+    provider: GitHub
+    auth_token:
+      secure: P6fLO7WZwzqHvmMFHtii8ToXcxF25nJnh/GThOE7hSb4TEs+h3ARPzKXVCcHSf/P # your encrypted token from GitHub
+    artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+    draft: false
+    prerelease: true
+    on:
+      branch: master                 # release from master branch only
+      #appveyor_repo_tag: true        # deploy on tag push only
+      
     # Deploying to NuGet feed
   - provider: NuGet
     #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
