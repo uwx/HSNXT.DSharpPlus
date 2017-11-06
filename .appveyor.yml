@@ -74,7 +74,6 @@ deploy:
       $(APPVEYOR_REPO_COMMIT_MESSAGE)
       $(APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED)
       ```
-    provider: GitHub
     auth_token:
       secure: P6fLO7WZwzqHvmMFHtii8ToXcxF25nJnh/GThOE7hSb4TEs+h3ARPzKXVCcHSf/P # your encrypted token from GitHub
     artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
