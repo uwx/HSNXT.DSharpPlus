@@ -66,8 +66,8 @@ deploy:
     release: "uwx's personalized DSharpPlus build r$(APPVEYOR_BUILD_NUMBER)"
     description: |
       Build project $(APPVEYOR_PROJECT_ID)
-      Cloned $(APPVEYOR_REPO_PROVIDER) repo to $(APPVEYOR_BUILD_FOLDER)
-      Revision $(APPVEYOR_BUILD_NUMBER) ($(APPVEYOR_REPO_SCM) commit $(APPVEYOR_REPO_COMMIT) from $(APPVEYOR_REPO_BRANCH))
+      Cloned repo to $(APPVEYOR_BUILD_FOLDER)
+      Revision $(APPVEYOR_BUILD_NUMBER) ($(APPVEYOR_REPO_SCM) commit $(APPVEYOR_REPO_COMMIT) from $(APPVEYOR_REPO_NAME)/$(APPVEYOR_REPO_BRANCH))
       Commit info:
       ```
       $(APPVEYOR_REPO_COMMIT_TIMESTAMP) $(APPVEYOR_REPO_COMMIT_AUTHOR) <email hidden>:
