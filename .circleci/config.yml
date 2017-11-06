@@ -12,15 +12,74 @@ jobs:
       - run:
           name: Restore NuGet packages
           command: dotnet restore -v Minimal
+
       - run:
-          name: Build (netstandard1.1)
-          command: dotnet build DSharpPlus.sln -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build DSharpPlus.CommandsNext netstandard1.1
+          command: dotnet build DSharpPlus.CommandsNext -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
       - run:
-          name: Build (netstandard1.3)
-          command: dotnet build DSharpPlus.sln -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build DSharpPlus.CommandsNext netstandard1.3
+          command: dotnet build DSharpPlus.CommandsNext -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
       - run:
-          name: Build (netstandard2.0)
-          command: dotnet build DSharpPlus.sln -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build DSharpPlus.CommandsNext netstandard2.0
+          command: dotnet build DSharpPlus.CommandsNext -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus.Interactivity netstandard1.1
+          command: dotnet build DSharpPlus.Interactivity -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Interactivity netstandard1.3
+          command: dotnet build DSharpPlus.Interactivity -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Interactivity netstandard2.0
+          command: dotnet build DSharpPlus.Interactivity -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus.Rest netstandard1.1
+          command: dotnet build DSharpPlus.Rest -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Rest netstandard1.3
+          command: dotnet build DSharpPlus.Rest -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Rest netstandard2.0
+          command: dotnet build DSharpPlus.Rest -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus.Test netstandard1.1
+          command: dotnet build DSharpPlus.Test -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Test netstandard1.3
+          command: dotnet build DSharpPlus.Test -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.Test netstandard2.0
+          command: dotnet build DSharpPlus.Test -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus.VoiceNext netstandard1.1
+          command: dotnet build DSharpPlus.VoiceNext -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.VoiceNext netstandard1.3
+          command: dotnet build DSharpPlus.VoiceNext -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.VoiceNext netstandard2.0
+          command: dotnet build DSharpPlus.VoiceNext -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus netstandard1.1
+          command: dotnet build DSharpPlus -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus netstandard1.3
+          command: dotnet build DSharpPlus -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus netstandard2.0
+          command: dotnet build DSharpPlus -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
+      - run:
+          name: Build DSharpPlus.WebSocket.WebSocket4NetCore netstandard1.3
+          command: dotnet build DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+      - run:
+          name: Build DSharpPlus.WebSocket.WebSocket4NetCore netstandard2.0
+          command: dotnet build DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+
 #      - run:
 #          name: Package
 #          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$CIRCLE_BUILD_NUM"
