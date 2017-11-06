@@ -15,6 +15,25 @@ dotnet: 2.0.0
 
 env: 
   matrix:
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Test -f netcoreapp2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard2.0"
+  
    - COREBTYP=Debug COREAPPTYP=netstandard1.1
    - COREBTYP=Debug COREAPPTYP=netstandard1.3
    - COREBTYP=Debug COREAPPTYP=netstandard2.0
