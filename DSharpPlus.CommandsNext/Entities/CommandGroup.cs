@@ -16,6 +16,11 @@ namespace DSharpPlus.CommandsNext
         /// </summary>
         public IReadOnlyList<Command> Children { get; internal set; }
 
+        /// <summary>
+        /// Gets whether this command is executable without subcommands.
+        /// </summary>
+        public bool IsExecutableWithoutSubcommands => this.Callable == null;
+
         internal CommandGroup() : base() { }
 
         /// <summary>
@@ -56,32 +61,31 @@ namespace DSharpPlus.CommandsNext
                         Command = cmd,
                         Config = ctx.Config,
                         RawArgumentString = x,
-                        CommandsNext = ctx.CommandsNext,
-                        Dependencies = ctx.Dependencies
+                        CommandsNext = ctx.CommandsNext
                     };
 
-                    var fchecks = await cmd.RunChecksAsync(xctx);
+                    var fchecks = await cmd.RunChecksAsync(xctx, false).ConfigureAwait(false);
                     if (fchecks.Any())
                         return new CommandResult
                         {
                             IsSuccessful = false,
-                            Exception = new ChecksFailedException("One or more pre-execution checks failed.", cmd, xctx, fchecks),
+                            Exception = new ChecksFailedException(cmd, xctx, fchecks),
                             Context = xctx
                         };
                     
-                    return await cmd.ExecuteAsync(xctx);
+                    return await cmd.ExecuteAsync(xctx).ConfigureAwait(false);
                 }
             }
 
-            if (this.Callable == null)
+            if (this.IsExecutableWithoutSubcommands)
                 return new CommandResult
                 {
                     IsSuccessful = false,
-                    Exception = new NotSupportedException("No matching subcommands were found, and this group is not executable."),
+                    Exception = new InvalidOperationException("No matching subcommands were found, and this group is not executable."),
                     Context = ctx
                 };
 
-            return await base.ExecuteAsync(ctx);
+            return await base.ExecuteAsync(ctx).ConfigureAwait(false);
         }
     }
 }

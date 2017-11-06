@@ -57,8 +57,8 @@ namespace DSharpPlus
             return r.Next(ping, int.MaxValue);
         }
 
-        internal static string GetApiBaseUri() =>
-            Endpoints.BASE_URI;
+        internal static string GetApiBaseUri() 
+            => Endpoints.BASE_URI;
 
         internal static string GetFormattedToken(BaseDiscordClient client)
         {
@@ -85,14 +85,10 @@ namespace DSharpPlus
         }
 
         internal static Dictionary<string, string> GetBaseHeaders()
-        {
-            return new Dictionary<string, string>();
-        }
+            => new Dictionary<string, string>();
 
         internal static string GetUserAgent()
-        {
-            return VersionHeader;
-        }
+            => VersionHeader;
 
         internal static bool ContainsUserMentions(string message)
         {
@@ -205,11 +201,13 @@ namespace DSharpPlus
             if (perm == Permissions.None)
                 return PermissionStrings[perm];
 
+            perm &= PermissionMethods.FULL_PERMS;
+
             var strs = PermissionStrings
                 .Where(xkvp => xkvp.Key != Permissions.None && (perm & xkvp.Key) == xkvp.Key)
                 .Select(xkvp => xkvp.Value);
 
-            return string.Join(", ", strs);
+            return string.Join(", ", strs.OrderBy(xs => xs));
         }
     }
 }

@@ -10,7 +10,10 @@ namespace DSharpPlus.Test
 {
     internal sealed class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
+            => MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
+
+        public static async Task MainAsync(string[] args)
         {
             var cfg = new TestBotConfig();
             var json = string.Empty;
@@ -32,12 +35,12 @@ namespace DSharpPlus.Test
             {
                 var bot = new TestBot(cfg, i);
                 tskl.Add(bot.RunAsync());
-                await Task.Delay(7500);
+                await Task.Delay(7500).ConfigureAwait(false);
             }
             
-            await Task.WhenAll(tskl);
+            await Task.WhenAll(tskl).ConfigureAwait(false);
 
-            await Task.Delay(-1);
+            await Task.Delay(-1).ConfigureAwait(false);
         }
 
         private void DebugLogger_LogMessageReceived(object sender, DebugLogMessageEventArgs e)

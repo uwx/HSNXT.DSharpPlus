@@ -28,7 +28,7 @@ namespace DSharpPlus.CommandsNext.Attributes
             this.Permissions = permissions;
         }
 
-        public override async Task<bool> CanExecute(CommandContext ctx)
+        public override async Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
         {
             if (ctx.Guild == null)
                 return this.IgnoreDms;
@@ -36,24 +36,23 @@ namespace DSharpPlus.CommandsNext.Attributes
             var usr = ctx.Member;
             if (usr == null)
                 return false;
-
-            if (usr.Id == ctx.Guild.OwnerId)
-                return true;
-
             var pusr = ctx.Channel.PermissionsFor(usr);
 
-            var bot = await ctx.Guild.GetMemberAsync(ctx.Client.CurrentUser.Id);
+            var bot = await ctx.Guild.GetMemberAsync(ctx.Client.CurrentUser.Id).ConfigureAwait(false);
             if (bot == null)
                 return false;
             var pbot = ctx.Channel.PermissionsFor(bot);
 
-            if ((pusr & Permissions.Administrator) == Permissions.Administrator && (pbot & Permissions.Administrator) == Permissions.Administrator)
-                return true;
+            var usrok = ctx.Guild.OwnerId == usr.Id;
+            var botok = ctx.Guild.OwnerId == bot.Id;
 
-            if ((pusr & this.Permissions) == this.Permissions && (pbot & this.Permissions) == this.Permissions)
-                return true;
+            if (!usrok)
+                usrok = (pusr & Permissions.Administrator) != 0 || (pusr & this.Permissions) == this.Permissions;
+            
+            if (!botok)
+                botok = (pbot & Permissions.Administrator) != 0 || (pbot & this.Permissions) == this.Permissions;
 
-            return false;
+            return usrok && botok;
         }
     }
 }

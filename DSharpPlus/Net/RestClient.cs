@@ -41,23 +41,50 @@ namespace DSharpPlus.Net
             this.RequestSemaphore = new SemaphoreSlim(1, 1);
         }
 
+        internal RestClient() // This is for meta-clients, such as the webhook client
+        {
+            this.HttpClient = new HttpClient
+            {
+                BaseAddress = new Uri(Utilities.GetApiBaseUri())
+            };
+            this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", Utilities.GetUserAgent());
+
+            this.Buckets = new HashSet<RateLimitBucket>();
+            this.RequestSemaphore = new SemaphoreSlim(1, 1);
+        }
+
         public RateLimitBucket GetBucket(RestRequestMethod method, string route, object route_params, out string url)
         {
-            var rparams = route_params.GetType()
+            var rparams_props = route_params.GetType()
                 .GetTypeInfo()
-                .DeclaredProperties
-                .ToDictionary(xp => xp.Name, xp => xp.GetValue(route_params) as string);
+                .DeclaredProperties;
+            var rparams = new Dictionary<string, string>();
+            foreach (var xp in rparams_props)
+            {
+                var val = xp.GetValue(route_params);
+                if (val is string xs)
+                    rparams[xp.Name] = xs;
+                else if (val is DateTime dt)
+                    rparams[xp.Name] = dt.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+                else if (val is DateTimeOffset dto)
+                    rparams[xp.Name] = dto.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+                else if (val is IFormattable xf)
+                    rparams[xp.Name] = xf.ToString(null, CultureInfo.InvariantCulture);
+                else
+                    rparams[xp.Name] = val.ToString();
+            }
 
             var guild_id = rparams.ContainsKey("guild_id") ? rparams["guild_id"] : "";
             var channel_id = rparams.ContainsKey("channel_id") ? rparams["channel_id"] : "";
+            var webhook_id = rparams.ContainsKey("webhook_id") ? rparams["webhook_id"] : "";
 
-            var id = RateLimitBucket.GenerateId(method, route, guild_id, channel_id);
+            var id = RateLimitBucket.GenerateId(method, route, guild_id, channel_id, webhook_id);
 
             RateLimitBucket bucket = null;
             bucket = this.Buckets.FirstOrDefault(xb => xb.BucketId == id);
             if (bucket == null)
             {
-                bucket = new RateLimitBucket(method, route, guild_id, channel_id);
+                bucket = new RateLimitBucket(method, route, guild_id, channel_id, webhook_id);
                 this.Buckets.Add(bucket);
             }
 
@@ -70,7 +97,7 @@ namespace DSharpPlus.Net
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            await this.RequestSemaphore.WaitAsync();
+            await this.RequestSemaphore.WaitAsync().ConfigureAwait(false);
 
             var bucket = request.RateLimitBucket;
             var now = DateTimeOffset.UtcNow;
@@ -86,9 +113,9 @@ namespace DSharpPlus.Net
             var response = new RestResponse();
             try
             {
-                var res = await HttpClient.SendAsync(req, HttpCompletionOption.ResponseContentRead);
+                var res = await HttpClient.SendAsync(req, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
 
-                var bts = await res.Content.ReadAsByteArrayAsync();
+                var bts = await res.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
                 var txt = UTF8.GetString(bts, 0, bts.Length);
 
                 response.Headers = res.Headers.ToDictionary(xh => xh.Key, xh => string.Join("\n", xh.Value));
@@ -102,6 +129,8 @@ namespace DSharpPlus.Net
                 this.RequestSemaphore.Release();
                 return;
             }
+
+            this.UpdateBucket(request, response);
 
             Exception ex = null;
             switch (response.ResponseCode)
@@ -131,17 +160,19 @@ namespace DSharpPlus.Net
                         if (global)
                         {
                             request.Discord.DebugLogger.LogMessage(LogLevel.Error, "REST", "Global ratelimit hit, cooling down", DateTime.Now);
-                            await wait;
+                            await wait.ConfigureAwait(false);
                         }
                         else
+                        {
                             request.Discord.DebugLogger.LogMessage(LogLevel.Error, "REST", $"Ratelimit hit, requeueing request to {request.Url}", DateTime.Now);
+                        }
+
                         this.RequestSemaphore.Release();
                         return;
                     }
                     break;
             }
 
-            this.UpdateBucket(request, response);
             this.RequestSemaphore.Release();
 
             if (ex != null)
@@ -197,18 +228,18 @@ namespace DSharpPlus.Net
                 return;
             var hs = response.Headers;
 
+            // handle the wait
+            if (hs.TryGetValue("Retry-After", out var retry_after_raw))
+            {
+                var retry_after = int.Parse(retry_after_raw, CultureInfo.InvariantCulture);
+                wait_task = Task.Delay(retry_after);
+            }
+
             // check if global b1nzy
             if (hs.TryGetValue("X-RateLimit-Global", out var isglobal) && isglobal.ToLowerInvariant() == "true")
             {
                 // global
-
-                hs.TryGetValue("Retry-After", out var retry_after_raw);
-                var retry_after = int.Parse(retry_after_raw, CultureInfo.InvariantCulture);
-
-                // handle the wait
-                wait_task = Task.Delay(retry_after);
                 global = true;
-                return;
             }
         }
 
@@ -231,16 +262,25 @@ namespace DSharpPlus.Net
                 return;
 
             var clienttime = DateTimeOffset.UtcNow;
+            var resettime = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(long.Parse(reset, CultureInfo.InvariantCulture));
             var servertime = clienttime;
             if (hs.TryGetValue("Date", out var raw_date))
                 servertime = DateTimeOffset.Parse(raw_date, CultureInfo.InvariantCulture).ToUniversalTime();
 
-            var difference = clienttime.Subtract(servertime);
-            request.Discord.DebugLogger.LogMessage(LogLevel.Debug, "REST", $"Difference between machine and server time: {difference.TotalMilliseconds.ToString("#,##0.00", CultureInfo.InvariantCulture)}ms", DateTime.Now);
+            var resetdelta = resettime - servertime;
+            //var difference = clienttime - servertime;
+            //if (Math.Abs(difference.TotalSeconds) >= 1)
+            //    request.Discord.DebugLogger.LogMessage(LogLevel.Debug, "REST", $"Difference between machine and server time: {difference.TotalMilliseconds.ToString("#,##0.00", CultureInfo.InvariantCulture)}ms", DateTime.Now);
+            //else
+            //    difference = TimeSpan.Zero;
+
+            if (request.RateLimitWaitOverride != null)
+                resetdelta = TimeSpan.FromSeconds(request.RateLimitWaitOverride.Value);
 
             bucket.Maximum = int.Parse(usesmax, CultureInfo.InvariantCulture);
             bucket.Remaining = int.Parse(usesleft, CultureInfo.InvariantCulture);
-            bucket.Reset = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(long.Parse(reset, CultureInfo.InvariantCulture) + difference.TotalSeconds);
+            //bucket.Reset = servertime + resetdelta + difference;
+            bucket.Reset = clienttime + resetdelta;
         }
     }
 }

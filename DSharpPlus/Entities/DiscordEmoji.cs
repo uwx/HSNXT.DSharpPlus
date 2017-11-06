@@ -16,7 +16,7 @@ namespace DSharpPlus.Entities
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; internal set; }
-
+        
         /// <summary>
         /// Gets IDs the roles this emoji is enabled for.
         /// </summary>
@@ -36,6 +36,19 @@ namespace DSharpPlus.Entities
         public bool Managed { get; internal set; }
 
         internal DiscordEmoji() { }
+
+        /// <summary>
+        /// Gets emoji's name in non-Unicode format (eg. :thinking: instead of the Unicode representation of the emoji).
+        /// </summary>
+        public string GetDiscordName()
+        {
+            DiscordNameLookup.TryGetValue(this.Name, out var name);
+
+            if (name == null)
+                return $":{ this.Name }:";
+
+            return name;
+        }
 
         /// <summary>
         /// Returns a string representation of this emoji.
@@ -120,16 +133,23 @@ namespace DSharpPlus.Entities
         /// <param name="e1">First emoji to compare.</param>
         /// <param name="e2">Second emoji to compare.</param>
         /// <returns>Whether the two emoji are not equal.</returns>
-        public static bool operator !=(DiscordEmoji e1, DiscordEmoji e2) =>
-            !(e1 == e2);
+        public static bool operator !=(DiscordEmoji e1, DiscordEmoji e2) 
+            => !(e1 == e2);
+
+        /// <summary>
+        /// Implicitly converts this emoji to its string representation.
+        /// </summary>
+        /// <param name="e1">Emoji to convert.</param>
+        public static implicit operator string(DiscordEmoji e1) 
+            => e1.ToString();
 
         /// <summary>
         /// Creates an emoji object from a unicode entity.
         /// </summary>
-        /// <param name="client"><see cref="DiscordClient"/> to attach to the object.</param>
+        /// <param name="client"><see cref="BaseDiscordClient"/> to attach to the object.</param>
         /// <param name="unicode_entity">Unicode entity to create the object from.</param>
         /// <returns>Create <see cref="DiscordEmoji"/> object.</returns>
-        public static DiscordEmoji FromUnicode(DiscordClient client, string unicode_entity)
+        public static DiscordEmoji FromUnicode(BaseDiscordClient client, string unicode_entity)
         {
             if (client == null)
                 throw new ArgumentNullException(nameof(client), "Client cannot be null.");
@@ -150,10 +170,10 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Creates an emoji object from a guild emote.
         /// </summary>
-        /// <param name="client"><see cref="DiscordClient"/> to attach to the object.</param>
+        /// <param name="client"><see cref="BaseDiscordClient"/> to attach to the object.</param>
         /// <param name="id">Id of the emote.</param>
         /// <returns>Create <see cref="DiscordEmoji"/> object.</returns>
-        public static DiscordEmoji FromGuildEmote(DiscordClient client, ulong id)
+        public static DiscordEmoji FromGuildEmote(BaseDiscordClient client, ulong id)
         {
             if (client == null)
                 throw new ArgumentNullException(nameof(client), "Client cannot be null.");
@@ -170,10 +190,10 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Creates a DiscordEmoji from emote name that includes colons (eg. :thinking:). This method also supports skin tone variations (eg. :ok_hand::skin-tone-2:), standard emoticons (eg. :D), as well as guild emoji (still specified by :name:).
         /// </summary>
-        /// <param name="client"><see cref="DiscordClient"/> to attach to the object.</param>
+        /// <param name="client"><see cref="BaseDiscordClient"/> to attach to the object.</param>
         /// <param name="name">Name of the emote to find, including colons (eg. :thinking:).</param>
         /// <returns>Create <see cref="DiscordEmoji"/> object.</returns>
-        public static DiscordEmoji FromName(DiscordClient client, string name)
+        public static DiscordEmoji FromName(BaseDiscordClient client, string name)
         {
             if (client == null)
                 throw new ArgumentNullException(nameof(client), "Client cannot be null.");

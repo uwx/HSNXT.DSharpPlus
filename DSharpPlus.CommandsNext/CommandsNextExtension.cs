@@ -10,13 +10,14 @@ using DSharpPlus.CommandsNext.Converters;
 using DSharpPlus.CommandsNext.Exceptions;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DSharpPlus.CommandsNext
 {
     /// <summary>
     /// This is the class which handles command registration, management, and execution. 
     /// </summary>
-    public class CommandsNextModule : BaseModule
+    public class CommandsNextExtension : BaseExtension
     {
         #region Events
         /// <summary>
@@ -39,11 +40,11 @@ namespace DSharpPlus.CommandsNext
         }
         private AsyncEvent<CommandErrorEventArgs> _error;
 
-        private async Task OnCommandExecuted(CommandExecutionEventArgs e) =>
-            await this._executed.InvokeAsync(e).ConfigureAwait(false);
+        private Task OnCommandExecuted(CommandExecutionEventArgs e) 
+            => this._executed.InvokeAsync(e);
 
-        private async Task OnCommandErrored(CommandErrorEventArgs e) =>
-            await this._error.InvokeAsync(e).ConfigureAwait(false);
+        private Task OnCommandErrored(CommandErrorEventArgs e) 
+            => this._error.InvokeAsync(e);
         #endregion
 
         private CommandsNextConfiguration Config { get; }
@@ -51,11 +52,12 @@ namespace DSharpPlus.CommandsNext
         private const string GROUP_COMMAND_METHOD_NAME = "ExecuteGroupAsync";
 
         /// <summary>
-        /// Gets the dependency collection this CommandsNext module was configured with.
+        /// Gets the service provider this CommandsNext module was configured with.
         /// </summary>
-        public DependencyCollection Dependencies => this.Config.Dependencies;
+        public IServiceProvider Services
+            => this.Config.Services;
 
-        internal CommandsNextModule(CommandsNextConfiguration cfg)
+        internal CommandsNextExtension(CommandsNextConfiguration cfg)
         {
             this.Config = cfg;
             this.TopLevelCommands = new Dictionary<string, Command>();
@@ -70,6 +72,31 @@ namespace DSharpPlus.CommandsNext
         {
             this.HelpFormatterType = typeof(T);
         }
+
+        #region Helpers
+        /// <summary>
+        /// Registers an argument converter for specified type.
+        /// </summary>
+        /// <typeparam name="T">Type for which to register the converter.</typeparam>
+        /// <param name="converter">Converter to register.</param>
+        public void RegisterConverter<T>(IArgumentConverter<T> converter) 
+            => CommandsNextUtilities.RegisterConverter(converter);
+
+        /// <summary>
+        /// Unregisters an argument converter for specified type.
+        /// </summary>
+        /// <typeparam name="T">Type for which to unregister the converter.</typeparam>
+        public void UnregisterConverter<T>() 
+            => CommandsNextUtilities.UnregisterConverter<T>();
+
+        /// <summary>
+        /// Registers a user-friendly type name.
+        /// </summary>
+        /// <typeparam name="T">Type to register the name for.</typeparam>
+        /// <param name="value">Name to register.</param>
+        public void RegisterUserFriendlyTypeName<T>(string value) 
+            => CommandsNextUtilities.RegisterUserFriendlyTypeName<T>(value);
+        #endregion
 
         #region DiscordClient Registration
         /// <summary>
@@ -152,7 +179,7 @@ namespace DSharpPlus.CommandsNext
             if (!this.Config.EnableDms && e.Channel.IsPrivate)
                 return;
 
-            if (this.Config.SelfBot && e.Author.Id != this.Client.CurrentUser.Id)
+            if (this.Config.Selfbot && e.Author.Id != this.Client.CurrentUser.Id)
                 return;
 
             var mpos = -1;
@@ -163,17 +190,13 @@ namespace DSharpPlus.CommandsNext
                 mpos = e.Message.GetStringPrefixLength(this.Config.StringPrefix);
 
             if (mpos == -1 && this.Config.CustomPrefixPredicate != null)
-                mpos = await this.Config.CustomPrefixPredicate(e.Message);
+                mpos = await this.Config.CustomPrefixPredicate(e.Message).ConfigureAwait(false);
 
             if (mpos == -1)
                 return;
 
             var cnt = e.Message.Content.Substring(mpos);
             var cms = CommandsNextUtilities.ExtractNextArgument(cnt, out var rrg);
-            //var cmi = cnt.IndexOf(' ', mpos);
-            //var cms = cmi != -1 ? cnt.Substring(mpos, cmi - mpos) : cnt.Substring(mpos);
-            //var rrg = cmi != -1 ? cnt.Substring(cmi + 1) : "";
-            //var arg = CommandsNextUtilities.SplitArguments(rrg);
 
             var cmd = this.TopLevelCommands.ContainsKey(cms) ? this.TopLevelCommands[cms] : null;
             if (cmd == null && !this.Config.CaseSensitive)
@@ -187,13 +210,12 @@ namespace DSharpPlus.CommandsNext
                 //RawArguments = new ReadOnlyCollection<string>(arg.ToList()),
                 Config = this.Config,
                 RawArgumentString = rrg,
-                CommandsNext = this,
-                Dependencies = this.Config.Dependencies
+                CommandsNext = this
             };
 
             if (cmd == null)
             {
-                await this._error.InvokeAsync(new CommandErrorEventArgs { Context = ctx, Exception = new CommandNotFoundException("Specified command was not found.", cms) });
+                await this._error.InvokeAsync(new CommandErrorEventArgs { Context = ctx, Exception = new CommandNotFoundException(cms) }).ConfigureAwait(false);
                 return;
             }
 
@@ -201,29 +223,34 @@ namespace DSharpPlus.CommandsNext
             {
                 try
                 {
-                    var fchecks = await cmd.RunChecksAsync(ctx);
+                    var fchecks = await cmd.RunChecksAsync(ctx, false).ConfigureAwait(false);
                     if (fchecks.Any())
-                        throw new ChecksFailedException("One or more pre-execution checks failed.", cmd, ctx, fchecks);
+                        throw new ChecksFailedException(cmd, ctx, fchecks);
 
-                    var res = await cmd.ExecuteAsync(ctx);
+                    var res = await cmd.ExecuteAsync(ctx).ConfigureAwait(false);
                     
                     if (res.IsSuccessful)
-                        await this._executed.InvokeAsync(new CommandExecutionEventArgs { Context = res.Context });
+                        await this._executed.InvokeAsync(new CommandExecutionEventArgs { Context = res.Context }).ConfigureAwait(false);
                     else
-                        await this._error.InvokeAsync(new CommandErrorEventArgs { Context = res.Context, Exception = res.Exception });
+                        await this._error.InvokeAsync(new CommandErrorEventArgs { Context = res.Context, Exception = res.Exception }).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
-                    await this._error.InvokeAsync(new CommandErrorEventArgs { Context = ctx, Exception = ex });
+                    await this._error.InvokeAsync(new CommandErrorEventArgs { Context = ctx, Exception = ex }).ConfigureAwait(false);
                 }
             });
         }
         #endregion
 
         #region Command Registration
+        /// <summary>
+        /// Gets a dictionary of registered top-level commands.
+        /// </summary>
+        public IReadOnlyDictionary<string, Command> RegisteredCommands 
+            => this._registered_commands_lazy.Value;
+
         private Dictionary<string, Command> TopLevelCommands { get; set; }
         private Lazy<IReadOnlyDictionary<string, Command>> _registered_commands_lazy;
-        public IReadOnlyDictionary<string, Command> RegisteredCommands => this._registered_commands_lazy.Value;
 
         /// <summary>
         /// Registers all commands from a given assembly. The command classes need to be public to be considered for registration.
@@ -337,6 +364,7 @@ namespace DSharpPlus.CommandsNext
             var ms = ti.DeclaredMethods
                 .Where(xm => xm.IsPublic && !xm.IsStatic && xm.Name != GROUP_COMMAND_METHOD_NAME);
             var cmds = new List<Command>();
+            var uniq = new HashSet<string>();
             foreach (var m in ms)
             {
                 if (m.ReturnType != typeof(Task))
@@ -386,6 +414,21 @@ namespace DSharpPlus.CommandsNext
                 MakeCallable(m, inst, out var cbl, out var args);
                 cmd.Callable = cbl;
                 cmd.Arguments = args;
+                
+                if (uniq.Contains(cmd.Name))
+                    throw new DuplicateCommandException(cmd.QualifiedName);
+                uniq.Add(cmd.Name);
+
+                if (cmd.Aliases != null && cmd.Aliases.Any())
+                {
+                    foreach (var xa in cmd.Aliases)
+                    {
+                        if (uniq.Contains(xa))
+                            throw new DuplicateCommandException(cmd.QualifiedName);
+
+                        uniq.Add(xa);
+                    }
+                }
 
                 cmds.Add(cmd);
             }
@@ -491,16 +534,47 @@ namespace DSharpPlus.CommandsNext
             var constr = cs[0];
             var prms = constr.GetParameters();
             var args = new object[prms.Length];
-            var deps = this.Config.Dependencies;
+            var deps = this.Config.Services;
 
             if (prms.Length != 0 && deps == null)
                 throw new InvalidOperationException("Dependency collection needs to be specified for parametered constructors.");
-
+            
+            // inject via constructor
             if (prms.Length != 0)
                 for (var i = 0; i < args.Length; i++)
-                    args[i] = deps.GetDependency(prms[i].ParameterType);
+                    args[i] = deps.GetRequiredService(prms[i].ParameterType);
 
-            return Activator.CreateInstance(t, args);
+            var module = Activator.CreateInstance(t, args);
+
+            // inject into properties
+            var props = ti.DeclaredProperties.Where(xp => xp.CanWrite && xp.SetMethod != null && !xp.SetMethod.IsStatic && xp.SetMethod.IsPublic);
+            foreach (var prop in props)
+            {
+                if (prop.GetCustomAttribute<DontInjectAttribute>() != null)
+                    continue;
+
+                var srv = deps.GetService(prop.PropertyType);
+                if (srv == null)
+                    continue;
+
+                prop.SetValue(module, srv);
+            }
+
+            // inject into fields
+            var fields = ti.DeclaredFields.Where(xf => !xf.IsInitOnly && !xf.IsStatic && xf.IsPublic);
+            foreach (var field in fields)
+            {
+                if (field.GetCustomAttribute<DontInjectAttribute>() != null)
+                    continue;
+
+                var srv = deps.GetService(field.FieldType);
+                if (srv == null)
+                    continue;
+
+                field.SetValue(module, srv);
+            }
+
+            return module;
         }
 
         private void AddToCommandDictionary(Command cmd)
@@ -509,7 +583,7 @@ namespace DSharpPlus.CommandsNext
                 return;
 
             if (this.TopLevelCommands.ContainsKey(cmd.Name) || (cmd.Aliases != null && cmd.Aliases.Any(xs => this.TopLevelCommands.ContainsKey(xs))))
-                throw new CommandExistsException("Given command name is already registered.", cmd.Name);
+                throw new DuplicateCommandException(cmd.QualifiedName);
 
             this.TopLevelCommands[cmd.Name] = cmd;
             if (cmd.Aliases != null)
@@ -545,9 +619,9 @@ namespace DSharpPlus.CommandsNext
                     if (cmd == null)
                         break;
 
-                    var cfl = await cmd.RunChecksAsync(ctx);
+                    var cfl = await cmd.RunChecksAsync(ctx, true).ConfigureAwait(false);
                     if (cfl.Any())
-                        throw new ChecksFailedException("You cannot access that command!", cmd, ctx, cfl);
+                        throw new ChecksFailedException(cmd, ctx, cfl);
 
                     if (cmd is CommandGroup)
                         search_in = (cmd as CommandGroup).Children;
@@ -556,7 +630,7 @@ namespace DSharpPlus.CommandsNext
                 }
 
                 if (cmd == null)
-                    throw new CommandNotFoundException("Specified command was not found!", string.Join(" ", command));
+                    throw new CommandNotFoundException(string.Join(" ", command));
 
                 helpbuilder.WithCommandName(cmd.Name).WithDescription(cmd.Description);
 
@@ -581,13 +655,13 @@ namespace DSharpPlus.CommandsNext
                             continue;
                         }
 
-                        var cfl = await sc.RunChecksAsync(ctx);
+                        var cfl = await sc.RunChecksAsync(ctx, true).ConfigureAwait(false);
                         if (!cfl.Any())
                             scs.Add(sc);
                     }
 
                     if (scs.Any())
-                        helpbuilder.WithSubcommands(scs.OrderBy(xc => xc.QualifiedName));
+                        helpbuilder.WithSubcommands(scs.OrderBy(xc => xc.Name));
                 }
             }
             else
@@ -602,17 +676,17 @@ namespace DSharpPlus.CommandsNext
                         continue;
                     }
 
-                    var cfl = await sc.RunChecksAsync(ctx);
+                    var cfl = await sc.RunChecksAsync(ctx, true).ConfigureAwait(false);
                     if (!cfl.Any())
                         scs.Add(sc);
                 }
 
                 if (scs.Any())
-                    helpbuilder.WithSubcommands(scs.OrderBy(xc => xc.QualifiedName));
+                    helpbuilder.WithSubcommands(scs.OrderBy(xc => xc.Name));
             }
 
             var hmsg = helpbuilder.Build();
-            await ctx.RespondAsync(hmsg.Content, embed: hmsg.Embed);
+            await ctx.RespondAsync(hmsg.Content, embed: hmsg.Embed).ConfigureAwait(false);
         }
         #endregion
 
@@ -628,7 +702,7 @@ namespace DSharpPlus.CommandsNext
         {
             var eph = new DateTimeOffset(2015, 1, 1, 0, 0, 0, TimeSpan.Zero);
             var dtn = DateTimeOffset.UtcNow;
-            var ts = (ulong)(eph - dtn).TotalMilliseconds;
+            var ts = (ulong)(dtn - eph).TotalMilliseconds;
 
             // create fake message
             var msg = new DiscordMessage
@@ -669,7 +743,7 @@ namespace DSharpPlus.CommandsNext
             msg._mentioned_roles = mentioned_roles;
             msg._mentioned_channels = mentioned_channels;
 
-            await this.HandleCommandsAsync(new MessageCreateEventArgs(this.Client) { Message = msg });
+            await this.HandleCommandsAsync(new MessageCreateEventArgs(this.Client) { Message = msg }).ConfigureAwait(false);
         }
         #endregion
     }

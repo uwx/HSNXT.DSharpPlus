@@ -23,6 +23,9 @@ namespace DSharpPlus.Net.Abstractions
 
         [JsonProperty("permission_overwrites", NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<DiscordOverwrite> PermissionOverwrites { get; set; }
+
+        [JsonProperty("nsfw", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Nsfw { get; set; }
     }
 
     internal sealed class RestChannelModifyPayload
@@ -47,8 +50,8 @@ namespace DSharpPlus.Net.Abstractions
         [JsonProperty("user_limit", NullValueHandling = NullValueHandling.Ignore)]
         public int? UserLimit { get; set; }
 
-        public bool ShouldSerializeParent() =>
-            this.ParentSet;
+        public bool ShouldSerializeParent() 
+            => this.ParentSet;
     }
 
     internal class RestChannelMessageEditPayload
@@ -65,11 +68,11 @@ namespace DSharpPlus.Net.Abstractions
         [JsonIgnore]
         public bool HasEmbed { get; set; }
 
-        public bool ShouldSerializeContent() =>
-            this.HasContent;
+        public bool ShouldSerializeContent() 
+            => this.HasContent;
 
-        public bool ShouldSerializeEmbed() =>
-            this.HasEmbed;
+        public bool ShouldSerializeEmbed() 
+            => this.HasEmbed;
     }
 
     internal sealed class RestChannelMessageCreatePayload : RestChannelMessageEditPayload

@@ -19,7 +19,8 @@ namespace DSharpPlus.Net.WebSocket
         
         private ConcurrentQueue<string> SocketMessageQueue { get; set; }
         private CancellationTokenSource TokenSource { get; set; }
-        private CancellationToken Token => this.TokenSource.Token;
+        private CancellationToken Token 
+            => this.TokenSource.Token;
 
         private ClientWebSocket Socket { get; set; }
         private Task WsListener { get; set; }
@@ -69,25 +70,16 @@ namespace DSharpPlus.Net.WebSocket
         }
 
         /// <summary>
-        /// Creates a new instance.
-        /// </summary>
-        /// <returns></returns>
-        public static new WebSocketClient Create()
-        {
-            return new WebSocketClient();
-        }
-
-        /// <summary>
         /// Connects to the WebSocket server.
         /// </summary>
         /// <param name="uri">The URI of the WebSocket server.</param>
         /// <returns></returns>
-        public override async Task<BaseWebSocketClient> ConnectAsync(string uri)
+        public override async Task<BaseWebSocketClient> ConnectAsync(Uri uri)
         {
             this.SocketMessageQueue = new ConcurrentQueue<string>();
             this.TokenSource = new CancellationTokenSource();
 
-            await InternalConnectAsync(new Uri(uri));
+            await InternalConnectAsync(uri).ConfigureAwait(false);
             return this;
         }
 
@@ -97,7 +89,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <returns></returns>
         public override async Task<BaseWebSocketClient> OnConnectAsync()
         {
-            await _on_connect.InvokeAsync();
+            await _on_connect.InvokeAsync().ConfigureAwait(false);
             return this;
         }
 
@@ -107,7 +99,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <returns></returns>
         public override async Task<BaseWebSocketClient> OnDisconnectAsync(SocketCloseEventArgs e)
         {
-            await _on_disconnect.InvokeAsync(e);
+            await _on_disconnect.InvokeAsync(e).ConfigureAwait(false);
             return this;
         }
 
@@ -128,21 +120,29 @@ namespace DSharpPlus.Net.WebSocket
             this.SocketMessageQueue.Enqueue(message);
 
             if (this.SocketQueueManager == null || this.SocketQueueManager.IsCompleted)
-                this.SocketQueueManager = Task.Run(this.SmqTask, this.Token);
+                this.SocketQueueManager = Task.Run(this.ProcessSmqAsync, this.Token);
         }
 
         internal async Task InternalConnectAsync(Uri uri)
         {
+            this.StreamDecompressor?.Dispose();
+            this.CompressedStream?.Dispose();
+            this.DecompressedStream?.Dispose();
+
+            this.DecompressedStream = new MemoryStream();
+            this.CompressedStream = new MemoryStream();
+            this.StreamDecompressor = new DeflateStream(this.CompressedStream, CompressionMode.Decompress);
+
             this.Socket = new ClientWebSocket();
             this.Socket.Options.KeepAliveInterval = TimeSpan.FromSeconds(20);
 
-            await Socket.ConnectAsync(uri, this.Token);
-            await CallOnConnectedAsync();
-            this.WsListener = Task.Run(this.Listen, this.Token);
+            await Socket.ConnectAsync(uri, this.Token).ConfigureAwait(false);
+            await CallOnConnectedAsync().ConfigureAwait(false);
+            this.WsListener = Task.Run(this.ListenAsync, this.Token);
         }
 
         private bool close_requested = false;
-        public override async Task InternalDisconnectAsync(SocketCloseEventArgs e)
+        public override async Task DisconnectAsync(SocketCloseEventArgs e)
         {
             //if (this.Socket.State != WebSocketState.Open || this.Token.IsCancellationRequested)
             if (close_requested)
@@ -151,7 +151,7 @@ namespace DSharpPlus.Net.WebSocket
             close_requested = true;
             try
             {
-                await Socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", this.Token);
+                await Socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", this.Token).ConfigureAwait(false);
                 e = e ?? new SocketCloseEventArgs(null) { CloseCode = (int)WebSocketCloseStatus.NormalClosure, CloseMessage = "" };
                 Socket.Abort();
                 Socket.Dispose();
@@ -165,11 +165,11 @@ namespace DSharpPlus.Net.WebSocket
                     var cc = this.Socket.CloseStatus != null ? (int)this.Socket.CloseStatus.Value : -1;
                     e = new SocketCloseEventArgs(null) { CloseCode = cc, CloseMessage = this.Socket.CloseStatusDescription ?? "Unknown reason" };
                 }
-                await CallOnDisconnectedAsync(e);
+                await CallOnDisconnectedAsync(e).ConfigureAwait(false);
             }
         }
 
-        internal async Task Listen()
+        internal async Task ListenAsync()
         {
             await Task.Yield();
 
@@ -190,7 +190,7 @@ namespace DSharpPlus.Net.WebSocket
                     {
                         do
                         {
-                            result = await this.Socket.ReceiveAsync(buffseg, token);
+                            result = await this.Socket.ReceiveAsync(buffseg, token).ConfigureAwait(false);
 
                             if (result.MessageType == WebSocketMessageType.Close)
                             {
@@ -211,18 +211,37 @@ namespace DSharpPlus.Net.WebSocket
                     var resultstr = "";
                     if (result.MessageType == WebSocketMessageType.Binary)
                     {
-                        using (var ms1 = new MemoryStream(resultbuff, 2, resultbuff.Length - 2))
-                        using (var ms2 = new MemoryStream())
-                        {
-                            using (var zlib = new DeflateStream(ms1, CompressionMode.Decompress))
-                                await zlib.CopyToAsync(ms2);
+                        if (resultbuff[0] == 0x78)
+                            await this.CompressedStream.WriteAsync(resultbuff, 2, resultbuff.Length - 2).ConfigureAwait(false);
+                        else
+                            await this.CompressedStream.WriteAsync(resultbuff, 0, resultbuff.Length).ConfigureAwait(false);
+                        await this.CompressedStream.FlushAsync().ConfigureAwait(false);
+                        this.CompressedStream.Position = 0;
 
-                            resultbuff = ms2.ToArray();
+                        // partial credit to FiniteReality
+                        // overall idea is his
+                        // I tuned the finer details
+                        // -Emzi
+                        var sfix = BitConverter.ToUInt16(resultbuff, resultbuff.Length - 2);
+                        if (sfix != ZLIB_STREAM_SUFFIX)
+                        {
+                            using (var zlib = new DeflateStream(this.CompressedStream, CompressionMode.Decompress, true))
+                                await zlib.CopyToAsync(this.DecompressedStream).ConfigureAwait(false);
                         }
+                        else
+                        {
+                            await this.StreamDecompressor.CopyToAsync(this.DecompressedStream).ConfigureAwait(false);
+                        }
+
+                        resultbuff = this.DecompressedStream.ToArray();
+                        this.DecompressedStream.Position = 0;
+                        this.DecompressedStream.SetLength(0);
+                        this.CompressedStream.Position = 0;
+                        this.CompressedStream.SetLength(0);
                     }
                     
                     resultstr = UTF8.GetString(resultbuff, 0, resultbuff.Length);
-                    await this.CallOnMessageAsync(resultstr);
+                    await this.CallOnMessageAsync(resultstr).ConfigureAwait(false);
                 }
             }
             catch (Exception e)
@@ -230,10 +249,10 @@ namespace DSharpPlus.Net.WebSocket
                 close = new SocketCloseEventArgs(null) { CloseCode = -1, CloseMessage = e.Message };
             }
 
-            await InternalDisconnectAsync(close);
+            await DisconnectAsync(close).ConfigureAwait(false);
         }
 
-        internal async Task SmqTask()
+        internal async Task ProcessSmqAsync()
         {
             await Task.Yield();
 
@@ -257,37 +276,31 @@ namespace DSharpPlus.Net.WebSocket
                     var cnt = Math.Min(BUFFER_SIZE, buff.Length - off);
 
                     var lm = i == msgc - 1;
-                    await Socket.SendAsync(new ArraySegment<byte>(buff, off, cnt), WebSocketMessageType.Text, lm, this.Token);
+                    await Socket.SendAsync(new ArraySegment<byte>(buff, off, cnt), WebSocketMessageType.Text, lm, this.Token).ConfigureAwait(false);
                 }
             }
         }
 
-        internal async Task CallOnMessageAsync(string result)
-        {
-            await _on_message.InvokeAsync(new SocketMessageEventArgs() { Message = result });
-        }
+        internal Task CallOnMessageAsync(string result)
+            => _on_message.InvokeAsync(new SocketMessageEventArgs() { Message = result });
 
         internal Task CallOnDisconnectedAsync(SocketCloseEventArgs e)
         {
-            //await _on_disconnect.InvokeAsync(e);
-            
             // Zis is to prevent deadlocks (I hope)
-            _ = this._on_disconnect.InvokeAsync(e);
+            _ = this._on_disconnect.InvokeAsync(e).ConfigureAwait(false);
 
             return Task.Delay(0);
         }
 
-        internal async Task CallOnConnectedAsync()
-        {
-            await _on_connect.InvokeAsync();
-        }
+        internal Task CallOnConnectedAsync()
+            => _on_connect.InvokeAsync();
 
         private void EventErrorHandler(string evname, Exception ex)
         {
             if (evname.ToLowerInvariant() == "ws_error")
                 Console.WriteLine($"WSERROR: {ex.GetType()} in {evname}!");
             else
-                this._on_error.InvokeAsync(new SocketErrorEventArgs(null) { Exception = ex }).GetAwaiter().GetResult();
+                this._on_error.InvokeAsync(new SocketErrorEventArgs(null) { Exception = ex }).ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 }

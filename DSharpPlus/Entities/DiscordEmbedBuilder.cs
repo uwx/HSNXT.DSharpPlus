@@ -240,7 +240,7 @@ namespace DSharpPlus.Entities
         /// <returns>This embed builder.</returns>
         public DiscordEmbedBuilder WithTimestamp(DateTime? timestamp)
         {
-            if (timestamp != null)
+            if (timestamp == null)
                 this.Timestamp = null;
             else
                 this.Timestamp = new DateTimeOffset(timestamp.Value);
@@ -402,9 +402,19 @@ namespace DSharpPlus.Entities
         public DiscordEmbedBuilder AddField(string name, string value, bool inline = false)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentNullException(nameof(name));
+            {
+                if (name == null)
+                    throw new ArgumentNullException(nameof(name));
+                else
+                    throw new ArgumentException($"{nameof(name)} cannot be empty or whitespace.");
+            }
             if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentNullException(nameof(value));
+            {
+                if (value == null)
+                    throw new ArgumentNullException(nameof(value));
+                else
+                    throw new ArgumentException($"{nameof(value)} cannot be empty or whitespace.");
+            }
 
             if (name.Length > 256)
                 throw new ArgumentException("Embed field name length cannot exceed 256 characters.");
@@ -478,15 +488,15 @@ namespace DSharpPlus.Entities
         /// Implicitly converts this builder to an embed.
         /// </summary>
         /// <param name="builder">Builder to convert.</param>
-        public static implicit operator DiscordEmbed(DiscordEmbedBuilder builder) =>
-            builder?.Build();
+        public static implicit operator DiscordEmbed(DiscordEmbedBuilder builder) 
+            => builder?.Build();
 
         /// <summary>
         /// Implicitly converts this builder to an optional embed.
         /// </summary>
         /// <param name="builder">Builder to convert.</param>
-        public static implicit operator Optional<DiscordEmbed>(DiscordEmbedBuilder builder) =>
-            builder?.Build();
+        public static implicit operator Optional<DiscordEmbed>(DiscordEmbedBuilder builder) 
+            => builder?.Build();
 
         public class EmbedAuthor
         {

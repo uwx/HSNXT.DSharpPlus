@@ -41,7 +41,7 @@ namespace DSharpPlus.Entities
         /// Gets whether this region is the most optimal for the current user.
         /// </summary>
         [JsonProperty("optimal", NullValueHandling = NullValueHandling.Ignore)]
-        public bool Optimal { get; internal set; }
+        public bool IsOptimal { get; internal set; }
 
         /// <summary>
         /// Gets whether this voice region is deprecated.
@@ -54,5 +54,7 @@ namespace DSharpPlus.Entities
         /// </summary>
         [JsonProperty("custom", NullValueHandling = NullValueHandling.Ignore)]
         public bool IsCustom { get; internal set; }
+
+        internal DiscordVoiceRegion() { }
     }
 }

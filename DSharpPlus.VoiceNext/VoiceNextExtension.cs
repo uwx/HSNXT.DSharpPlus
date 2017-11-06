@@ -3,15 +3,16 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+using DSharpPlus.Net.Udp;
 using DSharpPlus.VoiceNext.VoiceEntities;
 using Newtonsoft.Json;
 
 namespace DSharpPlus.VoiceNext
 {
     /// <summary>
-    /// VoiceNext client.
+    /// Represents VoiceNext extension, which acts as Discord voice client.
     /// </summary>
-    public sealed class VoiceNextClient : BaseModule
+    public sealed class VoiceNextExtension : BaseExtension
     {
         private VoiceNextConfiguration Configuration { get; set; }
 
@@ -24,7 +25,7 @@ namespace DSharpPlus.VoiceNext
         /// </summary>
         public bool IsIncomingEnabled { get; }
 
-        internal VoiceNextClient(VoiceNextConfiguration config)
+        internal VoiceNextExtension(VoiceNextConfiguration config)
         {
             this.Configuration = config;
             this.IsIncomingEnabled = config.EnableIncoming;
@@ -86,29 +87,24 @@ namespace DSharpPlus.VoiceNext
             var vsj = JsonConvert.SerializeObject(vsd, Formatting.None);
             (channel.Discord as DiscordClient)._websocket_client.SendMessage(vsj);
             
-            var vstu = await vstut.Task;
+            var vstu = await vstut.Task.ConfigureAwait(false);
             var vstup = new VoiceStateUpdatePayload
             {
                 SessionId = vstu.SessionId,
                 UserId = vstu.User.Id
             };
-            var vsru = await vsrut.Task;
+            var vsru = await vsrut.Task.ConfigureAwait(false);
             var vsrup = new VoiceServerUpdatePayload
             {
                 Endpoint = vsru.Endpoint,
                 GuildId = vsru.Guild.Id,
                 Token = vsru.VoiceToken
             };
-
-            TaskCompletionSource<VoiceStateUpdateEventArgs> d1 = null;
-            TaskCompletionSource<VoiceServerUpdateEventArgs> d2 = null;
-            this.VoiceStateUpdates.TryRemove(gld.Id, out d1);
-            this.VoiceServerUpdates.TryRemove(gld.Id, out d2);
             
             var vnc = new VoiceNextConnection(this.Client, gld, channel, this.Configuration, vsrup, vstup);
             vnc.VoiceDisconnected += this.Vnc_VoiceDisconnected;
-            await vnc.ConnectAsync();
-            await vnc.WaitForReady();
+            await vnc.ConnectAsync().ConfigureAwait(false);
+            await vnc.WaitForReadyAsync().ConfigureAwait(false);
             this.ActiveConnections[gld.Id] = vnc;
             return vnc;
         }
@@ -151,22 +147,59 @@ namespace DSharpPlus.VoiceNext
             if (gld == null)
                 return Task.Delay(0);
 
-            if (this.VoiceStateUpdates.ContainsKey(gld.Id))
-                this.VoiceStateUpdates[gld.Id].SetResult(e);
+            if (this.ActiveConnections.TryGetValue(e.Guild.Id, out var vnc))
+            {
+                vnc.Channel = e.Channel;
+            }
+
+            if (!string.IsNullOrWhiteSpace(e.SessionId) && e.User.Id == this.Client.CurrentUser.Id && this.VoiceStateUpdates.ContainsKey(gld.Id))
+            {
+                this.VoiceStateUpdates.TryRemove(gld.Id, out var xe);
+                xe.SetResult(e);
+            }
 
             return Task.Delay(0);
         }
 
-        private Task Client_VoiceServerUpdate(VoiceServerUpdateEventArgs e)
+        private async Task Client_VoiceServerUpdate(VoiceServerUpdateEventArgs e)
         {
             var gld = e.Guild;
             if (gld == null)
-                return Task.Delay(0);
+                return;
+
+            if (this.ActiveConnections.TryGetValue(e.Guild.Id, out var vnc))
+            {
+                vnc.ServerData = new VoiceServerUpdatePayload
+                {
+                    Endpoint = e.Endpoint,
+                    GuildId = e.Guild.Id,
+                    Token = e.VoiceToken
+                };
+
+                var eps = e.Endpoint;
+                var epi = eps.LastIndexOf(':');
+                var eph = string.Empty;
+                var epp = 80;
+                if (epi != -1)
+                {
+                    eph = eps.Substring(0, epi);
+                    epp = int.Parse(eps.Substring(epi + 1));
+                }
+                else
+                {
+                    eph = eps;
+                }
+                vnc.ConnectionEndpoint = new ConnectionEndpoint { Hostname = eph, Port = epp };
+
+                vnc.Resume = false;
+                await vnc.ReconnectAsync().ConfigureAwait(false);
+            }
 
             if (this.VoiceServerUpdates.ContainsKey(gld.Id))
-                this.VoiceServerUpdates[gld.Id].SetResult(e);
-
-            return Task.Delay(0);
+            {
+                this.VoiceServerUpdates.TryRemove(gld.Id, out var xe);
+                xe.SetResult(e);
+            }
         }
     }
 }

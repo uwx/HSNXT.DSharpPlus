@@ -9,13 +9,13 @@ namespace DSharpPlus.CommandsNext.Attributes
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public sealed class RequireOwnerAttribute : CheckBaseAttribute
     {
-        public override Task<bool> CanExecute(CommandContext ctx)
+        public override Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
         {
             var cfg = ctx.Config;
             var app = ctx.Client.CurrentApplication;
             var me = ctx.Client.CurrentUser;
 
-            if (cfg.SelfBot)
+            if (cfg.Selfbot)
                 return Task.FromResult(ctx.User.Id == me.Id);
 
             if (app != null)

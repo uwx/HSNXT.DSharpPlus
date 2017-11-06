@@ -37,21 +37,21 @@ namespace DSharpPlus.Entities
     /// <summary>
     /// Represents a game that a user is playing.
     /// </summary>
-    public class Game
+    public class DiscordGame
     {
         /// <summary>
-        /// Creates a new, empty instance of a <see cref="Game"/>.
+        /// Creates a new, empty instance of a <see cref="DiscordGame"/>.
         /// </summary>
-        public Game()
+        public DiscordGame()
         {
             this.StreamType = GameStreamType.NoStream;
         }
 
         /// <summary>
-        /// Creates a new instance of a <see cref="Game"/> with specified name.
+        /// Creates a new instance of a <see cref="DiscordGame"/> with specified name.
         /// </summary>
         /// <param name="name"></param>
-        public Game(string name)
+        public DiscordGame(string name)
         {
             this.Name = name;
             this.StreamType = GameStreamType.NoStream;

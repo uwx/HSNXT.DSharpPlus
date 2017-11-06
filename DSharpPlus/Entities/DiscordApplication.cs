@@ -20,7 +20,8 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Gets the application's icon.
         /// </summary>
-        public string Icon => !string.IsNullOrWhiteSpace(this.IconHash) ? $"https://cdn.discordapp.com/app-icons/{this.Id.ToString(CultureInfo.InvariantCulture)}/{this.IconHash}.png?size=1024" : null;
+        public string Icon 
+            => !string.IsNullOrWhiteSpace(this.IconHash) ? $"https://cdn.discordapp.com/app-icons/{this.Id.ToString(CultureInfo.InvariantCulture)}/{this.IconHash}.png?size=1024" : null;
         [JsonProperty("icon", NullValueHandling = NullValueHandling.Ignore)]
         internal string IconHash { get; set; }
 
@@ -48,10 +49,88 @@ namespace DSharpPlus.Entities
         [JsonProperty("owner", NullValueHandling = NullValueHandling.Ignore)]
         public DiscordUser Owner { get; internal set; }
 
+        /// <summary>
+        /// Gets whether this application's bot user requires code grant.
+        /// </summary>
+        [JsonProperty("bot_require_code_grant", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RequiresCodeGrant { get; internal set; }
+
+        /// <summary>
+        /// Gets whether this bot application is public.
+        /// </summary>
+        [JsonProperty("bot_public", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? IsPublic { get; internal set; }
+
+        /// <summary>
+        /// Gets the hash of the application's cover image.
+        /// </summary>
+        [JsonProperty("cover_image")]
+        internal string CoverImageHash { get; set; }
+
+        /// <summary>
+        /// Gets this application's cover image URL.
+        /// </summary>
+        [JsonIgnore]
+        public string CoverImageUrl 
+            => $"https://cdn.discordapp.com/app-icons/{this.Id.ToString(CultureInfo.InvariantCulture)}/{this.CoverImageHash}.png?size=1024";
+
         [JsonIgnore]
         private IReadOnlyList<DiscordApplicationAsset> Assets { get; set; }
 
         internal DiscordApplication() { }
+
+        /// <summary>
+        /// Gets the application's cover image URL, in requested format and size.
+        /// </summary>
+        /// <param name="fmt">Format of the image to get.</param>
+        /// <param name="size">Maximum size of the cover image. Must be a power of two, minimum 16, maximum 2048.</param>
+        /// <returns>URL of the application's cover image.</returns>
+        public string GetAvatarUrl(ImageFormat fmt, ushort size = 1024)
+        {
+            if (fmt == ImageFormat.Unknown)
+                throw new ArgumentException("You must specify valid image format.", nameof(fmt));
+
+            if (size < 16 || size > 2048)
+                throw new ArgumentOutOfRangeException(nameof(size));
+
+            var log = Math.Log(size, 2);
+            if (log < 4 || log > 11 || log % 1 != 0)
+                throw new ArgumentOutOfRangeException(nameof(size));
+
+            var sfmt = "";
+            switch (fmt)
+            {
+                case ImageFormat.Gif:
+                    sfmt = "gif";
+                    break;
+
+                case ImageFormat.Jpeg:
+                    sfmt = "jpg";
+                    break;
+
+                case ImageFormat.Png:
+                    sfmt = "png";
+                    break;
+
+                case ImageFormat.WebP:
+                    sfmt = "webp";
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(fmt));
+            }
+
+            var ssize = size.ToString(CultureInfo.InvariantCulture);
+            if (!string.IsNullOrWhiteSpace(this.CoverImageHash))
+            {
+                var id = this.Id.ToString(CultureInfo.InvariantCulture);
+                return $"https://cdn.discordapp.com/avatars/{id}/{this.CoverImageHash}.{sfmt}?size={ssize}";
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         /// <summary>
         /// Retrieves this application's assets.
@@ -60,9 +139,18 @@ namespace DSharpPlus.Entities
         public async Task<IReadOnlyList<DiscordApplicationAsset>> GetAssetsAsync()
         {
             if (this.Assets == null)
-                this.Assets = await this.Discord.ApiClient.GetApplicationAssetsAsync(this);
+                this.Assets = await this.Discord.ApiClient.GetApplicationAssetsAsync(this).ConfigureAwait(false);
 
             return this.Assets;
+        }
+
+        public string GenerateBotOAuth(Permissions permissions = Permissions.None)
+        {
+            permissions &= PermissionMethods.FULL_PERMS;
+            // Split it up so it isn't annoying and blue
+            // 
+            // :blobthonkang: -emzi
+            return "https://" + $"discordapp.com/oauth2/authorize?client_id={this.Id.ToString(CultureInfo.InvariantCulture)}&scope=bot&permissions={((long)permissions).ToString(CultureInfo.InvariantCulture)}";
         }
 
         /// <summary>
@@ -126,8 +214,8 @@ namespace DSharpPlus.Entities
         /// <param name="e1">First application to compare.</param>
         /// <param name="e2">Second application to compare.</param>
         /// <returns>Whether the two applications are not equal.</returns>
-        public static bool operator !=(DiscordApplication e1, DiscordApplication e2) =>
-            !(e1 == e2);
+        public static bool operator !=(DiscordApplication e1, DiscordApplication e2) 
+            => !(e1 == e2);
     }
 
     /// <summary>
@@ -155,7 +243,8 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Gets the Url of this asset.
         /// </summary>
-        public Uri Url => new Uri($"https://cdn.discordapp.com/app-assets/{this.Application.Id.ToString(CultureInfo.InvariantCulture)}/{this.Id}.png");
+        public Uri Url 
+            => new Uri($"https://cdn.discordapp.com/app-assets/{this.Application.Id.ToString(CultureInfo.InvariantCulture)}/{this.Id}.png");
 
         internal DiscordApplicationAsset() { }
 
@@ -225,8 +314,8 @@ namespace DSharpPlus.Entities
         /// <param name="e1">First application asset to compare.</param>
         /// <param name="e2">Second application asset to compare.</param>
         /// <returns>Whether the two application assets are not equal.</returns>
-        public static bool operator !=(DiscordApplicationAsset e1, DiscordApplicationAsset e2) =>
-            !(e1 == e2);
+        public static bool operator !=(DiscordApplicationAsset e1, DiscordApplicationAsset e2) 
+            => !(e1 == e2);
     }
 
     /// <summary>

@@ -28,70 +28,75 @@ namespace DSharpPlus.Entities
         /// Gets this user's username.
         /// </summary>
         [JsonProperty("username", NullValueHandling = NullValueHandling.Ignore)]
-        public string Username { get; internal set; }
+        public virtual string Username { get; internal set; }
 
         /// <summary>
         /// Gets the user's 4-digit discriminator.
         /// </summary>
         [JsonProperty("discriminator", NullValueHandling = NullValueHandling.Ignore)]
-        public string Discriminator { get; internal set; }
+        public virtual string Discriminator { get; internal set; }
 
         [JsonIgnore]
-        internal int DiscriminatorInt => int.Parse(this.Discriminator, NumberStyles.Integer, CultureInfo.InvariantCulture);
+        internal int DiscriminatorInt 
+            => int.Parse(this.Discriminator, NumberStyles.Integer, CultureInfo.InvariantCulture);
 
         /// <summary>
         /// Gets the user's avatar hash.
         /// </summary>
         [JsonProperty("avatar", NullValueHandling = NullValueHandling.Ignore)]
-        public string AvatarHash { get; internal set; }
+        public virtual string AvatarHash { get; internal set; }
 
         /// <summary>
         /// Gets the user's avatar URL.
         /// </summary>
         [JsonIgnore]
-        public string AvatarUrl => !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith("a_") ? $"https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{AvatarHash}.gif?size=1024" : $"https://cdn.discordapp.com/avatars/{Id}/{AvatarHash}.png?size=1024") : this.DefaultAvatarUrl;
+        public string AvatarUrl 
+            => !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith("a_") ? $"https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{AvatarHash}.gif?size=1024" : $"https://cdn.discordapp.com/avatars/{Id}/{AvatarHash}.png?size=1024") : this.DefaultAvatarUrl;
 
         /// <summary>
         /// Gets the URL of default avatar for this user.
         /// </summary>
         [JsonIgnore]
-        public string DefaultAvatarUrl => $"https://cdn.discordapp.com/embed/avatars/{(this.DiscriminatorInt % 5).ToString(CultureInfo.InvariantCulture)}.png?size=1024";
+        public string DefaultAvatarUrl 
+            => $"https://cdn.discordapp.com/embed/avatars/{(this.DiscriminatorInt % 5).ToString(CultureInfo.InvariantCulture)}.png?size=1024";
 
         /// <summary>
         /// Gets whether the user is a bot.
         /// </summary>
         [JsonProperty("bot", NullValueHandling = NullValueHandling.Ignore)]
-        public bool IsBot { get; internal set; }
+        public virtual bool IsBot { get; internal set; }
 
         /// <summary>
         /// Gets whether the user has multi-factor authentication enabled.
         /// </summary>
         [JsonProperty("mfa_enabled", NullValueHandling = NullValueHandling.Ignore)]
-        public bool? MfaEnabled { get; internal set; }
+        public virtual bool? MfaEnabled { get; internal set; }
 
         /// <summary>
         /// Gets whether the user is verified.
         /// </summary>
         [JsonProperty("verified", NullValueHandling = NullValueHandling.Ignore)]
-        public bool? Verified { get; internal set; }
+        public virtual bool? Verified { get; internal set; }
 
         /// <summary>
         /// Gets the user's email address.
         /// </summary>
         [JsonProperty("email", NullValueHandling = NullValueHandling.Ignore)]
-        public string Email { get; internal set; }
+        public virtual string Email { get; internal set; }
 
         /// <summary>
         /// Gets the user's mention string.
         /// </summary>
         [JsonIgnore]
-        public string Mention => Formatter.Mention(this, this is DiscordMember);
+        public string Mention 
+            => Formatter.Mention(this, this is DiscordMember);
 
         /// <summary>
         /// Gets whether this user is the Client which created this object.
         /// </summary>
         [JsonIgnore]
-        public bool IsCurrent => this.Id == this.Discord.CurrentUser.Id;
+        public bool IsCurrent 
+            => this.Id == this.Discord.CurrentUser.Id;
 
         /// <summary>
         /// Unbans this user from a guild.
@@ -99,8 +104,8 @@ namespace DSharpPlus.Entities
         /// <param name="guild">Guild to unban this user from.</param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns></returns>
-        public Task UnbanAsync(DiscordGuild guild, string reason = null) =>
-            guild.UnbanMemberAsync(this, reason);
+        public Task UnbanAsync(DiscordGuild guild, string reason = null) 
+            => guild.UnbanMemberAsync(this, reason);
 
         /// <summary>
         /// Gets this user's presence.
@@ -117,12 +122,66 @@ namespace DSharpPlus.Entities
         }
 
         /// <summary>
+        /// Gets the user's avatar URL, in requested format and size.
+        /// </summary>
+        /// <param name="fmt">Format of the avatar to get.</param>
+        /// <param name="size">Maximum size of the avatar. Must be a power of two, minimum 16, maximum 2048.</param>
+        /// <returns>URL of the user's avatar.</returns>
+        public string GetAvatarUrl(ImageFormat fmt, ushort size = 1024)
+        {
+            if (fmt == ImageFormat.Unknown)
+                throw new ArgumentException("You must specify valid image format.", nameof(fmt));
+
+            if (size < 16 || size > 2048)
+                throw new ArgumentOutOfRangeException(nameof(size));
+
+            var log = Math.Log(size, 2);
+            if (log < 4 || log > 11 || log % 1 != 0)
+                throw new ArgumentOutOfRangeException(nameof(size));
+
+            var sfmt = "";
+            switch (fmt)
+            {
+                case ImageFormat.Gif:
+                    sfmt = "gif";
+                    break;
+
+                case ImageFormat.Jpeg:
+                    sfmt = "jpg";
+                    break;
+
+                case ImageFormat.Png:
+                    sfmt = "png";
+                    break;
+
+                case ImageFormat.WebP:
+                    sfmt = "webp";
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(fmt));
+            }
+
+            var ssize = size.ToString(CultureInfo.InvariantCulture);
+            if (!string.IsNullOrWhiteSpace(this.AvatarHash))
+            {
+                var id = this.Id.ToString(CultureInfo.InvariantCulture);
+                return $"https://cdn.discordapp.com/avatars/{id}/{this.AvatarHash}.{sfmt}?size={ssize}";
+            }
+            else
+            {
+                var type = (this.DiscriminatorInt % 5).ToString(CultureInfo.InvariantCulture);
+                return $"https://cdn.discordapp.com/embed/avatars/{type}.{sfmt}?size={ssize}";
+            }
+        }
+
+        /// <summary>
         /// Returns a string representation of this user.
         /// </summary>
         /// <returns>String representation of this user.</returns>
         public override string ToString()
         {
-            return string.Concat("Member ", this.Id, "; ", this.Username, "#", this.Discriminator);
+            return $"User {this.Id}; {this.Username}#{this.Discriminator}";
         }
 
         /// <summary>
@@ -186,7 +245,7 @@ namespace DSharpPlus.Entities
         /// <param name="e1">First user to compare.</param>
         /// <param name="e2">Second user to compare.</param>
         /// <returns>Whether the two users are not equal.</returns>
-        public static bool operator !=(DiscordUser e1, DiscordUser e2) =>
-            !(e1 == e2);
+        public static bool operator !=(DiscordUser e1, DiscordUser e2) 
+            => !(e1 == e2);
     }
 }

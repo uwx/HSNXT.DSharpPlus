@@ -19,7 +19,8 @@ namespace DSharpPlus.CommandsNext
         /// <summary>
         /// Gets this command's qualified name (i.e. one that includes all module names).
         /// </summary>
-        public string QualifiedName => this.Parent != null ? string.Concat(this.Parent.QualifiedName, " ", this.Name) : this.Name;
+        public string QualifiedName 
+            => this.Parent != null ? string.Concat(this.Parent.QualifiedName, " ", this.Name) : this.Name;
 
         /// <summary>
         /// Gets this command's alises.
@@ -65,12 +66,11 @@ namespace DSharpPlus.CommandsNext
         /// <returns>Command's execution results.</returns>
         public virtual async Task<CommandResult> ExecuteAsync(CommandContext ctx)
         {
-            var args = CommandsNextUtilities.BindArguments(ctx, ctx.Config.IgnoreExtraArguments);
-
             try
             {
+                var args = CommandsNextUtilities.BindArguments(ctx, ctx.Config.IgnoreExtraArguments);
                 var ret = (Task)this.Callable.DynamicInvoke(args);
-                await ret;
+                await ret.ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -93,13 +93,14 @@ namespace DSharpPlus.CommandsNext
         /// Runs pre-execution checks for this command and returns any that fail for given context.
         /// </summary>
         /// <param name="ctx">Context in which the command is executed.</param>
+        /// <param name="help">Whether this check is being executed from help or not. This can be used to probe whether command can be run without setting off certain fail conditions (such as cooldowns).</param>
         /// <returns>Pre-execution checks that fail for given context.</returns>
-        public async Task<IEnumerable<CheckBaseAttribute>> RunChecksAsync(CommandContext ctx)
+        public async Task<IEnumerable<CheckBaseAttribute>> RunChecksAsync(CommandContext ctx, bool help)
         {
             var fchecks = new List<CheckBaseAttribute>();
             if (this.ExecutionChecks != null && this.ExecutionChecks.Any())
                 foreach (var ec in this.ExecutionChecks)
-                    if (!(await ec.CanExecute(ctx)))
+                    if (!(await ec.ExecuteCheckAsync(ctx, help).ConfigureAwait(false)))
                         fchecks.Add(ec);
 
             return fchecks;
@@ -132,8 +133,8 @@ namespace DSharpPlus.CommandsNext
         /// <param name="cmd1">Command to compare to.</param>
         /// <param name="cmd2">Command to compare.</param>
         /// <returns>Whether the two commands are not equal.</returns>
-        public static bool operator !=(Command cmd1, Command cmd2) =>
-            !(cmd1 == cmd2);
+        public static bool operator !=(Command cmd1, Command cmd2) 
+            => !(cmd1 == cmd2);
 
         /// <summary>
         /// Checks whether this command equals another object.

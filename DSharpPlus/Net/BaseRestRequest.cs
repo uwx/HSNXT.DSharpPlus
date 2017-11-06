@@ -29,6 +29,11 @@ namespace DSharpPlus.Net
         public IReadOnlyDictionary<string, string> Headers { get; }
 
         /// <summary>
+        /// Gets the override for the rate limit bucket wait time.
+        /// </summary>
+        public double? RateLimitWaitOverride { get; }
+
+        /// <summary>
         /// Gets the rate limit bucket this request is in.
         /// </summary>
         internal RateLimitBucket RateLimitBucket { get; }
@@ -41,7 +46,8 @@ namespace DSharpPlus.Net
         /// <param name="url">Uri to which this request is going to be sent to.</param>
         /// <param name="method">Method to use for this request,</param>
         /// <param name="headers">Additional headers for this request.</param>
-        internal BaseRestRequest(BaseDiscordClient client, RateLimitBucket bucket, Uri url, RestRequestMethod method, IDictionary<string, string> headers = null)
+        /// <param name="ratelimit_wait_override">Override for ratelimit bucket wait time.</param>
+        internal BaseRestRequest(BaseDiscordClient client, RateLimitBucket bucket, Uri url, RestRequestMethod method, IDictionary<string, string> headers = null, double? ratelimit_wait_override = null)
         {
             this.Discord = client;
             this.RateLimitBucket = bucket;
@@ -49,19 +55,20 @@ namespace DSharpPlus.Net
             this.Url = url;
             this.Method = method;
             this.Headers = headers != null ? new ReadOnlyDictionary<string, string>(headers) : null;
+            this.RateLimitWaitOverride = ratelimit_wait_override;
         }
 
         /// <summary>
         /// Asynchronously waits for this request to complete.
         /// </summary>
         /// <returns>HTTP response to this request.</returns>
-        public Task<RestResponse> WaitForCompletionAsync() =>
-            this.RequestTaskSource.Task;
+        public Task<RestResponse> WaitForCompletionAsync() 
+            => this.RequestTaskSource.Task;
 
-        protected internal void SetCompleted(RestResponse response) =>
-            this.RequestTaskSource.SetResult(response);
+        protected internal void SetCompleted(RestResponse response) 
+            => this.RequestTaskSource.SetResult(response);
 
-        protected internal void SetFaulted(Exception ex) =>
-            this.RequestTaskSource.SetException(ex);
+        protected internal void SetFaulted(Exception ex) 
+            => this.RequestTaskSource.SetException(ex);
     }
 }

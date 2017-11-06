@@ -1,40 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="../DSharpPlus.targets" />
+
   <PropertyGroup>
-	  <TargetFrameworks>net45;net46;net47;netstandard1.1;netstandard1.3;netstandard2.0</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <LangVersion>7.1</LangVersion>
-    <NoWarn>1591</NoWarn>
-    <Optimize>True</Optimize>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <AssemblyName>DSharpPlus.CommandsNext</AssemblyName>
+    <RootNamespace>DSharpPlus.CommandsNext</RootNamespace>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net45;net46;net47;netstandard1.1;netstandard1.3;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <PackageId>DSharpPlus.CommandsNext</PackageId>
-    <Authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</Authors>
-    <Company>DSharpPlus developers</Company>
     <Description>Advanced command framework for DSharpPlus.</Description>
-    <PackageLicenseUrl>https://github.com/NaamloosDT/DSharpPlus/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/NaamloosDT/DSharpPlus</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/NaamloosDT/DSharpPlus</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#, Commands, CommandsNext</PackageTags>
+    <PackageTags>discord discord-api bots discord-bots chat dsharp dsharpplus csharp dotnet vb-net fsharp commands commandsnext</PackageTags>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(VersionSuffix)' != ''">
-    <Version>3.2.0-beta-$(VersionSuffix)</Version>
-    <AssemblyVersion>3.2.0.$(VersionSuffix)</AssemblyVersion>
-    <FileVersion>3.2.0.$(VersionSuffix)</FileVersion>
-  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
+    <PackageReference Include="Emzi0767.Microsoft.DependencyInjection" Version="2.0.0" />
+  </ItemGroup>
 
-  <PropertyGroup Condition="'$(VersionSuffix)' == ''">
-    <Version>3.2.0</Version>
-    <AssemblyVersion>3.2.0.0</AssemblyVersion>
-    <FileVersion>3.2.0.0</FileVersion>
-  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1' Or '$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
+  </ItemGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <Optimize>False</Optimize>
-  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus.csproj" />

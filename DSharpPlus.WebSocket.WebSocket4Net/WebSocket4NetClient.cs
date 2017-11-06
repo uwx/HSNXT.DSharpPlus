@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus.EventArgs;
 using ws4net = WebSocket4Net;
+using s = System;
 
 namespace DSharpPlus.Net.WebSocket
 {
@@ -21,50 +22,81 @@ namespace DSharpPlus.Net.WebSocket
             this._error = new AsyncEvent<SocketErrorEventArgs>(null, "WS_ERROR");
         }
 
-        public override Task<BaseWebSocketClient> ConnectAsync(string uri)
+        public override Task<BaseWebSocketClient> ConnectAsync(Uri uri)
         {
-            _socket = new ws4net.WebSocket(uri);
+            this.StreamDecompressor?.Dispose();
+            this.CompressedStream?.Dispose();
+            this.DecompressedStream?.Dispose();
 
-            _socket.Opened += (sender, e) => _connect.InvokeAsync().GetAwaiter().GetResult();
+            this.DecompressedStream = new MemoryStream();
+            this.CompressedStream = new MemoryStream();
+            this.StreamDecompressor = new DeflateStream(this.CompressedStream, CompressionMode.Decompress);
 
-            _socket.Closed += (sender, e) =>
+            _socket = new ws4net.WebSocket(uri.ToString());
+
+            _socket.Opened += HandlerOpen;
+            _socket.Closed += HandlerClose;
+            _socket.MessageReceived += HandlerMessage;
+            _socket.DataReceived += HandlerData;
+
+            _socket.Open();
+            return Task.FromResult<BaseWebSocketClient>(this);
+
+            void HandlerOpen(object sender, s.EventArgs e)
+                => _connect.InvokeAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+
+            void HandlerClose(object sender, s.EventArgs e)
             {
                 if (e is ws4net.ClosedEventArgs ea)
-                    _disconnect.InvokeAsync(new SocketCloseEventArgs(null) { CloseCode = ea.Code, CloseMessage = ea.Reason }).GetAwaiter().GetResult();
+                    _disconnect.InvokeAsync(new SocketCloseEventArgs(null) { CloseCode = ea.Code, CloseMessage = ea.Reason }).ConfigureAwait(false).GetAwaiter().GetResult();
                 else
-                    _disconnect.InvokeAsync(new SocketCloseEventArgs(null) { CloseCode = -1, CloseMessage = "unknown" }).GetAwaiter().GetResult();
-            };
+                    _disconnect.InvokeAsync(new SocketCloseEventArgs(null) { CloseCode = -1, CloseMessage = "unknown" }).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
 
-            _socket.MessageReceived += (sender, e) => _message.InvokeAsync(new SocketMessageEventArgs()
-            {
-                Message = e.Message
-            }).GetAwaiter().GetResult();
+            void HandlerMessage(object sender, ws4net.MessageReceivedEventArgs e)
+                => _message.InvokeAsync(new SocketMessageEventArgs() { Message = e.Message }).ConfigureAwait(false).GetAwaiter().GetResult();
 
-            _socket.DataReceived += (sender, e) =>
+            void HandlerData(object sender, ws4net.DataReceivedEventArgs e)
             {
                 var msg = "";
 
-                using (var ms1 = new MemoryStream(e.Data, 2, e.Data.Length - 2))
-                using (var ms2 = new MemoryStream())
-                {
-                    using (var zlib = new DeflateStream(ms1, CompressionMode.Decompress))
-                        zlib.CopyTo(ms2);
+                if (e.Data[0] == 0x78)
+                    this.CompressedStream.Write(e.Data, 2, e.Data.Length - 2);
+                else
+                    this.CompressedStream.Write(e.Data, 0, e.Data.Length);
+                this.CompressedStream.Flush();
+                this.CompressedStream.Position = 0;
 
-                    msg = UTF8.GetString(ms2.ToArray(), 0, (int)ms2.Length);
+                // partial credit to FiniteReality
+                // overall idea is his
+                // I tuned the finer details
+                // -Emzi
+                var sfix = BitConverter.ToUInt16(e.Data, e.Data.Length - 2);
+                if (sfix != ZLIB_STREAM_SUFFIX)
+                {
+                    using (var zlib = new DeflateStream(this.CompressedStream, CompressionMode.Decompress, true))
+                        zlib.CopyTo(this.DecompressedStream);
                 }
+                else
+                {
+                    this.StreamDecompressor.CopyTo(this.DecompressedStream);
+                }
+
+                msg = UTF8.GetString(this.DecompressedStream.ToArray(), 0, (int)this.DecompressedStream.Length);
+
+                this.DecompressedStream.Position = 0;
+                this.DecompressedStream.SetLength(0);
+                this.CompressedStream.Position = 0;
+                this.CompressedStream.SetLength(0);
 
                 _message.InvokeAsync(new SocketMessageEventArgs()
                 {
                     Message = msg
-                }).GetAwaiter().GetResult();
-            };
-
-            _socket.Open();
-
-            return Task.FromResult<BaseWebSocketClient>(this);
+                }).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
         }
 
-        public override Task InternalDisconnectAsync(SocketCloseEventArgs e)
+        public override Task DisconnectAsync(SocketCloseEventArgs e)
         {
             if (_socket.State != ws4net.WebSocketState.Closed)
                 _socket.Close();
@@ -120,7 +152,7 @@ namespace DSharpPlus.Net.WebSocket
             if (evname.ToLowerInvariant() == "ws_error")
                 Console.WriteLine($"WSERROR: {ex.GetType()} in {evname}!");
             else
-                this._error.InvokeAsync(new SocketErrorEventArgs(null) { Exception = ex }).GetAwaiter().GetResult();
+                this._error.InvokeAsync(new SocketErrorEventArgs(null) { Exception = ex }).ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DSharpPlus
+﻿using System;
+
+namespace DSharpPlus
 {
     /// <summary>
     /// Represents configuration for <see cref="DiscordClient"/> and <see cref="DiscordShardedClient"/>.
@@ -11,58 +13,80 @@
         public string Token
         {
             internal get => this._token;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException(nameof(value), "Token cannot be null, empty, or all whitespace.");
 
-            set => this._token = value.Trim();
+                this._token = value.Trim();
+            }
         }
         private string _token = "";
 
         /// <summary>
-        /// Sets the type of the token used to identify the client. This is typically <see cref="TokenType.Bot"/> for bots, and <see cref="TokenType.User"/> for selfbots and userbots.
+        /// <para>Sets the type of the token used to identify the client.</para>
+        /// <para>Defaults to <see cref="TokenType.Bot"/>.</para>
         /// </summary>
         public TokenType TokenType { internal get; set; } = TokenType.Bot;
 
         /// <summary>
-        /// Sets the maximum logging level for messages. Typically, the default value of <see cref="LogLevel.Info"/> is ok for most uses.
+        /// <para>Sets the maximum logging level for messages.</para>
+        /// <para>Typically, the default value of <see cref="LogLevel.Info"/> is ok for most uses.</para>
         /// </summary>
         public LogLevel LogLevel { internal get; set; } = LogLevel.Info;
 
         /// <summary>
-        /// Sets whether to use the internal log handler. This is disabled by default. Use it if you don't want to provide your own log handlers.
+        /// <para>Sets whether to use the internal log handler.</para>
+        /// <para>This is disabled by default. Use it if you don't want to provide your own log handlers.</para>
         /// </summary>
         public bool UseInternalLogHandler { internal get; set; } = false;
 
         /// <summary>
-        /// Sets the member count threshold at which guilds are considered large.
+        /// <para>Allows you to overwrite the time format used by the internal debug logger.</para>
+        /// <para>Only applicable when <see cref="UseInternalLogHandler"/> is set to true. Defaults to ISO 8601-like format.</para>
+        /// </summary>
+        public string DateTimeFormat { internal get; set; } = "yyyy-MM-dd HH:mm:ss zzz";
+
+        /// <summary>
+        /// <para>Sets the member count threshold at which guilds are considered large.</para>
+        /// <para>Defaults to 250.</para>
         /// </summary>
         public int LargeThreshold { internal get; set; } = 250;
 
         /// <summary>
-        /// Sets whether to automatically reconnect in case a connection is lost.
+        /// <para>Sets whether to automatically reconnect in case a connection is lost.</para>
+        /// <para>Defaults to true.</para>
         /// </summary>
         public bool AutoReconnect { internal get; set; } = true;
 
         /// <summary>
-        /// Sets the ID of the shard to connect to. If not sharding, or sharding automatically, this value should be left default.
+        /// <para>Sets the ID of the shard to connect to.</para>
+        /// <para>If not sharding, or sharding automatically, this value should be left with the default value of 0.</para>
         /// </summary>
         public int ShardId { internal get; set; } = 0;
 
         /// <summary>
-        /// Sets the total number of shards the bot is on. If not sharding, this value should be left default. If sharding automatically, this value will indicate how many shards to boot. If left default for automatic sharding, the client will determine the shard count automatically.
+        /// <para>Sets the total number of shards the bot is on. If not sharding, this value should be left with a default value of 1.</para>
+        /// <para>If sharding automatically, this value will indicate how many shards to boot. If left default for automatic sharding, the client will determine the shard count automatically.</para>
         /// </summary>
         public int ShardCount { internal get; set; } = 1;
 
         /// <summary>
-        /// Sets whether to enable compression for gateway communication. Disabling this option will increase size of certain dispatches, and might increase login time.
+        /// <para>Sets the level of compression for WebSocket traffic.</para>
+        /// <para>Disabling this option will increase the amount of traffic sent via WebSocket. Setting <see cref="GatewayCompressionLevel.Payload"/> will enable compression for READY and GUILD_CREATE payloads. Setting <see cref="GatewayCompressionLevel.Stream"/> will enable compression for the entire WebSocket stream, drastically reducing amount of traffic.</para>
+        /// <para>Defaults to <see cref="GatewayCompressionLevel.Stream"/>.</para>
         /// </summary>
-        public bool EnableCompression { internal get; set; } = true;
+        public GatewayCompressionLevel GatewayCompressionLevel { internal get; set; } = GatewayCompressionLevel.Stream;
 
         /// <summary>
-        /// Sets the size of the per-channel message cache. Setting this to 0 will disable message caching completely. Do note that large cache will increase RAM usage drastically.
+        /// <para>Sets the size of the global message cache.</para>
+        /// <para>Setting this to 0 will disable message caching entirely. Defaults to 1024.</para>
         /// </summary>
         public int MessageCacheSize { internal get; set; } = 1024;
 
         /// <summary>
-        /// Sets whether guilds should be automatically synced for user tokens.
+        /// <para>Sets whether guilds should be automatically synced when logging in with a user token.</para>
+        /// <para>Defaults to true.</para>
         /// </summary>
         public bool AutomaticGuildSync { internal get; set; } = true;
 
@@ -81,12 +105,14 @@
             this.TokenType = other.TokenType;
             this.LogLevel = other.LogLevel;
             this.UseInternalLogHandler = other.UseInternalLogHandler;
+            this.DateTimeFormat = other.DateTimeFormat;
             this.LargeThreshold = other.LargeThreshold;
             this.AutoReconnect = other.AutoReconnect;
             this.ShardId = other.ShardId;
             this.ShardCount = other.ShardCount;
-            this.EnableCompression = other.EnableCompression;
+            this.GatewayCompressionLevel = other.GatewayCompressionLevel;
             this.MessageCacheSize = other.MessageCacheSize;
+            this.AutomaticGuildSync = other.AutomaticGuildSync;
         }
     }
 }

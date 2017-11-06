@@ -1,5 +1,7 @@
-﻿using System;
+﻿#pragma warning disable CS0618
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity;
 using DSharpPlus.VoiceNext;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DSharpPlus.Test
 {
@@ -17,9 +20,9 @@ namespace DSharpPlus.Test
         private TestBotConfig Config { get; }
         public DiscordClient Discord;
         private TestBotCommands Commands { get; }
-        private VoiceNextClient VoiceService { get; }
-        private CommandsNextModule CommandsNextService { get; }
-        private InteractivityModule InteractivityService { get; }
+        private VoiceNextExtension VoiceService { get; }
+        private CommandsNextExtension CommandsNextService { get; }
+        private InteractivityExtension InteractivityService { get; }
         private Timer GameGuard { get; set; }
 
         public TestBot(TestBotConfig cfg, int shardid)
@@ -38,9 +41,10 @@ namespace DSharpPlus.Test
                 UseInternalLogHandler = false,
                 ShardId = shardid,
                 ShardCount = this.Config.ShardCount,
-                EnableCompression = true,
+                //GatewayCompressionLevel = GatewayCompressionLevel.Stream,
                 MessageCacheSize = 50,
-                AutomaticGuildSync = !this.Config.UseUserToken
+                AutomaticGuildSync = !this.Config.UseUserToken,
+                DateTimeFormat = "dd-MM-yyyy HH:mm:ss zzz"
             };
             Discord = new DiscordClient(dcfg);
 
@@ -48,14 +52,11 @@ namespace DSharpPlus.Test
             Discord.DebugLogger.LogMessageReceived += this.DebugLogger_LogMessageReceived;
             Discord.Ready += this.Discord_Ready;
             Discord.GuildAvailable += this.Discord_GuildAvailable;
-            Discord.GuildBanAdded += this.Discord_GuildBanAdd;
             Discord.MessageCreated += this.Discord_MessageCreated;
-            Discord.MessageReactionAdded += this.Discord_MessageReactionAdd;
-            Discord.MessageReactionsCleared += this.Discord_MessageReactionRemoveAll;
-            Discord.PresenceUpdated += this.Discord_PresenceUpdate;
             Discord.ClientErrored += this.Discord_ClientErrored;
             Discord.SocketErrored += this.Discord_SocketError;
             Discord.GuildCreated += this.Discord_GuildCreated;
+            Discord.VoiceStateUpdated += this.Discord_VoiceStateUpdated;
 
             // voice config and the voice service itself
             var vcfg = new VoiceNextConfiguration
@@ -66,9 +67,8 @@ namespace DSharpPlus.Test
             this.VoiceService = this.Discord.UseVoiceNext(vcfg);
 
             // build a dependency collection for commandsnext
-            var depco = new DependencyCollectionBuilder();
-            depco.AddInstance("This is a dependency string.");
-            depco.Add<TestDependency>();
+            var depco = new ServiceCollection();
+            depco.AddSingleton(new TestBotService());
 
             // commandsnext config and the commandsnext service itself
             var cncfg = new CommandsNextConfiguration
@@ -83,8 +83,8 @@ namespace DSharpPlus.Test
                 EnableDms = true,
                 EnableMentionPrefix = true,
                 CaseSensitive = true,
-                Dependencies = depco.Build(),
-                SelfBot = this.Config.UseUserToken,
+                Services = depco.BuildServiceProvider(),
+                Selfbot = this.Config.UseUserToken,
                 IgnoreExtraArguments = false
                 //DefaultHelpChecks = new List<CheckBaseAttribute>() { new RequireOwnerAttribute() }
             };
@@ -100,13 +100,20 @@ namespace DSharpPlus.Test
             this.CommandsNextService.SetHelpFormatter<TestBotHelpFormatter>();
 
             // interactivity service
-            this.InteractivityService = Discord.UseInteractivity();
+            var icfg = new InteractivityConfiguration()
+            {
+                PaginationBehaviour = TimeoutBehaviour.DeleteMessage,
+                PaginationTimeout = TimeSpan.FromSeconds(30),
+                Timeout = TimeSpan.FromSeconds(30)
+            };
+
+            this.InteractivityService = Discord.UseInteractivity(icfg);
         }
 
         public async Task RunAsync()
         {
-            await Discord.ConnectAsync();
-            await Task.Delay(-1);
+            await Discord.ConnectAsync().ConfigureAwait(false);
+            await Task.Delay(-1).ConfigureAwait(false);
         }
 
         private void DebugLogger_LogMessageReceived(object sender, DebugLogMessageEventArgs e)
@@ -157,84 +164,43 @@ namespace DSharpPlus.Test
         {
             if (!this.Config.UseUserToken)
                 this.GameGuard = new Timer(TimerCallback, null, TimeSpan.FromMinutes(0), TimeSpan.FromMinutes(15));
-            return Task.Delay(0);
+            return Task.CompletedTask;
         }
 
         private Task Discord_GuildAvailable(GuildCreateEventArgs e)
         {
-            Discord.DebugLogger.LogMessage(LogLevel.Info, "DSPlus Test", $"Guild available: {e.Guild.Name}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"e.Guild.MemberCount: {e.Guild.MemberCount}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"e.Guild.Members.Count: {e.Guild.Members.Count}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"Discord.Guilds[e.Guild.Id].MemberCount: {Discord.Guilds[e.Guild.Id].MemberCount}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"Discord.Guilds[e.Guild.Id].Members.Count: {Discord.Guilds[e.Guild.Id].Members.Count}", DateTime.Now);
-            return Task.Delay(0);
+            Discord.DebugLogger.LogMessage(LogLevel.Info, "DSP Test", $"Guild available: {e.Guild.Name}", DateTime.Now);
+            return Task.CompletedTask;
         }
 
         private Task Discord_GuildCreated(GuildCreateEventArgs e)
         {
-            // Tryna fix the "double guild member" bug
-            Discord.DebugLogger.LogMessage(LogLevel.Info, "DSPlus Test", $"Guild created: {e.Guild.Name}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"e.Guild.MemberCount: {e.Guild.MemberCount}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"e.Guild.Members.Count: {e.Guild.Members.Count}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"Discord.Guilds[e.Guild.Id].MemberCount: {Discord.Guilds[e.Guild.Id].MemberCount}", DateTime.Now);
-            //Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSPlus Test", $"Discord.Guilds[e.Guild.Id].Members.Count: {Discord.Guilds[e.Guild.Id].Members.Count}", DateTime.Now);
-            return Task.Delay(0);
-        }
-
-        private Task Discord_GuildBanAdd(GuildBanAddEventArgs e)
-        {
-            /*var usrn = e.Member.Username?
-                .Replace(@"\", @"\\")
-                .Replace(@"*", @"\*")
-                .Replace(@"_", @"\_")
-                .Replace(@"~", @"\~")
-                .Replace(@"`", @"\`");
-
-            var ch = e.Guild.Channels.FirstOrDefault(xc => xc.Name.Contains("logs"));
-            if (ch != null)
-                await ch.SendMessageAsync($"**{usrn}#{e.Member.Discriminator} got bent**");*/
-
-            return Task.Delay(0);
-        }
-
-        private Task Discord_PresenceUpdate(PresenceUpdateEventArgs e)
-        {
-            //if (e.User != null)
-            //    this.Discord.DebugLogger.LogMessage(LogLevel.Unnecessary, "DSPlus Test", $"{e.User.Username}#{e.User.Discriminator} ({e.UserID}): {e.Status ?? "<unknown>"} playing {e.Game ?? "<nothing>"}", DateTime.Now);
-
-            return Task.Delay(0);
+            Discord.DebugLogger.LogMessage(LogLevel.Info, "DSP Test", $"Guild created: {e.Guild.Name}", DateTime.Now);
+            return Task.CompletedTask;
         }
 
         private async Task Discord_MessageCreated(MessageCreateEventArgs e)
         {
             if (e.Message.Content.Contains($"<@!{e.Client.CurrentUser.Id}>") || e.Message.Content.Contains($"<@{e.Client.CurrentUser.Id}>"))
-                await e.Message.RespondAsync("r u havin' a ggl thr m8");
-        }
-
-        private /*async*/ Task Discord_MessageReactionAdd(MessageReactionAddEventArgs e)
-        {
-            return Task.Delay(0);
-
-            //await e.Message.DeleteAllReactions();
-        }
-
-        private /*async*/ Task Discord_MessageReactionRemoveAll(MessageReactionsClearEventArgs e)
-        {
-            return Task.Delay(0);
-
-            //await e.Message.DeleteAllReactions();
+                await e.Message.RespondAsync("r u havin' a ggl thr m8").ConfigureAwait(false);
         }
 
         private Task Discord_ClientErrored(ClientErrorEventArgs e)
         {
             this.Discord.DebugLogger.LogMessage(LogLevel.Error, "DSP Test", $"Client threw an exception: {e.Exception.GetType()}", DateTime.Now);
-            return Task.Delay(0);
+            return Task.CompletedTask;
         }
 
         private Task Discord_SocketError(SocketErrorEventArgs e)
         {
-            this.Discord.DebugLogger.LogMessage(LogLevel.Error, "WebSocket", $"WS threw an exception: {e.Exception.GetType()}", DateTime.Now);
-            return Task.Delay(0);
+            this.Discord.DebugLogger.LogMessage(LogLevel.Error, "DSP Test", $"WS threw an exception: {e.Exception.GetType()}", DateTime.Now);
+            return Task.CompletedTask;
+        }
+
+        private Task Discord_VoiceStateUpdated(VoiceStateUpdateEventArgs e)
+        {
+            this.Discord.DebugLogger.LogMessage(LogLevel.Debug, "DSP Test", $"Voice state change for {e.User}: {e.Before?.IsServerMuted}->{e.After.IsServerMuted} {e.Before?.IsServerDeafened}->{e.After.IsServerDeafened}", DateTime.Now);
+            return Task.CompletedTask;
         }
 
         private async Task CommandsNextService_CommandErrored(CommandErrorEventArgs e)
@@ -242,7 +208,7 @@ namespace DSharpPlus.Test
             if (e.Exception is CommandNotFoundException && (e.Command == null || e.Command.QualifiedName != "help"))
                 return;
 
-            Discord.DebugLogger.LogMessage(LogLevel.Error, "CommandsNext", $"An exception occured during {e.Context.User.Username}'s invocation of '{e.Context.Command.QualifiedName}': {e.Exception.GetType()}: {e.Exception.Message}", DateTime.Now);
+            Discord.DebugLogger.LogMessage(LogLevel.Error, "DSP Test", $"An exception occured during {e.Context.User.Username}'s invocation of '{e.Context.Command.QualifiedName}': {e.Exception.GetType()}: {e.Exception.Message}", DateTime.Now);
 
             var exs = new List<Exception>();
             if (e.Exception is AggregateException ae)
@@ -258,8 +224,11 @@ namespace DSharpPlus.Test
                 var ms = ex.Message;
                 var st = ex.StackTrace;
 
-                ms = ms.Length > 1000 ? ms.Substring(0, 1000) : ms;
-                st = !string.IsNullOrWhiteSpace(st) ? (st.Length > 1000 ? st.Substring(0, 1000) : st) : "<no stack trace>";
+                MemoryStream stream = new MemoryStream();
+                StreamWriter writer = new StreamWriter(stream);
+                writer.Write($"{e.Exception.GetType()} occured when executing {e.Command.QualifiedName}.\n\n{ms}\n{st}");
+                writer.Flush();
+                stream.Position = 0;
 
                 var embed = new DiscordEmbedBuilder
                 {
@@ -269,23 +238,22 @@ namespace DSharpPlus.Test
                     Timestamp = DateTime.UtcNow
                 };
                 embed.WithFooter(Discord.CurrentUser.Username, Discord.CurrentUser.AvatarUrl)
-                    .AddField("Message", ms, false)
-                    .AddField("Stack trace", $"```cs\n{st}\n```", false);
-                await e.Context.Channel.SendMessageAsync("\u200b", embed: embed.Build());
+                    .AddField("Message", "File with full details has been attached.", false);
+                await e.Context.Channel.SendFileAsync(stream, "error.txt", "\u200b", embed: embed.Build()).ConfigureAwait(false);
             }
         }
 
         private Task CommandsNextService_CommandExecuted(CommandExecutionEventArgs e)
         {
-            Discord.DebugLogger.LogMessage(LogLevel.Info, "CommandsNext", $"{e.Context.User.Username} executed '{e.Command.QualifiedName}' in {e.Context.Channel.Name}", DateTime.Now);
-            return Task.Delay(0);
+            Discord.DebugLogger.LogMessage(LogLevel.Info, "DSP Test", $"{e.Context.User.Username} executed '{e.Command.QualifiedName}' in {e.Context.Channel.Name}", DateTime.Now);
+            return Task.CompletedTask;
         }
 
         private void TimerCallback(object _)
         {
             try
             {
-                this.Discord.UpdateStatusAsync(new Game("gitting better at API")).GetAwaiter().GetResult();
+                this.Discord.UpdateStatusAsync(new DiscordGame("gitting better at API")).ConfigureAwait(false).GetAwaiter().GetResult();
             }
             catch (Exception) { }
         }

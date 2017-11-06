@@ -13,7 +13,7 @@ Raspberry Pi comes in 4 versions:
   port, and 4 USB 2.0 ports.
 * **Raspberry Pi 3**, like the 2, only has model B. Features quad-core 1.2GHz ARMv8-A 64-bit CPU (although the default OS is 
   32-bit), 1GB RAM, 10/100 Ethernet, 802.11n Wi-Fi, Bluetooth, and 4 USB 2.0 ports.
-* **Raspbbery Pi Zero** is smaller than the other options, but at the cost of having a single-core 1GHz ARMv6Z CPU, 512MB 
+* **Raspberry Pi Zero** is smaller than the other options, but at the cost of having a single-core 1GHz ARMv6Z CPU, 512MB 
   RAM, and a single Micro-USB 2.0 port. Later revisions also have 802.11n Wi-Fi and Bluetooth.
 
 There are also several clones of Raspberry Pi, some of which pack more computing power. There are 4 ways to run a bot on your 
@@ -37,7 +37,7 @@ the OS.
     (`curl -LO https://dsharpplus.emzi0767.com/rpi/armhf-netcore2.0.tar.xz`).
 6.  Extract the .xz file (`xz -dvv armhf-netcore2.0.tar.xz`).
 7.  Load the image (`cat armhf-netcore2.0.tar | docker load`).
-8.   Remove the temporary file (`rm armhf-netcore2.0.tar`).
+8.  Remove the temporary file (`rm armhf-netcore2.0.tar`).
 9.  Start a new container using the image (`docker run -dti --name=mybot armhf/netcore2.0`).
 10. Attach to the container (`docker attach mybot`).
 
@@ -79,14 +79,15 @@ This method will install a shared .NET Core 2.0 runtime on your device. This is 
 than one .NET Core application on the device. To install the runtime, do the following:
 
 1. Login to your Pi via SSH or serial connection.
-2. Go to `/tmp` (`cd /tmp`).
-3. Download [.NET Core 2.0 ARM runtime](https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-linux-arm.tar.gz ".NET Core 2.0 ARM runtime") 
+2. Install necessary prerequisites (`sudo apt-get install curl libunwind8 gettext`).
+3. Go to `/tmp` (`cd /tmp`).
+4. Download [.NET Core 2.0 ARM runtime](https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-linux-arm.tar.gz ".NET Core 2.0 ARM runtime") 
    (`curl -LO https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-linux-arm.tar.gz`).
-4. Create a directory called `dotnet` in `/opt` (`sudo mkdir /opt/dotnet`).
-5. Extract the runtime to the directory (`sudo tar xzf dotnet-runtime-latest-linux-arm.tar.gz -C /opt/dotnet`).
-6. Create a softlink for the `dotnet` binary in `/usr/local/bin` (`sudo ln -s /opt/dotnet/dotnet /usr/local/bin/dotnet`).
-7. Clean up (`rm dotnet-runtime-latest-linux-arm.tar.gz`).
-8. Verify that the installation was successful (`dotnet --info`).
+5. Create a directory called `dotnet` in `/opt` (`sudo mkdir /opt/dotnet`).
+6. Extract the runtime to the directory (`sudo tar xzf dotnet-runtime-latest-linux-arm.tar.gz -C /opt/dotnet`).
+7. Create a softlink for the `dotnet` binary in `/usr/local/bin` (`sudo ln -s /opt/dotnet/dotnet /usr/local/bin/dotnet`).
+8. Clean up (`rm dotnet-runtime-latest-linux-arm.tar.gz`).
+9. Verify that the installation was successful (`dotnet --info`).
 
 If you were successful, you should see something to this effect:
 
@@ -158,23 +159,11 @@ This method can be utilized for all board flavours (ARMv6-, ARMv7, and ARMv8-bas
 Since Mono neither is .NET Core, nor implements its APIs, this method will only work if you target .NETFX (.NET Framework 4.5, 4.6, or 4.7). 
 Mono runtime has several caveats. It's notorious for being buggy, so this might not always work.
 
-To proceed, you will need to install Mono runtime on your device, and populate its SSL cache.
-
-1. Using your package manager, install Mono runtime (Debian/Raspbian: `sudo apt-get install mono-complete`).
-2. Populate the Mono SSL certificate cache (`cert-sync --user /etc/ssl/certs/ca-certificates.crt`).
-
-You will also need to appropriately prepare your project. Since Mono doesn't support .NET WebSocket implementation, you will need to follow 
-the [Alternate WebSocket client](/articles/alt_ws.html "Alternate WebSocket client implementations") instructions.
+Using your package manager, install Mono runtime (Debian/Raspbian: `sudo apt-get install mono-complete`). Once that is done, you will need to 
+follow the [Mono instructions](/articles/mono.html "Mono instructions and notes") to complete the project setup.
 
 Once all is done, build your project, and transfer the artifacts to the Pi. Assuming your artifacts are in `~/mybot` and the executable is 
 called `MyBot.exe`, you can run your bot by navigating to the directory (`cd ~/mybot`) and executing the executable with Mono (`mono MyBot.exe`).
-
-Unfortunately, due to how Mono is, it might complain about SSL certificates. In this case, you will need to add a certificate validation 
-override before instantiating your bot in code. You can do that like so:
-
-```cs
-ServicePointManager.ServerCertificateValidationCallback = (s, cert, chain, ssl) => true;
-```
 
 ## Final remarks
 
