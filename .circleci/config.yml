@@ -44,14 +44,8 @@ jobs:
           command: dotnet build DSharpPlus.Rest -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
 
       - run:
-          name: Build DSharpPlus.Test netstandard1.1
-          command: dotnet build DSharpPlus.Test -f netstandard1.1 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
-      - run:
-          name: Build DSharpPlus.Test netstandard1.3
-          command: dotnet build DSharpPlus.Test -f netstandard1.3 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
-      - run:
-          name: Build DSharpPlus.Test netstandard2.0
-          command: dotnet build DSharpPlus.Test -f netstandard2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
+          name: Build DSharpPlus.Test netcoreapp2.0
+          command: dotnet build DSharpPlus.Test -f netcoreapp2.0 -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
 
       - run:
           name: Build DSharpPlus.VoiceNext netstandard1.1
