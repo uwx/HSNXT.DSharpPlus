@@ -13,7 +13,7 @@ jobs:
           command: dotnet restore -v Minimal
       - run:
           name: Build
-          command: dotnet build DSharpPlus.sln -v Minimal -c Release --version-suffix "$VERSION"
+          command: dotnet build DSharpPlus.sln -v Minimal -c Release --version-suffix "$CIRCLE_BUILD_NUM"
       - run:
           name: Package
-          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$VERSION"
+          command: dotnet pack DSharpPlus.sln -v Minimal -c Release -o "$dir" --no-build --version-suffix "$CIRCLE_BUILD_NUM"
