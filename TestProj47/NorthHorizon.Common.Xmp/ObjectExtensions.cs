@@ -74,9 +74,10 @@ namespace TestProj47
 		/// <param name="getExpression">The expression representing the member access chain.</param>
 		/// <param name="success">Whether or not the chain was completely evaluated.</param>
 		/// <returns>The value of the target member or <code>default(TValue)</code></returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design",
+			 "CA1006:DoNotNestGenericTypesInMemberSignatures"),
+		 System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters"),
+		 System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
 		public static TValue ChainGet<TRoot, TValue>(this TRoot root, Expression<Func<TRoot, TValue>> getExpression, out bool success)
 		{
 			// it's ok if root is null!
