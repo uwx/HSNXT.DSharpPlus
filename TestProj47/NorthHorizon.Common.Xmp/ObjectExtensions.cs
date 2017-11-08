@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -14,7 +15,7 @@ namespace TestProj47
 		/// <param name="obj">The target object.</param>
 		/// <param name="action">The action to perform.</param>
 		/// <returns>Whether or not the action was able to be performed.</returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "obj")]
+		[SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "obj")]
 		public static bool As<T>(this object obj, Action<T> action) where T : class
 		{
 			if (obj == null)
@@ -37,7 +38,7 @@ namespace TestProj47
 		/// <param name="obj">The target object.</param>
 		/// <param name="action">The action to perform.</param>
 		/// <returns>Whether or not the action was able to be performed.</returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "obj")]
+		[SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "obj")]
 		public static bool AsValueType<T>(this object obj, Action<T> action) where T : struct
 		{
 			if (obj == null)
@@ -59,7 +60,7 @@ namespace TestProj47
 		/// <param name="root">The target object</param>
 		/// <param name="getExpression">The expression representing the member access chain.</param>
 		/// <returns>The value of the target member or <code>default(TValue)</code></returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+		[SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
 		public static TValue ChainGet<TRoot, TValue>(this TRoot root, Expression<Func<TRoot, TValue>> getExpression)
 		{
 			return ChainGet(root, getExpression, out _);
@@ -74,10 +75,9 @@ namespace TestProj47
 		/// <param name="getExpression">The expression representing the member access chain.</param>
 		/// <param name="success">Whether or not the chain was completely evaluated.</param>
 		/// <returns>The value of the target member or <code>default(TValue)</code></returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design",
-			 "CA1006:DoNotNestGenericTypesInMemberSignatures"),
-		 System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters"),
-		 System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
+		[SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures"),
+		 SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters"),
+		 SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#")]
 		public static TValue ChainGet<TRoot, TValue>(this TRoot root, Expression<Func<TRoot, TValue>> getExpression, out bool success)
 		{
 			// it's ok if root is null!
