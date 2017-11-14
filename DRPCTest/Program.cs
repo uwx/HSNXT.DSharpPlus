@@ -96,16 +96,16 @@ namespace DRPCTest
     public class VLCStatus
     {
         [JsonProperty("apiversion")]
-        public long Apiversion { get; set; }
+        public long ApiVersion { get; set; }
 
         [JsonProperty("audiodelay")]
-        public long Audiodelay { get; set; }
+        public long AudioDelay { get; set; }
 
         [JsonProperty("audiofilters")]
-        public Audiofilters Audiofilters { get; set; }
+        public Audiofilters AudioFilters { get; set; }
 
         [JsonProperty("currentplid")]
-        public long Currentplid { get; set; }
+        public long CurrentPlayingId { get; set; }
 
         [JsonProperty("equalizer")]
         public object[] Equalizer { get; set; }
@@ -141,7 +141,7 @@ namespace DRPCTest
         public Stats Stats { get; set; }
 
         [JsonProperty("subtitledelay")]
-        public long Subtitledelay { get; set; }
+        public long SubtitleDelay { get; set; }
 
         [JsonProperty("time")]
         public long Time { get; set; }
@@ -150,7 +150,7 @@ namespace DRPCTest
         public string Version { get; set; }
 
         [JsonProperty("videoeffects")]
-        public Videoeffects Videoeffects { get; set; }
+        public Videoeffects VideoEffects { get; set; }
 
         [JsonProperty("volume")]
         public long Volume { get; set; }
@@ -177,61 +177,61 @@ namespace DRPCTest
     public class Stats
     {
         [JsonProperty("averagedemuxbitrate")]
-        public long Averagedemuxbitrate { get; set; }
+        public long AverageDemuxBitrate { get; set; }
 
         [JsonProperty("averageinputbitrate")]
-        public long Averageinputbitrate { get; set; }
+        public long AverageInputBitrate { get; set; }
 
         [JsonProperty("decodedaudio")]
-        public long Decodedaudio { get; set; }
+        public long DecodedAudio { get; set; }
 
         [JsonProperty("decodedvideo")]
-        public long Decodedvideo { get; set; }
+        public long DecodedVideo { get; set; }
 
         [JsonProperty("demuxbitrate")]
-        public long Demuxbitrate { get; set; }
+        public long DemuxBitrate { get; set; }
 
         [JsonProperty("demuxcorrupted")]
-        public long Demuxcorrupted { get; set; }
+        public long DemuxCorrupted { get; set; }
 
         [JsonProperty("demuxdiscontinuity")]
-        public long Demuxdiscontinuity { get; set; }
+        public long DemuxDiscontinuity { get; set; }
 
         [JsonProperty("demuxreadbytes")]
-        public long Demuxreadbytes { get; set; }
+        public long DemuxReadBytes { get; set; }
 
         [JsonProperty("demuxreadpackets")]
-        public long Demuxreadpackets { get; set; }
+        public long DemuxReadPackets { get; set; }
 
         [JsonProperty("displayedpictures")]
-        public long Displayedpictures { get; set; }
+        public long DisplayedPictures { get; set; }
 
         [JsonProperty("inputbitrate")]
-        public long Inputbitrate { get; set; }
+        public long InputBitrate { get; set; }
 
         [JsonProperty("lostabuffers")]
-        public long Lostabuffers { get; set; }
+        public long LostABuffers { get; set; }
 
         [JsonProperty("lostpictures")]
-        public long Lostpictures { get; set; }
+        public long LostPictures { get; set; }
 
         [JsonProperty("playedabuffers")]
-        public long Playedabuffers { get; set; }
+        public long PlayedABuffers { get; set; }
 
         [JsonProperty("readbytes")]
-        public long Readbytes { get; set; }
+        public long ReadBytes { get; set; }
 
         [JsonProperty("readpackets")]
-        public long Readpackets { get; set; }
+        public long ReadPackets { get; set; }
 
         [JsonProperty("sendbitrate")]
-        public long Sendbitrate { get; set; }
+        public long SendBitrate { get; set; }
 
         [JsonProperty("sentbytes")]
-        public long Sentbytes { get; set; }
+        public long SentBytes { get; set; }
 
         [JsonProperty("sentpackets")]
-        public long Sentpackets { get; set; }
+        public long SentPackets { get; set; }
     }
 
     public class Information
@@ -323,8 +323,8 @@ namespace DRPCTest
 
     internal class Program
     {
-        private static DiscordRpc.EventHandlers handlers;
-        private static DiscordRpc.RichPresence presence;
+        private static DiscordRpc.EventHandlers _handlers;
+        private static DiscordRpc.RichPresence _presence;
 
         public static void Main()
         {
@@ -333,7 +333,7 @@ namespace DRPCTest
 
         public static async Task MainAsync()
         {
-            presence = new DiscordRpc.RichPresence()
+            _presence = new DiscordRpc.RichPresence()
             {
                 //the user's current party status
                 state = "loading",
@@ -368,19 +368,19 @@ namespace DRPCTest
                 //instance = false,
             };
             
-            handlers = new DiscordRpc.EventHandlers();
-            handlers.readyCallback += ReadyCallback;
-            handlers.disconnectedCallback += DisconnectedCallback;
-            handlers.errorCallback += ErrorCallback;
-            handlers.joinCallback += JoinCallback;
-            handlers.spectateCallback += SpectateCallback;
-            handlers.requestCallback += RequestCallback;
+            _handlers = new DiscordRpc.EventHandlers();
+            _handlers.readyCallback += ReadyCallback;
+            _handlers.disconnectedCallback += DisconnectedCallback;
+            _handlers.errorCallback += ErrorCallback;
+            _handlers.joinCallback += JoinCallback;
+            _handlers.spectateCallback += SpectateCallback;
+            _handlers.requestCallback += RequestCallback;
             Console.WriteLine("c");
-            DiscordRpc.Initialize("374693731632152576", ref handlers, true, null);
+            DiscordRpc.Initialize("374693731632152576", ref _handlers, true, null);
             Console.WriteLine("b");
             DiscordRpc.RunCallbacks();
             Console.WriteLine("a");
-            DiscordRpc.UpdatePresence(ref presence);
+            DiscordRpc.UpdatePresence(ref _presence);
             
             while(true)
             {
@@ -401,15 +401,15 @@ namespace DRPCTest
                 var leaves = xml.GetElementsByTagName("leaf");
                 var total = leaves.Count;
                 var current = 1+leaves.Cast<XmlNode>().ToList()
-                    .FindIndex(c => status.Body.Currentplid == int.Parse(c.Attributes?["id"]?.InnerText ?? "-1"));
+                    .FindIndex(c => status.Body.CurrentPlayingId == int.Parse(c.Attributes?["id"]?.InnerText ?? "-1"));
 
                 var meta = status.Body.Information.Category.Meta;
-                presence.state = $"{meta.Artist} - {meta.Title}";
+                _presence.state = $"{meta.Artist} - {meta.Title}";
 
-                presence.details = $"{status.Body.State} {status.Body.Time / 60}:{status.Body.Time % 60:00} / {status.Body.Length / 60}:{status.Body.Length % 60:00}";
+                _presence.details = $"{status.Body.State} {status.Body.Time / 60}:{status.Body.Time % 60:00} / {status.Body.Length / 60}:{status.Body.Length % 60:00}";
 
-                presence.partySize = current;
-                presence.partyMax = total;
+                _presence.partySize = current;
+                _presence.partyMax = total;
 
                 //presence.startTimestamp =
                 //    DateTimeOffset.Now.AddSeconds(-status.Body.Time).ToUnixTimeMilliseconds();
@@ -419,7 +419,7 @@ namespace DRPCTest
                 Console.WriteLine($"hi!!!{status.Body.Time},{status.Body.Length}");
                 Console.WriteLine($"Now:{DateTimeOffset.Now};Then{DateTimeOffset.Now.AddSeconds(-status.Body.Time)};Now-Then{DateTimeOffset.Now - DateTimeOffset.Now.AddSeconds(-status.Body.Time)}");
                 Console.WriteLine($"Now:{DateTimeOffset.Now.ToUnixTimeMilliseconds()};Then{DateTimeOffset.Now.AddSeconds(-status.Body.Time).ToUnixTimeMilliseconds()};Now-Then{(DateTimeOffset.Now - DateTimeOffset.Now.AddSeconds(-status.Body.Time)).TotalMilliseconds}");
-                DiscordRpc.UpdatePresence(ref presence);
+                DiscordRpc.UpdatePresence(ref _presence);
             }
         }
 
@@ -451,7 +451,7 @@ namespace DRPCTest
         private static void ReadyCallback()
         {
             Console.WriteLine($"Ready");
-            DiscordRpc.UpdatePresence(ref presence);
+            DiscordRpc.UpdatePresence(ref _presence);
         }
     }
 }
