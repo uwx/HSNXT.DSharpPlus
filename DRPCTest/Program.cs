@@ -29,6 +29,7 @@ namespace DRPCTest
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void RequestCallback(JoinRequest request);
     
+        [StructLayout(LayoutKind.Sequential)]
         public struct EventHandlers
         {
             public ReadyCallback readyCallback;
@@ -40,16 +41,17 @@ namespace DRPCTest
         }
     
         [Serializable]
+        [StructLayout(LayoutKind.Sequential)]
         public struct RichPresence
         {
-            public string state; /* max 128 bytes */
-            public string details; /* max 128 bytes */
+            [MarshalAs(UnmanagedType.LPUTF8Str)] public string state; /* max 128 bytes */
+            [MarshalAs(UnmanagedType.LPUTF8Str)] public string details; /* max 128 bytes */
             public long startTimestamp;
             public long endTimestamp;
             public string largeImageKey; /* max 32 bytes */
-            public string largeImageText; /* max 128 bytes */
+            [MarshalAs(UnmanagedType.LPUTF8Str)] public string largeImageText; /* max 128 bytes */
             public string smallImageKey; /* max 32 bytes */
-            public string smallImageText; /* max 128 bytes */
+            [MarshalAs(UnmanagedType.LPUTF8Str)] public string smallImageText; /* max 128 bytes */
             public string partyId; /* max 128 bytes */
             public int partySize;
             public int partyMax;
@@ -60,6 +62,7 @@ namespace DRPCTest
         }
     
         [Serializable]
+        [StructLayout(LayoutKind.Sequential)]
         public struct JoinRequest
         {
             public string userId;
