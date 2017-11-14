@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -50,7 +52,6 @@ namespace TestProj47
         /// <param name="third">Third sequence</param>
         /// <param name="resultSelector">Function to apply to each triplet of elements</param>
         /// <returns>A projection of tuples, where each tuple contains the N-th element from each of the argument sequences.</returns>
-        
         public static IEnumerable<TResult> ZipShortest<T1, T2, T3, TResult>(this IEnumerable<T1> first,
             IEnumerable<T2> second, IEnumerable<T3> third, Func<T1, T2, T3, TResult> resultSelector)
         {
@@ -59,7 +60,8 @@ namespace TestProj47
             if (third == null) throw new ArgumentNullException(nameof(third));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return ZipImpl<T1, T2, T3, object, TResult>(first, second, third, null, (a, b, c, _) => resultSelector(a, b, c));
+            return ZipImpl<T1, T2, T3, object, TResult>(first, second, third, null,
+                (a, b, c, _) => resultSelector(a, b, c));
         }
 
         /// <summary>
@@ -93,9 +95,9 @@ namespace TestProj47
         /// <param name="fourth">Fourth sequence</param>
         /// <param name="resultSelector">Function to apply to each quadruplet of elements</param>
         /// <returns>A projection of tuples, where each tuple contains the N-th element from each of the argument sequences.</returns>
-        
         public static IEnumerable<TResult> ZipShortest<T1, T2, T3, T4, TResult>(this IEnumerable<T1> first,
-            IEnumerable<T2> second, IEnumerable<T3> third, IEnumerable<T4> fourth, Func<T1, T2, T3, T4, TResult> resultSelector)
+            IEnumerable<T2> second, IEnumerable<T3> third, IEnumerable<T4> fourth,
+            Func<T1, T2, T3, T4, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
             if (second == null) throw new ArgumentNullException(nameof(second));
@@ -130,7 +132,6 @@ namespace TestProj47
         /// <param name="second">Second sequence</param>
         /// <param name="resultSelector">Function to apply to each pair of elements</param>
         /// <returns>A projection of tuples, where each tuple contains the N-th element from each of the argument sequences</returns>
-        
         public static IEnumerable<TResult> ZipShortest<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector)
         {
@@ -138,12 +139,13 @@ namespace TestProj47
             if (second == null) throw new ArgumentNullException(nameof(second));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return ZipImpl<TFirst, TSecond, object, object, TResult>(first, second, null, null, (a, b, c, d) => resultSelector(a, b));
+            return ZipImpl<TFirst, TSecond, object, object, TResult>(first, second, null, null,
+                (a, b, c, d) => resultSelector(a, b));
         }
 
         private static IEnumerable<TResult> ZipImpl<T1, T2, T3, T4, TResult>(
-            IEnumerable<T1> s1, IEnumerable<T2> s2, 
-            IEnumerable<T3> s3, IEnumerable<T4> s4, 
+            IEnumerable<T1> s1, IEnumerable<T2> s2,
+            IEnumerable<T3> s3, IEnumerable<T4> s4,
             Func<T1, T2, T3, T4, TResult> resultSelector)
         {
             using (var e1 = s1.GetEnumerator())
@@ -154,8 +156,8 @@ namespace TestProj47
                 while (e1.MoveNext())
                 {
                     if (e2.MoveNext() && (e3 == null || e3.MoveNext())
-                                      && (e4 == null || e4.MoveNext()))
-                    { 
+                        && (e4 == null || e4.MoveNext()))
+                    {
                         yield return resultSelector(e1.Current, e2.Current,
                             e3 != null ? e3.Current : default(T3),
                             e4 != null ? e4.Current : default(T4));

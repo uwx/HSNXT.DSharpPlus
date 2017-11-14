@@ -78,7 +78,7 @@ namespace TestProj47.C5
                     bottom = middle + 1;
                 }
 
-                middle = bottom + ((top - bottom) / 2);
+                middle = bottom + (top - bottom) / 2;
             }
 
             return false;

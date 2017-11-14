@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Atif Aziz. All rights reserved.
 //
@@ -13,15 +14,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -37,7 +39,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<T> PartialSort<T>(this IEnumerable<T> source, int count)
         {
             return source.PartialSort(count, null);
@@ -58,7 +59,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<T> PartialSort<T>(this IEnumerable<T> source,
             int count, OrderByDirection direction)
         {
@@ -80,7 +80,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<T> PartialSort<T>(this IEnumerable<T> source,
             int count, IComparer<T> comparer)
         {
@@ -105,12 +104,12 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<T> PartialSort<T>(this IEnumerable<T> source,
             int count, IComparer<T> comparer, OrderByDirection direction)
         {
             comparer = comparer ?? Comparer<T>.Default;
-            if (direction == OrderByDirection.Descending) {
+            if (direction == OrderByDirection.Descending)
+            {
                 comparer = new ReverseComparer<T>(comparer);
             }
             return source.PartialSort(count, comparer);
@@ -130,7 +129,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<TSource> PartialSortBy<TSource, TKey>(
             this IEnumerable<TSource> source, int count,
             Func<TSource, TKey> keySelector)
@@ -154,7 +152,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<TSource> PartialSortBy<TSource, TKey>(
             this IEnumerable<TSource> source, int count,
             Func<TSource, TKey> keySelector, OrderByDirection direction)
@@ -178,7 +175,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<TSource> PartialSortBy<TSource, TKey>(
             this IEnumerable<TSource> source, int count,
             Func<TSource, TKey> keySelector,
@@ -207,7 +203,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<TSource> PartialSortBy<TSource, TKey>(
             this IEnumerable<TSource> source, int count,
             Func<TSource, TKey> keySelector,
@@ -215,7 +210,8 @@ namespace TestProj47
             OrderByDirection direction)
         {
             comparer = comparer ?? Comparer<TKey>.Default;
-            if (direction == OrderByDirection.Descending) {
+            if (direction == OrderByDirection.Descending)
+            {
                 comparer = new ReverseComparer<TKey>(comparer);
             }
             return source.PartialSortBy(count, keySelector, comparer);

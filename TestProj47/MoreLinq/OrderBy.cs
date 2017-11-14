@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -32,8 +34,8 @@ namespace TestProj47
         /// <param name="keySelector">A key selector function</param>
         /// <param name="direction">A direction in which to order the elements (ascending, descending)</param>
         /// <returns>An ordered copy of the source sequence</returns>
-        
-        public static IOrderedEnumerable<T> OrderBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector, OrderByDirection direction)
+        public static IOrderedEnumerable<T> OrderBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector,
+            OrderByDirection direction)
         {
             return OrderBy(source, keySelector, null, direction);
         }
@@ -48,14 +50,14 @@ namespace TestProj47
         /// <param name="direction">A direction in which to order the elements (ascending, descending)</param>
         /// <param name="comparer">A comparer used to define the semantics of element comparison</param>
         /// <returns>An ordered copy of the source sequence</returns>
-        
-        public static IOrderedEnumerable<T> OrderBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector, IComparer<TKey> comparer, OrderByDirection direction)
+        public static IOrderedEnumerable<T> OrderBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector,
+            IComparer<TKey> comparer, OrderByDirection direction)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return direction == OrderByDirection.Ascending
-                       ? source.OrderBy(keySelector, comparer)
-                       : source.OrderByDescending(keySelector, comparer);
+                ? source.OrderBy(keySelector, comparer)
+                : source.OrderByDescending(keySelector, comparer);
         }
 
         /// <summary>
@@ -67,8 +69,8 @@ namespace TestProj47
         /// <param name="keySelector">A key selector function</param>
         /// <param name="direction">A direction in which to order the elements (ascending, descending)</param>
         /// <returns>An ordered copy of the source sequence</returns>
-        
-        public static IOrderedEnumerable<T> ThenBy<T, TKey>(this IOrderedEnumerable<T> source, Func<T, TKey> keySelector, OrderByDirection direction)
+        public static IOrderedEnumerable<T> ThenBy<T, TKey>(this IOrderedEnumerable<T> source,
+            Func<T, TKey> keySelector, OrderByDirection direction)
         {
             return ThenBy(source, keySelector, null, direction);
         }
@@ -83,14 +85,14 @@ namespace TestProj47
         /// <param name="direction">A direction in which to order the elements (ascending, descending)</param>
         /// <param name="comparer">A comparer used to define the semantics of element comparison</param>
         /// <returns>An ordered copy of the source sequence</returns>
-        
-        public static IOrderedEnumerable<T> ThenBy<T, TKey>(this IOrderedEnumerable<T> source, Func<T, TKey> keySelector, IComparer<TKey> comparer, OrderByDirection direction)
+        public static IOrderedEnumerable<T> ThenBy<T, TKey>(this IOrderedEnumerable<T> source,
+            Func<T, TKey> keySelector, IComparer<TKey> comparer, OrderByDirection direction)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return direction == OrderByDirection.Ascending
-                       ? source.ThenBy(keySelector, comparer)
-                       : source.ThenByDescending(keySelector, comparer);
+                ? source.ThenBy(keySelector, comparer)
+                : source.ThenByDescending(keySelector, comparer);
         }
     }
 }

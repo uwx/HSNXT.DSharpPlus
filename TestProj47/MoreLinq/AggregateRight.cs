@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -41,12 +43,13 @@ namespace TestProj47
         /// <remarks>
         /// This operator executes immediately.
         /// </remarks>
-        public static TSource AggregateRight<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> func)
+        public static TSource AggregateRight<TSource>(this IEnumerable<TSource> source,
+            Func<TSource, TSource, TSource> func)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (func == null) throw new ArgumentNullException(nameof(func));
 
-            var list = (source as IList<TSource>) ?? source.ToList();
+            var list = source as IList<TSource> ?? source.ToList();
 
             if (list.Count == 0)
                 throw new InvalidOperationException("Sequence contains no elements.");
@@ -76,12 +79,13 @@ namespace TestProj47
         /// <remarks>
         /// This operator executes immediately.
         /// </remarks>
-        public static TAccumulate AggregateRight<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func)
+        public static TAccumulate AggregateRight<TSource, TAccumulate>(this IEnumerable<TSource> source,
+            TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (func == null) throw new ArgumentNullException(nameof(func));
 
-            var list = (source as IList<TSource>) ?? source.ToList();
+            var list = source as IList<TSource> ?? source.ToList();
 
             return AggregateRightImpl(list, seed, func, list.Count);
         }
@@ -111,7 +115,8 @@ namespace TestProj47
         /// <remarks>
         /// This operator executes immediately.
         /// </remarks>
-        public static TResult AggregateRight<TSource, TAccumulate, TResult>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult AggregateRight<TSource, TAccumulate, TResult>(this IEnumerable<TSource> source,
+            TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (func == null) throw new ArgumentNullException(nameof(func));
@@ -120,7 +125,8 @@ namespace TestProj47
             return resultSelector(source.AggregateRight(seed, func));
         }
 
-        private static TResult AggregateRightImpl<TSource, TResult>(IList<TSource> list, TResult accumulator, Func<TSource, TResult, TResult> func, int i)
+        private static TResult AggregateRightImpl<TSource, TResult>(IList<TSource> list, TResult accumulator,
+            Func<TSource, TResult, TResult> func, int i)
         {
             while (i-- > 0)
             {

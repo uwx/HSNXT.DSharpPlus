@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -50,16 +52,17 @@ namespace TestProj47
         /// A sequence that contains elements of the two input sequences,
         /// combined by <paramref name="resultSelector"/>.
         /// </returns>
-
         public static IEnumerable<TResult> ZipLongest<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first,
-             IEnumerable<TSecond> second,
-             Func<TFirst, TSecond, TResult> resultSelector)
+            IEnumerable<TSecond> second,
+            Func<TFirst, TSecond, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
             if (second == null) throw new ArgumentNullException(nameof(second));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 using (var e1 = first.GetEnumerator())
                 using (var e2 = second.GetEnumerator())
@@ -72,8 +75,10 @@ namespace TestProj47
                         }
                         else
                         {
-                            do { yield return resultSelector(e1.Current, default(TSecond)); }
-                            while (e1.MoveNext());
+                            do
+                            {
+                                yield return resultSelector(e1.Current, default(TSecond));
+                            } while (e1.MoveNext());
                             yield break;
                         }
                     }

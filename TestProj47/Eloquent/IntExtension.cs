@@ -9,7 +9,7 @@ namespace TestProj47
         private const long Gigabyte = Megabyte * 1024;
         private const long Terabyte = Gigabyte * 1024;
         private const long Petabyte = Terabyte * 1024;
-        private const long Exabyte =  Petabyte * 1024;
+        private const long Exabyte = Petabyte * 1024;
 
         public static long Bytes(this int number)
         {

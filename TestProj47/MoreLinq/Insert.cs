@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -48,14 +50,15 @@ namespace TestProj47
         /// yielding the next element after having iterated
         /// <paramref name="first"/> entirely.
         /// </exception>
-
         public static IEnumerable<T> Insert<T>(this IEnumerable<T> first, IEnumerable<T> second, int index)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
             if (second == null) throw new ArgumentNullException(nameof(second));
-            if (index < 0)  throw new ArgumentOutOfRangeException(nameof(index), "Index cannot be negative.");
+            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index), "Index cannot be negative.");
 
-            return _(); IEnumerable<T> _()
+            return _();
+
+            IEnumerable<T> _()
             {
                 var i = -1;
 
@@ -65,7 +68,8 @@ namespace TestProj47
                         yield return iter.Current;
 
                     if (i < index)
-                       throw new ArgumentOutOfRangeException(nameof(index), "Insertion index is greater than the length of the first sequence.");
+                        throw new ArgumentOutOfRangeException(nameof(index),
+                            "Insertion index is greater than the length of the first sequence.");
 
                     foreach (var item in second)
                         yield return item;

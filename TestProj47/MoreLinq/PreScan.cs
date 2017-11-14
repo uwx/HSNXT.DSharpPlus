@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Konrad Rudolph. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -51,14 +53,15 @@ namespace TestProj47
         /// <param name="transformation">Transformation operation</param>
         /// <param name="identity">Identity element (see remarks)</param>
         /// <returns>The scanned sequence</returns>
-
         public static IEnumerable<TSource> PreScan<TSource>(this IEnumerable<TSource> source,
             Func<TSource, TSource, TSource> transformation, TSource identity)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (transformation == null) throw new ArgumentNullException(nameof(transformation));
 
-            return _(); IEnumerable<TSource> _()
+            return _();
+
+            IEnumerable<TSource> _()
             {
                 // special case, the first element is set to the identity
                 var aggregator = identity;

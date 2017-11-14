@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2015 Felipe Sateler. All rights reserved.
 // 
@@ -13,18 +14,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     // Inspiration & credit: http://stackoverflow.com/a/13503860/6682
     public static partial class Extensions
     {
-        #if !NO_VALUE_TUPLES
+#if !NO_VALUE_TUPLES
 
         /// <summary>
         /// Performs a Full Group Join between the <paramref name="first"/> and <paramref name="second"/> sequences.
@@ -44,12 +46,14 @@ namespace TestProj47
         /// <param name="secondKeySelector">The mapping from second sequence to key</param>
         /// <returns>A sequence of elements joined from <paramref name="first"/> and <paramref name="second"/>.
         /// </returns>
-        public static IEnumerable<(TKey Key, IEnumerable<TFirst> First, IEnumerable<TSecond> Second)> FullGroupJoin<TFirst, TSecond, TKey>(this IEnumerable<TFirst> first,
-            IEnumerable<TSecond> second,
-            Func<TFirst, TKey> firstKeySelector,
-            Func<TSecond, TKey> secondKeySelector)
+        public static IEnumerable<(TKey Key, IEnumerable<TFirst> First, IEnumerable<TSecond> Second)>
+            FullGroupJoin<TFirst, TSecond, TKey>(this IEnumerable<TFirst> first,
+                IEnumerable<TSecond> second,
+                Func<TFirst, TKey> firstKeySelector,
+                Func<TSecond, TKey> secondKeySelector)
         {
-            return FullGroupJoin(first, second, firstKeySelector, secondKeySelector, ValueTuple.Create, EqualityComparer<TKey>.Default);
+            return FullGroupJoin(first, second, firstKeySelector, secondKeySelector, ValueTuple.Create,
+                EqualityComparer<TKey>.Default);
         }
 
         /// <summary>
@@ -72,16 +76,17 @@ namespace TestProj47
         /// If null, the default equality comparer for <c>TKey</c> is used.</param>
         /// <returns>A sequence of elements joined from <paramref name="first"/> and <paramref name="second"/>.
         /// </returns>
-        public static IEnumerable<(TKey Key, IEnumerable<TFirst> First, IEnumerable<TSecond> Second)> FullGroupJoin<TFirst, TSecond, TKey>(this IEnumerable<TFirst> first,
-            IEnumerable<TSecond> second,
-            Func<TFirst, TKey> firstKeySelector,
-            Func<TSecond, TKey> secondKeySelector,
-            IEqualityComparer<TKey> comparer)
+        public static IEnumerable<(TKey Key, IEnumerable<TFirst> First, IEnumerable<TSecond> Second)>
+            FullGroupJoin<TFirst, TSecond, TKey>(this IEnumerable<TFirst> first,
+                IEnumerable<TSecond> second,
+                Func<TFirst, TKey> firstKeySelector,
+                Func<TSecond, TKey> secondKeySelector,
+                IEqualityComparer<TKey> comparer)
         {
             return FullGroupJoin(first, second, firstKeySelector, secondKeySelector, ValueTuple.Create, comparer);
         }
 
-        #endif
+#endif
 
         /// <summary>
         /// Performs a full group-join between two sequences.
@@ -109,7 +114,8 @@ namespace TestProj47
             Func<TSecond, TKey> secondKeySelector,
             Func<TKey, IEnumerable<TFirst>, IEnumerable<TSecond>, TResult> resultSelector)
         {
-            return FullGroupJoin(first, second, firstKeySelector, secondKeySelector, resultSelector, EqualityComparer<TKey>.Default);
+            return FullGroupJoin(first, second, firstKeySelector, secondKeySelector, resultSelector,
+                EqualityComparer<TKey>.Default);
         }
 
         /// <summary>
@@ -147,18 +153,22 @@ namespace TestProj47
             if (secondKeySelector == null) throw new ArgumentNullException(nameof(secondKeySelector));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 comparer = comparer ?? EqualityComparer<TKey>.Default;
 
-                var alookup = Lookup<TKey,TFirst>.CreateForJoin(first, firstKeySelector, comparer);
+                var alookup = Lookup<TKey, TFirst>.CreateForJoin(first, firstKeySelector, comparer);
                 var blookup = Lookup<TKey, TSecond>.CreateForJoin(second, secondKeySelector, comparer);
 
-                foreach (var a in alookup) {
+                foreach (var a in alookup)
+                {
                     yield return resultSelector(a.Key, a, blookup[a.Key]);
                 }
 
-                foreach (var b in blookup) {
+                foreach (var b in blookup)
+                {
                     if (alookup.Contains(b.Key))
                         continue;
                     // We can skip the lookup because we are iterating over keys not found in the first sequence

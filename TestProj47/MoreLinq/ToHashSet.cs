@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     // TODO: Tests! (The code is simple enough I trust it not to fail, mind you...)
     public static partial class Extensions
     {
@@ -34,7 +36,6 @@ namespace TestProj47
         /// <remarks>
         /// This evaluates the input sequence completely.
         /// </remarks>
-
         public static HashSet<TSource> ToHashSet<TSource>(this IEnumerable<TSource> source)
         {
             return source.ToHashSet(null);
@@ -52,8 +53,8 @@ namespace TestProj47
         /// <remarks>
         /// This evaluates the input sequence completely.
         /// </remarks>
-
-        public static HashSet<TSource> ToHashSet<TSource>(this IEnumerable<TSource> source, IEqualityComparer<TSource> comparer)
+        public static HashSet<TSource> ToHashSet<TSource>(this IEnumerable<TSource> source,
+            IEqualityComparer<TSource> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return new HashSet<TSource>(source, comparer);

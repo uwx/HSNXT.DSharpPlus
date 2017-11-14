@@ -135,7 +135,7 @@ namespace TestProj47
         /// <returns>true if date equal, false if not.</returns>
         public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
         {
-            return (date.Date == dateToCompare.Date);
+            return date.Date == dateToCompare.Date;
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace TestProj47
         /// <returns>true if time equal, false if not.</returns>
         public static bool IsTimeEqual(this DateTime time, DateTime timeToCompare)
         {
-            return (time.TimeOfDay == timeToCompare.TimeOfDay);
+            return time.TimeOfDay == timeToCompare.TimeOfDay;
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace TestProj47
         /// <returns>true if '@this' is a weekend day, false if not.</returns>
         public static bool IsWeekendDay(this DateTime @this)
         {
-            return (@this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday);
+            return @this.DayOfWeek == DayOfWeek.Saturday || @this.DayOfWeek == DayOfWeek.Sunday;
         }
 
         /// <summary>

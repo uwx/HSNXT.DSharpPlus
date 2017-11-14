@@ -1,4 +1,5 @@
 #region License and Terms
+
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license.
 // The MIT License (MIT)
@@ -22,17 +23,18 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+
 #endregion
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
-    /// A <see cref="ILookup{TKey, TElement}"/> implementation that preserves insertion order
+    /// A <see cref="ILookup{TKey,TElement}"/> implementation that preserves insertion order
     /// </summary>
     /// <typeparam name="TKey">The type of the keys in the <see cref="Lookup{TKey, TElement}"/></typeparam>
     /// <typeparam name="TElement">The type of the elements in the <see cref="IEnumerable{T}"/> sequences that make up the values in the <see cref="Lookup{TKey, TElement}"/></typeparam>
@@ -49,22 +51,26 @@ namespace TestProj47
         private Grouping<TKey, TElement> _lastGrouping;
         private int _count;
 
-        internal static Lookup<TKey, TElement> Create<TSource>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector, Func<TSource, TElement> elementSelector, IEqualityComparer<TKey> comparer)
+        internal static Lookup<TKey, TElement> Create<TSource>(IEnumerable<TSource> source,
+            Func<TSource, TKey> keySelector, Func<TSource, TElement> elementSelector, IEqualityComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             if (elementSelector == null) throw new ArgumentNullException(nameof(elementSelector));
             var lookup = new Lookup<TKey, TElement>(comparer);
-            foreach (var item in source) {
+            foreach (var item in source)
+            {
                 lookup.GetGrouping(keySelector(item), true).Add(elementSelector(item));
             }
             return lookup;
         }
 
-        internal static Lookup<TKey, TElement> CreateForJoin(IEnumerable<TElement> source, Func<TElement, TKey> keySelector, IEqualityComparer<TKey> comparer)
+        internal static Lookup<TKey, TElement> CreateForJoin(IEnumerable<TElement> source,
+            Func<TElement, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             var lookup = new Lookup<TKey, TElement>(comparer);
-            foreach (var item in source) {
+            foreach (var item in source)
+            {
                 var key = keySelector(item);
                 if (key != null) lookup.GetGrouping(key, true).Add(item);
             }
@@ -101,21 +107,29 @@ namespace TestProj47
         public IEnumerator<IGrouping<TKey, TElement>> GetEnumerator()
         {
             var g = _lastGrouping;
-            if (g != null) {
-                do {
+            if (g != null)
+            {
+                do
+                {
                     g = g.next;
                     yield return g;
                 } while (g != _lastGrouping);
             }
         }
 
-        public IEnumerable<TResult> ApplyResultSelector<TResult>(Func<TKey, IEnumerable<TElement>, TResult> resultSelector)
+        public IEnumerable<TResult> ApplyResultSelector<TResult>(
+            Func<TKey, IEnumerable<TElement>, TResult> resultSelector)
         {
             var g = _lastGrouping;
-            if (g != null) {
-                do {
+            if (g != null)
+            {
+                do
+                {
                     g = g.next;
-                    if (g.count != g.elements.Length) { Array.Resize<TElement>(ref g.elements, g.count); }
+                    if (g.count != g.elements.Length)
+                    {
+                        Array.Resize<TElement>(ref g.elements, g.count);
+                    }
                     yield return resultSelector(g.key, g.elements);
                 } while (g != _lastGrouping);
             }
@@ -129,7 +143,7 @@ namespace TestProj47
         internal int InternalGetHashCode(TKey key)
         {
             // Handle comparer implementations that throw when passed null
-            return (key == null) ? 0 : _comparer.GetHashCode(key) & 0x7FFFFFFF;
+            return key == null ? 0 : _comparer.GetHashCode(key) & 0x7FFFFFFF;
         }
 
         internal Grouping<TKey, TElement> GetGrouping(TKey key, bool create)
@@ -137,7 +151,8 @@ namespace TestProj47
             var hashCode = InternalGetHashCode(key);
             for (var g = _groupings[hashCode % _groupings.Length]; g != null; g = g.hashNext)
                 if (g.hashCode == hashCode && _comparer.Equals(g.key, key)) return g;
-            if (create) {
+            if (create)
+            {
                 if (_count == _groupings.Length) Resize();
                 var index = hashCode % _groupings.Length;
                 var g = new Grouping<TKey, TElement>();
@@ -146,10 +161,12 @@ namespace TestProj47
                 g.elements = new TElement[1];
                 g.hashNext = _groupings[index];
                 _groupings[index] = g;
-                if (_lastGrouping == null) {
+                if (_lastGrouping == null)
+                {
                     g.next = g;
                 }
-                else {
+                else
+                {
                     g.next = _lastGrouping.next;
                     _lastGrouping.next = g;
                 }
@@ -165,7 +182,8 @@ namespace TestProj47
             var newSize = checked(_count * 2 + 1);
             var newGroupings = new Grouping<TKey, TElement>[newSize];
             var g = _lastGrouping;
-            do {
+            do
+            {
                 g = g.next;
                 var index = g.hashCode % newSize;
                 g.hashNext = newGroupings[index];
@@ -269,10 +287,7 @@ namespace TestProj47
                 if (index < 0 || index >= count) throw new ArgumentOutOfRangeException(nameof(index));
                 return elements[index];
             }
-            set
-            {
-                throw new NotSupportedException("Lookup is immutable");
-            }
+            set { throw new NotSupportedException("Lookup is immutable"); }
         }
     }
 }

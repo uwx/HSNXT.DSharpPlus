@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -48,7 +50,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams its results.
         /// </remarks>
-
         public static IEnumerable<TResult> Unfold<TState, T, TResult>(
             TState state,
             Func<TState, T> generator,
@@ -61,7 +62,9 @@ namespace TestProj47
             if (stateSelector == null) throw new ArgumentNullException(nameof(stateSelector));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 while (true)
                 {

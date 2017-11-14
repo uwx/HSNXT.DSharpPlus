@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 /* Documentation: https://github.com/JeevanJames/CodeBits/wiki/PasswordGenerator */
@@ -56,7 +58,8 @@ namespace TestProj47
         /// <param name="allowedCharacters">Set of allowed characters in the generated password</param>
         /// <param name="excludeCharacters">Set of disallowed characters in the generated password</param>
         /// <returns>The generated password as a <see cref="SecureString" /></returns>
-        public static SecureString GenerateSecure(int length, PasswordCharacters allowedCharacters = PasswordCharacters.All,
+        public static SecureString GenerateSecure(int length,
+            PasswordCharacters allowedCharacters = PasswordCharacters.All,
             IEnumerable<char> excludeCharacters = null)
         {
             var password = InternalGenerate(length, allowedCharacters, excludeCharacters, () => new SecureString(),
@@ -106,12 +109,13 @@ namespace TestProj47
         }
 
         private static readonly Dictionary<PasswordCharacters, string> AllowedPasswordCharacters =
-            new Dictionary<PasswordCharacters, string>(4) {
-                { PasswordCharacters.LowercaseLetters, "abcdefghijklmnopqrstuvwxyz" },
-                { PasswordCharacters.UppercaseLetters, "ABCDEFGHIJKLMNOPQRSTUVWXYZ" },
-                { PasswordCharacters.Numbers, "0123456789" },
-                { PasswordCharacters.Punctuations, @"~`!@#$%^&*()_-+={[}]|\:;""'<,>.?/" },
-                { PasswordCharacters.Space, " " }
+            new Dictionary<PasswordCharacters, string>(4)
+            {
+                {PasswordCharacters.LowercaseLetters, "abcdefghijklmnopqrstuvwxyz"},
+                {PasswordCharacters.UppercaseLetters, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"},
+                {PasswordCharacters.Numbers, "0123456789"},
+                {PasswordCharacters.Punctuations, @"~`!@#$%^&*()_-+={[}]|\:;""'<,>.?/"},
+                {PasswordCharacters.Space, " "}
             };
     }
 

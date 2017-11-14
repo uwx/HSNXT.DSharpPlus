@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Atif Aziz. All rights reserved.
 //
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -34,8 +36,8 @@ namespace TestProj47
         /// A <see cref="Dictionary{TKey, TValue}"/> containing the values
         /// mapped to their keys.
         /// </returns>
-
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source) =>
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+            this IEnumerable<KeyValuePair<TKey, TValue>> source) =>
             source.ToDictionary(null);
 
         /// <summary>
@@ -51,15 +53,15 @@ namespace TestProj47
         /// A <see cref="Dictionary{TKey, TValue}"/> containing the values
         /// mapped to their keys.
         /// </returns>
-
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source,
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+            this IEnumerable<KeyValuePair<TKey, TValue>> source,
             IEqualityComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return source.ToDictionary(e => e.Key, e => e.Value, comparer);
         }
 
-        #if !NO_VALUE_TUPLES
+#if !NO_VALUE_TUPLES
 
         /// <summary>
         /// Creates a <see cref="Dictionary{TKey,TValue}" /> from a sequence of
@@ -73,8 +75,8 @@ namespace TestProj47
         /// A <see cref="Dictionary{TKey, TValue}"/> containing the values
         /// mapped to their keys.
         /// </returns>
-
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<(TKey Key, TValue Value)> source) =>
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+            this IEnumerable<(TKey Key, TValue Value)> source) =>
             source.ToDictionary(null);
 
         /// <summary>
@@ -90,14 +92,14 @@ namespace TestProj47
         /// A <see cref="Dictionary{TKey, TValue}"/> containing the values
         /// mapped to their keys.
         /// </returns>
-
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<(TKey Key, TValue Value)> source,
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+            this IEnumerable<(TKey Key, TValue Value)> source,
             IEqualityComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return source.ToDictionary(e => e.Key, e => e.Value, comparer);
         }
 
-        #endif
+#endif
     }
 }

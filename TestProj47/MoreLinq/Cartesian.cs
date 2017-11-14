@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -34,16 +36,16 @@ namespace TestProj47
         /// <param name="second">The second sequence of elements</param>
         /// <param name="resultSelector">A projection function that combines elements from both sequences</param>
         /// <returns>A sequence representing the Cartesian product of the two source sequences</returns>
-        
-        public static IEnumerable<TResult> Cartesian<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector)
+        public static IEnumerable<TResult> Cartesian<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first,
+            IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
             if (second == null) throw new ArgumentNullException(nameof(second));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return from item1 in first 
-                   from item2 in second // TODO buffer to avoid multiple enumerations
-                   select resultSelector(item1, item2);
+            return from item1 in first
+                from item2 in second // TODO buffer to avoid multiple enumerations
+                select resultSelector(item1, item2);
         }
     }
 }

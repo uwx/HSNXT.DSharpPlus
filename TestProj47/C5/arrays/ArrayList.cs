@@ -404,7 +404,7 @@ namespace TestProj47.C5
                         if (view.offsetField < realInsertionIndex && view.offsetField + view.size > realInsertionIndex)
                             view.size += added;
                         if (view.offsetField > realInsertionIndex ||
-                            (view.offsetField == realInsertionIndex && view.size > 0))
+                            view.offsetField == realInsertionIndex && view.size > 0)
                             view.offsetField += added;
                     }
                 }
@@ -465,9 +465,9 @@ namespace TestProj47.C5
             int end = offsetField + size, otherEnd = otherOffset + otherSize;
             if (otherOffset >= end || otherEnd <= offsetField)
                 return MutualViewPosition.NonOverlapping;
-            if (size == 0 || (otherOffset <= offsetField && end <= otherEnd))
+            if (size == 0 || otherOffset <= offsetField && end <= otherEnd)
                 return MutualViewPosition.Contains;
-            if (otherSize == 0 || (offsetField <= otherOffset && otherEnd <= end))
+            if (otherSize == 0 || offsetField <= otherOffset && otherEnd <= end)
                 return MutualViewPosition.ContainedIn;
             return MutualViewPosition.Overlapping;
         }
@@ -809,7 +809,7 @@ namespace TestProj47.C5
         /// <param name="item"></param>
         public void Insert(IList<T> pointer, T item)
         {
-            if ((pointer == null) || ((pointer.Underlying ?? pointer) != (underlying ?? this)))
+            if (pointer == null || (pointer.Underlying ?? pointer) != (underlying ?? this))
                 throw new IncompatibleViewException();
             Insert(pointer.Offset + pointer.Count - Offset, item);
         }
@@ -1175,7 +1175,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual IList<T> Span(IList<T> otherView)
         {
-            if ((otherView == null) || ((otherView.Underlying ?? otherView) != (underlying ?? this)))
+            if (otherView == null || (otherView.Underlying ?? otherView) != (underlying ?? this))
                 throw new IncompatibleViewException();
             if (otherView.Offset + otherView.Count - Offset < 0)
                 return null;

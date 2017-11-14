@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copysecond (c) 2017 Atif Aziz. All seconds reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -51,7 +53,6 @@ namespace TestProj47
         /// that match on a common key.</param>
         /// <returns>A sequence containing results projected from a left
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> LeftJoin<TSource, TKey, TResult>(
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
@@ -61,8 +62,8 @@ namespace TestProj47
         {
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return first.LeftJoin(second, keySelector,
-                                  firstSelector, bothSelector,
-                                  null);
+                firstSelector, bothSelector,
+                null);
         }
 
         /// <summary>
@@ -96,7 +97,6 @@ namespace TestProj47
         /// keys for equality.</param>
         /// <returns>A sequence containing results projected from a left
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> LeftJoin<TSource, TKey, TResult>(
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
@@ -107,9 +107,9 @@ namespace TestProj47
         {
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return first.LeftJoin(second,
-                                  keySelector, keySelector,
-                                  firstSelector, bothSelector,
-                                  comparer);
+                keySelector, keySelector,
+                firstSelector, bothSelector,
+                comparer);
         }
 
         /// <summary>
@@ -143,7 +143,6 @@ namespace TestProj47
         /// that match on a common key.</param>
         /// <returns>A sequence containing results projected from a left
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> LeftJoin<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -152,9 +151,9 @@ namespace TestProj47
             Func<TFirst, TResult> firstSelector,
             Func<TFirst, TSecond, TResult> bothSelector) =>
             first.LeftJoin(second,
-                           firstKeySelector, secondKeySelector,
-                           firstSelector, bothSelector,
-                           null);
+                firstKeySelector, secondKeySelector,
+                firstSelector, bothSelector,
+                null);
 
         /// <summary>
         /// Performs a left outer join on two heterogeneous sequences.
@@ -190,7 +189,6 @@ namespace TestProj47
         /// keys for equality.</param>
         /// <returns>A sequence containing results projected from a left
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> LeftJoin<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -211,8 +209,8 @@ namespace TestProj47
 
             return // TODO replace KeyValuePair<,> with (,) for clarity
                 from j in first.GroupJoin(second, firstKeySelector, secondKeySelector,
-                                          (f, ss) => Pair(f, from s in ss select Pair(true, s)),
-                                          comparer)
+                    (f, ss) => Pair(f, from s in ss select Pair(true, s)),
+                    comparer)
                 from s in j.Value.DefaultIfEmpty()
                 select s.Key ? bothSelector(j.Key, s.Value) : firstSelector(j.Key);
         }

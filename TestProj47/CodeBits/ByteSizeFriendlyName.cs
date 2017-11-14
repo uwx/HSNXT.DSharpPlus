@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 /* Documentation: https://github.com/JeevanJames/CodeBits/wiki/ByteSizeFriendlyName */
@@ -63,12 +65,13 @@ namespace TestProj47
             return bytes;
         }
 
-        private static readonly Dictionary<double, string> ByteMappings = new Dictionary<double, string> {
-            { Math.Pow(1024, 5), "PB" },
-            { Math.Pow(1024, 4), "TB" },
-            { Math.Pow(1024, 3), "GB" },
-            { Math.Pow(1024, 2), "MB" },
-            { Math.Pow(1024, 1), "KB" },
+        private static readonly Dictionary<double, string> ByteMappings = new Dictionary<double, string>
+        {
+            {Math.Pow(1024, 5), "PB"},
+            {Math.Pow(1024, 4), "TB"},
+            {Math.Pow(1024, 3), "GB"},
+            {Math.Pow(1024, 2), "MB"},
+            {Math.Pow(1024, 1), "KB"},
         };
     }
 

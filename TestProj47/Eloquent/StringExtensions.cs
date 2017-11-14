@@ -11,7 +11,6 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-
         #region Convert
 
         public static byte ToByte(this string value)
@@ -23,7 +22,7 @@ namespace TestProj47
         {
             return Convert.ToDateTime(value, CultureInfo.InvariantCulture);
         }
-        
+
         public static int ToInt16(this string value)
         {
             return Convert.ToInt16(value, CultureInfo.InvariantCulture);
@@ -83,7 +82,8 @@ namespace TestProj47
             return DateTime.TryParse(value, provider, DateTimeStyles.AssumeLocal, out result);
         }
 
-        public static bool TryParseDateTime(this string value, out DateTime result, IFormatProvider provider, DateTimeStyles styles)
+        public static bool TryParseDateTime(this string value, out DateTime result, IFormatProvider provider,
+            DateTimeStyles styles)
         {
             return DateTime.TryParse(value, provider, styles, out result);
         }
@@ -121,7 +121,7 @@ namespace TestProj47
         #endregion
 
         #region Queries
-        
+
         /// <summary>
         /// Returns a measure of the information content of a string.
         /// </summary>
@@ -133,7 +133,8 @@ namespace TestProj47
 
             var logTwo = Math.Log(2);
 
-            var infoCount= dict.Select(kv => kv.Value / value.Length).Select(freq => freq * Math.Log(freq) / logTwo).Sum();
+            var infoCount = dict.Select(kv => kv.Value / value.Length).Select(freq => freq * Math.Log(freq) / logTwo)
+                .Sum();
             infoCount *= -1;
             return infoCount;
         }
@@ -191,6 +192,5 @@ namespace TestProj47
         }
 
         #endregion
-
     }
 }

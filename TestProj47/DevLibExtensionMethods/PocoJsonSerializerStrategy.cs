@@ -118,10 +118,9 @@ namespace TestProj47
                 return value;
             if (flag2 && type != typeof(double) || flag1 && type != typeof(long))
             {
-                var obj = type == typeof(int) || type == typeof(long) ||
-                          (type == typeof(double) || type == typeof(float)) ||
-                          (type == typeof(bool) || type == typeof(Decimal) ||
-                           (type == typeof(byte) || type == typeof(short)))
+                var obj = type == typeof(int) || type == typeof(long) || type == typeof(double) ||
+                          type == typeof(float) || (type == typeof(bool) || type == typeof(Decimal) ||
+                                                    (type == typeof(byte) || type == typeof(short)))
                     ? Convert.ChangeType(value, type, CultureInfo.InvariantCulture)
                     : value;
                 if (ReflectionUtilities.IsNullableType(type))

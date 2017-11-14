@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Atif Aziz. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -38,7 +40,6 @@ namespace TestProj47
         /// results. If references or values are null at the start of the
         /// sequence then they remain null.
         /// </remarks>
-
         public static IEnumerable<T> FillForward<T>(this IEnumerable<T> source)
         {
             return source.FillForward(e => e == null);
@@ -62,7 +63,6 @@ namespace TestProj47
         /// results. If elements are missing at the start of the sequence then
         /// they remain missing.
         /// </remarks>
-
         public static IEnumerable<T> FillForward<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -94,8 +94,8 @@ namespace TestProj47
         /// results. If elements are missing at the start of the sequence then
         /// they remain missing.
         /// </remarks>
-
-        public static IEnumerable<T> FillForward<T>(this IEnumerable<T> source, Func<T, bool> predicate, Func<T, T, T> fillSelector)
+        public static IEnumerable<T> FillForward<T>(this IEnumerable<T> source, Func<T, bool> predicate,
+            Func<T, T, T> fillSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
@@ -104,7 +104,8 @@ namespace TestProj47
             return FillForwardImpl(source, predicate, fillSelector);
         }
 
-        private static IEnumerable<T> FillForwardImpl<T>(IEnumerable<T> source, Func<T, bool> predicate, Func<T, T, T> fillSelector)
+        private static IEnumerable<T> FillForwardImpl<T>(IEnumerable<T> source, Func<T, bool> predicate,
+            Func<T, T, T> fillSelector)
         {
             var seeded = false;
             var seed = default(T);
@@ -113,10 +114,10 @@ namespace TestProj47
                 if (predicate(item))
                 {
                     yield return seeded
-                               ? fillSelector != null
-                                 ? fillSelector(item, seed)
-                                 : seed
-                               : item;
+                        ? fillSelector != null
+                            ? fillSelector(item, seed)
+                            : seed
+                        : item;
                 }
                 else
                 {

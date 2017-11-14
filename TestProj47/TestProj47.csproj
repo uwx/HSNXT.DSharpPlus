@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE;NET45_OR_GREATER;FUNC16</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE;FUNC16</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -130,6 +132,13 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigMath.PCL\BigInteger.cs" />
+    <Compile Include="BigMath.PCL\Int128.cs" />
+    <Compile Include="BigMath.PCL\Int256.cs" />
+    <Compile Include="BigMath.PCL\Utils\ArrayUtils.cs" />
+    <Compile Include="BigMath.PCL\Utils\Crc32.cs" />
+    <Compile Include="BigMath.PCL\Utils\ExtendedBitConverter.cs" />
+    <Compile Include="BigMath.PCL\Utils\MathUtils.cs" />
     <Compile Include="C5\arrays\ArrayList.cs" />
     <Compile Include="C5\arrays\CircularQueue.cs" />
     <Compile Include="C5\arrays\HashedArrayList.cs" />
@@ -267,7 +276,46 @@
     <Compile Include="ExtensionOverflow\LongExtensions.cs" />
     <Compile Include="ExtensionOverflow\StringExtensions.cs" />
     <Compile Include="ExtensionOverflow\WebControls\WebTextBoxExtensions.cs" />
+    <Compile Include="FunctionalInvariant.cs" />
     <Compile Include="FunctionalWith.cs" />
+    <Compile Include="IntXLib\Bits.cs" />
+    <Compile Include="IntXLib\DigitConverter.cs" />
+    <Compile Include="IntXLib\Dividers\AutoNewtonDivider.cs" />
+    <Compile Include="IntXLib\Dividers\ClassicDivider.cs" />
+    <Compile Include="IntXLib\Dividers\DivideManager.cs" />
+    <Compile Include="IntXLib\Dividers\DividerBase.cs" />
+    <Compile Include="IntXLib\Dividers\IDivider.cs" />
+    <Compile Include="IntXLib\IntX.cs" />
+    <Compile Include="IntXLib\Multipliers\AutoFhtMultiplier.cs" />
+    <Compile Include="IntXLib\Multipliers\ClassicMultiplier.cs" />
+    <Compile Include="IntXLib\Multipliers\IMultiplier.cs" />
+    <Compile Include="IntXLib\Multipliers\MultiplierBase.cs" />
+    <Compile Include="IntXLib\Multipliers\MultiplyManager.cs" />
+    <Compile Include="IntXLib\OpHelpers\DigitHelper.cs" />
+    <Compile Include="IntXLib\OpHelpers\DigitOpHelper.cs" />
+    <Compile Include="IntXLib\OpHelpers\FhtHelper.cs" />
+    <Compile Include="IntXLib\OpHelpers\NewtonHelper.cs" />
+    <Compile Include="IntXLib\OpHelpers\OpHelper.cs" />
+    <Compile Include="IntXLib\OpHelpers\StrRepHelper.cs" />
+    <Compile Include="IntXLib\Parsers\ClassicParser.cs" />
+    <Compile Include="IntXLib\Parsers\FastParser.cs" />
+    <Compile Include="IntXLib\Parsers\IParser.cs" />
+    <Compile Include="IntXLib\Parsers\ParseManager.cs" />
+    <Compile Include="IntXLib\Parsers\ParserBase.cs" />
+    <Compile Include="IntXLib\Parsers\Pow2Parser.cs" />
+    <Compile Include="IntXLib\Settings\IntXGlobalSettings.cs" />
+    <Compile Include="IntXLib\Settings\IntXSettings.cs" />
+    <Compile Include="IntXLib\StringConverters\ClassicStringConverter.cs" />
+    <Compile Include="IntXLib\StringConverters\FastStringConverter.cs" />
+    <Compile Include="IntXLib\StringConverters\IStringConverter.cs" />
+    <Compile Include="IntXLib\StringConverters\Pow2StringConverter.cs" />
+    <Compile Include="IntXLib\StringConverters\StringConverterBase.cs" />
+    <Compile Include="IntXLib\StringConverters\StringConvertManager.cs" />
+    <Compile Include="IntXLib\Utils\ArrayPool.cs" />
+    <Compile Include="IntXLib\Utils\Constants.cs" />
+    <Compile Include="IntXLib\Utils\Enums.cs" />
+    <Compile Include="IntXLib\Utils\FhtMultiplicationException.cs" />
+    <Compile Include="IntXLib\Utils\Strings.Designer.cs" />
     <Compile Include="MoreLinq\Acquire.cs" />
     <Compile Include="MoreLinq\AggregateRight.cs" />
     <Compile Include="MoreLinq\Assert.cs" />
@@ -433,8 +481,6 @@
     <Compile Include="ZFuckOff\Z.Caching.cs" />
     <Compile Include="ZFuckOff\Z.Collections.cs" />
     <Compile Include="ZFuckOff\Z.Compression.cs" />
-    <Compile Include="ZFuckOff\Z.Data.MySql.cs" />
-    <Compile Include="ZFuckOff\Z.Data.SQLite.cs" />
     <Compile Include="ZFuckOff\Z.Data.SqlServerCe.cs" />
     <Compile Include="ZFuckOff\Z.Drawing.cs" />
     <Compile Include="ZFuckOff\Z.Net.cs" />
@@ -450,6 +496,7 @@
     <Content Include="C5\C5.csproj" />
     <Content Include="C5\C5.snk" />
     <Content Include="C5\public.pk" />
+    <Content Include="IntXLib\Utils\Strings.resx" />
     <Content Include="MoreLinq\Fold.g.tt" />
     <Content Include="MoreLinq\key.snk" />
     <Content Include="MoreLinq\ToDelimitedString.g.tt" />

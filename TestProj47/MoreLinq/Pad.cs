@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -45,7 +47,6 @@ namespace TestProj47
         /// The <c>result</c> variable, when iterated over, will yield 
         /// 123, 456, 789 and two zeroes, in turn.
         /// </example>
-
         public static IEnumerable<TSource> Pad<TSource>(this IEnumerable<TSource> source, int width)
         {
             return Pad(source, width, default(TSource));
@@ -74,7 +75,6 @@ namespace TestProj47
         /// The <c>result</c> variable, when iterated over, will yield 
         /// 123, 456, and 789 followed by two occurrences of -1, in turn.
         /// </example>
-
         public static IEnumerable<TSource> Pad<TSource>(this IEnumerable<TSource> source, int width, TSource padding)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -105,8 +105,8 @@ namespace TestProj47
         /// The <c>result</c> variable, when iterated over, will yield 
         /// 0, 1, 2, -3 and -4, in turn.
         /// </example>
-
-        public static IEnumerable<TSource> Pad<TSource>(this IEnumerable<TSource> source, int width, Func<int, TSource> paddingSelector)
+        public static IEnumerable<TSource> Pad<TSource>(this IEnumerable<TSource> source, int width,
+            Func<int, TSource> paddingSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (paddingSelector == null) throw new ArgumentNullException(nameof(paddingSelector));

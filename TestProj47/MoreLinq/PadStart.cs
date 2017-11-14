@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -44,7 +46,6 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ 0, 0, 123, 456, 789 }</c>.
         /// </example>
-
         public static IEnumerable<TSource> PadStart<TSource>(this IEnumerable<TSource> source, int width)
         {
             return PadStart(source, width, default(TSource));
@@ -73,8 +74,8 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ -1, -1, 123, 456, 789 }</c>.
         /// </example>
-
-        public static IEnumerable<TSource> PadStart<TSource>(this IEnumerable<TSource> source, int width, TSource padding)
+        public static IEnumerable<TSource> PadStart<TSource>(this IEnumerable<TSource> source, int width,
+            TSource padding)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (width < 0) throw new ArgumentException(null, nameof(width));
@@ -104,8 +105,8 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ 0, -1, -2, 123, 456, 789 }</c>.
         /// </example>
-
-        public static IEnumerable<TSource> PadStart<TSource>(this IEnumerable<TSource> source, int width, Func<int, TSource> paddingSelector)
+        public static IEnumerable<TSource> PadStart<TSource>(this IEnumerable<TSource> source, int width,
+            Func<int, TSource> paddingSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (paddingSelector == null) throw new ArgumentNullException(nameof(paddingSelector));
@@ -118,41 +119,43 @@ namespace TestProj47
         {
             return
                 source is ICollection<T> collection
-                ? collection.Count >= width
-                  ? collection
-                  : Enumerable.Range(0, width - collection.Count)
-                              .Select(i => paddingSelector != null ? paddingSelector(i) : padding)
-                              .Concat(collection)
-                : _(); IEnumerable<T> _()
+                    ? collection.Count >= width
+                        ? collection
+                        : Enumerable.Range(0, width - collection.Count)
+                            .Select(i => paddingSelector != null ? paddingSelector(i) : padding)
+                            .Concat(collection)
+                    : _();
+
+            IEnumerable<T> _()
+            {
+                var array = new T[width];
+                var count = 0;
+
+                using (var e = source.GetEnumerator())
                 {
-                    var array = new T[width];
-                    var count = 0;
+                    for (; count < width && e.MoveNext(); count++)
+                        array[count] = e.Current;
 
-                    using (var e = source.GetEnumerator())
+                    if (count == width)
                     {
-                        for (; count < width && e.MoveNext(); count++)
-                            array[count] = e.Current;
+                        for (var i = 0; i < count; i++)
+                            yield return array[i];
 
-                        if (count == width)
-                        {
-                            for (var i = 0; i < count; i++)
-                                yield return array[i];
+                        while (e.MoveNext())
+                            yield return e.Current;
 
-                            while (e.MoveNext())
-                                yield return e.Current;
-
-                            yield break;
-                        }
+                        yield break;
                     }
-
-                    var len = width - count;
-
-                    for (var i = 0; i < len; i++)
-                        yield return paddingSelector != null ? paddingSelector(i) : padding;
-
-                    for (var i = 0; i < count; i++)
-                        yield return array[i];
                 }
+
+                var len = width - count;
+
+                for (var i = 0; i < len; i++)
+                    yield return paddingSelector != null ? paddingSelector(i) : padding;
+
+                for (var i = 0; i < count; i++)
+                    yield return array[i];
+            }
         }
     }
 }

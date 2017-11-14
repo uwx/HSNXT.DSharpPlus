@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -45,16 +47,16 @@ namespace TestProj47
         /// This operator uses deferred execution and streams its results.
         /// Source sequence is consumed greedily when an iteration of the resulting sequence begins.
         /// </remarks>
-
-        public static IEnumerable<TSource> ScanRight<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> func)
+        public static IEnumerable<TSource> ScanRight<TSource>(this IEnumerable<TSource> source,
+            Func<TSource, TSource, TSource> func)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (func == null) throw new ArgumentNullException(nameof(func));
 
             return ScanRightImpl(source, func,
-                                 list => list.Count > 0
-                                       ? new ScanRightSeedCount<TSource>(list.Last(), list.Count - 1)
-                                       : (ScanRightSeedCount<TSource>?) null);
+                list => list.Count > 0
+                    ? new ScanRightSeedCount<TSource>(list.Last(), list.Count - 1)
+                    : (ScanRightSeedCount<TSource>?) null);
         }
 
         /// <summary>
@@ -79,30 +81,32 @@ namespace TestProj47
         /// This operator uses deferred execution and streams its results.
         /// Source sequence is consumed greedily when an iteration of the resulting sequence begins.
         /// </remarks>
-
-        public static IEnumerable<TAccumulate> ScanRight<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func)
+        public static IEnumerable<TAccumulate> ScanRight<TSource, TAccumulate>(this IEnumerable<TSource> source,
+            TAccumulate seed, Func<TSource, TAccumulate, TAccumulate> func)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (func == null) throw new ArgumentNullException(nameof(func));
 
-            return ScanRightImpl<TSource, TAccumulate>(source, func, list => new ScanRightSeedCount<TAccumulate>(seed, list.Count));
+            return ScanRightImpl<TSource, TAccumulate>(source, func,
+                list => new ScanRightSeedCount<TAccumulate>(seed, list.Count));
         }
 
         private struct ScanRightSeedCount<T> // TODO Use a tuple when we can drop .NET 3.5 target
         {
-            public readonly T    Seed;
-            public readonly int  Count;
+            public readonly T Seed;
+            public readonly int Count;
 
             public ScanRightSeedCount(T seed, int count)
             {
-                Seed   = seed;
-                Count  = count;
+                Seed = seed;
+                Count = count;
             }
         }
 
-        private static IEnumerable<TResult> ScanRightImpl<TSource, TResult>(IEnumerable<TSource> source, Func<TSource, TResult, TResult> func, Func<IList<TSource>, ScanRightSeedCount<TResult>?> seeder)
+        private static IEnumerable<TResult> ScanRightImpl<TSource, TResult>(IEnumerable<TSource> source,
+            Func<TSource, TResult, TResult> func, Func<IList<TSource>, ScanRightSeedCount<TResult>?> seeder)
         {
-            var list = (source as IList<TSource>) ?? source.ToList();
+            var list = source as IList<TSource> ?? source.ToList();
 
             var r = seeder(list);
             if (!r.HasValue)

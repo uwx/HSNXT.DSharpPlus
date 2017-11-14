@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,18 +14,20 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         #region Nested Classes
+
         /// <summary>
         /// The private implementation class that produces permutations of a sequence.
         /// </summary>
@@ -75,9 +78,11 @@ namespace TestProj47
 
             private IEnumerator<Action> _generatorIterator;
             private bool _hasMoreResults;
+
             #endregion
 
             #region Constructors
+
             public PermutationEnumerator(IEnumerable<T> valueSet)
             {
                 _valueSet = valueSet.ToArray();
@@ -88,9 +93,11 @@ namespace TestProj47
                 _generator = NestedLoops(NextPermutation, Enumerable.Range(2, Math.Max(0, _valueSet.Count - 1)));
                 Reset();
             }
+
             #endregion
 
             #region IEnumerator Members
+
             public void Reset()
             {
                 _generatorIterator?.Dispose();
@@ -124,10 +131,14 @@ namespace TestProj47
                 return prevResult;
             }
 
-            void IDisposable.Dispose() { }
+            void IDisposable.Dispose()
+            {
+            }
+
             #endregion
 
             #region Private Methods
+
             /// <summary>
             /// Transposes elements in the cached permutation array to produce the next permutation
             /// </summary>
@@ -184,8 +195,10 @@ namespace TestProj47
                     permutedSet[i] = _valueSet[_permutation[i]];
                 return permutedSet;
             }
+
             #endregion
         }
+
         #endregion
 
         /// <summary>
@@ -202,12 +215,13 @@ namespace TestProj47
         /// <typeparam name="T">The type of the elements in the sequence</typeparam>
         /// <param name="sequence">The original sequence to permute</param>
         /// <returns>A sequence of lists representing permutations of the original sequence</returns>
-        
         public static IEnumerable<IList<T>> Permutations<T>(this IEnumerable<T> sequence)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
 
-            return _(); IEnumerable<IList<T>> _()
+            return _();
+
+            IEnumerable<IList<T>> _()
             {
                 using (var iter = new PermutationEnumerator<T>(sequence))
                 {

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Atif Aziz. All rights reserved.
 //
@@ -13,16 +14,17 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Text;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.Text;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -40,7 +42,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses immediate execution and effectively buffers the sequence.
         /// </remarks>
-
         [Obsolete]
         public static string ToDelimitedString<TSource>(this IEnumerable<TSource> source)
         {
@@ -64,14 +65,14 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses immediate execution and effectively buffers the sequence.
         /// </remarks>
-
         public static string ToDelimitedString<TSource>(this IEnumerable<TSource> source, string delimiter)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return ToDelimitedStringImpl(source, delimiter, (sb, e) => sb.Append(e));
         }
 
-        private static string ToDelimitedStringImpl<T>(IEnumerable<T> source, string delimiter, Func<StringBuilder, T, StringBuilder> append)
+        private static string ToDelimitedStringImpl<T>(IEnumerable<T> source, string delimiter,
+            Func<StringBuilder, T, StringBuilder> append)
         {
             Debug.Assert(source != null);
             Debug.Assert(append != null);

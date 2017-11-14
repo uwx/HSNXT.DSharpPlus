@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -48,8 +50,8 @@ namespace TestProj47
         /// <param name="direction">The ordering that all sequences must already exhibit</param>
         /// <param name="otherSequences">A variable argument array of zero or more other sequences to merge with</param>
         /// <returns>A merged, order-preserving sequence containing all of the elements of the original sequences</returns>
-        
-        public static IEnumerable<TSource> SortedMerge<TSource>(this IEnumerable<TSource> source, OrderByDirection direction, params IEnumerable<TSource>[] otherSequences)
+        public static IEnumerable<TSource> SortedMerge<TSource>(this IEnumerable<TSource> source,
+            OrderByDirection direction, params IEnumerable<TSource>[] otherSequences)
         {
             return SortedMerge(source, direction, null, otherSequences);
         }
@@ -64,8 +66,8 @@ namespace TestProj47
         /// <param name="comparer">The comparer used to evaluate the relative order between elements</param>
         /// <param name="otherSequences">A variable argument array of zero or more other sequences to merge with</param>
         /// <returns>A merged, order-preserving sequence containing al of the elements of the original sequences</returns>
-        
-        public static IEnumerable<TSource> SortedMerge<TSource>(this IEnumerable<TSource> source, OrderByDirection direction, IComparer<TSource> comparer, params IEnumerable<TSource>[] otherSequences)
+        public static IEnumerable<TSource> SortedMerge<TSource>(this IEnumerable<TSource> source,
+            OrderByDirection direction, IComparer<TSource> comparer, params IEnumerable<TSource>[] otherSequences)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (otherSequences == null) throw new ArgumentNullException(nameof(otherSequences));
@@ -79,11 +81,11 @@ namespace TestProj47
             // this is a function that will return True if (b) should precede (a)
             var precedenceFunc =
                 direction == OrderByDirection.Ascending
-                    ? (Func<TSource, TSource, bool>)((a, b) => comparer.Compare(b, a) < 0)
+                    ? (Func<TSource, TSource, bool>) ((a, b) => comparer.Compare(b, a) < 0)
                     : (a, b) => comparer.Compare(b, a) > 0;
 
             // return the sorted merge result
-            return Impl(new[] { source }.Concat(otherSequences));
+            return Impl(new[] {source}.Concat(otherSequences));
 
             // Private implementation method that performs a merge of multiple, ordered sequences using
             // a precedence function which encodes order-sensitive comparison logic based on the caller's arguments.
@@ -95,10 +97,11 @@ namespace TestProj47
             // simply yield the items that are part of the final sequence.
             //
             // The algorithm used here will perform N*(K1+K2+...Kn-1) comparisons, where <c>N => otherSequences.Count()+1.</c>
-        
+
             IEnumerable<TSource> Impl(IEnumerable<IEnumerable<TSource>> sequences)
             {
-                using (var disposables = new DisposableGroup<TSource>(sequences.Select(e => e.GetEnumerator()).Acquire()))
+                using (var disposables =
+                    new DisposableGroup<TSource>(sequences.Select(e => e.GetEnumerator()).Acquire()))
                 {
                     var iterators = disposables.Iterators;
 

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Felipe Sateler. All rights reserved.
 //
@@ -13,12 +14,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System.Collections.Generic;
-
     internal sealed class ReverseComparer<T> : IComparer<T>
     {
         private readonly IComparer<T> _underlying;
@@ -31,7 +33,8 @@ namespace TestProj47
         public int Compare(T x, T y)
         {
             var result = _underlying.Compare(x, y);
-            return result < 0 ? 1 : result > 0 ? -1 : 0;
+            return result < 0 ? 1 :
+                result > 0 ? -1 : 0;
         }
     }
 }

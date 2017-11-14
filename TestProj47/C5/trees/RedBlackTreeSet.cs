@@ -201,7 +201,7 @@ namespace TestProj47.C5
             {
                 if (cursor.generation <= maxsnapid)
                 {
-                    cursor = (Node) (cursor.MemberwiseClone());
+                    cursor = (Node) cursor.MemberwiseClone();
                     cursor.generation = generation;
                     cursor.lastgeneration = -1;
                     return true;
@@ -874,7 +874,7 @@ namespace TestProj47.C5
             if (raiseAdded)
                 foreach (var item in wasAdded)
                     raiseItemsAdded(item, 1);
-            if (((ActiveEvents & EventTypeEnum.Changed) != 0))
+            if ((ActiveEvents & EventTypeEnum.Changed) != 0)
                 raiseCollectionChanged();
         }
 
@@ -2316,7 +2316,7 @@ namespace TestProj47.C5
             }
 
 
-            IDirectedEnumerable<T> TestProj47.C5.IDirectedEnumerable<T>.Backwards()
+            IDirectedEnumerable<T> IDirectedEnumerable<T>.Backwards()
             {
                 return Backwards();
             }
@@ -2920,12 +2920,12 @@ namespace TestProj47.C5
                 }
             }
 
-            if (highIsValid = (rbest != null))
+            if (highIsValid = rbest != null)
                 high = rbest.item;
             else
                 high = default;
 
-            if (lowIsValid = (lbest != null))
+            if (lowIsValid = lbest != null)
                 low = lbest.item;
             else
                 low = default;
@@ -3646,7 +3646,7 @@ namespace TestProj47.C5
             int lsz = 0, rsz = 0;
             T otherext;
 
-            var child = (n.lastgeneration >= generation && n.leftnode) ? n.oldref : n.left;
+            var child = n.lastgeneration >= generation && n.leftnode ? n.oldref : n.left;
             if (child != null)
             {
                 res = rbminisnapcheck(child, out lsz, out min, out otherext) && res;
@@ -3654,7 +3654,7 @@ namespace TestProj47.C5
             }
 
 
-            child = (n.lastgeneration >= generation && !n.leftnode) ? n.oldref : n.right;
+            child = n.lastgeneration >= generation && !n.leftnode ? n.oldref : n.right;
             if (child != null)
             {
                 res = rbminisnapcheck(child, out rsz, out otherext, out max) && res;

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Atif Aziz. All rights reserved.
 //
@@ -13,18 +14,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
     public static partial class Extensions
     {
-        #if !NO_VALUE_TUPLES
+#if !NO_VALUE_TUPLES
 
         /// <summary>
         /// Partitions or splits a sequence in two using a predicate.
@@ -45,12 +47,11 @@ namespace TestProj47
         /// and then 8. The <c>odds</c> variable, when iterated over, will yield
         /// 1, 3, 5, 7 and then 9.
         /// </example>
-
         public static (IEnumerable<T> True, IEnumerable<T> False)
             Partition<T>(this IEnumerable<T> source, Func<T, bool> predicate) =>
             source.Partition(predicate, ValueTuple.Create);
 
-        #endif
+#endif
 
         /// <summary>
         /// Partitions or splits a sequence in two using a predicate and then
@@ -78,7 +79,6 @@ namespace TestProj47
         /// and then 8. The <c>odds</c> variable, when iterated over, will yield
         /// 1, 3, 5, 7 and then 9.
         /// </example>
-
         public static TResult Partition<T, TResult>(this IEnumerable<T> source,
             Func<T, bool> predicate, Func<IEnumerable<T>, IEnumerable<T>, TResult> resultSelector)
         {
@@ -101,7 +101,6 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<T, TResult>(this IEnumerable<IGrouping<bool, T>> source,
             Func<IEnumerable<T>, IEnumerable<T>, TResult> resultSelector)
         {
@@ -124,7 +123,6 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<T, TResult>(this IEnumerable<IGrouping<bool?, T>> source,
             Func<IEnumerable<T>, IEnumerable<T>, IEnumerable<T>, TResult> resultSelector)
         {
@@ -150,7 +148,6 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key,
             Func<IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
@@ -176,14 +173,13 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key, IEqualityComparer<TKey> comparer,
             Func<IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector)
         {
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
             return PartitionImpl(source, 1, key, default(TKey), default(TKey), comparer,
-                                 (a, b, c, rest) => resultSelector(a, rest));
+                (a, b, c, rest) => resultSelector(a, rest));
         }
 
         /// <summary>
@@ -206,10 +202,10 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key1, TKey key2,
-            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
+            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult>
+                resultSelector) =>
             Partition(source, key1, key2, null, resultSelector);
 
         /// <summary>
@@ -234,14 +230,14 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key1, TKey key2, IEqualityComparer<TKey> comparer,
-            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector)
+            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult>
+                resultSelector)
         {
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
             return PartitionImpl(source, 2, key1, key2, default(TKey), comparer,
-                                 (a, b, c, rest) => resultSelector(a, b, rest));
+                (a, b, c, rest) => resultSelector(a, b, rest));
         }
 
         /// <summary>
@@ -265,10 +261,10 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key1, TKey key2, TKey key3,
-            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
+            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>,
+                IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
             Partition(source, key1, key2, key3, null, resultSelector);
 
         /// <summary>
@@ -294,15 +290,16 @@ namespace TestProj47
         /// <returns>
         /// The return value from <paramref name="resultSelector"/>.
         /// </returns>
-
         public static TResult Partition<TKey, TElement, TResult>(this IEnumerable<IGrouping<TKey, TElement>> source,
             TKey key1, TKey key2, TKey key3, IEqualityComparer<TKey> comparer,
-            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
+            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>,
+                IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector) =>
             PartitionImpl(source, 3, key1, key2, key3, comparer, resultSelector);
 
         private static TResult PartitionImpl<TKey, TElement, TResult>(IEnumerable<IGrouping<TKey, TElement>> source,
             int count, TKey key1, TKey key2, TKey key3, IEqualityComparer<TKey> comparer,
-            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector)
+            Func<IEnumerable<TElement>, IEnumerable<TElement>, IEnumerable<TElement>,
+                IEnumerable<IGrouping<TKey, TElement>>, TResult> resultSelector)
         {
             Debug.Assert(count > 0 && count <= 3);
 
@@ -323,9 +320,9 @@ namespace TestProj47
             foreach (var e in source)
             {
                 var i = count > 0 && comparer.Equals(e.Key, key1) ? 0
-                      : count > 1 && comparer.Equals(e.Key, key2) ? 1
-                      : count > 2 && comparer.Equals(e.Key, key3) ? 2
-                      : -1;
+                    : count > 1 && comparer.Equals(e.Key, key2) ? 1
+                    : count > 2 && comparer.Equals(e.Key, key3) ? 2
+                    : -1;
 
                 if (i < 0)
                 {
@@ -338,7 +335,8 @@ namespace TestProj47
                 }
             }
 
-            return resultSelector(groups[0], groups[1], groups[2], etc ?? Enumerable.Empty<IGrouping<TKey, TElement>>());
+            return resultSelector(groups[0], groups[1], groups[2],
+                etc ?? Enumerable.Empty<IGrouping<TKey, TElement>>());
         }
     }
 }

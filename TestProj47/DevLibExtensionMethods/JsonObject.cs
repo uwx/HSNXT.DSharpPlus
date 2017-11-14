@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using SGC = System.Collections.Generic;
 
 namespace TestProj47
@@ -23,16 +22,16 @@ namespace TestProj47
         /// </summary>
         public JsonObject()
         {
-            this._members = new Dictionary<string, object>();
+            this._members = new SGC.Dictionary<string, object>();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
         /// </summary>
         /// <param name="comparer">The comparer.</param>
-        public JsonObject(IEqualityComparer<string> comparer)
+        public JsonObject(SGC.IEqualityComparer<string> comparer)
         {
-            this._members = new Dictionary<string, object>(comparer);
+            this._members = new SGC.Dictionary<string, object>(comparer);
         }
 
         /// <summary>Gets the count.</summary>
@@ -128,9 +127,9 @@ namespace TestProj47
 
         /// <summary>Gets the enumerator.</summary>
         /// <returns>An enumerator that can be used to iterate through the collection.</returns>
-        public IEnumerator<SGC.KeyValuePair<string, object>> GetEnumerator()
+        public SGC.IEnumerator<SGC.KeyValuePair<string, object>> GetEnumerator()
         {
-            return (IEnumerator<SGC.KeyValuePair<string, object>>) ((IEnumerable) this).GetEnumerator();
+            return (SGC.IEnumerator<SGC.KeyValuePair<string, object>>) ((IEnumerable) this).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

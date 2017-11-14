@@ -88,8 +88,8 @@ namespace TestProj47.C5
             return _default =
 (SCG.IEqualityComparer<T>)(equalityComparertype.GetTypeInfo().GetDeclaredProperty("Default").GetValue(null, null));
 #else
-            return _default = (SCG.IEqualityComparer<T>) (equalityComparertype.GetTypeInfo()
-                .GetProperty("Default", BindingFlags.Static | BindingFlags.Public).GetValue(null, null));
+            return _default = (SCG.IEqualityComparer<T>) equalityComparertype.GetTypeInfo()
+                .GetProperty("Default", BindingFlags.Static | BindingFlags.Public).GetValue(null, null);
 #endif
         }
     }

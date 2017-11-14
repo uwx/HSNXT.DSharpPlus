@@ -97,7 +97,7 @@ namespace TestProj47
             if (source == null)
                 source = string.Empty;
             while (source.Length < totalLength)
-                source = ((int) fillUpWith) + source;
+                source = (int) fillUpWith + source;
             return source;
         }
 

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -49,16 +51,16 @@ namespace TestProj47
         /// <see cref="InvalidOperationException"/> is thrown.
         /// This operator uses deferred execution and streams its results.
         /// </remarks>
-
         public static IEnumerable<TResult> EquiZip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first,
-             IEnumerable<TSecond> second,
-             Func<TFirst, TSecond, TResult> resultSelector)
+            IEnumerable<TSecond> second,
+            Func<TFirst, TSecond, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
             if (second == null) throw new ArgumentNullException(nameof(second));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return EquiZipImpl<TFirst, TSecond, object, object, TResult>(first, second, null, null, (a, b, c, d) => resultSelector(a, b));
+            return EquiZipImpl<TFirst, TSecond, object, object, TResult>(first, second, null, null,
+                (a, b, c, d) => resultSelector(a, b));
         }
 
         /// <summary>
@@ -91,9 +93,8 @@ namespace TestProj47
         /// A sequence that contains elements of the three input sequences,
         /// combined by <paramref name="resultSelector"/>.
         /// </returns>
-
         public static IEnumerable<TResult> EquiZip<T1, T2, T3, TResult>(this IEnumerable<T1> first,
-             IEnumerable<T2> second, IEnumerable<T3> third,
+            IEnumerable<T2> second, IEnumerable<T3> third,
             Func<T1, T2, T3, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
@@ -101,7 +102,8 @@ namespace TestProj47
             if (third == null) throw new ArgumentNullException(nameof(third));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return EquiZipImpl<T1, T2, T3, object, TResult>(first, second, third, null, (a, b, c, _) => resultSelector(a, b, c));
+            return EquiZipImpl<T1, T2, T3, object, TResult>(first, second, third, null,
+                (a, b, c, _) => resultSelector(a, b, c));
         }
 
         /// <summary>
@@ -137,9 +139,8 @@ namespace TestProj47
         /// A sequence that contains elements of the four input sequences,
         /// combined by <paramref name="resultSelector"/>.
         /// </returns>
-
         public static IEnumerable<TResult> EquiZip<T1, T2, T3, T4, TResult>(this IEnumerable<T1> first,
-             IEnumerable<T2> second, IEnumerable<T3> third, IEnumerable<T4> fourth, 
+            IEnumerable<T2> second, IEnumerable<T3> third, IEnumerable<T4> fourth,
             Func<T1, T2, T3, T4, TResult> resultSelector)
         {
             if (first == null) throw new ArgumentNullException(nameof(first));
@@ -166,12 +167,12 @@ namespace TestProj47
                 while (e1.MoveNext())
                 {
                     bool m2, m3 = false;
-                    if ((m2 = e2.MoveNext()) && (m3 = (e3 == null || e3.MoveNext()))
-                                             && ((e4 == null || e4.MoveNext())))
+                    if ((m2 = e2.MoveNext()) && (m3 = e3 == null || e3.MoveNext())
+                        && (e4 == null || e4.MoveNext()))
                     {
                         yield return resultSelector(e1.Current, e2.Current,
-                                                    e3 != null ? e3.Current : default(T3),
-                                                    e4 != null ? e4.Current : default(T4));
+                            e3 != null ? e3.Current : default(T3),
+                            e4 != null ? e4.Current : default(T4));
                     }
                     else
                     {
@@ -179,8 +180,8 @@ namespace TestProj47
                         throw new InvalidOperationException(message);
                     }
                 }
-                if (e2.MoveNext() || (e3 != null && e3.MoveNext())
-                                  || (e4 != null && e4.MoveNext()))
+                if (e2.MoveNext() || e3 != null && e3.MoveNext()
+                    || e4 != null && e4.MoveNext())
                 {
                     throw new InvalidOperationException("First sequence too short.");
                 }

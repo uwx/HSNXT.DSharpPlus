@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -30,7 +32,6 @@ namespace TestProj47
         /// <param name="sequence">The sequence from which to return random elements</param>
         /// <param name="subsetSize">The size of the random subset to return</param>
         /// <returns>A random sequence of elements in random order from the original sequence</returns>
-        
         public static IEnumerable<T> RandomSubset<T>(this IEnumerable<T> sequence, int subsetSize)
         {
             return RandomSubset(sequence, subsetSize, new Random());
@@ -44,14 +45,15 @@ namespace TestProj47
         /// <param name="subsetSize">The size of the random subset to return</param>
         /// <param name="rand">A random generator used as part of the selection algorithm</param>
         /// <returns>A random sequence of elements in random order from the original sequence</returns>
-        
         public static IEnumerable<T> RandomSubset<T>(this IEnumerable<T> sequence, int subsetSize, Random rand)
         {
             if (rand == null) throw new ArgumentNullException(nameof(rand));
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             if (subsetSize < 0) throw new ArgumentOutOfRangeException(nameof(subsetSize));
 
-            return _(); IEnumerable<T> _()
+            return _();
+
+            IEnumerable<T> _()
             {
                 // The simplest and most efficient way to return a random subet is to perform
                 // an in-place, partial Fisher-Yates shuffle of the sequence. While we could do
@@ -61,11 +63,12 @@ namespace TestProj47
 
                 var seqArray = sequence.ToArray();
                 if (seqArray.Length < subsetSize)
-                    throw new ArgumentOutOfRangeException(nameof(subsetSize), "Subset size must be <= sequence.Count()");
+                    throw new ArgumentOutOfRangeException(nameof(subsetSize),
+                        "Subset size must be <= sequence.Count()");
 
-                var m = 0;                // keeps track of count items shuffled
-                var w = seqArray.Length;  // upper bound of shrinking swap range
-                var g = w - 1;            // used to compute the second swap index
+                var m = 0; // keeps track of count items shuffled
+                var w = seqArray.Length; // upper bound of shrinking swap range
+                var g = w - 1; // used to compute the second swap index
 
                 // perform in-place, partial Fisher-Yates shuffle
                 while (m < subsetSize)

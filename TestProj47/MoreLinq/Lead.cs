@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -36,8 +38,8 @@ namespace TestProj47
         /// <param name="offset">The offset (expressed as a positive number) by which to lead each element of the sequence</param>
         /// <param name="resultSelector">A projection function which accepts the current and subsequent (lead) element (in that order) and produces a result</param>
         /// <returns>A sequence produced by projecting each element of the sequence with its lead pairing</returns>
-        
-        public static IEnumerable<TResult> Lead<TSource, TResult>(this IEnumerable<TSource> source, int offset, Func<TSource, TSource, TResult> resultSelector)
+        public static IEnumerable<TResult> Lead<TSource, TResult>(this IEnumerable<TSource> source, int offset,
+            Func<TSource, TSource, TResult> resultSelector)
         {
             return Lead(source, offset, default(TSource), resultSelector);
         }
@@ -55,14 +57,16 @@ namespace TestProj47
         /// <param name="defaultLeadValue">A default value supplied for the leading element when none is available</param>
         /// <param name="resultSelector">A projection function which accepts the current and subsequent (lead) element (in that order) and produces a result</param>
         /// <returns>A sequence produced by projecting each element of the sequence with its lead pairing</returns>
-        
-        public static IEnumerable<TResult> Lead<TSource, TResult>(this IEnumerable<TSource> source, int offset, TSource defaultLeadValue, Func<TSource, TSource, TResult> resultSelector)
+        public static IEnumerable<TResult> Lead<TSource, TResult>(this IEnumerable<TSource> source, int offset,
+            TSource defaultLeadValue, Func<TSource, TSource, TResult> resultSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
             if (offset <= 0) throw new ArgumentOutOfRangeException(nameof(offset));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 var leadQueue = new Queue<TSource>();
                 using (var iter = source.GetEnumerator())

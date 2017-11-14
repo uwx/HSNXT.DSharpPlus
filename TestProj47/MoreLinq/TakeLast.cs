@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Atif Aziz. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -44,31 +46,32 @@ namespace TestProj47
         /// The <c>result</c> variable, when iterated over, will yield 
         /// 56 and 78 in turn.
         /// </example>
-
         public static IEnumerable<TSource> TakeLast<TSource>(this IEnumerable<TSource> source, int count)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
-            return 
+            return
                 source is ICollection<TSource> col
-                ? col.Slice(Math.Max(0, col.Count - count), int.MaxValue)
-                : _(); IEnumerable<TSource> _()
+                    ? col.Slice(Math.Max(0, col.Count - count), int.MaxValue)
+                    : _();
+
+            IEnumerable<TSource> _()
+            {
+                if (count <= 0)
+                    yield break;
+
+                var q = new Queue<TSource>(count);
+
+                foreach (var item in source)
                 {
-                    if (count <= 0)
-                        yield break;
-
-                    var q = new Queue<TSource>(count);
-
-                    foreach (var item in source)
-                    {
-                        if (q.Count == count)
-                            q.Dequeue();
-                        q.Enqueue(item);
-                    }
-
-                    foreach (var item in q)
-                        yield return item;
+                    if (q.Count == count)
+                        q.Dequeue();
+                    q.Enqueue(item);
                 }
+
+                foreach (var item in q)
+                    yield return item;
+            }
         }
     }
 }

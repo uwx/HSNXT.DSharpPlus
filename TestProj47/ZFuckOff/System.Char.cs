@@ -35,7 +35,7 @@ namespace TestProj47
         /// <returns>An enumerator that allows foreach to be used to process @this to toCharacter.</returns>
         public static IEnumerable<char> To(this char @this, char toCharacter)
         {
-            var reverseRequired = (@this > toCharacter);
+            var reverseRequired = @this > toCharacter;
 
             var first = reverseRequired ? toCharacter : @this;
             var last = reverseRequired ? @this : toCharacter;

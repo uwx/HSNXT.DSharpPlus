@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copysecond (c) 2017 Atif Aziz. All seconds reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -55,7 +57,6 @@ namespace TestProj47
         /// that match on a common key.</param>
         /// <returns>A sequence containing results projected from a full
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> FullJoin<TSource, TKey, TResult>(
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
@@ -66,8 +67,8 @@ namespace TestProj47
         {
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return first.FullJoin(second, keySelector,
-                                  firstSelector, secondSelector, bothSelector,
-                                  null);
+                firstSelector, secondSelector, bothSelector,
+                null);
         }
 
         /// <summary>
@@ -105,7 +106,6 @@ namespace TestProj47
         /// keys for equality.</param>
         /// <returns>A sequence containing results projected from a full
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> FullJoin<TSource, TKey, TResult>(
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
@@ -117,9 +117,9 @@ namespace TestProj47
         {
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             return first.FullJoin(second,
-                                  keySelector, keySelector,
-                                  firstSelector, secondSelector, bothSelector,
-                                  comparer);
+                keySelector, keySelector,
+                firstSelector, secondSelector, bothSelector,
+                comparer);
         }
 
         /// <summary>
@@ -157,7 +157,6 @@ namespace TestProj47
         /// that match on a common key.</param>
         /// <returns>A sequence containing results projected from a full
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> FullJoin<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -167,9 +166,9 @@ namespace TestProj47
             Func<TSecond, TResult> secondSelector,
             Func<TFirst, TSecond, TResult> bothSelector) =>
             first.FullJoin(second,
-                           firstKeySelector, secondKeySelector,
-                           firstSelector, secondSelector, bothSelector,
-                           null);
+                firstKeySelector, secondKeySelector,
+                firstSelector, secondSelector, bothSelector,
+                null);
 
         /// <summary>
         /// Performs a full outer join on two heterogeneous sequences.
@@ -209,7 +208,6 @@ namespace TestProj47
         /// keys for equality.</param>
         /// <returns>A sequence containing results projected from a full
         /// outer join of the two input sequences.</returns>
-
         public static IEnumerable<TResult> FullJoin<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -228,7 +226,9 @@ namespace TestProj47
             if (secondSelector == null) throw new ArgumentNullException(nameof(secondSelector));
             if (bothSelector == null) throw new ArgumentNullException(nameof(bothSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 var seconds = second.Select(e => new KeyValuePair<TKey, TSecond>(secondKeySelector(e), e)).ToArray();
                 var secondLookup = seconds.ToLookup(e => e.Key, e => e.Value, comparer);
@@ -243,8 +243,10 @@ namespace TestProj47
                     {
                         if (se.MoveNext())
                         {
-                            do { yield return bothSelector(fe, se.Current); }
-                            while (se.MoveNext());
+                            do
+                            {
+                                yield return bothSelector(fe, se.Current);
+                            } while (se.MoveNext());
                         }
                         else
                         {

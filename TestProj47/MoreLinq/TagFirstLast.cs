@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2013 Atif Aziz. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -54,20 +56,22 @@ namespace TestProj47
         /// <c>{ Number = 456, IsFirst = False, IsLast = False }</c> and 
         /// <c>{ Number = 789, IsFirst = False, IsLast = True }</c> in turn.
         /// </example>
-        
-        public static IEnumerable<TResult> TagFirstLast<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, bool, bool, TResult> resultSelector)
+        public static IEnumerable<TResult> TagFirstLast<TSource, TResult>(this IEnumerable<TSource> source,
+            Func<TSource, bool, bool, TResult> resultSelector)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
-                var edge = new[] { new KeyValuePair<bool, TSource>(false, default(TSource)) };
+                var edge = new[] {new KeyValuePair<bool, TSource>(false, default(TSource))};
                 return edge.Concat(source.Select(e => new KeyValuePair<bool, TSource>(true, e)))
-                           .Concat(edge)
-                           .Pairwise((a, b) => new { Prev = a, Curr = b })
-                           .Pairwise((a, b) => new { a.Prev, a.Curr, Next = b.Curr })
-                           .Select(e => resultSelector(e.Curr.Value, !e.Prev.Key, !e.Next.Key));
+                    .Concat(edge)
+                    .Pairwise((a, b) => new {Prev = a, Curr = b})
+                    .Pairwise((a, b) => new {a.Prev, a.Curr, Next = b.Curr})
+                    .Select(e => resultSelector(e.Curr.Value, !e.Prev.Key, !e.Next.Key));
             }
         }
     }

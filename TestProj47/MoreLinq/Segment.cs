@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -32,8 +34,8 @@ namespace TestProj47
         /// <exception cref="ArgumentNullException">
         /// Thrown if either <paramref name="source"/> or <paramref name="newSegmentPredicate"/> are <see langword="null"/>.
         /// </exception>
-        
-        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source, Func<T, bool> newSegmentPredicate)
+        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source,
+            Func<T, bool> newSegmentPredicate)
         {
             if (newSegmentPredicate == null) throw new ArgumentNullException(nameof(newSegmentPredicate));
 
@@ -50,8 +52,8 @@ namespace TestProj47
         /// <exception cref="ArgumentNullException">
         /// Thrown if either <paramref name="source"/> or <paramref name="newSegmentPredicate"/> are <see langword="null"/>.
         /// </exception>
-        
-        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source, Func<T, int, bool> newSegmentPredicate)
+        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source,
+            Func<T, int, bool> newSegmentPredicate)
         {
             if (newSegmentPredicate == null) throw new ArgumentNullException(nameof(newSegmentPredicate));
 
@@ -68,13 +70,15 @@ namespace TestProj47
         /// <exception cref="ArgumentNullException">
         /// Thrown if either <paramref name="source"/> or <paramref name="newSegmentPredicate"/> are <see langword="null"/>.
         /// </exception>
-        
-        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source, Func<T, T, int, bool> newSegmentPredicate)
+        public static IEnumerable<IEnumerable<T>> Segment<T>(this IEnumerable<T> source,
+            Func<T, T, int, bool> newSegmentPredicate)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (newSegmentPredicate == null) throw new ArgumentNullException(nameof(newSegmentPredicate));
 
-            return _(); IEnumerable<IEnumerable<T>> _()
+            return _();
+
+            IEnumerable<IEnumerable<T>> _()
             {
                 var index = -1;
                 using (var iter = source.GetEnumerator())
@@ -109,7 +113,7 @@ namespace TestProj47
                         yield return segment; // yield the completed segment
 
                         // start a new segment...
-                        segment = new List<T> { iter.Current };
+                        segment = new List<T> {iter.Current};
                     }
                     // handle the case of the sequence ending before new segment is detected
                     if (segment.Count > 0)

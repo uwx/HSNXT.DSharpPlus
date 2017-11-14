@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2012 Atif Aziz. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -33,7 +35,6 @@ namespace TestProj47
         /// <returns>A sequence of <see cref="KeyValuePair{TKey,TValue}"/>.</returns>
         /// <remarks>This operator uses deferred execution and streams its 
         /// results.</remarks>
-        
         public static IEnumerable<KeyValuePair<int, TSource>> Index<TSource>(this IEnumerable<TSource> source)
         {
             return source.Index(0);
@@ -50,8 +51,8 @@ namespace TestProj47
         /// <returns>A sequence of <see cref="KeyValuePair{TKey,TValue}"/>.</returns>
         /// <remarks>This operator uses deferred execution and streams its 
         /// results.</remarks>
-        
-        public static IEnumerable<KeyValuePair<int, TSource>> Index<TSource>(this IEnumerable<TSource> source, int startIndex)
+        public static IEnumerable<KeyValuePair<int, TSource>> Index<TSource>(this IEnumerable<TSource> source,
+            int startIndex)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return source.Select((item, index) => new KeyValuePair<int, TSource>(startIndex + index, item));

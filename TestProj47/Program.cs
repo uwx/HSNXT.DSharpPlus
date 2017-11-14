@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Globalization;
 using System.Linq;
@@ -120,16 +121,199 @@ namespace TestProj47
 
     public static partial class Extensions
     {
+        public static unsafe bool All(ulong* arr, int size, Func<ulong, bool> predicate)
+        {
+            if (arr == null)
+                throw new ArgumentNullException(nameof(arr));
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+            for (var i = 0; i < size; i++)
+            {
+                if (!predicate(arr[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        public static unsafe bool All(ulong* arr, int size, Func<ulong, int, bool> predicate)
+        {
+            if (arr == null)
+                throw new ArgumentNullException(nameof(arr));
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+            for (var i = 0; i < size; i++)
+            {
+                if (!predicate(arr[i], i))
+                    return false;
+            }
+            return true;
+        }
+
+        public static unsafe ulong Aggregate(ulong* source, int size, Func<ulong, ulong, ulong> func)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+            if (func == null)
+                throw new ArgumentNullException(nameof(func));
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            if (size == 0)
+                return 0;
+            if (size == 1)
+                return source[0];
+
+            var source1 = source[0];
+            for (var i = 1; i < size; i++)
+            {
+                source1 = func(source1, source[i]);
+            }
+            return source1;
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of days represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractDays(this DateTime self, double value)
+        {
+            return self.AddDays(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of hours to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of whole and fractional hours. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of hours represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractHours(this DateTime self, double value)
+        {
+            return self.AddHours(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of milliseconds to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of whole and fractional milliseconds. The <paramref name="value" /> parameter can be negative or positive. Note that this value is rounded to the nearest integer.</param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of milliseconds represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractMilliseconds(this DateTime self, double value)
+        {
+            return self.AddMilliseconds(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of minutes to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of whole and fractional minutes. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of minutes represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractMinutes(this DateTime self, double value)
+        {
+            return self.AddMinutes(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of months to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of months. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the sum of the date and time represented by this instance and <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />.-or-
+        /// <paramref name="value" /> is less than -120,000 or greater than 120,000. </exception>
+        public static DateTime SubtractMonths(this DateTime self, int value)
+        {
+            return self.AddMonths(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of seconds to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of whole and fractional seconds. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of seconds represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractSeconds(this DateTime self, double value)
+        {
+            return self.AddSeconds(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of ticks to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of 100-nanosecond ticks. The <paramref name="value" /> parameter can be positive or negative. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the time represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">The resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractTicks(this DateTime self, long value)
+        {
+            return self.AddTicks(-value);
+        }
+
+        /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of years to the value of this instance.</summary>
+        /// <param name="self">This object</param>
+        /// <param name="value">A number of years. The <paramref name="value" /> parameter can be negative or positive. </param>
+        /// <returns>An object whose value is the date and time represented by this instance minus the number of years represented by <paramref name="value" />.</returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <paramref name="value" /> or the resulting <see cref="T:System.DateTime" /> is less than <see cref="F:System.DateTime.MinValue" /> or greater than <see cref="F:System.DateTime.MaxValue" />. </exception>
+        public static DateTime SubtractYears(this DateTime self, int value)
+        {
+            return self.AddYears(-value);
+        }
+
+        public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> items)
+        {
+            while (items.MoveNext())
+            {
+                yield return items.Current;
+            }
+        }
+
+        public static IEnumerable<T> SideBySideEnumerable<T>(this IEnumerable<T> first, IEnumerable<T> second)
+        {
+            using (var afirst = first.GetEnumerator())
+            using (var asecond = second.GetEnumerator())
+                while (afirst.MoveNext() && asecond.MoveNext())
+                {
+                    yield return afirst.Current;
+                    yield return asecond.Current;
+                }
+        }
+
+        public static IEnumerable<T> SideBySideEnumerable<T>(this IEnumerable<T> first, params IEnumerable<T>[] others)
+        {
+            using (var afirst = first.GetEnumerator())
+            {
+                var aothers = others.Select(e => e.GetEnumerator()).ToArray();
+                while (afirst.MoveNext())
+                {
+                    foreach (var e in aothers)
+                    {
+                        if (e.MoveNext()) continue;
+                        // else
+                        yield break;
+                    }
+                    yield return afirst.Current;
+                    foreach (var enumerator in aothers)
+                    {
+                        yield return enumerator.Current;
+                    }
+                }
+            }
+        }
+
+        public static IEnumerable<(T1, T2)> SideBySideEnumerableTuple<T1, T2>(this IEnumerable<T1> first,
+            IEnumerable<T2> second)
+        {
+            using (var afirst = first.GetEnumerator())
+            using (var asecond = second.GetEnumerator())
+                while (afirst.MoveNext() && asecond.MoveNext())
+                {
+                    yield return (afirst.Current, asecond.Current);
+                }
+        }
+
         public static IEnumerable<T> ReturnEnumerable<T>(this T item)
         {
-            return new[] { item };
+            return new[] {item};
         }
 
         public static string EnumerableToString(this IEnumerable<char> enumerable) => new string(enumerable.ToArray());
 
         public static string EnumerableToString(this IEnumerable<string> enumerable) => enumerable.StringJoin("");
 
-        public static string EnumerableToString(this IEnumerable<IEnumerable<char>> enumerable) => new string(enumerable.SelectMany(e => e).ToArray());
+        public static string EnumerableToString(this IEnumerable<IEnumerable<char>> enumerable) =>
+            new string(enumerable.SelectMany(e => e).ToArray());
 
         /// <summary>
         /// Converts the target float in to a string with the specified number of decimal places.
@@ -137,11 +321,12 @@ namespace TestProj47
         /// <param name="this">The extended float.</param>
         /// <param name="numDecimalPlaces">The number of decimal places to display.</param>
         /// <returns>A string that represents the target float.</returns>
-        public static string ToString(this float @this, uint numDecimalPlaces) {
+        public static string ToString(this float @this, uint numDecimalPlaces)
+        {
             var formatString = "{0:n" + numDecimalPlaces + "}";
             return string.Format(CultureInfo.InvariantCulture, formatString, @this);
         }
-        
+
         public static IEnumerable<T[]> TakeWindow<T>(this IEnumerable<T> e, int count)
         {
             var window = new LinkedList<T>();
@@ -156,7 +341,7 @@ namespace TestProj47
             }
             yield return window.ToArray();
         }
-        
+
         public static string ToString<T>(this IEnumerable<T> list, Func<T, string> itemOutput, string seperator = ",")
         {
             list = list ?? new List<T>();
@@ -171,17 +356,16 @@ namespace TestProj47
             }
             return builder.ToString();
         }
-        
-        public static string ToStringOrDefault<T>(this T? nullable, string defaultValue) where T : struct
-        {
-            return nullable?.ToString() ?? defaultValue;
-        }
 
-        public static string ToStringOrDefault<T>(this T? nullable, string format, string defaultValue) where T : struct, IFormattable
-        {
-            return nullable?.ToString(format, CultureInfo.CurrentCulture) ?? defaultValue;
-        }
-        
+        public static string ToStringOrDefault<T>(this T? nullable, string defaultValue) where T : struct =>
+            nullable?.ToString() ?? defaultValue;
+
+        public static string ToStringOrDefault<T>(this T? nullable, string format, string defaultValue)
+            where T : struct, IFormattable => nullable?.ToString(format, CultureInfo.CurrentCulture) ?? defaultValue;
+
+        public static string ToStringOrDefaultInvariant<T>(this T? nullable, string format, string defaultValue)
+            where T : struct, IFormattable => nullable?.ToString(format, CultureInfo.InvariantCulture) ?? defaultValue;
+
         /// <summary>
         /// this is really missing from C# - returns the key of the highest value in a dictionary.
         /// </summary>
@@ -189,7 +373,8 @@ namespace TestProj47
         /// <typeparam name="TValue">Value type (determined from the dictionary), must implement IComparable&lt;Value&gt;</typeparam>
         /// <param name="dictionary">The dictionary</param>
         /// <returns>The key of the highest value in the dic.</returns>
-        public static TKey Max<TKey, TValue>(this IDictionary<TKey, TValue> dictionary) where TValue : IComparable<TValue>
+        public static TKey Max<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
+            where TValue : IComparable<TValue>
         {
             if (dictionary == null || dictionary.Count == 0) return default;
             var dicList = dictionary.ToList();
@@ -203,13 +388,11 @@ namespace TestProj47
             }
             return maxKvp.Key;
         }
-        
+
         public static IEnumerable<TDerived> WhereIs<TBase, TDerived>(this IEnumerable<TBase> source)
             where TBase : class
-            where TDerived : class, TBase
-        {
-            return source.OfType<TDerived>();
-        }
+            where TDerived : class, TBase => source.OfType<TDerived>();
+
         private const string IsEmailBigRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                                                @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                                                @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
@@ -221,13 +404,13 @@ namespace TestProj47
         private static readonly Regex ObjAlphaDashPattern = new Regex("[^a-zA-Z\\-]", RegexOptions.Compiled);
         private static readonly Regex ObjAlphaPattern = new Regex("[^a-zA-Z]", RegexOptions.Compiled);
         private static readonly Regex IsEmailBigRe = new Regex(IsEmailBigRegex, RegexOptions.Compiled);
-        
+
         public static string OnlyDigits(this string value)
         {
             return new string(value?.Where(char.IsDigit).ToArray());
         }
-        
-        private static readonly Dictionary<char, int> RomanMap = new Dictionary<char, int>()
+
+        private static readonly ReadOnlyDictionary<char, int> RomanMap = new ReadOnlyDictionaryBuilder<char, int>
         {
             {'I', 1},
             {'V', 5},
@@ -254,7 +437,7 @@ namespace TestProj47
             }
             return number;
         }
-        
+
         public static string ToStringInvariant(this DateTime o)
         {
             return o.ToString(CultureInfo.InvariantCulture);
@@ -1049,5 +1232,11 @@ namespace TestProj47
         /// <filterpriority>2</filterpriority>
         public static int CompareOrdinal(this string strA, string strB)
             => string.CompareOrdinal(strA, strB);
+    }
+
+    public class ReadOnlyDictionaryBuilder<TKey, TVal> : Dictionary<TKey, TVal>
+    {
+        public static implicit operator ReadOnlyDictionary<TKey, TVal>(ReadOnlyDictionaryBuilder<TKey, TVal> self) =>
+            new ReadOnlyDictionary<TKey, TVal>(self);
     }
 }

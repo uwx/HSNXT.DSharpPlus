@@ -372,7 +372,7 @@ namespace TestProj47.C5
             MemoryType memoryType = MemoryType.Normal)
             : base(itemequalityComparer, memoryType)
         {
-            _randomhashfactor = (Debug.UseDeterministicHashing)
+            _randomhashfactor = Debug.UseDeterministicHashing
                 ? 1529784659
                 : (2 * (uint) Random.Next() + 1) * 1529784659;
 
@@ -868,7 +868,7 @@ namespace TestProj47.C5
             if (raiseAdded & wasChanged)
                 foreach (var item in wasAdded)
                     raiseItemsAdded(item, 1);
-            if (((ActiveEvents & EventTypeEnum.Changed) != 0 && wasChanged))
+            if ((ActiveEvents & EventTypeEnum.Changed) != 0 && wasChanged)
                 raiseCollectionChanged();
         }
 

@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 /* Documentation: https://github.com/JeevanJames/CodeBits/wiki/IniFile */
@@ -34,6 +36,7 @@ namespace TestProj47
         private readonly StringComparison _comparison;
 
         #region Construction
+
         public IniFile() : this(null)
         {
         }
@@ -54,7 +57,8 @@ namespace TestProj47
             settings = settings ?? IniLoadSettings.Default;
             _comparison = settings.CaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;
 
-            using (var reader = new StreamReader(iniFilePath, settings.Encoding ?? Encoding.UTF8, settings.DetectEncoding))
+            using (var reader =
+                new StreamReader(iniFilePath, settings.Encoding ?? Encoding.UTF8, settings.DetectEncoding))
                 ParseIniFile(reader);
         }
 
@@ -126,6 +130,7 @@ namespace TestProj47
                 currentSection.Add(propertyName, propertyValue);
             }
         }
+
         #endregion
 
         public void SaveTo(string filePath)
@@ -159,11 +164,11 @@ namespace TestProj47
         {
             foreach (var section in this)
             {
-                writeAction("[{0}]", new object[] { section.Name });
+                writeAction("[{0}]", new object[] {section.Name});
                 writeBlankLine();
                 foreach (var property in section)
                 {
-                    writeAction("{0}={1}", new object[] { property.Key, property.Value });
+                    writeAction("{0}={1}", new object[] {property.Key, property.Value});
                     writeBlankLine();
                 }
                 writeBlankLine();
@@ -183,6 +188,7 @@ namespace TestProj47
         public const string PropertyValueFormat = @"(.*)";
 
         #region Section
+
         public sealed class Section : Collection<Property>
         {
             public Section(string name)
@@ -194,7 +200,8 @@ namespace TestProj47
 
             public void Add(string key, string value)
             {
-                Add(new Property {
+                Add(new Property
+                {
                     Key = key,
                     Value = value
                 });
@@ -224,14 +231,17 @@ namespace TestProj47
                 set => Add(key, value);
             }
         }
+
         #endregion
 
         #region Property
+
         public sealed class Property
         {
             public string Key { get; set; }
             public string Value { get; set; }
         }
+
         #endregion
     }
 

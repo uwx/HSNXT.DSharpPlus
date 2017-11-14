@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 using System;
@@ -34,7 +36,7 @@ namespace TestProj47
             _capacity = capacity;
 
             var equatableType = typeof(IEquatable<>).MakeGenericType(typeof(T));
-            if (!equatableType.IsAssignableFrom(typeof(T))) 
+            if (!equatableType.IsAssignableFrom(typeof(T)))
                 throw new ArgumentException("Generic type should implement IEquatable<>");
             _comparer = new EquatableEqualityComparer<T>();
         }

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -43,7 +45,6 @@ namespace TestProj47
         /// are generated on the same thread, the order of enumeration affects the
         /// resulting sequences.
         /// </remarks>
-
         public static IEnumerable<int> Random()
         {
             return Random(GlobalRandom.Instance);
@@ -56,7 +57,6 @@ namespace TestProj47
         /// <param name="rand">Random generator used to produce random numbers</param>
         /// <returns>An infinite sequence of random integers</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="rand"/> is <see langword="null"/>.</exception>
-        
         public static IEnumerable<int> Random(Random rand)
         {
             if (rand == null) throw new ArgumentNullException(nameof(rand));
@@ -85,7 +85,6 @@ namespace TestProj47
         /// are generated on the same thread, the order of enumeration affects the
         /// resulting sequences.
         /// </remarks>
-        
         public static IEnumerable<int> Random(int maxValue)
         {
             if (maxValue < 0) throw new ArgumentOutOfRangeException(nameof(maxValue));
@@ -101,7 +100,6 @@ namespace TestProj47
         /// <param name="maxValue">Exclusive upper bound for random values returned</param>
         /// <returns>An infinite sequence of random integers</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="rand"/> is <see langword="null"/>.</exception>
-        
         public static IEnumerable<int> Random(Random rand, int maxValue)
         {
             if (rand == null) throw new ArgumentNullException(nameof(rand));
@@ -132,7 +130,6 @@ namespace TestProj47
         /// are generated on the same thread, the order of enumeration affects the
         /// resulting sequences.
         /// </remarks>
-        
         public static IEnumerable<int> Random(int minValue, int maxValue)
         {
             return Random(GlobalRandom.Instance, minValue, maxValue);
@@ -147,12 +144,11 @@ namespace TestProj47
         /// <param name="maxValue">Exclusive upper bound of the values returned</param>
         /// <returns>An infinite sequence of random integers</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="rand"/> is <see langword="null"/>.</exception>
-        
         public static IEnumerable<int> Random(Random rand, int minValue, int maxValue)
         {
             if (rand == null) throw new ArgumentNullException(nameof(rand));
             if (minValue > maxValue)
-                throw new ArgumentOutOfRangeException( nameof(minValue),
+                throw new ArgumentOutOfRangeException(nameof(minValue),
                     $"The argument minValue ({minValue}) is greater than maxValue ({maxValue})");
 
             return RandomImpl(rand, r => r.Next(minValue, maxValue));
@@ -177,7 +173,6 @@ namespace TestProj47
         /// are generated on the same thread, the order of enumeration affects the
         /// resulting sequences.
         /// </remarks>
-        
         public static IEnumerable<double> RandomDouble()
         {
             return RandomDouble(GlobalRandom.Instance);
@@ -190,14 +185,13 @@ namespace TestProj47
         /// <param name="rand">Generator used to produce random numbers</param>
         /// <returns>An infinite sequence of random doubles</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="rand"/> is <see langword="null"/>.</exception>
-        
         public static IEnumerable<double> RandomDouble(Random rand)
         {
             if (rand == null) throw new ArgumentNullException(nameof(rand));
 
             return RandomImpl(rand, r => r.NextDouble());
         }
-        
+
         /// <summary>
         /// This is the underlying implementation that all random operators use to
         /// produce a sequence of random values.
@@ -226,9 +220,13 @@ namespace TestProj47
 
             private static int _seed = Environment.TickCount;
             [ThreadStatic] private static Random _threadRandom;
-            private static Random ThreadRandom => _threadRandom ?? (_threadRandom = new Random(Interlocked.Increment(ref _seed)));
 
-            private GlobalRandom() { }
+            private static Random ThreadRandom =>
+                _threadRandom ?? (_threadRandom = new Random(Interlocked.Increment(ref _seed)));
+
+            private GlobalRandom()
+            {
+            }
 
             public override int Next() => ThreadRandom.Next();
             public override int Next(int minValue, int maxValue) => ThreadRandom.Next(minValue, maxValue);

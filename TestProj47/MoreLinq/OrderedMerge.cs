@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2013 Atif Aziz. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -37,8 +39,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered as inputs.
         /// </remarks>
-
-
         public static IEnumerable<T> OrderedMerge<T>(
             this IEnumerable<T> first,
             IEnumerable<T> second)
@@ -64,7 +64,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered as inputs.
         /// </remarks>
-
         public static IEnumerable<T> OrderedMerge<T>(
             this IEnumerable<T> first,
             IEnumerable<T> second,
@@ -128,7 +127,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered (by key) as inputs.
         /// </remarks>
-
         public static IEnumerable<TResult> OrderedMerge<T, TKey, TResult>(
             this IEnumerable<T> first,
             IEnumerable<T> second,
@@ -169,7 +167,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered (by key) as inputs.
         /// </remarks>
-
         public static IEnumerable<TResult> OrderedMerge<T, TKey, TResult>(
             this IEnumerable<T> first,
             IEnumerable<T> second,
@@ -179,8 +176,10 @@ namespace TestProj47
             Func<T, T, TResult> bothSelector,
             IComparer<TKey> comparer)
         {
-            if (keySelector == null) throw new ArgumentNullException(nameof(keySelector)); // Argument name changes to 'firstKeySelector'
-            return OrderedMerge(first, second, keySelector, keySelector, firstSelector, secondSelector, bothSelector, comparer);
+            if (keySelector == null)
+                throw new ArgumentNullException(nameof(keySelector)); // Argument name changes to 'firstKeySelector'
+            return OrderedMerge(first, second, keySelector, keySelector, firstSelector, secondSelector, bothSelector,
+                comparer);
         }
 
         /// <summary>
@@ -215,7 +214,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered (by key) as inputs.
         /// </remarks>
-
         public static IEnumerable<TResult> OrderedMerge<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -225,7 +223,8 @@ namespace TestProj47
             Func<TSecond, TResult> secondSelector,
             Func<TFirst, TSecond, TResult> bothSelector)
         {
-            return OrderedMerge(first, second, firstKeySelector, secondKeySelector, firstSelector, secondSelector, bothSelector, null);
+            return OrderedMerge(first, second, firstKeySelector, secondKeySelector, firstSelector, secondSelector,
+                bothSelector, null);
         }
 
         /// <summary>
@@ -262,7 +261,6 @@ namespace TestProj47
         /// This method uses deferred execution. The behavior is undefined
         /// if the sequences are unordered (by key) as inputs.
         /// </remarks>
-
         public static IEnumerable<TResult> OrderedMerge<TFirst, TSecond, TKey, TResult>(
             this IEnumerable<TFirst> first,
             IEnumerable<TSecond> second,
@@ -282,7 +280,9 @@ namespace TestProj47
             if (secondSelector == null) throw new ArgumentNullException(nameof(secondSelector));
 
             comparer = comparer ?? Comparer<TKey>.Default;
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 using (var e1 = first.GetEnumerator())
                 using (var e2 = second.GetEnumerator())

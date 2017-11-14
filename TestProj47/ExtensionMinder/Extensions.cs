@@ -12,17 +12,15 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Web;
-using TestProj47;
 
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 // ReSharper disable ConstantConditionalAccessQualifier
 
-namespace ExtensionMinder
+namespace TestProj47
 {
-    public static class Extensions
+    public static partial class Extensions
     {
         public static readonly Type[] PredefinedTypes =
         {
@@ -47,11 +45,6 @@ namespace ExtensionMinder
             typeof(Math),
             typeof(Convert)
         };
-
-        public static T As<T>(this object value)
-        {
-            return (T) value;
-        }
 
         public static string ToLowerInvariantWithOutSpaces(this string s)
         {
@@ -96,13 +89,6 @@ namespace ExtensionMinder
         public static string MakeValidFileName(this string s)
         {
             return Path.GetInvalidFileNameChars().Aggregate(s, (current, c) => current.Replace(c, '_'));
-        }
-
-        public static string Capitalize(this string word)
-        {
-            if (string.IsNullOrWhiteSpace(word))
-                return string.Empty;
-            return word[0].ToString().ToUpper() + word.Substring(1);
         }
 
         public static Hashtable ConvertPropertiesAndValuesToHashtable(this object obj)
@@ -221,7 +207,7 @@ namespace ExtensionMinder
                 if (strArray[index].Length <= 0) continue;
                 var str1 = strArray[index];
                 var upper = char.ToUpper(str1[0]);
-                strArray[index] = ((int) upper) + str1.Substring(1);
+                strArray[index] = (int) upper + str1.Substring(1);
             }
             return string.Join(string.Empty, strArray);
         }
@@ -253,11 +239,6 @@ namespace ExtensionMinder
             return property.PropertyType.Namespace != null && property.PropertyType.Namespace.StartsWith("System");
         }
 
-        public static T To<T>(this object value)
-        {
-            return value != null ? value.ToString().To<T>() : default;
-        }
-
         public static T To<T>(this string value)
         {
             if (typeof(T).IsEnum)
@@ -274,21 +255,6 @@ namespace ExtensionMinder
         public static string ShowIf(this string answer, Func<bool> question)
         {
             return !question() ? "" : answer;
-        }
-
-        public static T DeepClone<T>(this T a)
-        {
-            if (!typeof(T).IsSerializable)
-                throw new InvalidOperationException("DeepClone: The type must be serializable.");
-            if (ReferenceEquals(a, null))
-                return default;
-            using (var memoryStream = new MemoryStream())
-            {
-                var binaryFormatter = new BinaryFormatter();
-                binaryFormatter.Serialize(memoryStream, a);
-                memoryStream.Position = 0L;
-                return (T) binaryFormatter.Deserialize(memoryStream);
-            }
         }
 
         public static string GetContent(this Stream stream)

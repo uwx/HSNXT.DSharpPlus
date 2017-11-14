@@ -199,7 +199,7 @@ namespace TestProj47
             var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
             var decryptArray = @this.Split(new[] {"-"}, StringSplitOptions.None);
             var decryptByteArray =
-                Array.ConvertAll(decryptArray, (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
+                Array.ConvertAll(decryptArray, s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber)));
             var bytes = rsa.Decrypt(decryptByteArray, true);
 
             return Encoding.UTF8.GetString(bytes);
@@ -394,7 +394,7 @@ namespace TestProj47
         /// <returns>A string.</returns>
         public static string IfEmpty(this string value, string defaultValue)
         {
-            return (IsNotEmpty(value) ? value : defaultValue);
+            return IsNotEmpty(value) ? value : defaultValue;
         }
 
         /// <summary>

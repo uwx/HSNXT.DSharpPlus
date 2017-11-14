@@ -134,11 +134,12 @@ namespace TestProj47
 
             try
             {
-                value = (long)Expression.Lambda(valueExpression).Compile().DynamicInvoke();
+                value = (long) Expression.Lambda(valueExpression).Compile().DynamicInvoke();
             }
             catch (InvalidOperationException error)
             {
-                throw new ArgumentException("Error executing count comparison value expression.", nameof(countExpression), error);
+                throw new ArgumentException("Error executing count comparison value expression.",
+                    nameof(countExpression), error);
             }
 
             var leftBound = value + leftBoundOffset;
@@ -292,7 +293,8 @@ namespace TestProj47
             return first.CompareTo(second) < 0;
         }
 
-        private static T ArgComp<T, TValue>(IEnumerable<T> collection, Func<T, TValue> function, Func<TValue, TValue, bool> accept)
+        private static T ArgComp<T, TValue>(IEnumerable<T> collection, Func<T, TValue> function,
+            Func<TValue, TValue, bool> accept)
             where TValue : IComparable<TValue>
         {
             if (collection == null)

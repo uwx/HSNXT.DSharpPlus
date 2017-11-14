@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Konrad Rudolph. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -50,13 +52,14 @@ namespace TestProj47
         /// <param name="source">Source sequence</param>
         /// <param name="transformation">Transformation operation</param>
         /// <returns>The scanned sequence</returns>
-        
         public static IEnumerable<TSource> Scan<TSource>(this IEnumerable<TSource> source,
             Func<TSource, TSource, TSource> transformation)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (transformation == null) throw new ArgumentNullException(nameof(transformation));
-            return _(); IEnumerable<TSource> _()
+            return _();
+
+            IEnumerable<TSource> _()
             {
                 using (var i = source.GetEnumerator())
                 {
@@ -95,14 +98,15 @@ namespace TestProj47
         /// <param name="seed">Initial state to seed</param>
         /// <param name="transformation">Transformation operation</param>
         /// <returns>The scanned sequence</returns>
-        
         public static IEnumerable<TState> Scan<TSource, TState>(this IEnumerable<TSource> source,
             TState seed, Func<TState, TSource, TState> transformation)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (transformation == null) throw new ArgumentNullException(nameof(transformation));
 
-            return _(); IEnumerable<TState> _()
+            return _();
+
+            IEnumerable<TState> _()
             {
                 using (var i = source.GetEnumerator())
                 {

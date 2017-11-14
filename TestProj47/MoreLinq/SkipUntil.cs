@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -51,13 +53,15 @@ namespace TestProj47
         /// <param name="predicate">Predicate used to determine when to stop yielding results from the source.</param>
         /// <returns>Items from the source sequence after the predicate first returns true when applied to the item.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="source"/> or <paramref name="predicate"/> is null</exception>
-
-        public static IEnumerable<TSource> SkipUntil<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        public static IEnumerable<TSource> SkipUntil<TSource>(this IEnumerable<TSource> source,
+            Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
-            return _(); IEnumerable<TSource> _()
+            return _();
+
+            IEnumerable<TSource> _()
             {
                 using (var iterator = source.GetEnumerator())
                 {

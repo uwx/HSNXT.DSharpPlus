@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -37,7 +39,6 @@ namespace TestProj47
         /// <param name="keySelector">Projection for determining "distinctness"</param>
         /// <returns>A sequence consisting of distinct elements from the source sequence,
         /// comparing them by the specified key projection.</returns>
-
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector)
         {
@@ -61,14 +62,15 @@ namespace TestProj47
         /// If null, the default equality comparer for <c>TSource</c> is used.</param>
         /// <returns>A sequence consisting of distinct elements from the source sequence,
         /// comparing them by the specified key projection.</returns>
-
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
-            
-            return _(); IEnumerable<TSource> _()
+
+            return _();
+
+            IEnumerable<TSource> _()
             {
                 var knownKeys = new HashSet<TKey>(comparer);
                 foreach (var element in source)

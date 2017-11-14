@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Atif Aziz. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -32,7 +34,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams its results (buckets and bucket content). 
         /// </remarks>
-
         public static IEnumerable<IEnumerable<TSource>> Batch<TSource>(this IEnumerable<TSource> source, int size)
         {
             return Batch(source, size, x => x);
@@ -50,7 +51,6 @@ namespace TestProj47
         /// <remarks>
         /// This operator uses deferred execution and streams its results (buckets and bucket content).
         /// </remarks>
-        
         public static IEnumerable<TResult> Batch<TSource, TResult>(this IEnumerable<TSource> source, int size,
             Func<IEnumerable<TSource>, TResult> resultSelector)
         {
@@ -58,7 +58,9 @@ namespace TestProj47
             if (size <= 0) throw new ArgumentOutOfRangeException(nameof(size));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 TSource[] bucket = null;
                 var count = 0;
@@ -80,7 +82,7 @@ namespace TestProj47
 
                     // Select is necessary so bucket contents are streamed too
                     yield return resultSelector(bucket);
-                
+
                     bucket = null;
                     count = 0;
                 }

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2012 Atif Aziz. All rights reserved.
 // 
@@ -13,17 +14,18 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -47,7 +49,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-        
         public static IEnumerable<IGrouping<TKey, TSource>> GroupAdjacent<TSource, TKey>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector)
@@ -79,7 +80,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-        
         public static IEnumerable<IGrouping<TKey, TSource>> GroupAdjacent<TSource, TKey>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
@@ -117,7 +117,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-        
         public static IEnumerable<IGrouping<TKey, TElement>> GroupAdjacent<TSource, TKey, TElement>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
@@ -155,7 +154,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-        
         public static IEnumerable<IGrouping<TKey, TElement>> GroupAdjacent<TSource, TKey, TElement>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
@@ -167,7 +165,7 @@ namespace TestProj47
             if (elementSelector == null) throw new ArgumentNullException(nameof(elementSelector));
 
             return GroupAdjacentImpl(source, keySelector, elementSelector, CreateGroupAdjacentGrouping,
-                                     comparer ?? EqualityComparer<TKey>.Default);
+                comparer ?? EqualityComparer<TKey>.Default);
         }
 
         /// <summary>
@@ -196,7 +194,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-
         public static IEnumerable<TResult> GroupAdjacent<TSource, TKey, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
@@ -210,7 +207,7 @@ namespace TestProj47
             TResult ResultSelectorWrapper(TKey key, IList<TSource> group) => resultSelector(key, group);
 
             return GroupAdjacentImpl(source, keySelector, i => i, ResultSelectorWrapper,
-                                     EqualityComparer<TKey>.Default);
+                EqualityComparer<TKey>.Default);
         }
 
         /// <summary>
@@ -241,7 +238,6 @@ namespace TestProj47
         /// buffered. Each grouping is therefore yielded as soon as it 
         /// is complete and before the next grouping occurs.
         /// </remarks>
-
         public static IEnumerable<TResult> GroupAdjacent<TSource, TKey, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
@@ -251,11 +247,12 @@ namespace TestProj47
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
-            
+
             // This should be removed once the target framework is bumped to something that supports covariance
             TResult ResultSelectorWrapper(TKey key, IList<TSource> group) => resultSelector(key, group);
+
             return GroupAdjacentImpl(source, keySelector, i => i, ResultSelectorWrapper,
-                                     comparer ?? EqualityComparer<TKey>.Default);
+                comparer ?? EqualityComparer<TKey>.Default);
         }
 
         private static IEnumerable<TResult> GroupAdjacentImpl<TSource, TKey, TElement, TResult>(
@@ -289,7 +286,7 @@ namespace TestProj47
                         if (members != null)
                             yield return resultSelector(group, members);
                         group = key;
-                        members = new List<TElement> { element };
+                        members = new List<TElement> {element};
                     }
                 }
 
@@ -298,7 +295,8 @@ namespace TestProj47
             }
         }
 
-        private static IGrouping<TKey, TElement> CreateGroupAdjacentGrouping<TKey, TElement>(TKey key, IList<TElement> members)
+        private static IGrouping<TKey, TElement> CreateGroupAdjacentGrouping<TKey, TElement>(TKey key,
+            IList<TElement> members)
         {
             Debug.Assert(members != null);
             return Grouping.Create(key, members.IsReadOnly ? members : new ReadOnlyCollection<TElement>(members));
@@ -310,9 +308,9 @@ namespace TestProj47
                 new Grouping<TKey, TElement>(key, members);
         }
 
-        #if !NO_SERIALIZATION_ATTRIBUTES
+#if !NO_SERIALIZATION_ATTRIBUTES
         [Serializable]
-        #endif
+#endif
         private sealed class Grouping<TKey, TElement> : IGrouping<TKey, TElement>
         {
             private readonly IEnumerable<TElement> _members;

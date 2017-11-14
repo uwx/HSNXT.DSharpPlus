@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 /* Documentation: http://codebits.codeplex.com/wikipage?title=OrderedCollection */
@@ -52,7 +54,7 @@ namespace TestProj47
         public OrderedCollection(OrderedCollectionOptions options)
         {
             var comparableType = typeof(IComparable<>).MakeGenericType(typeof(T));
-            if (!comparableType.IsAssignableFrom(typeof(T))) 
+            if (!comparableType.IsAssignableFrom(typeof(T)))
                 throw new ArgumentException("Generic type should implement IComparable<>");
             _comparer = new ComparableComparer<T>();
             _options = options ?? new OrderedCollectionOptions();
@@ -127,7 +129,7 @@ namespace TestProj47
 
         private int ReverseComparisonIfNeeded(int comparison)
         {
-            return _options.ReverseOrder ? -(comparison) : comparison;
+            return _options.ReverseOrder ? -comparison : comparison;
         }
 
         private int GetInsertIndex(T item)

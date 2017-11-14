@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 using System;
@@ -41,8 +43,9 @@ namespace TestProj47
             var b2 = longitude2 * RadianConversionFactor;
 
             var distance = Math.Acos(Math.Cos(a1) * Math.Cos(b1) * Math.Cos(a2) * Math.Cos(b2) +
-                    Math.Cos(a1) * Math.Sin(b1) * Math.Cos(a2) * Math.Sin(b2) + Math.Sin(a1) * Math.Sin(a2)) *
-                DistanceConstants[units];
+                                     Math.Cos(a1) * Math.Sin(b1) * Math.Cos(a2) * Math.Sin(b2) +
+                                     Math.Sin(a1) * Math.Sin(a2)) *
+                           DistanceConstants[units];
 
             return distance;
         }
@@ -50,10 +53,11 @@ namespace TestProj47
         private const double RadianConversionFactor = Math.PI / 180;
 
         private static readonly Dictionary<DistanceUnits, double> DistanceConstants =
-            new Dictionary<DistanceUnits, double>(3) {
-                { DistanceUnits.Miles, 3963.1 },
-                { DistanceUnits.NauticalMiles, 3443.9 },
-                { DistanceUnits.Kilometers, 6378 }
+            new Dictionary<DistanceUnits, double>(3)
+            {
+                {DistanceUnits.Miles, 3963.1},
+                {DistanceUnits.NauticalMiles, 3443.9},
+                {DistanceUnits.Kilometers, 6378}
             };
     }
 

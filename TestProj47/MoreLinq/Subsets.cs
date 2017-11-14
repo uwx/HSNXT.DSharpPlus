@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,17 +14,18 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
-    {      
+    {
         /// <summary>
         /// Returns a sequence of <see cref="IList{T}"/> representing all of
         /// the subsets of any size that are part of the original sequence. In
@@ -41,12 +43,13 @@ namespace TestProj47
         /// <typeparam name="T">The type of the elements in the sequence</typeparam>
         /// <returns>A sequence of lists that represent the all subsets of the original sequence</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="sequence"/> is <see langword="null"/></exception>
-        
         public static IEnumerable<IList<T>> Subsets<T>(this IEnumerable<T> sequence)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
 
-            return _(); IEnumerable<IList<T>> _()
+            return _();
+
+            IEnumerable<IList<T>> _()
             {
                 var sequenceAsList = sequence.ToList();
                 var sequenceLength = sequenceAsList.Count;
@@ -87,7 +90,6 @@ namespace TestProj47
         /// <exception cref="ArgumentOutOfRangeException">
         /// Thrown if <paramref name="subsetSize"/> is less than zero.
         /// </exception>
-        
         public static IEnumerable<IList<T>> Subsets<T>(this IEnumerable<T> sequence, int subsetSize)
         {
             if (sequence == null)
@@ -123,25 +125,26 @@ namespace TestProj47
             /// </summary>
             private class SubsetEnumerator : IEnumerator<IList<T>>
             {
-                private readonly IList<T> _set;   // the original set of elements
-                private readonly T[] _subset;     // the current subset to return
-                private readonly int[] _indices;  // indices into the original set
+                private readonly IList<T> _set; // the original set of elements
+                private readonly T[] _subset; // the current subset to return
+                private readonly int[] _indices; // indices into the original set
 
                 // TODO: It would be desirable to give these index members clearer names
-                private bool _continue;  // termination indicator, set when all subsets have been produced
+                private bool _continue; // termination indicator, set when all subsets have been produced
 
-                private int _m;            // previous swap index (upper index)
-                private int _m2;           // current swap index (lower index)
-                private int _k;            // size of the subset being produced
-                private int _n;            // size of the original set (sequence)
-                private int _z;            // count of items excluded from the subet
+                private int _m; // previous swap index (upper index)
+                private int _m2; // current swap index (lower index)
+                private int _k; // size of the subset being produced
+                private int _n; // size of the original set (sequence)
+                private int _z; // count of items excluded from the subet
 
                 public SubsetEnumerator(IList<T> set, int subsetSize)
                 {
                     // precondition: subsetSize <= set.Count
                     if (subsetSize > set.Count)
-                        throw new ArgumentOutOfRangeException(nameof(subsetSize), "Subset size must be <= sequence.Count()");
-                    
+                        throw new ArgumentOutOfRangeException(nameof(subsetSize),
+                            "Subset size must be <= sequence.Count()");
+
                     // initialize set arrays...
                     _set = set;
                     _subset = new T[subsetSize];
@@ -160,7 +163,7 @@ namespace TestProj47
                     _continue = _subset.Length > 0;
                 }
 
-                public IList<T> Current => (IList<T>)_subset.Clone();
+                public IList<T> Current => (IList<T>) _subset.Clone();
 
                 object IEnumerator.Current => Current;
 
@@ -189,11 +192,13 @@ namespace TestProj47
 
                     ExtractSubset();
 
-                    _continue = (_indices[0] != _z);
+                    _continue = _indices[0] != _z;
                     return true;
                 }
 
-                void IDisposable.Dispose() { }
+                void IDisposable.Dispose()
+                {
+                }
 
                 private void ExtractSubset()
                 {
@@ -210,7 +215,8 @@ namespace TestProj47
                 if (sequence == null)
                     throw new ArgumentNullException(nameof(sequence));
                 if (subsetSize < 0)
-                    throw new ArgumentOutOfRangeException(nameof(subsetSize), "{subsetSize} must be between 0 and set.Count()");
+                    throw new ArgumentOutOfRangeException(nameof(subsetSize),
+                        "{subsetSize} must be between 0 and set.Count()");
                 _subsetSize = subsetSize;
                 _sequence = sequence;
             }
@@ -221,13 +227,15 @@ namespace TestProj47
             /// and <see cref="IList{T}"/> for each subset.
             /// </summary>
             /// <returns>an <see cref="IEnumerator"/> that enumerates all k-sized subsets</returns>
-
             public IEnumerator<IList<T>> GetEnumerator()
             {
                 return new SubsetEnumerator(_sequence.ToList(), _subsetSize);
             }
 
-            IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
         }
     }
 }

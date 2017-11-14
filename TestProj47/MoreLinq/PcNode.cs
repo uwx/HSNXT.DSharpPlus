@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Atif Aziz. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Prepend-Concat node is a single linked-list of the discriminated union
     /// of a prepend item, a concat item and the source.
@@ -29,8 +31,8 @@ namespace TestProj47
     {
         public static PcNode<T> WithSource(IEnumerable<T> source) => new Source(source);
 
-        public PcNode<T> Prepend(T item) => new Item(item, isPrepend: true , next: this);
-        public PcNode<T> Concat(T item)  => new Item(item, isPrepend: false, next: this);
+        public PcNode<T> Prepend(T item) => new Item(item, isPrepend: true, next: this);
+        public PcNode<T> Concat(T item) => new Item(item, isPrepend: false, next: this);
 
         private sealed class Item : PcNode<T>
         {
@@ -43,12 +45,12 @@ namespace TestProj47
             {
                 if (next == null) throw new ArgumentNullException(nameof(next));
 
-                Value       = item;
-                IsPrepend   = isPrepend;
+                Value = item;
+                IsPrepend = isPrepend;
                 ConcatCount = next is Item nextItem
-                            ? nextItem.ConcatCount + (isPrepend ? 0 : 1)
-                            : 1;
-                Next        = next;
+                    ? nextItem.ConcatCount + (isPrepend ? 0 : 1)
+                    : 1;
+                Next = next;
             }
         }
 
@@ -61,7 +63,7 @@ namespace TestProj47
         public IEnumerator<T> GetEnumerator()
         {
             var i = 0;
-            T[] concats = null;       // Array for > 4 concatenations
+            T[] concats = null; // Array for > 4 concatenations
             var concat1 = default(T); // Slots for up to 4 concatenations
             var concat2 = default(T);
             var concat3 = default(T);
@@ -86,10 +88,18 @@ namespace TestProj47
                         {
                             switch (i++)
                             {
-                                case 0: concat1 = item.Value; break;
-                                case 1: concat2 = item.Value; break;
-                                case 2: concat3 = item.Value; break;
-                                case 3: concat4 = item.Value; break;
+                                case 0:
+                                    concat1 = item.Value;
+                                    break;
+                                case 1:
+                                    concat2 = item.Value;
+                                    break;
+                                case 2:
+                                    concat3 = item.Value;
+                                    break;
+                                case 3:
+                                    concat4 = item.Value;
+                                    break;
                                 default: throw new IndexOutOfRangeException();
                             }
                             continue;
@@ -107,10 +117,26 @@ namespace TestProj47
 
             if (concats == null)
             {
-                if (i == 4) { yield return concat4; i--; }
-                if (i == 3) { yield return concat3; i--; }
-                if (i == 2) { yield return concat2; i--; }
-                if (i == 1) { yield return concat1; i--; }
+                if (i == 4)
+                {
+                    yield return concat4;
+                    i--;
+                }
+                if (i == 3)
+                {
+                    yield return concat3;
+                    i--;
+                }
+                if (i == 2)
+                {
+                    yield return concat2;
+                    i--;
+                }
+                if (i == 1)
+                {
+                    yield return concat1;
+                    i--;
+                }
                 yield break;
             }
 
@@ -119,6 +145,5 @@ namespace TestProj47
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
     }
 }

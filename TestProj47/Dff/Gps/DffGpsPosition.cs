@@ -154,7 +154,7 @@ namespace TestProj47.dff.Extensions.Gps
                 try
                 {
                     if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
-                        (this.MercatorX != 0 & this.MercatorY != 0))
+                        this.MercatorX != 0 & this.MercatorY != 0)
                     {
                         var fLatitude = 0.0;
                         var fLongitude = 0.0;
@@ -163,7 +163,7 @@ namespace TestProj47.dff.Extensions.Gps
                         this.DecLongitude = fLongitude;
                     }
                     if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
-                        (Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon))
+                        Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon)
                     {
                         var xGeodms = "";
                         var yGeodms = "";
@@ -247,7 +247,7 @@ namespace TestProj47.dff.Extensions.Gps
                 var provider2 = (IFormatProvider) new CultureInfo("de-DE", true);
                 double num1;
                 if (Math.Abs(this.DmsLatitude) < double.Epsilon & Math.Abs(this.DmsLongitude) < double.Epsilon &
-                    (Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon))
+                    Math.Abs(this.DecLatitude) > double.Epsilon & Math.Abs(this.DecLongitude) > double.Epsilon)
                 {
                     var xGeodms = "";
                     var yGeodms = "";
@@ -260,9 +260,11 @@ namespace TestProj47.dff.Extensions.Gps
                     while (str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1).Length < 5)
                         str2 += "0";
                     DffGpsTools.Geodec2Geodms(
-                        (str1.Substring(0, str1.IndexOf(",", StringComparison.Ordinal)) + "," + str1.Substring(str1.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
+                        (str1.Substring(0, str1.IndexOf(",", StringComparison.Ordinal)) + "," +
+                         str1.Substring(str1.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
                             ",", ""),
-                        (str2.Substring(0, str2.IndexOf(",", StringComparison.Ordinal)) + "," + str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
+                        (str2.Substring(0, str2.IndexOf(",", StringComparison.Ordinal)) + "," +
+                         str2.Substring(str2.IndexOf(",", StringComparison.Ordinal) + 1, 5)).Replace(
                             ",", ""), ref xGeodms, ref yGeodms);
                     this.DmsLatitude = double.Parse(xGeodms) / 100000.0;
                     this.DmsLongitude = double.Parse(yGeodms) / 100000.0;
@@ -342,7 +344,7 @@ namespace TestProj47.dff.Extensions.Gps
         private void CalculateMercatorValues()
         {
             if (Math.Abs(this._decLongitude) < double.Epsilon & Math.Abs(this._decLatitude) < double.Epsilon &
-                (Math.Abs(this.DmsLatitude) > double.Epsilon & Math.Abs(this.DmsLongitude) > double.Epsilon))
+                Math.Abs(this.DmsLatitude) > double.Epsilon & Math.Abs(this.DmsLongitude) > double.Epsilon)
                 this.CalcualteDecValues();
             var mercatorX = 0;
             var mercatorY = 0;

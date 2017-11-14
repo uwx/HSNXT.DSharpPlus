@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -31,7 +33,8 @@ namespace TestProj47
         /// <param name="source">Source sequence.</param>
         /// <param name="keySelector">Function that transforms each item of source sequence into a key to be compared against the others.</param>
         /// <returns>A sequence of unique keys and their number of occurrences in the original sequence.</returns>
-        public static IEnumerable<KeyValuePair<TKey, int>> CountBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        public static IEnumerable<KeyValuePair<TKey, int>> CountBy<TSource, TKey>(this IEnumerable<TSource> source,
+            Func<TSource, TKey> keySelector)
         {
             return source.CountBy(keySelector, null);
         }
@@ -48,12 +51,15 @@ namespace TestProj47
         /// <param name="comparer">The equality comparer to use to determine whether or not keys are equal.
         /// If null, the default equality comparer for <typeparamref name="TSource"/> is used.</param>
         /// <returns>A sequence of unique keys and their number of occurrences in the original sequence.</returns>
-        public static IEnumerable<KeyValuePair<TKey, int>> CountBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
+        public static IEnumerable<KeyValuePair<TKey, int>> CountBy<TSource, TKey>(this IEnumerable<TSource> source,
+            Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
 
-            return _(); IEnumerable<KeyValuePair<TKey, int>> _()
+            return _();
+
+            IEnumerable<KeyValuePair<TKey, int>> _()
             {
                 List<TKey> keys;
                 List<int> counts;
@@ -87,9 +93,9 @@ namespace TestProj47
                     {
                         var key = keySelector(item);
 
-                        if (// key same as the previous? then re-use the index
-                            (havePrevKey && cmp.GetHashCode(prevKey) == cmp.GetHashCode(key)
-                                          && cmp.Equals(prevKey, key))
+                        if ( // key same as the previous? then re-use the index
+                            havePrevKey && cmp.GetHashCode(prevKey) == cmp.GetHashCode(key)
+                            && cmp.Equals(prevKey, key)
                             // otherwise try & find index of the key
                             || dic.TryGetValue(key, out index))
                         {

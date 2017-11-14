@@ -593,15 +593,15 @@ namespace TestProj47
                     var ch = @this[pos];
                     pos++;
 
-                    if (((ch >= '0' && ch <= '9')
-                         || (ch >= 'a' && ch <= 'f')
-                         || (ch >= 'A' && ch <= 'F'))
+                    if ((ch >= '0' && ch <= '9'
+                         || ch >= 'a' && ch <= 'f'
+                         || ch >= 'A' && ch <= 'F')
                         && !hasSuffix)
                     {
                         hasNumber = true;
                         sb.Append(ch);
                     }
-                    else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                    else if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
                     {
                         hasSuffix = true;
                         sb.Append(ch);
@@ -670,7 +670,7 @@ namespace TestProj47
                 var ch = @this[pos];
                 pos++;
 
-                if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
                 {
                     hasCharacter = true;
                     sb.Append(ch);
@@ -759,7 +759,7 @@ namespace TestProj47
                     hasDot = true;
                     sb.Append(ch);
                 }
-                else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                else if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
                 {
                     hasSuffix = true;
                     sb.Append(ch);
@@ -1419,7 +1419,7 @@ namespace TestProj47
                 case '9':
                     return @this.ExtractNumber(startIndex, out endIndex);
                 default:
-                    if ((ch1 >= 'a' && ch1 <= 'z') || (ch1 >= 'A' && ch1 <= 'Z'))
+                    if (ch1 >= 'a' && ch1 <= 'z' || ch1 >= 'A' && ch1 <= 'Z')
                     {
                         return @this.ExtractKeyword(startIndex, out endIndex);
                     }

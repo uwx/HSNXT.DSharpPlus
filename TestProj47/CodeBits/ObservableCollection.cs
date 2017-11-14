@@ -125,7 +125,8 @@ namespace TestProj47.Portable
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, item, index, oldIndex));
         }
 
-        private void OnCollectionChanged(NotifyCollectionChangedAction action, object oldItem, object newItem, int index)
+        private void OnCollectionChanged(NotifyCollectionChangedAction action, object oldItem, object newItem,
+            int index)
         {
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, newItem, oldItem, index));
         }
@@ -231,43 +232,52 @@ namespace TestProj47.Portable
         {
             if (action != NotifyCollectionChangedAction.Add && action != NotifyCollectionChangedAction.Remove &&
                 action != NotifyCollectionChangedAction.Reset)
-                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.", nameof(action));
+                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.",
+                    nameof(action));
             if (action == NotifyCollectionChangedAction.Reset)
             {
                 if (changedItem != null)
-                    throw new ArgumentException("Reset action must be initialized with no changed items.", nameof(action));
+                    throw new ArgumentException("Reset action must be initialized with no changed items.",
+                        nameof(action));
                 InitializeAdd(action, null, -1);
-            } else
-                InitializeAddOrRemove(action, new[] { changedItem }, -1);
+            }
+            else
+                InitializeAddOrRemove(action, new[] {changedItem}, -1);
         }
 
         public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, object changedItem, int index)
         {
             if (action != NotifyCollectionChangedAction.Add && action != NotifyCollectionChangedAction.Remove &&
                 action != NotifyCollectionChangedAction.Reset)
-                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.<", nameof(action));
+                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.<",
+                    nameof(action));
             if (action == NotifyCollectionChangedAction.Reset)
             {
                 if (changedItem != null)
-                    throw new ArgumentException("Reset action must be initialized with no changed items.", nameof(action));
+                    throw new ArgumentException("Reset action must be initialized with no changed items.",
+                        nameof(action));
                 if (index != -1)
                     throw new ArgumentException("Reset action must be initialized with index -1.", nameof(action));
                 InitializeAdd(action, null, -1);
-            } else
-                InitializeAddOrRemove(action, new[] { changedItem }, index);
+            }
+            else
+                InitializeAddOrRemove(action, new[] {changedItem}, index);
         }
 
         public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList changedItems)
         {
             if (action != NotifyCollectionChangedAction.Add && action != NotifyCollectionChangedAction.Remove &&
                 action != NotifyCollectionChangedAction.Reset)
-                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.", nameof(action));
+                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.",
+                    nameof(action));
             if (action == NotifyCollectionChangedAction.Reset)
             {
                 if (changedItems != null)
-                    throw new ArgumentException("Reset action must be initialized with no changed items.", nameof(action));
+                    throw new ArgumentException("Reset action must be initialized with no changed items.",
+                        nameof(action));
                 InitializeAdd(action, null, -1);
-            } else
+            }
+            else
             {
                 if (changedItems == null)
                     throw new ArgumentNullException(nameof(changedItems));
@@ -275,19 +285,23 @@ namespace TestProj47.Portable
             }
         }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList changedItems, int startingIndex)
+        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList changedItems,
+            int startingIndex)
         {
             if (action != NotifyCollectionChangedAction.Add && action != NotifyCollectionChangedAction.Remove &&
                 action != NotifyCollectionChangedAction.Reset)
-                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.", nameof(action));
+                throw new ArgumentException("Constructor only supports either a Reset, Add, or Remove action.",
+                    nameof(action));
             if (action == NotifyCollectionChangedAction.Reset)
             {
                 if (changedItems != null)
-                    throw new ArgumentException("Reset action must be initialized with no changed items.", nameof(action));
+                    throw new ArgumentException("Reset action must be initialized with no changed items.",
+                        nameof(action));
                 if (startingIndex != -1)
                     throw new ArgumentException("Reset action must be initialized with index -1.", nameof(action));
                 InitializeAdd(action, null, -1);
-            } else
+            }
+            else
             {
                 if (changedItems == null)
                     throw new ArgumentNullException(nameof(changedItems));
@@ -302,15 +316,16 @@ namespace TestProj47.Portable
             if (action != NotifyCollectionChangedAction.Replace)
                 throw new ArgumentException(
                     $"Constructor supports only the '{NotifyCollectionChangedAction.Replace}' action.", nameof(action));
-            InitializeMoveOrReplace(action, new[] { newItem }, new[] { oldItem }, -1, -1);
+            InitializeMoveOrReplace(action, new[] {newItem}, new[] {oldItem}, -1, -1);
         }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, object newItem, object oldItem, int index)
+        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, object newItem, object oldItem,
+            int index)
         {
             if (action != NotifyCollectionChangedAction.Replace)
                 throw new ArgumentException(
                     $"Constructor supports only the '{NotifyCollectionChangedAction.Replace}' action.", nameof(action));
-            InitializeMoveOrReplace(action, new[] { newItem }, new[] { oldItem }, index, index);
+            InitializeMoveOrReplace(action, new[] {newItem}, new[] {oldItem}, index, index);
         }
 
         public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList newItems, IList oldItems)
@@ -325,7 +340,8 @@ namespace TestProj47.Portable
             InitializeMoveOrReplace(action, newItems, oldItems, -1, -1);
         }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList newItems, IList oldItems, int startingIndex)
+        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList newItems, IList oldItems,
+            int startingIndex)
         {
             if (action != NotifyCollectionChangedAction.Replace)
                 throw new ArgumentException(
@@ -337,18 +353,20 @@ namespace TestProj47.Portable
             InitializeMoveOrReplace(action, newItems, oldItems, startingIndex, startingIndex);
         }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, object changedItem, int index, int oldIndex)
+        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, object changedItem, int index,
+            int oldIndex)
         {
             if (action != NotifyCollectionChangedAction.Move)
                 throw new ArgumentException(
                     $"Constructor supports only the '{NotifyCollectionChangedAction.Move}' action.", nameof(action));
             if (index < 0)
                 throw new ArgumentException("Index cannot be negative.", nameof(index));
-            var objArray = new[] { changedItem };
+            var objArray = new[] {changedItem};
             InitializeMoveOrReplace(action, objArray, objArray, index, oldIndex);
         }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList changedItems, int index, int oldIndex)
+        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList changedItems, int index,
+            int oldIndex)
         {
             if (action != NotifyCollectionChangedAction.Move)
                 throw new ArgumentException(
@@ -359,7 +377,8 @@ namespace TestProj47.Portable
             InitializeMoveOrReplace(action, changedItems, changedItems, index, oldIndex);
         }
 
-        internal NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList newItems, IList oldItems, int newIndex,
+        internal NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action, IList newItems, IList oldItems,
+            int newIndex,
             int oldIndex)
         {
             _action = action;
@@ -395,7 +414,8 @@ namespace TestProj47.Portable
             _oldStartingIndex = oldStartingIndex;
         }
 
-        private void InitializeMoveOrReplace(NotifyCollectionChangedAction action, IList newItems, IList oldItems, int startingIndex,
+        private void InitializeMoveOrReplace(NotifyCollectionChangedAction action, IList newItems, IList oldItems,
+            int startingIndex,
             int oldStartingIndex)
         {
             InitializeAdd(action, newItems, startingIndex);

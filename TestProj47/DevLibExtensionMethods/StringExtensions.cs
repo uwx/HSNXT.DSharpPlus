@@ -225,7 +225,7 @@ namespace TestProj47
         /// <returns>A System.String equivalent to this instance but with all instances of oldValues replaced with newValue.</returns>
         public static string ReplaceAny(this string source, string newValue, bool ignoreCase, params string[] oldValues)
         {
-            if (source == null || newValue == null || (oldValues == null || oldValues.Length < 1))
+            if (source == null || newValue == null || oldValues == null || oldValues.Length < 1)
                 return source;
             var source1 = source;
             foreach (var oldValue in oldValues)
@@ -524,7 +524,7 @@ namespace TestProj47
                 return source;
             return new string(source.Where(p =>
             {
-                if ((p < 32 || p > 55295) && (p < 57344 || p > 65533) && (p != 9 && p != 10))
+                if ((p < 32 || p > 55295) && (p < 57344 || p > 65533) && p != 9 && p != 10)
                     return (int) p == 13;
                 return true;
             }).ToArray());

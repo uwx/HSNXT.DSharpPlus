@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Atif Aziz. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -41,7 +43,6 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>-1</c>.
         /// </example>
-
         public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -62,7 +63,6 @@ namespace TestProj47
         /// An <see cref="IEnumerable{T}"/> that containing fallback values
         /// if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.
         /// </returns>
-
         public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback1, T fallback2)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -85,8 +85,8 @@ namespace TestProj47
         /// An <see cref="IEnumerable{T}"/> that containing fallback values
         /// if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.
         /// </returns>
-
-        public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback1, T fallback2, T fallback3)
+        public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback1, T fallback2,
+            T fallback3)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return FallbackIfEmptyImpl(source, 3, fallback1, fallback2, fallback3, default(T), null);
@@ -110,8 +110,8 @@ namespace TestProj47
         /// An <see cref="IEnumerable{T}"/> that containing fallback values
         /// if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.
         /// </returns>
-
-        public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback1, T fallback2, T fallback3, T fallback4)
+        public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, T fallback1, T fallback2,
+            T fallback3, T fallback4)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             return FallbackIfEmptyImpl(source, 4, fallback1, fallback2, fallback3, fallback4, null);
@@ -129,12 +129,11 @@ namespace TestProj47
         /// An <see cref="IEnumerable{T}"/> that containing fallback values
         /// if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.
         /// </returns>
-
         public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, params T[] fallback)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (fallback == null) throw new ArgumentNullException(nameof(fallback));
-            return source.FallbackIfEmpty((IEnumerable<T>)fallback);
+            return source.FallbackIfEmpty((IEnumerable<T>) fallback);
         }
 
         /// <summary>
@@ -149,7 +148,6 @@ namespace TestProj47
         /// An <see cref="IEnumerable{T}"/> that containing fallback values
         /// if <paramref name="source"/> is empty; otherwise, <paramref name="source"/>.
         /// </returns>
-
         public static IEnumerable<T> FallbackIfEmpty<T>(this IEnumerable<T> source, IEnumerable<T> fallback)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -181,8 +179,10 @@ namespace TestProj47
                 {
                     if (e.MoveNext())
                     {
-                        do { yield return e.Current; }
-                        while (e.MoveNext());
+                        do
+                        {
+                            yield return e.Current;
+                        } while (e.MoveNext());
                         yield break;
                     }
                 }

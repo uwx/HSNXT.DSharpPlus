@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -37,13 +39,14 @@ namespace TestProj47
         /// is yielded, so any changes made by the action will be visible in the
         /// returned sequence. This operator uses deferred execution and streams it results.
         /// </remarks>
-
         public static IEnumerable<T> Pipe<T>(this IEnumerable<T> source, Action<T> action)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (action == null) throw new ArgumentNullException(nameof(action));
 
-            return _(); IEnumerable<T> _()
+            return _();
+
+            IEnumerable<T> _()
             {
                 foreach (var element in source)
                 {

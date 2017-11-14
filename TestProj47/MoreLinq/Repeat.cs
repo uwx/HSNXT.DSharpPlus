@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -29,11 +31,12 @@ namespace TestProj47
         /// <param name="sequence">The sequence to repeat</param>
         /// <param name="count">Number of times to repeat the sequence</param>
         /// <returns>A sequence produced from the repetition of the original source sequence</returns>
-
         public static IEnumerable<T> Repeat<T>(this IEnumerable<T> sequence, int count)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
-            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count), "Repeat count must be greater than or equal to zero.");
+            if (count < 0)
+                throw new ArgumentOutOfRangeException(nameof(count),
+                    "Repeat count must be greater than or equal to zero.");
             return RepeatImpl(sequence, count);
         }
 
@@ -43,7 +46,6 @@ namespace TestProj47
         /// <typeparam name="T">Type of elements in sequence</typeparam>
         /// <param name="sequence">The sequence to repeat</param>
         /// <returns>A sequence produced from the infinite repetition of the original source sequence</returns>
-
         public static IEnumerable<T> Repeat<T>(this IEnumerable<T> sequence)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));

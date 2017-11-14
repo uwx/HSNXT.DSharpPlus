@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Johannes Rudolph. All rights reserved.
 // 
@@ -13,17 +14,18 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection;
-
     public static partial class Extensions
     {
         private static MemberInfo GetAccessedMember(LambdaExpression lambda)
@@ -31,13 +33,14 @@ namespace TestProj47
             var body = lambda.Body;
 
             // If it's a field access, boxing was used, we need the field
-            if ((body.NodeType == ExpressionType.Convert) || (body.NodeType == ExpressionType.ConvertChecked))
+            if (body.NodeType == ExpressionType.Convert || body.NodeType == ExpressionType.ConvertChecked)
             {
-                body = ((UnaryExpression)body).Operand;
+                body = ((UnaryExpression) body).Operand;
             }
 
             // Check if the MemberExpression is valid and is a "first level" member access e.g. not a.b.c 
-            if ((!(body is MemberExpression memberExpression)) || (memberExpression.Expression.NodeType != ExpressionType.Parameter))
+            if (!(body is MemberExpression memberExpression) ||
+                memberExpression.Expression.NodeType != ExpressionType.Parameter)
             {
                 throw new ArgumentException($"Illegal expression: {lambda}", nameof(lambda));
             }
@@ -45,7 +48,8 @@ namespace TestProj47
             return memberExpression.Member;
         }
 
-        private static IEnumerable<MemberInfo> PrepareMemberInfos<T>(ICollection<Expression<Func<T, object>>> expressions)
+        private static IEnumerable<MemberInfo> PrepareMemberInfos<T>(
+            ICollection<Expression<Func<T, object>>> expressions)
         {
             //
             // If no lambda expressions supplied then reflect them off the source element type.
@@ -54,9 +58,9 @@ namespace TestProj47
             if (expressions == null || expressions.Count == 0)
             {
                 return from m in typeof(T).GetMembers(BindingFlags.Public | BindingFlags.Instance)
-                       where m.MemberType == MemberTypes.Field
-                             || (m.MemberType == MemberTypes.Property && ((PropertyInfo) m).GetIndexParameters().Length == 0)
-                       select m;
+                    where m.MemberType == MemberTypes.Field
+                          || m.MemberType == MemberTypes.Property && ((PropertyInfo) m).GetIndexParameters().Length == 0
+                    select m;
             }
 
             //
@@ -90,18 +94,18 @@ namespace TestProj47
             var columns = table.Columns;
 
             var schemas = from m in members
-                          let type = m.MemberType == MemberTypes.Property 
-                                   ? ((PropertyInfo) m).PropertyType 
-                                   : ((FieldInfo) m).FieldType
-                          select new
-                          {
-                              Member = m,
-                              Type = type.IsGenericType
-                                     && typeof(Nullable<>) == type.GetGenericTypeDefinition()
-                                   ? type.GetGenericArguments()[0]
-                                   : type,
-                              Column = columns[m.Name],
-                          };
+                let type = m.MemberType == MemberTypes.Property
+                    ? ((PropertyInfo) m).PropertyType
+                    : ((FieldInfo) m).FieldType
+                select new
+                {
+                    Member = m,
+                    Type = type.IsGenericType
+                           && typeof(Nullable<>) == type.GetGenericTypeDefinition()
+                        ? type.GetGenericArguments()[0]
+                        : type,
+                    Column = columns[m.Name],
+                };
 
             //
             // If the table has no columns then build the schema.
@@ -126,7 +130,9 @@ namespace TestProj47
                         throw new ArgumentException($"Column named '{member.Name}' is missing.", nameof(table));
 
                     if (info.Type != column.DataType)
-                        throw new ArgumentException($"Column named '{member.Name}' has wrong data type. It should be {info.Type} when it is {column.DataType}.", nameof(table));
+                        throw new ArgumentException(
+                            $"Column named '{member.Name}' has wrong data type. It should be {info.Type} when it is {column.DataType}.",
+                            nameof(table));
 
                     members[column.Ordinal] = member;
                 }
@@ -152,13 +158,13 @@ namespace TestProj47
             //
 
             var initializers = members.Select(m => m != null
-                                                   ? (Expression)CreateMemberAccessor(parameter, m)
-                                                   : Expression.Constant(null, typeof(object)));
+                ? (Expression) CreateMemberAccessor(parameter, m)
+                : Expression.Constant(null, typeof(object)));
 
             var array = Expression.NewArrayInit(typeof(object), initializers);
 
             var lambda = Expression.Lambda<Func<T, object[]>>(array, parameter);
-            
+
             return lambda.Compile();
         }
 
@@ -176,8 +182,8 @@ namespace TestProj47
         /// A <see cref="DataTable"/> or subclass representing the source.
         /// </returns>
         /// <remarks>This operator uses immediate execution.</remarks>
-        
-        public static TTable ToDataTable<T, TTable>(this IEnumerable<T> source, TTable table, params Expression<Func<T, object>>[] expressions)
+        public static TTable ToDataTable<T, TTable>(this IEnumerable<T> source, TTable table,
+            params Expression<Func<T, object>>[] expressions)
             where TTable : DataTable
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -222,7 +228,6 @@ namespace TestProj47
         /// A <see cref="DataTable"/> or subclass representing the source.
         /// </returns>
         /// <remarks>This operator uses immediate execution.</remarks>
-        
         public static TTable ToDataTable<T, TTable>(this IEnumerable<T> source, TTable table)
             where TTable : DataTable
         {
@@ -241,8 +246,8 @@ namespace TestProj47
         /// A <see cref="DataTable"/> representing the source.
         /// </returns>
         /// <remarks>This operator uses immediate execution.</remarks>
-       
-        public static DataTable ToDataTable<T>(this IEnumerable<T> source, params Expression<Func<T, object>>[] expressions)
+        public static DataTable ToDataTable<T>(this IEnumerable<T> source,
+            params Expression<Func<T, object>>[] expressions)
         {
             return ToDataTable(source, new DataTable(), expressions);
         }

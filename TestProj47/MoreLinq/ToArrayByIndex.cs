@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2016 Atif Aziz. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -43,7 +45,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static T[] ToArrayByIndex<T>(this IEnumerable<T> source,
             Func<T, int> indexSelector)
         {
@@ -77,7 +78,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static TResult[] ToArrayByIndex<T, TResult>(this IEnumerable<T> source,
             Func<T, int> indexSelector, Func<T, TResult> resultSelector)
         {
@@ -112,7 +112,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static TResult[] ToArrayByIndex<T, TResult>(this IEnumerable<T> source,
             Func<T, int> indexSelector, Func<T, int, TResult> resultSelector)
         {
@@ -135,8 +134,8 @@ namespace TestProj47
 
             var length = lastIndex + 1;
             return length == 0
-                 ? new TResult[0]
-                 : Indexed().ToArrayByIndex(length, e => e.Key, e => resultSelector(e.Value, e.Key));
+                ? new TResult[0]
+                : Indexed().ToArrayByIndex(length, e => e.Key, e => resultSelector(e.Value, e.Key));
         }
 
         /// <summary>
@@ -160,7 +159,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static T[] ToArrayByIndex<T>(this IEnumerable<T> source, int length,
             Func<T, int> indexSelector)
         {
@@ -194,7 +192,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static TResult[] ToArrayByIndex<T, TResult>(this IEnumerable<T> source, int length,
             Func<T, int> indexSelector, Func<T, TResult> resultSelector)
         {
@@ -229,7 +226,6 @@ namespace TestProj47
         /// same index then the latter element overwrites the former in the
         /// resulting array.
         /// </remarks>
-
         public static TResult[] ToArrayByIndex<T, TResult>(this IEnumerable<T> source, int length,
             Func<T, int> indexSelector, Func<T, int, TResult> resultSelector)
         {

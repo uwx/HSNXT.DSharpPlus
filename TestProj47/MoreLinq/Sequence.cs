@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,12 +14,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -37,7 +39,6 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ 6, 5, 4, 3, 2, 1, 0 }</c>.
         /// </example>
-
         public static IEnumerable<int> Sequence(int start, int stop)
         {
             return Sequence(start, stop, start < stop ? 1 : -1);
@@ -62,16 +63,16 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ 6, 4, 2, 0 }</c>.
         /// </example>
-
         public static IEnumerable<int> Sequence(int start, int stop, int step)
         {
             var initial = start;
             long current = start;
 
-            while (step >= 0 ? stop >= current && initial <= current
-                             : stop <= current && initial >= current)
+            while (step >= 0
+                ? stop >= current && initial <= current
+                : stop <= current && initial >= current)
             {
-                yield return (int)current;
+                yield return (int) current;
                 current = current + step;
             }
         }

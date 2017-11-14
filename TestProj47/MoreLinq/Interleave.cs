@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,15 +14,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -43,7 +45,6 @@ namespace TestProj47
         /// <param name="sequence">The first sequence in the interleave group</param>
         /// <param name="otherSequences">The other sequences in the interleave group</param>
         /// <returns>A sequence of interleaved elements from all of the source sequences</returns>
-        
         public static IEnumerable<T> Interleave<T>(this IEnumerable<T> sequence, params IEnumerable<T>[] otherSequences)
         {
             return Interleave(sequence, ImbalancedInterleaveStrategy.Skip, otherSequences);
@@ -70,16 +71,20 @@ namespace TestProj47
         /// <param name="imbalanceStrategy">Defines the behavior of the operator when sequences are of unequal length</param>
         /// <param name="otherSequences">The other sequences in the interleave group</param>
         /// <returns>A sequence of interleaved elements from all of the source sequences</returns>
-        private static IEnumerable<T> Interleave<T>(this IEnumerable<T> sequence, ImbalancedInterleaveStrategy imbalanceStrategy, params IEnumerable<T>[] otherSequences)
+        private static IEnumerable<T> Interleave<T>(this IEnumerable<T> sequence,
+            ImbalancedInterleaveStrategy imbalanceStrategy, params IEnumerable<T>[] otherSequences)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             if (otherSequences == null) throw new ArgumentNullException(nameof(otherSequences));
             if (otherSequences.Any(s => s == null))
-                throw new ArgumentNullException(nameof(otherSequences), "One or more sequences passed to Interleave was null.");
+                throw new ArgumentNullException(nameof(otherSequences),
+                    "One or more sequences passed to Interleave was null.");
 
-            return _(); IEnumerable<T> _()
+            return _();
+
+            IEnumerable<T> _()
             {
-                var sequences = new[] { sequence }.Concat(otherSequences);
+                var sequences = new[] {sequence}.Concat(otherSequences);
 
                 // produce an iterator collection for all IEnumerable<T> instancess passed to us
                 var iterators = sequences.Select(e => e.GetEnumerator()).Acquire();
@@ -102,7 +107,8 @@ namespace TestProj47
                             {
                                 // check if all iterators have been consumed and we can terminate
                                 // or if the imbalance strategy informs us that we MUST terminate
-                                if (++consumedIterators == iterCount || imbalanceStrategy == ImbalancedInterleaveStrategy.Stop)
+                                if (++consumedIterators == iterCount ||
+                                    imbalanceStrategy == ImbalancedInterleaveStrategy.Stop)
                                 {
                                     shouldContinue = false;
                                     break;
@@ -114,7 +120,8 @@ namespace TestProj47
                                 switch (imbalanceStrategy)
                                 {
                                     case ImbalancedInterleaveStrategy.Pad:
-                                        var newIter = iteratorList[index] = Generate(default(T), x => default(T)).GetEnumerator();
+                                        var newIter = iteratorList[index] =
+                                            Generate(default(T), x => default(T)).GetEnumerator();
                                         newIter.MoveNext();
                                         break;
 
@@ -125,7 +132,6 @@ namespace TestProj47
                                         --consumedIterators; // decrement consumer iterator count to stay in balance
                                         break;
                                 }
-
                             }
                         }
 
@@ -142,7 +148,7 @@ namespace TestProj47
                 finally
                 {
                     Debug.Assert(iteratorList != null || iterators != null);
-                    foreach (var iter in (iteratorList ?? (IList<IEnumerator<T>>) iterators))
+                    foreach (var iter in iteratorList ?? (IList<IEnumerator<T>>) iterators)
                         iter.Dispose();
                 }
             }
@@ -157,10 +163,12 @@ namespace TestProj47
             /// Extends a sequence by padding its tail with default(T)
             /// </summary>
             Pad,
+
             /// <summary>
             /// Removes the sequence from the interleave set, and continues interleaving remaining sequences.
             /// </summary>
             Skip,
+
             /// <summary>
             /// Stops the interleave operation.
             /// </summary>

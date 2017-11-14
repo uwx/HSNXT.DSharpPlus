@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Felipe Sateler. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -35,7 +37,6 @@ namespace TestProj47
         /// <param name="functions">The functions to evaluate.</param>
         /// <returns>A sequence with results from invoking <paramref name="functions"/>.</returns>
         /// <exception cref="ArgumentNullException">When <paramref name="functions"/> is <c>null</c>.</exception>
-
         public static IEnumerable<T> Evaluate<T>(this IEnumerable<Func<T>> functions)
         {
             if (functions == null) throw new ArgumentNullException(nameof(functions));

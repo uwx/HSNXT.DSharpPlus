@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -35,7 +37,6 @@ namespace TestProj47
         /// This a pass-through operator that uses deferred execution and 
         /// streams the results.
         /// </remarks>
-
         public static IEnumerable<TSource> Trace<TSource>(this IEnumerable<TSource> source)
         {
             return Trace(source, (string) null);
@@ -58,15 +59,14 @@ namespace TestProj47
         /// This a pass-through operator that uses deferred execution and 
         /// streams the results.
         /// </remarks>
-
         public static IEnumerable<TSource> Trace<TSource>(this IEnumerable<TSource> source, string format)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
-            return TraceImpl(source, 
+            return TraceImpl(source,
                 string.IsNullOrEmpty(format)
-                ? (Func<TSource, string>) (x => x == null ? string.Empty : x.ToString())
-                : (x => string.Format(format, x)));
+                    ? (Func<TSource, string>) (x => x == null ? string.Empty : x.ToString())
+                    : (x => string.Format(format, x)));
         }
 
         /// <summary>
@@ -83,22 +83,23 @@ namespace TestProj47
         /// This a pass-through operator that uses deferred execution and 
         /// streams the results.
         /// </remarks>
-
-        public static IEnumerable<TSource> Trace<TSource>(this IEnumerable<TSource> source, Func<TSource, string> formatter)
+        public static IEnumerable<TSource> Trace<TSource>(this IEnumerable<TSource> source,
+            Func<TSource, string> formatter)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (formatter == null) throw new ArgumentNullException(nameof(formatter));
             return TraceImpl(source, formatter);
         }
 
-        private static IEnumerable<TSource> TraceImpl<TSource>(IEnumerable<TSource> source, Func<TSource, string> formatter)
+        private static IEnumerable<TSource> TraceImpl<TSource>(IEnumerable<TSource> source,
+            Func<TSource, string> formatter)
         {
             Debug.Assert(source != null);
             Debug.Assert(formatter != null);
 
             return source
 #if !NO_TRACING
-                .Pipe(x => System.Diagnostics.Trace.WriteLine(formatter(x)))
+                    .Pipe(x => System.Diagnostics.Trace.WriteLine(formatter(x)))
 #endif
                 ;
         }

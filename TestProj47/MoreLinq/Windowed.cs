@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -33,13 +35,14 @@ namespace TestProj47
         /// <param name="source">The sequence to evaluate a sliding window over</param>
         /// <param name="size">The size (number of elements) in each window</param>
         /// <returns>A series of sequences representing each sliding window subsequence</returns>
-        
         public static IEnumerable<IEnumerable<TSource>> Windowed<TSource>(this IEnumerable<TSource> source, int size)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (size <= 0) throw new ArgumentOutOfRangeException(nameof(size));
 
-            return _(); IEnumerable<IEnumerable<TSource>> _()
+            return _();
+
+            IEnumerable<IEnumerable<TSource>> _()
             {
                 using (var iter = source.GetEnumerator())
                 {

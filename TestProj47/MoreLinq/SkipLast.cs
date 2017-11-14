@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 //
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -32,7 +34,6 @@ namespace TestProj47
         /// <returns>
         /// An <see cref="IEnumerable{T}"/> containing the source sequence elements except for the bypassed ones at the end.
         /// </returns>
-
         public static IEnumerable<T> SkipLast<T>(this IEnumerable<T> source, int count)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -42,23 +43,25 @@ namespace TestProj47
 
             return
                 source is ICollection<T> col
-                ? col.Take(col.Count - count)
-                : _(); IEnumerable<T> _()
+                    ? col.Take(col.Count - count)
+                    : _();
+
+            IEnumerable<T> _()
+            {
+                var queue = new Queue<T>(count);
+
+                foreach (var item in source)
                 {
-                    var queue = new Queue<T>(count);
-
-                    foreach (var item in source)
+                    if (queue.Count < count)
                     {
-                        if (queue.Count < count)
-                        {
-                            queue.Enqueue(item);
-                            continue;
-                        }
-
-                        yield return queue.Dequeue();
                         queue.Enqueue(item);
+                        continue;
                     }
+
+                    yield return queue.Dequeue();
+                    queue.Enqueue(item);
                 }
+            }
         }
     }
 }

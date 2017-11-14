@@ -25,6 +25,30 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
+      <e p="DRPCTest" t="IncludeRecursive">
+        <e p="app.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DRPCTest.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="unirest-net-master" t="Include">
+          <e p=".gitignore" t="Include" />
+          <e p="Fallk.Unirest.Net.csproj" t="Include" />
+          <e p="LICENSE" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="Unirest" t="Include">
+            <e p="HttpClientHelper.cs" t="Include" />
+            <e p="HttpRequest.cs" t="Include" />
+            <e p="HttpRequestUrl.cs" t="Include" />
+            <e p="HttpResponse.cs" t="Include" />
+            <e p="Unirest.cs" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="OEISReader" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
@@ -36,6 +60,17 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="TestProj47" t="IncludeRecursive">
+        <e p="BigMath.PCL" t="Include">
+          <e p="BigInteger.cs" t="Include" />
+          <e p="Int128.cs" t="Include" />
+          <e p="Int256.cs" t="Include" />
+          <e p="Utils" t="Include">
+            <e p="ArrayUtils.cs" t="Include" />
+            <e p="Crc32.cs" t="Include" />
+            <e p="ExtendedBitConverter.cs" t="Include" />
+            <e p="MathUtils.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="C5" t="Include">
           <e p="arrays" t="Include">
@@ -215,7 +250,63 @@
           </e>
         </e>
         <e p="ExtensionsHelper.cs" t="Include" />
+        <e p="FunctionalInvariant.cs" t="Include" />
         <e p="FunctionalWith.cs" t="Include" />
+        <e p="IntXLib" t="Include">
+          <e p="Bits.cs" t="Include" />
+          <e p="DigitConverter.cs" t="Include" />
+          <e p="Dividers" t="Include">
+            <e p="AutoNewtonDivider.cs" t="Include" />
+            <e p="ClassicDivider.cs" t="Include" />
+            <e p="DivideManager.cs" t="Include" />
+            <e p="DividerBase.cs" t="Include" />
+            <e p="IDivider.cs" t="Include" />
+          </e>
+          <e p="IntX.cs" t="Include" />
+          <e p="Multipliers" t="Include">
+            <e p="AutoFhtMultiplier.cs" t="Include" />
+            <e p="ClassicMultiplier.cs" t="Include" />
+            <e p="IMultiplier.cs" t="Include" />
+            <e p="MultiplierBase.cs" t="Include" />
+            <e p="MultiplyManager.cs" t="Include" />
+          </e>
+          <e p="OpHelpers" t="Include">
+            <e p="DigitHelper.cs" t="Include" />
+            <e p="DigitOpHelper.cs" t="Include" />
+            <e p="FhtHelper.cs" t="Include" />
+            <e p="NewtonHelper.cs" t="Include" />
+            <e p="OpHelper.cs" t="Include" />
+            <e p="StrRepHelper.cs" t="Include" />
+          </e>
+          <e p="Parsers" t="Include">
+            <e p="ClassicParser.cs" t="Include" />
+            <e p="FastParser.cs" t="Include" />
+            <e p="IParser.cs" t="Include" />
+            <e p="ParseManager.cs" t="Include" />
+            <e p="ParserBase.cs" t="Include" />
+            <e p="Pow2Parser.cs" t="Include" />
+          </e>
+          <e p="Settings" t="Include">
+            <e p="IntXGlobalSettings.cs" t="Include" />
+            <e p="IntXSettings.cs" t="Include" />
+          </e>
+          <e p="StringConverters" t="Include">
+            <e p="ClassicStringConverter.cs" t="Include" />
+            <e p="FastStringConverter.cs" t="Include" />
+            <e p="IStringConverter.cs" t="Include" />
+            <e p="Pow2StringConverter.cs" t="Include" />
+            <e p="StringConverterBase.cs" t="Include" />
+            <e p="StringConvertManager.cs" t="Include" />
+          </e>
+          <e p="Utils" t="Include">
+            <e p="ArrayPool.cs" t="Include" />
+            <e p="Constants.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="FhtMultiplicationException.cs" t="Include" />
+            <e p="Strings.Designer.cs" t="Include" />
+            <e p="Strings.resx" t="Include" />
+          </e>
+        </e>
         <e p="MoreLinq" t="Include">
           <e p="Acquire.cs" t="Include" />
           <e p="AggregateRight.cs" t="Include" />
@@ -396,8 +487,6 @@
           <e p="Z.Caching.cs" t="Include" />
           <e p="Z.Collections.cs" t="Include" />
           <e p="Z.Compression.cs" t="Include" />
-          <e p="Z.Data.MySql.cs" t="Include" />
-          <e p="Z.Data.SQLite.cs" t="Include" />
           <e p="Z.Data.SqlServerCe.cs" t="Include" />
           <e p="Z.Drawing.cs" t="Include" />
           <e p="Z.Net.cs" t="Include" />

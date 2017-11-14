@@ -20,13 +20,15 @@ namespace TestProj47
             return MakeRequest(fullUrl, null);
         }
 
-        public string Post(string url, IDictionary<string, string> formParameters, IDictionary<string, string> queryStringParameters)
+        public string Post(string url, IDictionary<string, string> formParameters,
+            IDictionary<string, string> queryStringParameters)
         {
             if (url == null)
                 throw new ArgumentNullException(nameof(url));
 
             var fullUrl = BuildUrl(url, queryStringParameters);
-            return MakeRequest(fullUrl, request => {
+            return MakeRequest(fullUrl, request =>
+            {
                 var formQuery = BuildQueryString(formParameters);
                 var formQueryBytes = Encoding.UTF8.GetBytes(formQuery);
 
@@ -81,12 +83,12 @@ namespace TestProj47
             foreach (var cookie in _cookies)
                 cookieContainer.Add(cookie);
 
-            var request = (HttpWebRequest)WebRequest.Create(url);
+            var request = (HttpWebRequest) WebRequest.Create(url);
             SetupRequest(request);
             request.CookieContainer = cookieContainer;
             requestInitializer?.Invoke(request);
 
-            using (var response = (HttpWebResponse)request.GetResponse())
+            using (var response = (HttpWebResponse) request.GetResponse())
             {
                 var responseCookies = response.Cookies;
                 foreach (Cookie cookie in responseCookies)
@@ -111,13 +113,15 @@ namespace TestProj47
     {
         public static IDictionary<string, string> Create(string key, string value)
         {
-            var dictionary = new Dictionary<string, string> {
-                { key, value }
+            var dictionary = new Dictionary<string, string>
+            {
+                {key, value}
             };
             return dictionary;
         }
 
-        public static IDictionary<string, string> Append(this IDictionary<string, string> dictionary, string key, string value)
+        public static IDictionary<string, string> Append(this IDictionary<string, string> dictionary, string key,
+            string value)
         {
             if (dictionary == null)
                 throw new ArgumentNullException(nameof(dictionary));

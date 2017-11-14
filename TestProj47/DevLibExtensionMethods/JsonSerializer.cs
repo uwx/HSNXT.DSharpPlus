@@ -213,7 +213,7 @@ namespace TestProj47
         /// <returns>true if succeeded; otherwise, false.</returns>
         private static bool IsNumeric(object value)
         {
-            return value is sbyte || value is byte || (value is short || value is ushort) ||
+            return value is sbyte || value is byte || value is short || value is ushort ||
                    (value is int || value is uint || (value is long || value is ulong)) ||
                    (value is float || value is float || (value is double || value is Decimal));
         }
@@ -270,19 +270,19 @@ namespace TestProj47
                 default:
                     --index;
                     var num = json.Length - index;
-                    if (num >= 5 && json[index] == 102 && (json[index + 1] == 97 && json[index + 2] == 108) &&
+                    if (num >= 5 && json[index] == 102 && json[index + 1] == 97 && json[index + 2] == 108 &&
                         (json[index + 3] == 115 && json[index + 4] == 101))
                     {
                         index += 5;
                         return 10;
                     }
-                    if (num >= 4 && json[index] == 116 && (json[index + 1] == 114 && json[index + 2] == 117) &&
+                    if (num >= 4 && json[index] == 116 && json[index + 1] == 114 && json[index + 2] == 117 &&
                         json[index + 3] == 101)
                     {
                         index += 4;
                         return 9;
                     }
-                    if (num < 4 || json[index] != 110 || (json[index + 1] != 117 || json[index + 2] != 108) ||
+                    if (num < 4 || json[index] != 110 || json[index + 1] != 117 || json[index + 2] != 108 ||
                         json[index + 3] != 108)
                         return 0;
                     index += 4;
@@ -464,8 +464,8 @@ namespace TestProj47
                                             index += 4;
                                             uint result2;
                                             if (json.Length - index >= 6 && new string(json, index, 2) == "\\u" &&
-                                                (uint.TryParse(new string(json, index + 2, 4), NumberStyles.HexNumber,
-                                                     CultureInfo.InvariantCulture, out result2) && result2 >= 56320U) &&
+                                                uint.TryParse(new string(json, index + 2, 4), NumberStyles.HexNumber,
+                                                    CultureInfo.InvariantCulture, out result2) && result2 >= 56320U &&
                                                 result2 <= 57343U)
                                             {
                                                 stringBuilder.Append((char) result1);

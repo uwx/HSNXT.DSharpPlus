@@ -22,7 +22,8 @@ namespace TestProj47
 {
     public static partial class Extensions
     {
-        private static readonly Regex IsEmailRegex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", RegexOptions.Compiled);
+        private static readonly Regex IsEmailRegex =
+            new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", RegexOptions.Compiled);
 
         public static char LastChar(this string input) =>
             string.IsNullOrEmpty(input) ? (char) 0 : input[input.Length - 1];

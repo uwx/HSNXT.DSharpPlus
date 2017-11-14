@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Chris Ammerman. All rights reserved.
 //
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -40,12 +42,13 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable, when iterated over, will yield 2, 4, 16, 256, and 65536, in turn.
         /// </example>
-
         public static IEnumerable<TResult> Generate<TResult>(TResult initial, Func<TResult, TResult> generator)
         {
             if (generator == null) throw new ArgumentNullException(nameof(generator));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 var current = initial;
                 while (true)

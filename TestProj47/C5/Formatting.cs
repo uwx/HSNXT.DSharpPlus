@@ -68,7 +68,7 @@ namespace TestProj47.C5
                 return showable.Show(stringbuilder, ref rest, formatProvider);
             var oldLength = stringbuilder.Length;
             stringbuilder.AppendFormat(formatProvider, "{0}", obj);
-            rest -= (stringbuilder.Length - oldLength);
+            rest -= stringbuilder.Length - oldLength;
             return true;
         }
 

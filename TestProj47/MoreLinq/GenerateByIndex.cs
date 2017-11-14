@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2009 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -33,14 +35,15 @@ namespace TestProj47
         /// <typeparam name="TResult">Type of result to generate</typeparam>
         /// <param name="generator">Generation function to apply to each index</param>
         /// <returns>A sequence </returns>
-
         public static IEnumerable<TResult> GenerateByIndex<TResult>(Func<int, TResult> generator)
         {
             // Would just use Enumerable.Range(0, int.MaxValue).Select(generator) but that doesn't
             // include int.MaxValue. Picky, I know...
             if (generator == null) throw new ArgumentNullException(nameof(generator));
 
-            return _(); IEnumerable<TResult> _()
+            return _();
+
+            IEnumerable<TResult> _()
             {
                 // Looping over 0...int.MaxValue inclusive is a pain. Simplest is to go exclusive,
                 // then go again for int.MaxValue.

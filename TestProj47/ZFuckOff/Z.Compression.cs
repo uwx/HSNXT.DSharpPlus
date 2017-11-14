@@ -209,7 +209,7 @@ namespace TestProj47
                 {
                     zipStream.Write(stringAsBytes, 0, stringAsBytes.Length);
                     zipStream.Close();
-                    return (memoryStream.ToArray());
+                    return memoryStream.ToArray();
                 }
             }
         }
@@ -229,7 +229,7 @@ namespace TestProj47
                 {
                     zipStream.Write(stringAsBytes, 0, stringAsBytes.Length);
                     zipStream.Close();
-                    return (memoryStream.ToArray());
+                    return memoryStream.ToArray();
                 }
             }
         }

@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -41,7 +43,6 @@ namespace TestProj47
         /// <param name="keySelector">The mapping from source element to key.</param>
         /// <returns>A sequence of elements from <paramref name="first"/> whose key was not also a key for
         /// any element in <paramref name="second"/>.</returns>
-        
         public static IEnumerable<TSource> ExceptBy<TSource, TKey>(this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
             Func<TSource, TKey> keySelector)
@@ -69,7 +70,6 @@ namespace TestProj47
         /// If null, the default equality comparer for <c>TSource</c> is used.</param>
         /// <returns>A sequence of elements from <paramref name="first"/> whose key was not also a key for
         /// any element in <paramref name="second"/>.</returns>
-        
         public static IEnumerable<TSource> ExceptBy<TSource, TKey>(this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
             Func<TSource, TKey> keySelector,
@@ -79,7 +79,9 @@ namespace TestProj47
             if (second == null) throw new ArgumentNullException(nameof(second));
             if (keySelector == null) throw new ArgumentNullException(nameof(keySelector));
 
-            return _(); IEnumerable<TSource>_()
+            return _();
+
+            IEnumerable<TSource> _()
             {
                 // TODO Use ToHashSet
                 var keys = new HashSet<TKey>(second.Select(keySelector), keyComparer);

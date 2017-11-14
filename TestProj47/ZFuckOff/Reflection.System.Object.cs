@@ -834,7 +834,7 @@ namespace TestProj47
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
             var value = method.Invoke(obj, parameters);
-            return (value is T ? (T) value : default);
+            return value is T ? (T) value : default;
         }
 
         /// <summary>
@@ -966,7 +966,7 @@ namespace TestProj47
                     return true;
                 }
 
-                if ((objectType == objectType.BaseType) || (objectType.BaseType == null))
+                if (objectType == objectType.BaseType || objectType.BaseType == null)
                 {
                     return false;
                 }

@@ -1,4 +1,5 @@
 ﻿#region --- License & Copyright Notice ---
+
 /*
 CodeBits Code Snippets
 Copyright (c) 2012-2017 Jeevan James
@@ -16,6 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 #endregion
 
 /* Documentation: https://github.com/JeevanJames/CodeBits/wiki/ByteArrayHelper */
@@ -104,7 +106,7 @@ namespace TestProj47
             var useDelimiter = delimiter.Length > 0;
 
             var result = new StringBuilder(source[0].ToString(CultureInfo.InvariantCulture),
-                (source.Length * 3) + ((source.Length - 1) * delimiter.Length));
+                source.Length * 3 + (source.Length - 1) * delimiter.Length);
             for (var i = 1; i < source.Length; i++)
             {
                 if (useDelimiter)
@@ -140,7 +142,8 @@ namespace TestProj47
                     sequenceIndex++;
                     if (sequenceIndex >= sequence.Length)
                         return byteIdx - sequence.Length + 1;
-                } else
+                }
+                else
                     sequenceIndex = 0;
             }
             return -1;
@@ -179,7 +182,7 @@ namespace TestProj47
 
             var locations = IndexOfSequences(source, start, count, sequence);
             if (locations.Length == 0)
-                return new[] { source };
+                return new[] {source};
 
             var results = new List<byte[]>(locations.Length + 1);
             for (var locationIdx = 0; locationIdx < locations.Length; locationIdx++)

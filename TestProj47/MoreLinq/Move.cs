@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2017 Leandro F. Vieira (leandromoh). All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -46,20 +48,22 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>{ 3, 4, 0, 1, 2, 5 }</c>.
         /// </example>
-
         public static IEnumerable<T> Move<T>(this IEnumerable<T> source, int fromIndex, int count, int toIndex)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
-            if (fromIndex < 0) throw new ArgumentOutOfRangeException(nameof(fromIndex), "The source index cannot be negative.");
+            if (fromIndex < 0)
+                throw new ArgumentOutOfRangeException(nameof(fromIndex), "The source index cannot be negative.");
             if (count < 0) throw new ArgumentOutOfRangeException(nameof(count), "Count cannot be negative.");
-            if (toIndex < 0) throw new ArgumentOutOfRangeException(nameof(toIndex), "Target index of range to move cannot be negative.");
+            if (toIndex < 0)
+                throw new ArgumentOutOfRangeException(nameof(toIndex),
+                    "Target index of range to move cannot be negative.");
 
             if (toIndex == fromIndex || count == 0)
                 return source;
 
             return toIndex < fromIndex
-                 ? _(toIndex, fromIndex - toIndex, count)
-                 : _(fromIndex, count, toIndex - fromIndex);
+                ? _(toIndex, fromIndex - toIndex, count)
+                : _(fromIndex, count, toIndex - fromIndex);
 
             IEnumerable<T> _(int bufferStartIndex, int bufferSize, int bufferYieldIndex)
             {

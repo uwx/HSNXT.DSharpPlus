@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -38,7 +40,6 @@ namespace TestProj47
         /// <param name="startIndex">The zero-based index at which to begin slicing</param>
         /// <param name="count">The number of items to slice out of the index</param>
         /// <returns>A new sequence containing any elements sliced out from the source sequence</returns>
-
         public static IEnumerable<T> Slice<T>(this IEnumerable<T> sequence, int startIndex, int count)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
@@ -47,14 +48,16 @@ namespace TestProj47
 
             // optimization for anything implementing IList<T>
             return !(sequence is IList<T> list)
-                 ? sequence.Skip(startIndex).Take(count)
-                 : _(count); IEnumerable<T> _(int countdown)
-                 {
-                     var listCount = list.Count;
-                     var index = startIndex;
-                     while (index < listCount && countdown-- > 0)
-                         yield return list[index++];
-                 }
+                ? sequence.Skip(startIndex).Take(count)
+                : _(count);
+
+            IEnumerable<T> _(int countdown)
+            {
+                var listCount = list.Count;
+                var index = startIndex;
+                while (index < listCount && countdown-- > 0)
+                    yield return list[index++];
+            }
         }
     }
 }

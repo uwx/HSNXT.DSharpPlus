@@ -18,7 +18,8 @@ namespace TestProj47
             list.AddRange(items.Where(predicate));
         }
 
-        public static void AddRange<TList, TItem>(this IList<TList> list, IEnumerable<TItem> items, Converter<TItem, TList> converter)
+        public static void AddRange<TList, TItem>(this IList<TList> list, IEnumerable<TItem> items,
+            Converter<TItem, TList> converter)
         {
             if (list == null)
                 throw new ArgumentNullException(nameof(list));
@@ -30,7 +31,8 @@ namespace TestProj47
             list.AddRange(items.Select(item => converter(item)));
         }
 
-        public static void AddRange<TList, TItem>(this IList<TList> list, IEnumerable<TItem> items, Func<TItem, bool> predicate,
+        public static void AddRange<TList, TItem>(this IList<TList> list, IEnumerable<TItem> items,
+            Func<TItem, bool> predicate,
             Converter<TItem, TList> converter)
         {
             if (list == null)
@@ -126,7 +128,8 @@ namespace TestProj47
             return count;
         }
 
-        public static TOutput[] ToArray<TInput, TOutput>(this IEnumerable<TInput> source, Converter<TInput, TOutput> converter)
+        public static TOutput[] ToArray<TInput, TOutput>(this IEnumerable<TInput> source,
+            Converter<TInput, TOutput> converter)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

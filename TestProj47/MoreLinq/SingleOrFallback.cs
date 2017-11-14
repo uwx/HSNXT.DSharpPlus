@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2008 Jonathan Skeet. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -45,7 +47,6 @@ namespace TestProj47
         /// </code>
         /// The <c>result</c> variable will contain <c>-1</c>.
         /// </example>
-
         [Obsolete("Consider using FallbackIfEmpty instead. SingleOrFallback may be removed in a future version. " +
                   "For more information, see https://github.com/morelinq/MoreLINQ/issues/122.")]
         public static TSource SingleOrFallback<TSource>(this IEnumerable<TSource> source, Func<TSource> fallback)

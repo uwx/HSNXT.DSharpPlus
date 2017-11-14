@@ -65,9 +65,8 @@ namespace TestProj47
         /// <returns>true if can perform the conversion; otherwise, false.</returns>
         public static bool CanConvert(this Type source)
         {
-            return Type.GetTypeCode(source) != TypeCode.Object || source.IsEnum ||
-                   (source == typeof(Guid) || source == typeof(TimeSpan)) ||
-                   (source == typeof(DateTimeOffset) || source.IsNullableCanConvert());
+            return Type.GetTypeCode(source) != TypeCode.Object || source.IsEnum || source == typeof(Guid) ||
+                   source == typeof(TimeSpan) || (source == typeof(DateTimeOffset) || source.IsNullableCanConvert());
         }
 
         /// <summary>

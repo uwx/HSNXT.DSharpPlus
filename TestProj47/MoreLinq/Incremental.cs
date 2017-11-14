@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,13 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-
     public static partial class Extensions
     {
         /// <summary>
@@ -36,10 +38,10 @@ namespace TestProj47
         /// <param name="sequence">The sequence of elements to incrementally process</param>
         /// <param name="resultSelector">A projection applied to each pair of adjacent elements in the sequence</param>
         /// <returns>A sequence of elements resulting from projection every adjacent pair</returns>
-
         [Obsolete("Use Pairwise instead, which is identical to Incremental. " +
                   "Incremental will be removed in a future version.")]
-        public static IEnumerable<TResult> Incremental<TSource, TResult>(this IEnumerable<TSource> sequence, Func<TSource, TSource, TResult> resultSelector)
+        public static IEnumerable<TResult> Incremental<TSource, TResult>(this IEnumerable<TSource> sequence,
+            Func<TSource, TSource, TResult> resultSelector)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
@@ -61,10 +63,10 @@ namespace TestProj47
         /// <param name="sequence">The sequence of elements to incrementally process</param>
         /// <param name="resultSelector">A projection applied to each pair of adjacent elements in the sequence</param>
         /// <returns>A sequence of elements resulting from projection every adjacent pair</returns>
-
         [Obsolete("Use Index with Pairwise instead." +
                   "Incremental will be removed in a future version.")]
-        public static IEnumerable<TResult> Incremental<TSource, TResult>(this IEnumerable<TSource> sequence, Func<TSource, TSource, int, TResult> resultSelector)
+        public static IEnumerable<TResult> Incremental<TSource, TResult>(this IEnumerable<TSource> sequence,
+            Func<TSource, TSource, int, TResult> resultSelector)
         {
             if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             if (resultSelector == null) throw new ArgumentNullException(nameof(resultSelector));
@@ -72,7 +74,8 @@ namespace TestProj47
             return IncrementalImpl(sequence, resultSelector);
         }
 
-        private static IEnumerable<TResult> IncrementalImpl<TSource, TResult>(IEnumerable<TSource> sequence, Func<TSource, TSource, int, TResult> resultSelector)
+        private static IEnumerable<TResult> IncrementalImpl<TSource, TResult>(IEnumerable<TSource> sequence,
+            Func<TSource, TSource, int, TResult> resultSelector)
         {
             using (var iter = sequence.GetEnumerator())
             {

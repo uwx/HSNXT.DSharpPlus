@@ -164,7 +164,8 @@ namespace TestProj47
             value = value.Trim();
 
             if (value.Length == 0)
-                throw new ArgumentNullException(nameof(value),"Must specify valid information for parsing in the string.");
+                throw new ArgumentNullException(nameof(value),
+                    "Must specify valid information for parsing in the string.");
 
             var t = typeof(T);
             if (!t.IsEnum)
@@ -388,7 +389,7 @@ namespace TestProj47
 
             var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
             var decryptByteArray = Array.ConvertAll(decryptArray,
-                (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
+                s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber)));
 
 
             var bytes = rsa.Decrypt(decryptByteArray, true);

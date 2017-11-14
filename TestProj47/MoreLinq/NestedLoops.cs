@@ -1,4 +1,5 @@
 #region License and Terms
+
 // MoreLINQ - Extensions to LINQ to Objects
 // Copyright (c) 2010 Leopold Bushkin. All rights reserved.
 // 
@@ -13,14 +14,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 #endregion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProj47
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static partial class Extensions
     {
         // This extension method was developed (primarily) to support the
@@ -35,7 +37,6 @@ namespace TestProj47
         /// <param name="action">Action delegate for which to produce a nested loop sequence</param>
         /// <param name="loopCounts">A sequence of loop repetition counts</param>
         /// <returns>A sequence of Action representing the expansion of a set of nested loops</returns>
-       
         public static IEnumerable<Action> NestedLoops(this Action action, IEnumerable<int> loopCounts)
         {
             if (action == null) throw new ArgumentNullException(nameof(action));
@@ -54,8 +55,9 @@ namespace TestProj47
 
             int? NextLoopCount(IEnumerator<int> iter)
                 => !iter.MoveNext() ? (int?) null
-                 : iter.Current >= 0 ? iter.Current
-                 : throw new ArgumentException("All loop counts must be greater than or equal to zero.", nameof(loopCounts));
+                    : iter.Current >= 0 ? iter.Current
+                    : throw new ArgumentException("All loop counts must be greater than or equal to zero.",
+                        nameof(loopCounts));
         }
     }
 }

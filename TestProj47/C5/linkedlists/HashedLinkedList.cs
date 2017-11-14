@@ -211,7 +211,7 @@ namespace TestProj47.C5
         {
             if (underlying == null)
                 return true;
-            return (startsentinel.precedes(node) && node.precedes(endsentinel));
+            return startsentinel.precedes(node) && node.precedes(endsentinel);
         }
 
         #endregion
@@ -415,7 +415,7 @@ namespace TestProj47.C5
                 {
                     if (view != this)
                     {
-                        if (pred.precedes(view.startsentinel) || (view.startsentinel == pred && view.size > 0))
+                        if (pred.precedes(view.startsentinel) || view.startsentinel == pred && view.size > 0)
                             view.offset += added;
                         if (view.startsentinel.precedes(pred) && succ.precedes(view.endsentinel))
                             view.size += added;
@@ -462,9 +462,9 @@ namespace TestProj47.C5
                 otherlast = otherendsentinel.prev;
             if (last.precedes(otherfirst) || otherlast.precedes(first))
                 return MutualViewPosition.NonOverlapping;
-            if (size == 0 || (otherstartsentinel.precedes(first) && last.precedes(otherendsentinel)))
+            if (size == 0 || otherstartsentinel.precedes(first) && last.precedes(otherendsentinel))
                 return MutualViewPosition.Contains;
-            if (otherView.size == 0 || (startsentinel.precedes(otherfirst) && otherlast.precedes(endsentinel)))
+            if (otherView.size == 0 || startsentinel.precedes(otherfirst) && otherlast.precedes(endsentinel))
                 return MutualViewPosition.ContainedIn;
             return MutualViewPosition.Overlapping;
         }
@@ -800,7 +800,7 @@ namespace TestProj47.C5
             {
                 var newtaggroup = new TagGroup();
 
-                newtaggroup.tag = (tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta);
+                newtaggroup.tag = tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta;
                 newtaggroup.first = n;
                 newtaggroup.count = hisize;
                 for (var i = 0; i < hisize; i++)
@@ -817,7 +817,7 @@ namespace TestProj47.C5
 
             taggroup.first = n;
             taggroup.count = rest;
-            taggroup.tag = (tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta);
+            taggroup.tag = tgtag = tgtag >= ntgt - tgtdelta ? ntgt : tgtag + tgtdelta;
             ofs--;
             for (var i = 0; i < rest; i++)
             {
@@ -956,7 +956,7 @@ namespace TestProj47.C5
                 if (viewCount > 0)
                 {
                     Position endpoint;
-                    while (leftEndIndex < viewCount && ((endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n)))
+                    while (leftEndIndex < viewCount && (endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n))
                     {
                         var view = endpoint.View;
                         view.offset = view.offset - removed; //TODO: extract offset.Value?
@@ -998,7 +998,7 @@ namespace TestProj47.C5
                 if (viewCount > 0)
                 {
                     Position endpoint;
-                    while (leftEndIndex < viewCount && ((endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n)))
+                    while (leftEndIndex < viewCount && (endpoint = leftEnds[leftEndIndex]).Endpoint.prev.precedes(n))
                     {
                         var view = endpoint.View;
                         view.offset = view.offset - removed; //TODO: fix use of offset
@@ -1345,7 +1345,7 @@ namespace TestProj47.C5
         public void Insert(IList<T> pointer, T item)
         {
             updatecheck();
-            if ((pointer == null) || ((pointer.Underlying ?? pointer) != (underlying ?? this)))
+            if (pointer == null || (pointer.Underlying ?? pointer) != (underlying ?? this))
                 throw new IncompatibleViewException();
 //#warning INEFFICIENT
             //TODO: make this efficient (the whole point of the method:
@@ -1751,7 +1751,7 @@ namespace TestProj47.C5
             {
                 if (offset + this.offset < 0 || offset + this.offset + size > underlying.size)
                     return false;
-                var oldoffset = (int) (this.offset);
+                var oldoffset = (int) this.offset;
                 getPair(offset - 1, offset + size, out startsentinel, out endsentinel,
                     new[] {-oldoffset - 1, -1, this.size, underlying.size - oldoffset},
                     new[] {underlying.startsentinel, startsentinel, endsentinel, underlying.endsentinel});
@@ -1772,7 +1772,7 @@ namespace TestProj47.C5
         /// <returns></returns>
         public virtual IList<T> Span(IList<T> otherView)
         {
-            if ((otherView == null) || ((otherView.Underlying ?? otherView) != (underlying ?? this)))
+            if (otherView == null || (otherView.Underlying ?? otherView) != (underlying ?? this))
                 throw new IncompatibleViewException();
             if (otherView.Offset + otherView.Count - Offset < 0)
                 return null;

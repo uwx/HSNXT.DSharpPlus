@@ -330,7 +330,7 @@ namespace TestProj47
         /// <returns>The specified control, or a null reference if the specified control does not exist.</returns>
         public static T FindControl<T>(this Control @this, string id) where T : class
         {
-            return (@this.FindControl(id) as T);
+            return @this.FindControl(id) as T;
         }
 
         /// <summary>
