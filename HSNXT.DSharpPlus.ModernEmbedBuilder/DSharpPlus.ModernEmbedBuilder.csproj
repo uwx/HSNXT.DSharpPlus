@@ -10,7 +10,7 @@
     <PackageId>DSharpPlus.ModernEmbedBuilder</PackageId>
     <Authors>uwx / fallk</Authors>
     <Company>uwx</Company>
-    <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers. Note: This is not an official DSharpPlus package.</Description>
+    <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers. Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support regarding this package in official DSharpPlus discussion boards.</Description>
     <PackageLicenseUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
