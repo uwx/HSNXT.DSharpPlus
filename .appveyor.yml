@@ -8,7 +8,7 @@ clone_folder: c:\projects\dsp
 
 branches:
   only:
-    - master
+    - oh_god
 
 environment:
   access_token:
