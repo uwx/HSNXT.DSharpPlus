@@ -25,7 +25,8 @@ build: off
 
 build_script:
  - ps: dotnet build "TestProject.sln" -v Minimal -c Release
- - ps: dotnet publish "TestProject.sln" --configuration Release 
+ - ps: dotnet publish "TestProject.sln" --configuration Release -f net47
+ - ps: dotnet publish "TestProject.sln" --configuration Release -f netstandard2.0
  - ps: dotnet pack "TestProj47/TestProj47.csproj" -v Minimal -c Release -o "MEB" --no-build
  - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -v Minimal -c Release -o "CNXT" --no-build
 
