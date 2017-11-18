@@ -1,0 +1,63 @@
+# version format
+version: uwx-nightly-{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_folder: c:\projects\dsp
+
+branches:
+  only:
+    - master
+
+environment:
+  access_token:
+    secure: ZCGkDJawCLuRgzYTYraor3+u8xB5hjlMC2RhZZYWKkAVWbJ8DBI/ws7qqpZ2c2L1
+  
+build: off
+
+build_script:
+ - ps: dotnet publish "TestProject.sln" --configuration Release -f net47
+ - ps: dotnet build "TestProject.sln" -v Minimal -c Release
+ - ps: dotnet pack "TestProj47/TestProj47.csproj" -v Minimal -c Release -o "MEB" --no-build
+ - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -v Minimal -c Release -o "CNXT" --no-build
+
+artifacts:
+ - path: "MEB\\*.nupkg"
+ - path: "CNXT\\*.nupkg"
+ - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
+   name: DSharpPlus.CNextNotifier Release DLLs (.NET Standard 2.0)
+   type: zip
+ - path: "ExtensionOverflow\\bin\\Release\\net47\\*.dll"
+   name: ExtensionOverflow Release DLLs (.NET 4.7)
+   type: zip
+ - path: "OEISReader\\bin\\Release\\net47\\*.dll"
+   name: OEISReader Release DLLs (.NET 4.7)
+   type: zip
+ - path: "TestProj47\\bin\\Release\\net47\\*.dll"
+   name: TestProj47 Release DLLs (.NET 4.7)
+   type: zip
+ - path: "TestProject2\\bin\\Release\\net47\\*.dll"
+   name: TestProject2 Release DLLs (.NET 4.7)
+   type: zip
+ - path: "Wither\\bin\\Release\\net47\\*.dll"
+   name: Wither Release DLLs (.NET 4.7)
+   type: zip
+ - path: "Dickscord\\bin\\Release\\net47\\*.dll"
+   name: Dickscord Release DLLs (.NET 4.7)
+   type: zip
+ - path: "DRPCTest\\bin\\Release\\net47\\*.dll"
+   name: DRPCTest Release DLLs (.NET 4.7)
+   type: zip
+
+# Automatically register private account and/or project AppVeyor NuGet feeds.
+nuget:
+  account_feed: false
+  project_feed: false
+  disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
+
+deploy:
+  - provider: NuGet
+    skip_symbols: false
+    api_key:
+      secure: ZkuAOJwTjYBiEAHrTHkVDYaNRBaWDDmvpkUVN+9PnsHWQnfDDdDWWAMPltRlYNYn

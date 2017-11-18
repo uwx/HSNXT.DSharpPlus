@@ -6,10 +6,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{63B55225-814D-4238-8703-223676D9E9B6}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestProj47</RootNamespace>
-    <AssemblyName>TestProj47</AssemblyName>
+    <RootNamespace>HSNXT</RootNamespace>
+    <AssemblyName>TestProject.Extensions.HSNXT</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>7.1</LangVersion>
