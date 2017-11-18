@@ -104,8 +104,6 @@
             <e p="HashedArrayList.cs" t="Include" />
             <e p="SortedArray.cs" t="Include" />
           </e>
-          <e p="C5.csproj" t="Include" />
-          <e p="C5.snk" t="Include" />
           <e p="Collections.cs" t="Include" />
           <e p="comparers" t="Include">
             <e p="ComparerFactory.cs" t="Include" />
@@ -140,7 +138,6 @@
           <e p="MappedEnumerators.cs" t="Include" />
           <e p="MemorySafeEnumerator.cs" t="Include" />
           <e p="PortableExtensions.cs" t="Include" />
-          <e p="public.pk" t="Include" />
           <e p="Random.cs" t="Include" />
           <e p="Records.cs" t="Include" />
           <e p="SerializableAttribute.cs" t="Include" />
@@ -353,7 +350,6 @@
           <e p="FillForward.cs" t="Include" />
           <e p="Fold.cs" t="Include" />
           <e p="Fold.g.cs" t="Include" />
-          <e p="Fold.g.tt" t="Include" />
           <e p="From.cs" t="Include" />
           <e p="FullGroupJoin.cs" t="Include" />
           <e p="FullJoin.cs" t="Include" />
@@ -364,7 +360,6 @@
           <e p="Index.cs" t="Include" />
           <e p="Insert.cs" t="Include" />
           <e p="Interleave.cs" t="Include" />
-          <e p="key.snk" t="Include" />
           <e p="Lag.cs" t="Include" />
           <e p="Lead.cs" t="Include" />
           <e p="LeftJoin.cs" t="Include" />
@@ -412,7 +407,6 @@
           <e p="ToDataTable.cs" t="Include" />
           <e p="ToDelimitedString.cs" t="Include" />
           <e p="ToDelimitedString.g.cs" t="Include" />
-          <e p="ToDelimitedString.g.tt" t="Include" />
           <e p="ToDictionary.cs" t="Include" />
           <e p="ToHashSet.cs" t="Include" />
           <e p="ToLookup.cs" t="Include" />

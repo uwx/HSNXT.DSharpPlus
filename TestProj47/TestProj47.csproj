@@ -478,13 +478,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="C5\C5.csproj" />
-    <Content Include="C5\C5.snk" />
-    <Content Include="C5\public.pk" />
     <Content Include="IntXLib\Utils\Strings.resx" />
-    <Content Include="MoreLinq\Fold.g.tt" />
-    <Content Include="MoreLinq\key.snk" />
-    <Content Include="MoreLinq\ToDelimitedString.g.tt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
