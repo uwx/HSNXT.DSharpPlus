@@ -30,8 +30,8 @@ build_script:
  - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -v Minimal -c Release -o "CNXT" --no-build
 
 artifacts:
- - path: "MEB\\*.nupkg"
- - path: "CNXT\\*.nupkg"
+ - path: "TestProj47\\MEB\\*.nupkg"
+ - path: "DSharpPlus.CNextNotifier\\CNXT\\*.nupkg"
  - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
    name: DSharpPlus.CNextNotifier Release DLLs (.NET Standard 2.0)
    type: zip
