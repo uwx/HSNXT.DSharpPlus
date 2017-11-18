@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Rafael\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_SuperOEISGenerator.931843283.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\Documents\GitHub\SuperOEISGenerator" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SuperOEISGenerator" t="IncludeRecursive">
+        <e p="A000000.cs" t="Include" />
+        <e p="A999990.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EnumerableStream.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SuperOEISGenerator.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="SuperOEISGenerator.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProj47", "TestProj47\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OEISReader", "OEISReader\OEISReader.csproj", "{0E0A9AFE-1C3D-4423-997D-3D955F938DD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperOEISGenerator", "..\SuperOEISGenerator\SuperOEISGenerator\SuperOEISGenerator.csproj", "{21F45D13-E065-44E9-9EE6-49A24E47C73C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperOEISGenerator", "SuperOEISGenerator\SuperOEISGenerator\SuperOEISGenerator.csproj", "{21F45D13-E065-44E9-9EE6-49A24E47C73C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wither", "Wither\Wither.csproj", "{5C61ADEF-7875-4944-8089-FEED3229D9CE}"
 EndProject
