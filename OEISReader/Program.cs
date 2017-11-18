@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
-using TestProj47;
+using HSNXT;
 
 namespace OEISReader
 {

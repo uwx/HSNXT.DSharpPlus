@@ -49,6 +49,20 @@
           </e>
         </e>
       </e>
+      <e p="DSharpPlus.CNextNotifier" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CNextNotifier.cs" t="Include" />
+        <e p="CustomDictionary.cs" t="Include" />
+        <e p="DSharpPlus.CNextNotifier.csproj" t="IncludeRecursive" />
+        <e p="Example.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="OEISReader" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
@@ -60,6 +74,17 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="TestProj47" t="IncludeRecursive">
+        <e p="BCLExtensions" t="Include">
+          <e p="ArgumentVerifier.cs" t="Include" />
+          <e p="DbConnectionExtensionMethods.cs" t="Include" />
+          <e p="DictionaryExtensionMethods.cs" t="Include" />
+          <e p="EventExtensionMethods.cs" t="Include" />
+          <e p="HashSetExtensionMethods.cs" t="Include" />
+          <e p="IEnumerableExtensionMethods.cs" t="Include" />
+          <e p="IListExtensionMethods.cs" t="Include" />
+          <e p="StringExtensionMethods.cs" t="Include" />
+          <e p="TypeExtensionMethods.cs" t="Include" />
+        </e>
         <e p="BigMath.PCL" t="Include">
           <e p="BigInteger.cs" t="Include" />
           <e p="Int128.cs" t="Include" />
@@ -399,6 +424,17 @@
           <e p="ZipLongest.cs" t="Include" />
           <e p="ZipShortest.cs" t="Include" />
         </e>
+        <e p="NBasicExtensionMethod" t="Include">
+          <e p="BooleanExtensions.cs" t="Include" />
+          <e p="DateTimeExtension.cs" t="Include" />
+          <e p="EnumExtensions.cs" t="Include" />
+          <e p="IComparableExtensions.cs" t="Include" />
+          <e p="IntegerExtensions.cs" t="Include" />
+          <e p="ObjectExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+          <e p="TimeSpanExtensions.cs" t="Include" />
+          <e p="TypeExtensions.cs" t="Include" />
+        </e>
         <e p="NorthHorizon.Common.Xmp" t="Include">
           <e p="CollectionExtensions.cs" t="Include" />
           <e p="DictionaryExtensions.cs" t="Include" />
@@ -426,7 +462,7 @@
           <e p="TimespanExtension.cs" t="Include" />
         </e>
         <e p="TestProj47.csproj" t="IncludeRecursive" />
-        <e p="ZFuckOff" t="Include">
+        <e p="ZExtensionMethods_Compressed" t="Include">
           <e p="GetDeclaration.cs" t="Include" />
           <e p="GetSignature.cs" t="Include" />
           <e p="Reflection.System.Object.cs" t="Include" />
