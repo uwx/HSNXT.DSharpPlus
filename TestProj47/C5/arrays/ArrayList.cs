@@ -23,7 +23,7 @@ using System;
 using System.Collections;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// A list collection based on a plain dynamic array data structure.

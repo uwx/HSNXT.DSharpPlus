@@ -37,7 +37,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Numeric class which represents arbitrary-precision integers.
@@ -1225,7 +1225,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Returns equality of this <see cref="T:TestProj47.IntX" /> with another big integer.
+        /// Returns equality of this <see cref="T:HSNXT.IntX" /> with another big integer.
         /// </summary>
         /// <param name="n">Big integer to compare with.</param>
         /// <returns>True if equals.</returns>
@@ -1233,7 +1233,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Returns equality of this <see cref="T:TestProj47.IntX" /> with another integer.
+        /// Returns equality of this <see cref="T:HSNXT.IntX" /> with another integer.
         /// </summary>
         /// <param name="n">Integer to compare with.</param>
         /// <returns>True if equals.</returns>
@@ -1241,7 +1241,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Returns equality of this <see cref="T:TestProj47.IntX" /> with another unsigned integer.
+        /// Returns equality of this <see cref="T:HSNXT.IntX" /> with another unsigned integer.
         /// </summary>
         /// <param name="n">Unsigned integer to compare with.</param>
         /// <returns>True if equals.</returns>
@@ -1249,7 +1249,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Returns equality of this <see cref="T:TestProj47.IntX" /> with another long integer.
+        /// Returns equality of this <see cref="T:HSNXT.IntX" /> with another long integer.
         /// </summary>
         /// <param name="n">Long integer to compare with.</param>
         /// <returns>True if equals.</returns>
@@ -1257,7 +1257,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Returns equality of this <see cref="T:TestProj47.IntX" /> with another unsigned long integer.
+        /// Returns equality of this <see cref="T:HSNXT.IntX" /> with another unsigned long integer.
         /// </summary>
         /// <param name="n">Unsigned long integer to compare with.</param>
         /// <returns>True if equals.</returns>

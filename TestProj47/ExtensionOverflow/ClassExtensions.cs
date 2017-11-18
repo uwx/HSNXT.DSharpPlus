@@ -8,7 +8,7 @@
 
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Extension Methods to be used by Classes

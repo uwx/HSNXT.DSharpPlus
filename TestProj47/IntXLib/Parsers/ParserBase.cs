@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Base class for parsers.

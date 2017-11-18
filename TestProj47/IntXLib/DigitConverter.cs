@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Converts <see cref="IntX"/> digits to/from byte array.

@@ -12,7 +12,7 @@ using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// String Extentensions

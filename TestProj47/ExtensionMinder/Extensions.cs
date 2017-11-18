@@ -18,7 +18,7 @@ using System.Web;
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 // ReSharper disable ConstantConditionalAccessQualifier
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

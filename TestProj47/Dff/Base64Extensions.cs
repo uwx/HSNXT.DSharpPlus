@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

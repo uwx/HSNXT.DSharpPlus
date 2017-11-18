@@ -27,7 +27,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Provides iterators for enum types. Can be used in a LINQ expression.

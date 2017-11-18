@@ -7,7 +7,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static class StaticReflection
     {

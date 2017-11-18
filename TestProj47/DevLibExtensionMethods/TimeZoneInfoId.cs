@@ -4,7 +4,7 @@
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Represents any time zone in the world.</summary>
     public static class TimeZoneInfoId

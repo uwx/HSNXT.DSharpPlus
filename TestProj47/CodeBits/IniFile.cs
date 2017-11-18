@@ -29,7 +29,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace TestProj47
+namespace HSNXT
 {
     public sealed class IniFile : KeyedCollection<string, IniFile.Section>
     {

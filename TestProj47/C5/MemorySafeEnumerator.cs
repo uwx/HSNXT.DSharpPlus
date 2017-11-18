@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     [Serializable]
     internal abstract class MemorySafeEnumerator<T> : IEnumerator<T>, IEnumerable<T>, IDisposable

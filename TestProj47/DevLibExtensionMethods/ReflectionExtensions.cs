@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
 

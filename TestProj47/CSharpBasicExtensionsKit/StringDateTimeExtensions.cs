@@ -10,7 +10,7 @@ using System.Linq;
 
 // ReSharper disable StringIndexOfIsCultureSpecific.1
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

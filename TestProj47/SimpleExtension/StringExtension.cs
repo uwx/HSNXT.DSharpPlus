@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

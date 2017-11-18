@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Fast ToString converting algorithm using divide-by-two.

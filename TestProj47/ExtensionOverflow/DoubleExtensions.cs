@@ -1,4 +1,4 @@
-﻿namespace TestProj47
+﻿namespace HSNXT
 {
     /// <summary>
     /// Double Extensions

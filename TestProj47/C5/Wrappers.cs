@@ -24,7 +24,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// A read-only wrapper class for a generic enumerator

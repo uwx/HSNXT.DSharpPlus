@@ -7,7 +7,7 @@
 using System;
 using System.Runtime.CompilerServices;
 
-namespace TestProj47.Utils
+namespace HSNXT.Utils
 {
     /// <summary>
     ///     Bit converter methods which support explicit endian.

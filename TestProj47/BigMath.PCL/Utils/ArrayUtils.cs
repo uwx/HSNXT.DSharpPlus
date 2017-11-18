@@ -7,7 +7,7 @@
 using System;
 using System.Linq;
 
-namespace TestProj47.Utils
+namespace HSNXT.Utils
 {
     /// <summary>
     ///     Utils for the <see cref="Array" /> class.

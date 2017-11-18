@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// LinQ  Extentensions

@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

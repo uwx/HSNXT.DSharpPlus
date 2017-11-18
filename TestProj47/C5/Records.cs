@@ -22,7 +22,7 @@
 using System;
 using System.Text;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     internal struct RecConst
     {

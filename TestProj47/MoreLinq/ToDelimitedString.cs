@@ -23,7 +23,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

@@ -19,7 +19,7 @@
 
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     internal sealed class ReverseComparer<T> : IComparer<T>
     {

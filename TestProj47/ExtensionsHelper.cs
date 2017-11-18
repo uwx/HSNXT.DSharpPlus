@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -18,12 +19,29 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {
         private static readonly Regex IsEmailRegex =
             new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", RegexOptions.Compiled);
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private static readonly byte[] DefaultSalt = {
+            73,
+            118,
+            97,
+            110,
+            32,
+            77,
+            101,
+            100,
+            118,
+            101,
+            100,
+            101,
+            118
+        };
 
         public static char LastChar(this string input) =>
             string.IsNullOrEmpty(input) ? (char) 0 : input[input.Length - 1];
@@ -41,27 +59,13 @@ namespace TestProj47
 
         public static bool IsDate(this string input) => !string.IsNullOrEmpty(input) && DateTime.TryParse(input, out _);
 
-        public static string EncryptAes(this string inText, string password)
+        public static string EncryptAes(this string inText, string password, byte[] salt = null)
         {
+            if (salt == null) salt = DefaultSalt;
             var bytes = Encoding.Unicode.GetBytes(inText);
             using (var aes = Aes.Create())
             {
-                var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, new byte[]
-                {
-                    73,
-                    118,
-                    97,
-                    110,
-                    32,
-                    77,
-                    101,
-                    100,
-                    118,
-                    101,
-                    100,
-                    101,
-                    118
-                });
+                var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, salt);
                 if (aes == null) return inText;
                 aes.Key = rfc2898DeriveBytes.GetBytes(32);
                 aes.IV = rfc2898DeriveBytes.GetBytes(16);
@@ -79,28 +83,14 @@ namespace TestProj47
             return inText;
         }
 
-        public static string DecryptAes(this string cryptTxt, string password)
+        public static string DecryptAes(this string cryptTxt, string password, byte[] salt = null)
         {
+            if (salt == null) salt = DefaultSalt;
             cryptTxt = cryptTxt.Replace(" ", "+");
             var buffer = Convert.FromBase64String(cryptTxt);
             using (var aes = Aes.Create())
             {
-                var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, new byte[]
-                {
-                    73,
-                    118,
-                    97,
-                    110,
-                    32,
-                    77,
-                    101,
-                    100,
-                    118,
-                    101,
-                    100,
-                    101,
-                    118
-                });
+                var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, salt);
                 if (aes == null) return cryptTxt;
                 aes.Key = rfc2898DeriveBytes.GetBytes(32);
                 aes.IV = rfc2898DeriveBytes.GetBytes(16);
@@ -183,9 +173,9 @@ namespace TestProj47
             return xdocument.ToString();
         }
 
-        public static string ToHtml(this DataTable dt)
+        public static string ToHtmlLegacy(this DataTable dt)
         {
-            var str1 = "<table>" + "<tr>";
+            var str1 = "<table><tr>";
             for (var index = 0; index < dt.Columns.Count; ++index)
                 str1 = str1 + "<td>" + dt.Columns[index].ColumnName + "</td>";
             var str2 = str1 + "</tr>";
@@ -197,6 +187,22 @@ namespace TestProj47
                 str2 = str3 + "</tr>";
             }
             return str2 + "</table>";
+        }
+        
+        public static string ToHtml(this DataTable dt)
+        {
+            var str1 = new StringBuilder("<table><tr>");
+            for (var index = 0; index < dt.Columns.Count; ++index)
+                str1.Append("<td>").Append(dt.Columns[index].ColumnName).Append("</td>");
+            str1.Append("</tr>");
+            for (var index1 = 0; index1 < dt.Rows.Count; ++index1)
+            {
+                str1.Append("<tr>");
+                for (var index2 = 0; index2 < dt.Columns.Count; ++index2)
+                    str1.Append("<td>").Append(dt.Rows[index1][index2]).Append("</td>");
+                str1.Append("</tr>");
+            }
+            return str1.Append("</table>").ToString();
         }
 
         public static string ToCsv(this DataTable dt, string delimiter, bool includeHeader, bool writeToFile,
@@ -232,11 +238,11 @@ namespace TestProj47
                 stringBuilder.Remove(--stringBuilder.Length, 0);
                 stringBuilder.Append(Environment.NewLine);
             }
-            if (writeToFile)
-            {
-                using (var streamWriter = new StreamWriter(filepath, true))
-                    streamWriter.Write(stringBuilder.ToString());
-            }
+            if (!writeToFile) return stringBuilder.ToString();
+            
+            using (var streamWriter = new StreamWriter(filepath, true))
+                streamWriter.Write(stringBuilder.ToString());
+            
             return stringBuilder.ToString();
         }
 
@@ -313,50 +319,50 @@ namespace TestProj47
 
         public static string ToLogString(this Exception ex, string additionalMessage = "")
         {
-            var stringBuilder = new StringBuilder();
+            var sb = new StringBuilder();
             if (!string.IsNullOrEmpty(additionalMessage))
             {
-                stringBuilder.Append(additionalMessage);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append(additionalMessage);
+                sb.Append(Environment.NewLine);
             }
             var exception = ex;
-            stringBuilder.Append(Environment.NewLine);
+            sb.Append(Environment.NewLine);
             for (; exception != null; exception = exception.InnerException)
             {
-                stringBuilder.Append(exception.Message);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append(exception.Message);
+                sb.Append(Environment.NewLine);
             }
             foreach (object obj in ex.Data)
             {
-                stringBuilder.Append("Data :");
-                stringBuilder.Append(obj);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append("Data:");
+                sb.Append(obj);
+                sb.Append(Environment.NewLine);
             }
             if (ex.StackTrace != null)
             {
-                stringBuilder.Append("StackTrace:");
-                stringBuilder.Append(Environment.NewLine);
-                stringBuilder.Append(ex.StackTrace);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append("StackTrace:");
+                sb.Append(Environment.NewLine);
+                sb.Append(ex.StackTrace);
+                sb.Append(Environment.NewLine);
             }
             if (ex.Source != null)
             {
-                stringBuilder.Append("Source:");
-                stringBuilder.Append(Environment.NewLine);
-                stringBuilder.Append(ex.Source);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append("Source:");
+                sb.Append(Environment.NewLine);
+                sb.Append(ex.Source);
+                sb.Append(Environment.NewLine);
             }
             if (ex.TargetSite != null)
             {
-                stringBuilder.Append("TargetSite:");
-                stringBuilder.Append(Environment.NewLine);
-                stringBuilder.Append(ex.TargetSite);
-                stringBuilder.Append(Environment.NewLine);
+                sb.Append("TargetSite:");
+                sb.Append(Environment.NewLine);
+                sb.Append(ex.TargetSite);
+                sb.Append(Environment.NewLine);
             }
-            stringBuilder.Append("BaseException:");
-            stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append(ex.GetBaseException());
-            return stringBuilder.ToString();
+            sb.Append("BaseException:");
+            sb.Append(Environment.NewLine);
+            sb.Append(ex.GetBaseException());
+            return sb.ToString();
         }
     }
 }

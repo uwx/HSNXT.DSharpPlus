@@ -21,7 +21,7 @@
 
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// The symbolic characterization of the speed of lookups for a collection.

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

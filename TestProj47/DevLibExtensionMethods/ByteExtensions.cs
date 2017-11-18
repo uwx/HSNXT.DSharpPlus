@@ -12,7 +12,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
 

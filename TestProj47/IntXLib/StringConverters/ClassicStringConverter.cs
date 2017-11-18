@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Classic ToString converting algorithm using division (O[n^2]).

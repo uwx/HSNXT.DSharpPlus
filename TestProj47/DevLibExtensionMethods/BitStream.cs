@@ -6,7 +6,7 @@
 
 using System.IO;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <inheritdoc />
     /// <summary>Utility that read and write bits in byte array.</summary>
@@ -16,7 +16,7 @@ namespace TestProj47
         private readonly byte[] _source;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.BitStream" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.BitStream" /> class.
         /// </summary>
         /// <param name="capacity">The capacity.</param>
         public BitStream(int capacity)
@@ -25,7 +25,7 @@ namespace TestProj47
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.BitStream" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.BitStream" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         public BitStream(byte[] source)

@@ -12,7 +12,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
 

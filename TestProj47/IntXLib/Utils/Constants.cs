@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Constants used in <see cref="IntX" /> and helping classes.

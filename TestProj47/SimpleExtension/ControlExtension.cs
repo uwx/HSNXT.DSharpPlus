@@ -7,7 +7,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

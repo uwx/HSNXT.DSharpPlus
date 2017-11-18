@@ -28,7 +28,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     ///     Encapsulates the functionality required to compute and verify salted hashes.

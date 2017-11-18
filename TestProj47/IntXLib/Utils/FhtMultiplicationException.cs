@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Used when FHT multiplication result is incorrect.

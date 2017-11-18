@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Provides special fast (with linear time) parsing if base is pow of 2.

@@ -15,7 +15,7 @@
 // limitations under the License.
 #endregion
 
-namespace TestProj47
+namespace HSNXT
 {
     using System;
     using System.Collections.Generic;

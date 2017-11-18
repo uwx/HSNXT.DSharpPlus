@@ -29,7 +29,7 @@ using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     ///     Provides static methods to generate random passwords.

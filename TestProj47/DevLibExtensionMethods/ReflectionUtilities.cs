@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Class ReflectionUtilities.</summary>
     internal class ReflectionUtilities
@@ -418,7 +418,7 @@ namespace TestProj47
             private Dictionary<TKey, TValue> _dictionary;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:TestProj47.ReflectionUtilities.ThreadSafeDictionary`2" /> class.
+            /// Initializes a new instance of the <see cref="T:HSNXT.ReflectionUtilities.ThreadSafeDictionary`2" /> class.
             /// </summary>
             /// <param name="valueFactory">The value factory.</param>
             public ThreadSafeDictionary(ThreadSafeDictionaryValueFactory<TKey, TValue> valueFactory)

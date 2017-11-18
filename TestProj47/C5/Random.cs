@@ -21,7 +21,7 @@
 
 using System;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// A modern random number generator based on G. Marsaglia: 

@@ -11,7 +11,7 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Serializes objects to the JavaScript Object Notation (JSON) and deserializes JSON data to objects.

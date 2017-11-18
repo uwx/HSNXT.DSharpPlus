@@ -4,7 +4,7 @@
 // MVID: 9895DAEA-F52E-4F0C-B5FD-FB311AEFF61C
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionMinder.dll
 
-namespace TestProj47
+namespace HSNXT
 {
     public enum SpellingVariants
     {

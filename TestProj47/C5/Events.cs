@@ -21,7 +21,7 @@
 
 using System;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// 

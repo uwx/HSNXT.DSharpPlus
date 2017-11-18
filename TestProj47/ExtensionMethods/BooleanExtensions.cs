@@ -4,7 +4,7 @@
 // MVID: 4A78E21D-808B-4A21-BFAA-D781C27D2CD5
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionMethods.dll
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

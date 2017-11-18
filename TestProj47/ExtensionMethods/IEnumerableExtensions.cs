@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ExtensionMethods.Helpers;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

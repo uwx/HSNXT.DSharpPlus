@@ -11,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace TestProj47.dff.Extensions.HelperClasses
+namespace HSNXT.dff.Extensions.HelperClasses
 {
     internal sealed class ObjectDumper
     {

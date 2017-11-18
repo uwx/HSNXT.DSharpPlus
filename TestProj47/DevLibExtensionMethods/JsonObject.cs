@@ -8,7 +8,7 @@ using System;
 using System.Collections;
 using SGC = System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <inheritdoc />
     /// <summary>Represents the JSON object.</summary>
@@ -18,7 +18,7 @@ namespace TestProj47
         private readonly SGC.Dictionary<string, object> _members;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.JsonObject" /> class.
         /// </summary>
         public JsonObject()
         {
@@ -26,7 +26,7 @@ namespace TestProj47
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.JsonObject" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.JsonObject" /> class.
         /// </summary>
         /// <param name="comparer">The comparer.</param>
         public JsonObject(SGC.IEqualityComparer<string> comparer)

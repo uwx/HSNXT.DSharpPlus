@@ -6,7 +6,7 @@
 
 using System.Security.Cryptography;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
 

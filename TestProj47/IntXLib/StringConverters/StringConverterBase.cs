@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Base class for ToString converters.

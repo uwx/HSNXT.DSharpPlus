@@ -8,11 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using NBasicExtensionMethod;
 
 // ReSharper disable StringCompareIsCultureSpecific.1
 // ReSharper disable ReturnValueOfPureMethodIsNotUsed
 
-namespace TestProj47
+namespace HSNXT
 {
     internal static class Program
     {

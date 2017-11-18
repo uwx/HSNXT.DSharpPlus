@@ -7,7 +7,7 @@
 using System;
 using System.Globalization;
 
-namespace TestProj47.dff.Extensions.Gps
+namespace HSNXT.dff.Extensions.Gps
 {
     public class DffGpsPosition
     {

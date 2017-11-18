@@ -6,20 +6,20 @@
 
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Represents the JSON array.</summary>
     internal class JsonArray : List<object>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.JsonArray" /> class.
         /// </summary>
         public JsonArray()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.JsonArray" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.JsonArray" /> class.
         /// </summary>
         /// <param name="capacity">The capacity of the json array.</param>
         public JsonArray(int capacity)

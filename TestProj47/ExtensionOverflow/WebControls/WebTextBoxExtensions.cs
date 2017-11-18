@@ -1,6 +1,6 @@
 ﻿using System.Web.UI.WebControls;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Webcontrol TextBox Extensions

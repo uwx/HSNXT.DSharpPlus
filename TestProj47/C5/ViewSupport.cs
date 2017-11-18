@@ -22,7 +22,7 @@
 using System;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// Characterize the mutual position of some view B (other) relative to view A (this)

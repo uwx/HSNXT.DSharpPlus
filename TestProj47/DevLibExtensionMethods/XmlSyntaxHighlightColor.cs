@@ -6,7 +6,7 @@
 
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Xml syntax highlight color.</summary>
     internal static class XmlSyntaxHighlightColor

@@ -4,7 +4,7 @@
 // MVID: B43B1EC6-29EF-47CC-B98E-E2FE4FC2095C
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\SimpleExtension.dll
 
-namespace TestProj47
+namespace HSNXT
 {
     public enum ObjectToStringTypes
     {

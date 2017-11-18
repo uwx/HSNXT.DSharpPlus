@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Classic parsing algorithm using multiplication (O[n^2]).

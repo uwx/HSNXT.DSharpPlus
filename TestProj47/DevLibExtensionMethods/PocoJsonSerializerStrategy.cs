@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Class PocoJsonSerializerStrategy.</summary>
     internal class PocoJsonSerializerStrategy
@@ -42,7 +42,7 @@ namespace TestProj47
             _setCache;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:TestProj47.PocoJsonSerializerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="T:HSNXT.PocoJsonSerializerStrategy" /> class.
         /// </summary>
         public PocoJsonSerializerStrategy()
         {

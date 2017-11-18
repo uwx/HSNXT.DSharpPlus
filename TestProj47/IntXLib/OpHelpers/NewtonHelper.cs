@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Contains helping methods for fast division

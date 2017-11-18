@@ -17,7 +17,7 @@
 
 #endregion
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Enumeration that defines values representing valid ordering directions for a sequence.

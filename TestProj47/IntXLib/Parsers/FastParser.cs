@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Fast parsing algorithm using divide-by-two (O[n*{log n}^2]).
@@ -18,7 +18,7 @@ namespace TestProj47
 
         /// <inheritdoc />
         /// <summary>
-        /// Creates new <see cref="T:TestProj47.FastParser" /> instance.
+        /// Creates new <see cref="T:HSNXT.FastParser" /> instance.
         /// </summary>
         /// <param name="pow2Parser">Parser for pow2 case.</param>
         /// <param name="classicParser">Classic parser.</param>

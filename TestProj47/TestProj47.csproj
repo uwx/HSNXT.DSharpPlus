@@ -40,39 +40,9 @@
     <Reference Include="ClassLibrary2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
-    <Reference Include="FSLib.Extension, Version=1.4.3.0, Culture=neutral, PublicKeyToken=61d6a007a0eb6994">
-      <HintPath>..\packages\extension.fishlee.net.1.4.3.0\lib\net45\FSLib.Extension.dll</HintPath>
-    </Reference>
-    <Reference Include="MediatR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\MediatR.1.0.0.0\lib\portable-net45+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\MediatR.dll</HintPath>
-    </Reference>
-    <Reference Include="MediatR.Extensions, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\MediatR.Extensions.0.6.0.0\lib\net45\MediatR.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Extensions.1.0.0\lib\portable45-net45+win8\Microsoft.CodeAnalysis.CSharp.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\ExtensionOverflow\ExtensionMethods\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="NBasicExtensionMethod, Version=1.0.4554.34582, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\NBasicExtensionMethod.1.0.4554.34582\lib\net40\NBasicExtensionMethod.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
-      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.UnitOfWork, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Ninject.Extensions.UnitOfWork.1.0.1\lib\net45\Ninject.Extensions.UnitOfWork.dll</HintPath>
     </Reference>
     <Reference Include="SD.Tools.BCLExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a3f87088dcb994e1">
       <HintPath>..\packages\SD.Tools.BCLExtensions.1.1.1\lib\net35\SD.Tools.BCLExtensions.dll</HintPath>
@@ -132,6 +102,15 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BCLExtensions\ArgumentVerifier.cs" />
+    <Compile Include="BCLExtensions\DbConnectionExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\DictionaryExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\EventExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\HashSetExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\IEnumerableExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\IListExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\StringExtensionMethods.cs" />
+    <Compile Include="BCLExtensions\TypeExtensionMethods.cs" />
     <Compile Include="BigMath.PCL\BigInteger.cs" />
     <Compile Include="BigMath.PCL\Int128.cs" />
     <Compile Include="BigMath.PCL\Int256.cs" />
@@ -403,6 +382,15 @@
     <Compile Include="MoreLinq\Zip.stub.cs" />
     <Compile Include="MoreLinq\ZipLongest.cs" />
     <Compile Include="MoreLinq\ZipShortest.cs" />
+    <Compile Include="NBasicExtensionMethod\BooleanExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\DateTimeExtension.cs" />
+    <Compile Include="NBasicExtensionMethod\EnumExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\IComparableExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\IntegerExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\ObjectExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\StringExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\TimespanExtensions.cs" />
+    <Compile Include="NBasicExtensionMethod\TypeExtensions.cs" />
     <Compile Include="NorthHorizon.Common.Xmp\CollectionExtensions.cs" />
     <Compile Include="NorthHorizon.Common.Xmp\DictionaryExtensions.cs" />
     <Compile Include="NorthHorizon.Common.Xmp\EnumerableExtensions.cs" />
@@ -421,73 +409,73 @@
     <Compile Include="SimpleExtension\ObjectToStringTypes.cs" />
     <Compile Include="SimpleExtension\StringExtension.cs" />
     <Compile Include="SimpleExtension\TimespanExtension.cs" />
-    <Compile Include="ZFuckOff\GetDeclaration.cs" />
-    <Compile Include="ZFuckOff\GetSignature.cs" />
-    <Compile Include="ZFuckOff\Reflection.System.Object.cs" />
-    <Compile Include="ZFuckOff\System.Array.cs" />
-    <Compile Include="ZFuckOff\System.Boolean.cs" />
-    <Compile Include="ZFuckOff\System.Byte.cs" />
-    <Compile Include="ZFuckOff\System.ByteArray.cs" />
-    <Compile Include="ZFuckOff\System.Char.cs" />
-    <Compile Include="ZFuckOff\System.Collections.Generic.IDictionary[string, object].cs" />
-    <Compile Include="ZFuckOff\System.Collections.Generic.IEnumerable[DirectoryInfo].cs" />
-    <Compile Include="ZFuckOff\System.Collections.Generic.IEnumerable[FileInfo].cs" />
-    <Compile Include="ZFuckOff\System.Collections.Generic.IEnumerable[string].cs" />
-    <Compile Include="ZFuckOff\System.Data.Common.DbCommand.cs" />
-    <Compile Include="ZFuckOff\System.Data.Common.DbConnection.cs" />
-    <Compile Include="ZFuckOff\System.Data.ConnectionState.cs" />
-    <Compile Include="ZFuckOff\System.Data.DataColumnCollection.cs" />
-    <Compile Include="ZFuckOff\System.Data.DataRow.cs" />
-    <Compile Include="ZFuckOff\System.Data.DataTable.cs" />
-    <Compile Include="ZFuckOff\System.Data.IDataReader.cs" />
-    <Compile Include="ZFuckOff\System.Data.IDbConnection.cs" />
-    <Compile Include="ZFuckOff\System.Data.SqlClient.SqlBulkCopy.cs" />
-    <Compile Include="ZFuckOff\System.Data.SqlClient.SqlCommand.cs" />
-    <Compile Include="ZFuckOff\System.Data.SqlClient.SqlConnection.cs" />
-    <Compile Include="ZFuckOff\System.Data.SqlClient.SqlParameterCollection.cs" />
-    <Compile Include="ZFuckOff\System.DateTime.cs" />
-    <Compile Include="ZFuckOff\System.DateTimeOffset.cs" />
-    <Compile Include="ZFuckOff\System.Decimal.cs" />
-    <Compile Include="ZFuckOff\System.Delegate.cs" />
-    <Compile Include="ZFuckOff\System.Double.cs" />
-    <Compile Include="ZFuckOff\System.Enum.cs" />
-    <Compile Include="ZFuckOff\System.Environment.cs" />
-    <Compile Include="ZFuckOff\System.EventHandler.cs" />
-    <Compile Include="ZFuckOff\System.Guid.cs" />
-    <Compile Include="ZFuckOff\System.Int16.cs" />
-    <Compile Include="ZFuckOff\System.Int32.cs" />
-    <Compile Include="ZFuckOff\System.Int64.cs" />
-    <Compile Include="ZFuckOff\System.IO.DirectoryInfo.cs" />
-    <Compile Include="ZFuckOff\System.IO.FileInfo.cs" />
-    <Compile Include="ZFuckOff\System.IO.Stream.cs" />
-    <Compile Include="ZFuckOff\System.Object.cs" />
-    <Compile Include="ZFuckOff\System.Object[].cs" />
-    <Compile Include="ZFuckOff\System.Random.cs" />
-    <Compile Include="ZFuckOff\System.Reflection.Assembly.cs" />
-    <Compile Include="ZFuckOff\System.Reflection.MemberInfo.cs" />
-    <Compile Include="ZFuckOff\System.Reflection.Module.cs" />
-    <Compile Include="ZFuckOff\System.Reflection.ParameterInfo.cs" />
-    <Compile Include="ZFuckOff\System.SByte.cs" />
-    <Compile Include="ZFuckOff\System.Single.cs" />
-    <Compile Include="ZFuckOff\System.String.cs" />
-    <Compile Include="ZFuckOff\System.Text.StringBuilder.cs" />
-    <Compile Include="ZFuckOff\System.TimeSpan.cs" />
-    <Compile Include="ZFuckOff\System.Type.cs" />
-    <Compile Include="ZFuckOff\System.UInt16.cs" />
-    <Compile Include="ZFuckOff\System.UInt32.cs" />
-    <Compile Include="ZFuckOff\System.UInt64.cs" />
-    <Compile Include="ZFuckOff\System.UIntPtr.cs" />
-    <Compile Include="ZFuckOff\TArray.cs" />
-    <Compile Include="ZFuckOff\Z.Caching.cs" />
-    <Compile Include="ZFuckOff\Z.Collections.cs" />
-    <Compile Include="ZFuckOff\Z.Compression.cs" />
-    <Compile Include="ZFuckOff\Z.Data.SqlServerCe.cs" />
-    <Compile Include="ZFuckOff\Z.Drawing.cs" />
-    <Compile Include="ZFuckOff\Z.Net.cs" />
-    <Compile Include="ZFuckOff\Z.Serialization.cs" />
-    <Compile Include="ZFuckOff\Z.Web.cs" />
-    <Compile Include="ZFuckOff\Z.Window.Forms.cs" />
-    <Compile Include="ZFuckOff\Z.Xml.Linq.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\GetDeclaration.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\GetSignature.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Reflection.System.Object.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Array.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Boolean.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Byte.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.ByteArray.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Char.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Collections.Generic.IDictionary[string, object].cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Collections.Generic.IEnumerable[DirectoryInfo].cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Collections.Generic.IEnumerable[FileInfo].cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Collections.Generic.IEnumerable[string].cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.Common.DbCommand.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.Common.DbConnection.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.ConnectionState.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.DataColumnCollection.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.DataRow.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.DataTable.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.IDataReader.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.IDbConnection.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.SqlClient.SqlBulkCopy.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.SqlClient.SqlCommand.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.SqlClient.SqlConnection.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Data.SqlClient.SqlParameterCollection.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.DateTime.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.DateTimeOffset.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Decimal.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Delegate.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Double.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Enum.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Environment.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.EventHandler.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Guid.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Int16.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Int32.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Int64.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.IO.DirectoryInfo.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.IO.FileInfo.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.IO.Stream.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Object.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Object[].cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Random.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Reflection.Assembly.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Reflection.MemberInfo.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Reflection.Module.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Reflection.ParameterInfo.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.SByte.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Single.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.String.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Text.StringBuilder.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.TimeSpan.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.Type.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.UInt16.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.UInt32.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.UInt64.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\System.UIntPtr.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\TArray.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Caching.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Collections.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Compression.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Data.SqlServerCe.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Drawing.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Net.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Serialization.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Web.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Window.Forms.cs" />
+    <Compile Include="ZExtensionMethods_Compressed\Z.Xml.Linq.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,4 +1,4 @@
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Provides special fast (with linear time) ToString converting if base is pow of 2.

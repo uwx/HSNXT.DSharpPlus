@@ -26,7 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <inheritdoc />
     /// <summary>

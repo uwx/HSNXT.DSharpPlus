@@ -1,4 +1,4 @@
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Contains helping methods to with with bits in dword (<see cref="uint" />).

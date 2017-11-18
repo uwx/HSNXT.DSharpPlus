@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Multiplies using FHT.

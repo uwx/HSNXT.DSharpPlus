@@ -7,7 +7,7 @@
 using System;
 using System.Text;
 
-namespace TestProj47.Utils
+namespace HSNXT.Utils
 {
     /// <summary>
     ///     Crc32 calculator.

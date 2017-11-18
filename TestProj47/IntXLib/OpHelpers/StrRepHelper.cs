@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Helps to work with <see cref="IntX" /> string representations.

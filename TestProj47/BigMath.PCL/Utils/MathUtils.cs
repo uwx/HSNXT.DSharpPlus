@@ -6,7 +6,7 @@
 
 using System;
 
-namespace TestProj47.Utils
+namespace HSNXT.Utils
 {
     /// <summary>
     ///     Math utils.

@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     internal static class PortableExtensions
     {

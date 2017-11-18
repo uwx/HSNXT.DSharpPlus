@@ -5,9 +5,9 @@
 // Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\dff.Extensions.dll
 
 using System;
-using TestProj47.dff.Extensions.HelperClasses;
+using HSNXT.dff.Extensions.HelperClasses;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

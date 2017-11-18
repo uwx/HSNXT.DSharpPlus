@@ -10,11 +10,11 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using TestProj47.Utils;
+using HSNXT.Utils;
 
 // ReSharper disable NonReadonlyMemberInGetHashCode
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     ///     Represents a 128-bit signed integer.

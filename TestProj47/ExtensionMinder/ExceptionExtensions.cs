@@ -7,7 +7,7 @@
 using System;
 using System.Runtime.ExceptionServices;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

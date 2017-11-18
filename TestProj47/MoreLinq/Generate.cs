@@ -20,7 +20,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

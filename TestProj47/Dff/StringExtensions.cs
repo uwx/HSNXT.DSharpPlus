@@ -10,9 +10,9 @@ using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using TestProj47.dff.Extensions.Gps;
+using HSNXT.dff.Extensions.Gps;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

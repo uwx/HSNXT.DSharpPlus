@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Contains helping methods for work with FHT (Fast Hartley Transform).
@@ -207,8 +207,8 @@ namespace TestProj47
                 // Add carry
                 dataDigitInt += carryInt;
 #else
-// Round to the nearest
-				dataDigitInt = (long)(dataDigit < 0 ? dataDigit - 0.5 : dataDigit + 0.5) + carryInt;
+                // Round to the nearest
+				var dataDigitInt = (long)(dataDigit < 0 ? dataDigit - 0.5 : dataDigit + 0.5) + carryInt;
 #endif
 
                 // Get next carry floored; maybe modify data digit

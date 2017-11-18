@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace TestProj47
+namespace HSNXT
 {
     public class WebScrapper
     {

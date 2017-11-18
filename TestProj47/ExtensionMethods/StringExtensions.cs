@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

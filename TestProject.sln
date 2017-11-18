@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dickscord", "Dickscord\Dick
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRPCTest", "DRPCTest\DRPCTest.csproj", "{B22CA287-69E0-4F34-84E9-0E99EA07216E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CNextNotifier", "DSharpPlus.CNextNotifier\DSharpPlus.CNextNotifier.csproj", "{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Debug|Any CPU.Build.0 = Debug|x64
 		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Release|Any CPU.ActiveCfg = Release|x64
+		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

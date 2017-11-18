@@ -19,7 +19,7 @@
 
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
 #if !NO_EXCEPTION_SERIALIZATION
     using System.Runtime.Serialization;

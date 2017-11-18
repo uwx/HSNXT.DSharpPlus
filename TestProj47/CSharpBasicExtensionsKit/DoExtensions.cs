@@ -6,7 +6,7 @@
 
 using System;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

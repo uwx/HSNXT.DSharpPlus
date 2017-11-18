@@ -11,7 +11,7 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {

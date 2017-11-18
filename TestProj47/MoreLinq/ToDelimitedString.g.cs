@@ -25,7 +25,7 @@
 #pragma warning disable 3021 // 'type' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
 #endif
 
-namespace TestProj47
+namespace HSNXT
 {
     using System;
     using System.Collections.Generic;

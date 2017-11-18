@@ -24,7 +24,7 @@ using System.Collections;
 using System.Text;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// An implementation of Red-Black trees as an indexed, sorted collection with set semantics,

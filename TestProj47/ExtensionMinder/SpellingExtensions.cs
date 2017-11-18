@@ -7,9 +7,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SV = TestProj47.SpellingVariants;
+using SV = HSNXT.SpellingVariants;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
     {
@@ -17,14 +17,14 @@ namespace TestProj47
         {
             switch (spellingVariants)
             {
-                case SV.None:
+                case HSNXT.SpellingVariants.None:
                     return new[]
                     {
                         word
                     };
-                case SV.One:
+                case HSNXT.SpellingVariants.One:
                     return Edits(word);
-                case SV.Two:
+                case HSNXT.SpellingVariants.Two:
                     return Edits(word)
                         .SelectMany(Edits)
                         .ToArray();

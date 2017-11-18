@@ -17,7 +17,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>Serialization Extensions.</summary>
     /// <summary>Serialization Extensions.</summary>

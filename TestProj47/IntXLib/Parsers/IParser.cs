@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     /// Parser class interface.

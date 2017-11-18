@@ -33,12 +33,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using TestProj47.Utils;
+using HSNXT.Utils;
 
 // ReSharper disable UnusedMethodReturnValue.Local
 // ReSharper disable SuggestBaseTypeForParameter
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     ///     Big integer.

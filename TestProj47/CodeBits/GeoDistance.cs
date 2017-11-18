@@ -23,7 +23,7 @@ limitations under the License.
 using System;
 using System.Collections.Generic;
 
-namespace TestProj47
+namespace HSNXT
 {
     /// <summary>
     ///     Calculates the distance between two geographics locations

@@ -22,7 +22,7 @@
 using System;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// A collection class implementing a sorted dynamic array data structure.

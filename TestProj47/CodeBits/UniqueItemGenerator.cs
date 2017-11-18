@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static class UniqueItemGenerator
     {

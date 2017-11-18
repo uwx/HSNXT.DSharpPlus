@@ -7,7 +7,7 @@
 using System.IO;
 using System.Net;
 
-namespace TestProj47
+namespace HSNXT
 {
     public static partial class Extensions
 

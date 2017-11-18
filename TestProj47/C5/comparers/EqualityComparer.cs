@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using SCG = System.Collections.Generic;
 
-namespace TestProj47.C5
+namespace HSNXT.C5
 {
     /// <summary>
     /// Utility class for building default generic equality comparers.

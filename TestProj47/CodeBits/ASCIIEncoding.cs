@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace TestProj47.Portable
+namespace HSNXT.Portable
 {
     // ReSharper disable once InconsistentNaming
     public sealed class ASCIIEncoding
