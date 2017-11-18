@@ -1,6 +1,7 @@
 ﻿using System;
 using unirest_net.request;
 using System.Net.Http;
+using Mono.Web;
 using SW=System.Web;
 
 // ReSharper disable UnusedMethodReturnValue.Global
@@ -25,10 +26,7 @@ namespace Fallk.Unirest.Net.Unirest
         
         public bool EncodeSpaceAsPlusSign { get; set; }
         
-        public override Uri Url
-        {
-            get => TryCreateUrl(UrlString);
-        }
+        public override Uri Url => TryCreateUrl(UrlString);
 
         private Uri TryCreateUrl(string url)
         {
@@ -77,7 +75,7 @@ namespace Fallk.Unirest.Net.Unirest
 
         private string GetValue(string value)
         {
-            return EncodeSpaceAsPlusSign ? SW.HttpUtility.UrlEncode(value) : Uri.EscapeDataString(value);
+            return EncodeSpaceAsPlusSign ? HttpUtility.UrlEncode(value) : Uri.EscapeDataString(value);
         }
     }
 
