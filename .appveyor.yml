@@ -36,25 +36,25 @@ artifacts:
  - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
    name: DSharpPlus.CNextNotifier Release DLLs (.NET Standard 2.0)
    type: zip
- - path: "ExtensionOverflow\\bin\\Release\\net47\\*.dll"
-   name: ExtensionOverflow Release DLLs (.NET 4.7)
-   type: zip
+# - path: "ExtensionOverflow\\bin\\Release\\net47\\*.dll"
+#   name: ExtensionOverflow Release DLLs (.NET 4.7)
+#   type: zip
  - path: "OEISReader\\bin\\Release\\net47\\*.dll"
    name: OEISReader Release DLLs (.NET 4.7)
    type: zip
  - path: "TestProj47\\bin\\Release\\net47\\*.dll"
    name: TestProj47 Release DLLs (.NET 4.7)
    type: zip
- - path: "TestProject2\\bin\\Release\\net47\\*.dll"
-   name: TestProject2 Release DLLs (.NET 4.7)
-   type: zip
+# - path: "TestProject2\\bin\\Release\\net47\\*.dll"
+#   name: TestProject2 Release DLLs (.NET 4.7)
+#   type: zip
  - path: "Wither\\bin\\Release\\net47\\*.dll"
    name: Wither Release DLLs (.NET 4.7)
    type: zip
  - path: "Dickscord\\bin\\Release\\net47\\*.dll"
    name: Dickscord Release DLLs (.NET 4.7)
    type: zip
- - path: "DRPCTest\\bin\\Release\\net47\\*.dll"
+ - path: "DRPCTest\\bin\\x64\\Release\\net47\\*.dll"
    name: DRPCTest Release DLLs (.NET 4.7)
    type: zip
 
