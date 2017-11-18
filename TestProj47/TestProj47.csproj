@@ -41,9 +41,6 @@
       <HintPath>..\packages\Elders.PowerCollections.1.0.0\lib\net45\ClassLibrary2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\ExtensionOverflow\ExtensionMethods\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
-    </Reference>
     <Reference Include="SD.Tools.BCLExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a3f87088dcb994e1">
       <HintPath>..\packages\SD.Tools.BCLExtensions.1.1.1\lib\net35\SD.Tools.BCLExtensions.dll</HintPath>
     </Reference>
