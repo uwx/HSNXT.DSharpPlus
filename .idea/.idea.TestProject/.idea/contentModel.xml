@@ -51,8 +51,12 @@
         <e p="CustomDictionary.cs" t="Include" />
         <e p="DSharpPlus.CNextNotifier.csproj" t="IncludeRecursive" />
         <e p="Example.cs" t="Include" />
+        <e p="LICENSE" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
+            </e>
             <e p="netstandard2.0" t="Include">
               <e p="DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
             </e>

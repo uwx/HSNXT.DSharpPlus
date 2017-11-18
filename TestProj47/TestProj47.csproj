@@ -3,6 +3,7 @@
     <TargetFramework>net47</TargetFramework>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageId>TestProject.Extensions.HSNXT</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
