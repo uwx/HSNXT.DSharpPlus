@@ -5,6 +5,16 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageId>TestProject.Extensions.HSNXT</PackageId>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Appveyor_Build_Number)' == '' ">
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Appveyor_Build_Number)' != '' ">
+    <Version>1.0.$(Appveyor_Build_Number)</Version>
+    <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
+    <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.IO.Compression" Version="4.3.0" />

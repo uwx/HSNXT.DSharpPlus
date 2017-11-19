@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -144,7 +145,7 @@ namespace HSNXT
             }
             return true;
         }
-
+        
         public static unsafe ulong Aggregate(ulong* source, int size, Func<ulong, ulong, ulong> func)
         {
             if (source == null)
@@ -312,9 +313,7 @@ namespace HSNXT
                 {
                     foreach (var e in aothers)
                     {
-                        if (e.MoveNext()) continue;
-                        // else
-                        yield break;
+                        if (!e.MoveNext()) yield break;
                     }
                     yield return afirst.Current;
                     foreach (var enumerator in aothers)
@@ -334,6 +333,45 @@ namespace HSNXT
                 {
                     yield return (afirst.Current, asecond.Current);
                 }
+        }
+        
+        public static T[] ReflectToArray<T>(this IList<T> instance)
+        {
+            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            {
+                T[] v;
+                if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
+                {
+                    return v;
+                }
+            }
+            return null;
+        }
+        
+        public static T[] ReflectToArray<T>(this List<T> instance)
+        {
+            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            {
+                T[] v;
+                if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
+                {
+                    return v;
+                }
+            }
+            return null;
+        }
+        
+        public static T[] ReflectToArrayReadOnly<T>(this IReadOnlyList<T> instance)
+        {
+            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            {
+                T[] v;
+                if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
+                {
+                    return v;
+                }
+            }
+            return null;
         }
 
         public static IEnumerable<T> ReturnEnumerable<T>(this T item)
