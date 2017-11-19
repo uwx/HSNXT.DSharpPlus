@@ -3,23 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using NBasicExtensionMethod;
 
 // ReSharper disable StringCompareIsCultureSpecific.1
 // ReSharper disable ReturnValueOfPureMethodIsNotUsed
 
 namespace HSNXT
 {
-    internal static class Program
-    {
-        private static void Main() => Console.WriteLine("Hello World!");
-    }
-
     public class LazySplitter : IEnumerable<string>
     {
         private readonly string _self;
@@ -169,7 +164,44 @@ namespace HSNXT
             }
             return source1;
         }
+        
+        public static void Benchmark(this Action a)
+        {
+            Benchmark(a, 10000);
+        }
 
+        public static void Benchmark(this Action a, int iterations, int numberOfBenchmarks = 1)
+        {
+            var process = Process.GetCurrentProcess();
+            var oldAffinity = process.ProcessorAffinity;
+            process.ProcessorAffinity = (IntPtr)1;
+
+            var totalMilliseconds = 0D;
+            for (var benchmarkNumber = 0; benchmarkNumber < numberOfBenchmarks; benchmarkNumber++)
+            {
+                var stopwatch = new Stopwatch();
+
+                stopwatch.Start();
+                for (var i = 0; i < iterations; i++)
+                {
+                    a();
+                }
+                stopwatch.Stop();
+
+                totalMilliseconds += stopwatch.Elapsed.TotalMilliseconds;
+                Console.Write(stopwatch.Elapsed.TotalMilliseconds);
+                if (numberOfBenchmarks > 1 && benchmarkNumber < numberOfBenchmarks)
+                    Console.Write(", ");
+            }
+
+            if (numberOfBenchmarks > 1)
+                Console.Write("Average: " + (totalMilliseconds / numberOfBenchmarks));
+
+            Console.WriteLine();
+
+            process.ProcessorAffinity = oldAffinity;
+        }
+        
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
         /// <param name="self">This object</param>
         /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>
