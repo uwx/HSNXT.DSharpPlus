@@ -58,7 +58,7 @@ namespace Fallk.Unirest.Net.Unirest
             EncodeSpaceAsPlusSign = encodeSpaceAsPlusSign;
         }
 
-        public new HttpRequestUrl SetField(string key, string value)
+        public HttpRequestUrl SetField(string key, string value)
         {
             var val = GetValue(value);
             if (!HasFirstField)

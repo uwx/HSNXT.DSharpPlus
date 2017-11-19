@@ -104,6 +104,12 @@
         <e p="SuperOEISGenerator.csproj" t="IncludeRecursive" />
       </e>
       <e p="TestProj47" t="IncludeRecursive">
+        <e p="!Resources" t="Include">
+          <e p="Resources1.Designer.cs" t="Include" />
+          <e p="Resources1.resx" t="Include" />
+          <e p="Strings.Designer.cs" t="Include" />
+          <e p="Strings.resx" t="Include" />
+        </e>
         <e p="BCLExtensions" t="Include">
           <e p="ArgumentVerifier.cs" t="Include" />
           <e p="DbConnectionExtensionMethods.cs" t="Include" />
@@ -963,8 +969,6 @@
             <e p="Constants.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
             <e p="FhtMultiplicationException.cs" t="Include" />
-            <e p="Strings.Designer.cs" t="Include" />
-            <e p="Strings.resx" t="Include" />
           </e>
         </e>
         <e p="LICENSE.BCLExtensions.txt" t="Include" />
@@ -1112,6 +1116,7 @@
           <e p="StringExtension.cs" t="Include" />
           <e p="TimespanExtension.cs" t="Include" />
         </e>
+        <e p="String.cs" t="Include" />
         <e p="TestProj47.csproj" t="IncludeRecursive" />
         <e p="TestProj47.csproj.DotSettings" t="Include" />
         <e p="ZExtensionMethods_Compressed" t="Include">
