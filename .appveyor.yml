@@ -54,6 +54,9 @@ artifacts:
  - path: "Dickscord\\bin\\Release\\net47\\*.dll"
    name: Dickscord Release DLLs (.NET 4.7)
    type: zip
+ - path: "ReflectToArrayTest\\bin\\Release\\net47\\*.dll"
+   name: ReflectToArrayTest Release DLLs (.NET 4.7)
+   type: zip
  - path: "DRPCTest\\bin\\x64\\Release\\net47\\*.dll"
    name: DRPCTest Release DLLs (.NET 4.7)
    type: zip
