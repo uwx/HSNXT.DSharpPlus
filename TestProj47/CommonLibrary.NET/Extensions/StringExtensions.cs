@@ -16,9 +16,9 @@
 using System.Collections.Generic;
 using HSNXT.ComLib.Collections;
 
-namespace CommonLibrary
+namespace HSNXT
 {
-    public static class StringExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Parses a delimited list of items into a readonly dictionary.

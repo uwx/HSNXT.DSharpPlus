@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Extension methods for dictionaries.
-    /// </summary>
-    public static class ListExtensions
-    {        
+    public static partial class Extensions
+    {
         /// <summary>
         /// AddRange of items of same type to IList 
         /// </summary>
@@ -23,19 +20,6 @@ namespace HSNXT.ComLib.Extensions
                 items.Add(item);
 
             return items;
-        }
-
-
-        /// <summary>
-        /// Is empty collection.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="items"></param>
-        /// <returns></returns>
-        [Obsolete("Method moved to Utilities.EnumerableExtensions.IsNullOrEmpty()")]
-        public static bool IsNullOrEmpty<T>(IList<T> items)
-        {
-            return items.IsNullOrEmpty();
         }
     }
 }

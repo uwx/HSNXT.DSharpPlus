@@ -113,10 +113,12 @@ namespace HSNXT.ComLib.Arguments
             if( string.IsNullOrEmpty(prefix)) prefix = "-";
             if( string.IsNullOrEmpty(separator)) separator = ":";
 
-            requiredNamed.ForEach(argAttr => requiredNamedSample += string.Format("{0}{1}{2}{3} ", prefix, argAttr.Name, separator, argAttr.Example));
-            optionalNamed.ForEach(argAttr => optionalNamedSample += string.Format("{0}{1}{2}{3} ", prefix, argAttr.Name, separator, argAttr.Example));
-            requiredIndex.ForEach(argAttr => requiredIndexSample += string.Format("{0} ", argAttr.Example));
-            optionalIndex.ForEach(argAttr => optionalIndexSample += string.Format("{0} ", argAttr.Example));
+            requiredNamed.ForEach(argAttr => requiredNamedSample +=
+                $"{prefix}{argAttr.Name}{separator}{argAttr.Example} ");
+            optionalNamed.ForEach(argAttr => optionalNamedSample +=
+                $"{prefix}{argAttr.Name}{separator}{argAttr.Example} ");
+            requiredIndex.ForEach(argAttr => requiredIndexSample += $"{argAttr.Example} ");
+            optionalIndex.ForEach(argAttr => optionalIndexSample += $"{argAttr.Example} ");
 
             // Get all the examples.
             var examples = new List<string>

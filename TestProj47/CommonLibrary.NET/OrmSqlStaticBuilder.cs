@@ -91,7 +91,7 @@ namespace HSNXT.ComLib.OrmLite
                 var prop = props[ndx];
                 
                 // Add to insert.
-                bufferIns.Append(string.Format(", [{0}]", prop.Name));
+                bufferIns.Append($", [{prop.Name}]");
 
                 // Add to values.
                 var val = GetValue(entity, prop);
@@ -125,7 +125,7 @@ namespace HSNXT.ComLib.OrmLite
             {
                 var prop = props[ndx];
                 var val = GetValue(entity, prop);
-                buffer.Append(string.Format(", [{0}] = {1}", prop.Name, val));
+                buffer.Append($", [{prop.Name}] = {val}");
             }
             buffer.Append(" where Id = " + id + ";");
             return buffer.ToString();
@@ -159,7 +159,7 @@ namespace HSNXT.ComLib.OrmLite
             if (prop.PropertyType == typeof(DateTime))
             {
                 var date = (DateTime)prop.GetValue(entity, null);
-                return string.Format("'{0}'", date.ToString("yyyy-MM-dd"));
+                return $"'{date.ToString("yyyy-MM-dd")}'";
             }
             // Bool
             if (prop.PropertyType == typeof(bool))
@@ -310,10 +310,10 @@ namespace HSNXT.ComLib.OrmLite
 
             SetupColumns(columnNames, columnValues);
 
-            var sql = "\"update " + _tableName + string.Format(" set [{0}] = \" + {1} + ", columnNames[0], columnValues[0]);
+            var sql = "\"update " + _tableName + $" set [{columnNames[0]}] = \" + {columnValues[0]} + ";
             for (var ndx = 1; ndx < columnValues.Count; ndx++)
             {
-                sql += string.Format("\", [{0}] = \" + {1} + ", columnNames[ndx], columnValues[ndx]);
+                sql += $"\", [{columnNames[ndx]}] = \" + {columnValues[ndx]} + ";
                 if (ndx % 5 == 0) sql += Environment.NewLine + _tab;
             }
 
@@ -388,7 +388,7 @@ namespace HSNXT.ComLib.OrmLite
         public virtual string GetValue(string objectPropName, PropInfo prop)
         {
             if (prop.DataType == typeof(string) || prop.DataType == typeof(StringClob))
-                return string.Format("\"'\" + DataUtils.Encode({0}) + \"'\"", objectPropName + prop.Name);
+                return $"\"'\" + DataUtils.Encode({objectPropName + prop.Name}) + \"'\"";
 
             if (prop.DataType == typeof(DateTime))
                 return "\"'\" + " + objectPropName + prop.Name + ".ToString(\"yyyy-MM-dd\") + \"'\"";

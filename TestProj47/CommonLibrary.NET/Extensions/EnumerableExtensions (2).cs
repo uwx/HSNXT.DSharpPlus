@@ -17,26 +17,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HSNXT.ComLib
+namespace HSNXT
 {
-
-    /// <summary>
-    /// Extension methods for collections.
-    /// </summary>
-    public static class EnumerableExtensions
+    public static partial class Extensions
     {
-        /// <summary>
-        /// Execute action on each item in enumeration.
-        /// </summary>
-        /// <typeparam name="T">Type of item to use with the method.</typeparam>
-        /// <param name="items">List of items.</param>
-        /// <param name="action">Action to call for each item.</param>
-        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
-        {
-            foreach (var item in items)
-                action(item);
-        }
-
 
         /// <summary>
         /// Joins the specified items.
@@ -148,55 +132,6 @@ namespace HSNXT.ComLib
 
 
         #region Conditional Checks
-        /// <summary>
-        /// Determines whether the specified enumerable collection is empty.
-        /// Note: This method has the side effect of moving the position of
-        /// the enumerator back to the starting position. Normally, this
-        /// shouldn't effect anything unless you have a non-standard IEnumerable
-        /// implementation.
-        /// See also <a href="http://stackoverflow.com/questions/41319/checking-if-a-list-is-empty-with-linq"></a>.
-        /// </summary>
-        /// <typeparam name="T">Type of items to use.</typeparam>
-        /// <param name="items">Enumerable to test</param>
-        /// <returns>
-        /// 	<c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
-        /// </returns>
-        public static Boolean IsEmpty<T>(this IEnumerable<T> items)
-        {
-            if (items == null) throw new ArgumentNullException("items");
-
-            var isEmpty = !items.GetEnumerator().MoveNext();
-            /* Reset the enumerator back to the starting position in the off
-             * chance that we have a very poorly implemented IEnumerable
-             * that does not return a *new* enumerator with every invocation
-             * of the GetEnumerator method. */
-            try
-            {
-                items.GetEnumerator().Reset();
-            }
-            // If this method is not supported, just skip the operation
-            catch (NotSupportedException)
-            {
-            }
-
-            return isEmpty;
-        }
-
-        /// <summary>
-        /// Determines whether the specified enumerable collection is empty.
-        /// Note: This method has the side effect of moving the position of
-        /// the enumerator back to the starting position.
-        /// </summary>
-        /// <typeparam name="T">Type of items to use.</typeparam>
-        /// <param name="items">Enumerable to test</param>
-        /// <returns>
-        /// 	<c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
-        /// </returns>
-        public static Boolean IsNullOrEmpty<T>(this IEnumerable<T> items)
-        {
-            return items == null || items.IsEmpty();
-        }
-
         /// <summary>
         /// Check for any nulls.
         /// </summary>

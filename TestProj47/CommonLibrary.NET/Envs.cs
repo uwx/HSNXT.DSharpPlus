@@ -125,7 +125,8 @@ namespace HSNXT.ComLib.Environments
                 //         Apply prod.config to "prod" refpath, qa.config to "qa" refPath, dev.config to "dev" refpath.
                 else if (configs.Length > 1 && distributeRefPaths)
                 {
-                    var error = string.Format("The number of reference paths({0}) must be less than or equal to the number of environments({1}).", configs.Length, availableEnvs.Count);
+                    var error =
+                        $"The number of reference paths({configs.Length}) must be less than or equal to the number of environments({availableEnvs.Count}).";
                     if(availableEnvs.Count < configs.Length) throw new ArgumentException(error);
 
                     for (var ndx = 0; ndx < availableEnvs.Count; ndx++)

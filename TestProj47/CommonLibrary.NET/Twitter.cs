@@ -110,7 +110,7 @@ namespace HSNXT.ComLib.Web.Services.TwitterSupport
         /// <returns></returns>
         public static IList<Tweet> GetFeed(string username, int maxEntries)
         {
-            var url = string.Format("http://twitter.com/statuses/user_timeline/{0}.rss", HttpUtility.UrlEncode(username));
+            var url = $"http://twitter.com/statuses/user_timeline/{HttpUtility.UrlEncode(username)}.rss";
             IList<Tweet> tweets = null;
             try
             {

@@ -96,7 +96,7 @@ namespace HSNXT.ComLib
                 }
                 catch (Exception ex)
                 {
-                    _errors.Add(string.Format("Error ugrading {0}:{1} : {2} ", name, description, ex.Message));
+                    _errors.Add($"Error ugrading {name}:{description} : {ex.Message} ");
                 }
             }
             else

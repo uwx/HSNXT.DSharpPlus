@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 using HSNXT.ComLib.Lang.Core;
-using HSNXT.ComLib.Lang.Docs;
 using HSNXT.ComLib.Lang.Helpers;
 // <lang:using>
 
@@ -419,11 +418,8 @@ namespace HSNXT.ComLib.Lang.Types
         private FunctionMetaData AddMethodInfo(MemberTypes memberType, string name, string implementationMethod, Type returnType, string description)
         {
             var funcdef = new FunctionMetaData(name, null);
-            funcdef.Doc = new DocTags();
 
-            // Todo: 
             funcdef.ReturnType = LangTypeHelper.ConvertToLangType(returnType);
-            funcdef.Doc.Summary = description;
 
             var mappedMethod = new MappedMethod();
             mappedMethod.DataTypeMethod = name;

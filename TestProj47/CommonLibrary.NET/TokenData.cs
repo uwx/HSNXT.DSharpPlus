@@ -58,7 +58,8 @@
         public override string ToString()
         {   
             var tokenType = Token.GetType().Name.Replace("Token", "");
-            var info = string.Format("Index: {0}, Line: {1}, CharPos: {2}, Pos: {3}, Type: {4}, Text: {5}", Index, Line, LineCharPos, Pos, tokenType, Token.Text);
+            var info =
+                $"Index: {Index}, Line: {Line}, CharPos: {LineCharPos}, Pos: {Pos}, Type: {tokenType}, Text: {Token.Text}";
             return info;
         }
     }

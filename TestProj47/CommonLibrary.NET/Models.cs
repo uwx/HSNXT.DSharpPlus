@@ -476,7 +476,7 @@ namespace HSNXT.ComLib.Models
         /// <returns>The current instance of the model.</returns>
         public Model BuildInstallSqlFile()
         {
-            this.InstallSqlFile = string.Format("{0}.sql", this.Name);
+            this.InstallSqlFile = $"{this.Name}.sql";
             return this;
         }
 

@@ -1,13 +1,11 @@
 ﻿using System;
 using HSNXT.ComLib.Authentication;
+using HSNXT.ComLib.Entities;
 using HSNXT.ComLib.Feeds;
 
-namespace HSNXT.ComLib.Entities.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Extension methods for an entity.
-    /// </summary>
-    public static class EntityExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Whether or not the user supplied is the owner.

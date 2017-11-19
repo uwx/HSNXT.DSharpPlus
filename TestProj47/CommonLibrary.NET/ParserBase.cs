@@ -350,29 +350,7 @@ namespace HSNXT.ComLib.Lang.Parsing
             // Parse the doc tags.
             // Apply the doc tags to the function.
             var func = ((FuncDeclareExpr)stmt).Function;
-            var tags = DocHelper.ParseDocTags(_comments);
-            func.Meta.Doc = tags.Item1;
             
-            // Associate all the argument specifications to the function metadata
-            foreach (var arg in tags.Item1.Args)
-            {
-                if (!func.Meta.ArgumentsLookup.ContainsKey(arg.Name))
-                    _tokenIt.BuildSyntaxException("Doc argument name : '" + arg.Name + "' does not exist in function : " + func.Name);
-
-                var funcArg = func.Meta.ArgumentsLookup[arg.Name];
-                funcArg.Alias = arg.Alias;
-                funcArg.Desc = arg.Desc;
-                funcArg.Examples = arg.Examples;
-                funcArg.Type = arg.Type;
-
-                // Now associate the alias to the arg names.
-                func.Meta.ArgumentsLookup[funcArg.Alias] = funcArg;
-                if (!string.IsNullOrEmpty(funcArg.Alias))
-                {
-                    func.Meta.ArgumentNames[funcArg.Alias] = funcArg.Alias;
-                }
-            }
-
             // Clear the comment state.
             _comments.Clear();
             _hasSummaryComments = false;

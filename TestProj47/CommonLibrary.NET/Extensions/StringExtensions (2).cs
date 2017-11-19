@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using HSNXT.ComLib;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// This static class contains several common String extension methods.
-    /// </summary>
-    public static class StringExtensions
+    public static partial class Extensions
     {
         #region Appending
         /// <summary>
@@ -82,22 +80,6 @@ namespace HSNXT.ComLib.Extensions
 
 
         #region Truncation
-        /// <summary>
-        /// Truncates the string.
-        /// </summary>
-        /// <param name="txt">String to truncate.</param>
-        /// <param name="maxChars">Maximum string length.</param>
-        /// <returns>Truncated string.</returns>
-        public static string Truncate(this string txt, int maxChars)
-        {
-            if (string.IsNullOrEmpty(txt))
-                return txt;
-
-            if (txt.Length <= maxChars)
-                return txt;
-
-            return txt.Substring(0, maxChars);
-        }
 
 
         /// <summary>
@@ -134,18 +116,6 @@ namespace HSNXT.ComLib.Extensions
             return txt.ToBytesEncoding(new ASCIIEncoding());
         }
 
-
-        /// <summary>
-        /// Convert the text to bytes using the system default code page.
-        /// </summary>
-        /// <param name="txt">Text to convert to bytes.</param>
-        /// <returns>Bytes representing the string.</returns>
-        public static byte[] ToBytes(this string txt)
-        {
-            return txt.ToBytesEncoding(Encoding.Default);
-        }
-
-
         /// <summary>
         /// Convert the text to bytes using a specified encoding.
         /// </summary>
@@ -154,10 +124,7 @@ namespace HSNXT.ComLib.Extensions
         /// <returns>Bytes representing the string.</returns>
         public static byte[] ToBytesEncoding(this string txt, Encoding encoding)
         {
-            if (string.IsNullOrEmpty(txt))
-                return new byte[] { };
-
-            return encoding.GetBytes(txt);
+            return string.IsNullOrEmpty(txt) ? new byte[] { } : encoding.GetBytes(txt);
         }
 
 
@@ -166,7 +133,7 @@ namespace HSNXT.ComLib.Extensions
         /// </summary>
         /// <param name="bytes">ASCII bytes.</param>
         /// <returns>String representation of ASCII bytes.</returns>
-        public static string StringFromBytesASCII(this byte[] bytes)
+        public static string StringFromBytesAscii(this byte[] bytes)
         {
             return bytes.StringFromBytesEncoding(new ASCIIEncoding());
         }
@@ -191,10 +158,7 @@ namespace HSNXT.ComLib.Extensions
         /// <returns>String representation of bytes.</returns>
         public static string StringFromBytesEncoding(this byte[] bytes, Encoding encoding)
         {
-            if (0 == bytes.GetLength(0))
-                return null;
-
-            return encoding.GetString(bytes);
+            return 0 == bytes.GetLength(0) ? null : encoding.GetString(bytes);
         }
 
 
@@ -220,10 +184,7 @@ namespace HSNXT.ComLib.Extensions
                 return false;
 
             var trimed = txt.Trim().ToLower();
-            if (trimed == "yes" || trimed == "true" || trimed == "1")
-                return true;
-
-            return false;
+            return trimed == "yes" || trimed == "true" || trimed == "1";
         }
 
 
@@ -237,19 +198,6 @@ namespace HSNXT.ComLib.Extensions
         {
             return ToInt(txt);
         }
-
-
-        /// <summary>
-        /// Converts a string to an integer.
-        /// </summary>
-        /// <param name="txt">String to convert to integer.</param>
-        /// <returns>Integer converted from string.</returns>
-        /// <remarks>The method takes into starting monetary symbols like $.</remarks>
-        public static int ToInt(this string txt)
-        {
-            return ToNumber(txt, s => Convert.ToInt32(Convert.ToDouble(s)), 0);
-        }
-
 
         /// <summary>
         /// Converts a string to a long and returns it as an object.
@@ -271,7 +219,7 @@ namespace HSNXT.ComLib.Extensions
         /// <remarks>The method takes into starting monetary symbols like $.</remarks>
         public static long ToLong(this string txt)
         {
-            return ToNumber(txt, s => Convert.ToInt64(s), 0);
+            return ToNumber(txt, Convert.ToInt64, 0);
         }
 
 
@@ -285,19 +233,6 @@ namespace HSNXT.ComLib.Extensions
         {
             return ToDouble(txt);
         }
-
-
-        /// <summary>
-        /// Converts a string to a double.
-        /// </summary>
-        /// <param name="txt">String to convert from double.</param>
-        /// <returns>Double converted from string.</returns>
-        /// <remarks>The method takes into starting monetary symbols like $.</remarks>
-        public static double ToDouble(this string txt)
-        {
-            return ToNumber(txt, s => Convert.ToDouble(s), 0);
-        }
-
 
         /// <summary>
         /// Converts a string to a float and returns it as an object.
@@ -319,7 +254,7 @@ namespace HSNXT.ComLib.Extensions
         /// <remarks>The method takes into starting monetary symbols like $.</remarks>
         public static float ToFloat(this string txt)
         {
-            return ToNumber(txt, s => Convert.ToSingle(s), 0);
+            return ToNumber(txt, Convert.ToSingle, 0);
         }
 
 
@@ -382,37 +317,6 @@ namespace HSNXT.ComLib.Extensions
             return ToDateTime(txt);
         }
 
-
-        /// <summary>
-        /// Converts a string to a datetime instance.
-        /// </summary>
-        /// <param name="txt">String to convert to datetime instance.</param>
-        /// <returns>Datetime instance converted from string.</returns>
-        public static DateTime ToDateTime(this string txt)
-        {
-            if (string.IsNullOrEmpty(txt))
-                return DateTime.MinValue;
-
-            var trimmed = txt.Trim().ToLower();
-            if (trimmed.StartsWith("$"))
-            {
-                if (trimmed == "${today}") return DateTime.Today;
-                if (trimmed == "${yesterday}") return DateTime.Today.AddDays(-1);
-                if (trimmed == "${tommorrow}") return DateTime.Today.AddDays(1);
-                if (trimmed == "${t}") return DateTime.Today;
-                if (trimmed == "${t-1}") return DateTime.Today.AddDays(-1);
-                if (trimmed == "${t+1}") return DateTime.Today.AddDays(1);
-                if (trimmed == "${today+1}") return DateTime.Today.AddDays(1);
-                if (trimmed == "${today-1}") return DateTime.Today.AddDays(-1);
-
-                // Handles ${t+4} or ${t-9}
-                var internalVal = trimmed.Substring(2, (trimmed.Length -1 ) - 2);
-                var result = DateParser.ParseTPlusMinusX(internalVal);
-                return result;
-            }
-            var parsed = DateTime.Parse(trimmed);
-            return parsed;
-        }
         #endregion
 
 
@@ -485,24 +389,6 @@ namespace HSNXT.ComLib.Extensions
             return Convert.ToString(Convert.ToInt32(txt, 16), 2);
         }
 
-
-        /// <summary>
-        /// Converts a hexadecimal string to a byte array representation.
-        /// </summary>
-        /// <param name="txt">Hexadecimal string to convert to byte array.</param>
-        /// <returns>Byte array representation of the string.</returns>
-        /// <remarks>The string is assumed to be of even size.</remarks>
-        public static byte[] HexToByteArray(this string txt)
-        {
-            var b = new byte[txt.Length / 2];
-            for (var i = 0; i < txt.Length; i += 2)
-            {
-                b[i / 2] = Convert.ToByte(txt.Substring(i, 2), 16);
-            }
-            return b;
-        }
-
-
         /// <summary>
         /// Converts a byte array to a hexadecimal string representation.
         /// </summary>
@@ -554,7 +440,7 @@ namespace HSNXT.ComLib.Extensions
 
             for (var i = 0; i < txt.Length; i++)
             {
-                var pos = originalChars.IndexOf(txt.Substring(i, 1));
+                var pos = originalChars.IndexOf(txt.Substring(i, 1), StringComparison.Ordinal);
                 
                 if (-1 != pos)
                     returned += newChars.Substring(pos, 1);

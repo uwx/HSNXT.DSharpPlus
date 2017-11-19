@@ -1,13 +1,9 @@
 ﻿using System;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// This class provides extension methods that help
-    /// with common tasks associated with datetime types.
-    /// </summary>
-    public static class DateTimeExtensions
-    {        
+    public static partial class Extensions
+    {
         #region Dates
         /// <summary>
         /// Determines whether [is leap year] [the specified date].
@@ -33,19 +29,6 @@ namespace HSNXT.ComLib.Extensions
         {
             var lastDayOfMonth = LastDayOfMonth(date);
             return lastDayOfMonth == date.Day;
-        }
-
-        /// <summary>
-        /// Determines whether the specified date is a weekend.
-        /// </summary>
-        /// <param name="source">Source date</param>
-        /// <returns>
-        /// 	<c>true</c> if the specified source is a weekend; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsWeekend(this DateTime source)
-        {
-            return source.DayOfWeek == DayOfWeek.Saturday ||
-                   source.DayOfWeek == DayOfWeek.Sunday;
         }
 
         /// <summary>

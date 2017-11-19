@@ -1,11 +1,8 @@
 ﻿using System;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// This static class provides several common extensions for TimeSpan.
-    /// </summary>
-    public static class TimeSpanExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Determines whether [is midnight exactly] [the specified t].

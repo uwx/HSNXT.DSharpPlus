@@ -16,81 +16,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace HSNXT.ComLib.Collections
+namespace HSNXT
 {
-    /*
-    /// <summary>
-    /// Extensions to Non-Generic Dictionary
-    /// </summary>
-    public static class DictionaryNonGenericExtensions
-    {
-        /// <summary>
-        /// Get typed value.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="d"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static T Get<T>(this IDictionary d, object key)
-        {
-            object result = d[key];
-            T converted = (T)ConvertTo<T>(result);
-            return converted;
-        }
-
-
-        /// <summary>
-        /// Get using default value.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="d"></param>
-        /// <param name="key"></param>
-        /// <param name="defaultValue"></param>
-        /// <returns></returns>
-        public static T Get<T>(this IDictionary d, object key, T defaultValue)
-        {
-            if (!d.Contains(key)) return defaultValue;
-
-            object result = d[key];
-            T converted = (T)ConvertTo<T>(result);
-            return converted;
-        }
-
-
-        /// <summary>
-        /// Convert to correct type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public static T ConvertTo<T>(object input)
-        {
-            object result = default(T);
-            if (typeof(T) == typeof(int))
-                result = System.Convert.ToInt32(input);
-            else if (typeof(T) == typeof(long))
-                result = System.Convert.ToInt64(input);
-            else if (typeof(T) == typeof(string))
-                result = System.Convert.ToString(input);
-            else if (typeof(T) == typeof(bool))
-                result = System.Convert.ToBoolean(input);
-            else if (typeof(T) == typeof(double))
-                result = System.Convert.ToDouble(input);
-            else if (typeof(T) == typeof(DateTime))
-                result = System.Convert.ToDateTime(input);
-            else
-                result = input;
-
-            return (T)result;
-        }
-    }
-
-    */
-
-    /// <summary>
-    /// Extensions to Non-Generic Dictionary
-    /// </summary>
-    public static class DictionaryStringExtensions
+    public static partial class Extensions
     {
 
         #region Public dictionary value conversion methods

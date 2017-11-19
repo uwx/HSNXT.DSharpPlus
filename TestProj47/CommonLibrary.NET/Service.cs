@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using HSNXT.ComLib.Authentication;
 using HSNXT.ComLib.Data;
-using HSNXT.ComLib.Entities.Extensions;
+using HSNXT;
 using HSNXT.ComLib.Exceptions;
 using HSNXT.ComLib.Logging;
 

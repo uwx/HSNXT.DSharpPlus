@@ -189,7 +189,7 @@ namespace HSNXT.ComLib.Data
             var col = surround ? left + Field + right : Field;
             var val = string.IsNullOrEmpty(Value) ? "''" : Value;
 
-            return string.Format("{0} {1} {2}", col, Comparison, val);
+            return $"{col} {Comparison} {val}";
         }
     }
 

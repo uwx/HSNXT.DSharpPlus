@@ -133,7 +133,7 @@ namespace HSNXT.ComLib
             // String ? Encode single quotes. ' = ''
             if (propInfo.PropertyType == typeof(string))
             {
-                fieldVal = string.Format("'{0}'", fieldVal.Replace("'", "''"));
+                fieldVal = $"'{fieldVal.Replace("'", "''")}'";
             }
             else if (propInfo.PropertyType == typeof(DateTime))
             {

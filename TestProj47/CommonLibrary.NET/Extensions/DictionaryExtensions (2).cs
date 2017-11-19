@@ -2,12 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Extension methods for dictionaries.
-    /// </summary>
-    public static class DictionaryExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Convert to correct type.

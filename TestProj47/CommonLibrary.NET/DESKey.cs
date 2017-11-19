@@ -15,7 +15,7 @@
 
 using System;
 using System.Collections.Generic;
-using HSNXT.ComLib.Extensions;
+using HSNXT;
 
 namespace HSNXT.ComLib.Cryptography.DES
 {

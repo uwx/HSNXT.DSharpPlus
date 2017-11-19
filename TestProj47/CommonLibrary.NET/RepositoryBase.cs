@@ -162,7 +162,7 @@ namespace HSNXT.ComLib.Entities
         /// <returns>List with all entities.</returns>
         public virtual IList<T> GetAll()
         {
-            var sql = string.Format("select * from {0} ", TableName);
+            var sql = $"select * from {TableName} ";
             var result = _db.QueryNoParams(sql, CommandType.Text, RowMapper);
             OnRowsMapped(result);
             return result;
@@ -209,7 +209,7 @@ namespace HSNXT.ComLib.Entities
         /// <param name="id">Id of entity to delete.</param>
         public virtual void Delete(object id)
         {
-            var sql = string.Format("delete from {0} where Id = {1}", TableName, id);
+            var sql = $"delete from {TableName} where Id = {id}";
             _db.ExecuteNonQueryText(sql, null);
         }
 
@@ -230,7 +230,7 @@ namespace HSNXT.ComLib.Entities
         /// </summary>
         public virtual void DeleteAll()
         {
-            var sql = string.Format("delete from {0}", TableName);
+            var sql = $"delete from {TableName}";
             _db.ExecuteNonQueryText(sql, null);
         }
 
@@ -243,7 +243,7 @@ namespace HSNXT.ComLib.Entities
         public virtual void Delete(Expression<Func<T, bool>> expression)
         {
             var filter = RepositoryExpressionHelper.BuildSinglePropertyCondition(expression);
-            var sql = string.Format("delete from {0} where {1}", TableName, filter);
+            var sql = $"delete from {TableName} where {filter}";
             _db.ExecuteNonQueryText(sql, null);
         }
         
@@ -255,7 +255,7 @@ namespace HSNXT.ComLib.Entities
         public virtual void Delete(IQuery criteria)
         {
             var sql = criteria.Builder.BuildConditions(false);
-            var fullSql = string.Format("delete from {0} where {1}", TableName, sql);            
+            var fullSql = $"delete from {TableName} where {sql}";            
             _db.ExecuteNonQueryText(fullSql, null);
         }
 

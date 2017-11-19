@@ -95,7 +95,7 @@ namespace HSNXT.ComLib.Lang.AST
         public virtual string AsString(string tab = "", bool incrementTab = false, bool includeNewLine = true)
         {
             var stmtType = this.GetType().Name.Replace("Expr", "");
-            var info = string.Format("{0}, {1}, {2} ", stmtType, Ref.Line, Ref.CharPos);
+            var info = $"{stmtType}, {Ref.Line}, {Ref.CharPos} ";
 
             if (incrementTab)
                 tab = tab + "\t";

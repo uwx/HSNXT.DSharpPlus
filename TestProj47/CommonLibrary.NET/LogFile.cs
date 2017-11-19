@@ -158,7 +158,7 @@ namespace HSNXT.ComLib.Logging
                         var file = new FileInfo(_filepath);
                         var files = Directory.GetFiles(file.DirectoryName, searchPath + "*", SearchOption.TopDirectoryOnly);
 
-                        _filepathUnique = string.Format("{0}-part{1}{2}", searchPath, files.Length, file.Extension);
+                        _filepathUnique = $"{searchPath}-part{files.Length}{file.Extension}";
                         _writer.Flush();
                         _writer.Close();
                         _writer = new StreamWriter(_filepathUnique);

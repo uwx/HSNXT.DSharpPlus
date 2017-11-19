@@ -2,13 +2,9 @@
 using System.Linq;
 using System.Text;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Collection of extension utility methods useful for processing latin
-    /// text.
-    /// </summary>
-    public static class LatinWordExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// A very liberal list of whitespace characters used in unicode.

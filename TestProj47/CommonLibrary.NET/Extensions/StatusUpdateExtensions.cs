@@ -15,14 +15,13 @@
 
 using System;
 using System.Collections.Generic;
+using HSNXT.ComLib;
 using HSNXT.ComLib.Entities;
+using HSNXT.ComLib.StatusUpdater;
 
-namespace HSNXT.ComLib.StatusUpdater
+namespace HSNXT
 {
-    /// <summary>
-    /// Constants representing the various status.
-    /// </summary>
-    public class StatusUpdateConstants
+    public static partial class Extensions
     {
         /// <summary>
         /// Status update started.
@@ -132,7 +131,7 @@ namespace HSNXT.ComLib.StatusUpdater
         public void Update(string taskName, string status, string comment, DateTime started, DateTime ended)
         {
             // To uniquely identify a status.
-            var filter = string.Format(" BatchId = {0} and BatchName = '{1}' and Task = '{2}' ", this.BatchId, this.BatchName, taskName);
+            var filter = $" BatchId = {this.BatchId} and BatchName = '{this.BatchName}' and Task = '{taskName}' ";
             var items = Find(filter);
             var isCreating = false;
 
@@ -187,8 +186,7 @@ namespace HSNXT.ComLib.StatusUpdater
             if (string.IsNullOrEmpty(update.Comment))
             {
                 // Batch , Task, Status at Time.
-                var comment = string.Format("[{0}] : [{1}] : [{2}]",
-                    update.BatchName, update.Task, update.Status);
+                var comment = $"[{update.BatchName}] : [{update.Task}] : [{update.Status}]";
                 update.Comment = comment;
             }
         }

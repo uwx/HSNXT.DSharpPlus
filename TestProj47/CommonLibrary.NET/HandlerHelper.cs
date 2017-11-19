@@ -17,7 +17,7 @@ using System;
 using System.Collections;
 using System.Net;
 using System.Web;
-using HSNXT.ComLib.Extensions;
+using HSNXT;
 
 namespace HSNXT.ComLib.Web.HttpHandlers
 {

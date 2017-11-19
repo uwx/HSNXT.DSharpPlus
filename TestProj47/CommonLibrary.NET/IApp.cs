@@ -36,11 +36,6 @@ namespace HSNXT.ComLib.Application
         BoolMessageItem Result { get; set; }
 
 
-        /// <summary>
-        /// Application configurable settings.
-        /// </summary>
-        AppConfig Settings { get; set; }
-
 
         /// <summary>
         /// Get the starttime of the application.

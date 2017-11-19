@@ -143,8 +143,9 @@ namespace HSNXT.ComLib.Lang.Plugins
                 exitcode = 1;
                 if (failOnError)
                 { 
-                    var error = string.Format("An error occurred executing external application '{0}', in '{1}', with '{2}'.\r\n"
-                              + "message: {3}", exePath, workingDir, args, ex.Message);
+                    var error =
+                        $"An error occurred executing external application '{exePath}', in '{workingDir}', with '{args}'.\r\n" +
+                        $"message: {ex.Message}";
                     throw new LangFailException(error, this.Ref.ScriptName, this.Ref.Line);
                 }
             }

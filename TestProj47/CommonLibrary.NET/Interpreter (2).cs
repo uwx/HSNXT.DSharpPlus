@@ -252,7 +252,7 @@ namespace HSNXT.ComLib.Lang
             {
                 tokens = lexer.Tokenize();
             },
-            () => string.Format("Last token: {0}, Line : {1}, Pos : {2} ", lexer.LastToken.Text, lexer.LineNumber, lexer.LineCharPos));
+            () => $"Last token: {lexer.LastToken.Text}, Line : {lexer.LineNumber}, Pos : {lexer.LineCharPos} ");
             return tokens;
         }
 

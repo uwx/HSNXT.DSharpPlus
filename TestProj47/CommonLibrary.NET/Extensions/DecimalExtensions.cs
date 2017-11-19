@@ -1,13 +1,8 @@
 ﻿using System;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-
-    /// <summary>
-    /// Collection of utility extension methods related to the decimal data
-    /// type.
-    /// </summary>
-    public static class DecimalExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Method that finds a digit at an arbirary position of a decimal.

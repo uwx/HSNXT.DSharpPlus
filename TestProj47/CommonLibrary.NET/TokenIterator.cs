@@ -688,7 +688,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <returns></returns>
         public LangException BuildSyntaxExpectedException(string expected)
         {
-            return new LangException("Syntax Error", string.Format("Expected {0} but found '{1}'", expected, NextToken.Token.Text), ScriptPath, NextToken.Line, NextToken.LineCharPos);
+            return new LangException("Syntax Error", $"Expected {expected} but found '{NextToken.Token.Text}'", ScriptPath, NextToken.Line, NextToken.LineCharPos);
         }
 
 
@@ -699,7 +699,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <returns></returns>
         public LangException BuildSyntaxExpectedTokenException(Token token)
         {
-            return new LangException("Syntax Error", string.Format("Expected {0} but found '{1}'", token.Text, NextToken.Token.Text), ScriptPath, NextToken.Line, NextToken.LineCharPos);
+            return new LangException("Syntax Error", $"Expected {token.Text} but found '{NextToken.Token.Text}'", ScriptPath, NextToken.Line, NextToken.LineCharPos);
         }
 
 
@@ -709,7 +709,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <returns></returns>
         public LangException BuildSyntaxUnexpectedTokenException()
         {
-            return new LangException("Syntax Error", string.Format("Unexpected token found '{0}'", NextToken.Token.Text), ScriptPath, NextToken.Line, NextToken.LineCharPos);
+            return new LangException("Syntax Error", $"Unexpected token found '{NextToken.Token.Text}'", ScriptPath, NextToken.Line, NextToken.LineCharPos);
         }
 
 
@@ -719,7 +719,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <returns></returns>
         public LangException BuildSyntaxUnexpectedTokenException(TokenData token)
         {
-            return new LangException("Syntax Error", string.Format("Unexpected token found '{0}'", token.Token.Text), ScriptPath, token.Line, token.LineCharPos);
+            return new LangException("Syntax Error", $"Unexpected token found '{token.Token.Text}'", ScriptPath, token.Line, token.LineCharPos);
         }
 
 
@@ -731,7 +731,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <returns></returns>
         public LangException BuildSyntaxUnexpectedTokenException(string unexpectedTokenText, TokenData token)
         {
-            return new LangException("Syntax Error", string.Format("Unexpected token found {0}", unexpectedTokenText), ScriptPath, token.Line, token.LineCharPos);
+            return new LangException("Syntax Error", $"Unexpected token found {unexpectedTokenText}", ScriptPath, token.Line, token.LineCharPos);
         }
 
 

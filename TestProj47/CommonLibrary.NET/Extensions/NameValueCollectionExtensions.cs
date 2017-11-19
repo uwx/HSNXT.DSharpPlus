@@ -1,11 +1,9 @@
 ﻿using System.Collections.Specialized;
+using HSNXT.ComLib;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Extension classes for NameValueCollection.
-    /// </summary>
-    public class NameValueExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Gets the value associated w/ the key, if it's empty returns the default value.

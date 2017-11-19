@@ -286,13 +286,13 @@ namespace HSNXT.ComLib.Data
             // e.g. order by createdate desc, username asc
             // Add first.
             var fieldName = HandleEncloseField(data.Orderings[0].Field);
-            buffer.Append(string.Format("{0} {1}", fieldName, data.Orderings[0].Ordering.ToString()));
+            buffer.Append($"{fieldName} {data.Orderings[0].Ordering.ToString()}");
             if (data.Orderings.Count > 1)
             {
                 for (var ndx = 1; ndx < data.Orderings.Count; ndx++)
                 {
                     fieldName = HandleEncloseField(data.Orderings[ndx].Field);
-                    buffer.Append(string.Format(", {0} {1}", fieldName, data.Orderings[ndx].Ordering.ToString()));
+                    buffer.Append($", {fieldName} {data.Orderings[ndx].Ordering.ToString()}");
                 }
             }
             if (includeOrderBy)

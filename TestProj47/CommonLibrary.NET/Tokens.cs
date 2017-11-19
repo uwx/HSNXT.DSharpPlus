@@ -409,7 +409,7 @@ namespace HSNXT.ComLib.Lang.Core
         /// <returns></returns>
         public override string ToString()
         {
-            var info = string.Format("Kind: {0}, Type: {1}, Text: {2}, Val: {3}", Kind, Type, Text, Value);
+            var info = $"Kind: {Kind}, Type: {Type}, Text: {Text}, Val: {Value}";
             return info;
         }
 

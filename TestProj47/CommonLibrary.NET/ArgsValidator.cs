@@ -107,7 +107,7 @@ namespace HSNXT.ComLib.Arguments
             // Argument missing and required.
             if (argAttr.IsRequired && string.IsNullOrEmpty(argVal))
             {
-                errors.Add(string.Format("Required argument '{0}' : {1} is missing.", argAttr.Name, argAttr.DataType.FullName));
+                errors.Add($"Required argument '{argAttr.Name}' : {argAttr.DataType.FullName} is missing.");
                 return false;
             }
 
@@ -117,12 +117,12 @@ namespace HSNXT.ComLib.Arguments
 
             // File doesn't exist.
             if (argAttr.DataType == typeof(File) && !File.Exists(argVal))
-                errors.Add(string.Format("File '{0}' associated with argument '{1}' does not exist.", argVal, argId));
+                errors.Add($"File '{argVal}' associated with argument '{argId}' does not exist.");
 
             // Wrong data type.
             else if (!argAttr.Interpret && !Converter.CanConvertTo(argAttr.DataType, argVal))
-                errors.Add(string.Format("Argument value of '{0}' for '{1}' does not match type {2}.",
-                           argVal, argId, argAttr.DataType.FullName));
+                errors.Add(
+                    $"Argument value of '{argVal}' for '{argId}' does not match type {argAttr.DataType.FullName}.");
 
             return initialErrorCount == errors.Count;
         }
@@ -144,7 +144,7 @@ namespace HSNXT.ComLib.Arguments
             // Required and positional arg valid.
             if (argAttr.IsRequired && !isValidIndex)
             {
-                errors.Add(string.Format("Positional argument at index : [{0}]' was not supplied.", argAttr.IndexPosition));
+                errors.Add($"Positional argument at index : [{argAttr.IndexPosition}]' was not supplied.");
             }
             return isValidIndex;
         }

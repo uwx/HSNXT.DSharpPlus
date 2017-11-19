@@ -69,12 +69,6 @@ namespace HSNXT.ComLib.BootStrapSupport
 
 
         /// <summary>
-        /// Action that the task runs.
-        /// </summary>
-        public Action<IAppContext> Action;
-
-
-        /// <summary>
         /// Whether or not the task is enabled.
         /// </summary>
         public bool IsEnabled = true;
@@ -215,19 +209,6 @@ namespace HSNXT.ComLib.BootStrapSupport
             this.ContinueOnError = true;
             return this;
         }
-
-
-        /// <summary>
-        /// Sets the action of the task
-        /// </summary>
-        /// <param name="action">The action.</param>
-        /// <returns></returns>
-        public BootTask ActionIs(Action<IAppContext> action)
-        {
-            this.Action = action;
-            return this;
-        }
-
 
         /// <summary>
         /// Enables this task if the flag is true.

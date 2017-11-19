@@ -1,11 +1,9 @@
 ﻿using System;
+using HSNXT.ComLib;
 
-namespace HSNXT.ComLib.Extensions
+namespace HSNXT
 {
-    /// <summary>
-    /// Extension classes for integers.
-    /// </summary>
-    public static class IntegerExtensions
+    public static partial class Extensions
     {
         #region Loops
         /// <summary>
@@ -82,31 +80,6 @@ namespace HSNXT.ComLib.Extensions
         }
         #endregion
 
-
-        #region Math
-        /// <summary>
-        /// Determines if the number provided is an odd number.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static bool IsOdd(this int num)
-        {
-            return num % 2 != 0;
-        }
-
-
-        /// <summary>
-        /// Determines if the number provided is an even number.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static bool IsEven(this int num)
-        {
-            return num % 2 == 0;
-        }
-        #endregion
-
-
         #region Bytes
         /// <summary>
         /// Converts the number provided into kilobytes by dividing it by 1000;
@@ -143,16 +116,6 @@ namespace HSNXT.ComLib.Extensions
 
 
         #region Dates
-        /// <summary>
-        /// Determines whether or not year supplied is a leap year.
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
-        public static bool IsLeapYear(this int year)
-        {
-            return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
-        }
-
 
         /// <summary>
         /// Gets the datetime from today - days supplied.
@@ -266,49 +229,6 @@ namespace HSNXT.ComLib.Extensions
 
 
         #region Time
-        /// <summary>
-        /// Converts the number to days as a TimeSpan.
-        /// </summary>
-        /// <param name="num">Number representing days</param>
-        /// <returns></returns>
-        public static TimeSpan Days(this int num)
-        {
-            return new TimeSpan(num, 0, 0, 0);
-        }
-
-
-        /// <summary>
-        /// Converts the number to hours as a TimeSpan
-        /// </summary>
-        /// <param name="num">Number representing hours</param>
-        /// <returns></returns>
-        public static TimeSpan Hours(this int num)
-        {
-            return new TimeSpan(0, num, 0, 0);
-        }
-
-
-        /// <summary>
-        /// Converts the number of minutes as a TimeSpan
-        /// </summary>
-        /// <param name="num">Number representing minutes</param>
-        /// <returns></returns>
-        public static TimeSpan Minutes(this int num)
-        {
-            return new TimeSpan(0, 0, num, 0);
-        }
-
-
-        /// <summary>
-        /// Converts the number to seconds as a TimeSpan
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static TimeSpan Seconds(this int num)
-        {
-            return new TimeSpan(0, 0, 0, num);
-        }
-
 
         /// <summary>
         /// Converts the number to a TimeSpan.

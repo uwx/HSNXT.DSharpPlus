@@ -172,12 +172,12 @@ namespace HSNXT.ComLib.Logging
 
             // Build a delimited string
             // <time>:<thread>:<level>:<loggername>:<message>
-            var line = string.Format("<time>{0}</time>", logEvent.CreateTime.ToString());
+            var line = $"<time>{logEvent.CreateTime.ToString()}</time>";
 
-            if (!string.IsNullOrEmpty(logEvent.ThreadName)) line += string.Format("<thread>{0}</thread>", logEvent.ThreadName);
-            line += string.Format("<level>{0}</level>", logEvent.Level.ToString());
-            line += string.Format("<type>{0}</type>", logEvent.LogType.Name);
-            line += string.Format("<message>{0}</message>", msg);
+            if (!string.IsNullOrEmpty(logEvent.ThreadName)) line += $"<thread>{logEvent.ThreadName}</thread>";
+            line += $"<level>{logEvent.Level.ToString()}</level>";
+            line += $"<type>{logEvent.LogType.Name}</type>";
+            line += $"<message>{msg}</message>";
             return line;
         }
     }

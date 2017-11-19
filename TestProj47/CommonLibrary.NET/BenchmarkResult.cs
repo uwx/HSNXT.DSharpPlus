@@ -64,8 +64,8 @@ namespace HSNXT.ComLib.Benchmarks
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("Name:{0}, Message:{1}, Date:{2}, Started:{3}, Ended:{4}, Duration:{5}", 
-                                  Name, Message, DateRun, TimeStarted.Milliseconds, TimeEnded.Milliseconds, TimeDiff.Milliseconds);
+            return
+                $"Name:{Name}, Message:{Message}, Date:{DateRun}, Started:{TimeStarted.Milliseconds}, Ended:{TimeEnded.Milliseconds}, Duration:{TimeDiff.Milliseconds}";
 
         }
 
@@ -76,8 +76,8 @@ namespace HSNXT.ComLib.Benchmarks
         /// <returns></returns>
         public string ToStringXml()
         {
-            return string.Format("<benchmarkresult name=\"{0}\" message=\"{1}\" date=\"{2}\" started=\"{3}\" ended=\"{4}\" duration=\"{5}\" />",
-                                  Name, Message, DateRun, TimeStarted.Milliseconds, TimeEnded.Milliseconds, TimeDiff.Milliseconds);
+            return
+                $"<benchmarkresult name=\"{Name}\" message=\"{Message}\" date=\"{DateRun}\" started=\"{TimeStarted.Milliseconds}\" ended=\"{TimeEnded.Milliseconds}\" duration=\"{TimeDiff.Milliseconds}\" />";
 
         }
 

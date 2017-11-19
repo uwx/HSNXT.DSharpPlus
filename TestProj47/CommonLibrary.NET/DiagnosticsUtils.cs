@@ -281,7 +281,7 @@ namespace HSNXT.ComLib.Diagnostics
         /// <returns></returns>
         public override string ToString()
         {
-            var text = string.Format("{0}, {1}, {2}, {3}, {4}", Name, FullPath, Directory, Version, TimeStamp);
+            var text = $"{Name}, {FullPath}, {Directory}, {Version}, {TimeStamp}";
             return text;
         }
     }

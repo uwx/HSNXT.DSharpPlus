@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using HSNXT.ComLib.Lang.Core;
-using HSNXT.ComLib.Lang.Docs;
 using HSNXT.ComLib.Lang.Types;
 // <lang:using>
 
@@ -48,7 +47,6 @@ namespace HSNXT.ComLib.Lang.AST
         public void Init(string name, List<string> argNames)
         {
             _meta = new FunctionMetaData(name, argNames);
-            _meta.Doc = new DocTags();
             _meta.Version = new Version(1, 0, 0, 0);
             ExecutionCount = 0;
         }

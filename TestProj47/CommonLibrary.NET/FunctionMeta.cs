@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using HSNXT.ComLib.Lang.Docs;
 using HSNXT.ComLib.Lang.Types;
 
 namespace HSNXT.ComLib.Lang.Core
@@ -89,12 +88,6 @@ namespace HSNXT.ComLib.Lang.Core
         /// Function declaration
         /// </summary>
         public string Name;
-
-
-        /// <summary>
-        /// The doc tags for this function.
-        /// </summary>
-        public DocTags Doc;
 
 
         /// <summary>

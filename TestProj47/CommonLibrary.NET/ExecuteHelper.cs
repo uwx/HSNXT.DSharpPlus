@@ -276,7 +276,7 @@ namespace HSNXT.ComLib
         /// <param name="ex">Exception to handle.</param>
         public static void HandleException(Exception ex)
         {
-            var message = string.Format("{0}, {1} \r\n {2}", ex.Message, ex.Source, ex.StackTrace);
+            var message = $"{ex.Message}, {ex.Source} \r\n {ex.StackTrace}";
             try
             {
                 if (_logger != null)

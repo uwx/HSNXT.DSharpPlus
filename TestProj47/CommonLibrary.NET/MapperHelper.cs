@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using HSNXT.ComLib.Extensions;
+using HSNXT;
 using HSNXT.ComLib.Reflection;
 
 namespace HSNXT.ComLib.MapperSupport
@@ -17,13 +17,13 @@ namespace HSNXT.ComLib.MapperSupport
 
         static MapperHelper()
         {
-            _propertyTypeMappers[typeof(bool)] = StringExtensions.ToBoolObject; 
-            _propertyTypeMappers[typeof(int)] = StringExtensions.ToIntObject;
-            _propertyTypeMappers[typeof(long)] = StringExtensions.ToLongObject;
-            _propertyTypeMappers[typeof(float)] = StringExtensions.ToFloatObject;
-            _propertyTypeMappers[typeof(double)] = StringExtensions.ToDoubleObject;
-            _propertyTypeMappers[typeof(TimeSpan)] = StringExtensions.ToTimeObject;
-            _propertyTypeMappers[typeof(DateTime)] = StringExtensions.ToDateTimeObject;            
+            _propertyTypeMappers[typeof(bool)] = Extensions.ToBoolObject; 
+            _propertyTypeMappers[typeof(int)] = Extensions.ToIntObject;
+            _propertyTypeMappers[typeof(long)] = Extensions.ToLongObject;
+            _propertyTypeMappers[typeof(float)] = Extensions.ToFloatObject;
+            _propertyTypeMappers[typeof(double)] = Extensions.ToDoubleObject;
+            _propertyTypeMappers[typeof(TimeSpan)] = Extensions.ToTimeObject;
+            _propertyTypeMappers[typeof(DateTime)] = Extensions.ToDateTimeObject;            
         }    
     
 
@@ -245,7 +245,7 @@ namespace HSNXT.ComLib.MapperSupport
             {
                 if (errors != null)
                 {
-                    var err = string.Format("Unable to map property '{0}' for counter/refId '{1}'", prop.Name, counterOrRefId);
+                    var err = $"Unable to map property '{prop.Name}' for counter/refId '{counterOrRefId}'";
                     err += Environment.NewLine + ex.Message;
                     errors.Add(err);
                 }

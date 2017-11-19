@@ -341,7 +341,7 @@ namespace HSNXT.ComLib.LocationSupport
             if (state == null)
                 return new BoolMessageItem<IList<City>>(null, false, "Unknown state supplied.");
 
-            var cities = Cacher.Get<IList<City>>(string.Format("cities_for_{0}_{1}", country.RealId, state.RealId), 300, () => Location.Cities.GetAll().Where(c => c.CountryId == country.RealId && c.StateId == state.RealId && !c.IsAlias && c.IsActive).ToList());
+            var cities = Cacher.Get<IList<City>>($"cities_for_{country.RealId}_{state.RealId}", 300, () => Location.Cities.GetAll().Where(c => c.CountryId == country.RealId && c.StateId == state.RealId && !c.IsAlias && c.IsActive).ToList());
             var success = cities != null && cities.Count > 0;
             var message = success ? string.Empty : "Cities not available for country : " + country.Name + ", state : " + state.Name;
             return new BoolMessageItem<IList<City>>(cities, success, message);

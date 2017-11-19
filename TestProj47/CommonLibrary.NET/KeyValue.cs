@@ -60,7 +60,7 @@ namespace HSNXT.ComLib
         /// <returns>String representation of this instance.</returns>
         public override string ToString()
         {
-            return string.Format("{0}:{1}", Key, Value);
+            return $"{Key}:{Value}";
         }
     }
 }

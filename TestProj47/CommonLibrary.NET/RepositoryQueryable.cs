@@ -149,7 +149,7 @@ namespace HSNXT.ComLib.Entities
             if (string.IsNullOrEmpty(sql))
                 return Count();
 
-            var fullsql = string.Format("select count(*) as count from {0}", _tableName);
+            var fullsql = $"select count(*) as count from {_tableName}";
             fullsql += " where " + sql;
             var numRecords = Convert.ToInt32(_db.ExecuteScalarText(sql));
             return numRecords;
@@ -417,7 +417,7 @@ namespace HSNXT.ComLib.Entities
         /// <returns>Data table with information of all items.</returns>
         public virtual DataTable ToTable()
         {
-            var sql = string.Format("select * from {0}", _tableName);
+            var sql = $"select * from {_tableName}";
             return ToTableBySql(sql);
         }
 
@@ -529,7 +529,7 @@ namespace HSNXT.ComLib.Entities
         /// <returns>List with distinct items of records that match the criteria.</returns>
         protected virtual List<TVal> InternalDistinct<TVal>(string columnName, IQuery criteria)
         {
-            var encodedColumnName = string.Format("distinct([{0}])", DataUtils.Encode(columnName));
+            var encodedColumnName = $"distinct([{DataUtils.Encode(columnName)}])";
             var sql = BuildSqlSelect(criteria, encodedColumnName, _tableName, null, null, false);
             var uniqueItems = new List<TVal>();
 
@@ -555,7 +555,7 @@ namespace HSNXT.ComLib.Entities
         protected virtual List<KeyValuePair<TGroup, int>> InternalGroup<TGroup>(string columnName, IQuery criteria)
         {
             var encodedColName = DataUtils.Encode(columnName);
-            var cols = string.Format("[{0}], count(*) as \"count\"", encodedColName);
+            var cols = $"[{encodedColName}], count(*) as \"count\"";
             var sql = BuildSqlSelect(criteria, cols, _tableName, null, encodedColName, true);
             var table = _db.ExecuteDataTableText(sql, null);
             var results = new List<KeyValuePair<TGroup, int>>();
@@ -615,8 +615,7 @@ namespace HSNXT.ComLib.Entities
         /// <returns>Result.</returns>
         protected virtual TResult ExecuteAggregateWithFilter<TResult>(string funcName, string columnName, string filter)
         {
-            var sql = string.Format("select {0}({1}) from {2}",
-                         DataUtils.Encode(funcName), DataUtils.Encode(columnName), _tableName);
+            var sql = $"select {DataUtils.Encode(funcName)}({DataUtils.Encode(columnName)}) from {_tableName}";
             if (!string.IsNullOrEmpty(filter))
                 sql = sql + " where " + filter;
 
@@ -657,10 +656,10 @@ namespace HSNXT.ComLib.Entities
             var sql = string.Empty;
        
             if ( string.IsNullOrEmpty(groupby) )
-                sql = string.Format("select {0} {1} from {2} {3} {4}", limit, select, fromTable, where, orderby);
+                sql = $"select {limit} {@select} from {fromTable} {@where} {@orderby}";
 
             else
-                sql = string.Format("select {0} {1} from {2} {3} {4} {5}", limit, select, fromTable, where, groupby, orderby);
+                sql = $"select {limit} {@select} from {fromTable} {@where} {groupby} {@orderby}";
 
             return sql;
         }

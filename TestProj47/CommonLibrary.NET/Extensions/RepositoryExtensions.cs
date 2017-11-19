@@ -14,13 +14,11 @@
  */
 
 using System.Collections.Generic;
+using HSNXT.ComLib.Entities;
 
-namespace HSNXT.ComLib.Entities
+namespace HSNXT
 {
-    /// <summary>
-    /// This class provides helper methods for the Repository namespace.
-    /// </summary>
-    public static class RepositoryExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Gets the specified entity and loads the TRelation. Defaults the foreign key to typeof(TRelation).Name + Id.
