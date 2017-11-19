@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -120,6 +121,101 @@ namespace HSNXT
 
     public static partial class Extensions
     {
+        // Convert a byte array into a string of hexadecimal values.
+        public static string ToHex(this byte[] bytes)
+        {
+            return BitConverter.ToString(bytes, 0).Replace("-", " ");
+        }
+
+        // Convert a string containing 2-digit hexadecimal
+        // values separated by spaces or dashes into a byte array.
+        public static byte[] ToBytes(this string hex)
+        {
+            // Separate the bytes.
+            var values = hex.Split(' ', '-');
+
+            // Make room.
+            var numBytes = values.Length;
+            var bytes = new byte[numBytes];
+
+            // Parse the byte representations.
+            for (var i = 0; i < numBytes; i++)
+                bytes[i] = Convert.ToByte(values[i], 16);
+
+            return bytes;
+        }
+
+        // Encrypt or decrypt the data in in_bytes[] and return the result.
+        public static byte[] CryptBytes(string password,
+            byte[] inBytes, bool encrypt)
+        {
+            // Make an AES service provider.
+            var aesProvider =
+                new AesCryptoServiceProvider {Padding = PaddingMode.Zeros};
+
+            // Find a valid key size for this provider.
+            var keySizeBits = 0;
+            for (var i = 1024; i > 1; i--)
+            {
+                if (!aesProvider.ValidKeySize(i)) continue;
+                keySizeBits = i;
+                break;
+            }
+            Debug.Assert(keySizeBits > 0);
+            Console.WriteLine("Key size: " + keySizeBits);
+
+            // Get the block size for this provider.
+            var blockSizeBits = aesProvider.BlockSize;
+
+            // Generate the key and initialization vector.
+            byte[] salt =
+            {
+                0x0, 0x20, 0x11, 0x27, 0x3A, 0xB4,
+                0x57, 0xC6, 0xF1, 0xF0, 0xEE, 0x21, 0x22, 0x45
+            };
+            MakeKeyAndIv(password, salt, keySizeBits,
+                blockSizeBits, out var key, out var iv);
+
+            // Make the encryptor or decryptor.
+            var cryptoTransform = encrypt ? aesProvider.CreateEncryptor(key, iv) : aesProvider.CreateDecryptor(key, iv);
+
+            // Create the output stream.
+            using (var outStream = new MemoryStream())
+            {
+                // Attach a crypto stream to the output stream.
+                using (var cryptoStream =
+                    new CryptoStream(outStream, cryptoTransform,
+                        CryptoStreamMode.Write))
+                {
+                    // Write the bytes into the CryptoStream.
+                    cryptoStream.Write(inBytes, 0, inBytes.Length);
+                    try
+                    {
+                        cryptoStream.FlushFinalBlock();
+                    }
+                    catch (CryptographicException)
+                    {
+                        // Ignore this exception. The password is bad.
+                    }
+
+                    // return the result.
+                    return outStream.ToArray();
+                }
+            }
+        }
+
+        // Use the password to generate key bytes.
+        private static void MakeKeyAndIv(string password, byte[] salt,
+            int keySizeBits, int blockSizeBits,
+            out byte[] key, out byte[] iv)
+        {
+            var deriveBytes =
+                new Rfc2898DeriveBytes(password, salt, 1000);
+
+            key = deriveBytes.GetBytes(keySizeBits / 8);
+            iv = deriveBytes.GetBytes(blockSizeBits / 8);
+        }
+
         public static unsafe bool All(ulong* arr, int size, Func<ulong, bool> predicate)
         {
             if (arr == null)
@@ -147,7 +243,7 @@ namespace HSNXT
             }
             return true;
         }
-        
+
         public static unsafe ulong Aggregate(ulong* source, int size, Func<ulong, ulong, ulong> func)
         {
             if (source == null)
@@ -167,7 +263,7 @@ namespace HSNXT
             }
             return source1;
         }
-        
+
         public static void Benchmark(this Action a)
         {
             Benchmark(a, 10000);
@@ -177,7 +273,7 @@ namespace HSNXT
         {
             var process = Process.GetCurrentProcess();
             var oldAffinity = process.ProcessorAffinity;
-            process.ProcessorAffinity = (IntPtr)1;
+            process.ProcessorAffinity = (IntPtr) 1;
 
             var totalMilliseconds = 0D;
             for (var benchmarkNumber = 0; benchmarkNumber < numberOfBenchmarks; benchmarkNumber++)
@@ -204,7 +300,7 @@ namespace HSNXT
 
             process.ProcessorAffinity = oldAffinity;
         }
-        
+
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
         /// <param name="self">This object</param>
         /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>
@@ -336,10 +432,11 @@ namespace HSNXT
                     yield return (afirst.Current, asecond.Current);
                 }
         }
-        
+
         public static T[] ReflectToArray<T>(this IList<T> instance)
         {
-            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            foreach (var f in instance.GetType()
+                .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
             {
                 T[] v;
                 if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
@@ -349,10 +446,11 @@ namespace HSNXT
             }
             return null;
         }
-        
+
         public static T[] ReflectToArray<T>(this List<T> instance)
         {
-            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            foreach (var f in instance.GetType()
+                .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
             {
                 T[] v;
                 if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
@@ -362,10 +460,11 @@ namespace HSNXT
             }
             return null;
         }
-        
+
         public static T[] ReflectToArrayReadOnly<T>(this IReadOnlyList<T> instance)
         {
-            foreach (var f in instance.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            foreach (var f in instance.GetType()
+                .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
             {
                 T[] v;
                 if (f.FieldType == typeof(T[]) && (v = f.GetValue(instance) as T[])?.Length >= instance.Count)
@@ -375,7 +474,7 @@ namespace HSNXT
             }
             return null;
         }
-        
+
         public static string ToJson(this object entity)
         {
             var serializer = new Newtonsoft.Json.JsonSerializer();
