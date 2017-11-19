@@ -35,19 +35,19 @@ namespace HSNXT
             new PocoJsonSerializerStrategy();
 
         private static readonly char[] EscapeTable = new char[93];
-        private const int BUILDER_CAPACITY = 2000;
-        private const int TOKEN_COLON = 5;
-        private const int TOKEN_COMMA = 6;
-        private const int TOKEN_CURLY_CLOSE = 2;
-        private const int TOKEN_CURLY_OPEN = 1;
-        private const int TOKEN_FALSE = 10;
-        private const int TOKEN_NONE = 0;
-        private const int TOKEN_NULL = 11;
-        private const int TOKEN_NUMBER = 8;
-        private const int TOKEN_SQUARED_CLOSE = 4;
-        private const int TOKEN_SQUARED_OPEN = 3;
-        private const int TOKEN_STRING = 7;
-        private const int TOKEN_TRUE = 9;
+        /*private const int BuilderCapacity = 2000;
+        private const int TokenColon = 5;
+        private const int TokenComma = 6;
+        private const int TokenCurlyClose = 2;
+        private const int TokenCurlyOpen = 1;
+        private const int TokenFalse = 10;
+        private const int TokenNone = 0;
+        private const int TokenNull = 11;
+        private const int TokenNumber = 8;
+        private const int TokenSquaredClose = 4;
+        private const int TokenSquaredOpen = 3;
+        private const int TokenString = 7;
+        private const int TokenTrue = 9;*/
 
         static JsonSerializer()
         {
@@ -213,9 +213,7 @@ namespace HSNXT
         /// <returns>true if succeeded; otherwise, false.</returns>
         private static bool IsNumeric(object value)
         {
-            return value is sbyte || value is byte || value is short || value is ushort ||
-                   (value is int || value is uint || (value is long || value is ulong)) ||
-                   (value is float || value is float || (value is double || value is Decimal));
+            return value is sbyte || value is byte || value is short || value is ushort || (value is int || value is uint) || value is long || value is ulong || (value is float || (value is double || value is Decimal));
         }
 
         /// <summary>Looks the ahead.</summary>
@@ -270,8 +268,7 @@ namespace HSNXT
                 default:
                     --index;
                     var num = json.Length - index;
-                    if (num >= 5 && json[index] == 102 && json[index + 1] == 97 && json[index + 2] == 108 &&
-                        (json[index + 3] == 115 && json[index + 4] == 101))
+                    if (num >= 5 && json[index] == 102 && json[index + 1] == 97 && json[index + 2] == 108 && json[index + 3] == 115 && json[index + 4] == 101)
                     {
                         index += 5;
                         return 10;
@@ -299,8 +296,7 @@ namespace HSNXT
         {
             var jsonArray = new JsonArray();
             NextToken(json, ref index);
-            var flag = false;
-            while (!flag)
+            while (true)
             {
                 switch (LookAhead(json, index))
                 {
@@ -312,7 +308,7 @@ namespace HSNXT
                         continue;
                     case 4:
                         NextToken(json, ref index);
-                        goto label_9;
+                        return jsonArray;
                     default:
                         var obj = ParseValue(json, ref index, ref success);
                         if (!success)
@@ -321,8 +317,6 @@ namespace HSNXT
                         continue;
                 }
             }
-            label_9:
-            return jsonArray;
         }
 
         /// <summary>Parses the number.</summary>
@@ -340,9 +334,8 @@ namespace HSNXT
             if (str.IndexOf(".", StringComparison.OrdinalIgnoreCase) != -1 ||
                 str.IndexOf("e", StringComparison.OrdinalIgnoreCase) != -1)
             {
-                double result;
                 success = double.TryParse(new string(json, index, length), NumberStyles.Any,
-                    CultureInfo.InvariantCulture, out result);
+                    CultureInfo.InvariantCulture, out var result);
                 obj = result;
             }
             else
@@ -365,8 +358,7 @@ namespace HSNXT
         {
             IDictionary<string, object> dictionary = new JsonObject(StringComparer.OrdinalIgnoreCase);
             NextToken(json, ref index);
-            var flag = false;
-            while (!flag)
+            while (true)
             {
                 switch (LookAhead(json, index))
                 {
@@ -401,7 +393,6 @@ namespace HSNXT
                         continue;
                 }
             }
-            return dictionary;
         }
 
         /// <summary>Parses the string.</summary>

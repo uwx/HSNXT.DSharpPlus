@@ -198,6 +198,12 @@
           <e p="UniqueItemGenerator.cs" t="Include" />
           <e p="WebScrapper.cs" t="Include" />
         </e>
+        <e p="ComLib.Extensions" t="Include">
+          <e p="GenericExtensions.cs" t="Include" />
+          <e p="ListExtensions.cs" t="Include" />
+          <e p="NumberExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
         <e p="CSharpBasicExtensionsKit" t="Include">
           <e p="ActionExtensions.cs" t="Include" />
           <e p="BooleanExtensions.cs" t="Include" />
@@ -363,6 +369,7 @@
         <e p="LICENSE.BigMath.txt" t="Include" />
         <e p="LICENSE.C5.txt" t="Include" />
         <e p="LICENSE.CodeBits.txt" t="Include" />
+        <e p="LICENSE.ComLib.txt" t="Include" />
         <e p="LICENSE.DevLibExtensionMethods.txt" t="Include" />
         <e p="LICENSE.dff.Extensions.txt" t="Include" />
         <e p="LICENSE.Eloquent.txt" t="Include" />

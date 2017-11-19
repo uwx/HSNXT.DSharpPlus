@@ -5,11 +5,13 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using Newtonsoft.Json.Converters;
 
 // ReSharper disable StringCompareIsCultureSpecific.1
 // ReSharper disable ReturnValueOfPureMethodIsNotUsed
@@ -372,6 +374,17 @@ namespace HSNXT
                 }
             }
             return null;
+        }
+        
+        public static string ToJson(this object entity)
+        {
+            var serializer = new Newtonsoft.Json.JsonSerializer();
+            serializer.Converters.Add(new StringEnumConverter());
+            using (var writer = new StringWriter())
+            {
+                serializer.Serialize(writer, entity);
+                return writer.ToString();
+            }
         }
 
         public static IEnumerable<T> ReturnEnumerable<T>(this T item)
