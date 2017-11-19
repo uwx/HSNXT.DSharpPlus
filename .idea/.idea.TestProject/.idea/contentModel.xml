@@ -212,12 +212,6 @@
           <e p="AliasPlugin.cs" t="Include" />
           <e p="AliasTokenPlugin.cs" t="Include" />
           <e p="AndOrPlugin.cs" t="Include" />
-          <e p="App.cs" t="Include" />
-          <e p="AppConfig.cs" t="Include" />
-          <e p="AppContext.cs" t="Include" />
-          <e p="AppDecorator.cs" t="Include" />
-          <e p="AppDecoratorHelper.cs" t="Include" />
-          <e p="AppHelper.cs" t="Include" />
           <e p="Arg (2).cs" t="Include" />
           <e p="Arg.cs" t="Include" />
           <e p="Args.cs" t="Include" />
@@ -247,7 +241,6 @@
           <e p="BoolMessage.cs" t="Include" />
           <e p="BoolMsgObj.cs" t="Include" />
           <e p="BoolPlugin.cs" t="Include" />
-          <e p="BootStrapper.cs" t="Include" />
           <e p="BreakPlugin.cs" t="Include" />
           <e p="Cache.cs" t="Include" />
           <e p="CacheAspNet.cs" t="Include" />
@@ -329,14 +322,12 @@
           <e p="DateNumberPlugin.cs" t="Include" />
           <e p="DatePlugin.cs" t="Include" />
           <e p="DateTimeCombinerPlugin.cs" t="Include" />
-          <e p="DateTimeExtensions.cs" t="Include" />
           <e p="DayPlugin.cs" t="Include" />
           <e p="DbBuilder.cs" t="Include" />
           <e p="DbDiscovery.cs" t="Include" />
           <e p="DbExecute.cs" t="Include" />
           <e p="DbQuery.cs" t="Include" />
           <e p="DbSettings.cs" t="Include" />
-          <e p="DecimalExtensions.cs" t="Include" />
           <e p="DefPlugin.cs" t="Include" />
           <e p="DESKey.cs" t="Include" />
           <e p="DESKeyType.cs" t="Include" />
@@ -344,15 +335,11 @@
           <e p="DiagnosticsService.cs" t="Include" />
           <e p="DiagnosticsUtils.cs" t="Include" />
           <e p="DictionaryBidirectional.cs" t="Include" />
-          <e p="DictionaryExtensions (2).cs" t="Include" />
-          <e p="DictionaryExtensions.cs" t="Include" />
           <e p="DictionaryMultiValue.cs" t="Include" />
           <e p="DictionaryOrdered.cs" t="Include" />
           <e p="DictionaryReadOnly.cs" t="Include" />
           <e p="DictionarySet.cs" t="Include" />
           <e p="DictionaryTypeConversion.cs" t="Include" />
-          <e p="DocHelper.cs" t="Include" />
-          <e p="DocTags.cs" t="Include" />
           <e p="DotAccess.cs" t="Include" />
           <e p="EmailHelper.cs" t="Include" />
           <e p="EmailMessages.cs" t="Include" />
@@ -362,7 +349,6 @@
           <e p="EnablePlugin.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityAuditable.cs" t="Include" />
-          <e p="EntityExtensions.cs" t="Include" />
           <e p="EntityGeneric.cs" t="Include" />
           <e p="EntityHelper.cs" t="Include" />
           <e p="EntityManager.cs" t="Include" />
@@ -370,8 +356,6 @@
           <e p="EntityPersistant.cs" t="Include" />
           <e p="EntityRegistration.cs" t="Include" />
           <e p="EntityVersioned.cs" t="Include" />
-          <e p="EnumerableExtensions (2).cs" t="Include" />
-          <e p="EnumerableExtensions.cs" t="Include" />
           <e p="EnumerableHelper.cs" t="Include" />
           <e p="EnumeratorCountable.cs" t="Include" />
           <e p="EnumeratorMulti.cs" t="Include" />
@@ -391,28 +375,6 @@
           <e p="Errors.cs" t="Include" />
           <e p="EvalHelper.cs" t="Include" />
           <e p="EvaluatableExpr.cs" t="Include" />
-          <e p="Example.cs" t="Include" />
-          <e p="Example_Arguments.cs" t="Include" />
-          <e p="Example_Automation.cs" t="Include" />
-          <e p="Example_BenchMark.cs" t="Include" />
-          <e p="Example_Cache.cs" t="Include" />
-          <e p="Example_Cryptography.cs" t="Include" />
-          <e p="Example_Csv.cs" t="Include" />
-          <e p="Example_Environments.cs" t="Include" />
-          <e p="Example_Errors.cs" t="Include" />
-          <e p="Example_Extensions.cs" t="Include" />
-          <e p="Example_Extensions_Macros.cs" t="Include" />
-          <e p="Example_ImportExport.cs" t="Include" />
-          <e p="Example_Location.cs" t="Include" />
-          <e p="Example_Logging.cs" t="Include" />
-          <e p="Example_Notifications.cs" t="Include" />
-          <e p="Example_Paging.cs" t="Include" />
-          <e p="Example_QueueProcessor.cs" t="Include" />
-          <e p="Example_Scheduler.cs" t="Include" />
-          <e p="Example_Scripting.cs" t="Include" />
-          <e p="Example_Scripts.cs" t="Include" />
-          <e p="Example_StatusUpdate.cs" t="Include" />
-          <e p="Example_ToDo.cs" t="Include" />
           <e p="ExceptionHelper.cs" t="Include" />
           <e p="ExecPlugin.cs" t="Include" />
           <e p="ExecuteHelper.cs" t="Include" />
@@ -425,15 +387,30 @@
           <e p="ExtensionArgAttribute.cs" t="Include" />
           <e p="ExtensionAttribute.cs" t="Include" />
           <e p="ExtensionMetaData.cs" t="Include" />
+          <e p="Extensions" t="Include">
+            <e p="DateTimeExtensions.cs" t="Include" />
+            <e p="DecimalExtensions.cs" t="Include" />
+            <e p="DictionaryExtensions (2).cs" t="Include" />
+            <e p="DictionaryExtensions.cs" t="Include" />
+            <e p="EntityExtensions.cs" t="Include" />
+            <e p="EnumerableExtensions (2).cs" t="Include" />
+            <e p="IntegerExtensions.cs" t="Include" />
+            <e p="LatinWordExtensions.cs" t="Include" />
+            <e p="ListExtensions.cs" t="Include" />
+            <e p="NameValueCollectionExtensions.cs" t="Include" />
+            <e p="RepositoryExtensions.cs" t="Include" />
+            <e p="StatusUpdateExtensions.cs" t="Include" />
+            <e p="StringExtensions (2).cs" t="Include" />
+            <e p="StringExtensions.cs" t="Include" />
+            <e p="TimeSpanExtensions.cs" t="Include" />
+          </e>
           <e p="ExtensionService.cs" t="Include" />
           <e p="ExternalFunctions.cs" t="Include" />
           <e p="Factory.cs" t="Include" />
           <e p="FailPlugin.cs" t="Include" />
           <e p="FeedBuilder.cs" t="Include" />
           <e p="FeedHelper.cs" t="Include" />
-          <e p="FileCleaner.cs" t="Include" />
           <e p="FileExtPlugin.cs" t="Include" />
-          <e p="FileHelper (2).cs" t="Include" />
           <e p="FileHelper.cs" t="Include" />
           <e p="FileSearcher.cs" t="Include" />
           <e p="FluentFuncPlugin.cs" t="Include" />
@@ -504,7 +481,6 @@
           <e p="InformationService.cs" t="Include" />
           <e p="IniDocument.cs" t="Include" />
           <e p="INotificationServices.cs" t="Include" />
-          <e p="IntegerExtensions.cs" t="Include" />
           <e p="Interfaces.cs" t="Include" />
           <e p="InterpolatedExpr.cs" t="Include" />
           <e p="Interpreter (2).cs" t="Include" />
@@ -544,7 +520,6 @@
           <e p="LangSettings.cs" t="Include" />
           <e p="LangState.cs" t="Include" />
           <e p="LArray.cs" t="Include" />
-          <e p="LatinWordExtensions.cs" t="Include" />
           <e p="LBaseType.cs" t="Include" />
           <e p="LBool.cs" t="Include" />
           <e p="LClass.cs" t="Include" />
@@ -564,7 +539,6 @@
           <e p="Limits.cs" t="Include" />
           <e p="LineReaderPlugin.cs" t="Include" />
           <e p="LinqPlugin.cs" t="Include" />
-          <e p="ListExtensions.cs" t="Include" />
           <e p="LiteralExpr.cs" t="Include" />
           <e p="LJSArrayMethods.cs" t="Include" />
           <e p="LJSDateMethods.cs" t="Include" />
@@ -640,7 +614,6 @@
           <e p="ModulePlugin.cs" t="Include" />
           <e p="MoneyPlugin.cs" t="Include" />
           <e p="NamedParameterExpr.cs" t="Include" />
-          <e p="NameValueCollectionExtensions.cs" t="Include" />
           <e p="NewExpr.cs" t="Include" />
           <e p="NewPlugin.cs" t="Include" />
           <e p="NodeT.cs" t="Include" />
@@ -700,7 +673,6 @@
           <e p="RepeatPlugin.cs" t="Include" />
           <e p="Repository.cs" t="Include" />
           <e p="RepositoryBase.cs" t="Include" />
-          <e p="RepositoryExtensions.cs" t="Include" />
           <e p="RepositoryFactory.cs" t="Include" />
           <e p="RepositoryHelpers.cs" t="Include" />
           <e p="RepositoryInMemory.cs" t="Include" />
@@ -754,10 +726,7 @@
           <e p="StateRepositorySql.cs" t="Include" />
           <e p="StatusResults.cs" t="Include" />
           <e p="StatusUpdate.cs" t="Include" />
-          <e p="StatusUpdateExtensions.cs" t="Include" />
           <e p="StepPlugin.cs" t="Include" />
-          <e p="StringExtensions (2).cs" t="Include" />
-          <e p="StringExtensions.cs" t="Include" />
           <e p="StringHelper.cs" t="Include" />
           <e p="StringLiteralPlugin.cs" t="Include" />
           <e p="StringUtils.cs" t="Include" />
@@ -785,7 +754,6 @@
           <e p="ThrowPlugin.cs" t="Include" />
           <e p="TimeHelper.cs" t="Include" />
           <e p="TimePlugin.cs" t="Include" />
-          <e p="TimeSpanExtensions.cs" t="Include" />
           <e p="TimeTypeHelper.cs" t="Include" />
           <e p="ToDo.cs" t="Include" />
           <e p="TokenData.cs" t="Include" />
