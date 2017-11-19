@@ -214,7 +214,7 @@ namespace HSNXT.ComLib.Diagnostics
         {
             var sortedEnvs = new SortedDictionary<object, object>();
             var envs = envGetter();
-            foreach (var entry in envs)
+            foreach (DictionaryEntry entry in envs)
             {
                 sortedEnvs[entry.Key] = entry.Value;
             }

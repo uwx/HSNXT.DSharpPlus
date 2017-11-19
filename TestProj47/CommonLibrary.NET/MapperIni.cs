@@ -93,7 +93,7 @@ namespace HSNXT.ComLib.MapperSupport
 
             var counter = 0;       
             var propMapDefault = ReflectionUtils.GetPropertiesAsMap<T>(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty, false);
-            foreach (var entry in _data)
+            foreach (DictionaryEntry entry in _data)
             {
                 // Represents single object.                
                 if (entry.Value is IDictionary)

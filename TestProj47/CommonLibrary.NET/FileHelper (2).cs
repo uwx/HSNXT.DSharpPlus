@@ -31,7 +31,7 @@ namespace HSNXT.ComLib.IO
     /// </summary>
     public class LicenseApplier : FileAppBase
     {
-        private readonly LicenseArgs _args = null;
+        private new readonly LicenseArgs _args = null;
         private string _license;
         private readonly StringBuilder _buffer = new StringBuilder();
 

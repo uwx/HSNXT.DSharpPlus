@@ -288,7 +288,6 @@ namespace HSNXT.ComLib.Lang.Parsing
             // LEXER ALWAYS READS NEXT CHAR
             var c = _pos.CurrentChar;
             var n = PeekChar();
-            var tokenLengthCalcMode = TokenLengthCalcMode.Direct;
 
             var pos = _pos.Pos;
             var line = _pos.Line;
@@ -305,7 +304,6 @@ namespace HSNXT.ComLib.Lang.Parsing
                 ConsumeWhiteSpace(false, true);
                 _lastToken = Tokens.WhiteSpace;
                 tokenLength = (_pos.Pos - pos) + 1;
-                tokenLengthCalcMode = TokenLengthCalcMode.WhiteSpace;
             }
             // Variable
             else if (IsIdStartChar(c))
@@ -317,7 +315,6 @@ namespace HSNXT.ComLib.Lang.Parsing
             {
                 MoveChars(2);
                 var result = ScanToNewLine(false, true);
-                tokenLengthCalcMode = TokenLengthCalcMode.String;
                 tokenLength = (_pos.Pos - pos) + 1;
                 _lastToken = Tokens.ToComment(false, result.Text);
             }
@@ -326,7 +323,6 @@ namespace HSNXT.ComLib.Lang.Parsing
             {
                 MoveChars(2);
                 var result = ScanUntilChars(false, '*', '/', true);
-                tokenLengthCalcMode = TokenLengthCalcMode.MultilineComment;
                 tokenLength = _pos.LineCharPosition;
                 _lastToken = Tokens.ToComment(true, result.Text);
             }
@@ -399,7 +395,6 @@ namespace HSNXT.ComLib.Lang.Parsing
             else if (c == '"' || c == '\'')
             {
                 _lastToken = ReadString( c == '"');
-                tokenLengthCalcMode = TokenLengthCalcMode.String;
                 if (_lastToken.Kind == TokenKind.Multi)
                 {
                     tokenLength = (_pos.Pos - pos) -2;

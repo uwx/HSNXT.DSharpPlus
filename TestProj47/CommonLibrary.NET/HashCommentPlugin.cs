@@ -37,7 +37,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "# . <newline>";
+        public override string Grammar => "# . <newline>";
 
 
         /// <summary>

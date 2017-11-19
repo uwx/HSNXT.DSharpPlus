@@ -244,7 +244,6 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <returns></returns>
         public override object DoEvaluate()
         {
-            object result = null;
             foreach (var assigment in _declarations)
             {
                 this.VarExp = assigment.Item1;

@@ -90,7 +90,7 @@ namespace HSNXT.ComLib.Web.ScriptsSupport
             var scripts = GetScripts();
             if (scripts == null || scripts.Count == 0) return string.Empty;
             var buffer = new StringBuilder();
-            foreach (var pair in scripts)
+            foreach (DictionaryEntry pair in scripts)
             {
                 var script = pair.Value as Script;
                 buffer.AppendLine(script.Tag);

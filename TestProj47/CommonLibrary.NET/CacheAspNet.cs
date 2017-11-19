@@ -1,4 +1,3 @@
-
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -17,6 +16,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Caching;
 
@@ -27,7 +27,7 @@ namespace HSNXT.ComLib.Caching
     /// </summary>
     public class CacheAspNet : ICache
     {
-        private Cache _cache;        
+        private Cache _cache;
         private CacheSettings _settings = new CacheSettings();
 
 
@@ -46,7 +46,7 @@ namespace HSNXT.ComLib.Caching
         /// <param name="settings"></param>
         public CacheAspNet(CacheSettings settings)
         {
-            Init(settings);                      
+            Init(settings);
         }
 
 
@@ -57,29 +57,22 @@ namespace HSNXT.ComLib.Caching
 
 
         #region ICache Members
+
         /// <summary>
         /// Get the number of items in the cache that are 
         /// associated with this instance.
         /// </summary>
         public int Count
         {
-            get 
+            get
             {
                 // If not using prefix. return all.
-                if ( !_settings.UsePrefix)
-                    return _cache.Count;
-
-                var keyCount = 0;
-                foreach (var entry in _cache)
-                {
-                    var key = (string)entry.Key;
-                    if (key.StartsWith(_settings.PrefixForCacheKeys))
-                        keyCount++;
-                }
-                return keyCount;
+                return !_settings.UsePrefix
+                    ? _cache.Count
+                    : (from DictionaryEntry entry in _cache select (string) entry.Key).Count(key =>
+                        key.StartsWith(_settings.PrefixForCacheKeys));
             }
         }
-
 
 
         /// <summary>
@@ -104,11 +97,11 @@ namespace HSNXT.ComLib.Caching
         public ICollection Keys
         {
             get
-            {                
-                IList<string> keys = new List<string>();                
-                foreach (var entry in _cache)
+            {
+                IList<string> keys = new List<string>();
+                foreach (DictionaryEntry entry in _cache)
                 {
-                    var key = (string)entry.Key;
+                    var key = (string) entry.Key;
 
                     if (!_settings.UsePrefix)
                     {
@@ -145,9 +138,12 @@ namespace HSNXT.ComLib.Caching
         {
             var actualKey = BuildKey(key);
             var obj = _cache.Get(actualKey);
-            if (obj == null) { return default; }
+            if (obj == null)
+            {
+                return default;
+            }
 
-            return (T)obj;
+            return (T) obj;
         }
 
 
@@ -164,7 +160,7 @@ namespace HSNXT.ComLib.Caching
                 return result;
             }
 
-            return (T)obj;
+            return (T) obj;
         }
 
 
@@ -187,7 +183,7 @@ namespace HSNXT.ComLib.Caching
         {
             foreach (var keyItem in keys)
             {
-                var key = BuildKey((string)keyItem);
+                var key = BuildKey((string) keyItem);
                 _cache.Remove(key);
             }
         }
@@ -214,7 +210,8 @@ namespace HSNXT.ComLib.Caching
         /// <param name="value"></param>
         public void Insert(object key, object value)
         {
-            Insert(key, value, _settings.DefaultTimeToLive, _settings.DefaultSlidingExpirationEnabled, _settings.DefaultCachePriority);
+            Insert(key, value, _settings.DefaultTimeToLive, _settings.DefaultSlidingExpirationEnabled,
+                _settings.DefaultCachePriority);
         }
 
 
@@ -240,10 +237,11 @@ namespace HSNXT.ComLib.Caching
         /// <param name="timeToLive">How long in seconds the object should be cached.</param>
         /// <param name="slidingExpiration">Whether or not to reset the time to live if the object is touched.</param>
         /// <param name="priority">Priority of the cache entry.</param>
-        public void Insert(object keyName, object value, int timeToLive, bool slidingExpiration, CacheItemPriority priority)
-        {            
+        public void Insert(object keyName, object value, int timeToLive, bool slidingExpiration,
+            CacheItemPriority priority)
+        {
             var timeToLiveAsTimeSpan = TimeSpan.FromSeconds(timeToLive);
-            Guard.IsNotNull(keyName, "key");            
+            Guard.IsNotNull(keyName, "key");
             Guard.IsTrue(TimeSpan.Zero <= timeToLiveAsTimeSpan, "timeToLive");
             var aspNetPriority = ConvertToAspNetPriority(priority);
 
@@ -252,17 +250,20 @@ namespace HSNXT.ComLib.Caching
             {
                 if (slidingExpiration)
                 {
-                    _cache.Insert(key, value, null, Cache.NoAbsoluteExpiration, timeToLiveAsTimeSpan, aspNetPriority, null);
+                    _cache.Insert(key, value, null, Cache.NoAbsoluteExpiration, timeToLiveAsTimeSpan, aspNetPriority,
+                        null);
                 }
                 else
                 {
                     var absoluteExpiration = DateTime.Now.AddSeconds(timeToLive);
-                    _cache.Insert(key, value, null, absoluteExpiration, Cache.NoSlidingExpiration, aspNetPriority, null);
+                    _cache.Insert(key, value, null, absoluteExpiration, Cache.NoSlidingExpiration, aspNetPriority,
+                        null);
                 }
             }
             else
             {
-                _cache.Insert(key, value, null, Cache.NoAbsoluteExpiration, Cache.NoSlidingExpiration, aspNetPriority, null);
+                _cache.Insert(key, value, null, Cache.NoAbsoluteExpiration, Cache.NoSlidingExpiration, aspNetPriority,
+                    null);
             }
         }
 
@@ -285,13 +286,11 @@ namespace HSNXT.ComLib.Caching
             }
 
             // Sort the cache items by their name
-            ((List<CacheItemDescriptor>)descriptorList).Sort(
-              delegate(CacheItemDescriptor c1, CacheItemDescriptor c2)
-              {
-                  return c1.Key.CompareTo(c2.Key);
-              });
+            ((List<CacheItemDescriptor>) descriptorList).Sort(
+                delegate(CacheItemDescriptor c1, CacheItemDescriptor c2) { return c1.Key.CompareTo(c2.Key); });
             return descriptorList;
         }
+
         #endregion
 
 
@@ -302,13 +301,13 @@ namespace HSNXT.ComLib.Caching
         private void Init(CacheSettings settings)
         {
             _cache = HttpRuntime.Cache;
-            _settings = settings;  
+            _settings = settings;
         }
 
 
         private string BuildKey(object key)
         {
-            if(_settings.UsePrefix )
+            if (_settings.UsePrefix)
                 return _settings.PrefixForCacheKeys + "." + key;
 
             return key.ToString();
@@ -317,10 +316,22 @@ namespace HSNXT.ComLib.Caching
 
         private System.Web.Caching.CacheItemPriority ConvertToAspNetPriority(CacheItemPriority priority)
         {
-            if (priority == CacheItemPriority.Default) { return System.Web.Caching.CacheItemPriority.Default; }
-            if (priority == CacheItemPriority.High) { return System.Web.Caching.CacheItemPriority.High; }
-            if (priority == CacheItemPriority.Low) { return System.Web.Caching.CacheItemPriority.Low; }
-            if (priority == CacheItemPriority.Normal) { return System.Web.Caching.CacheItemPriority.Normal; }
+            if (priority == CacheItemPriority.Default)
+            {
+                return System.Web.Caching.CacheItemPriority.Default;
+            }
+            if (priority == CacheItemPriority.High)
+            {
+                return System.Web.Caching.CacheItemPriority.High;
+            }
+            if (priority == CacheItemPriority.Low)
+            {
+                return System.Web.Caching.CacheItemPriority.Low;
+            }
+            if (priority == CacheItemPriority.Normal)
+            {
+                return System.Web.Caching.CacheItemPriority.Normal;
+            }
 
             return System.Web.Caching.CacheItemPriority.NotRemovable;
         }

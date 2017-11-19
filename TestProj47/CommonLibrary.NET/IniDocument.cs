@@ -225,7 +225,7 @@ namespace HSNXT.ComLib.IO
             var name = string.IsNullOrEmpty(Name) ? "section" : Name;
 
             buffer.Append("[" + name + "]" + Environment.NewLine);
-            foreach (var pair in this)
+            foreach (DictionaryEntry pair in this)
             {
                 buffer.Append(pair.Key + " : ");
                 var val = pair.Value as string;

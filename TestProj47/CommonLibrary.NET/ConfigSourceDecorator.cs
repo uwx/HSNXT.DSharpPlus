@@ -19,6 +19,7 @@ using System.Collections.Generic;
 
 namespace HSNXT.ComLib.Configuration
 {
+    /// <inheritdoc />
     /// <summary> 
     /// Simple class to lookup stored configuration settings by key. 
     /// Also provides type conversion methods. 
@@ -41,18 +42,24 @@ namespace HSNXT.ComLib.Configuration
 
         #region IConfigSource Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Event handler for when the underlying config source changed.
         /// </summary>
+#pragma warning disable 67
         public event EventHandler OnConfigSourceChanged;
+#pragma warning restore 67
+        
 
 
+        /// <inheritdoc />
         /// <summary>
         /// The configuration source path.
         /// </summary>
         public string SourcePath => _provider.SourcePath;
 
 
+        /// <inheritdoc />
         /// <summary>
         /// Initialization after construction.
         /// </summary>

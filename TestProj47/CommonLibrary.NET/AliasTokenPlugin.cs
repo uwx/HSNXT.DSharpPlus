@@ -45,7 +45,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "<alias> -> <replacement>";
+        public override string Grammar => "<alias> -> <replacement>";
 
 
         /// <summary>

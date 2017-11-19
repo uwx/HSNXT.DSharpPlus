@@ -129,7 +129,7 @@ namespace HSNXT.ComLib.Configuration
         protected virtual void Merge(IConfigSection source, IConfigSection dest)
         {
             // Get all the sections.
-            foreach (var entry in source)
+            foreach (DictionaryEntry entry in source)
             {
                 // Create new config section.
                 if (entry.Value is IConfigSection)

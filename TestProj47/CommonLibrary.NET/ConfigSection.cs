@@ -193,6 +193,7 @@ namespace HSNXT.ComLib
         }
 
 
+        /// <inheritdoc />
         /// <summary>
         /// The names of all the sections.
         /// </summary>
@@ -201,18 +202,19 @@ namespace HSNXT.ComLib
             get
             {
                 var sections = new List<string>();
-                foreach (var entry in this)
+                foreach (DictionaryEntry entry in this)
                 {
                     // Single entry section associated w/ key.
-                    if (entry.Value is IConfigSection)
-                        sections.Add(entry.Key.ToString());
-                    
-                    // Check for list of sections with same key.
-                    else if (entry.Value is List<object>)
+                    switch (entry.Value)
                     {
-                        var items = (List<object>)entry.Value;
-                        if (items[0] is IConfigSection)
+                        case IConfigSection _:
                             sections.Add(entry.Key.ToString());
+                            break;
+                        case List<object> _:
+                            var items = (List<object>)entry.Value;
+                            if (items[0] is IConfigSection)
+                                sections.Add(entry.Key.ToString());
+                            break;
                     }
                 }
                 return sections;

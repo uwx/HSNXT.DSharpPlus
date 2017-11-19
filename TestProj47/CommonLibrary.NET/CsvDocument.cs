@@ -30,7 +30,6 @@ namespace CommonLibrary
         private static readonly CsvSettings _defaultSettings = new CsvSettings();
         private readonly string _content = "";
         private string _filePath = "";
-        private bool _isFileBased;
         private readonly LexList _parser;
         private ReadOnlyCollection<string> _columnNames;
         private List<List<string>> _recordsAsListData;
@@ -45,7 +44,6 @@ namespace CommonLibrary
         /// </summary>
         /// <param name="contentOrFilePath"></param>
         /// <param name="isFilePath"></param>
-        /// <param name="isCaseSensitive"></param>
         public CsvDocument(string contentOrFilePath, bool isFilePath) 
             :this(contentOrFilePath, isFilePath, _defaultSettings)
         {
@@ -55,7 +53,7 @@ namespace CommonLibrary
         /// <summary>
         /// Create using supplied settings.
         /// </summary>
-        /// <param name="contentOfFilePath"></param>
+        /// <param name="contentOrFilePath"></param>
         /// <param name="isFilePath"></param>
         /// <param name="settings"></param>
         public CsvDocument(string contentOrFilePath, bool isFilePath, CsvSettings settings)
@@ -66,7 +64,6 @@ namespace CommonLibrary
             {
                 _filePath = contentOrFilePath;
                 _content = File.ReadAllText(contentOrFilePath);
-                _isFileBased = true;
             }
             var lexListSettings = new LexListSettings();
             lexListSettings.MultipleRecordsUsingNewLine = true;

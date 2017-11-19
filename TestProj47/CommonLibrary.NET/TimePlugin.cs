@@ -243,7 +243,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "( ( noon | Noon | midnight | Midnight ) | ( <number> ( ':' <number> ){1,2} ( am | pm ) ) ";
+        public override string Grammar => "( ( noon | Noon | midnight | Midnight ) | ( <number> ( ':' <number> ){1,2} ( am | pm ) ) ";
 
 
         /// <summary>

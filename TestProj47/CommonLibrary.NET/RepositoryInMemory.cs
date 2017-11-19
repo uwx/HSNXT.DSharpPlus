@@ -351,13 +351,7 @@ namespace HSNXT.ComLib.Entities
                     map[val] = new KeyValue<TGroup, int>(groupVal, 1);
                 }
             }
-            var groups = new List<KeyValuePair<TGroup, int>>();
-            foreach(var entry in map)
-            {
-                var result = entry.Value as KeyValue<TGroup,int>;
-                groups.Add(new KeyValuePair<TGroup, int>(result.Key, result.Value));
-            }
-            return groups;
+            return (from DictionaryEntry entry in map select entry.Value as KeyValue<TGroup, int> into result select new KeyValuePair<TGroup, int>(result.Key, result.Value)).ToList();
         }
 
 

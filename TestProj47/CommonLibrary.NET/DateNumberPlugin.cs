@@ -96,7 +96,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "<number> ( '/' | '-' | '\' ) <number> ( '/' | '-' | '\' ) <number>";
+        public override string Grammar => "<number> ( '/' | '-' | '\' ) <number> ( '/' | '-' | '\' ) <number>";
 
 
         /// <summary>

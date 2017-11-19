@@ -65,7 +65,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <summary>
         /// Grammer for this plugin
         /// </summary>
-        string Grammer { get; }
+        string Grammar { get; }
 
 
         /// <summary>

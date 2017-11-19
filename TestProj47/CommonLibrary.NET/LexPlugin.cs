@@ -79,7 +79,7 @@ namespace HSNXT.ComLib.Lang.Parsing
         /// <summary>
         /// Grammer for this plugin
         /// </summary>
-        public virtual string Grammer => string.Empty;
+        public virtual string Grammar => string.Empty;
 
 
         /// <summary>

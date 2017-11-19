@@ -53,34 +53,33 @@ namespace HSNXT.ComLib
             if(!settings.IsCaseSensitive) nameFilter = nameFilter.ToLower();
 
             // 1. Iterate through all the keys
-            foreach (var keyvalue in source)
+            foreach (DictionaryEntry keyvalue in source)
             {
-                var key = keyvalue.Key.ToString();
+                var k = keyvalue.Key.ToString();
+                var key = k;
                 var value = keyvalue.Value;
 
                 // 2. Convert key to lowercase if not case sensitive.
                 if( !settings.IsCaseSensitive ) key = key.ToLower();
 
                 // 3. Check if name prefix filter exists.
-                if (!hasNameFilter || (hasNameFilter && key.StartsWith(nameFilter)))
+                if (hasNameFilter && (!hasNameFilter || !key.StartsWith(nameFilter))) continue;
+                // 4. Convert key name to actual destination prop name.
+                var destinationKeyName = !hasNameFilter ? key : key.Replace(nameFilter, string.Empty);
+
+                // 5. Check if destination property exists.
+                if (propMap.ContainsKey(destinationKeyName))
                 {
-                    // 4. Convert key name to actual destination prop name.
-                    var destinationKeyName = !hasNameFilter ? key : key.Replace(nameFilter, string.Empty);
+                    var prop = propMap[destinationKeyName];
 
-                    // 5. Check if destination property exists.
-                    if (propMap.ContainsKey(destinationKeyName))
-                    {
-                        var prop = propMap[destinationKeyName];
-
-                        // Finally set the value.
-                        SetValue(prop, settings, item, destinationKeyName, value, errors);
-                    }
-                    // Check if mapping nested objects and key is Address.City (example).
-                    else if (settings.MapNestedObjects && destinationKeyName.Contains("."))
-                    {
-                        var nested = AutoMapperHelper.GetNestedProperty(item, keyvalue.Key.ToString(), settings.AutoCreateNestedObjects);
-                        SetValue(nested.Value, settings, nested.Key, nested.Value.Name, value, errors);
-                    }
+                    // Finally set the value.
+                    SetValue(prop, settings, item, destinationKeyName, value, errors);
+                }
+                // Check if mapping nested objects and key is Address.City (example).
+                else if (settings.MapNestedObjects && destinationKeyName.Contains("."))
+                {
+                    var nested = AutoMapperHelper.GetNestedProperty(item, k, settings.AutoCreateNestedObjects);
+                    SetValue(nested.Value, settings, nested.Key, nested.Value.Name, value, errors);
                 }
             }
             return item;

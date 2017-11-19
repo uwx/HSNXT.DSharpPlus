@@ -209,7 +209,7 @@ namespace HSNXT.ComLib.Scheduling
 
             lock (_syncObject)
             {
-                foreach (var entry in _tasks)
+                foreach (DictionaryEntry entry in _tasks)
                 {
                     var summary = ((Task)entry.Value).GetStatus();
                     summaries.Add(summary);

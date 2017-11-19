@@ -79,7 +79,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "env '.' ( ( sys | user ) '.' )? <ident>";
+        public override string Grammar => "env '.' ( ( sys | user ) '.' )? <ident>";
 
 
         /// <summary>

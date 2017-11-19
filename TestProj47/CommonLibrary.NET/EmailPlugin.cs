@@ -39,7 +39,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "not available";
+        public override string Grammar => "not available";
 
 
         /// <summary>

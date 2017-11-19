@@ -36,10 +36,13 @@ namespace HSNXT.ComLib
 
 
         #region IConfigSource Members
+        /// <inheritdoc />
         /// <summary>
         /// Event handler for when the underlying config source changed.
         /// </summary>
+#pragma warning disable 67
         public event EventHandler OnConfigSourceChanged;
+#pragma warning restore 67
 
         
         /// <summary>

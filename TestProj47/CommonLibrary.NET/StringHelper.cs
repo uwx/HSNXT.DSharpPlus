@@ -428,18 +428,12 @@ namespace HSNXT.ComLib
         public static void DoFixedLengthPrinting(IDictionary keyValues, int extraPadding,  Action<string, object> printer)
         {
             // Get the length of the longest named argument.
-            var maxLength = 0;
-            foreach (var entry in keyValues)
-            {
-                var keyLen = ((string)entry.Key).Length;
-                if (keyLen > maxLength)
-                    maxLength = keyLen;
-            }
+            var maxLength = (from DictionaryEntry entry in keyValues select ((string) entry.Key).Length).Concat(new[] {0}).Max();
             maxLength += extraPadding;
 
             // Iterate through all the keys and build a fixed length key.
             // e.g. if key is 4 chars and maxLength is 6, add 2 chars using space(' ').
-            foreach (var entry in keyValues)
+            foreach (DictionaryEntry entry in keyValues)
             {
                 var newKeyWithPadding = GetFixedLengthString((string)entry.Key, maxLength, " ");
                 printer(newKeyWithPadding, entry.Value);

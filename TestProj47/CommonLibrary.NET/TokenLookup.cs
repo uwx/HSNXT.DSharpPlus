@@ -81,10 +81,10 @@ namespace CommonLibrary
     public class TokenLookup : ITokenLookup
     {
         private readonly IDictionary<string, string> _validTokens;
-        private bool _isCaseSensitive;
+        private const bool _isCaseSensitive = false;
         private readonly bool _ignoreWhiteSpace = true;
         private readonly TokenLookupSettings _settings;
-        private IList<string> _formattedValidTokens;
+        private readonly IList<string> _formattedValidTokens = null;
 
 
         /// <summary>

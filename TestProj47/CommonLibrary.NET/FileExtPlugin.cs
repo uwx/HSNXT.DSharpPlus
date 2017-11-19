@@ -59,7 +59,7 @@ namespace HSNXT.ComLib.Lang.Plugins
         /// <summary>
         /// The grammer for the function declaration
         /// </summary>
-        public override string Grammer => "'*'? '.' <word> ";
+        public override string Grammar => "'*'? '.' <word> ";
 
 
         /// <summary>

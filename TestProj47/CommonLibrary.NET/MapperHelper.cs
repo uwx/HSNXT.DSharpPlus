@@ -53,7 +53,7 @@ namespace HSNXT.ComLib.MapperSupport
         public static void MapTo<T>(T item, int counterOrRefId, IDictionary<string, PropertyInfo> propMap, IDictionary data, IErrors errors)
         {
             var handledProps = new Dictionary<string, bool>();
-            foreach (var entry in data)
+            foreach (DictionaryEntry entry in data)
             {
                 var propname = entry.Key as string;
                 var val = entry.Value;
@@ -105,7 +105,7 @@ namespace HSNXT.ComLib.MapperSupport
             namefilter = namefilter.Trim().ToLower();
 
             // 3. Iterate through all the keys.
-            foreach (var entry in data)
+            foreach (DictionaryEntry entry in data)
             {
                 var keyname = entry.Key as string;
                 keyname = keyname.Trim().ToLower();
