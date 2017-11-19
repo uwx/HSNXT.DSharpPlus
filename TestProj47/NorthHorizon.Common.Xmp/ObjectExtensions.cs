@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
+using TestProj47.aResources;
 
 namespace HSNXT
 {
@@ -95,7 +96,7 @@ namespace HSNXT
                     break;
 
                 if (!(expr is MemberExpression memberExpr))
-                    throw new ArgumentException("Given expression is not a member access chain.",
+                    throw new ArgumentException(Resource1.Extensions_ChainGet_Given_expression_is_not_a_member_access_chain,
                         nameof(getExpression));
 
                 members.Push(new MemberAccessInfo(memberExpr.Member));

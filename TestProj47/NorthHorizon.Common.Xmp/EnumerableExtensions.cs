@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
+using TestProj47.aResources;
 
 namespace HSNXT
 {
@@ -55,7 +56,7 @@ namespace HSNXT
             long? leftBoundOffset, rightBoundOffset;
 
             if (!(countExpression.Body is BinaryExpression operation))
-                throw new ArgumentException("Invalid expression.", nameof(countExpression));
+                throw new ArgumentException(Resource1.InvalidExpression, nameof(countExpression));
 
             bool isInverted = false, isNegated = false;
             Expression valueExpression;
@@ -68,7 +69,7 @@ namespace HSNXT
             else if (operation.Right != parameterExpression)
                 valueExpression = operation.Left;
             else
-                throw new ArgumentException("Count parameter is missing.", nameof(countExpression));
+                throw new ArgumentException(Resource1.CountParameterMissing, nameof(countExpression));
 
             // translate to v + delta_l < c < v + delta_r
             switch (countExpression.Body.NodeType)
@@ -127,7 +128,7 @@ namespace HSNXT
                     break;
 
                 default:
-                    throw new ArgumentException("Invalid expression.", nameof(countExpression));
+                    throw new ArgumentException(Resource1.InvalidExpression, nameof(countExpression));
             }
 
             long value;
@@ -138,7 +139,7 @@ namespace HSNXT
             }
             catch (InvalidOperationException error)
             {
-                throw new ArgumentException("Error executing count comparison value expression.",
+                throw new ArgumentException(Resource1.ErrorExecutingCountComparisonValueExpression,
                     nameof(countExpression), error);
             }
 

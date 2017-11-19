@@ -21,6 +21,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TestProj47.aResources;
 
 namespace HSNXT
 {
@@ -95,7 +96,7 @@ namespace HSNXT
             if (sequence == null)
                 throw new ArgumentNullException(nameof(sequence));
             if (subsetSize < 0)
-                throw new ArgumentOutOfRangeException(nameof(subsetSize), "Subset size must be >= 0");
+                throw new ArgumentOutOfRangeException(nameof(subsetSize), Resource1.Subset_size_must_be_larger_than_or_equal_to_0);
 
             // NOTE: Theres an interesting trade-off that we have to make in this operator.
             // Ideally, we would throw an exception here if the {subsetSize} parameter is

@@ -23,6 +23,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using TestProj47.aResources;
 
 namespace HSNXT
 {
@@ -42,7 +43,7 @@ namespace HSNXT
             if (!(body is MemberExpression memberExpression) ||
                 memberExpression.Expression.NodeType != ExpressionType.Parameter)
             {
-                throw new ArgumentException($"Illegal expression: {lambda}", nameof(lambda));
+                throw new ArgumentException(string.Format(Resource1.Illegal_expression_0, lambda), nameof(lambda));
             }
 
             return memberExpression.Member;
@@ -68,7 +69,7 @@ namespace HSNXT
             //
 
             if (expressions.Any(e => e == null))
-                throw new ArgumentException("One of the supplied expressions was null.", nameof(expressions));
+                throw new ArgumentException(Resource1.One_of_the_supplied_expressions_was_null, nameof(expressions));
 
             try
             {
@@ -76,7 +77,7 @@ namespace HSNXT
             }
             catch (ArgumentException e)
             {
-                throw new ArgumentException("One of the supplied expressions is not allowed.", nameof(expressions), e);
+                throw new ArgumentException(Resource1.One_of_the_supplied_expressions_is_not_allowed, nameof(expressions), e);
             }
         }
 
@@ -127,11 +128,11 @@ namespace HSNXT
                     var column = info.Column;
 
                     if (column == null)
-                        throw new ArgumentException($"Column named '{member.Name}' is missing.", nameof(table));
+                        throw new ArgumentException(string.Format(Resource1.Column_named_0_is_missing, member.Name), nameof(table));
 
                     if (info.Type != column.DataType)
                         throw new ArgumentException(
-                            $"Column named '{member.Name}' has wrong data type. It should be {info.Type} when it is {column.DataType}.",
+                            string.Format(Resource1.Column_named_0_has_wrong_data_type_It_should_be_1_when_it_is_2, member.Name, info.Type, column.DataType),
                             nameof(table));
 
                     members[column.Ordinal] = member;
