@@ -72,9 +72,8 @@ deploy:
       Revision $(APPVEYOR_BUILD_NUMBER) ($(APPVEYOR_REPO_SCM) commit $(APPVEYOR_REPO_COMMIT) from $(APPVEYOR_REPO_NAME)/$(APPVEYOR_REPO_BRANCH))
       Commit info:
       ```
-      $(APPVEYOR_REPO_COMMIT_TIMESTAMP) $(APPVEYOR_REPO_COMMIT_AUTHOR) <email hidden>:
+      $(APPVEYOR_REPO_COMMIT_TIMESTAMP) $(APPVEYOR_REPO_COMMIT_AUTHOR):
       $(APPVEYOR_REPO_COMMIT_MESSAGE)
-      $(APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED)
       ```
     auth_token:
       secure: P6fLO7WZwzqHvmMFHtii8ToXcxF25nJnh/GThOE7hSb4TEs+h3ARPzKXVCcHSf/P # your encrypted token from GitHub
