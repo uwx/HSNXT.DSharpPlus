@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using DSharpPlus.Entities;
 using DSharpPlus.VoiceNext.Codec;
 
 namespace DSharpPlus.VoiceNext
@@ -63,5 +65,35 @@ namespace DSharpPlus.VoiceNext
         /// <returns>VoiceNext client instance.</returns>
         public static VoiceNextExtension GetVoiceNext(this DiscordClient client) 
             => client.GetExtension<VoiceNextExtension>();
+
+        /// <summary>
+        /// Connects to this voice channel using VoiceNext.
+        /// </summary>
+        /// <param name="channel">Channel to connect to.</param>
+        /// <returns>If successful, the VoiceNext connection.</returns>
+        public static Task<VoiceNextConnection> ConnectAsync(this DiscordChannel channel)
+        {
+            if (channel == null)
+                throw new NullReferenceException();
+
+            if (channel.Guild == null)
+                throw new InvalidOperationException("VoiceNext can only be used with guild channels.");
+
+            if (channel.Type != ChannelType.Voice)
+                throw new InvalidOperationException("You can only connect to voice channels.");
+
+            if (!(channel.Discord is DiscordClient discord) || discord == null)
+                throw new NullReferenceException();
+
+            var vnext = discord.GetVoiceNext();
+            if (vnext == null)
+                throw new InvalidOperationException("VoiceNext is not initialized for this Discord client.");
+
+            var vnc = vnext.GetConnection(channel.Guild);
+            if (vnc != null)
+                throw new InvalidOperationException("VoiceNext is already connected in this guild.");
+
+            return vnext.ConnectAsync(channel);
+        }
     }
 }

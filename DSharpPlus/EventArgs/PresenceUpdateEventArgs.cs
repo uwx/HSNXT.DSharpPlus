@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DSharpPlus.Entities;
-using DSharpPlus.Net.Abstractions;
-using Newtonsoft.Json;
+﻿using DSharpPlus.Entities;
 
 namespace DSharpPlus.EventArgs
 {
@@ -11,53 +7,40 @@ namespace DSharpPlus.EventArgs
     /// </summary>
     public class PresenceUpdateEventArgs : DiscordEventArgs
     {
-        [JsonProperty("user")]
-        internal DiscordUser InternalUser { get; set; }
+        /// <summary>
+        /// Gets the user whose presence was updated.
+        /// </summary>
+        public DiscordUser User { get; internal set; }
 
         /// <summary>
-        /// Gets the member whose presence was updated.
+        /// Gets the user's new game.
         /// </summary>
-        [JsonIgnore]
-        public DiscordMember Member 
-            => this.Client.Guilds[this.GuildId].Members.FirstOrDefault(xm => xm.Id == this.InternalUser.Id);
+        public DiscordActivity Activity { get; internal set; }
 
         /// <summary>
-        /// Gets the member's new game.
+        /// Gets the user's status.
         /// </summary>
-        [JsonProperty("game", NullValueHandling = NullValueHandling.Ignore)]
-        public TransportGame Game { get; internal set; }
+        public UserStatus Status { get; internal set; }
 
         /// <summary>
-        /// Gets the member's status.
+        /// Gets the user's old presence.
         /// </summary>
-        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
-        public string Status { get; internal set; }
-
-        [JsonProperty("guild_id", NullValueHandling = NullValueHandling.Ignore)]
-        internal ulong GuildId { get; set; }
-
-        /// <summary>
-        /// Gets the guild for which this event occured.
-        /// </summary>
-        [JsonIgnore]
-        public DiscordGuild Guild 
-            => this.Client.Guilds[this.GuildId];
-
-        [JsonProperty("roles", NullValueHandling = NullValueHandling.Ignore)]
-        internal IReadOnlyList<ulong> RoleIds { get; set; }
-
-        /// <summary>
-        /// Gets the roles this member has.
-        /// </summary>
-        [JsonIgnore]
-        public IEnumerable<DiscordRole> Roles 
-            => this.RoleIds.Select(xid => this.Guild.Roles.FirstOrDefault(xr => xr.Id == xid));
-
-        /// <summary>
-        /// Gets the member's old presence.
-        /// </summary>
-        [JsonIgnore]
         public DiscordPresence PresenceBefore { get; internal set; }
+
+        /// <summary>
+        /// Gets the user's new presence.
+        /// </summary>
+        public DiscordPresence PresenceAfter { get; internal set; }
+
+        /// <summary>
+        /// Gets the user prior to presence update.
+        /// </summary>
+        public DiscordUser UserBefore { get; internal set; }
+
+        /// <summary>
+        /// Gets the user after the presence update.
+        /// </summary>
+        public DiscordUser UserAfter { get; internal set; }
 
         internal PresenceUpdateEventArgs() : base(null) { }
         internal PresenceUpdateEventArgs(DiscordClient client) : base(client) { }

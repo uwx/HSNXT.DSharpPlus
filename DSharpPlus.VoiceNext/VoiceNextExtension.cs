@@ -85,7 +85,7 @@ namespace DSharpPlus.VoiceNext
                 }
             };
             var vsj = JsonConvert.SerializeObject(vsd, Formatting.None);
-            (channel.Discord as DiscordClient)._websocket_client.SendMessage(vsj);
+            (channel.Discord as DiscordClient)._webSocketClient.SendMessage(vsj);
             
             var vstu = await vstut.Task.ConfigureAwait(false);
             var vstup = new VoiceStateUpdatePayload
@@ -138,7 +138,7 @@ namespace DSharpPlus.VoiceNext
                 }
             };
             var vsj = JsonConvert.SerializeObject(vsd, Formatting.None);
-            (guild.Discord as DiscordClient)._websocket_client.SendMessage(vsj);
+            (guild.Discord as DiscordClient)._webSocketClient.SendMessage(vsj);
         }
 
         private Task Client_VoiceStateUpdate(VoiceStateUpdateEventArgs e)
@@ -147,7 +147,10 @@ namespace DSharpPlus.VoiceNext
             if (gld == null)
                 return Task.Delay(0);
 
-            if (this.ActiveConnections.TryGetValue(e.Guild.Id, out var vnc))
+            if (e.User == null)
+                return Task.Delay(0);
+
+            if (e.User.Id == this.Client.CurrentUser.Id && this.ActiveConnections.TryGetValue(e.Guild.Id, out var vnc))
             {
                 vnc.Channel = e.Channel;
             }

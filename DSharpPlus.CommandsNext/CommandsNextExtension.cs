@@ -19,37 +19,10 @@ namespace DSharpPlus.CommandsNext
     /// </summary>
     public class CommandsNextExtension : BaseExtension
     {
-        #region Events
-        /// <summary>
-        /// Triggered whenever a command executes successfully.
-        /// </summary>
-        public event AsyncEventHandler<CommandExecutionEventArgs> CommandExecuted
-        {
-            add { this._executed.Register(value); }
-            remove { this._executed.Unregister(value); }
-        }
-        private AsyncEvent<CommandExecutionEventArgs> _executed;
-
-        /// <summary>
-        /// Triggered whenever a command throws an exception during execution.
-        /// </summary>
-        public event AsyncEventHandler<CommandErrorEventArgs> CommandErrored
-        {
-            add { this._error.Register(value); }
-            remove { this._error.Unregister(value); }
-        }
-        private AsyncEvent<CommandErrorEventArgs> _error;
-
-        private Task OnCommandExecuted(CommandExecutionEventArgs e) 
-            => this._executed.InvokeAsync(e);
-
-        private Task OnCommandErrored(CommandErrorEventArgs e) 
-            => this._error.InvokeAsync(e);
-        #endregion
+        private const string GROUP_COMMAND_METHOD_NAME = "ExecuteGroupAsync";
 
         private CommandsNextConfiguration Config { get; }
-        private Type HelpFormatterType { get; set; } = typeof(DefaultHelpFormatter);
-        private const string GROUP_COMMAND_METHOD_NAME = "ExecuteGroupAsync";
+        private HelpFormatterFactory HelpFormatter { get; }
 
         /// <summary>
         /// Gets the service provider this CommandsNext module was configured with.
@@ -62,15 +35,17 @@ namespace DSharpPlus.CommandsNext
             this.Config = cfg;
             this.TopLevelCommands = new Dictionary<string, Command>();
             this._registered_commands_lazy = new Lazy<IReadOnlyDictionary<string, Command>>(() => new ReadOnlyDictionary<string, Command>(this.TopLevelCommands));
+            this.HelpFormatter = new HelpFormatterFactory();
+            this.HelpFormatter.SetFormatterType<DefaultHelpFormatter>();
         }
 
         /// <summary>
         /// Sets the help formatter to use with the default help command.
         /// </summary>
         /// <typeparam name="T">Type of the formatter to use.</typeparam>
-        public void SetHelpFormatter<T>() where T : class, IHelpFormatter, new()
+        public void SetHelpFormatter<T>() where T : class, IHelpFormatter
         {
-            this.HelpFormatterType = typeof(T);
+            this.HelpFormatter.SetFormatterType<T>();
         }
 
         #region Helpers
@@ -195,8 +170,10 @@ namespace DSharpPlus.CommandsNext
             if (mpos == -1)
                 return;
 
+            var pfx = e.Message.Content.Substring(0, mpos);
             var cnt = e.Message.Content.Substring(mpos);
-            var cms = CommandsNextUtilities.ExtractNextArgument(cnt, out var rrg);
+            int sp = 0;
+            var cms = CommandsNextUtilities.ExtractNextArgument(cnt, ref sp);
 
             var cmd = this.TopLevelCommands.ContainsKey(cms) ? this.TopLevelCommands[cms] : null;
             if (cmd == null && !this.Config.CaseSensitive)
@@ -209,7 +186,8 @@ namespace DSharpPlus.CommandsNext
                 Message = e.Message,
                 //RawArguments = new ReadOnlyCollection<string>(arg.ToList()),
                 Config = this.Config,
-                RawArgumentString = rrg,
+                RawArgumentString = cnt.Substring(sp),
+                Prefix = pfx,
                 CommandsNext = this
             };
 
@@ -302,7 +280,7 @@ namespace DSharpPlus.CommandsNext
                     this.AddToCommandDictionary(xc);
         }
 
-        private void RegisterCommands(Type t, object inst, CommandGroup currentparent, out CommandGroup result, out IReadOnlyList<Command> commands)
+        private void RegisterCommands(Type t, object moduleInstance, CommandGroup currentParent, out CommandGroup result, out IReadOnlyList<Command> commands)
         {
             var ti = t.GetTypeInfo();
 
@@ -325,7 +303,7 @@ namespace DSharpPlus.CommandsNext
                         is_mdl = true;
                         mdl_name = g.Name;
                         if (g.CanInvokeWithoutSubcommand)
-                            this.MakeCallableModule(ti, inst, out mdl_cbl, out mdl_args);
+                            this.MakeCallableModule(ti, moduleInstance, out mdl_cbl, out mdl_args);
                         break;
 
                     case AliasesAttribute a:
@@ -354,7 +332,7 @@ namespace DSharpPlus.CommandsNext
                     Description = mdl_desc,
                     ExecutionChecks = new ReadOnlyCollection<CheckBaseAttribute>(mdl_chks),
                     IsHidden = mdl_hidden,
-                    Parent = currentparent,
+                    Parent = currentParent,
                     Callable = mdl_cbl,
                     Arguments = mdl_args,
                     Children = null
@@ -411,7 +389,7 @@ namespace DSharpPlus.CommandsNext
                 }
                 cmd.ExecutionChecks = new ReadOnlyCollection<CheckBaseAttribute>(cbas);
                 cmd.Parent = mdl;
-                MakeCallable(m, inst, out var cbl, out var args);
+                MakeCallable(m, moduleInstance, out var cbl, out var args);
                 cmd.Callable = cbl;
                 cmd.Arguments = args;
                 
@@ -454,12 +432,12 @@ namespace DSharpPlus.CommandsNext
             result = mdl;
         }
 
-        private void MakeCallable(MethodInfo mi, object inst, out Delegate cbl, out IReadOnlyList<CommandArgument> args)
+        private void MakeCallable(MethodInfo method, object moduleInstance, out Delegate callable, out IReadOnlyList<CommandArgument> args)
         {
-            if (!mi.IsCommandCandidate(out var ps))
+            if (!method.IsCommandCandidate(out var ps))
                 throw new MissingMethodException("Specified method is not suitable for a command.");
 
-            var ei = Expression.Constant(inst);
+            var ei = Expression.Constant(moduleInstance);
 
             var ea = new ParameterExpression[ps.Length];
             ea[0] = Expression.Parameter(typeof(CommandContext), "ctx");
@@ -493,7 +471,7 @@ namespace DSharpPlus.CommandsNext
                         case ParamArrayAttribute p:
                             ca.IsCatchAll = true;
                             ca.Type = xp.ParameterType.GetElementType();
-                            ca._is_array = true;
+                            ca._isArray = true;
                             break;
                     }
                 }
@@ -505,20 +483,20 @@ namespace DSharpPlus.CommandsNext
                 ea[i++] = Expression.Parameter(xp.ParameterType, xp.Name);
             }
 
-            var ec = Expression.Call(ei, mi, ea);
+            var ec = Expression.Call(ei, method, ea);
             var el = Expression.Lambda(ec, ea);
 
-            cbl = el.Compile();
+            callable = el.Compile();
             args = new ReadOnlyCollection<CommandArgument>(argsl);
         }
 
-        private void MakeCallableModule(TypeInfo ti, object inst, out Delegate cbl, out IReadOnlyList<CommandArgument> args)
+        private void MakeCallableModule(TypeInfo ti, object moduleInstance, out Delegate callable, out IReadOnlyList<CommandArgument> args)
         {
             var mtd = ti.GetDeclaredMethod(GROUP_COMMAND_METHOD_NAME);
             if (mtd == null)
                 throw new MissingMethodException($"A group marked with CanExecute must have a method named {GROUP_COMMAND_METHOD_NAME}.");
 
-            this.MakeCallable(mtd, inst, out cbl, out args);
+            this.MakeCallable(mtd, moduleInstance, out callable, out args);
         }
 
         private object CreateInstance(Type t)
@@ -597,7 +575,7 @@ namespace DSharpPlus.CommandsNext
         public async Task DefaultHelpAsync(CommandContext ctx, [Description("Command to provide help for.")] params string[] command)
         {
             var toplevel = this.TopLevelCommands.Values.Distinct();
-            var helpbuilder = Activator.CreateInstance(this.HelpFormatterType) as IHelpFormatter;
+            var helpbuilder = this.HelpFormatter.Create(ctx.Services);
             
             if (command != null && command.Any())
             {
@@ -745,6 +723,34 @@ namespace DSharpPlus.CommandsNext
 
             await this.HandleCommandsAsync(new MessageCreateEventArgs(this.Client) { Message = msg }).ConfigureAwait(false);
         }
+        #endregion
+        
+        #region Events
+        /// <summary>
+        /// Triggered whenever a command executes successfully.
+        /// </summary>
+        public event AsyncEventHandler<CommandExecutionEventArgs> CommandExecuted
+        {
+            add { this._executed.Register(value); }
+            remove { this._executed.Unregister(value); }
+        }
+        private AsyncEvent<CommandExecutionEventArgs> _executed;
+
+        /// <summary>
+        /// Triggered whenever a command throws an exception during execution.
+        /// </summary>
+        public event AsyncEventHandler<CommandErrorEventArgs> CommandErrored
+        {
+            add { this._error.Register(value); }
+            remove { this._error.Unregister(value); }
+        }
+        private AsyncEvent<CommandErrorEventArgs> _error;
+
+        private Task OnCommandExecuted(CommandExecutionEventArgs e)
+            => this._executed.InvokeAsync(e);
+
+        private Task OnCommandErrored(CommandErrorEventArgs e)
+            => this._error.InvokeAsync(e);
         #endregion
     }
 }

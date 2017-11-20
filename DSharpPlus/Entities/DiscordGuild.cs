@@ -1489,9 +1489,10 @@ namespace DSharpPlus.Entities
         }
 
         /// <summary>
-        /// Gets the default channel for this member.
+        /// <para>Gets the default channel for this guild.</para>
+        /// <para>Default channel is the first channel current member can see.</para>
         /// </summary>
-        /// <returns>This member's default channel.</returns>
+        /// <returns>This member's default guild.</returns>
         public DiscordChannel GetDefaultChannel()
         {
             return this._channels.Where(xc => xc.Type == ChannelType.Text)

@@ -22,7 +22,11 @@ namespace DSharpPlus.CommandsNext.Converters
 
         static TimeSpanConverter()
         {
-            TimeSpanRegex = new Regex(@"^(?<days>\d+d)?(?<hours>\d{1,2}h)?(?<minutes>\d{1,2}m)?(?<seconds>\d{1,2}s)?$", RegexOptions.ECMAScript);
+#if NETSTANDARD1_1
+            TimeSpanRegex = new Regex(@"^(?<days>\d+d\s*)?(?<hours>\d{1,2}h\s*)?(?<minutes>\d{1,2}m\s*)?(?<seconds>\d{1,2}s\s*)?$", RegexOptions.ECMAScript);
+#else
+            TimeSpanRegex = new Regex(@"^(?<days>\d+d\s*)?(?<hours>\d{1,2}h\s*)?(?<minutes>\d{1,2}m\s*)?(?<seconds>\d{1,2}s\s*)?$", RegexOptions.ECMAScript | RegexOptions.Compiled);
+#endif
         }
 
         public bool TryConvert(string value, CommandContext ctx, out TimeSpan result)
@@ -30,6 +34,12 @@ namespace DSharpPlus.CommandsNext.Converters
             result = TimeSpan.Zero;
             if (value == "0")
                 return true;
+
+            if (int.TryParse(value, NumberStyles.Number, CultureInfo.InvariantCulture, out _))
+                return false;
+
+            if (!ctx.Config.CaseSensitive)
+                value = value.ToLowerInvariant();
 
             if (TimeSpan.TryParse(value, CultureInfo.InvariantCulture, out result))
                 return true;
