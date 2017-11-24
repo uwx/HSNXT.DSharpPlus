@@ -22,11 +22,9 @@
         <e p="DRPCTest.csproj" t="IncludeRecursive" />
         <e p="DRPCTest.csproj.DotSettings" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="x64" t="Include">
-            <e p="Debug" t="Include">
-              <e p="net47" t="Include">
-                <e p="DRPCTest.AssemblyInfo.cs" t="Include" />
-              </e>
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="DRPCTest.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -104,9 +102,9 @@
         <e p="SuperOEISGenerator.csproj" t="IncludeRecursive" />
       </e>
       <e p="TestProj47" t="IncludeRecursive">
-        <e p="!Resources" t="Include">
-          <e p="Resources1.Designer.cs" t="Include" />
-          <e p="Resources1.resx" t="Include" />
+        <e p="aResources" t="Include">
+          <e p="Resource1.Designer.cs" t="Include" />
+          <e p="Resource1.resx" t="Include" />
           <e p="Strings.Designer.cs" t="Include" />
           <e p="Strings.resx" t="Include" />
         </e>
@@ -984,9 +982,67 @@
         <e p="LICENSE.ExtensionMinder.txt" t="Include" />
         <e p="LICENSE.ExtensionOverflow.txt" t="Include" />
         <e p="LICENSE.IntXLib.txt" t="Include" />
+        <e p="LICENSE.MiscUtil.txt" t="Include" />
         <e p="LICENSE.MoreLinq.txt" t="Include" />
         <e p="LICENSE.NBasicExtensionMethod.txt" t="Include" />
         <e p="LICENSE.Z.ExtensionMethods.txt" t="Include" />
+        <e p="MiscUtil" t="Include">
+          <e p="BufferAcquisitionException.cs" t="Include" />
+          <e p="CachedBuffer.cs" t="Include" />
+          <e p="CachingBufferManager.cs" t="Include" />
+          <e p="Checksum" t="Include">
+            <e p="Adler32.cs" t="Include" />
+          </e>
+          <e p="Collections" t="Include">
+            <e p="ComparisonComparer.cs" t="Include" />
+            <e p="RandomAccessQueue.cs" t="Include" />
+            <e p="Range.cs" t="Include" />
+            <e p="SmartEnumerable.cs" t="Include" />
+          </e>
+          <e p="Compression" t="Include">
+            <e p="Vcdiff" t="Include">
+              <e p="AddressCache.cs" t="Include" />
+              <e p="CodeTable.cs" t="Include" />
+              <e p="Instruction.cs" t="Include" />
+              <e p="InstructionType.cs" t="Include" />
+              <e p="IOHelper.cs" t="Include" />
+              <e p="VcdiffDecoder.cs" t="Include" />
+              <e p="VcdiffFormatException.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Conversion" t="Include">
+            <e p="BigEndianBitConverter.cs" t="Include" />
+            <e p="DoubleConverter.cs" t="Include" />
+            <e p="EndianBitConverter.cs" t="Include" />
+            <e p="Endianness.cs" t="Include" />
+            <e p="LittleEndianBitConverter.cs" t="Include" />
+          </e>
+          <e p="IBuffer.cs" t="Include" />
+          <e p="IBufferManager.cs" t="Include" />
+          <e p="IO" t="Include">
+            <e p="EndianBinaryReader.cs" t="Include" />
+            <e p="EndianBinaryWriter.cs" t="Include" />
+            <e p="NonClosingStreamWrapper.cs" t="Include" />
+            <e p="StreamUtil.cs" t="Include" />
+            <e p="StringWriterWithEncoding.cs" t="Include" />
+          </e>
+          <e p="PartialComparer.cs" t="Include" />
+          <e p="StaticRandom.cs" t="Include" />
+          <e p="Text" t="Include">
+            <e p="Utf32String.cs" t="Include" />
+          </e>
+          <e p="Threading" t="Include">
+            <e p="CustomThreadPool.cs" t="Include" />
+            <e p="Delegates.cs" t="Include" />
+            <e p="LockOrderException.cs" t="Include" />
+            <e p="LockTimeoutException.cs" t="Include" />
+            <e p="LockToken.cs" t="Include" />
+            <e p="OrderedLock.cs" t="Include" />
+            <e p="SyncLock.cs" t="Include" />
+            <e p="ThreadController.cs" t="Include" />
+            <e p="ThreadPoolWorkItem.cs" t="Include" />
+          </e>
+        </e>
         <e p="MoreLinq" t="Include">
           <e p="Acquire.cs" t="Include" />
           <e p="AggregateRight.cs" t="Include" />
@@ -1119,6 +1175,15 @@
         <e p="String.cs" t="Include" />
         <e p="TestProj47.csproj" t="IncludeRecursive" />
         <e p="TestProj47.csproj.DotSettings" t="Include" />
+        <e p="Triangulator" t="Include">
+          <e p="Delaunay.cs" t="Include" />
+          <e p="Geometry" t="Include">
+            <e p="Edge.cs" t="Include" />
+            <e p="Point.cs" t="Include" />
+            <e p="PointN.cs" t="Include" />
+            <e p="Triangle.cs" t="Include" />
+          </e>
+        </e>
         <e p="ZExtensionMethods_Compressed" t="Include">
           <e p="GetDeclaration.cs" t="Include" />
           <e p="GetSignature.cs" t="Include" />
