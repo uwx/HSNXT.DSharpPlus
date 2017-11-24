@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// he Bubble chart type is a variation of the Point Chart (Chart Controls) chart type, where the data points are replaced by bubbles of different sizes. 

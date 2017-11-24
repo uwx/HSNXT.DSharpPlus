@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Funnel chart type displays in a funnel shape data that equals 100% when totaled. 

@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Stacked Area chart type is an Area chart that stacks two or more data series on top of one another.

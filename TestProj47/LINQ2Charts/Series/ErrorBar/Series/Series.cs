@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Error Bar chart type consists of lines with markers that are used to display statistical information about the data displayed in a graph. 

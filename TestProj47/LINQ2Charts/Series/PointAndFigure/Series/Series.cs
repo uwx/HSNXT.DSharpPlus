@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Point and Figure chart type differs from traditional price charts in that it disregards the passage of time and only displays changes in prices. 

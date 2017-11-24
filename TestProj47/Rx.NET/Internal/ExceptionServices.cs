@@ -30,7 +30,6 @@ namespace HSNXT.Reactive
         }
     }
 }
-using System;
 
 namespace HSNXT.Reactive.PlatformServices
 {

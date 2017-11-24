@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Line chart type can be used to illustrate trends in data with the passing of time.

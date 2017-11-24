@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// A Stock chart is typically used to illustrate significant stock price points including a stock's open, close, high, and low price points. 

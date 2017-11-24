@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Range Column chart type displays a range of data by plotting two Y values per data point. Each Y value used is drawn as the upper, and lower bounds of a column. This is similar to the Range Bar chart, except the columns are positioned vertically. 

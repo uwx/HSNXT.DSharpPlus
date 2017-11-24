@@ -1,4 +1,4 @@
-﻿namespace System.Linq.Charting
+﻿namespace HSNXT.Linq.Charting
 {
     partial class Spline 
     {

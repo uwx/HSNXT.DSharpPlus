@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Step Line chart type is similar to the Line chart type, but it does not use the shortest distance to connect two data points. 

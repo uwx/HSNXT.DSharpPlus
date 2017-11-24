@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// This chart type displays multiple data series as stacked bars, and the cumulative proportion of each stacked element always totals 100%.

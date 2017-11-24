@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The FastLine chart type is a variation of the Line chart that significantly reduces the drawing time of a series that contains a very large number of data points. 

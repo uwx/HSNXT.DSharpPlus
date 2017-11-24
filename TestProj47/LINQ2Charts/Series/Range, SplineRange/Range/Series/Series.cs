@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Range chart type displays a range of data by plotting two Y values per data point, with each Y value being drawn as a line chart. The range between the Y values can then be filled with color, or an image.

@@ -2,7 +2,7 @@
 
 using System.Drawing;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     public partial class PieOr_<S>
     {

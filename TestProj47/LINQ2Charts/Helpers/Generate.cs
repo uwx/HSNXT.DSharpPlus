@@ -1,8 +1,10 @@
 // Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     public static class Generate
     {
@@ -16,7 +18,7 @@ namespace System.Linq.Charting
             }
         }
 
-        public static IEnumerable<T> Random<T>(int minValue, int maxValue) where T : Windows.Forms.DataVisualization.Charting.DataPoint
+        public static IEnumerable<T> Random<T>(int minValue, int maxValue) where T : DataPoint
         {
             while (true)
             {

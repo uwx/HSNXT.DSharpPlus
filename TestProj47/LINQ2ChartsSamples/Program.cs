@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Linq.Charting;
+using HSNXT.Linq.Charting;
 using System.Windows.Forms;
 
 namespace Samples
@@ -116,7 +116,7 @@ namespace Samples
                     series3.Add(random.Next(2, 50));
                 }
 
-                var area = new System.Linq.Charting.ChartArea
+                var area = new HSNXT.Linq.Charting.ChartArea
                 {
                     Area3DStyle =
                     {
@@ -142,7 +142,7 @@ namespace Samples
                     Series = { series1, series2, series3 }
                 };
 
-                var chart = new System.Linq.Charting.Chart
+                var chart = new HSNXT.Linq.Charting.Chart
                 {
                     ChartAreas = { area }
                 ,
@@ -170,14 +170,14 @@ namespace Samples
                        from hwy in car from cylinder in hwy
                        select new
                        { X = car.Key
-                       , Y = new System.Linq.Charting.Point.DataPoint(hwy.Key)
+                       , Y = new HSNXT.Linq.Charting.Point.DataPoint(hwy.Key)
                            { Color = CylindersToColor(cylinder)
                            , MarkerSize = cylinder * 4
                            , ToolTip = string.Format("{0} cyclinders", cylinder)
                            }
                        };
 
-            var series = new System.Linq.Charting.Point
+            var series = new HSNXT.Linq.Charting.Point
             {
                 Points = { data.Select(xy => KeyValuePair.Create(xy.X, xy.Y)) }
             };
@@ -199,11 +199,11 @@ namespace Samples
             var pixels = ColorPoint.Pixels(image);
 
             var copy = from pixel in pixels
-                       let y = new System.Linq.Charting.Point.DataPoint(image.Height - pixel.Y) { Color = pixel.Color }
+                       let y = new HSNXT.Linq.Charting.Point.DataPoint(image.Height - pixel.Y) { Color = pixel.Color }
                        let x = pixel.X + 1
                        select KeyValuePair.Create(x, y);
 
-            var pixelated = new System.Linq.Charting.Point 
+            var pixelated = new HSNXT.Linq.Charting.Point 
                             { Points = { copy } 
                             };
 

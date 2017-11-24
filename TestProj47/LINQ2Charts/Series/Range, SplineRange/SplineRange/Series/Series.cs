@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Spline Range chart type displays a range of data by plotting two Y values per data point, with each Y value drawn as a line chart. 

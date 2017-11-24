@@ -3,11 +3,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     partial class Chart : IEnumerable<System.Windows.Forms.DataVisualization.Charting.ChartArea>
     {
-        public IEnumerator<Windows.Forms.DataVisualization.Charting.ChartArea> GetEnumerator()
+        public IEnumerator<System.Windows.Forms.DataVisualization.Charting.ChartArea> GetEnumerator()
         {
             return base.ChartAreas.GetEnumerator();
         }

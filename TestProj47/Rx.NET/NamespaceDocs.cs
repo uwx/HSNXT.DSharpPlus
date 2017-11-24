@@ -13,7 +13,6 @@ namespace HSNXT.Reactive
     {
     }
 }
-using System;
 
 namespace HSNXT.Reactive.Concurrency
 {
@@ -27,8 +26,6 @@ namespace HSNXT.Reactive.Concurrency
     {
     }
 }
-using System;
-
 namespace HSNXT.Reactive.Disposables
 {
     /// <summary>
@@ -41,7 +38,7 @@ namespace HSNXT.Reactive.Disposables
     {
     }
 }
-using System;
+//using System;
 
 namespace HSNXT.Reactive.Linq
 {
@@ -54,7 +51,7 @@ namespace HSNXT.Reactive.Linq
     {
     }
 }
-using System;
+//using System;
 
 namespace HSNXT.Reactive.Subjects
 {
@@ -68,7 +65,7 @@ namespace HSNXT.Reactive.Subjects
     {
     }
 }
-using System;
+//using System;
 
 namespace HSNXT.Reactive.PlatformServices
 {
@@ -81,7 +78,7 @@ namespace HSNXT.Reactive.PlatformServices
     {
     }
 }
-using System;
+//using System;
 
 namespace HSNXT.Reactive.Joins
 {

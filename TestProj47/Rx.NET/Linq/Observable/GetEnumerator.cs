@@ -8,6 +8,7 @@ using System.Diagnostics;
 using HSNXT.Reactive.Disposables;
 using System.Threading;
 using System;
+using System.Collections;
 
 namespace HSNXT.Reactive.Linq.ObservableImpl
 {
@@ -78,7 +79,7 @@ namespace HSNXT.Reactive.Linq.ObservableImpl
 
         public TSource Current => _current;
 
-        object Collections.IEnumerator.Current => _current;
+        object IEnumerator.Current => _current;
 
         public void Dispose()
         {

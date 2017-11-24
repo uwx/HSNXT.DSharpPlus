@@ -2,8 +2,9 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     // keep the C# compiler happy
     public partial class Series<S> : IEnumerable<S>

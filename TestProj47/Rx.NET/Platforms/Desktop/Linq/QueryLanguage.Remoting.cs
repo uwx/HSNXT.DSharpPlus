@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information. 
 
 #if !NO_REMOTING
+using System;
 using HSNXT.Reactive.Disposables;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Lifetime;
@@ -56,7 +57,7 @@ using System.Threading;
 //
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2136:TransparencyAnnotationsShouldNotConflictFxCopRule", Scope = "member", Target = "HSNXT.Reactive.Linq.QueryLanguage+RemotableObserver`1.#Unregister()", Justification = "This error only occurs while running FxCop on local builds that don't have NO_CODECOVERAGE set, causing the assembly not to be marked with APTCA (see AssemblyInfo.cs). When APTCA is enabled in official builds, this SecurityTreatAsSafe annotation is required.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2136:TransparencyAnnotationsShouldNotConflictFxCopRule", Scope = "member", Target = "HSNXT.Reactive.Linq.QueryLanguage+RemotableObservable`1+RemotableSubscription.#Unregister()", Justification = "This error only occurs while running FxCop on local builds that don't have NO_CODECOVERAGE set, causing the assembly not to be marked with APTCA (see AssemblyInfo.cs). When APTCA is enabled in official builds, this SecurityTreatAsSafe annotation is required.")]
-using System;
+//using System;
 
 namespace HSNXT.Reactive.Linq
 {

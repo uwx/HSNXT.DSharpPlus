@@ -49,7 +49,7 @@ namespace HSNXT.Reactive.Concurrency
                 throw new ArgumentNullException(nameof(dispatcher));
 
             Dispatcher = dispatcher;
-            Priority = Windows.Threading.DispatcherPriority.Normal;
+            Priority = System.Windows.Threading.DispatcherPriority.Normal;
 
         }
         

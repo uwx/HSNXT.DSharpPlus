@@ -3,7 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     partial class Series<S>
     {

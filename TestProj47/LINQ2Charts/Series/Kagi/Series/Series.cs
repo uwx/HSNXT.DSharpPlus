@@ -2,7 +2,7 @@
 
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace System.Linq.Charting
+namespace HSNXT.Linq.Charting
 {
     /// <summary>
     /// The Kagi chart type displays a series of connecting vertical lines where the thickness and direction of the lines are dependent on the action of the price value. 
