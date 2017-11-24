@@ -30,9 +30,9 @@ namespace DSharpPlus.Net
             this.Rest = new RestClient(client);
         }
 
-        internal DiscordApiClient() // This is for meta-clients, such as the webhook client
+        internal DiscordApiClient(IWebProxy proxy) // This is for meta-clients, such as the webhook client
         {
-            this.Rest = new RestClient();
+            this.Rest = new RestClient(proxy);
         }
 
         private static string BuildQueryString(IDictionary<string, string> values, bool post = false)

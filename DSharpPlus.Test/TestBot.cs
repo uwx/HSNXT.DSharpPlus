@@ -1,7 +1,6 @@
 ﻿#pragma warning disable CS0618
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -75,7 +74,7 @@ namespace DSharpPlus.Test
                 StringPrefix = this.Config.CommandPrefix,
                 CustomPrefixPredicate = msg =>
                 {
-                    if (TestBotNextCommands.Prefixes.ContainsKey(msg.Channel.Id) && TestBotNextCommands.Prefixes.TryGetValue(msg.Channel.Id, out var pfix))
+                    if (TestBotCommands.Prefixes.ContainsKey(msg.Channel.Id) && TestBotCommands.Prefixes.TryGetValue(msg.Channel.Id, out var pfix))
                         return Task.FromResult(msg.GetStringPrefixLength(pfix));
                     return Task.FromResult(-1);
                 },
@@ -92,19 +91,6 @@ namespace DSharpPlus.Test
             this.CommandsNextService.CommandExecuted += this.CommandsNextService_CommandExecuted;
             this.CommandsNextService.RegisterCommands(typeof(TestBot).GetTypeInfo().Assembly);
             this.CommandsNextService.SetHelpFormatter<TestBotHelpFormatter>();
-
-            // testing event handler cancellation
-            this.CommandsNextService.CommandExecuted += e =>
-            {
-                e.Context.Client.DebugLogger.LogMessage(LogLevel.Debug, "DSP Test", "Anonymous handler 1", DateTime.Now);
-                e.Handled = true;
-                return Task.CompletedTask;
-            };
-            this.CommandsNextService.CommandExecuted += e =>
-            {
-                e.Context.Client.DebugLogger.LogMessage(LogLevel.Debug, "DSP Test", "Anonymous handler 2", DateTime.Now);
-                return Task.CompletedTask;
-            };
 
             // interactivity service
             var icfg = new InteractivityConfiguration()

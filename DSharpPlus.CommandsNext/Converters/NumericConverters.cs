@@ -4,7 +4,7 @@ namespace DSharpPlus.CommandsNext.Converters
 {
     public class BoolConverter : IArgumentConverter<bool>
     {
-        public bool TryConvert(string value, CommandContext ctx, out bool result) 
+        public bool TryConvert(string value, CommandContext ctx, out bool result)
             => bool.TryParse(value, out result);
     }
 
