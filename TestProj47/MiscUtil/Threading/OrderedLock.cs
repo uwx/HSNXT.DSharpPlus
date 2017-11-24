@@ -23,10 +23,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// <summary>
 		/// The current owner of the lock, if any.
 		/// </summary>
-		public Thread Owner
-		{
-			get { return owner; }
-		}
+		public Thread Owner => owner;
 
 		private volatile OrderedLock innerLock;
 		/// <summary>
@@ -38,14 +35,8 @@ namespace HSNXT.MiscUtil.Threading
 		/// </summary>
 		public OrderedLock InnerLock
 		{
-			set
-			{
-				innerLock = value;
-			}
-			get
-			{
-				return innerLock;
-			}
+			set => innerLock = value;
+			get => innerLock;
 		}
 		#endregion
 

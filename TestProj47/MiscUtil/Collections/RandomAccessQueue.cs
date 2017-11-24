@@ -40,10 +40,7 @@ namespace HSNXT.MiscUtil.Collections
 		/// <summary>
 		/// The number of items in the queue.
 		/// </summary>
-		public int Count
-		{
-			get { return count; }
-		}
+		public int Count => count;
 
 		/// <summary>
 		/// Indexer for the class, allowing items to be retrieved by
@@ -73,10 +70,7 @@ namespace HSNXT.MiscUtil.Collections
 		/// <summary>
 		/// Current capacity of the queue - the size of the buffer.
 		/// </summary>
-		public int Capacity
-		{
-			get { return buffer.Length; }
-		}
+		public int Capacity => buffer.Length;
 
 		/// <summary>
 		/// Version information for the queue - this is incremented every time
@@ -548,18 +542,13 @@ namespace HSNXT.MiscUtil.Collections
         /// for the same queue, and this will never be the same as the reference
         /// returned for a different queue, even a clone.
 		/// </summary>
-		public object SyncRoot
-		{
-			get { return syncRoot; }
-		}	
+		public object SyncRoot => syncRoot;
 
 		/// <summary>
 		/// Returns false, to indicate that this queue is not synchronized.
 		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
+		public bool IsSynchronized => false;
+
 		#endregion
 
         #region ICollection<T> Members
@@ -632,12 +621,9 @@ namespace HSNXT.MiscUtil.Collections
         /// <summary>
         /// Returns false, to indicate that this queue is not read-only.
         /// </summary>
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public bool IsReadOnly => false;
 
-        /// <summary>
+		/// <summary>
         /// Removes the given item from the queue, if it is present. The first
         /// equal value is removed.
         /// </summary>

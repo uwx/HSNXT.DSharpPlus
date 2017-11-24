@@ -86,22 +86,22 @@ namespace HSNXT.MiscUtil.Collections
             /// <summary>
             /// The value of the entry.
             /// </summary>
-            public T Value { get { return value; } }
+            public T Value => value;
 
             /// <summary>
             /// Whether or not this entry is first in the collection's enumeration.
             /// </summary>
-            public bool IsFirst { get { return isFirst; } }
+            public bool IsFirst => isFirst;
 
             /// <summary>
             /// Whether or not this entry is last in the collection's enumeration.
             /// </summary>
-            public bool IsLast { get { return isLast; } }
+            public bool IsLast => isLast;
 
             /// <summary>
             /// The 0-based index of this entry (i.e. how many entries have been returned before this one)
             /// </summary>
-            public int Index { get { return index; } }
+            public int Index => index;
         }
     }
 }

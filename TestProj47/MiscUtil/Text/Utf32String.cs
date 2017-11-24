@@ -54,18 +54,13 @@ namespace HSNXT.MiscUtil.Text
 		/// <summary>
 		/// The number of UTF-32 characters in this string.
 		/// </summary>
-		public int Length
-		{
-			get { return characters.Length; }
-		}
+		public int Length => characters.Length;
 
 		/// <summary>
 		/// The character at the specified index.
 		/// </summary>
-		public int this[int index]
-		{
-			get { return characters[index]; }
-		}
+		public int this[int index] => characters[index];
+
 		#endregion
 
 		#region Constructors

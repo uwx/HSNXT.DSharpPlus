@@ -15,7 +15,7 @@ namespace HSNXT.MiscUtil.IO
 		/// <summary>
 		/// The encoding to return in the Encoding property.
 		/// </summary>
-		private Encoding encoding;
+		private readonly Encoding _encoding;
 
 		/// <summary>
 		/// Initializes a new instance of the StringWriterWithEncoding class
@@ -26,9 +26,9 @@ namespace HSNXT.MiscUtil.IO
 		{
             if (encoding == null)
             {
-                throw new ArgumentNullException("encoding");
+                throw new ArgumentNullException(nameof(encoding));
             }
-            this.encoding = encoding;
+            this._encoding = encoding;
 		}
 
 		/// <summary>
@@ -42,9 +42,9 @@ namespace HSNXT.MiscUtil.IO
 		{
             if (encoding == null)
             {
-                throw new ArgumentNullException("encoding");
+                throw new ArgumentNullException(nameof(encoding));
             }
-            this.encoding = encoding;
+            this._encoding = encoding;
 		}
 
 		/// <summary>
@@ -58,9 +58,9 @@ namespace HSNXT.MiscUtil.IO
 		{
             if (encoding == null)
             {
-                throw new ArgumentNullException("encoding");
+                throw new ArgumentNullException(nameof(encoding));
             }
-            this.encoding = encoding;
+            this._encoding = encoding;
 		}
 
 		/// <summary>
@@ -75,21 +75,14 @@ namespace HSNXT.MiscUtil.IO
 		{
             if (encoding == null)
             {
-                throw new ArgumentNullException("encoding");
+                throw new ArgumentNullException(nameof(encoding));
             }
-			this.encoding = encoding;
+			this._encoding = encoding;
 		}
 
 		/// <summary>
 		/// Gets the Encoding in which the output is written.
 		/// </summary>
-		public override Encoding Encoding
-		{
-			get
-			{
-				return encoding;
-			}
-		}
-
+		public override Encoding Encoding => _encoding;
 	}
 }

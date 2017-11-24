@@ -9,12 +9,12 @@ namespace HSNXT.MiscUtil
     internal class CachedBuffer : IBuffer
     {
         private volatile bool _available;
-        private readonly bool clearOnDispose;
+        private readonly bool _clearOnDispose;
 
         internal CachedBuffer(int size, bool clearOnDispose)
         {
             Bytes = new byte[size];
-            this.clearOnDispose = clearOnDispose;
+            this._clearOnDispose = clearOnDispose;
         }
 
         internal bool Available
@@ -27,7 +27,7 @@ namespace HSNXT.MiscUtil
 
         public void Dispose()
         {
-            if (clearOnDispose)
+            if (_clearOnDispose)
             {
                 Array.Clear(Bytes, 0, Bytes.Length);
             }

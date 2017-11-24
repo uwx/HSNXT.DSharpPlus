@@ -38,7 +38,7 @@ namespace HSNXT.MiscUtil.IO
         {
             if (bufferSize < 1)
             {
-                throw new ArgumentOutOfRangeException("bufferSize");
+                throw new ArgumentOutOfRangeException(nameof(bufferSize));
             }
             return ReadFully(input, new byte[bufferSize]);
         }
@@ -59,7 +59,7 @@ namespace HSNXT.MiscUtil.IO
         {
             if (buffer==null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
             return ReadFully(input, buffer.Bytes);
         }
@@ -81,11 +81,11 @@ namespace HSNXT.MiscUtil.IO
         {
             if (buffer==null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
             if (input==null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
             if (buffer.Length==0)
             {
@@ -93,7 +93,7 @@ namespace HSNXT.MiscUtil.IO
             }
             // We could do all our own work here, but using MemoryStream is easier
             // and likely to be just as efficient.
-            using (MemoryStream tempStream = new MemoryStream())
+            using (var tempStream = new MemoryStream())
             {
                 Copy(input, tempStream, buffer);
                 // No need to copy the buffer if it's the right size
@@ -134,7 +134,7 @@ namespace HSNXT.MiscUtil.IO
         {
             if (bufferSize < 1)
             {
-                throw new ArgumentOutOfRangeException("bufferSize");
+                throw new ArgumentOutOfRangeException(nameof(bufferSize));
             }
             Copy(input, output, new byte[bufferSize]);
         }
@@ -155,7 +155,7 @@ namespace HSNXT.MiscUtil.IO
         {
             if (buffer==null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
             Copy(input, output, buffer.Bytes);
         }
@@ -177,15 +177,15 @@ namespace HSNXT.MiscUtil.IO
         {
             if (buffer==null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
             if (input==null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
             if (output==null)
             {
-                throw new ArgumentNullException("output");
+                throw new ArgumentNullException(nameof(output));
             }
             if (buffer.Length==0)
             {
@@ -215,23 +215,21 @@ namespace HSNXT.MiscUtil.IO
         {
             if (input==null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
             if (bytesToRead < 1)
             {
-                throw new ArgumentOutOfRangeException("bytesToRead");
+                throw new ArgumentOutOfRangeException(nameof(bytesToRead));
             }
-            byte[] ret = new byte[bytesToRead];
-            int index=0;
+            var ret = new byte[bytesToRead];
+            var index=0;
             while (index < bytesToRead)
             {
-                int read = input.Read(ret, index, bytesToRead-index);
+                var read = input.Read(ret, index, bytesToRead-index);
                 if (read==0)
                 {
                     throw new EndOfStreamException
-                        (String.Format("End of stream reached with {0} byte{1} left to read.", 
-                                       bytesToRead-index,
-                                       bytesToRead-index==1 ? "s" : ""));
+                        ($"End of stream reached with {bytesToRead - index} byte{(bytesToRead - index == 1 ? "s" : "")} left to read.");
                 }
                 index += read;
             }

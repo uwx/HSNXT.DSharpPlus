@@ -6,6 +6,7 @@ namespace HSNXT.MiscUtil.Conversion
 	/// </summary>
 	public sealed class BigEndianBitConverter : EndianBitConverter
 	{
+		/// <inheritdoc />
 		/// <summary>
 		/// Indicates the byte order ("endianess") in which data is converted using this class.
 		/// </summary>
@@ -15,19 +16,18 @@ namespace HSNXT.MiscUtil.Conversion
 		/// most significant byte is on the right end of a word.
 		/// </remarks>
 		/// <returns>true if this converter is little-endian, false otherwise.</returns>
-		public sealed override bool IsLittleEndian()
+		public override bool IsLittleEndian()
 		{
 			return false;
 		}
 
+		/// <inheritdoc />
 		/// <summary>
 		/// Indicates the byte order ("endianess") in which data is converted using this class.
 		/// </summary>
-		public sealed override Endianness Endianness 
-		{ 
-			get { return Endianness.BigEndian; }
-		}
+		public override Endianness Endianness => Endianness.BigEndian;
 
+		/// <inheritdoc />
 		/// <summary>
 		/// Copies the specified number of bytes from value to buffer, starting at index.
 		/// </summary>
@@ -37,14 +37,15 @@ namespace HSNXT.MiscUtil.Conversion
 		/// <param name="index">The index to start at</param>
 		protected override void CopyBytesImpl(long value, int bytes, byte[] buffer, int index)
 		{
-			int endOffset = index+bytes-1;
-			for (int i=0; i < bytes; i++)
+			var endOffset = index+bytes-1;
+			for (var i=0; i < bytes; i++)
 			{
 				buffer[endOffset-i] = unchecked((byte)(value&0xff));
 				value = value >> 8;
 			}
 		}
 		
+		/// <inheritdoc />
 		/// <summary>
 		/// Returns a value built from the specified number of bytes from the given buffer,
 		/// starting at index.
@@ -56,7 +57,7 @@ namespace HSNXT.MiscUtil.Conversion
 		protected override long FromBytes(byte[] buffer, int startIndex, int bytesToConvert)
 		{
 			long ret = 0;
-			for (int i=0; i < bytesToConvert; i++)
+			for (var i=0; i < bytesToConvert; i++)
 			{
 				ret = unchecked((ret << 8) | buffer[startIndex+i]);
 			}

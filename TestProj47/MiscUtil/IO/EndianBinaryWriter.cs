@@ -15,15 +15,15 @@ namespace HSNXT.MiscUtil.IO
 		/// <summary>
 		/// Whether or not this writer has been disposed yet.
 		/// </summary>
-		private bool disposed=false;
+		private bool _disposed;
 		/// <summary>
 		/// Buffer used for temporary storage during conversion from primitives
 		/// </summary>
-		private byte[] buffer = new byte[16];
+		private readonly byte[] _buffer = new byte[16];
 		/// <summary>
 		/// Buffer used for Write(char)
 		/// </summary>
-		private char[] charBuffer = new char[1];
+		private readonly char[] _charBuffer = new char[1];
 		#endregion
 
 		#region Constructors
@@ -49,54 +49,46 @@ namespace HSNXT.MiscUtil.IO
 		{
 			if (bitConverter==null)
 			{
-				throw new ArgumentNullException("bitConverter");
+				throw new ArgumentNullException(nameof(bitConverter));
 			}
 			if (stream==null)
 			{
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			}
 			if (encoding==null)
 			{
-				throw new ArgumentNullException("encoding");
+				throw new ArgumentNullException(nameof(encoding));
 			}
 			if (!stream.CanWrite)
 			{
-				throw new ArgumentException("Stream isn't writable", "stream");
+				throw new ArgumentException("Stream isn't writable", nameof(stream));
 			}
-			this.stream = stream;
-			this.bitConverter = bitConverter;
-			this.encoding = encoding;
+			this._stream = stream;
+			this._bitConverter = bitConverter;
+			this._encoding = encoding;
 		}
 		#endregion
 
 		#region Properties
 
-		private EndianBitConverter bitConverter;
+		private readonly EndianBitConverter _bitConverter;
 		/// <summary>
 		/// The bit converter used to write values to the stream
 		/// </summary>
-		public EndianBitConverter BitConverter
-		{
-			get { return bitConverter; }
-		}
+		public EndianBitConverter BitConverter => _bitConverter;
 
-		private Encoding encoding;
+		private readonly Encoding _encoding;
 		/// <summary>
 		/// The encoding used to write strings
 		/// </summary>
-		public Encoding Encoding
-		{
-			get { return encoding; }
-		}
+		public Encoding Encoding => _encoding;
 
-		private Stream stream;
+		private readonly Stream _stream;
 		/// <summary>
 		/// Gets the underlying stream of the EndianBinaryWriter.
 		/// </summary>
-		public Stream BaseStream
-		{
-			get { return stream; }
-		}
+		public Stream BaseStream => _stream;
+
 		#endregion
 	
 		#region Public methods
@@ -114,7 +106,7 @@ namespace HSNXT.MiscUtil.IO
 		public void Flush()
 		{
 			CheckDisposed();
-			stream.Flush();
+			_stream.Flush();
 		}
 
 		/// <summary>
@@ -125,7 +117,7 @@ namespace HSNXT.MiscUtil.IO
 		public void Seek (int offset, SeekOrigin origin)
 		{
 			CheckDisposed();
-			stream.Seek (offset, origin);
+			_stream.Seek (offset, origin);
 		}
 
 		/// <summary>
@@ -134,8 +126,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (bool value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 1);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 1);
 		}
 
 		/// <summary>
@@ -145,8 +137,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (short value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 2);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 2);
 		}
 
 		/// <summary>
@@ -156,8 +148,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (int value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 4);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 4);
 		}
 
 		/// <summary>
@@ -167,8 +159,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (long value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 8);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 8);
 		}
 
 		/// <summary>
@@ -178,8 +170,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (ushort value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 2);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 2);
 		}
 
 		/// <summary>
@@ -189,8 +181,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (uint value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 4);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 4);
 		}
 
 		/// <summary>
@@ -200,8 +192,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (ulong value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 8);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 8);
 		}
 
 		/// <summary>
@@ -211,8 +203,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (float value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 4);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 4);
 		}
 
 		/// <summary>
@@ -222,8 +214,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (double value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 8);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 8);
 		}
 
 		/// <summary>
@@ -233,8 +225,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (decimal value)
 		{
-			bitConverter.CopyBytes(value, buffer, 0);
-			WriteInternal(buffer, 16);
+			_bitConverter.CopyBytes(value, _buffer, 0);
+			WriteInternal(_buffer, 16);
 		}
 
 		/// <summary>
@@ -243,8 +235,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (byte value)
 		{
-			buffer[0] = value;
-			WriteInternal(buffer, 1);
+			_buffer[0] = value;
+			WriteInternal(_buffer, 1);
 		}
 
 		/// <summary>
@@ -253,8 +245,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write (sbyte value)
 		{
-			buffer[0] = unchecked((byte)value);
-			WriteInternal(buffer, 1);
+			_buffer[0] = unchecked((byte)value);
+			WriteInternal(_buffer, 1);
 		}
 
 		/// <summary>
@@ -265,7 +257,7 @@ namespace HSNXT.MiscUtil.IO
 		{
 			if (value == null)
 			{
-				throw (new System.ArgumentNullException("value"));
+				throw (new System.ArgumentNullException(nameof(value)));
 			}
 			WriteInternal(value, value.Length);
 		}
@@ -279,7 +271,7 @@ namespace HSNXT.MiscUtil.IO
 		public void Write (byte[] value, int offset, int count)
 		{
 			CheckDisposed();
-			stream.Write(value, offset, count);
+			_stream.Write(value, offset, count);
 		}
 
 		/// <summary>
@@ -288,8 +280,8 @@ namespace HSNXT.MiscUtil.IO
 		/// <param name="value">The value to write</param>
 		public void Write(char value)
 		{
-			charBuffer[0] = value;
-			Write(charBuffer);
+			_charBuffer[0] = value;
+			Write(_charBuffer);
 		}
 
 		/// <summary>
@@ -300,10 +292,10 @@ namespace HSNXT.MiscUtil.IO
 		{
 			if (value==null)
 			{
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 			}
 			CheckDisposed();
-			byte[] data = Encoding.GetBytes(value, 0, value.Length);
+			var data = Encoding.GetBytes(value, 0, value.Length);
 			WriteInternal(data, data.Length);
 		}
 
@@ -316,10 +308,10 @@ namespace HSNXT.MiscUtil.IO
 		{
 			if (value==null)
 			{
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 			}
 			CheckDisposed();
-			byte[] data = Encoding.GetBytes(value);
+			var data = Encoding.GetBytes(value);
 			Write7BitEncodedInt(data.Length);
 			WriteInternal(data, data.Length);
 		}
@@ -335,17 +327,17 @@ namespace HSNXT.MiscUtil.IO
 			CheckDisposed();
 			if (value < 0)
 			{
-				throw new ArgumentOutOfRangeException("value", "Value must be greater than or equal to 0.");
+				throw new ArgumentOutOfRangeException(nameof(value), "Value must be greater than or equal to 0.");
 			}
-			int index=0;
+			var index=0;
 			while (value >= 128)
 			{
-				buffer[index++]= (byte)((value&0x7f) | 0x80);
+				_buffer[index++]= (byte)((value&0x7f) | 0x80);
 				value = value >> 7;
 				index++;
 			}
-			buffer[index++]=(byte)value;
-			stream.Write(buffer, 0, index);
+			_buffer[index++]=(byte)value;
+			_stream.Write(_buffer, 0, index);
 		}
 
 		#endregion
@@ -356,7 +348,7 @@ namespace HSNXT.MiscUtil.IO
 		/// </summary>
 		private void CheckDisposed()
 		{
-			if (disposed)
+			if (_disposed)
 			{
 				throw new ObjectDisposedException("EndianBinaryWriter");
 			}
@@ -371,7 +363,7 @@ namespace HSNXT.MiscUtil.IO
 		private void WriteInternal (byte[] bytes, int length)
 		{
 			CheckDisposed();
-			stream.Write(bytes, 0, length);
+			_stream.Write(bytes, 0, length);
 		}
 		#endregion
 
@@ -381,11 +373,11 @@ namespace HSNXT.MiscUtil.IO
 		/// </summary>
 		public void Dispose()
 		{
-			if (!disposed)
+			if (!_disposed)
 			{
 				Flush();
-				disposed = true;
-				((IDisposable)stream).Dispose();
+				_disposed = true;
+				((IDisposable)_stream).Dispose();
 			}
 		}
 		#endregion

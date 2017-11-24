@@ -33,20 +33,15 @@ namespace HSNXT.MiscUtil.Conversion
 		/// Returns a little-endian bit converter instance. The same instance is
 		/// always returned.
 		/// </summary>
-		public static LittleEndianBitConverter Little
-		{
-			get { return little; }
-		}
+		public static LittleEndianBitConverter Little => little;
 
 		private static BigEndianBitConverter big = new BigEndianBitConverter();
 		/// <summary>
 		/// Returns a big-endian bit converter instance. The same instance is
 		/// always returned.
 		/// </summary>
-		public static BigEndianBitConverter Big
-		{
-			get { return big; }
-		}
+		public static BigEndianBitConverter Big => big;
+
 		#endregion
 
 		#region Double/primitive conversions
@@ -321,8 +316,8 @@ namespace HSNXT.MiscUtil.Conversion
 			// HACK: This always assumes four parts, each in their own endianness,
 			// starting with the first part at the start of the byte array.
 			// On the other hand, there's no real format specified...
-			int[] parts = new int[4];
-			for (int i=0; i < 4; i++)
+			var parts = new int[4];
+			for (var i=0; i < 4; i++)
 			{
 				parts[i] = ToInt32(value, startIndex+i*4);
 			}
@@ -336,9 +331,9 @@ namespace HSNXT.MiscUtil.Conversion
 		/// <returns>An array of bytes with length 16.</returns>
 		public byte[] GetBytes(decimal value)
 		{
-			byte[] bytes = new byte[16];
-			int[] parts = decimal.GetBits(value);
-			for (int i=0; i < 4; i++)
+			var bytes = new byte[16];
+			var parts = decimal.GetBits(value);
+			for (var i=0; i < 4; i++)
 			{
 				CopyBytesImpl(parts[i], 4, bytes, i*4);
 			}
@@ -354,8 +349,8 @@ namespace HSNXT.MiscUtil.Conversion
 		/// <param name="index">The first index into the array to copy the bytes into</param>
 		public void CopyBytes(decimal value, byte[] buffer, int index)
 		{
-			int[] parts = decimal.GetBits(value);
-			for (int i=0; i < 4; i++)
+			var parts = decimal.GetBits(value);
+			for (var i=0; i < 4; i++)
 			{
 				CopyBytesImpl(parts[i], 4, buffer, i*4+index);
 			}
@@ -372,7 +367,7 @@ namespace HSNXT.MiscUtil.Conversion
 		/// <param name="bytes">The number of significant bytes to return</param>
 		private byte[] GetBytes(long value, int bytes)
 		{
-			byte[] buffer = new byte[bytes];
+			var buffer = new byte[bytes];
 			CopyBytes(value, bytes, buffer, 0);
 			return buffer;
 		}
@@ -677,18 +672,12 @@ namespace HSNXT.MiscUtil.Conversion
 			/// <summary>
 			/// Returns the value of the instance as an integer.
 			/// </summary>
-			internal int AsInt32
-			{
-				get { return i; }
-			}
+			internal int AsInt32 => i;
 
 			/// <summary>
 			/// Returns the value of the instance as a floating point number.
 			/// </summary>
-			internal float AsSingle
-			{
-				get { return f; }
-			}
+			internal float AsSingle => f;
 		}
 		#endregion
 	}

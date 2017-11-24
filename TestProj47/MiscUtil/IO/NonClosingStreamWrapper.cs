@@ -21,31 +21,28 @@ namespace HSNXT.MiscUtil.IO
 		{
 			if (stream==null)
 			{
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			}
-			this.stream = stream;
+			this._stream = stream;
 		}
 
-		private Stream stream;
+		private readonly Stream _stream;
 		/// <summary>
 		/// Stream wrapped by this wrapper
 		/// </summary>
-		public Stream BaseStream
-		{
-			get { return stream; }
-		}
+		public Stream BaseStream => _stream;
 
 		/// <summary>
 		/// Whether this stream has been closed or not
 		/// </summary>
-		private bool closed=false;
+		private bool _closed;
 
 		/// <summary>
 		/// Throws an InvalidOperationException if the wrapper is closed.
 		/// </summary>
 		private void CheckClosed()
 		{
-			if (closed)
+			if (_closed)
 			{
 				throw new InvalidOperationException("Wrapper has been closed or disposed");
 			}
@@ -76,7 +73,7 @@ namespace HSNXT.MiscUtil.IO
 			                                   AsyncCallback callback, object state)
 		{
 			CheckClosed();
-			return stream.BeginRead (buffer, offset, count, callback, state);
+			return _stream.BeginRead (buffer, offset, count, callback, state);
 		}
 
 		/// <summary>
@@ -100,32 +97,23 @@ namespace HSNXT.MiscUtil.IO
 			                                    AsyncCallback callback, object state)
 		{
 			CheckClosed();
-			return stream.BeginWrite (buffer, offset, count, callback, state);
+			return _stream.BeginWrite (buffer, offset, count, callback, state);
 		}
 
 		/// <summary>
 		/// Indicates whether or not the underlying stream can be read from.
 		/// </summary>
-		public override bool CanRead
-		{
-			get { return closed ? false : stream.CanRead; }
-		}
+		public override bool CanRead => _closed ? false : _stream.CanRead;
 
 		/// <summary>
 		/// Indicates whether or not the underlying stream supports seeking.
 		/// </summary>
-		public override bool CanSeek
-		{
-			get { return closed ? false : stream.CanSeek; }
-		}
+		public override bool CanSeek => _closed ? false : _stream.CanSeek;
 
 		/// <summary>
 		/// Indicates whether or not the underlying stream can be written to.
 		/// </summary>
-		public override bool CanWrite
-		{
-			get { return closed ? false : stream.CanWrite; }
-		}
+		public override bool CanWrite => _closed ? false : _stream.CanWrite;
 
 		/// <summary>
 		/// This method is not proxied to the underlying stream; instead, the wrapper
@@ -134,11 +122,11 @@ namespace HSNXT.MiscUtil.IO
 		/// </summary>
 		public override void Close()
 		{
-			if (!closed)
+			if (!_closed)
 			{
-				stream.Flush();
+				_stream.Flush();
 			}
-			closed = true;			
+			_closed = true;			
 		}
 
 		/// <summary>
@@ -166,7 +154,7 @@ namespace HSNXT.MiscUtil.IO
 		public override int EndRead(IAsyncResult asyncResult)
 		{
 			CheckClosed();
-			return stream.EndRead (asyncResult);
+			return _stream.EndRead (asyncResult);
 		}
 
 		/// <summary>
@@ -176,7 +164,7 @@ namespace HSNXT.MiscUtil.IO
 		public override void EndWrite(IAsyncResult asyncResult)
 		{
 			CheckClosed();
-			stream.EndWrite (asyncResult);
+			_stream.EndWrite (asyncResult);
 		}
 
 		/// <summary>
@@ -185,7 +173,7 @@ namespace HSNXT.MiscUtil.IO
 		public override void Flush()
 		{
 			CheckClosed();
-			stream.Flush();
+			_stream.Flush();
 		}
 
 		/// <summary>
@@ -205,7 +193,7 @@ namespace HSNXT.MiscUtil.IO
 			get
 			{
 				CheckClosed();
-				return stream.Length;
+				return _stream.Length;
 			}
 		}
 
@@ -217,12 +205,12 @@ namespace HSNXT.MiscUtil.IO
 			get
 			{
 				CheckClosed();
-				return stream.Position;
+				return _stream.Position;
 			}
 			set
 			{
 				CheckClosed();
-				stream.Position = value;
+				_stream.Position = value;
 			}
 		}
 
@@ -251,7 +239,7 @@ namespace HSNXT.MiscUtil.IO
 		public override int Read(byte[] buffer, int offset, int count)
 		{
 			CheckClosed();
-			return stream.Read(buffer, offset, count);
+			return _stream.Read(buffer, offset, count);
 		}
 
 		/// <summary>
@@ -262,7 +250,7 @@ namespace HSNXT.MiscUtil.IO
 		public override int ReadByte()
 		{
 			CheckClosed();
-			return stream.ReadByte();
+			return _stream.ReadByte();
 		}
 
 		/// <summary>
@@ -277,7 +265,7 @@ namespace HSNXT.MiscUtil.IO
 		public override long Seek(long offset, SeekOrigin origin)
 		{
 			CheckClosed();
-			return stream.Seek(offset, origin);
+			return _stream.Seek(offset, origin);
 		}
 
 		/// <summary>
@@ -287,7 +275,7 @@ namespace HSNXT.MiscUtil.IO
 		public override void SetLength(long value)
 		{
 			CheckClosed();
-			stream.SetLength(value);
+			_stream.SetLength(value);
 		}
 
 		/// <summary>
@@ -306,7 +294,7 @@ namespace HSNXT.MiscUtil.IO
 		public override void Write(byte[] buffer, int offset, int count)
 		{
 			CheckClosed();
-			stream.Write(buffer, offset, count);
+			_stream.Write(buffer, offset, count);
 		}
 
 		/// <summary>
@@ -317,7 +305,7 @@ namespace HSNXT.MiscUtil.IO
 		public override void WriteByte(byte value)
 		{
 			CheckClosed();
-			stream.WriteByte(value);
+			_stream.WriteByte(value);
 		}
 		#endregion
 	}

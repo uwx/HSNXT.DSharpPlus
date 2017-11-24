@@ -13,10 +13,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// The target delegate for the work item. This is the delegate
 		/// which is run when the work item is executed.
 		/// </summary>
-		public Delegate Target
-		{
-			get { return target; }
-		}
+		public Delegate Target => target;
 
 		private object[] parameters;
 		/// <summary>
@@ -25,10 +22,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// and the work item has started executing. The contents of
 		/// the returned array should not be changed.
 		/// </summary>
-		public object[] Parameters
-		{
-			get { return parameters; }
-		}
+		public object[] Parameters => parameters;
 
 		private int priority;
 		/// <summary>
@@ -38,10 +32,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// Items with a higher priority are added ahead of items with a lower
 		/// priority in the queue.
 		/// </summary>
-		public int Priority
-		{
-			get { return priority; }
-		}
+		public int Priority => priority;
 
 		private bool preserveParameters;
 		/// <summary>
@@ -52,10 +43,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// be garbage collected until after the work item has finished
 		/// executing, which may be costly in some situations.
 		/// </summary>
-		public bool PreserveParameters
-		{
-			get { return preserveParameters; }
-		}
+		public bool PreserveParameters => preserveParameters;
 
 		private object id;
 		/// <summary>
@@ -63,10 +51,7 @@ namespace HSNXT.MiscUtil.Threading
 		/// by the caller when the work item is constructed, and is used
 		/// for cancellation purposes.
 		/// </summary>
-		public object ID
-		{
-			get { return id; }
-		}
+		public object ID => id;
 
 		/// <summary>
 		/// Creates a new instance of this class.

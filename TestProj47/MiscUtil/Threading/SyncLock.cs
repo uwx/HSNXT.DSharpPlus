@@ -52,19 +52,13 @@ namespace HSNXT.MiscUtil.Threading
 		/// <summary>
 		/// The default timeout for the 
 		/// </summary>
-		public int DefaultTimeout
-		{
-			get { return defaultTimeout; }
-		}
+		public int DefaultTimeout => defaultTimeout;
 
 		private string name;
 		/// <summary>
 		/// The name of this lock.
 		/// </summary>
-		public string Name
-		{
-			get { return name; }
-		}
+		public string Name => name;
 
 		private object monitor = new object();
 		/// <summary>
@@ -73,10 +67,8 @@ namespace HSNXT.MiscUtil.Threading
 		/// and pulsing in the usual way. Note that manually entering/exiting
 		/// this monitor could result in the lock malfunctioning.
 		/// </summary>
-		public object Monitor
-		{
-			get { return monitor; }
-		}
+		public object Monitor => monitor;
+
 		#endregion
 
 		#region Constructors

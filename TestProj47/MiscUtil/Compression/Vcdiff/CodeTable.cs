@@ -20,13 +20,7 @@ namespace HSNXT.MiscUtil.Compression.Vcdiff
 		/// <summary>
 		/// 
 		/// </summary>
-		internal Instruction this[int i, int j]
-		{
-			get
-			{
-				return entries[i, j];
-			}
-		}
+		internal Instruction this[int i, int j] => entries[i, j];
 
 		internal CodeTable(byte[] bytes)
 		{

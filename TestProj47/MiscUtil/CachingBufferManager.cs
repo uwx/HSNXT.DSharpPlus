@@ -4,11 +4,11 @@ using HSNXT.MiscUtil.Threading;
 
 namespace HSNXT.MiscUtil
 {
+    /// <inheritdoc />
     /// <summary>
     /// An implementation of IBufferManager which keeps a cache of
     /// buffers. The precise behaviour is controlled by the nested Options
     /// class.
-    /// 
     /// This class is safe to use from multiple threads, but buffers
     /// returned are not inherently thread safe (although they have no
     /// thread affinity).
@@ -19,7 +19,7 @@ namespace HSNXT.MiscUtil
         /// <summary>
         /// Options configurating this manager.
         /// </summary>
-        private readonly Options options;
+        private readonly Options _options;
         /// <summary>
         /// List of bands. Each entry is an array
         /// of size MaxBuffersPerSizeBand. Each entry of that array is either
@@ -27,12 +27,12 @@ namespace HSNXT.MiscUtil
         /// in the list consists of buffers of size MinBufferSize, then
         /// MinBufferSize*ScalingFactor etc.
         /// </summary>
-        private readonly List<CachedBuffer[]> bufferBands = new List<CachedBuffer[]>();
+        private readonly List<CachedBuffer[]> _bufferBands = new List<CachedBuffer[]>();
         /// <summary>
         /// Lock for member access. 5 seconds should be more than adequate
         /// as a timeout.
         /// </summary>
-        private readonly SyncLock padlock = new SyncLock("Lock for CachingBufferManager", 5000);
+        private readonly SyncLock _padlock = new SyncLock("Lock for CachingBufferManager", 5000);
         #endregion
 
         #region Construction
@@ -43,9 +43,9 @@ namespace HSNXT.MiscUtil
         public CachingBufferManager()
         {
             // Make sure the settings are available to all threads.
-            using (padlock.Lock())
+            using (_padlock.Lock())
             {
-                this.options = new Options();
+                this._options = new Options();
             }
         }
 
@@ -60,9 +60,9 @@ namespace HSNXT.MiscUtil
         public CachingBufferManager(Options options)
         {
             // Make sure the settings are available to all threads.
-            using (padlock.Lock())
+            using (_padlock.Lock())
             {
-                this.options = options.Clone();
+                this._options = options.Clone();
                 if (options.MaxBufferSize < options.MinBufferSize)
                 {
                     throw new ArgumentException("MaxBufferSize must be at least as big as MinBufferSize");
@@ -72,30 +72,31 @@ namespace HSNXT.MiscUtil
         #endregion
 
         #region IBufferManager Members
+        /// <inheritdoc />
         /// <summary>
         /// Returns a buffer of the given size or greater.
         /// </summary>
-        /// <exception cref="BufferAcquisitionException">If the buffer could
+        /// <exception cref="T:HSNXT.MiscUtil.BufferAcquisitionException">If the buffer could
         /// not be taken from a pool, and the ActionOnBufferUnavailable
         /// is set to ThrowException, or if the specified size is greater
         /// than the maximum buffer size.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">If minimumSize is less than 0.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">If minimumSize is less than 0.</exception>
         public IBuffer GetBuffer(int minimumSize)
         {
             if (minimumSize < 0)
             {
-                throw new ArgumentOutOfRangeException("minimumSize must be greater than or equal to 0");
+                throw new ArgumentOutOfRangeException(nameof(minimumSize), "minimumSize must be greater than or equal to 0");
             }
-            if (minimumSize > options.MaxBufferSize)
+            if (minimumSize > _options.MaxBufferSize)
             {
                 throw new BufferAcquisitionException("Requested buffer " + minimumSize + " is larger " +
-                                                     "than maximum buffer size " + options.MaxBufferSize);
+                                                     "than maximum buffer size " + _options.MaxBufferSize);
             }
 
             // Work out the size of buffer to use, and where in the list to find
             // cached buffers
             int listIndex = 0;
-            int size = options.MinBufferSize;
+            int size = _options.MinBufferSize;
             while (size < minimumSize)
             {
                 size = CalculateNextSizeBand(size);
@@ -111,19 +112,19 @@ namespace HSNXT.MiscUtil
                     return ret;
                 }
 
-                switch (options.ActionOnBufferUnavailable)
+                switch (_options.ActionOnBufferUnavailable)
                 {
                     case Options.BufferUnavailableAction.ReturnUncached:
-                        return new CachedBuffer(minimumSize, options.ClearAfterUse);
+                        return new CachedBuffer(minimumSize, _options.ClearAfterUse);
 
                     case Options.BufferUnavailableAction.ThrowException:
                         throw new BufferAcquisitionException("No buffers available");
                 }
                 // Must be "use bigger". Use an uncached buffer if we've reached the maximum size, 
                 // otherwise try the next size band
-                if (size == options.MaxBufferSize)
+                if (size == _options.MaxBufferSize)
                 {
-                    return new CachedBuffer(minimumSize, options.ClearAfterUse);
+                    return new CachedBuffer(minimumSize, _options.ClearAfterUse);
                 }
                 size = CalculateNextSizeBand(size);
                 listIndex++;
@@ -141,8 +142,8 @@ namespace HSNXT.MiscUtil
         /// <param name="size"></param>
         private int CalculateNextSizeBand(int size)
         {
-            return (int)Math.Ceiling(Math.Min(options.MaxBufferSize,
-                                              size * options.ScalingFactor));
+            return (int)Math.Ceiling(Math.Min(_options.MaxBufferSize,
+                                              size * _options.ScalingFactor));
         }
 
         /// <summary>
@@ -154,20 +155,20 @@ namespace HSNXT.MiscUtil
         /// <returns>An available buffer, or null if none are available in the given band.</returns>
         private CachedBuffer FindAvailableBuffer(int listIndex, int size)
         {
-            using (padlock.Lock())
+            using (_padlock.Lock())
             {
                 // Make sure there'll be an entry, even if it's null
-                while (listIndex >= bufferBands.Count)
+                while (listIndex >= _bufferBands.Count)
                 {
-                    bufferBands.Add(null);
+                    _bufferBands.Add(null);
                 }
 
                 // Create a new array of buffers if necessary
-                CachedBuffer[] buffers = bufferBands[listIndex];
+                CachedBuffer[] buffers = _bufferBands[listIndex];
                 if (buffers == null)
                 {
-                    buffers = new CachedBuffer[options.MaxBuffersPerSizeBand];
-                    bufferBands[listIndex] = buffers;
+                    buffers = new CachedBuffer[_options.MaxBuffersPerSizeBand];
+                    _bufferBands[listIndex] = buffers;
                 }
 
                 // Look through all the buffers in this band for an available one, or an unused slot
@@ -176,7 +177,7 @@ namespace HSNXT.MiscUtil
                     // No cached unused buffers. Create a new one.
                     if (buffers[i] == null)
                     {
-                        buffers[i] = new CachedBuffer(size, options.ClearAfterUse);
+                        buffers[i] = new CachedBuffer(size, _options.ClearAfterUse);
                         return buffers[i];
                     }
                     if (buffers[i].Available)
@@ -197,7 +198,7 @@ namespace HSNXT.MiscUtil
         /// </summary>
         public sealed class Options : ICloneable
         {
-            private int maxBuffersPerSizeBand = 16;
+            private int _maxBuffersPerSizeBand = 16;
             /// <summary>
             /// The maximum number of buffers to keep for each
             /// size band. When a buffer is requested from one size band,
@@ -208,18 +209,18 @@ namespace HSNXT.MiscUtil
             /// </summary>
             public int MaxBuffersPerSizeBand 
             { 
-                get { return maxBuffersPerSizeBand; } 
+                get => _maxBuffersPerSizeBand;
                 set
                 {
                     if (value < 1)
                     {
-                        throw new ArgumentOutOfRangeException("Must have at least 1 buffer per size band");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Must have at least 1 buffer per size band");
                     }
-                    maxBuffersPerSizeBand = value;
+                    _maxBuffersPerSizeBand = value;
                 }
             }
 
-            private int minBufferSize=1024;
+            private int _minBufferSize=1024;
             /// <summary>
             /// The minimum buffer size to use, in bytes. If a buffer less than this size is
             /// requested, this is the size that will actually be used. Must be at least 1.
@@ -228,18 +229,17 @@ namespace HSNXT.MiscUtil
             /// </summary>
             public int MinBufferSize
             {
-                get { return minBufferSize; } 
+                get => _minBufferSize;
                 set
                 {
                     if (value < 1)
                     {
-                        throw new ArgumentOutOfRangeException("Minimum buffer size must be at least 1");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Minimum buffer size must be at least 1");
                     }
-                    minBufferSize = value;
+                    _minBufferSize = value;
                 }
             }
 
-            private bool clearAfterUse=true;
             /// <summary>
             /// Whether buffers are cleared (i.e. all bytes set to 0) after they
             /// are disposed. Defaults to true. For situations where buffers do not
@@ -247,13 +247,9 @@ namespace HSNXT.MiscUtil
             /// data they have specifically put into the buffer (e.g. when copying
             /// streams), this may be set to false for efficiency.
             /// </summary>
-            public bool ClearAfterUse
-            {
-                get { return clearAfterUse; }
-                set { clearAfterUse = value; }
-            }
+            public bool ClearAfterUse { get; set; } = true;
 
-            private double scalingFactor=2.0;
+            private double _scalingFactor=2.0;
             /// <summary>
             /// The scaling factor for sizes of buffers. The smallest buffer is of size
             /// MinBufferSize, then the next smallest is MinBufferSize*ScalingFactor, and
@@ -262,18 +258,18 @@ namespace HSNXT.MiscUtil
             /// </summary>
             public double ScalingFactor
             {
-                get { return scalingFactor; }
+                get => _scalingFactor;
                 set
                 {
                     if (value < 1.25)
                     {
-                        throw new ArgumentOutOfRangeException("Scaling factor must be at least 1.25.");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Scaling factor must be at least 1.25.");
                     }
-                    scalingFactor = value;
+                    _scalingFactor = value;
                 }
             }
 
-            private int maxBufferSize = int.MaxValue;
+            private int _maxBufferSize = int.MaxValue;
             /// <summary>
             /// The maximum size of buffer to return, or 0 for no maximum.
             /// This is primarily used with an ActionOnBufferUnavailable of UseBigger,
@@ -285,33 +281,33 @@ namespace HSNXT.MiscUtil
             /// </summary>
             public int MaxBufferSize
             {
-                get { return maxBufferSize; }
+                get => _maxBufferSize;
                 set
                 {
                     if (value <= 0)
                     {
-                        throw new ArgumentOutOfRangeException("Maximum buffer size must be non-negative");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Maximum buffer size must be non-negative");
                     }
-                    maxBufferSize = value;
+                    _maxBufferSize = value;
                 }
             }
 
-            private BufferUnavailableAction actionOnBufferUnavailable = BufferUnavailableAction.ReturnUncached;
+            private BufferUnavailableAction _actionOnBufferUnavailable = BufferUnavailableAction.ReturnUncached;
             /// <summary>
             /// Determines the action to take when a buffer of the most appropriate size
             /// is unavailable. Defaults to ReturnUncached.
             /// </summary>
             public BufferUnavailableAction ActionOnBufferUnavailable
             {
-                get { return actionOnBufferUnavailable; }
+                get => _actionOnBufferUnavailable;
                 set
                 {
                     if (!Enum.IsDefined(typeof(BufferUnavailableAction),
                                         value))
                     {
-                        throw new ArgumentOutOfRangeException("Only defined in BufferUnavailableAction are permitted");
+                        throw new ArgumentOutOfRangeException(nameof(value), "Only defined in BufferUnavailableAction are permitted");
                     }
-                    actionOnBufferUnavailable = value;
+                    _actionOnBufferUnavailable = value;
                 }
             }
 
