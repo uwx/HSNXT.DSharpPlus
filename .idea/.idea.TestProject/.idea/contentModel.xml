@@ -176,8 +176,6 @@
             <e p="IntervalHeap.cs" t="Include" />
           </e>
           <e p="Interfaces.cs" t="Include" />
-          <e p="IReadOnlyCollection.cs" t="Include" />
-          <e p="IReadOnlyList.cs" t="Include" />
           <e p="linkedlists" t="Include">
             <e p="HashedLinkedList.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
@@ -1024,7 +1022,6 @@
           </e>
           <e p="HSNXT.Interactive.Providers" t="Include">
             <e p="QueryableEx.cs" t="Include" />
-            <e p="Reflection.cs" t="Include" />
           </e>
         </e>
         <e p="LICENSE.BCLExtensions.txt" t="Include" />
@@ -1874,7 +1871,6 @@
           <e p="EventPatternSource.cs" t="Include" />
           <e p="EventPatternSourceBase.cs" t="Include" />
           <e p="EventSource.cs" t="Include" />
-          <e p="ExcludeFromCodeCoverageAttribute.cs" t="Include" />
           <e p="ExperimentalAttribute.cs" t="Include" />
           <e p="GlobalSuppressions.cs" t="Include" />
           <e p="IEventPattern.cs" t="Include" />
@@ -2130,12 +2126,6 @@
               </e>
               <e p="Strings_WindowsThreading.Designer.cs" t="Include" />
               <e p="Strings_WindowsThreading.resx" t="Include" />
-            </e>
-          </e>
-          <e p="Runtime" t="Include">
-            <e p="CompilerServices" t="Include">
-              <e p="AsyncMethodBuilderAttribute.cs" t="Include" />
-              <e p="TaskObservableMethodBuilder.cs" t="Include" />
             </e>
           </e>
           <e p="Strings_Core.Designer.cs" t="Include" />
