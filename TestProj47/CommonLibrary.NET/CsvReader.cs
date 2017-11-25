@@ -16,7 +16,7 @@
 using System.Collections.Generic;
 using HSNXT.ComLib;
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     /// <summary>
     /// Csv reader.

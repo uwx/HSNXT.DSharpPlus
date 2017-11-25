@@ -16,7 +16,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace GenericCode.Collections
+namespace HSNXT.GenericCode.Collections
 {
     /// <summary>
     /// Extension to enumerator with extended methods to indicate if last or first item

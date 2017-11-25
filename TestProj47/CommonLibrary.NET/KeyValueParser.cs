@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     /// <summary>
     /// 

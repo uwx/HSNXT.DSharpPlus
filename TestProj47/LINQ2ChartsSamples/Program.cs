@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using HSNXT.Linq;
 using Ex = HSNXT.Extensions;
 
-namespace Samples
+namespace HSNXT.LINQ2Charts.Samples
 {
     static class Program
     {
@@ -181,7 +181,7 @@ namespace Samples
 
             var series = new HSNXT.Linq.Charting.Point
             {
-                Points = { data.Select(xy => KeyValuePair.Create(xy.X, xy.Y)) }
+                Points = { data.Select(xy => KVPair.Create(xy.X, xy.Y)) }
             };
 
             var area = new ChartArea
@@ -203,7 +203,7 @@ namespace Samples
             var copy = from pixel in pixels
                        let y = new HSNXT.Linq.Charting.Point.DataPoint(image.Height - pixel.Y) { Color = pixel.Color }
                        let x = pixel.X + 1
-                       select KeyValuePair.Create(x, y);
+                       select KVPair.Create(x, y);
 
             var pixelated = new HSNXT.Linq.Charting.Point 
                             { Points = { copy } 

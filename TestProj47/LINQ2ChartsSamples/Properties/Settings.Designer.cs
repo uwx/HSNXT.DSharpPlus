@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Samples.Properties
+namespace HSNXT.LINQ2Charts.Samples.Properties
 {
 
 

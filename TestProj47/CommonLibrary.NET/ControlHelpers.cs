@@ -17,7 +17,7 @@ using System.IO;
 using System.Web;
 using System.Xml;
 
-namespace CommonLibrary.Web.UI
+namespace HSNXT.CommonLibrary.Web.UI
 {
     class Helpers
     {

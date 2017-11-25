@@ -19,7 +19,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using HSNXT.ComLib;
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     /// <summary>
     /// Csv document.

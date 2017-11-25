@@ -22,7 +22,6 @@ namespace HSNXT.Reactive
     /// </code>
     /// </remarks>
     /// <typeparam name="T">The type of the elements in the sequence.</typeparam>
-    [AsyncMethodBuilder(typeof(TaskObservableMethodBuilder<>))]
     public interface ITaskObservable<out T> : IObservable<T>
     {
         // NB: An interface type is preferred to enable the use of covariance.

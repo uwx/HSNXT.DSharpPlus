@@ -15,7 +15,7 @@
 
 using System;
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     /// <summary>
     /// Singleton implementation using generics.

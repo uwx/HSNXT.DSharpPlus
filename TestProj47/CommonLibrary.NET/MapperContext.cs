@@ -15,7 +15,7 @@
 
 using System.Collections.Generic;
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     public class MapperContext
     {        

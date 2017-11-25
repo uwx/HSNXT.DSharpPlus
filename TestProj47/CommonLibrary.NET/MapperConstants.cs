@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-namespace CommonLibrary
+namespace HSNXT.CommonLibrary
 {
     public class MapperConstants
     {

@@ -6,13 +6,11 @@ using System.ComponentModel;
 using HSNXT.Reactive;
 using HSNXT.Reactive.Disposables;
 using System.Threading;
+using System;
 
-namespace System
+namespace HSNXT
 {
-    /// <summary>
-    /// Provides a set of static methods for subscribing delegates to observables.
-    /// </summary>
-    public static class ObservableExtensions
+    public static partial class Extensions
     {
         #region Subscribe delegate-based overloads
 
