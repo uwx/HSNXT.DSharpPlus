@@ -10,12 +10,13 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using HSNXT.RegularExpressions;
 
 namespace HSNXT
 {
     public static partial class Extensions
     {
-        private static readonly Regex RegexCapitalize = new Regex("\\b([a-z])", RegexOptions.Compiled);
+        private static readonly Regex RegexCapitalize = new RegexCapitalize();
 
         private static readonly Regex ToLinkRegex =
             new Regex(

@@ -9,7 +9,6 @@ using System;
 namespace HSNXT
 {
     public static partial class Extensions
-
     {
         /// <summary>
         /// Performs the specified action on each element of the specified array.

@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using HSNXT.RegularExpressions;
 
 namespace HSNXT
 {
@@ -14,13 +15,13 @@ namespace HSNXT
                                                @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                                                @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
-        private static readonly Regex ObjNotWholePattern = new Regex("[^0-9]", RegexOptions.Compiled);
-        private static readonly Regex ObjAlphaNumericPattern = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
-        private static readonly Regex ObjAlphaNumericPatternWhite = new Regex("[^a-zA-Z0-9\\s]", RegexOptions.Compiled);
-        private static readonly Regex ObjAlphaPatternWhite = new Regex("[^a-zA-Z\\s]", RegexOptions.Compiled);
-        private static readonly Regex ObjAlphaDashPattern = new Regex("[^a-zA-Z\\-]", RegexOptions.Compiled);
-        private static readonly Regex ObjAlphaPattern = new Regex("[^a-zA-Z]", RegexOptions.Compiled);
-        private static readonly Regex IsEmailBigRe = new Regex(IsEmailBigRegex, RegexOptions.Compiled);
+        private static readonly Regex ObjNotWholePattern = new ObjNotWholePattern();
+        private static readonly Regex ObjAlphaNumericPattern = new ObjAlphaNumericPattern();
+        private static readonly Regex ObjAlphaNumericPatternWhite = new ObjAlphaNumericPatternWhite();
+        private static readonly Regex ObjAlphaPatternWhite = new ObjAlphaPatternWhite();
+        private static readonly Regex ObjAlphaDashPattern = new ObjAlphaDashPattern();
+        private static readonly Regex ObjAlphaPattern = new ObjAlphaPattern();
+        private static readonly Regex IsEmailBigRe = new IsEmailBigRe();
 
         public static bool EqualsAnyInvariant(this string a, params string[] b)
         {
@@ -112,7 +113,7 @@ namespace HSNXT
             }
             return false;
         }
-        
+
         public static bool EqualsIgnoreCase(this string a, string b) => a.Equals(b, StringComparison.OrdinalIgnoreCase);
 
         public static bool EqualsAnyIgnoreCase(this string a, params string[] b)
@@ -140,7 +141,7 @@ namespace HSNXT
             }
             return true;
         }
-        
+
         public static string OnlyDigits(this string value)
         {
             return new string(value?.Where(char.IsDigit).ToArray());
@@ -173,7 +174,7 @@ namespace HSNXT
             }
             return number;
         }
-        
+
         /// <summary>
         /// Check for Positive Integers with zero inclusive  
         /// </summary>
@@ -379,7 +380,7 @@ namespace HSNXT
             if (value.IsNullOrEmpty()) return value;
             return char.ToUpper(value[0]) + value.Substring(1);
         }
-        
+
         public static int IndexOfInvariant(this string self, string s) => self.IndexOf(s, StringComparison.Ordinal);
 
         public static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);

@@ -20,14 +20,14 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using HSNXT.RegularExpressions;
 
 namespace HSNXT
 {
     public static partial class Extensions
     {
-        private static readonly Regex WebUriExpression = new Regex(
-            @"(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?", RegexOptions.Singleline | RegexOptions.Compiled);
-
+        private static readonly Regex WebUriExpression = new WebUriExpression();
+        
         private static readonly char[] IllegalUrlCharacters =
         {
             ';', '/', '\\', '?', ':', '@', '&', '=', '+', '$',

@@ -18,13 +18,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using HSNXT.RegularExpressions;
 
 namespace HSNXT
 {
     public static partial class Extensions
     {
-        private static readonly Regex IsEmailRegex =
-            new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", RegexOptions.Compiled);
+        private static readonly Regex IsEmailRegex = new IsEmailRegex();
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private static readonly byte[] DefaultSalt = {

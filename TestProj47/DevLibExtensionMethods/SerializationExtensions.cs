@@ -16,20 +16,14 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using HSNXT.RegularExpressions;
 
 namespace HSNXT
 {
-    /// <summary>Serialization Extensions.</summary>
-    /// <summary>Serialization Extensions.</summary>
-    /// <summary>Serialization Extensions.</summary>
-    /// <summary>Serialization Extensions.</summary>
-    /// <summary>Serialization Extensions.</summary>
-    /// <summary>Serialization Extensions.</summary>
-    public static class SerializationExtensions
+    public static partial class Extensions
     {
         /// <summary>Field JsonTypeInfoRegex.</summary>
-        private static readonly Regex JsonTypeInfoRegex =
-            new Regex("\\s*\"__type\"\\s*:\\s*\"[^\"]*\"\\s*,\\s*", RegexOptions.Compiled);
+        private static readonly Regex JsonTypeInfoRegex = new JsonTypeInfoRegex();
 
         /// <summary>Serializes object to Json string.</summary>
         /// <param name="source">Object to serialize.</param>
@@ -49,9 +43,7 @@ namespace HSNXT
                     : new DataContractJsonSerializer(source.GetType(), knownTypes)).WriteObject(memoryStream, source);
                 memoryStream.Position = 0L;
                 var input = (encoding ?? Encoding.UTF8).GetString(memoryStream.ToArray());
-                if (omitTypeInfo)
-                    return JsonTypeInfoRegex.Replace(input, string.Empty);
-                return input;
+                return omitTypeInfo ? JsonTypeInfoRegex.Replace(input, string.Empty) : input;
             }
         }
 
