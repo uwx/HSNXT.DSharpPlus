@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using HSNXT.Linq.Charting;
 using System.Windows.Forms;
+using HSNXT.Linq;
+using Ex = HSNXT.Extensions;
 
 namespace Samples
 {
@@ -173,7 +175,7 @@ namespace Samples
                        , Y = new HSNXT.Linq.Charting.Point.DataPoint(hwy.Key)
                            { Color = CylindersToColor(cylinder)
                            , MarkerSize = cylinder * 4
-                           , ToolTip = string.Format("{0} cyclinders", cylinder)
+                           , ToolTip = $"{cylinder} cyclinders"
                            }
                        };
 
@@ -212,10 +214,10 @@ namespace Samples
 
         public static Chart Fast()
         {
-            var ys1 = EnumerableEx.Defer(delegate { var random = new Random(0); 
-                        return EnumerableEx.Generate(50.0, y => true, y => y + (random.NextDouble() * 10.0 - 5.0), y => y); });
-            var ys2 = EnumerableEx.Defer(delegate { var random = new Random(1); 
-                        return EnumerableEx.Generate(200.0, y => true, y => y + (random.NextDouble() * 10.0 - 5.0), y => y); });
+            var ys1 = Ex.Defer(delegate { var random = new Random(0); 
+                        return Ex.Generate(50.0, y => true, y => y + (random.NextDouble() * 10.0 - 5.0), y => y); });
+            var ys2 = Ex.Defer(delegate { var random = new Random(1); 
+                        return Ex.Generate(200.0, y => true, y => y + (random.NextDouble() * 10.0 - 5.0), y => y); });
 
             var beans = new FastLine()
             { Points = { from y in ys1.Take(1000000) select y }

@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Returns a specified number of contiguous elements from the end of the sequence.
@@ -18,7 +20,7 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="count">The number of elements to take from the end of the sequence.</param>
         /// <returns>Sequence with the specified number of elements counting from the end of the source sequence.</returns>
-        public static IEnumerable<TSource> TakeLast<TSource>(this IEnumerable<TSource> source, int count)
+        public static IEnumerable<TSource> RxTakeLast<TSource>(this IEnumerable<TSource> source, int count)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

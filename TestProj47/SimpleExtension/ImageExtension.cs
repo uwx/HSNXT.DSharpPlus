@@ -10,6 +10,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using SBuffer = System.Buffer;
 
 namespace HSNXT
 {
@@ -23,7 +24,7 @@ namespace HSNXT
         public static string BytesToString(this byte[] bytes)
         {
             var chArray = new char[bytes.Length / 2];
-            Buffer.BlockCopy(bytes, 0, chArray, 0, bytes.Length);
+            SBuffer.BlockCopy(bytes, 0, chArray, 0, bytes.Length);
             return new string(chArray);
         }
 
@@ -71,7 +72,7 @@ namespace HSNXT
         public static byte[] StringToBytes(this string str)
         {
             var numArray = new byte[str.Length * 2];
-            Buffer.BlockCopy(str.ToCharArray(), 0, numArray, 0, numArray.Length);
+            SBuffer.BlockCopy(str.ToCharArray(), 0, numArray, 0, numArray.Length);
             return numArray;
         }
 

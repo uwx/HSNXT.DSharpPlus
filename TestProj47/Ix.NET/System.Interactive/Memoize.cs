@@ -8,10 +8,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Creates a buffer with a view over the source sequence, causing each enumerator to obtain access to all of the

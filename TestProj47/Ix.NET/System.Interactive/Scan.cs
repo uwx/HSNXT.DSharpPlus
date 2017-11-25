@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Generates a sequence of accumulated values by scanning the source sequence and applying an accumulator function.
@@ -23,7 +25,7 @@ namespace System.Linq
         ///     sequence.
         /// </param>
         /// <returns>Sequence with all intermediate accumulation values resulting from scanning the sequence.</returns>
-        public static IEnumerable<TAccumulate> Scan<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> accumulator)
+        public static IEnumerable<TAccumulate> RxScan<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> accumulator)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -43,7 +45,7 @@ namespace System.Linq
         ///     sequence.
         /// </param>
         /// <returns>Sequence with all intermediate accumulation values resulting from scanning the sequence.</returns>
-        public static IEnumerable<TSource> Scan<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> accumulator)
+        public static IEnumerable<TSource> RxScan<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> accumulator)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

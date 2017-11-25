@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Bypasses a specified number of contiguous elements from the end of the sequence and returns the remaining elements.
@@ -21,7 +23,7 @@ namespace System.Linq
         ///     elements.
         /// </param>
         /// <returns>Sequence bypassing the specified number of elements counting from the end of the source sequence.</returns>
-        public static IEnumerable<TSource> SkipLast<TSource>(this IEnumerable<TSource> source, int count)
+        public static IEnumerable<TSource> RxSkipLast<TSource>(this IEnumerable<TSource> source, int count)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

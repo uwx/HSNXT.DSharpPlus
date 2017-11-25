@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Returns the maximum value in the enumerable sequence by using the specified comparer to compare values.
@@ -25,7 +27,7 @@ namespace System.Linq
             if (comparer == null)
                 throw new ArgumentNullException(nameof(comparer));
 
-            return MaxBy(source, x => x, comparer)
+            return RxMaxBy(source, x => x, comparer)
                 .First();
         }
 
@@ -37,14 +39,14 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="keySelector">Key selector used to extract the key for each element in the sequence.</param>
         /// <returns>List with the elements that share the same maximum key value.</returns>
-        public static IList<TSource> MaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        public static IList<TSource> RxMaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (keySelector == null)
                 throw new ArgumentNullException(nameof(keySelector));
 
-            return MaxBy(source, keySelector, Comparer<TKey>.Default);
+            return RxMaxBy(source, keySelector, Comparer<TKey>.Default);
         }
 
         /// <summary>
@@ -56,7 +58,7 @@ namespace System.Linq
         /// <param name="keySelector">Key selector used to extract the key for each element in the sequence.</param>
         /// <param name="comparer">Comparer used to determine the maximum key value.</param>
         /// <returns>List with the elements that share the same maximum key value.</returns>
-        public static IList<TSource> MaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer)
+        public static IList<TSource> RxMaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

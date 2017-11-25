@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Generates a sequence by repeating the given value infinitely.
@@ -41,7 +43,7 @@ namespace System.Linq
         /// <typeparam name="TSource">Source sequence element type.</typeparam>
         /// <param name="source">Source sequence.</param>
         /// <returns>Sequence obtained by concatenating the source sequence to itself infinitely.</returns>
-        public static IEnumerable<TSource> Repeat<TSource>(this IEnumerable<TSource> source)
+        public static IEnumerable<TSource> RxRepeat<TSource>(this IEnumerable<TSource> source)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -56,7 +58,7 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="count">Number of times to repeat the source sequence.</param>
         /// <returns>Sequence obtained by concatenating the source sequence to itself the specified number of times.</returns>
-        public static IEnumerable<TSource> Repeat<TSource>(this IEnumerable<TSource> source, int count)
+        public static IEnumerable<TSource> RxRepeat<TSource>(this IEnumerable<TSource> source, int count)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

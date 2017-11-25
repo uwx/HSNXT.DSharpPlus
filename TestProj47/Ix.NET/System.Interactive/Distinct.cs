@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
 
         /// <summary>
@@ -16,7 +18,7 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="keySelector">Key selector.</param>
         /// <returns>Sequence that contains the elements from the source sequence with distinct key values.</returns>
-        public static IEnumerable<TSource> Distinct<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        public static IEnumerable<TSource> RxDistinct<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -35,7 +37,7 @@ namespace System.Linq
         /// <param name="keySelector">Key selector.</param>
         /// <param name="comparer">Comparer used to compare key values.</param>
         /// <returns>Sequence that contains the elements from the source sequence with distinct key values.</returns>
-        public static IEnumerable<TSource> Distinct<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
+        public static IEnumerable<TSource> RxDistinct<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -65,7 +67,7 @@ namespace System.Linq
         /// <typeparam name="TSource">Source sequence element type.</typeparam>
         /// <param name="source">Source sequence.</param>
         /// <returns>Sequence without adjacent non-distinct elements.</returns>
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource>(this IEnumerable<TSource> source)
+        public static IEnumerable<TSource> RxDistinctUntilChanged<TSource>(this IEnumerable<TSource> source)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -80,7 +82,7 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="comparer">Comparer used to compare values.</param>
         /// <returns>Sequence without adjacent non-distinct elements.</returns>
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource>(this IEnumerable<TSource> source, IEqualityComparer<TSource> comparer)
+        public static IEnumerable<TSource> RxDistinctUntilChanged<TSource>(this IEnumerable<TSource> source, IEqualityComparer<TSource> comparer)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -98,7 +100,7 @@ namespace System.Linq
         /// <param name="source">Source sequence.</param>
         /// <param name="keySelector">Key selector.</param>
         /// <returns>Sequence without adjacent non-distinct elements.</returns>
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        public static IEnumerable<TSource> RxDistinctUntilChanged<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -117,7 +119,7 @@ namespace System.Linq
         /// <param name="keySelector">Key selector.</param>
         /// <param name="comparer">Comparer used to compare key values.</param>
         /// <returns>Sequence without adjacent non-distinct elements.</returns>
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
+        public static IEnumerable<TSource> RxDistinctUntilChanged<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

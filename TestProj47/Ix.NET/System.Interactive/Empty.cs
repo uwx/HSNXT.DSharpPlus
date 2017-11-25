@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Determines whether an enumerable sequence is empty.
@@ -17,7 +19,7 @@ namespace System.Linq
         /// <typeparam name="TSource">Source sequence element type.</typeparam>
         /// <param name="source">Source sequence.</param>
         /// <returns>true if the sequence is empty; false otherwise.</returns>
-        public static bool IsEmpty<TSource>(this IEnumerable<TSource> source)
+        public static bool RxIsEmpty<TSource>(this IEnumerable<TSource> source)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

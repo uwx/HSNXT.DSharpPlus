@@ -11,6 +11,7 @@ using System.Collections;
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 
 //using System;
+using SBuffer = System.Buffer;
 
 namespace HSNXT
 {
@@ -465,7 +466,7 @@ namespace HSNXT
         /// <param name="count">The number of bytes to copy.</param>
         public static void BlockCopy(this Array src, int srcOffset, Array dst, int dstOffset, int count)
         {
-            Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
+            SBuffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
         }
 
         /// <summary>
@@ -475,7 +476,7 @@ namespace HSNXT
         /// <returns>The number of bytes in the array.</returns>
         public static int ByteLength(this Array array)
         {
-            return Buffer.ByteLength(array);
+            return SBuffer.ByteLength(array);
         }
 
         /// <summary>
@@ -486,7 +487,7 @@ namespace HSNXT
         /// <returns>Returns the  byte in the array.</returns>
         public static byte GetByte(this Array array, int index)
         {
-            return Buffer.GetByte(array, index);
+            return SBuffer.GetByte(array, index);
         }
 
         /// <summary>
@@ -497,7 +498,7 @@ namespace HSNXT
         /// <param name="value">A value to assign.</param>
         public static void SetByte(this Array array, int index, byte value)
         {
-            Buffer.SetByte(array, index, value);
+            SBuffer.SetByte(array, index, value);
         }
     }
 }

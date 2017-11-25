@@ -41,10 +41,10 @@ namespace HSNXT
         /// <returns>The minimal element, according to the projection.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="source"/> or <paramref name="selector"/> is null</exception>
         /// <exception cref="InvalidOperationException"><paramref name="source"/> is empty</exception>
-        public static TSource MinBy<TSource, TKey>(this IEnumerable<TSource> source,
+        public static TSource RxMinBy<TSource, TKey>(this IEnumerable<TSource> source,
             Func<TSource, TKey> selector)
         {
-            return source.MinBy(selector, null);
+            return source.RxMinBy(selector, null);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace HSNXT
         /// <exception cref="ArgumentNullException"><paramref name="source"/>, <paramref name="selector"/> 
         /// or <paramref name="comparer"/> is null</exception>
         /// <exception cref="InvalidOperationException"><paramref name="source"/> is empty</exception>
-        public static TSource MinBy<TSource, TKey>(this IEnumerable<TSource> source,
+        public static TSource RxMinBy<TSource, TKey>(this IEnumerable<TSource> source,
             Func<TSource, TKey> selector, IComparer<TKey> comparer)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));

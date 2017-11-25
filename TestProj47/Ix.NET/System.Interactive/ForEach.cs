@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    public static partial class EnumerableEx
+    public static partial class Extensions
     {
         /// <summary>
         ///     Enumerates the sequence and invokes the given action for each value in the sequence.
@@ -17,7 +19,7 @@ namespace System.Linq
         /// <typeparam name="TSource">Source sequence element type.</typeparam>
         /// <param name="source">Source sequence.</param>
         /// <param name="onNext">Action to invoke for each element.</param>
-        public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> onNext)
+        public static void RxForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> onNext)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -34,7 +36,7 @@ namespace System.Linq
         /// <typeparam name="TSource">Source sequence element type.</typeparam>
         /// <param name="source">Source sequence.</param>
         /// <param name="onNext">Action to invoke for each element.</param>
-        public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource, int> onNext)
+        public static void RxForEach<TSource>(this IEnumerable<TSource> source, Action<TSource, int> onNext)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

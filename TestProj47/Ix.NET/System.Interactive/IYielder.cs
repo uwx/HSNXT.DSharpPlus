@@ -7,8 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
+using HSNXT.Linq;
 
-namespace System.Linq
+namespace HSNXT.Linq
 {
     /// <summary>
     ///     Interface for yielding elements to enumerator.
@@ -29,7 +32,10 @@ namespace System.Linq
         /// <returns>Awaitable object for use in an asynchronous method.</returns>
         IAwaitable Return(T value);
     }
+}
 
+namespace HSNXT
+{
     internal class Yielder<T> : IYielder<T>, IAwaitable, IAwaiter
     {
         private readonly Action<Yielder<T>> _create;

@@ -72,12 +72,6 @@
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Ix.NET\Ix.NET.sln" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rx.NET\HSNXT.Reactive" />
-  </ItemGroup>
 </Project>
 <!--
         <?xml version="1.0" encoding="utf-8"?>

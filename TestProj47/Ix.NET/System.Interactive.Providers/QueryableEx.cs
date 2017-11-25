@@ -2,17 +2,15 @@
 // The .NET Foundation licenses this file to you under the Apache 2.0 License.
 // See the LICENSE file in the project root for more information. 
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.Linq.Expressions;
 using System.Reflection;
+using System;
+using System.Linq;
 
-namespace System.Linq
+namespace HSNXT
 {
-    /// <summary>
-    /// Provides a set of additional static methods that allow querying enumerable sequences.
-    /// </summary>
-    public static class QueryableEx
+    public static partial class Extensions
     {
         /// <summary>
         /// Determines whether an enumerable sequence is empty.
@@ -31,20 +29,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.IsEmpty<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static bool IsEmpty<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.IsEmpty(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the minimum value in the enumerable sequence by using the specified comparer to compare values.
@@ -66,7 +58,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Min<TSource>(default(IQueryable<TSource>), default(IComparer<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(comparer, typeof(IComparer<TSource>))
@@ -74,13 +66,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static TSource Min<TSource>(IEnumerable<TSource> source, IComparer<TSource> comparer)
-        {
-            return EnumerableEx.Min(source, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the elements with the minimum key value by using the default comparer to compare key values.
@@ -103,7 +89,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.MinBy<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector
@@ -111,13 +97,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IList<TSource> MinBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return EnumerableEx.MinBy(source, keySelector);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the elements with the minimum key value by using the specified comparer to compare key values.
@@ -143,7 +123,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.MinBy<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>), default(IComparer<TKey>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector,
@@ -152,13 +132,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IList<TSource> MinBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer)
-        {
-            return EnumerableEx.MinBy(source, keySelector, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the maximum value in the enumerable sequence by using the specified comparer to compare values.
@@ -180,7 +154,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Max<TSource>(default(IQueryable<TSource>), default(IComparer<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(comparer, typeof(IComparer<TSource>))
@@ -188,13 +162,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static TSource Max<TSource>(IEnumerable<TSource> source, IComparer<TSource> comparer)
-        {
-            return EnumerableEx.Max(source, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the elements with the maximum key value by using the default comparer to compare key values.
@@ -217,21 +185,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.MaxBy<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IList<TSource> MaxBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return EnumerableEx.MaxBy(source, keySelector);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Returns the elements with the minimum key value by using the specified comparer to compare key values.
@@ -257,7 +217,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.MaxBy<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>), default(IComparer<TKey>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector,
@@ -265,14 +225,6 @@ namespace System.Linq
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IList<TSource> MaxBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer)
-        {
-            return EnumerableEx.MaxBy(source, keySelector, comparer);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Shares the source sequence within a selector function where each enumerator can fetch the next element from the source sequence.
@@ -295,21 +247,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Share<TSource, TResult>(default(IQueryable<TSource>), default(Expression<Func<IEnumerable<TSource>, IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
 #endif
                     source.Expression,
                     selector
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> Share<TSource, TResult>(IEnumerable<TSource> source, Func<IEnumerable<TSource>, IEnumerable<TResult>> selector)
-        {
-            return EnumerableEx.Share(source, selector);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Publishes the source sequence within a selector function where each enumerator can obtain a view over a tail of the source sequence.
@@ -332,21 +276,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Publish<TSource, TResult>(default(IQueryable<TSource>), default(Expression<Func<IEnumerable<TSource>, IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
 #endif
                     source.Expression,
                     selector
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> Publish<TSource, TResult>(IEnumerable<TSource> source, Func<IEnumerable<TSource>, IEnumerable<TResult>> selector)
-        {
-            return EnumerableEx.Publish(source, selector);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Memoizes the source sequence within a selector function where each enumerator can get access to all of the sequence's elements without causing multiple enumerations over the source.
@@ -369,21 +305,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Memoize<TSource, TResult>(default(IQueryable<TSource>), default(Expression<Func<IEnumerable<TSource>, IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
 #endif
                     source.Expression,
                     selector
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> Memoize<TSource, TResult>(IEnumerable<TSource> source, Func<IEnumerable<TSource>, IEnumerable<TResult>> selector)
-        {
-            return EnumerableEx.Memoize(source, selector);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Memoizes the source sequence within a selector function where a specified number of enumerators can get access to all of the sequence's elements without causing multiple enumerations over the source.
@@ -407,7 +335,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Memoize<TSource, TResult>(default(IQueryable<TSource>), default(int), default(Expression<Func<IEnumerable<TSource>, IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
 #endif
                     source.Expression,
                     Expression.Constant(readerCount, typeof(int)),
@@ -415,14 +343,6 @@ namespace System.Linq
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> Memoize<TSource, TResult>(IEnumerable<TSource> source, int readerCount, Func<IEnumerable<TSource>, IEnumerable<TResult>> selector)
-        {
-            return EnumerableEx.Memoize(source, readerCount, selector);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Creates an enumerable sequence based on an enumerator factory function.
@@ -444,21 +364,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Create<TResult>(default(IQueryProvider), default(Expression<Func<IEnumerator<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     getEnumerator
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> Create<TResult>(Func<IEnumerator<TResult>> getEnumerator)
-        {
-            return EnumerableEx.Create(getEnumerator);
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Returns a sequence with a single element.
@@ -478,21 +390,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Return<TResult>(default(IQueryProvider), default(TResult))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(value, typeof(TResult))
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Return<TResult>(TResult value)
-        {
-            return EnumerableEx.Return(value).AsQueryable();
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Returns a sequence that throws an exception upon enumeration.
@@ -514,21 +418,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Throw<TResult>(default(IQueryProvider), default(Exception))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(exception, typeof(Exception))
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Throw<TResult>(Exception exception)
-        {
-            return EnumerableEx.Throw<TResult>(exception).AsQueryable();
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Creates an enumerable sequence based on an enumerable factory function.
@@ -550,21 +446,13 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Defer<TResult>(default(IQueryProvider), default(Expression<Func<IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     enumerableFactory
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Defer<TResult>(Func<IEnumerable<TResult>> enumerableFactory)
-        {
-            return EnumerableEx.Defer(enumerableFactory).AsQueryable();
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Generates a sequence by mimicking a for loop.
@@ -594,7 +482,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Generate<TState, TResult>(default(IQueryProvider), default(TState), default(Expression<Func<TState, bool>>), default(Expression<Func<TState, TState>>), default(Expression<Func<TState, TResult>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TState), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TState), typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(initialState),
@@ -604,14 +492,6 @@ namespace System.Linq
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Generate<TState, TResult>(TState initialState, Func<TState, bool> condition, Func<TState, TState> iterate, Func<TState, TResult> resultSelector)
-        {
-            return EnumerableEx.Generate(initialState, condition, iterate, resultSelector).AsQueryable();
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Generates a sequence that's dependent on a resource object whose lifetime is determined by the sequence usage duration.
@@ -637,7 +517,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Using<TSource, TResource>(default(IQueryProvider), default(Expression<Func<TResource>>), default(Expression<Func<TResource, IEnumerable<TSource>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResource)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     resourceFactory,
@@ -645,14 +525,6 @@ namespace System.Linq
                 )
             );
         }
-
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TSource> Using<TSource, TResource>(Func<TResource> resourceFactory, Func<TResource, IEnumerable<TSource>> enumerableFactory) where TResource : IDisposable
-        {
-            return EnumerableEx.Using(resourceFactory, enumerableFactory).AsQueryable();
-        }
-#pragma warning restore 1591
 
         /// <summary>
         /// Generates a sequence by repeating the given value infinitely.
@@ -672,7 +544,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Repeat<TResult>(default(IQueryProvider), default(TResult))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(value, typeof(TResult))
@@ -680,13 +552,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Repeat<TResult>(TResult value)
-        {
-            return EnumerableEx.Repeat(value).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that corresponds to the source sequence, concatenating it with the sequence resulting from calling an exception handler function in case of an error.
@@ -710,7 +576,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Catch<TSource, TException>(default(IQueryable<TSource>), default(Expression<Func<TException, IEnumerable<TSource>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TException)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TException)),
 #endif
                     source.Expression,
                     handler
@@ -718,14 +584,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Catch<TSource, TException>(IEnumerable<TSource> source, Func<TException, IEnumerable<TSource>> handler)
-            where TException : Exception
-        {
-            return EnumerableEx.Catch(source, handler);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence by concatenating source sequences until a source sequence completes successfully.
@@ -744,20 +603,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Catch<TSource>(default(IQueryable<IEnumerable<TSource>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     sources.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Catch<TSource>(IEnumerable<IEnumerable<TSource>> sources)
-        {
-            return EnumerableEx.Catch(sources);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence by concatenating source sequences until a source sequence completes successfully.
@@ -779,7 +632,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Catch<TSource>(default(IQueryProvider), default(IEnumerable<TSource>[]))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     GetSourceExpression(sources)
@@ -787,13 +640,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TSource> Catch<TSource>(params IEnumerable<TSource>[] sources)
-        {
-            return EnumerableEx.Catch(sources).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that returns the elements of the first sequence, switching to the second in case of an error.
@@ -815,7 +662,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Catch<TSource>(default(IQueryable<TSource>), default(IEnumerable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     first.Expression,
                     GetSourceExpression(second)
@@ -823,13 +670,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Catch<TSource>(IEnumerable<TSource> first, IEnumerable<TSource> second)
-        {
-            return EnumerableEx.Catch(first, second);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence whose termination or disposal of an enumerator causes a finally action to be executed.
@@ -851,7 +692,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Finally<TSource>(default(IQueryable<TSource>), default(Expression<Action>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     finallyAction
@@ -859,13 +700,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Finally<TSource>(IEnumerable<TSource> source, Action finallyAction)
-        {
-            return EnumerableEx.Finally(source, finallyAction);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that concatenates both given sequences, regardless of whether an error occurs.
@@ -887,7 +722,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.OnErrorResumeNext<TSource>(default(IQueryable<TSource>), default(IEnumerable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     first.Expression,
                     GetSourceExpression(second)
@@ -895,13 +730,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> OnErrorResumeNext<TSource>(IEnumerable<TSource> first, IEnumerable<TSource> second)
-        {
-            return EnumerableEx.OnErrorResumeNext(first, second);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that concatenates the given sequences, regardless of whether an error occurs in any of the sequences.
@@ -923,7 +752,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.OnErrorResumeNext<TSource>(default(IQueryProvider), default(IEnumerable<TSource>[]))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     GetSourceExpression(sources)
@@ -931,13 +760,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TSource> OnErrorResumeNext<TSource>(params IEnumerable<TSource>[] sources)
-        {
-            return EnumerableEx.OnErrorResumeNext(sources).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that concatenates the given sequences, regardless of whether an error occurs in any of the sequences.
@@ -956,20 +779,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.OnErrorResumeNext<TSource>(default(IQueryable<IEnumerable<TSource>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     sources.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> OnErrorResumeNext<TSource>(IEnumerable<IEnumerable<TSource>> sources)
-        {
-            return EnumerableEx.OnErrorResumeNext(sources);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that retries enumerating the source sequence as long as an error occurs.
@@ -988,20 +805,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Retry<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Retry<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.Retry(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Creates a sequence that retries enumerating the source sequence as long as an error occurs, with the specified maximum number of retries.
@@ -1021,7 +832,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Retry<TSource>(default(IQueryable<TSource>), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(retryCount, typeof(int))
@@ -1029,13 +840,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Retry<TSource>(IEnumerable<TSource> source, int retryCount)
-        {
-            return EnumerableEx.Retry(source, retryCount);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates an enumerable sequence by repeating a source sequence as long as the given loop condition holds.
@@ -1060,7 +865,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.While<TResult>(default(IQueryProvider), default(Expression<Func<bool>>), default(IEnumerable<TResult>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     condition,
@@ -1069,13 +874,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> While<TResult>(Func<bool> condition, IEnumerable<TResult> source)
-        {
-            return EnumerableEx.While(condition, source).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns an enumerable sequence based on the evaluation result of the given condition.
@@ -1103,7 +902,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.If<TResult>(default(IQueryProvider), default(Expression<Func<bool>>), default(IEnumerable<TResult>), default(IEnumerable<TResult>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     condition,
@@ -1113,13 +912,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> If<TResult>(Func<bool> condition, IEnumerable<TResult> thenSource, IEnumerable<TResult> elseSource)
-        {
-            return EnumerableEx.If(condition, thenSource, elseSource).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns an enumerable sequence if the evaluation result of the given condition is true, otherwise returns an empty sequence.
@@ -1144,7 +937,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.If<TResult>(default(IQueryProvider), default(Expression<Func<bool>>), default(IEnumerable<TResult>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     condition,
@@ -1153,13 +946,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> If<TResult>(Func<bool> condition, IEnumerable<TResult> thenSource)
-        {
-            return EnumerableEx.If(condition, thenSource).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates an enumerable sequence by repeating a source sequence as long as the given loop postcondition holds.
@@ -1181,7 +968,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.DoWhile<TResult>(default(IQueryable<TResult>), default(Expression<Func<bool>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     source.Expression,
                     condition
@@ -1189,13 +976,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TResult> DoWhile<TResult>(IEnumerable<TResult> source, Func<bool> condition)
-        {
-            return EnumerableEx.DoWhile(source, condition);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns a sequence from a dictionary based on the result of evaluating a selector function.
@@ -1221,7 +1002,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Case<TValue, TResult>(default(IQueryProvider), default(Expression<Func<TValue>>), default(IDictionary<TValue, IEnumerable<TResult>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TValue), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TValue), typeof(TResult)),
 #endif
                     selector,
                     Expression.Constant(sources, typeof(IDictionary<TValue, IEnumerable<TResult>>))
@@ -1229,13 +1010,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Case<TValue, TResult>(Func<TValue> selector, IDictionary<TValue, IEnumerable<TResult>> sources)
-        {
-            return EnumerableEx.Case(selector, sources).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns a sequence from a dictionary based on the result of evaluating a selector function, also specifying a default sequence.
@@ -1264,7 +1039,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Case<TValue, TResult>(default(IQueryProvider), default(Expression<Func<TValue>>), default(IDictionary<TValue, IEnumerable<TResult>>), default(IEnumerable<TResult>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TValue), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TValue), typeof(TResult)),
 #endif
                     selector,
                     Expression.Constant(sources, typeof(IDictionary<TValue, IEnumerable<TResult>>))
@@ -1272,13 +1047,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Case<TValue, TResult>(Func<TValue> selector, IDictionary<TValue, IEnumerable<TResult>> sources, IEnumerable<TResult> defaultSource)
-        {
-            return EnumerableEx.Case(selector, sources, defaultSource).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence by enumerating a source sequence, mapping its elements on result sequences, and concatenating those sequences.
@@ -1304,7 +1073,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.For<TSource, TResult>(default(IQueryProvider), default(IEnumerable<TSource>), default(Expression<Func<TSource, IEnumerable<TResult>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TResult)),
 #endif
                     GetSourceExpression(source),
                     resultSelector
@@ -1312,13 +1081,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> For<TSource, TResult>(IEnumerable<TSource> source, Func<TSource, IEnumerable<TResult>> resultSelector)
-        {
-            return EnumerableEx.For(source, resultSelector).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Concatenates the input sequences.
@@ -1337,20 +1100,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Concat<TSource>(default(IQueryable<IEnumerable<TSource>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     GetSourceExpression(sources)
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Concat<TSource>(IEnumerable<IEnumerable<TSource>> sources)
-        {
-            return EnumerableEx.Concat(sources);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Concatenates the input sequences.
@@ -1372,7 +1129,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Concat<TSource>(default(IQueryProvider), default(IEnumerable<TSource>[]))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     GetSourceExpression(sources)
@@ -1380,13 +1137,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TSource> Concat<TSource>(params IEnumerable<TSource>[] sources)
-        {
-            return EnumerableEx.Concat(sources).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Projects each element of a sequence to an given sequence and flattens the resulting sequences into one sequence.
@@ -1409,7 +1160,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.SelectMany<TSource, TOther>(default(IQueryable<TSource>), default(IEnumerable<TOther>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TOther)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TOther)),
 #endif
                     source.Expression,
                     GetSourceExpression(other)
@@ -1417,13 +1168,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TOther> SelectMany<TSource, TOther>(IEnumerable<TSource> source, IEnumerable<TOther> other)
-        {
-            return EnumerableEx.SelectMany(source, other);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Hides the enumerable sequence object identity.
@@ -1443,20 +1188,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Hide<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Hide<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.Hide(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Lazily invokes an action for each value in the sequence.
@@ -1478,7 +1217,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Do<TSource>(default(IQueryable<TSource>), default(Expression<Action<TSource>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     onNext
@@ -1486,13 +1225,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Do<TSource>(IEnumerable<TSource> source, Action<TSource> onNext)
-        {
-            return EnumerableEx.Do(source, onNext);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Lazily invokes an action for each value in the sequence, and executes an action for successful termination.
@@ -1517,7 +1250,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Do<TSource>(default(IQueryable<TSource>), default(Expression<Action<TSource>>), default(Expression<Action>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     onNext,
@@ -1526,13 +1259,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Do<TSource>(IEnumerable<TSource> source, Action<TSource> onNext, Action onCompleted)
-        {
-            return EnumerableEx.Do(source, onNext, onCompleted);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Lazily invokes an action for each value in the sequence, and executes an action upon exceptional termination.
@@ -1557,7 +1284,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Do<TSource>(default(IQueryable<TSource>), default(Expression<Action<TSource>>), default(Expression<Action<Exception>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     onNext,
@@ -1566,13 +1293,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Do<TSource>(IEnumerable<TSource> source, Action<TSource> onNext, Action<Exception> onError)
-        {
-            return EnumerableEx.Do(source, onNext, onError);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Lazily invokes an action for each value in the sequence, and executes an action upon successful or exceptional termination.
@@ -1600,7 +1321,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Do<TSource>(default(IQueryable<TSource>), default(Expression<Action<TSource>>), default(Expression<Action<Exception>>), default(Expression<Action>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     onNext,
@@ -1610,13 +1331,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Do<TSource>(IEnumerable<TSource> source, Action<TSource> onNext, Action<Exception> onError, Action onCompleted)
-        {
-            return EnumerableEx.Do(source, onNext, onError, onCompleted);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Lazily invokes observer methods for each value in the sequence, and upon successful or exceptional termination.
@@ -1638,7 +1353,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Do<TSource>(default(IQueryable<TSource>), default(IObserver<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(observer, typeof(IObserver<TSource>))
@@ -1646,13 +1361,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Do<TSource>(IEnumerable<TSource> source, IObserver<TSource> observer)
-        {
-            return EnumerableEx.Do(source, observer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence of non-overlapping adjacent buffers over the source sequence.
@@ -1672,7 +1381,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Buffer<TSource>(default(IQueryable<TSource>), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(count, typeof(int))
@@ -1680,13 +1389,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<IList<TSource>> Buffer<TSource>(IEnumerable<TSource> source, int count)
-        {
-            return EnumerableEx.Buffer(source, count);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence of buffers over the source sequence, with specified length and possible overlap.
@@ -1707,7 +1410,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Buffer<TSource>(default(IQueryable<TSource>), default(int), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(count, typeof(int)),
@@ -1716,13 +1419,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<IList<TSource>> Buffer<TSource>(IEnumerable<TSource> source, int count, int skip)
-        {
-            return EnumerableEx.Buffer(source, count, skip);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Ignores all elements in the source sequence.
@@ -1741,20 +1438,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.IgnoreElements<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> IgnoreElements<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.IgnoreElements(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns elements with a distinct key value by using the default equality comparer to compare key values.
@@ -1777,7 +1468,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Distinct<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector
@@ -1785,13 +1476,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Distinct<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return EnumerableEx.Distinct(source, keySelector);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns elements with a distinct key value by using the specified equality comparer to compare key values.
@@ -1817,7 +1502,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Distinct<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>), default(IEqualityComparer<TKey>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector,
@@ -1826,13 +1511,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Distinct<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
-        {
-            return EnumerableEx.Distinct(source, keySelector, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns consecutive distinct elements by using the default equality comparer to compare values.
@@ -1851,20 +1530,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.DistinctUntilChanged<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.DistinctUntilChanged(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns consecutive distinct elements by using the specified equality comparer to compare values.
@@ -1886,7 +1559,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.DistinctUntilChanged<TSource>(default(IQueryable<TSource>), default(IEqualityComparer<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(comparer, typeof(IEqualityComparer<TSource>))
@@ -1894,13 +1567,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource>(IEnumerable<TSource> source, IEqualityComparer<TSource> comparer)
-        {
-            return EnumerableEx.DistinctUntilChanged(source, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns consecutive distinct elements based on a key value by using the specified equality comparer to compare key values.
@@ -1923,7 +1590,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.DistinctUntilChanged<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector
@@ -1931,13 +1598,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return EnumerableEx.DistinctUntilChanged(source, keySelector);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns consecutive distinct elements based on a key value by using the specified equality comparer to compare key values.
@@ -1963,7 +1624,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.DistinctUntilChanged<TSource, TKey>(default(IQueryable<TSource>), default(Expression<Func<TSource, TKey>>), default(IEqualityComparer<TKey>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TKey)),
 #endif
                     source.Expression,
                     keySelector,
@@ -1972,13 +1633,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> DistinctUntilChanged<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
-        {
-            return EnumerableEx.DistinctUntilChanged(source, keySelector, comparer);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Expands the sequence by recursively applying a selector function.
@@ -2000,7 +1655,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Expand<TSource>(default(IQueryable<TSource>), default(Expression<Func<TSource, IEnumerable<TSource>>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     selector
@@ -2008,13 +1663,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Expand<TSource>(IEnumerable<TSource> source, Func<TSource, IEnumerable<TSource>> selector)
-        {
-            return EnumerableEx.Expand(source, selector);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns the source sequence prefixed with the specified value.
@@ -2034,7 +1683,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.StartWith<TSource>(default(IQueryable<TSource>), default(TSource[]))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(values, typeof(TSource[]))
@@ -2042,13 +1691,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> StartWith<TSource>(IEnumerable<TSource> source, params TSource[] values)
-        {
-            return EnumerableEx.StartWith(source, values);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence of accumulated values by scanning the source sequence and applying an accumulator function.
@@ -2072,7 +1715,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Scan<TSource, TAccumulate>(default(IQueryable<TSource>), default(TAccumulate), default(Expression<Func<TAccumulate, TSource, TAccumulate>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TAccumulate)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource), typeof(TAccumulate)),
 #endif
                     source.Expression,
                     Expression.Constant(seed, typeof(TAccumulate)),
@@ -2081,13 +1724,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TAccumulate> Scan<TSource, TAccumulate>(IEnumerable<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> accumulator)
-        {
-            return EnumerableEx.Scan(source, seed, accumulator);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence of accumulated values by scanning the source sequence and applying an accumulator function.
@@ -2109,7 +1746,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Scan<TSource>(default(IQueryable<TSource>), default(Expression<Func<TSource, TSource, TSource>>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     accumulator
@@ -2117,13 +1754,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Scan<TSource>(IEnumerable<TSource> source, Func<TSource, TSource, TSource> accumulator)
-        {
-            return EnumerableEx.Scan(source, accumulator);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns a specified number of contiguous elements from the end of the sequence.
@@ -2143,7 +1774,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.TakeLast<TSource>(default(IQueryable<TSource>), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(count, typeof(int))
@@ -2151,13 +1782,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> TakeLast<TSource>(IEnumerable<TSource> source, int count)
-        {
-            return EnumerableEx.TakeLast(source, count);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Bypasses a specified number of contiguous elements from the end of the sequence and returns the remaining elements.
@@ -2177,7 +1802,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.SkipLast<TSource>(default(IQueryable<TSource>), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(count, typeof(int))
@@ -2185,13 +1810,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> SkipLast<TSource>(IEnumerable<TSource> source, int count)
-        {
-            return EnumerableEx.SkipLast(source, count);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Repeats and concatenates the source sequence infinitely.
@@ -2210,20 +1829,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Repeat<TSource>(default(IQueryable<TSource>))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Repeat<TSource>(IEnumerable<TSource> source)
-        {
-            return EnumerableEx.Repeat(source);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Repeats and concatenates the source sequence the given number of times.
@@ -2243,7 +1856,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Repeat<TSource>(default(IQueryable<TSource>), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TSource)),
 #endif
                     source.Expression,
                     Expression.Constant(count, typeof(int))
@@ -2251,13 +1864,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static IEnumerable<TSource> Repeat<TSource>(IEnumerable<TSource> source, int count)
-        {
-            return EnumerableEx.Repeat(source, count);
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Returns a sequence with no elements.
@@ -2276,20 +1883,14 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Empty<TResult>(default(IQueryProvider))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider))
                 )
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Empty<TResult>()
-        {
-            return Enumerable.Empty<TResult>().AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence of integral numbers within a specified range.
@@ -2309,7 +1910,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Range(default(IQueryProvider), default(int), default(int))),
 #else
-                    (MethodInfo)MethodInfo.GetCurrentMethod(),
+                    (MethodInfo)MethodBase.GetCurrentMethod(),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(start, typeof(int)),
@@ -2318,13 +1919,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<int> Range(int start, int count)
-        {
-            return Enumerable.Range(start, count).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Generates a sequence that contains one repeated value.
@@ -2345,7 +1940,7 @@ namespace System.Linq
 #if CRIPPLED_REFLECTION
                     InfoOf(() => QueryableEx.Repeat<TResult>(default(IQueryProvider), default(TResult), default(int))),
 #else
-                    ((MethodInfo)MethodInfo.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
+                    ((MethodInfo)MethodBase.GetCurrentMethod()).MakeGenericMethod(typeof(TResult)),
 #endif
                     Expression.Constant(provider, typeof(IQueryProvider)),
                     Expression.Constant(element, typeof(TResult)),
@@ -2354,13 +1949,7 @@ namespace System.Linq
             );
         }
 
-#pragma warning disable 1591
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static /*!*/IQueryable<TResult> Repeat<TResult>(TResult element, int count)
-        {
-            return EnumerableEx.Repeat<TResult>(element, count).AsQueryable();
-        }
-#pragma warning restore 1591
+
 
         /// <summary>
         /// Gets the local Queryable provider.
@@ -2401,52 +1990,44 @@ namespace System.Linq
 
             private static Expression Redir(Expression expression)
             {
-                if (expression is MethodCallExpression mce && mce.Method.DeclaringType == typeof(QueryableEx))
+                if (!(expression is MethodCallExpression mce) || mce.Method.DeclaringType != typeof(Extensions))
+                    return expression;
+                if (mce.Arguments.Count < 1 || !typeof(IQueryProvider).IsAssignableFrom(mce.Arguments[0].Type))
+                    return expression;
+                if (!(mce.Arguments[0] is ConstantExpression ce)) return expression;
+                if (!(ce.Value is QueryProviderShim)) return expression;
+                var targetType = typeof(Extensions);
+                var method = mce.Method;
+                var methods = GetMethods(targetType);
+                var arguments = mce.Arguments.Skip(1).ToList();
+
+                //
+                // From all the operators with the method's name, find the one that matches all arguments.
+                //
+                var typeArgs = method.IsGenericMethod ? method.GetGenericArguments() : null;
+                var targetMethod = methods[method.Name].FirstOrDefault(candidateMethod => ArgsMatch(candidateMethod, arguments, typeArgs));
+                if (targetMethod == null)
+                    throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, "There is no method '{0}' on type '{1}' that matches the specified arguments", method.Name, targetType.Name));
+
+                //
+                // Restore generic arguments.
+                //
+                if (typeArgs != null)
+                    targetMethod = targetMethod.MakeGenericMethod(typeArgs);
+
+                //
+                // Finally, we need to deal with mismatches on Expression<Func<...>> versus Func<...>.
+                //
+                var parameters = targetMethod.GetParameters();
+                for (int i = 0, n = parameters.Length; i < n; i++)
                 {
-                    if (mce.Arguments.Count >= 1 && typeof(IQueryProvider).IsAssignableFrom(mce.Arguments[0].Type))
-                    {
-                        if (mce.Arguments[0] is ConstantExpression ce)
-                        {
-                            if (ce.Value is QueryProviderShim)
-                            {
-                                var targetType = typeof(QueryableEx);
-                                var method = mce.Method;
-                                var methods = GetMethods(targetType);
-                                var arguments = mce.Arguments.Skip(1).ToList();
-
-                                //
-                                // From all the operators with the method's name, find the one that matches all arguments.
-                                //
-                                var typeArgs = method.IsGenericMethod ? method.GetGenericArguments() : null;
-                                var targetMethod = methods[method.Name].FirstOrDefault(candidateMethod => ArgsMatch(candidateMethod, arguments, typeArgs));
-                                if (targetMethod == null)
-                                    throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, "There is no method '{0}' on type '{1}' that matches the specified arguments", method.Name, targetType.Name));
-
-                                //
-                                // Restore generic arguments.
-                                //
-                                if (typeArgs != null)
-                                    targetMethod = targetMethod.MakeGenericMethod(typeArgs);
-
-                                //
-                                // Finally, we need to deal with mismatches on Expression<Func<...>> versus Func<...>.
-                                //
-                                var parameters = targetMethod.GetParameters();
-                                for (int i = 0, n = parameters.Length; i < n; i++)
-                                {
-                                    arguments[i] = Unquote(arguments[i]);
-                                }
-
-                                //
-                                // Emit a new call to the discovered target method.
-                                //
-                                return Expression.Call(null, targetMethod, arguments);
-                            }
-                        }
-                    }
+                    arguments[i] = Unquote(arguments[i]);
                 }
 
-                return expression;
+                //
+                // Emit a new call to the discovered target method.
+                //
+                return Expression.Call(null, targetMethod, arguments);
             }
 
             private static ILookup<string, MethodInfo> GetMethods(Type type)
@@ -2475,10 +2056,7 @@ namespace System.Linq
                 //
                 if (method.IsGenericMethodDefinition)
                 {
-                    if (typeArgs == null)
-                        return false;
-
-                    if (method.GetGenericArguments().Length != typeArgs.Length)
+                    if (method.GetGenericArguments().Length != typeArgs?.Length)
                         return false;
 
                     var result = method.MakeGenericMethod(typeArgs);
@@ -2533,7 +2111,7 @@ namespace System.Linq
         {
             return Expression.NewArrayInit(
                 typeof(IEnumerable<TSource>),
-                sources.Select(source => GetSourceExpression(source))
+                sources.Select(GetSourceExpression)
             );
         }
 
