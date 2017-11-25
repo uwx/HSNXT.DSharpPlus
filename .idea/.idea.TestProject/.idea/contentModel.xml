@@ -970,12 +970,6 @@
           </e>
         </e>
         <e p="Ix.NET" t="Include">
-          <e p="build-new.ps1" t="Include" />
-          <e p="Directory.build.props" t="Include" />
-          <e p="Directory.build.targets" t="Include" />
-          <e p="Ix.NET.sln" t="Include" />
-          <e p="NuGet.Config" t="Include" />
-          <e p="ReactiveX.snk" t="Include" />
           <e p="System.Interactive" t="Include">
             <e p="Buffer.cs" t="Include" />
             <e p="Case.cs" t="Include" />
@@ -1019,7 +1013,6 @@
             <e p="Reflection.cs" t="Include" />
             <e p="System.Interactive.Providers.v3.ncrunchproject" t="Include" />
           </e>
-          <e p="version.json" t="Include" />
         </e>
         <e p="LICENSE.BCLExtensions.txt" t="Include" />
         <e p="LICENSE.BigMath.txt" t="Include" />
@@ -1833,7 +1826,6 @@
           <e p="ExcludeFromCodeCoverageAttribute.cs" t="Include" />
           <e p="ExperimentalAttribute.cs" t="Include" />
           <e p="GlobalSuppressions.cs" t="Include" />
-          <e p="HSNXT.Reactive" t="Include" />
           <e p="IEventPattern.cs" t="Include" />
           <e p="IEventPatternSource.cs" t="Include" />
           <e p="IEventSource.cs" t="Include" />
