@@ -19,17 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NBasicExtensionMethod
+namespace HSNXT
 {
-    /// <summary>
-    /// 	Responsible for providing extension methods for testing assertions against Type instances. <![CDATA[    
-    /// Example:
-    ///   Func<Type, IEnumerable<PropertyInfo>> propertyNamedPageId =
-    ///   t => t.GetProperties().Where(p => p.HasOneAttributeWithName<DataMemberAttribute>("pageid", false));
-    ///   Assert.That(The.Type<RegisterPageResponse>().HasExactlyOne(propertyNamedPageId));
-    /// ]]>
-    /// </summary>
-    public static class TypeExtensions
+    public static partial class Extensions
     {
         public static bool HasExactlyOne<TType, TCollection>(this TType t, Func<TType, IEnumerable<TCollection>> func)
             where TType : Type

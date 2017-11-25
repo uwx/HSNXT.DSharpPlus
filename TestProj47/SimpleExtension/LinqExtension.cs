@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace SimpleExtension
+namespace HSNXT
 {
-    public static class LinqExtension
+    public static partial class Extensions
     {
         public static IEnumerable<T> YieldOneDefault<T>(this IEnumerable<T> values)
         {
@@ -29,14 +29,9 @@ namespace SimpleExtension
 
         public static T Random<T>(this IEnumerable<T> pList, Random pRandomSeed)
         {
-            if (pList != null && pList.Any())
-                return pList.ElementAt(pRandomSeed.Next(pList.Count()));
-            return default;
-        }
-
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> pList)
-        {
-            return pList.Shuffle(new Random());
+            if (pList == null) return default;
+            var en = pList as T[] ?? pList.ToArray();
+            return en.Any() ? en.ElementAt(pRandomSeed.Next(en.Length)) : default;
         }
 
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random pRandomSeed)

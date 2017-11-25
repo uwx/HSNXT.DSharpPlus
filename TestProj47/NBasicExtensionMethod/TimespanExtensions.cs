@@ -17,18 +17,13 @@
 
 using System;
 
-namespace NBasicExtensionMethod
+namespace HSNXT
 {
-    public static class TimeSpanExtensions
+    public static partial class Extensions
     {
         public static bool IsGreaterThanZero(this TimeSpan t)
         {
             return t > TimeSpan.Zero;
-        }
-
-        public static DateTime Ago(this TimeSpan t)
-        {
-            return DateTime.Now - t;
         }
 
         public static DateTime Hence(this TimeSpan t)

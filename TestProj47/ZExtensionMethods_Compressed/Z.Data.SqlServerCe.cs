@@ -1767,9 +1767,9 @@ public static partial class Extensions
 //using System.Linq;
 //using System.Reflection;
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     Enumerates to entities in this collection.
@@ -1829,9 +1829,9 @@ namespace Z.Data.SQLite
 //using System.Linq;
 //using System.Reflection;
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     An IDataReader extension method that converts the @this to an entity.
@@ -1883,9 +1883,9 @@ namespace Z.Data.SQLite
 //using System.Dynamic;
 //using System.Linq;
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     An IDataReader extension method that converts the @this to an expando object.
@@ -1920,9 +1920,9 @@ namespace Z.Data.SQLite
 //using System.Dynamic;
 //using System.Linq;
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     Enumerates to expando objects in this collection.
@@ -1959,9 +1959,9 @@ namespace Z.Data.SQLite
 // More projects: http://www.zzzprojects.com/
 // Copyright � ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     An object extension method that cast anonymous type to the specified type.
@@ -1984,9 +1984,9 @@ namespace Z.Data.SQLite
 //using System;
 //using System.ComponentModel;
 
-namespace Z.Data.SQLite
+namespace HSNXT
 {
-    internal static partial class Extensions
+    public static partial class Extensions
     {
         /// <summary>
         ///     A System.Object extension method that toes the given this.

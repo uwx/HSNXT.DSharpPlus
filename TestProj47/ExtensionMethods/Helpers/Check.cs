@@ -6,7 +6,7 @@
 
 using System;
 
-namespace ExtensionMethods.Helpers
+namespace HSNXT.Helpers
 {
     internal static class Check
     {
