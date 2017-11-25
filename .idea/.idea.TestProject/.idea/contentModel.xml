@@ -86,6 +86,20 @@
         <e p="Program.cs" t="Include" />
         <e p="ReflectToArrayTest.csproj" t="IncludeRecursive" />
       </e>
+      <e p="RegexesToAssembly" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="RegexesToAssembly.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="RegexesToAssembly.csproj" t="IncludeRecursive" />
+        <e p="RegexesToAssembly.csproj.DotSettings" t="Include" />
+        <e p="RegexLib.dll" t="Include" />
+      </e>
       <e p="SuperOEISGenerator\SuperOEISGenerator" t="IncludeRecursive">
         <e p="A000000.cs" t="Include" />
         <e p="A999990.cs" t="Include" />
@@ -970,7 +984,7 @@
           </e>
         </e>
         <e p="Ix.NET" t="Include">
-          <e p="System.Interactive" t="Include">
+          <e p="HSNXT.Interactive" t="Include">
             <e p="Buffer.cs" t="Include" />
             <e p="Case.cs" t="Include" />
             <e p="Catch.cs" t="Include" />
@@ -1008,10 +1022,9 @@
             <e p="Using.cs" t="Include" />
             <e p="While.cs" t="Include" />
           </e>
-          <e p="System.Interactive.Providers" t="Include">
+          <e p="HSNXT.Interactive.Providers" t="Include">
             <e p="QueryableEx.cs" t="Include" />
             <e p="Reflection.cs" t="Include" />
-            <e p="System.Interactive.Providers.v3.ncrunchproject" t="Include" />
           </e>
         </e>
         <e p="LICENSE.BCLExtensions.txt" t="Include" />
@@ -1753,6 +1766,44 @@
         </e>
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="RegexCache" t="Include">
+          <e p="IsEmailBigRe.cs" t="Include" />
+          <e p="IsEmailBigReFactory12.cs" t="Include" />
+          <e p="IsEmailBigReRunner12.cs" t="Include" />
+          <e p="IsEmailRegex.cs" t="Include" />
+          <e p="IsEmailRegexFactory2.cs" t="Include" />
+          <e p="IsEmailRegexRunner2.cs" t="Include" />
+          <e p="JsonTypeInfoRegex.cs" t="Include" />
+          <e p="JsonTypeInfoRegexFactory1.cs" t="Include" />
+          <e p="JsonTypeInfoRegexRunner1.cs" t="Include" />
+          <e p="ObjAlphaDashPattern.cs" t="Include" />
+          <e p="ObjAlphaDashPatternFactory10.cs" t="Include" />
+          <e p="ObjAlphaDashPatternRunner10.cs" t="Include" />
+          <e p="ObjAlphaNumericPattern.cs" t="Include" />
+          <e p="ObjAlphaNumericPatternFactory7.cs" t="Include" />
+          <e p="ObjAlphaNumericPatternRunner7.cs" t="Include" />
+          <e p="ObjAlphaNumericPatternWhite.cs" t="Include" />
+          <e p="ObjAlphaNumericPatternWhiteFactory8.cs" t="Include" />
+          <e p="ObjAlphaNumericPatternWhiteRunner8.cs" t="Include" />
+          <e p="ObjAlphaPattern.cs" t="Include" />
+          <e p="ObjAlphaPatternFactory11.cs" t="Include" />
+          <e p="ObjAlphaPatternRunner11.cs" t="Include" />
+          <e p="ObjAlphaPatternWhite.cs" t="Include" />
+          <e p="ObjAlphaPatternWhiteFactory9.cs" t="Include" />
+          <e p="ObjAlphaPatternWhiteRunner9.cs" t="Include" />
+          <e p="ObjNotWholePattern.cs" t="Include" />
+          <e p="ObjNotWholePatternFactory6.cs" t="Include" />
+          <e p="ObjNotWholePatternRunner6.cs" t="Include" />
+          <e p="RegexCapitalize.cs" t="Include" />
+          <e p="RegexCapitalizeFactory3.cs" t="Include" />
+          <e p="RegexCapitalizeRunner3.cs" t="Include" />
+          <e p="ToLinkRegex.cs" t="Include" />
+          <e p="ToLinkRegexFactory4.cs" t="Include" />
+          <e p="ToLinkRegexRunner4.cs" t="Include" />
+          <e p="WebUriExpression.cs" t="Include" />
+          <e p="WebUriExpressionFactory5.cs" t="Include" />
+          <e p="WebUriExpressionRunner5.cs" t="Include" />
+        </e>
         <e p="Rx.NET" t="Include">
           <e p="AnonymousObservable.cs" t="Include" />
           <e p="AnonymousObserver.cs" t="Include" />
