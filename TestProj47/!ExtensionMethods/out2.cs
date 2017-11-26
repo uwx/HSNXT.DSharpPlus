@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using System.Windows.Threading;
 using Microsoft.CSharp;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {
@@ -434,79 +434,6 @@ string strShamsiDate3 = DateTime.Now.ToShamsiDateString();
             return ($"{strDayName} {intDayOfMonth} {strMonthName} {intYear}");
         }
 
-
-/*
- * ToPlural
- * Returns the plural of a word.
- * 
- * Author: Marco de Brouwer
- * Submitted on: 7/11/2008 8:34:23 AM
- * 
- * Example: 
- * string person = "person";
-string personPlural = person.ToPlural;
- */
-
-        public static string ToPlural(this string singular)
-        {
-            // Multiple words in the form A of B : Apply the plural to the first word only (A)
-            var index = singular.LastIndexOf(" of ");
-            if (index > 0) return (singular.Substring(0, index)) + singular.Remove(0, index).ToPlural();
-
-            // single Word rules
-            //sibilant ending rule
-            if (singular.EndsWith("sh")) return singular + "es";
-            if (singular.EndsWith("ch")) return singular + "es";
-            if (singular.EndsWith("us")) return singular + "es";
-            if (singular.EndsWith("ss")) return singular + "es";
-            //-ies rule
-            if (singular.EndsWith("y")) return singular.Remove(singular.Length - 1, 1) + "ies";
-            // -oes rule
-            if (singular.EndsWith("o")) return singular.Remove(singular.Length - 1, 1) + "oes";
-            // -s suffix rule
-            return singular + "s";
-        }
-
-
-/*
- * EqualsAny
- * Check that the given string is in a list of potential matches. Inspired by StackOverflow answer http://stackoverflow.com/a/20644611/23199
- * 
- * Author: Phil Campbell
- * Submitted on: 12/17/2013 11:56:34 PM
- * 
- * Example: 
- * string custName = "foo";
-bool isMatch = (custName.EqualsAny("bar", "baz", "FOO")); //true
- */
-
-        public static bool EqualsAny(this string str, params string[] args)
-        {
-            return args.Any(x =>
-                StringComparer.InvariantCultureIgnoreCase.Equals(x, str));
-        }
-
-
-/*
- * IsLeapYear
- * Returns whether or not a DateTime is during a leap year.
- * 
- * Author: Brendan Enrick
- * Submitted on: 7/3/2008 7:20:00 PM
- * 
- * Example: 
- * if (DateTime.Today.IsLeapYear())
-{
-    Response.Write("It is a leap year!");
-}
- */
-
-        public static bool IsLeapYear(this DateTime value)
-        {
-            return (System.DateTime.DaysInMonth(value.Year, 2) == 29);
-        }
-
-
 /*
  * ToStringFormat
  * StringFormat Extension Style
@@ -727,29 +654,6 @@ Console.WriteLine("MD5 Hash is: {0}.", file.GetMD5());
             return (new FileStream(pathName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
         }
 
-
-/*
- * ToInt32
- * Convert string to int32
- * 
- * Author: Túlio Henrique Thomé
- * Submitted on: 5/17/2011 8:50:32 PM
- * 
- * Example: 
- * string number = "1";
-int converted = number.ToInt32();
- */
-
-        public static int ToInt32(this string value)
-        {
-            int number;
-
-            Int32.TryParse(value, out number);
-
-            return number;
-        }
-
-
 /*
  * IsNumeric
  * Returns true if the type can be considered numeric
@@ -782,12 +686,6 @@ int converted = number.ToInt32();
         public static Type GetTypeWithoutNullability(this Type t)
         {
             return t.IsNullable() ? new NullableConverter(t).UnderlyingType : t;
-        }
-
-        public static bool IsNullable(this Type t)
-        {
-            return t.IsGenericType &&
-                   t.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
 
@@ -878,19 +776,6 @@ int f = d.ChangeType(0); //Successful conversion to int (f=0)
                 return returnValueIfException;
             }
         }
-
-        public static U ChangeType<U>(this object source)
-        {
-            if (source is U)
-                return (U) source;
-
-            var destinationType = typeof(U);
-            if (destinationType.IsGenericType && destinationType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
-                destinationType = new NullableConverter(destinationType).UnderlyingType;
-
-            return (U) System.Convert.ChangeType(source, destinationType);
-        }
-
 
 /*
  * CSharpCompile
@@ -1062,86 +947,6 @@ public class Example1
                 }
             }
             yield return token.ToString();
-        }
-
-
-/*
- * ToMemoryStream
- * Returns a MemoryStream from a Byte array
- * 
- * Author: Jonnidip
- * Submitted on: 7/11/2012 11:29:56 AM
- * 
- * Example: 
- * MemoryStream ms = File.ReadAllBytes(@"c:\test.txt").ToMemoryStream();
- */
-
-        public static MemoryStream ToMemoryStream(this Byte[] buffer)
-        {
-            var ms = new MemoryStream(buffer);
-            ms.Position = 0;
-            return ms;
-        }
-
-
-/*
- * ToDataTable
- * Converts an IEnumerable to DataTable (supports nullable types) adapted from http://www.c-sharpcorner.com/UploadFile/VIMAL.LAKHERA/LINQResultsetToDatatable06242008042629AM/LINQResultsetToDatatable.aspx
- * 
- * Author: Ewerton Luis de Mattos
- * Submitted on: 12/10/2009 12:30:33 PM
- * 
- * Example: 
- * // It will result an IQueryable (IEnumerable)
-var result = from c in db.customer
-             where c.id = 26
-             select c;
-
-DataTable dtResults = new DataTable();
-dtResults = result.ToDataTable();
- */
-
-        public static DataTable ToDataTable<T>(this IEnumerable<T> varlist)
-        {
-            var dtReturn = new DataTable();
-
-            // column names 
-            PropertyInfo[] oProps = null;
-
-            if (varlist == null) return dtReturn;
-
-            foreach (var rec in varlist)
-            {
-                // Use reflection to get property names, to create table, Only first time, others will follow 
-                if (oProps == null)
-                {
-                    oProps = ((Type) rec.GetType()).GetProperties();
-                    foreach (var pi in oProps)
-                    {
-                        var colType = pi.PropertyType;
-
-                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
-                        {
-                            colType = colType.GetGenericArguments()[0];
-                        }
-
-                        dtReturn.Columns.Add(new DataColumn(pi.Name, colType));
-                    }
-                }
-
-                var dr = dtReturn.NewRow();
-
-                foreach (var pi in oProps)
-                {
-                    dr[pi.Name] = pi.GetValue(rec, null) == null
-                        ? DBNull.Value
-                        : pi.GetValue
-                            (rec, null);
-                }
-
-                dtReturn.Rows.Add(dr);
-            }
-            return dtReturn;
         }
 
 
@@ -1734,22 +1539,6 @@ Console.WriteLine(dt.ToFriendlyDateString());
         }
 
 
-/*
- * IsNullOrEmpty
- * Check whether a collection is null or doesn't contain any elements.
- * 
- * Author: Dimaz Pramudya
- * Submitted on: 12/20/2009 12:12:52 AM
- * 
- * Example: 
- * var list = new List<Customer>();
-var isEmpty = list.IsNullOrEmpty();
- */
-
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> collection)
-        {
-            return collection == null || collection.Count() == 0;
-        }
 
 
 /*
@@ -1797,32 +1586,6 @@ return bar.IsBaz ? (Baz)bar : Baz.Empty;
             Func<TIn, TOut> evaluateFunc)
         {
             return evaluateFunc(value);
-        }
-
-
-/*
- * Raphe
- * Compare Strings like in SQL
- * 
- * Author: Raphe
- * Submitted on: 9/4/2013 11:08:30 AM
- * 
- * Example: 
- * Console.Write("test".In("tes", "ew", "test")); // - true
-Console.Write("test".In("tes", "ew")); // - false
- */
-
-        public static bool In(this string Value, params string[] ValuesToCompare)
-        {
-            var IsIn = false;
-            foreach (var ValueToCompare in ValuesToCompare)
-            {
-                if (Value == ValueToCompare)
-                {
-                    IsIn = true;
-                }
-            }
-            return IsIn;
         }
 
 
@@ -1896,24 +1659,6 @@ action1.Call("This will run");
 
 // Same behavior with the rest of the Func
  */
-
-        public static void Call(this Action action)
-        {
-            if (action != null)
-                action();
-        }
-
-        public static void Call<T>(this Action<T> action, T t)
-        {
-            if (action != null)
-                action(t);
-        }
-
-        public static void Call<T1, T2>(this Action<T1, T2> action, T1 t1, T2 t2)
-        {
-            if (action != null)
-                action(t1, t2);
-        }
 
         public static void Call<T1, T2, T3>(this Action<T1, T2, T3> action, T1 t1, T2 t2, T3 t3)
         {
@@ -1992,33 +1737,6 @@ var urlName = name.ToUrlSlug(); // returns serdar-buyuktemiz-csguio
             return endOfTheMonth;
         }
 
-
-/*
- * Elapsed
- * Get the elapsed time since the input DateTime
- * 
- * Author: Jonnidip
- * Submitted on: 11/30/2010 11:22:22 AM
- * 
- * Example: 
- * DateTime dtStart = DateTime.Now;
-// Do something
-Console.WriteLine(dtStart.Elapsed().TotalMilliseconds);
- */
-
-        /// <summary>
-        /// Get the elapsed time since the input DateTime
-        /// </summary>
-        /// <param name="input">Input DateTime</param>
-        /// <returns>Returns a TimeSpan value with the elapsed time since the input DateTime</returns>
-        /// <example>
-        /// TimeSpan elapsed = dtStart.Elapsed();
-        /// </example>
-        /// <seealso cref="ElapsedSeconds()"/>
-        public static TimeSpan Elapsed(this DateTime input)
-        {
-            return DateTime.Now.Subtract(input);
-        }
 
 
 /*
@@ -2139,50 +1857,6 @@ Amount.Text = amount.ToUIString();
         {
             return value.ToString(CultureInfo.CurrentUICulture);
         }
-
-        /*
- * IsDefault
- * Returns true if the object it is called upon is the default of its type. This will be null for referece types, zero for integer types, and a default-initialized struct for structs.
- * 
- * Author: James Michael Hare (BlackRabbitCoder)
- * Submitted on: 10/14/2010 6:18:14 PM
- * 
- * Example: 
- * if (someObject.IsDefault())
-{
-   ...
-}
- */
-
-        /// <summary>
-        /// Checks to see if the object has null default value for basic types
-        /// </summary>
-        /// <typeparam name="T">Type of object being passed</typeparam>
-        /// <param name="value">Object whose value needs to be checked</param>
-        /// <returns>true if the value is null default. Otherwise returns false</returns>
-        public static bool IsDefault<T>(this T value)
-        {
-            return (Equals(value, default(T)));
-        }
-
-
-/*
- * ToNull
- * Turns any object to null
- * 
- * Author: Francisca Garse
- * Submitted on: 11/16/2012 2:07:25 PM
- * 
- * Example: 
- * object o = new object();
-o.ToNull();
- */
-
-        public static object ToNull(this object o)
-        {
-            return null;
-        }
-
 
 /*
  * SetAllValues
@@ -2489,38 +2163,6 @@ LayoutRoot.Background = new SolidColorBrush(c);
             return Color.FromArgb(a, r, g, b);
         }
 
-
-/*
- * ToEnum
- * Convert a String Value to Corresponding Enum Value
- * 
- * Author: Anonymous
- * Submitted on: 4/27/2016 2:03:23 PM
- * 
- * Example: 
- * public enum Animal{
-
-Cat,
-Dog,
-Unknown
-}
-
-
-var getEnumValue="Animal".ToEnum<Animal>(Animal.Unknown);
- */
-
-        public static T ToEnum<T>(this string value, T defaultValue) where T : struct
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                return defaultValue;
-            }
-
-            T result;
-            return Enum.TryParse<T>(value, true, out result) ? result : defaultValue;
-        }
-
-
 /*
  * ColumnExists
  * Returns true if the column exists in the DataReader, else returns false
@@ -2654,28 +2296,6 @@ s = pi.ToString("0.00");  //s = 3.14
             return startDate;
         }
 
-
-/*
- * IsNullOrEmpty
- * This extension increase the readability of your code.
- * 
- * Author: Jan Fellien
- * Submitted on: 2/28/2014 8:54:59 AM
- * 
- * Example: 
- * var myReallyNiceString = GetThisStringFromACoolMethod();
-
-if(myReallyNiceString.IsNullOrEmpty()){
-   DoSomeThingFancyStuff();
-}
- */
-
-        public static bool IsNullOrEmpty(this String source)
-        {
-            return String.IsNullOrEmpty(source);
-        }
-
-
 /*
  * GetParentDirectoryPath
  * On the layers of the directory path of a directory
@@ -2731,26 +2351,6 @@ if(myReallyNiceString.IsNullOrEmpty()){
         {
             return Path.GetDirectoryName(filePath);
         }
-
-
-/*
- * Round to Nearest TimeSpan
- * Rounds a TimeSpan value to the nearest timespan given
- * 
- * Author: slowpython
- * Submitted on: 2/28/2014 5:04:58 AM
- * 
- * Example: 
- * TimeSpan example = DateTime.Now.TimeOfDay;
-Console.WriteLine(example.RoundToNearest(TimeSpan.FromMinutes(15)));
- */
-
-        public static TimeSpan RoundToNearest(this TimeSpan a, TimeSpan roundTo)
-        {
-            var ticks = (long) (Math.Round(a.Ticks / (double) roundTo.Ticks) * roundTo.Ticks);
-            return new TimeSpan(ticks);
-        }
-
 
 /*
  * InvokeAction
@@ -3010,30 +2610,6 @@ var para = age.To<DateTime>();
             }
         }
 
-
-/*
- * Chain
- * Allows chaining together actions to be taken place on the fly. It works with any object. Its a simple concept but I couldn't find any examples that does the same.
- * 
- * Author: Daniel Gidman
- * Submitted on: 11/30/2010 9:31:09 PM
- * 
- * Example: 
- * var l = new Collection<SelectListItem>{
- new SelectListItem{ Text="t0", Value="y0" },
- new SelectListItem{ Text="t1", Value="y1" },
- new SelectListItem{ Text="t2", Value="y2" },
- new SelectListItem{ Text="t2", Value="y3" },
-}.Chain(o => o.ForEachYield(m => m.Selected = (m.Value == "y3")));
- */
-
-        public static T Chain<T>(this T source, Action<T> action)
-        {
-            action(source);
-            return source;
-        }
-
-
 /*
  * ComputeHash
  * Computes the hash of a string using one of the following algorithms: HMAC, HMACMD5, HMACSHA1, HMACSHA256, HMACSHA384, HMACSHA512,MACTripleDES, MD5, RIPEMD160, SHA1, SHA256, SHA384, SHA512.
@@ -3142,88 +2718,6 @@ MessageBox.Show(hash);
                 return string.Empty;
             }
         }
-
-
-/*
- * Repeat
- * Repeat a string N times
- * 
- * Author: Robert E. Bratton
- * Submitted on: 9/12/2013 8:41:31 PM
- * 
- * Example: 
- * using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyExtensions;
-
-
-namespace StringExtensionsTests
-{
-    [TestClass]
-    public class StringExtensionsTests
-    {
-        [TestMethod]
-        public void RepeatBlank10()
-        {
-            var repeat10 = "".Repeat(10);
-            Assert.AreEqual(0, repeat10.Length);
-        }
-
-        [TestMethod]
-        public void RepeatNull10()
-        {
-            string nullString = null; 
-// ReSharper disable once ExpressionIsAlwaysNull
-            var repeat10 = nullString.Repeat(10);
-            Assert.IsNull(repeat10);
-        }
-
-        [TestMethod]
-        public void RepeatSingle0()
-        {
-            var repeat10 = "x".Repeat(0);
-            Assert.AreEqual(0, repeat10.Length);
-
-        }
-
-        [TestMethod]
-        public void RepeatSingle10()
-        {
-            var repeat10 = "x".Repeat(10);
-            Assert.AreEqual(10, repeat10.Length);
-
-        }
-
-        [TestMethod]
-        public void RepeatMulti10()
-        {
-            var repeat10 = "xxx".Repeat(10);
-            Assert.AreEqual(30, repeat10.Length);
-
-        }
-
-    
-    }
-}
- */
-
-        public static string Repeat(this string input, int count)
-        {
-            if (input == null)
-            {
-                return null;
-            }
-
-            var sb = new StringBuilder();
-
-            for (var repeat = 0; repeat < count; repeat++)
-            {
-                sb.Append(input);
-            }
-
-            return sb.ToString();
-        }
-
 
 /*
  * AddToEnd
@@ -3430,62 +2924,6 @@ Console.WriteLine("Total Words: {0}", word.WordCount());
             return count;
         }
 
-
-/*
- * GetSize
- * This method extends the DirectoryInfo class to return the size in bytes of the directory represented by the DirectoryInfo instance.
- * 
- * Author: Joel Rosario Mathias
- * Submitted on: 2/13/2010 2:11:38 PM
- * 
- * Example: 
- * DirectoryInfo WindowsDir = new DirectoryInfo(@"C:\WINDOWS");
-long WindowsSize = WindowsDir.GetSize();
- */
-
-        public static long GetSize(this DirectoryInfo dir)
-        {
-            long length = 0;
-
-            // Loop through files and keep adding their size
-            foreach (var nextfile in dir.GetFiles())
-                length += nextfile.Exists ? nextfile.Length : 0;
-
-            // Loop through subdirectories and keep adding their size
-            foreach (var nextdir in dir.GetDirectories())
-                length += nextdir.Exists ? nextdir.GetSize() : 0;
-
-            return length;
-        }
-
-
-/*
- * ToSecureString
- * Converts a string into a "SecureString"
- * 
- * Author: Jonnidip
- * Submitted on: 5/28/2009 4:39:59 PM
- * 
- * Example: 
- * String password = "mypassword";
-System.Security.SecureString secure = password.ToSecureString();
- */
-
-        /// <summary>
-        /// Converts a string into a "SecureString"
-        /// </summary>
-        /// <param name="str">Input String</param>
-        /// <returns></returns>
-        public static System.Security.SecureString ToSecureString(this String str)
-        {
-            var secureString = new System.Security.SecureString();
-            foreach (var c in str)
-                secureString.AppendChar(c);
-
-            return secureString;
-        }
-
-
 /*
  * Generates a Hyper Link to redirect user to Authentication form
  * this method generates a Hyper Link to redirect user to Authentication form . gets Titla attribute of tag and inner Text of Tag and generate tag A . then returns user to referrer page .
@@ -3513,24 +2951,6 @@ System.Security.SecureString secure = password.ToSecureString();
 
                 return Tag_A;
             }
-        }
-
-
-/*
- * Contains
- * a case-insensitive version of String.Contains()
- * 
- * Author: Jared Par
- * Submitted on: 2/16/2012 11:53:42 AM
- * 
- * Example: 
- * string title = "STRING";
-bool contains = title.Contains("string", StringComparison.OrdinalIgnoreCase);
- */
-
-        public static bool Contains(this string source, string toCheck, StringComparison comp)
-        {
-            return source.IndexOf(toCheck, comp) >= 0;
         }
 
 
@@ -3649,7 +3069,7 @@ bool b = obj.IsNullOrDBNull();
 string[] strings = integers.Convert(i => i.ToString());
  */
 
-        public static IEnumerable<TDestination> Convert<TSource, TDestination>(this IEnumerable<TSource> enumerable,
+        public static IEnumerable<TDestination> ConvertType<TSource, TDestination>(this IEnumerable<TSource> enumerable,
             Func<TSource, TDestination> converter)
         {
             if (enumerable == null)

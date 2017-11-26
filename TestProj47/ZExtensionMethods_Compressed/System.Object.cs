@@ -439,7 +439,7 @@ namespace HSNXT
         ///     An object whose type is  and whose value is equivalent to .-or-A null reference (Nothing in Visual Basic), if
         ///     is null and  is not a value type.
         /// </returns>
-        public static object ChangeType<T>(this object value)
+        public static T ChangeType<T>(this object value)
         {
             return (T) Convert.ChangeType(value, typeof(T));
         }
@@ -455,7 +455,7 @@ namespace HSNXT
         ///     An object whose type is  and whose value is equivalent to .-or- , if the  of  and  are equal.-or- A null
         ///     reference (Nothing in Visual Basic), if  is null and  is not a value type.
         /// </returns>
-        public static object ChangeType<T>(this object value, IFormatProvider provider)
+        public static T ChangeType<T>(this object value, IFormatProvider provider)
         {
             return (T) Convert.ChangeType(value, typeof(T), provider);
         }

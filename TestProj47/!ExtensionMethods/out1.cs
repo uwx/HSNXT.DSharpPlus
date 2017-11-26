@@ -28,7 +28,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using Control = System.Windows.Forms.Control;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {
@@ -318,14 +318,6 @@ names.ForEach(i => Console.WriteLine(i));
 IEnumerable<int> namesLen = names.ForEach(i => i.Length);
 namesLen.ForEach(i => Console.WriteLine(i));
  */
-
-        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> array, Action<T> act)
-        {
-            foreach (var i in array)
-                act(i);
-            return array;
-        }
-
         public static IEnumerable<T> ForEach<T>(this IEnumerable arr, Action<T> act)
         {
             return arr.Cast<T>().ForEach<T>(act);
@@ -524,31 +516,6 @@ bool isString = type.IsBoolean();
             return type.Equals(typeof(Boolean));
         }
 
-
-/*
- * AppendLineFormat
- * Appends a formatted string and the default line terminator to to this StringBuilder instance.
- * 
- * Author: Koen Rouwhorst
- * Submitted on: 11/21/2010 10:54:45 PM
- * 
- * Example: 
- * StringBuilder builder = new StringBuilder();
-builder.AppendLineFormat("File name: {0} (line: {1}, column: {2})", fileName, lineNumber, column);
-builder.AppendLineFormat("Message: {0}", exception.Message);
- */
-
-        public static StringBuilder AppendLineFormat(this StringBuilder builder, string format,
-            params object[] arguments)
-        {
-            var value = String.Format(format, arguments);
-
-            builder.AppendLine(value);
-
-            return builder;
-        }
-
-
 /*
  * Clone<T>
  * Clones a DataRow - including strongly typed DataRows.
@@ -660,38 +627,6 @@ builder.AppendLineFormat("Message: {0}", exception.Message);
             var differences = data.Select(u => Math.Pow(average - u, 2.0)).ToList();
             return (float) Math.Sqrt(differences.Sum() / (differences.Count() - buffer));
         }
-
-
-/*
- * IfNotNull
- * Returns a selected value when the source is not null; null otherwise.
- * 
- * Author: Steven Jeuris
- * Submitted on: 11/15/2011 9:48:01 AM
- * 
- * Example: 
- * class A
-{
-    public B Inner { get; set; }
-}
-A a = null;
-B getB = a.IfNotNull( x => x.Inner );
- */
-
-        /// <summary>
-        ///   Returns a selected value when the source is not null; null otherwise.
-        /// </summary>
-        /// <typeparam name = "T">Type of the source object.</typeparam>
-        /// <typeparam name = "TInner">Type of the object which the selector returns.</typeparam>
-        /// <param name = "source">The source for this extension method.</param>
-        /// <param name = "selector">A function which given the source object, returns a selected value.</param>
-        /// <returns>The selected value when source is not null; null otherwise.</returns>
-        public static TInner IfNotNull<T, TInner>(this T source, Func<T, TInner> selector)
-            where T : class
-        {
-            return source != null ? selector(source) : default(TInner);
-        }
-
 
 /*
  * Linkify
@@ -921,24 +856,6 @@ Console.WriteLine(d.IsNull());
 
         [DebuggerStepThrough]
         public static bool IsNull<T>
-            (this T me)
-        {
-            if (me is INullable && (me as INullable).IsNull) return true;
-            var type = typeof(T);
-            if (type.IsValueType)
-            {
-                if (!ReferenceEquals(Nullable.GetUnderlyingType(type), null) && me.GetHashCode() == 0) return true;
-            }
-            else
-            {
-                if (ReferenceEquals(me, null)) return true;
-                if (System.Convert.IsDBNull(me)) return true;
-            }
-            return false;
-        }
-
-        [DebuggerStepThrough]
-        public static bool IsNull<T>
             (this T? me)
             where T : struct
         {
@@ -963,11 +880,6 @@ Console.WriteLine("Last Day: {0}", dateToday.LastDayOfMonth());
         public static string FirstDayOfMonth(this DateTime date)
         {
             return new DateTime(date.Year, date.Month, 1).ToString("MM/dd/yyyy");
-        }
-
-        public static string LastDayOfMonth(this DateTime date)
-        {
-            return new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-1).ToString("MM/dd/yyyy");
         }
 
 
@@ -1256,23 +1168,6 @@ var custListUnder5000 = custs.WhereIf(showAccountBalancesUnder5000, c=>c.AcctBal
         }
 
 
-/*
- * IsNumeric
- * Checks if a string value is numeric
- * 
- * Author: unknown
- * Submitted on: 4/22/2008 3:57:04 PM
- * 
- * Example: 
- * Public void Test()
- */
-
-        public static bool IsNumeric(this string value)
-        {
-            var regex = new Regex(@"[0-9]");
-            return regex.IsMatch(value);
-        }
-
 
 /*
  * GetValueOrDefault
@@ -1294,11 +1189,6 @@ var temp = a.b.c.d.value;//Exception!
 var betterTemp=a.GetValueOrDefault(p=>p.b,p=>p.c,p=>p.d,p=>p.value);
 //better is null without exception
  */
-
-        public static T2 GetValueOrDefault<T1, T2>(this T1 prop1, Func<T1, T2> prop2)
-        {
-            return prop1 != null ? prop2(prop1) : default(T2);
-        }
 
         public static T3 GetValueOrDefault<T1, T2, T3>(this T1 prop1, Func<T1, T2> prop2, Func<T2, T3> prop3)
         {
@@ -1464,71 +1354,6 @@ txtCLSId.Bind(c => c.Text, _TaskListItem, ProjectServicesTaskList p) => p.CLSHea
                 }
                 return null != member ? member.Member.Name : string.Empty;
             }
-        }
-
-
-/*
- * ReadToEnd
- * Returns a string with the content of the input stream
- * 
- * Author: Jonnidip
- * Submitted on: 11/12/2009 9:10:28 AM
- * 
- * Example: 
- * //This is only an example. A file could be easily read to a String by using "System.IO.File.ReadAllText"
-
-using (System.IO.FileStream fs = new System.IO.FileStream(@"c:\test.txt", System.IO.FileMode.Open, System.IO.FileAccess.Read))
-{
-    String StreamContent = fs.ReadToEnd();
-}
- */
-
-        /// <summary>
-        /// Reads the content of the stream
-        /// </summary>
-        /// <param name="str">Original stream</param>
-        /// <returns>Returns a string with the content of the input stream</returns>
-        public static String ReadToEnd(this Stream str)
-        {
-            try
-            {
-                str.Position = 0;
-            }
-            catch
-            {
-            }
-            using (var sr = new StreamReader(str))
-            {
-                return sr.ReadToEnd();
-            }
-        }
-
-
-/*
- * ToDateTime
- * Gets a nullable DateTime object from a string input. Good for grabbing datetimes from user inputs, like textboxes and querystrings.
- * 
- * Author: Graham Peel
- * Submitted on: 12/6/2011 8:00:34 PM
- * 
- * Example: 
- * // you can test the result like this:
-var dt = TextBox1.Text.ToDateTime();
-if (dt == null) {
-    throw new Exception("Your datetime was invalid");
-}
-else {
-    // this method takes a normal/non-nullable DateTime
-    // as its parameter.
-    DoSomething(dt.Value);
-}
- */
-
-        public static DateTime? ToDateTime(this string s)
-        {
-            DateTime dtr;
-            var tryDtr = DateTime.TryParse(s, out dtr);
-            return (tryDtr) ? dtr : new DateTime?();
         }
 
 
@@ -1777,29 +1602,6 @@ list = list.OrderBy(emp => emp.Salary).ToObservableCollection();
 
 
 /*
- * ToEnumerable()
- * Convert an IEnumerator<T> to IEnumerable<T>.
- * 
- * Author: Richard Dingwall
- * Submitted on: 12/9/2011 10:48:34 AM
- * 
- * Example: 
- * IEnumerator<string> enumerator = ...;
-
-foreach (var str in enumerator.ToEnumerable())
-	Console.WriteLine(str);
- */
-
-        public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator)
-        {
-            while (enumerator.MoveNext())
-                yield return enumerator.Current;
-
-            yield break;
-        }
-
-
-/*
  * toSlug
  * Generate slugs for friendly urls.
  * 
@@ -1890,24 +1692,6 @@ keyBuilder.AppendIf(ctrl, "[ctrl]")
         {
             if (condition) builder.Append(value);
             return builder;
-        }
-
-
-/*
- * ToEnum
- * Parse a string value to the given Enum
- * 
- * Author: unkown
- * Submitted on: 12/8/2007 8:24:53 PM
- * 
- * Example: 
- * todo
- */
-        public static T ToEnum<T>(this string value)
-            where T : struct
-        {
-            Debug.Assert(!string.IsNullOrEmpty(value));
-            return (T) Enum.Parse(typeof(T), value, true);
         }
 
 
@@ -2086,24 +1870,6 @@ txtName.DataBindings.Add<tblProduct>("Text", ds, p => p.ProductName, true, DataS
 
 
 /*
- * Nl2Br
- * Convert a NewLine to a Html break
- * 
- * Author: unknown
- * Submitted on: 11/20/2007 1:11:33 AM
- * 
- * Example: 
- * string s = "line1\r\n\line2";
-string r = s.Nl2Br(); \\ "line1<br />line2"
- */
-
-        public static string Nl2Br(this string s)
-        {
-            return s.Replace("\r\n", "<br />").Replace("\n", "<br />");
-        }
-
-
-/*
  * SelectRandom
  * This method selects a random element from an Enumerable with only one pass (O(N) complexity). It contains optimizations for argumens that implement ICollection<T> by using the Count property and the ElementAt LINQ method. The ElementAt LINQ method itself contains optimizations for IList<T>
  * 
@@ -2214,26 +1980,6 @@ if(Enum<MyEnum>.TryParse("Fi", out c) == false)
             }
         }
 
-
-/*
- * Validate Email
- * Validate email id
- * 
- * Author: john
- * Submitted on: 1/29/2010 3:45:57 PM
- * 
- * Example: 
- * string customerEmailAddress = "test@test.com";
-customerEmailAddress.IsValidEmailAddress()
- */
-
-        public static bool IsValidEmailAddress(this string s)
-        {
-            var regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-            return regex.IsMatch(s);
-        }
-
-
 /*
  * KB,MB,GB,TB
  * Simplest way to get a number of bytes at different measures. KB, MB, GB or TB,
@@ -2308,42 +2054,6 @@ Assert.IsFalse(IsNullOrEmptyOrWhiteSpace("TestValue"));
             return string.IsNullOrEmpty(input) || input.Trim() == string.Empty;
         }
 
-
-/*
- * Replace
- * Case-insensitive replace method
- * 
- * Author: Ricardo Peres
- * Submitted on: 2/1/2012 12:46:14 PM
- * 
- * Example: 
- * String newString = "AbC".Replace("b", "B", StringComparison.OrdinalIgnoreCase);
- */
-
-        public static String Replace(this String originalString, String oldValue, String newValue,
-            StringComparison comparisonType)
-        {
-            var startIndex = 0;
-
-            while (true)
-            {
-                startIndex = originalString.IndexOf(oldValue, startIndex, comparisonType);
-
-                if (startIndex < 0)
-                {
-                    break;
-                }
-
-                originalString = String.Concat(originalString.Substring(0, startIndex), newValue,
-                    originalString.Substring(startIndex + oldValue.Length));
-
-                startIndex += newValue.Length;
-            }
-
-            return (originalString);
-        }
-
-
 /*
  * Include
  * Type-safe Include: a completely type-safe way to include nested objects in scenarios with DomainServices and RIA in, for example, Silverlight applications. Example: Include(x=>x.Parent) instead of Include("Parent"). A more detailed explanation can be found at http://www.chrismeijers.com/post/Type-safe-Include-for-RIA-DomainServices.aspx
@@ -2412,44 +2122,6 @@ This finally gets rid of that nasty piece of untyping in an otherwise lovely typ
             return collection.TakeWhile(item => !endCondition(item));
         }
 
-
-/*
- * Right
- * Returns the last few characters of the string with a length specified by the given parameter. If the string's length is less than the given length the complete string is returned. If length is zero or less an empty string is returned
- * 
- * Author: C.F. Meijers
- * Submitted on: 12/11/2007 2:47:24 PM
- * 
- * Example: 
- * string s = "abcde";
-
-s = s.Right(3);   //s becomes "cde"
- */
-
-        /// <summary>
-        /// Returns the last few characters of the string with a length
-        /// specified by the given parameter. If the string's length is less than the 
-        /// given length the complete string is returned. If length is zero or 
-        /// less an empty string is returned
-        /// </summary>
-        /// <param name="s">the string to process</param>
-        /// <param name="length">Number of characters to return</param>
-        /// <returns></returns>
-        public static string Right(this string s, int length)
-        {
-            length = Math.Max(length, 0);
-
-            if (s.Length > length)
-            {
-                return s.Substring(s.Length - length, length);
-            }
-            else
-            {
-                return s;
-            }
-        }
-
-
 /*
  * IsInRange
  * Determines if a date is within a given date range
@@ -2470,29 +2142,6 @@ If (DateTime.Now.IsInRange(monday, friday) {
         {
             return (currentDate >= beginDate && currentDate <= endDate);
         }
-
-
-/*
- * ToDecimal
- * Convert string to decimal
- * 
- * Author: Túlio Henrique Thomé
- * Submitted on: 5/17/2011 8:57:00 PM
- * 
- * Example: 
- * string number = "1.2";
-decimal converted = number.Decimal();
- */
-
-        public static decimal ToDecimal(this string value)
-        {
-            decimal number;
-
-            Decimal.TryParse(value, out number);
-
-            return number;
-        }
-
 
 /*
  * GetCurrentDataRow
@@ -2565,45 +2214,6 @@ str1.DefaultIfNull("I'm nil") // return "Hello!"
 
             return target;
         }
-
-        public static object GetDefault(this Type type)
-        {
-            // If no Type was supplied, if the Type was a reference type, or if the Type was a System.Void, return null
-            if (type == null || !type.IsValueType || type == typeof(void))
-                return null;
-
-            // If the supplied Type has generic parameters, its default value cannot be determined
-            if (type.ContainsGenericParameters)
-            {
-                throw new ArgumentException(
-                    "{" + MethodBase.GetCurrentMethod() + "} Error:\n\nThe supplied value type <" + type +
-                    "> contains generic parameters, so the default value cannot be retrieved");
-            }
-
-            // If the Type is a primitive type, or if it is another publicly-visible value type (i.e. struct), return a 
-            //  default instance of the value type
-            if (type.IsPrimitive || !type.IsNotPublic)
-            {
-                try
-                {
-                    return Activator.CreateInstance(type);
-                }
-                catch (Exception e)
-                {
-                    throw new ArgumentException(
-                        "{" + MethodBase.GetCurrentMethod() +
-                        "} Error:\n\nThe Activator.CreateInstance method could not " +
-                        "create a default instance of the supplied value type <" + type +
-                        "> (Inner Exception message: \"" + e.Message + "\")", e);
-                }
-            }
-
-            // Fail with exception
-            throw new ArgumentException("{" + MethodBase.GetCurrentMethod() + "} Error:\n\nThe supplied value type <" +
-                                        type +
-                                        "> is not a publicly-visible type, so the default value cannot be retrieved");
-        }
-
 
 /*
  * IsEmpty / IsNotEmpty
@@ -2854,29 +2464,6 @@ MyObject value4 = Session.GetValue<MyObject>("key4", new MyObject());
             return defaultValue;
         }
 
-
-/*
- * DbConnection.ExecuteNonQuery
- * Execute a SQL command directly on a DbConnection. Needless to say that the other ExecuteXXX methods can be implemented as well. Implementing the method at DbConnection level makes it available for SQLConnection, OleDbConnection, ...
- * 
- * Author: Gaston Verelst
- * Submitted on: 2/7/2011 11:39:21 AM
- * 
- * Example: 
- * DbConnection _db= new OleDbConnection(connectionString);
-_db.Open();
-int affected = _db.ExecuteNonQuery("delete from [Users]");
- */
-
-        public static int ExecuteNonQuery(this DbConnection conn, string sql)
-        {
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-
-            return cmd.ExecuteNonQuery();
-        }
-
-
 /*
  * FixPersianChars
  * متدی برای حل مشکل وارد کردن ي و ك عربی توسط کاربر و تبدیل به ی و ک فارسی. توسط محمد کمائی
@@ -3087,61 +2674,6 @@ foreach (string item in list.Reverse<string>()
         }
 
 /*
- * Email
- * Send an email using the supplied string.
- * 
- * Author: Sean Dorsett
- * Submitted on: 4/15/2008 8:59:10 PM
- * 
- * Example: 
- * string myEmailBody = "Hello Jim,\nHow are things in your neck of the woods?\n\nSean";
-myEmailBody.Email("Some random message", "from_user@abc.com", "to_user@abc.net", "mail.server.com");
-
-"This is a test email".Email("Some random message", "from_user@abc.com", "to_user@abc.net", "mail.server.com");
- */
-
-        /// <summary>
-        /// Send an email using the supplied string.
-        /// </summary>
-        /// <param name="body">String that will be used i the body of the email.</param>
-        /// <param name="subject">Subject of the email.</param>
-        /// <param name="sender">The email address from which the message was sent.</param>
-        /// <param name="recipient">The receiver of the email.</param> 
-        /// <param name="server">The server from which the email will be sent.</param>  
-        /// <returns>A boolean value indicating the success of the email send.</returns>
-        public static bool Email(this string body, string subject, string sender, string recipient, string server)
-        {
-            try
-            {
-                // To
-                var mailMsg = new MailMessage();
-                mailMsg.To.Add(recipient);
-
-                // From
-                var mailAddress = new MailAddress(sender);
-                mailMsg.From = mailAddress;
-
-                // Subject and Body
-                mailMsg.Subject = subject;
-                mailMsg.Body = body;
-
-                // Init SmtpClient and send
-                var smtpClient = new SmtpClient(server);
-                var credentials = new System.Net.NetworkCredential();
-                smtpClient.Credentials = credentials;
-
-                smtpClient.Send(mailMsg);
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-
-/*
  * GetChildren
  * This is a recursive function to get all child controls under the target control.
  * 
@@ -3226,11 +2758,6 @@ IEnumerable<Control> children = Container.GetChildren();
  * Example: 
  * IWhatever obj = factory.Create();  obj.TryDispose();
  */
-
-        public static void TryDispose(this object target)
-        {
-            TryDispose(target, false);
-        }
 
         public static void TryDispose(this object target, bool throwException)
         {
@@ -3348,33 +2875,6 @@ foreach (int i in nums.Without(3))
             return l;
         }
 
-
-/*
- * Format String
- * Shortcut for System.String.Format
- * 
- * Author: Adam Weigert
- * Submitted on: 12/17/2007 9:41:34 PM
- * 
- * Example: 
- * string greeting = "Hello {0}, my name is {1}, and I own you."
-
-Console.WriteLine(greeting.Format("Adam", "Microsoft"))
- */
-
-        public static string Format(this string format, object arg, params object[] additionalArgs)
-        {
-            if (additionalArgs == null || additionalArgs.Length == 0)
-            {
-                return string.Format(format, arg);
-            }
-            else
-            {
-                return string.Format(format, new object[] {arg}.Concat(additionalArgs).ToArray());
-            }
-        }
-
-
 /*
  * ToInt
  * It converts string to integer and assigns a default value if the conversion is not a success
@@ -3411,27 +2911,6 @@ Output:
             }
             return resultNum;
         }
-
-
-/*
- * ToBytes
- * Converts a file on a given path to a byte array.
- * 
- * Author: Kris Bulté
- * Submitted on: 8/8/2012 1:22:22 PM
- * 
- * Example: 
- * var bytes = @"C:\Temp\Products.pdf".ToBytes();
- */
-
-        public static byte[] ToBytes(this string fileName)
-        {
-            if (!File.Exists(fileName))
-                throw new FileNotFoundException(fileName);
-
-            return File.ReadAllBytes(fileName);
-        }
-
 
 /*
  * convert Internet dot address to network address

@@ -21,7 +21,7 @@ using System.Xml.Serialization;
 // ReSharper disable PossibleNullReferenceException
 #pragma warning disable 1574
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {
@@ -326,27 +326,6 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
             return floorDate.AddTicks(ticksFromFloor);
         }
 
-
-/*
- * ToDouble
- * Converts a string to a double
- * 
- * Author: K M Thomas
- * Submitted on: 3/25/2016 8:22:57 PM
- * 
- * Example: 
- * string s = "2.2365";
-
-double d = s.ToDouble(); // 2.2365
- */
-
-        public static double ToDouble(this string theValue)
-        {
-            var result = double.TryParse(theValue, out var retNum);
-            return result ? retNum : 0;
-        }
-
-
 /*
  * ReverseWords
  * Reverse Words
@@ -612,34 +591,6 @@ var query = myEntities.MyEntity
             return keyObject.IsIn(collection) == false;
         }
 
-
-/*
- * IsBetween
- * Checks whether the given integer value is between the start and end value.
- * 
- * Author: Sheraz Naseeb
- * Submitted on: 11/15/2016 3:51:14 PM
- * 
- * Example: 
- * int value = 15;
-return value.IsBetween(14, 16);
- */
-
-        /// <summary>
-        /// Determines whether the specified value falls between start and end value. Check is done inclusive of start and end.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="start">The start.</param>
-        /// <param name="end">The end.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified start is between; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsBetween(this int value, int start, int end)
-        {
-            return Comparer<int>.Default.Compare(value, start) >= 0 && Comparer<int>.Default.Compare(value, end) <= 0;
-        }
-
-
 /*
  * AwaitableTaskEnumerableExtensions
  * Awaitable fluent extensions for enumerables of task
@@ -840,36 +791,6 @@ Console.WriteLine(l.Capacity);
             return week;
         }
 
-
-/*
- * IsPrime
- * Returns true when a integer is a prime.
- * 
- * Author: Fons Sonnemans
- * Submitted on: 8/21/2007 9:09:38 PM
- * 
- * Example: 
- * bool b = 7.IsPrime(); // true
- */
-
-        public static bool IsPrime(this int number)
-        {
-            if ((number % 2) == 0)
-            {
-                return number == 2;
-            }
-            var sqrt = (int) Math.Sqrt(number);
-            for (var t = 3; t <= sqrt; t = t + 2)
-            {
-                if (number % t == 0)
-                {
-                    return false;
-                }
-            }
-            return number != 1;
-        }
-
-
 /*
  * NextAnniversary
  * Calculates the next anniversary of an event after the initial date on the Gregorian calendar. Use the original event date or the event month/event day as a parameters. The optional parameter, preserveMonth will determine how to handle an event date of 2/29. Set to true will use February 28 for a standard year anniversary and set to false will use March 1 for a standard year anniversary.
@@ -916,27 +837,6 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
             else
                 return calcDate.AddYears(dt.Month == 2 && dt.Day == 28 ? 1 : 0).AddDays(-1);
         }
-
-
-/*
- * Shorthand ReferenceEquals
- * This extension method represents shorthand version of ReferenceEquals method.
- * 
- * Author: rkttu
- * Submitted on: 2/3/2016 6:02:52 PM
- * 
- * Example: 
- * string a = "123";
-string b = a;
-bool result = a.ReferenceEquals(b);
-// result will true
- */
-
-        public new static bool ReferenceEquals(this object objA, object objB)
-        {
-            return Object.ReferenceEquals(objA, objB);
-        }
-
 
 /*
  * SelectionValue
@@ -1034,27 +934,6 @@ bool result = a.ReferenceEquals(b);
             {
                 // ignored
             }
-            return null;
-        }
-
-
-/*
- * toDecimal
- * Object to decimal?
- * 
- * Author: Tomcat
- * Submitted on: 9/6/2016 11:39:34 PM
- * 
- * Example: 
- * ToDecimal(row["col"]
- */
-
-        public static decimal? ToDecimal(this object obj)
-        {
-            if (obj == null) return null;
-
-            if (decimal.TryParse(obj.ToString(), out var result))
-                return result;
             return null;
         }
 
@@ -1164,37 +1043,6 @@ string[][] jagged_array = rectangular_array.ToJaggedArray();
                 }
             }
             return jaggedArray;
-        }
-
-
-/*
- * ToHashSet<T>
- * Takes any IEnumerable<T> and converts it to a HashSet<T>
- * 
- * Author: FloppyMan
- * Submitted on: 8/25/2011 10:31:38 AM
- * 
- * Example: 
- * List<int> li = new List<int>();
-li.Add(1);
-li.Add(2);
-li.Add(3);
-
-HashSet<int> hsi = li.ToHashSet<int>();
- */
-
-        /// <summary>
-        /// Converts an IEnumerable to a HashSet
-        /// </summary>
-        /// <typeparam name="T">The IEnumerable type</typeparam>
-        /// <param name="enumerable">The IEnumerable</param>
-        /// <returns>A new HashSet</returns>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> enumerable)
-        {
-            var hs = new HashSet<T>();
-            foreach (var item in enumerable)
-                hs.Add(item);
-            return hs;
         }
 
 
@@ -1478,32 +1326,6 @@ Ahmer-
             array.CopyTo(target, 0);
         }
 
-
-/*
- * DeepClone
- * It returns deep copy of the object.
- * 
- * Author: Omkar Panhalkar
- * Submitted on: 5/7/2012 3:22:13 AM
- * 
- * Example: 
- * var stringbuilder = new StringBuilder("TestData");
-var copy = stringbuilder.DeepClone();
-Assert.IsFalse(Equals(stringbuilder,copy));
- */
-
-        public static T DeepClone<T>(this T input) where T : ISerializable
-        {
-            using (var stream = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
-                formatter.Serialize(stream, input);
-                stream.Position = 0;
-                return (T) formatter.Deserialize(stream);
-            }
-        }
-
-
 /*
  * Get Percentage
  * Gets the specified percentage of the given value.
@@ -1661,7 +1483,7 @@ string log = ex.ToLogString(“A fatal error occurred!”);
         /// <param name="ex">The exception to create the string from.</param>
         /// <param name="additionalMessage">Additional message to place at the top of the string, maybe be empty or null.</param>
         /// <returns></returns>
-        public static string ToLogString(this Exception ex, string additionalMessage)
+        public static string ToLogStringEx(this Exception ex, string additionalMessage)
         {
             var msg = new StringBuilder();
 
@@ -2364,83 +2186,6 @@ fileInfo.MoveTo(@"d:\", true);
 
 
 /*
- * Encrypt & Decrypt
- * Encrypt and decrypt a string using the RSACryptoServiceProvider.
- * 
- * Author: Mark de Rover
- * Submitted on: 1/2/2008 10:42:13 AM
- * 
- * Example: 
- * string secret = "My Secret";
-string encoded = secret.Encrypt("mykey");
-string decoded = encoded.Decrypt("mykey");
- */
-
-        /// <summary>
-        /// Encryptes a string using the supplied key. Encoding is done using RSA encryption.
-        /// </summary>
-        /// <param name="stringToEncrypt">String that must be encrypted.</param>
-        /// <param name="key">Encryptionkey.</param>
-        /// <returns>A string representing a byte array separated by a minus sign.</returns>
-        /// <exception cref="ArgumentException">Occurs when stringToEncrypt or key is null or empty.</exception>
-        public static string Encrypt(this string stringToEncrypt, string key)
-        {
-            if (string.IsNullOrEmpty(stringToEncrypt))
-            {
-                throw new ArgumentException("An empty string value cannot be encrypted.");
-            }
-
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentException("Cannot encrypt using an empty key. Please supply an encryption key.");
-            }
-
-            var cspp = new CspParameters {KeyContainerName = key};
-
-            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
-
-            var bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(stringToEncrypt), true);
-
-            return BitConverter.ToString(bytes);
-        }
-
-        /// <summary>
-        /// Decryptes a string using the supplied key. Decoding is done using RSA encryption.
-        /// </summary>
-        /// <param name="stringToDecrypt">String that must be decrypted.</param>
-        /// <param name="key">Decryptionkey.</param>
-        /// <returns>The decrypted string or null if decryption failed.</returns>
-        /// <exception cref="ArgumentException">Occurs when stringToDecrypt or key is null or empty.</exception>
-        public static string Decrypt(this string stringToDecrypt, string key)
-        {
-            if (string.IsNullOrEmpty(stringToDecrypt))
-            {
-                throw new ArgumentException("An empty string value cannot be encrypted.");
-            }
-
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentException("Cannot decrypt using an empty key. Please supply a decryption key.");
-            }
-
-            var cspp = new CspParameters {KeyContainerName = key};
-
-            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
-
-            var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
-            var decryptByteArray = Array.ConvertAll(decryptArray,
-                (s => System.Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
-
-
-            var bytes = rsa.Decrypt(decryptByteArray, true);
-
-            var result = Encoding.UTF8.GetString(bytes);
-
-            return result;
-        }
-
-
-/*
  * ToProperCase
  * Converts string to a title case.
  * 
@@ -2460,50 +2205,6 @@ Console.WriteLine("Title Case: {0}", s.ToProperCase());
             var textInfo = cultureInfo.TextInfo;
             return textInfo.ToTitleCase(text);
         }
-
-
-/*
- * IsValidUrl
- * Returns true when a string is a valid url
- * 
- * Author: unkown
- * Submitted on: 10/17/2007 7:22:21 PM
- * 
- * Example: 
- * test
-test
-test
- */
-
-        public static bool IsValidUrl(this string text)
-        {
-            var rx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
-            return rx.IsMatch(text);
-        }
-
-
-/*
- * IsNotNullOrEmpty
- * Returns true when a given string is not null or empty
- * 
- * Author: unknown
- * Submitted on: 2/29/2008 7:47:30 PM
- * 
- * Example: 
- * string a = "demo";
-string b = string.Empty;
-string c = null;
-
-Console.WriteLine(a.IsNotNullOrEmpty()); // true
-Console.WriteLine(b.IsNotNullOrEmpty()); // false
-Console.WriteLine(c.IsNotNullOrEmpty()); // false
- */
-
-        public static bool IsNotNullOrEmpty(this string input)
-        {
-            return !String.IsNullOrEmpty(input);
-        }
-
 
 /*
  * GetLastDayOfMonth
@@ -2552,30 +2253,6 @@ Console.WriteLine(c.IsNotNullOrEmpty()); // false
             }
 
             return false;
-        }
-
-
-/*
- * IsBetween
- * Checks if the date is between the two provided dates
- * 
- * Author: hybrid2102
- * Submitted on: 11/25/2013 1:30:29 PM
- * 
- * Example: 
- * var today = DateTime.Now;
-var start = new DateTime(2012, 1, 1);
-var end = new DateTime(2013, 11, 25);
-
-Boolean isBetween = today .IsBetween(start, end);
- */
-
-        public static Boolean IsBetween(this DateTime dt, DateTime startDate, DateTime endDate,
-            Boolean compareTime = false)
-        {
-            return compareTime
-                ? dt >= startDate && dt <= endDate
-                : dt.Date >= startDate.Date && dt.Date <= endDate.Date;
         }
     }
 }

@@ -20,7 +20,7 @@ using System.Xml.Serialization;
 using HSNXT;
 using Control = System.Windows.Forms.Control;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {

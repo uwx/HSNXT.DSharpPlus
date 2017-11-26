@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Control = System.Windows.Forms.Control;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {

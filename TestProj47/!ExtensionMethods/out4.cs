@@ -28,7 +28,7 @@ using System.Xml.Linq;
 using Newtonsoft.Json;
 using Control = System.Windows.Forms.Control;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {
@@ -1813,8 +1813,8 @@ string unzipstring = zipstring.DecompressString();
             memoryStream.Read(compressedData, 0, compressedData.Length);
 
             var gZipBuffer = new byte[compressedData.Length + 4];
-            Buffer.BlockCopy(compressedData, 0, gZipBuffer, 4, compressedData.Length);
-            Buffer.BlockCopy(BitConverter.GetBytes(buffer.Length), 0, gZipBuffer, 0, 4);
+            System.Buffer.BlockCopy(compressedData, 0, gZipBuffer, 4, compressedData.Length);
+            System.Buffer.BlockCopy(BitConverter.GetBytes(buffer.Length), 0, gZipBuffer, 0, 4);
             return System.Convert.ToBase64String(gZipBuffer);
         }
 

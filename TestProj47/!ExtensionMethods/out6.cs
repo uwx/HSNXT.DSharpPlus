@@ -36,7 +36,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using HSNXT;
 
-namespace HSNXT2
+namespace HSNXT
 {
     public static partial class Extensions
     {
