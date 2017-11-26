@@ -2172,7 +2172,7 @@
                 <e p="Series.cs" t="Include" />
               </e>
             </e>
-            <e p="StackedArea, 100%StackedArea" t="Include">
+            <e p="StackedArea, 100PercentStackedArea" t="Include">
               <e p="StackedAreaOr_" t="Include">
                 <e p="DataPoint" t="Include">
                   <e p="CustomProperties.cs" t="Include" />
@@ -2182,8 +2182,8 @@
                   <e p="CustomProperties.cs" t="Include" />
                   <e p="Series.cs" t="Include" />
                 </e>
-                <e p="StackedArea, 100%StackedArea" t="Include">
-                  <e p="100%StackedArea" t="Include">
+                <e p="StackedArea, 100PercentStackedArea" t="Include">
+                  <e p="100PercentStackedArea" t="Include">
                     <e p="DataPoint" t="Include">
                       <e p="CustomProperties.cs" t="Include" />
                       <e p="DataPoint.cs" t="Include" />
@@ -2206,7 +2206,7 @@
                 </e>
               </e>
             </e>
-            <e p="StackedBar, 100%StackedBar" t="Include">
+            <e p="StackedBar, 100PercentStackedBar" t="Include">
               <e p="StackedBarOr_" t="Include">
                 <e p="DataPoint" t="Include">
                   <e p="CustomProperties.cs" t="Include" />
@@ -2216,8 +2216,8 @@
                   <e p="CustomProperties.cs" t="Include" />
                   <e p="Series.cs" t="Include" />
                 </e>
-                <e p="StackedBar, 100%StackedBar" t="Include">
-                  <e p="100%StackedBar" t="Include">
+                <e p="StackedBar, 100PercentStackedBar" t="Include">
+                  <e p="100PercentStackedBar" t="Include">
                     <e p="DataPoint" t="Include">
                       <e p="CustomProperties.cs" t="Include" />
                       <e p="DataPoint.cs" t="Include" />
@@ -2240,7 +2240,7 @@
                 </e>
               </e>
             </e>
-            <e p="StackedColumn, 100%StackedColumn" t="Include">
+            <e p="StackedColumn, 100PercentStackedColumn" t="Include">
               <e p="StackedColumnOr_" t="Include">
                 <e p="DataPoint" t="Include">
                   <e p="CustomProperties.cs" t="Include" />
@@ -2250,8 +2250,8 @@
                   <e p="CustomProperties.cs" t="Include" />
                   <e p="Series.cs" t="Include" />
                 </e>
-                <e p="StackedColumn, 100%StackedColumn" t="Include">
-                  <e p="100%StackedColumn" t="Include">
+                <e p="StackedColumn, 100PercentStackedColumn" t="Include">
+                  <e p="100PercentStackedColumn" t="Include">
                     <e p="DataPoint" t="Include">
                       <e p="CustomProperties.cs" t="Include" />
                       <e p="DataPoint.cs" t="Include" />
