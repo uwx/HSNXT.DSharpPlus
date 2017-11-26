@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+// ReSharper disable PossibleNullReferenceException
 
 namespace HSNXT2
 {
@@ -103,11 +104,13 @@ dgvInstance.LoadConfiguration(@"C:\config.xml");
             var columns = new List<ColumnInfo>();
             for (var i = 0; i < dgv.Columns.Count; i++)
             {
-                var column = new ColumnInfo();
-                column.Name = dgv.Columns[i].Name;
-                column.DisplayIndex = dgv.Columns[i].DisplayIndex;
-                column.Width = dgv.Columns[i].Width;
-                column.Visible = dgv.Columns[i].Visible;
+                var column = new ColumnInfo
+                {
+                    Name = dgv.Columns[i].Name,
+                    DisplayIndex = dgv.Columns[i].DisplayIndex,
+                    Width = dgv.Columns[i].Width,
+                    Visible = dgv.Columns[i].Visible
+                };
                 columns.Add(column);
             }
             using (var streamWriter = new StreamWriter(fileName))
@@ -141,8 +144,7 @@ TimeSpan ts = s.StringToTimeSpan();
         /// </returns>
         public static TimeSpan StringToTimeSpan(this string time)
         {
-            TimeSpan timespan;
-            var result = TimeSpan.TryParse(time, out timespan);
+            var result = TimeSpan.TryParse(time, out var timespan);
             return result ? timespan : new TimeSpan(0, 0, 0);
         }
 
@@ -209,32 +211,29 @@ var cityListObsCollection = cityList.ToObservableCollection();
 DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.YearFromJanuary); // Returns January 1 of next year at midnight.
  */
 
-        public static DateTime DateTimeFloor(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeFloor(this DateTime dt, TimeInterval interval)
         {
-            return WorkMethod(dt, 0L, Interval);
+            return WorkMethod(dt, 0L, interval);
         }
 
-        public static DateTime DateTimeMidpoint(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeMidpoint(this DateTime dt, TimeInterval interval)
         {
-            return WorkMethod(dt, 2L, Interval);
+            return WorkMethod(dt, 2L, interval);
         }
 
-        public static DateTime DateTimeCeiling(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeCeiling(this DateTime dt, TimeInterval interval)
         {
-            return WorkMethod(dt, 1L, Interval);
+            return WorkMethod(dt, 1L, interval);
         }
 
-        public static DateTime DateTimeCeilingUnbounded(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeCeilingUnbounded(this DateTime dt, TimeInterval interval)
         {
-            return WorkMethod(dt, 1L, Interval).AddTicks(-1);
+            return WorkMethod(dt, 1L, interval).AddTicks(-1);
         }
 
-        public static DateTime DateTimeRound(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeRound(this DateTime dt, TimeInterval interval)
         {
-            if (dt >= WorkMethod(dt, 2L, Interval))
-                return WorkMethod(dt, 1L, Interval);
-            else
-                return WorkMethod(dt, 0L, Interval);
+            return WorkMethod(dt, dt >= WorkMethod(dt, 2L, interval) ? 1L : 0L, interval);
         }
 
         public enum TimeInterval : long
@@ -286,46 +285,46 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
             ThousandthOfASecond = TimeSpan.TicksPerSecond / 1000L
         }
 
-        private static DateTime WorkMethod(DateTime dt, long ReturnType, TimeInterval Interval)
+        private static DateTime WorkMethod(DateTime dt, long returnType, TimeInterval interval)
         {
-            var Interval1 = (long) Interval;
-            var TicksFromFloor = 0L;
-            var IntervalFloor = 0;
-            var FloorOffset = 0;
-            var IntervalLength = 0;
+            var interval1 = (long) interval;
+            var ticksFromFloor = 0L;
+            int intervalFloor;
+            int floorOffset;
+            int intervalLength;
             DateTime floorDate;
             DateTime ceilingDate;
 
-            if (Interval1 > 132L) //Set variables to calculate date for time interval less than one day.
+            if (interval1 > 132L) //Set variables to calculate date for time interval less than one day.
             {
-                floorDate = new DateTime(dt.Ticks - (dt.Ticks % Interval1), dt.Kind);
-                if (ReturnType != 0L)
-                    TicksFromFloor = Interval1 / ReturnType;
+                floorDate = new DateTime(dt.Ticks - (dt.Ticks % interval1), dt.Kind);
+                if (returnType != 0L)
+                    ticksFromFloor = interval1 / returnType;
             }
-            else if (Interval1 < 8L) //Set variables to calculate date for time interval of one week.
+            else if (interval1 < 8L) //Set variables to calculate date for time interval of one week.
             {
-                IntervalFloor = (int) (Interval1) - 1;
-                FloorOffset = (int) dt.DayOfWeek * -1;
+                intervalFloor = (int) (interval1) - 1;
+                floorOffset = (int) dt.DayOfWeek * -1;
                 floorDate = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, dt.Kind).AddDays(
-                    -(IntervalFloor > FloorOffset ? FloorOffset + 7 - IntervalFloor : FloorOffset - IntervalFloor));
-                if (ReturnType != 0L)
-                    TicksFromFloor = TimeSpan.TicksPerDay * 7L / ReturnType;
+                    -(intervalFloor > floorOffset ? floorOffset + 7 - intervalFloor : floorOffset - intervalFloor));
+                if (returnType != 0L)
+                    ticksFromFloor = TimeSpan.TicksPerDay * 7L / returnType;
             }
             else //Set variables to calculate date for time interval one month or greater.
             {
-                IntervalLength = Interval1 >= 130L ? 12 : (int) (Interval1 / 10L);
-                IntervalFloor = (int) (Interval1 % IntervalLength);
-                FloorOffset = (dt.Month - 1) % IntervalLength;
-                floorDate = new DateTime(dt.Year, dt.Month, 1, 0, 0, 0, dt.Kind).AddMonths(-(IntervalFloor > FloorOffset
-                    ? FloorOffset + IntervalLength - IntervalFloor
-                    : FloorOffset - IntervalFloor));
-                if (ReturnType != 0L)
+                intervalLength = interval1 >= 130L ? 12 : (int) (interval1 / 10L);
+                intervalFloor = (int) (interval1 % intervalLength);
+                floorOffset = (dt.Month - 1) % intervalLength;
+                floorDate = new DateTime(dt.Year, dt.Month, 1, 0, 0, 0, dt.Kind).AddMonths(-(intervalFloor > floorOffset
+                    ? floorOffset + intervalLength - intervalFloor
+                    : floorOffset - intervalFloor));
+                if (returnType != 0L)
                 {
-                    ceilingDate = floorDate.AddMonths(IntervalLength);
-                    TicksFromFloor = (long) ceilingDate.Subtract(floorDate).Ticks / ReturnType;
+                    ceilingDate = floorDate.AddMonths(intervalLength);
+                    ticksFromFloor = (long) ceilingDate.Subtract(floorDate).Ticks / returnType;
                 }
             }
-            return floorDate.AddTicks(TicksFromFloor);
+            return floorDate.AddTicks(ticksFromFloor);
         }
 
 
@@ -834,7 +833,7 @@ Console.WriteLine(l.Capacity);
  * int weekNumber = DateTime.Now.WeekOfYearISO8601();
  */
 
-        public static int WeekOfYearISO8601(this DateTime date)
+        public static int WeekOfYearIso8601(this DateTime date)
         {
             var day = (int) CultureInfo.CurrentCulture.Calendar.GetDayOfWeek(date);
             var week = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date.AddDays(4 - (day == 0 ? 7 : day)),
@@ -1277,10 +1276,10 @@ Requires a reference System.Text.RegularExpressions.
  * DateTime mnd = DateExtensions.FirstMondayOfYear(2017);
  */
 
-        public static DateTime FirstMondayOfYear(int ThisYear)
+        public static DateTime FirstMondayOfYear(int thisYear)
         {
-            var firstDay = new DateTime(ThisYear, 1, 1);
-            return new DateTime(ThisYear, 1, (8 - (int) firstDay.DayOfWeek) % 7 + 1);
+            var firstDay = new DateTime(thisYear, 1, 1);
+            return new DateTime(thisYear, 1, (8 - (int) firstDay.DayOfWeek) % 7 + 1);
         }
 
 
@@ -1370,7 +1369,7 @@ Requires a reference System.Text.RegularExpressions.
  * none
  */
 
-        public static T DeserilizeXML<T>(this string physicalPath) where T : class
+        public static T DeserilizeXml<T>(this string physicalPath) where T : class
         {
             try
             {
@@ -1458,12 +1457,12 @@ Ahmer-
         /// Extension method to validate that input text is a number.
         /// </summary>
         /// <param name="e">Key Press Event Initialization.</param>
-        /// <param name="IsCalculation">if true then decimal point (.) is allowed, if false then decimal point (.) is not allowed</param>
+        /// <param name="isCalculation">if true then decimal point (.) is allowed, if false then decimal point (.) is not allowed</param>
         public static void ValidateNumber(this System.Windows.Forms.TextBox txt, KeyPressEventArgs e,
-            bool IsCalculation)
+            bool isCalculation)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                if (e.KeyChar == '.' && IsCalculation)
+                if (e.KeyChar == '.' && isCalculation)
                     if (txt.Text.IndexOf('.') > -1)
                         e.Handled = true;
                     else e.Handled = false;
@@ -2039,7 +2038,7 @@ Console.WriteLine(regon.IsValidREGON() ? "REGON is valid" : "REGON is not valid"
 Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid");
  */
 
-        public static bool IsValidNIP(this string input)
+        public static bool IsValidNip(this string input)
         {
             int[] weights = {6, 5, 7, 2, 3, 4, 5, 6, 7};
             var result = false;
@@ -2057,7 +2056,7 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
             return result;
         }
 
-        public static bool IsValidREGON(this string input)
+        public static bool IsValidRegon(this string input)
         {
             int controlSum;
             if (input.Length == 7 || input.Length == 9)
@@ -2086,7 +2085,7 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
             return controlNum == lastDigit;
         }
 
-        public static bool IsValidPESEL(this string input)
+        public static bool IsValidPesel(this string input)
         {
             int[] weights = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
             var result = false;
