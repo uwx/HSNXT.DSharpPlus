@@ -303,6 +303,17 @@ namespace HSNXT
             process.ProcessorAffinity = oldAffinity;
         }
 
+        public static string UncollapseDigits(this string s)
+        {
+            return Regex.Replace(s, "one|tw|th|f|z|s|.i", " $0");
+        }
+
+        public static uint SwapEndianness(this uint n)
+        {
+            n = n >> 16 | n << 16;
+            return(n & 0xFF00FF00) >> 8 | (n & 0xFF00FF) << 8;
+        }
+
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
         /// <param name="self">This object</param>
         /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>
