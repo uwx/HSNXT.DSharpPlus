@@ -1,0 +1,1 @@
+{"Name":"IsDateTime","Description":"Checks whether the type is DateTime.","Author":"kevinjong","SubmittedOn":"3/24/2010 8:27:14 AM","Entries":["public static bool IsDateTime(this Type type)\r\n{\r\n\treturn type.Equals(typeof(DateTime));\r\n}","Type type = DateTime.Now.GetType();\r\nbool isString = type.IsDateTime();"]}

@@ -1,0 +1,1 @@
+{"Name":"ToStream","Description":"Converts a String to a MemoryStream","Author":"Rory Becker","SubmittedOn":"2/7/2011 8:50:56 PM","Entries":["public System.IO.MemoryStream ToStream(this string Source)\r\n{\r\n    byte[] Bytes = System.Text.Encoding.ASCII.GetBytes(Source);\r\n    return new System.IO.MemoryStream(Bytes);\r\n}","stream MyStream = \"Fred\".ToStream();"]}

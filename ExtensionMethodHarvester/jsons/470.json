@@ -1,0 +1,1 @@
+{"Name":"Clear","Description":"clear the contents of a StringBuilder object","Author":"Manos Aspradakis","SubmittedOn":"7/15/2011 11:35:35 AM","Entries":["public static void Clear(this StringBuilder sb)\r\n{\r\n    sb.Length = 0;\r\n}","StringBuilder sb = new StringBuilder();\r\n//...\r\nsb.Clear();"]}

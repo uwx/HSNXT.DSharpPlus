@@ -1,0 +1,1 @@
+{"Name":"EndOfTheDay","Description":"Returns datetime corresponding to day end","Author":"Victor Rodrigues","SubmittedOn":"5/13/2009 6:50:07 PM","Entries":["public static DateTime EndOfTheDay(this DateTime date)\r\n{\r\n\treturn new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);\r\n}","var endOfTheDay = DateTime.Now.EndOfTheDay();"]}

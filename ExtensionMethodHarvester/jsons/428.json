@@ -1,0 +1,1 @@
+{"Name":"KB","Description":"Simplest way to get a number of kilobytes.","Author":"José Fidalgo H.","SubmittedOn":"6/13/2013 10:55:02 PM","Entries":["/// <summary>\r\n/// Kilobytes\r\n/// </summary>\r\n/// <param name=\"value\"></param>\r\n/// <returns></returns>\r\npublic static int KB(this int value)\r\n{\r\n  return value * 1024;\r\n}","var 10k = 10.KB();"]}

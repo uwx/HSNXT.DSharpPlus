@@ -1,0 +1,1 @@
+{"Name":"Reverse","Description":"Reverse a string","Author":"unknown","SubmittedOn":"8/21/2007 8:53:16 PM","Entries":["static class Helpers\r\n{\r\n   public static string Reverse(this string s)\r\n   {\r\n      char[] c = s.ToCharArray();\r\n      Array.Reverse(c);\r\n      return new string(c);\r\n   }\r\n}","string s = \"Test\";\r\nstring r = s.Reverse(); // \"tseT\""]}

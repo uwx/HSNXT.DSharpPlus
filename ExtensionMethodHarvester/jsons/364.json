@@ -1,0 +1,1 @@
+{"Name":"To","Description":"Creates a range of integers as an IEnumerable<Int32>.","Author":"Richard Bushnell","SubmittedOn":"3/3/2008 9:14:36 PM","Entries":["public static IEnumerable<int> To(this int first, int last) {\r\n  return Enumerable.Range(first, last - first + 1);\r\n}","var numbers = 1.To(10);"]}

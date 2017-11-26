@@ -1,0 +1,1 @@
+{"Name":"Or","Description":"Returns the first string with a non-empty non-null value.","Author":"Phil Campbell","SubmittedOn":"10/25/2013 10:56:19 PM","Entries":["public static string Or(this string input, string alternative)\r\n{\r\n    return (string.IsNullOrEmpty(input)==false) ? input : alternative;\r\n}","string someResult = someString1.Or(someString2).Or(\"foo\");"]}

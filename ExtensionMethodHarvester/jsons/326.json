@@ -1,0 +1,1 @@
+{"Name":"IsInteger","Description":"Checks whether the type is integer.","Author":"kevinjong","SubmittedOn":"3/24/2010 8:25:34 AM","Entries":["public static bool IsInteger(this Type type)\r\n{\r\n\treturn type.Equals(typeof(int));\r\n}","Type type = (1).GetType();\r\nbool isString = type.IsInteger();"]}

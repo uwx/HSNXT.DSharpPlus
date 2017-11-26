@@ -1,0 +1,1 @@
+{"Name":"IsNull","Description":"check value is null","Author":"unkown","SubmittedOn":"3/28/2008 7:04:00 PM","Entries":["pubic static bool IsNull(this object source)\r\n{\r\n  return source == null;\r\n}","string foo = null;\r\nif(foo.IsNull())\r\n{\r\n  ///\r\n}"]}

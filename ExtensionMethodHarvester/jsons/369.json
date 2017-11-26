@@ -1,0 +1,1 @@
+{"Name":"NextSunday","Description":"Get's the date of the upcoming Sunday.","Author":"Charles Cherry","SubmittedOn":"3/3/2011 4:08:54 PM","Entries":["public static DateTime NextSunday(this DateTime dt)\r\n{\r\n    return new GregorianCalendar().AddDays(dt, -( (int)dt.DayOfWeek ) + 7);\r\n}","var nextSunday = DateTime.Now.NextSunday();"]}

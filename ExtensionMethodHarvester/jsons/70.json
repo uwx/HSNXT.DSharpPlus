@@ -1,0 +1,1 @@
+{"Name":"ToException","Description":"Turns any object to Exception. Very useful!","Author":"Francisca Garse","SubmittedOn":"11/16/2012 2:10:47 PM","Entries":["public static Exception ToException(this object o)\r\n{\r\nreturn new Exception(o.ToString());\r\n}","Object o = new Object();\r\nthrow o.ToException();"]}

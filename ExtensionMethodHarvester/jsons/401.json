@@ -1,0 +1,1 @@
+{"Name":"Increment","Description":"Increments a integer number by one","Author":"MrMostInteresting","SubmittedOn":"3/6/2015 10:15:59 AM","Entries":["public static class IntExtensions\r\n    {\r\n        public static int Increment(this int i)\r\n        {\r\n            return ++i;\r\n        }\r\n    }","5.Increment(); // result should be six"]}

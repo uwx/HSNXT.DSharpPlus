@@ -1,0 +1,1 @@
+{"Name":"IsString","Description":"Checks whether the type is string.","Author":"kevinjong","SubmittedOn":"3/24/2010 8:20:31 AM","Entries":["public static bool IsString(this Type type)\r\n{\r\n\treturn type.Equals(typeof(string));\r\n}","Type type = (\"Taiwan\").GetType();\r\nbool isString = type.IsString();"]}

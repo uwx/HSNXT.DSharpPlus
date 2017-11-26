@@ -1,0 +1,1 @@
+{"Name":"ToReversedDateTime","Description":"Takes a DateTime object and reverses it to an SQL type string (yyyy-mm-dd hh:MM:ss)","Author":"Jon Preece","SubmittedOn":"10/25/2010 12:58:29 AM","Entries":["internal static string ToReversedDateTime(this DateTime value)\r\n{\r\n    return string.Format(\"{0:u}\", value);\r\n}","string reversed = DateTime.Now.ToReversedDateTime();"]}

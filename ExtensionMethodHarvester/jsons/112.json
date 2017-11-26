@@ -1,0 +1,1 @@
+{"Name":"IsBoolean","Description":"Checks whether the type is Boolean.","Author":"kevinjong","SubmittedOn":"3/24/2010 8:23:24 AM","Entries":["public static bool IsBoolean(this Type type)\r\n{\r\n\treturn type.Equals(typeof(Boolean));\r\n}","Type type = (false).GetType();\r\nbool isString = type.IsBoolean();"]}

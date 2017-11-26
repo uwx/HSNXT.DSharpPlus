@@ -1,0 +1,1 @@
+{"Name":"Squared","Description":"Returns the squared value","Author":"unknown","SubmittedOn":"1/24/2008 7:09:07 PM","Entries":["namespace Extensions\r\n{\r\n   public static class IntExtensions\r\n   {\r\n      public static int Squared(this int intToBeSquared)\r\n      {\r\n         return intToBeSquared * intToBeSquared;\r\n      }\r\n   }\r\n}","int result = 5.Squared();"]}

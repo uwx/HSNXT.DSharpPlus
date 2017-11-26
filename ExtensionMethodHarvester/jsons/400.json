@@ -1,0 +1,1 @@
+{"Name":"BeginningOfTheDay","Description":"Returns datetime corresponding to day beginning","Author":"Victor Rodrigues","SubmittedOn":"5/13/2009 6:49:17 PM","Entries":["public static DateTime BeginningOfTheDay(this DateTime date)\r\n{\r\n\treturn new DateTime(date.Year, date.Month, date.Day);\r\n}","var beginningOfTheDay = DateTime.Now.BeginningOfTheDay();"]}
