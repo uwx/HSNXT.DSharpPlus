@@ -29,6 +29,10 @@ namespace HSNXT
 
         public static bool StartsWith(this string i, params string[] matches) => matches.All(i.StartsWith);
 
+        public static bool EndsWithAny(this string i, params string[] matches) => matches.Any(i.EndsWith);
+
+        public static bool StartsWithAny(this string i, params string[] matches) => matches.Any(i.StartsWith);
+
         public static bool EqualsAny(this string i, params string[] matches) => matches.Any(m => i == m);
 
         public static bool EqualsAll(this string i, params string[] matches) => matches.All(m => i == m);
