@@ -61,7 +61,7 @@ string description = EnumHelper<EnumGrades>.GetEnumDescription("pass");
         {
             public static string GetEnumDescription(string value)
             {
-                Type type = typeof(T);
+                var type = typeof(T);
                 var name = Enum.GetNames(type).Where(f => f.Equals(value, StringComparison.CurrentCultureIgnoreCase))
                     .Select(d => d).FirstOrDefault();
 
@@ -97,9 +97,9 @@ list.OrderBy("Name desc");
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
             sortExpression += "";
-            string[] parts = sortExpression.Split(' ');
-            bool descending = false;
-            string property = "";
+            var parts = sortExpression.Split(' ');
+            var descending = false;
+            var property = "";
 
             if (parts.Length > 0 && parts[0] != "")
             {
@@ -110,7 +110,7 @@ list.OrderBy("Name desc");
                     descending = parts[1].ToLower().Contains("esc");
                 }
 
-                PropertyInfo prop = typeof(T).GetProperty(property);
+                var prop = typeof(T).GetProperty(property);
 
                 if (prop == null)
                 {
@@ -149,7 +149,7 @@ Console.WriteLine(b.Length);
         public static byte[] ConvertToByteArray(this System.IO.Stream stream)
         {
             var streamLength = System.Convert.ToInt32(stream.Length);
-            byte[] data = new byte[streamLength + 1];
+            var data = new byte[streamLength + 1];
 
             //convert to to a byte array
             stream.Read(data, 0, streamLength);
@@ -365,8 +365,8 @@ namesLen.ForEach(i => Console.WriteLine(i));
         /// <returns>The Unix timestamp</returns>
         public static long ToUnixTimestamp(this DateTime date)
         {
-            DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
-            TimeSpan unixTimeSpan = date - unixEpoch;
+            var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0);
+            var unixTimeSpan = date - unixEpoch;
 
             return (long) unixTimeSpan.TotalSeconds;
         }
@@ -406,8 +406,8 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
         public static Int64 DateDiff(this DateTime StartDate, String DatePart, DateTime EndDate)
         {
             Int64 DateDiffVal = 0;
-            System.Globalization.Calendar cal = System.Threading.Thread.CurrentThread.CurrentCulture.Calendar;
-            TimeSpan ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
+            var cal = System.Threading.Thread.CurrentThread.CurrentCulture.Calendar;
+            var ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
             switch (DatePart.ToLower().Trim())
             {
                 #region year
@@ -545,7 +545,7 @@ builder.AppendLineFormat("Message: {0}", exception.Message);
         public static StringBuilder AppendLineFormat(this StringBuilder builder, string format,
             params object[] arguments)
         {
-            string value = String.Format(format, arguments);
+            var value = String.Format(format, arguments);
 
             builder.AppendLine(value);
 
@@ -574,7 +574,7 @@ builder.AppendLineFormat("Message: {0}", exception.Message);
         public static T Clone<T>(this DataRow dataRow, DataTable parentTable)
             where T : DataRow
         {
-            T clonedRow = (T) parentTable.NewRow();
+            var clonedRow = (T) parentTable.NewRow();
             clonedRow.ItemArray = dataRow.ItemArray;
             return clonedRow;
         }
@@ -834,7 +834,7 @@ str.UcFirst();
                 return string.Empty;
             }
 
-            char[] theChars = theString.ToCharArray();
+            var theChars = theString.ToCharArray();
             theChars[0] = char.ToUpper(theChars[0]);
 
             return new string(theChars);
@@ -854,11 +854,11 @@ str.UcFirst();
 
         public static T[] ConvertTo<T>(this Array ar)
         {
-            T[] ret = new T[ar.Length];
-            System.ComponentModel.TypeConverter tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
+            var ret = new T[ar.Length];
+            var tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
             if (tc.CanConvertFrom(ar.GetValue(0).GetType()))
             {
-                for (int i = 0; i < ar.Length; i++)
+                for (var i = 0; i < ar.Length; i++)
                 {
                     ret[i] = (T) tc.ConvertFrom(ar.GetValue(i));
                 }
@@ -868,7 +868,7 @@ str.UcFirst();
                 tc = System.ComponentModel.TypeDescriptor.GetConverter(ar.GetValue(0).GetType());
                 if (tc.CanConvertTo(typeof(T)))
                 {
-                    for (int i = 0; i < ar.Length; i++)
+                    for (var i = 0; i < ar.Length; i++)
                     {
                         ret[i] = (T) tc.ConvertTo(ar.GetValue(i), typeof(T));
                     }
@@ -1273,7 +1273,7 @@ var custListUnder5000 = custs.WhereIf(showAccountBalancesUnder5000, c=>c.AcctBal
 
         public static bool IsNumeric(this string value)
         {
-            Regex regex = new Regex(@"[0-9]");
+            var regex = new Regex(@"[0-9]");
             return regex.IsMatch(value);
         }
 
@@ -1501,7 +1501,7 @@ using (System.IO.FileStream fs = new System.IO.FileStream(@"c:\test.txt", System
             catch
             {
             }
-            using (StreamReader sr = new StreamReader(str))
+            using (var sr = new StreamReader(str))
             {
                 return sr.ReadToEnd();
             }
@@ -1550,9 +1550,9 @@ comboBox1.DataSource = typeof(CodeExpression).Assembly.GetTypes().Where(t => t.B
 
         public static string GetDisplayName(this Type input)
         {
-            string displayName = input.Name;
+            var displayName = input.Name;
 
-            for (int i = displayName.Length - 1; i >= 0; i--)
+            for (var i = displayName.Length - 1; i >= 0; i--)
             {
                 if (displayName[i] == char.ToUpper(displayName[i]))
                     if (i > 0)
@@ -1641,7 +1641,7 @@ Console.WriteLine(maskedWithDashes);
             if (sourceValue.IsLengthAtLeast(numExposed))
             {
                 var builder = new StringBuilder(sourceValue.Length);
-                int index = maskedString.Length - numExposed;
+                var index = maskedString.Length - numExposed;
 
                 if (style == MaskStyle.AlphaNumericOnly)
                 {
@@ -1747,7 +1747,7 @@ Console.WriteLine(maskedWithDashes);
         /// <param name="length">Length of the mask.</param>
         private static void CreateAlphaNumMask(StringBuilder buffer, string source, char mask, int length)
         {
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 buffer.Append(char.IsLetterOrDigit(source[i])
                     ? mask
@@ -1817,16 +1817,16 @@ foreach (var str in enumerator.ToEnumerable())
 
         public static String toSlug(this string text)
         {
-            String value = text.Normalize(NormalizationForm.FormD).Trim();
-            StringBuilder builder = new StringBuilder();
+            var value = text.Normalize(NormalizationForm.FormD).Trim();
+            var builder = new StringBuilder();
 
-            foreach (char c in text.ToCharArray())
+            foreach (var c in text.ToCharArray())
                 if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
                     builder.Append(c);
 
             value = builder.ToString();
 
-            byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(text);
+            var bytes = Encoding.GetEncoding("Cyrillic").GetBytes(text);
 
             value = Regex.Replace(
                 Regex.Replace(Encoding.ASCII.GetString(bytes), @"\s{2,}|[^\w]", " ", RegexOptions.ECMAScript).Trim(),
@@ -1866,7 +1866,7 @@ string[] myQueryResults = waitForQueryData();
             Func<IEnumerable<T>, TResult> work = (e => asyncSelector(e));
 
             // Launch it
-            IAsyncResult r = work.BeginInvoke(enumerable, null, null);
+            var r = work.BeginInvoke(enumerable, null, null);
 
             // Return method that will block until completed and rethrow exceptions if any
             return () => work.EndInvoke(r);
@@ -1937,7 +1937,7 @@ keyBuilder.AppendIf(ctrl, "[ctrl]")
 
         public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> source, int splitSize)
         {
-            using (IEnumerator<T> enumerator = source.GetEnumerator())
+            using (var enumerator = source.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                 {
@@ -1948,7 +1948,7 @@ keyBuilder.AppendIf(ctrl, "[ctrl]")
 
         private static IEnumerable<T> InnerSplit<T>(IEnumerator<T> enumerator, int splitSize)
         {
-            int count = 0;
+            var count = 0;
             do
             {
                 count++;
@@ -2078,13 +2078,13 @@ txtName.DataBindings.Add<tblProduct>("Text", ds, p => p.ProductName, true, DataS
         public static Binding Add<T>(this ControlBindingsCollection bindingCollection, string property,
             object datasource, Expression<Func<T, object>> expression)
         {
-            string relatedNameChain = "";
+            var relatedNameChain = "";
             if (expression.Body is UnaryExpression)
                 relatedNameChain = ((expression.Body as UnaryExpression).Operand as MemberExpression).ToString();
             else if (expression.Body is MemberExpression)
                 relatedNameChain = (expression.Body as MemberExpression).ToString();
 
-            string skippedName = String.Join(".", relatedNameChain.Split(new char[] {'.'}).Skip(1).ToArray());
+            var skippedName = String.Join(".", relatedNameChain.Split(new char[] {'.'}).Skip(1).ToArray());
             return bindingCollection.Add(property, datasource, skippedName);
         }
 
@@ -2139,14 +2139,14 @@ Console.WriteLine(seq.SelectRandom());
             //optimization for ICollection<T>
             if (sequence is ICollection<T>)
             {
-                ICollection<T> col = (ICollection<T>) sequence;
+                var col = (ICollection<T>) sequence;
                 return col.ElementAt(random.Next(col.Count));
             }
 
-            int count = 1;
-            T selected = default(T);
+            var count = 1;
+            var selected = default(T);
 
-            foreach (T element in sequence)
+            foreach (var element in sequence)
             {
                 if (random.Next(count++) == 0)
                 {
@@ -2233,7 +2233,7 @@ customerEmailAddress.IsValidEmailAddress()
 
         public static bool IsValidEmailAddress(this string s)
         {
-            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            var regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
             return regex.IsMatch(s);
         }
 
@@ -2327,7 +2327,7 @@ Assert.IsFalse(IsNullOrEmptyOrWhiteSpace("TestValue"));
         public static String Replace(this String originalString, String oldValue, String newValue,
             StringComparison comparisonType)
         {
-            Int32 startIndex = 0;
+            var startIndex = 0;
 
             while (true)
             {
@@ -2715,9 +2715,9 @@ list.AddElement("line 1")
         /// <returns></returns>
         public static DataTable SelectDistinct(this DataTable SourceTable, String FieldNames, String Filter)
         {
-            DataTable dt = new DataTable();
-            String[] arrFieldNames = FieldNames.Replace(" ", "").Split(',');
-            foreach (String s in arrFieldNames)
+            var dt = new DataTable();
+            var arrFieldNames = FieldNames.Replace(" ", "").Split(',');
+            foreach (var s in arrFieldNames)
             {
                 if (SourceTable.Columns.Contains(s))
                     dt.Columns.Add(s, SourceTable.Columns[s].DataType);
@@ -2726,9 +2726,9 @@ list.AddElement("line 1")
             }
 
             Object[] LastValues = null;
-            foreach (DataRow dr in SourceTable.Select(Filter, FieldNames))
+            foreach (var dr in SourceTable.Select(Filter, FieldNames))
             {
-                Object[] NewValues = GetRowFields(dr, arrFieldNames);
+                var NewValues = GetRowFields(dr, arrFieldNames);
                 if (LastValues == null || !(ObjectComparison(LastValues, NewValues)))
                 {
                     LastValues = NewValues;
@@ -2749,8 +2749,8 @@ list.AddElement("line 1")
                 return new Object[] {dr[arrFieldNames[0]]};
             else
             {
-                ArrayList itemArray = new ArrayList();
-                foreach (String field in arrFieldNames)
+                var itemArray = new ArrayList();
+                foreach (var field in arrFieldNames)
                     itemArray.Add(dr[field]);
 
                 return itemArray.ToArray();
@@ -2780,11 +2780,11 @@ list.AddElement("line 1")
         /// <returns></returns>
         private static Boolean ObjectComparison(Object[] a, Object[] b)
         {
-            Boolean retValue = true;
-            Boolean singleCheck = false;
+            var retValue = true;
+            var singleCheck = false;
 
             if (a.Length == b.Length)
-                for (Int32 i = 0; i < a.Length; i++)
+                for (var i = 0; i < a.Length; i++)
                 {
                     if (!(singleCheck = ObjectComparison(a[i], b[i])))
                     {
@@ -2874,7 +2874,7 @@ int affected = _db.ExecuteNonQuery("delete from [Users]");
 
         public static int ExecuteNonQuery(this DbConnection conn, string sql)
         {
-            DbCommand cmd = conn.CreateCommand();
+            var cmd = conn.CreateCommand();
             cmd.CommandText = sql;
 
             return cmd.ExecuteNonQuery();
@@ -2929,8 +2929,8 @@ Console.WriteLine(value.ToMd5Hash());
 
             using (MD5 md5 = new MD5CryptoServiceProvider())
             {
-                byte[] originalBytes = ASCIIEncoding.Default.GetBytes(value);
-                byte[] encodedBytes = md5.ComputeHash(originalBytes);
+                var originalBytes = ASCIIEncoding.Default.GetBytes(value);
+                var encodedBytes = md5.ComputeHash(originalBytes);
                 return BitConverter.ToString(encodedBytes).Replace("-", string.Empty);
             }
         }
@@ -2950,7 +2950,7 @@ dataTableExportToCSV.ToCSV (",",false);
 
         public static void ToCSV(this DataTable table, string delimiter, bool includeHeader)
         {
-            StringBuilder result = new StringBuilder();
+            var result = new StringBuilder();
 
 
             if (includeHeader)
@@ -2971,7 +2971,7 @@ dataTableExportToCSV.ToCSV (",",false);
 
             foreach (DataRow row in table.Rows)
             {
-                foreach (object item in row.ItemArray)
+                foreach (var item in row.ItemArray)
                 {
                     if (item is System.DBNull)
 
@@ -2979,7 +2979,7 @@ dataTableExportToCSV.ToCSV (",",false);
 
                     else
                     {
-                        string itemAsString = item.ToString();
+                        var itemAsString = item.ToString();
 
                         // Double up all embedded double quotes
 
@@ -3006,7 +3006,7 @@ dataTableExportToCSV.ToCSV (",",false);
             }
 
 
-            using (StreamWriter writer = new StreamWriter(@"C:\log.csv", true))
+            using (var writer = new StreamWriter(@"C:\log.csv", true))
             {
                 writer.Write(result.ToString());
             }
@@ -3055,12 +3055,12 @@ foreach (string item in list.Reverse<string>()
 
         public static IEnumerable<T> Reverse<T>(this IEnumerable<T> items)
         {
-            IList<T> list = (IList<T>) items;
+            var list = (IList<T>) items;
 
             if (list == null)
                 yield return default(T);
 
-            for (int i = list.Count - 1; i >= 0; i--)
+            for (var i = list.Count - 1; i >= 0; i--)
             {
                 yield return list[i];
             }
@@ -3080,8 +3080,8 @@ foreach (string item in list.Reverse<string>()
 
         public static bool IsUnicode(this string value)
         {
-            int asciiBytesCount = System.Text.Encoding.ASCII.GetByteCount(value);
-            int unicodBytesCount = System.Text.Encoding.UTF8.GetByteCount(value);
+            var asciiBytesCount = System.Text.Encoding.ASCII.GetByteCount(value);
+            var unicodBytesCount = System.Text.Encoding.UTF8.GetByteCount(value);
 
             if (asciiBytesCount != unicodBytesCount)
             {
@@ -3118,11 +3118,11 @@ myEmailBody.Email("Some random message", "from_user@abc.com", "to_user@abc.net",
             try
             {
                 // To
-                MailMessage mailMsg = new MailMessage();
+                var mailMsg = new MailMessage();
                 mailMsg.To.Add(recipient);
 
                 // From
-                MailAddress mailAddress = new MailAddress(sender);
+                var mailAddress = new MailAddress(sender);
                 mailMsg.From = mailAddress;
 
                 // Subject and Body
@@ -3130,8 +3130,8 @@ myEmailBody.Email("Some random message", "from_user@abc.com", "to_user@abc.net",
                 mailMsg.Body = body;
 
                 // Init SmtpClient and send
-                SmtpClient smtpClient = new SmtpClient(server);
-                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential();
+                var smtpClient = new SmtpClient(server);
+                var credentials = new System.Net.NetworkCredential();
                 smtpClient.Credentials = credentials;
 
                 smtpClient.Send(mailMsg);
@@ -3186,7 +3186,7 @@ IEnumerable<Control> children = Container.GetChildren();
 
         public static void AddJavaScript(this Page page, string url)
         {
-            HtmlGenericControl js = new HtmlGenericControl("script");
+            var js = new HtmlGenericControl("script");
             js.Attributes["type"] = "text/javascript";
             js.Attributes["src"] = url;
             page.Header.Controls.Add(js);
@@ -3212,7 +3212,7 @@ IEnumerable<Control> children = Container.GetChildren();
 
         public static void AddCSS(this Page page, string url)
         {
-            HtmlLink link = new HtmlLink();
+            var link = new HtmlLink();
             link.Href = url;
             link.Attributes["rel"] = "stylesheet";
             link.Attributes["type"] = "text/css";
@@ -3238,7 +3238,7 @@ IEnumerable<Control> children = Container.GetChildren();
 
         public static void TryDispose(this object target, bool throwException)
         {
-            IDisposable disposable = target as IDisposable;
+            var disposable = target as IDisposable;
             if (disposable == null)
                 return;
 
@@ -3275,7 +3275,7 @@ foreach (string s in myList.Randomize())
 
         public static IEnumerable<t> Randomize<t>(this IEnumerable<t> target)
         {
-            Random r = new Random();
+            var r = new Random();
 
             return target.OrderBy(x => (r.Next()));
         }
@@ -3329,9 +3329,9 @@ foreach (int i in nums.Without(3))
 
         public static TList With<TList, T>(this TList list, T item) where TList : IList<T>, new()
         {
-            TList l = new TList();
+            var l = new TList();
 
-            foreach (T i in list)
+            foreach (var i in list)
             {
                 l.Add(i);
             }
@@ -3342,9 +3342,9 @@ foreach (int i in nums.Without(3))
 
         public static TList Without<TList, T>(this TList list, T item) where TList : IList<T>, new()
         {
-            TList l = new TList();
+            var l = new TList();
 
-            foreach (T i in list.Where(n => !n.Equals(item)))
+            foreach (var i in list.Where(n => !n.Equals(item)))
             {
                 l.Add(i);
             }
@@ -3404,7 +3404,7 @@ Output:
 
         public static int ToInt(this string number, int defaultInt)
         {
-            int resultNum = defaultInt;
+            var resultNum = defaultInt;
             try
             {
                 if (!string.IsNullOrEmpty(number))
@@ -3457,7 +3457,7 @@ double ipNumber = ipAddress.inet_aton();
             {
                 return 0;
             }
-            string[] arrDec = IPaddress.ToString().Split('.');
+            var arrDec = IPaddress.ToString().Split('.');
             for (i = arrDec.Length - 1; i >= 0; i--)
             {
                 num += ((int.Parse(arrDec[i]) % 256) * Math.Pow(256, (3 - i)));
@@ -3516,9 +3516,9 @@ int clamped = 50.Clamp( 0, 20 ); // clamped == 20
         public static T Clamp<T>(this T source, T start, T end)
             where T : IComparable
         {
-            bool isReversed = start.CompareTo(end) > 0;
-            T smallest = isReversed ? end : start;
-            T biggest = isReversed ? start : end;
+            var isReversed = start.CompareTo(end) > 0;
+            var smallest = isReversed ? end : start;
+            var biggest = isReversed ? start : end;
 
             return source.CompareTo(smallest) < 0
                 ? smallest

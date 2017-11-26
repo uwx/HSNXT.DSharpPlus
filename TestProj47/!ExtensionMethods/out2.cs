@@ -64,7 +64,7 @@ namespace HSNXT2
         /// <returns></returns>
         public static Hashtable ToHashTable(this DataRow dr)
         {
-            Hashtable htReturn = new Hashtable(dr.ItemArray.Length);
+            var htReturn = new Hashtable(dr.ItemArray.Length);
             foreach (DataColumn dc in dr.Table.Columns)
                 htReturn.Add(dc.ColumnName, dr[dc.ColumnName]);
 
@@ -295,8 +295,8 @@ numbers.Remove(x => x > 5);
                 throw new ArgumentException("An empty string value cannot be hashed.");
             }
 
-            Byte[] data = System.Text.Encoding.UTF8.GetBytes(stringToHash);
-            Byte[] hash = new SHA1CryptoServiceProvider().ComputeHash(data);
+            var data = System.Text.Encoding.UTF8.GetBytes(stringToHash);
+            var hash = new SHA1CryptoServiceProvider().ComputeHash(data);
             return System.Convert.ToBase64String(hash);
         }
 
@@ -316,13 +316,13 @@ dt = myList.ToDataTable();
 
         public static DataTable ToDataTable<T>(this IList<T> data)
         {
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            DataTable table = new DataTable();
+            var properties = TypeDescriptor.GetProperties(typeof(T));
+            var table = new DataTable();
             foreach (PropertyDescriptor prop in properties)
                 table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            foreach (T item in data)
+            foreach (var item in data)
             {
-                DataRow row = table.NewRow();
+                var row = table.NewRow();
                 foreach (PropertyDescriptor prop in properties)
                     row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
                 table.Rows.Add(row);
@@ -349,10 +349,10 @@ string strShamsiDate3 = DateTime.Now.ToShamsiDateString();
         /// </summary>
         public static string ToShamsiDateYMD(this DateTime date)
         {
-            System.Globalization.PersianCalendar PC = new System.Globalization.PersianCalendar();
-            int intYear = PC.GetYear(date);
-            int intMonth = PC.GetMonth(date);
-            int intDay = PC.GetDayOfMonth(date);
+            var PC = new System.Globalization.PersianCalendar();
+            var intYear = PC.GetYear(date);
+            var intMonth = PC.GetMonth(date);
+            var intDay = PC.GetDayOfMonth(date);
             return (intYear.ToString() + "/" + intMonth.ToString() + "/" + intDay.ToString());
         }
 
@@ -361,10 +361,10 @@ string strShamsiDate3 = DateTime.Now.ToShamsiDateString();
         /// </summary>
         public static string ToShamsiDateDMY(this DateTime date)
         {
-            System.Globalization.PersianCalendar PC = new System.Globalization.PersianCalendar();
-            int intYear = PC.GetYear(date);
-            int intMonth = PC.GetMonth(date);
-            int intDay = PC.GetDayOfMonth(date);
+            var PC = new System.Globalization.PersianCalendar();
+            var intYear = PC.GetYear(date);
+            var intMonth = PC.GetMonth(date);
+            var intDay = PC.GetDayOfMonth(date);
             return (intDay.ToString() + "/" + intMonth.ToString() + "/" + intYear.ToString());
         }
 
@@ -373,11 +373,11 @@ string strShamsiDate3 = DateTime.Now.ToShamsiDateString();
         /// </summary>
         public static string ToShamsiDateString(this DateTime date)
         {
-            System.Globalization.PersianCalendar PC = new System.Globalization.PersianCalendar();
-            int intYear = PC.GetYear(date);
-            int intMonth = PC.GetMonth(date);
-            int intDayOfMonth = PC.GetDayOfMonth(date);
-            DayOfWeek enDayOfWeek = PC.GetDayOfWeek(date);
+            var PC = new System.Globalization.PersianCalendar();
+            var intYear = PC.GetYear(date);
+            var intMonth = PC.GetMonth(date);
+            var intDayOfMonth = PC.GetDayOfMonth(date);
+            var enDayOfWeek = PC.GetDayOfWeek(date);
             string strMonthName, strDayName;
             switch (intMonth)
             {
@@ -469,7 +469,7 @@ string personPlural = person.ToPlural;
         public static string ToPlural(this string singular)
         {
             // Multiple words in the form A of B : Apply the plural to the first word only (A)
-            int index = singular.LastIndexOf(" of ");
+            var index = singular.LastIndexOf(" of ");
             if (index > 0) return (singular.Substring(0, index)) + singular.Remove(0, index).ToPlural();
 
             // single Word rules
@@ -624,15 +624,15 @@ while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }
 
         public static List<T> EnumToList<T>()
         {
-            Type enumType = typeof(T);
+            var enumType = typeof(T);
 
             // Can't use type constraints on value types, so have to do check like this
             if (enumType.BaseType != typeof(Enum))
                 throw new ArgumentException("T must be of type System.Enum");
 
-            Array enumValArray = Enum.GetValues(enumType);
+            var enumValArray = Enum.GetValues(enumType);
 
-            List<T> enumValList = new List<T>(enumValArray.Length);
+            var enumValList = new List<T>(enumValArray.Length);
 
             foreach (int val in enumValArray)
             {
@@ -718,16 +718,16 @@ Console.WriteLine("MD5 Hash is: {0}.", file.GetMD5());
         /// <returns>lowercase MD5 hash value</returns>
         public static string GetMD5(this string filename)
         {
-            string result = string.Empty;
+            var result = string.Empty;
             string hashData;
 
             FileStream fileStream;
-            MD5CryptoServiceProvider md5Provider = new MD5CryptoServiceProvider();
+            var md5Provider = new MD5CryptoServiceProvider();
 
             try
             {
                 fileStream = GetFileStream(filename);
-                byte[] arrByteHashValue = md5Provider.ComputeHash(fileStream);
+                var arrByteHashValue = md5Provider.ComputeHash(fileStream);
                 fileStream.Close();
 
                 hashData = BitConverter.ToString(arrByteHashValue).Replace("-", "");
@@ -989,7 +989,7 @@ public class Example1
 
             if (memInfo != null && memInfo.Length > 0)
             {
-                object[] attrs = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                var attrs = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
 
                 if (attrs != null && attrs.Length > 0)
                     return ((DescriptionAttribute) attrs[0]).Description;
@@ -1041,9 +1041,9 @@ public class Example1
 
         public static IEnumerable<string> CSVSplit(this string s)
         {
-            CSVSplitState state = CSVSplitState.Normal;
-            StringBuilder token = new StringBuilder();
-            foreach (char c in s)
+            var state = CSVSplitState.Normal;
+            var token = new StringBuilder();
+            foreach (var c in s)
             {
                 switch (state)
                 {
@@ -1097,7 +1097,7 @@ public class Example1
 
         public static MemoryStream ToMemoryStream(this Byte[] buffer)
         {
-            MemoryStream ms = new MemoryStream(buffer);
+            var ms = new MemoryStream(buffer);
             ms.Position = 0;
             return ms;
         }
@@ -1122,22 +1122,22 @@ dtResults = result.ToDataTable();
 
         public static DataTable ToDataTable<T>(this IEnumerable<T> varlist)
         {
-            DataTable dtReturn = new DataTable();
+            var dtReturn = new DataTable();
 
             // column names 
             PropertyInfo[] oProps = null;
 
             if (varlist == null) return dtReturn;
 
-            foreach (T rec in varlist)
+            foreach (var rec in varlist)
             {
                 // Use reflection to get property names, to create table, Only first time, others will follow 
                 if (oProps == null)
                 {
                     oProps = ((Type) rec.GetType()).GetProperties();
-                    foreach (PropertyInfo pi in oProps)
+                    foreach (var pi in oProps)
                     {
-                        Type colType = pi.PropertyType;
+                        var colType = pi.PropertyType;
 
                         if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
                         {
@@ -1148,9 +1148,9 @@ dtResults = result.ToDataTable();
                     }
                 }
 
-                DataRow dr = dtReturn.NewRow();
+                var dr = dtReturn.NewRow();
 
-                foreach (PropertyInfo pi in oProps)
+                foreach (var pi in oProps)
                 {
                     dr[pi.Name] = pi.GetValue(rec, null) == null
                         ? DBNull.Value
@@ -1216,11 +1216,11 @@ tbl1 = tbl1.Dedup("ColName");
 
         public static DataTable Dedup(this DataTable tblIn, string KeyColName)
         {
-            DataTable tblOut = tblIn.Clone();
+            var tblOut = tblIn.Clone();
             foreach (DataRow row in tblIn.Rows)
             {
-                bool found = false;
-                string caseIDToTest = row[KeyColName].ToString();
+                var found = false;
+                var caseIDToTest = row[KeyColName].ToString();
                 foreach (DataRow row2 in tblOut.Rows)
                 {
                     if (row2[KeyColName].ToString() == caseIDToTest)
@@ -1258,9 +1258,9 @@ var mergedColors = reds.Zip( greens, blues, Color.FromRgb );
         {
             Contract.Requires(first != null && second != null && third != null && resultSelector != null);
 
-            using (IEnumerator<TFirst> iterator1 = first.GetEnumerator())
-            using (IEnumerator<TSecond> iterator2 = second.GetEnumerator())
-            using (IEnumerator<TThird> iterator3 = third.GetEnumerator())
+            using (var iterator1 = first.GetEnumerator())
+            using (var iterator2 = second.GetEnumerator())
+            using (var iterator3 = third.GetEnumerator())
             {
                 while (iterator1.MoveNext() && iterator2.MoveNext() && iterator3.MoveNext())
                 {
@@ -1340,7 +1340,7 @@ s = s.Strip('a', 'e'); // s becomes "bcd"
         /// <returns></returns>
         public static string Strip(this string s, params char[] chars)
         {
-            foreach (char c in chars)
+            foreach (var c in chars)
             {
                 s = s.Replace(c.ToString(), "");
             }
@@ -1383,7 +1383,7 @@ Console.WriteLine(l.LastIndex(n => n == 2));  // 3
 
         public static int FirstIndex<T>(this IEnumerable<T> list, Func<T, bool> predicate)
         {
-            int index = 0;
+            var index = 0;
             foreach (var item in list)
             {
                 if (predicate(item))
@@ -1397,7 +1397,7 @@ Console.WriteLine(l.LastIndex(n => n == 2));  // 3
 
         public static int LastIndex<T>(this IEnumerable<T> list, Func<T, bool> predicate)
         {
-            int index = 0;
+            var index = 0;
             foreach (var item in list.Reverse())
             {
                 if (predicate(item))
@@ -1428,7 +1428,7 @@ bool b = s.IsStrongPassword();
 
         public static bool IsStrongPassword(this string s)
         {
-            bool isStrong = Regex.IsMatch(s, @"[\d]");
+            var isStrong = Regex.IsMatch(s, @"[\d]");
             if (isStrong) isStrong = Regex.IsMatch(s, @"[a-z]");
             if (isStrong) isStrong = Regex.IsMatch(s, @"[A-Z]");
             if (isStrong) isStrong = Regex.IsMatch(s, @"[\s~!@#\$%\^&\*\(\)\{\}\|\[\]\\:;'?,.`+=<>\/]");
@@ -1454,13 +1454,13 @@ bool b = s.IsStrongPassword();
             {
                 return null;
             }
-            int newWidth = (img.Width * height) / (img.Height);
-            int newHeight = (img.Height * width) / (img.Width);
-            int x = 0;
-            int y = 0;
+            var newWidth = (img.Width * height) / (img.Height);
+            var newHeight = (img.Height * width) / (img.Width);
+            var x = 0;
+            var y = 0;
 
-            Bitmap bmp = new Bitmap(width, height);
-            Graphics g = Graphics.FromImage(bmp);
+            var bmp = new Bitmap(width, height);
+            var g = Graphics.FromImage(bmp);
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
 
             // use this when debugging.
@@ -1508,8 +1508,8 @@ double d = "10+10*4".Calculate();
         {
             Func<string, bool> VerifyAllowed = e1 =>
             {
-                string allowed = "0123456789+-*/()%.,";
-                for (int i = 0; i < e1.Length; i++)
+                var allowed = "0123456789+-*/()%.,";
+                for (var i = 0; i < e1.Length; i++)
                 {
                     if (allowed.IndexOf("" + e1[i]) == -1)
                     {
@@ -1531,7 +1531,7 @@ double d = "10+10*4".Calculate();
             {
                 e = "0" + e;
             }
-            string res = "";
+            var res = "";
             try
             {
                 res = Calculate(e).ToString();
@@ -1555,18 +1555,18 @@ double d = "10+10*4".Calculate();
             e = e.Replace(".", ",");
             if (e.IndexOf("(") != -1)
             {
-                int a = e.LastIndexOf("(");
-                int b = e.IndexOf(")", a);
-                double middle = Calculate(e.Substring(a + 1, b - a - 1));
+                var a = e.LastIndexOf("(");
+                var b = e.IndexOf(")", a);
+                var middle = Calculate(e.Substring(a + 1, b - a - 1));
                 return Calculate(e.Substring(0, a) + middle.ToString() + e.Substring(b + 1));
             }
             double result = 0;
-            string[] plus = e.Split('+');
+            var plus = e.Split('+');
             if (plus.Length > 1)
             {
                 // there were some +
                 result = Calculate(plus[0]);
-                for (int i = 1; i < plus.Length; i++)
+                for (var i = 1; i < plus.Length; i++)
                 {
                     result += Calculate(plus[i]);
                 }
@@ -1575,12 +1575,12 @@ double d = "10+10*4".Calculate();
             else
             {
                 // no +
-                string[] minus = plus[0].Split('-');
+                var minus = plus[0].Split('-');
                 if (minus.Length > 1)
                 {
                     // there were some -
                     result = Calculate(minus[0]);
-                    for (int i = 1; i < minus.Length; i++)
+                    for (var i = 1; i < minus.Length; i++)
                     {
                         result -= Calculate(minus[i]);
                     }
@@ -1589,12 +1589,12 @@ double d = "10+10*4".Calculate();
                 else
                 {
                     // no -
-                    string[] mult = minus[0].Split('*');
+                    var mult = minus[0].Split('*');
                     if (mult.Length > 1)
                     {
                         // there were some *
                         result = Calculate(mult[0]);
-                        for (int i = 1; i < mult.Length; i++)
+                        for (var i = 1; i < mult.Length; i++)
                         {
                             result *= Calculate(mult[i]);
                         }
@@ -1603,12 +1603,12 @@ double d = "10+10*4".Calculate();
                     else
                     {
                         // no *
-                        string[] div = mult[0].Split('/');
+                        var div = mult[0].Split('/');
                         if (div.Length > 1)
                         {
                             // there were some /
                             result = Calculate(div[0]);
-                            for (int i = 1; i < div.Length; i++)
+                            for (var i = 1; i < div.Length; i++)
                             {
                                 result /= Calculate(div[i]);
                             }
@@ -1617,12 +1617,12 @@ double d = "10+10*4".Calculate();
                         else
                         {
                             // no /
-                            string[] mod = mult[0].Split('%');
+                            var mod = mult[0].Split('%');
                             if (mod.Length > 1)
                             {
                                 // there were some %
                                 result = Calculate(mod[0]);
-                                for (int i = 1; i < mod.Length; i++)
+                                for (var i = 1; i < mod.Length; i++)
                                 {
                                     result %= Calculate(mod[i]);
                                 }
@@ -1662,13 +1662,13 @@ double d = "10+10*4".Calculate();
         {
             if (item != null)
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                MemoryStream stream = new MemoryStream();
+                var formatter = new BinaryFormatter();
+                var stream = new MemoryStream();
 
                 formatter.Serialize(stream, item);
                 stream.Seek(0, SeekOrigin.Begin);
 
-                T result = (T) formatter.Deserialize(stream);
+                var result = (T) formatter.Deserialize(stream);
 
                 stream.Close();
 
@@ -1728,7 +1728,7 @@ Console.WriteLine(dt.ToFriendlyDateString());
 
         public static string ToFriendlyDateString(this DateTime Date)
         {
-            string FormattedDate = "";
+            var FormattedDate = "";
             if (Date.Date == DateTime.Today)
             {
                 FormattedDate = "Today";
@@ -1833,8 +1833,8 @@ Console.Write("test".In("tes", "ew")); // - false
 
         public static bool In(this string Value, params string[] ValuesToCompare)
         {
-            bool IsIn = false;
-            foreach (string ValueToCompare in ValuesToCompare)
+            var IsIn = false;
+            foreach (var ValueToCompare in ValuesToCompare)
             {
                 if (Value == ValueToCompare)
                 {
@@ -2072,7 +2072,7 @@ Console.WriteLine(dtStart.Elapsed().TotalMilliseconds);
             protected override void OnLoad(System.EventArgs e)
             {
                 base.OnLoad(e);
-                for (int i = 0; i < _dataGridView.Columns.Count; i++)
+                for (var i = 0; i < _dataGridView.Columns.Count; i++)
                 {
                     lstColumns.Items.Add(_dataGridView.Columns[i].HeaderText, _dataGridView.Columns[i].Visible);
                 }
@@ -2223,7 +2223,7 @@ o.ToNull();
         /// <returns>A reference to the changed array.</returns>
         public static T[] SetAllValues<T>(this T[] array, T value)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 array[i] = value;
             }
@@ -2249,11 +2249,11 @@ o.ToNull();
         /// <returns>The specified date formatted as a RFC822 date string.</returns>
         public static string ToRFC822DateString(this DateTime date)
         {
-            int offset = TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).Hours;
-            string timeZone = "+" + offset.ToString().PadLeft(2, '0');
+            var offset = TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).Hours;
+            var timeZone = "+" + offset.ToString().PadLeft(2, '0');
             if (offset < 0)
             {
-                int i = offset * -1;
+                var i = offset * -1;
                 timeZone = "-" + i.ToString().PadLeft(2, '0');
             }
             return date.ToString("ddd, dd MMM yyyy HH:mm:ss " + timeZone.PadRight(5, '0'),
@@ -2342,7 +2342,7 @@ border: solid 1 black;}</style>";
                 }
             }
 
-            for (int i = 0; i < list.Count(); i++)
+            for (var i = 0; i < list.Count(); i++)
             {
                 if (!String.IsNullOrEmpty(rowStyle) && !String.IsNullOrEmpty(alternateRowStyle))
                 {
@@ -2355,7 +2355,7 @@ border: solid 1 black;}</style>";
 
                 foreach (var prop in propertyArray)
                 {
-                    object value = prop.GetValue(list.ElementAt(i), null);
+                    var value = prop.GetValue(list.ElementAt(i), null);
                     result.AppendFormat("<td>{0}</td>", value ?? String.Empty);
                 }
                 result.AppendLine("</tr>");
@@ -2407,9 +2407,9 @@ Console.WriteLine(dataTable1.EqualsByContent(dataTable2));
             }
 
             // Compare data in each cell of each row.
-            for (int i = 0; i < thisDataTable.Rows.Count; i++)
+            for (var i = 0; i < thisDataTable.Rows.Count; i++)
             {
-                for (int j = 0; j < thisDataTable.Columns.Count; j++)
+                for (var j = 0; j < thisDataTable.Columns.Count; j++)
                 {
                     if (!thisDataTable.Rows[i][j].Equals(otherDataTable.Rows[i][j]))
                     {
@@ -2460,8 +2460,8 @@ di.DeleteFiles("*.xml", true);  // Delete all, recursively
         /// </remarks>
         public static int DeleteFiles(this DirectoryInfo di, string searchPattern, bool includeSubdirs)
         {
-            int deleted = 0;
-            foreach (FileInfo fi in di.GetFiles(searchPattern,
+            var deleted = 0;
+            foreach (var fi in di.GetFiles(searchPattern,
                 includeSubdirs ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
             {
                 fi.Delete();
@@ -2493,18 +2493,18 @@ LayoutRoot.Background = new SolidColorBrush(c);
         public static Color ToColor(this string argb)
         {
             argb = argb.Replace("#", "");
-            byte a = System.Convert.ToByte("ff", 16);
+            var a = System.Convert.ToByte("ff", 16);
             byte pos = 0;
             if (argb.Length == 8)
             {
                 a = System.Convert.ToByte(argb.Substring(pos, 2), 16);
                 pos = 2;
             }
-            byte r = System.Convert.ToByte(argb.Substring(pos, 2), 16);
+            var r = System.Convert.ToByte(argb.Substring(pos, 2), 16);
             pos += 2;
-            byte g = System.Convert.ToByte(argb.Substring(pos, 2), 16);
+            var g = System.Convert.ToByte(argb.Substring(pos, 2), 16);
             pos += 2;
-            byte b = System.Convert.ToByte(argb.Substring(pos, 2), 16);
+            var b = System.Convert.ToByte(argb.Substring(pos, 2), 16);
             return Color.FromArgb(a, r, g, b);
         }
 
@@ -2559,7 +2559,7 @@ var getEnumValue="Animal".ToEnum<Animal>(Animal.Unknown);
         /// <returns>Returns true if the column exists in the DataReader, else returns false</returns>
         public static Boolean ColumnExists(this IDataReader dr, String ColumnName)
         {
-            for (Int32 i = 0; i < dr.FieldCount; i++)
+            for (var i = 0; i < dr.FieldCount; i++)
                 if (dr.GetName(i).Equals(ColumnName, StringComparison.OrdinalIgnoreCase))
                     return true;
 
@@ -2663,7 +2663,7 @@ s = pi.ToString("0.00");  //s = 3.14
             while (startDate.DayOfWeek.IsWeekend())
                 startDate = startDate.AddDays(1.0);
 
-            for (int i = 0; i < days; ++i)
+            for (var i = 0; i < days; ++i)
             {
                 startDate = startDate.AddDays(1.0);
 
@@ -2716,8 +2716,8 @@ if(myReallyNiceString.IsNullOrEmpty()){
         /// <returns></returns>
         public static string GetParentDirectoryPath(this string folderPath, int levels)
         {
-            string result = folderPath;
-            for (int i = 0; i < levels; i++)
+            var result = folderPath;
+            for (var i = 0; i < levels; i++)
             {
                 if (Directory.GetParent(result) != null)
                 {
@@ -2766,7 +2766,7 @@ Console.WriteLine(example.RoundToNearest(TimeSpan.FromMinutes(15)));
 
         public static TimeSpan RoundToNearest(this TimeSpan a, TimeSpan roundTo)
         {
-            long ticks = (long) (Math.Round(a.Ticks / (double) roundTo.Ticks) * roundTo.Ticks);
+            var ticks = (long) (Math.Round(a.Ticks / (double) roundTo.Ticks) * roundTo.Ticks);
             return new TimeSpan(ticks);
         }
 
@@ -2976,8 +2976,8 @@ var para = age.To<DateTime>();
         {
             try
             {
-                Type t = typeof(T);
-                Type u = Nullable.GetUnderlyingType(t);
+                var t = typeof(T);
+                var u = Nullable.GetUnderlyingType(t);
 
                 if (u != null)
                 {
@@ -3005,8 +3005,8 @@ var para = age.To<DateTime>();
         {
             try
             {
-                Type t = typeof(T);
-                Type u = Nullable.GetUnderlyingType(t);
+                var t = typeof(T);
+                var u = Nullable.GetUnderlyingType(t);
 
                 if (u != null)
                 {
@@ -3090,7 +3090,7 @@ MessageBox.Show(hash);
 
         private static byte[] GetHash(string input, eHashType hash)
         {
-            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            var inputBytes = Encoding.ASCII.GetBytes(input);
 
             switch (hash)
             {
@@ -3148,10 +3148,10 @@ MessageBox.Show(hash);
         {
             try
             {
-                byte[] hash = GetHash(input, hashType);
-                StringBuilder ret = new StringBuilder();
+                var hash = GetHash(input, hashType);
+                var ret = new StringBuilder();
 
-                for (int i = 0; i < hash.Length; i++)
+                for (var i = 0; i < hash.Length; i++)
                     ret.Append(hash[i].ToString("x2"));
 
                 return ret.ToString();
@@ -3278,7 +3278,7 @@ ddl.Items.Add(new string[] { "Apple", "orange", "Pair" });
 
         public static void Add(this ListItemCollection col, string[] array)
         {
-            foreach (string s in array)
+            foreach (var s in array)
             {
                 col.Add(s);
             }
@@ -3302,7 +3302,7 @@ Console.WriteLine(animalQuantities["cat"]); // 2
 
         public static void IncrementAt<T>(this Dictionary<T, int> dictionary, T index)
         {
-            int count = 0;
+            var count = 0;
 
             dictionary.TryGetValue(index, out count);
 
@@ -3362,7 +3362,7 @@ Console.WriteLine(animalQuantities["cat"]); // 2
                     }
                     var rect = bmpTouple.Item1;
                     var bmp = bmpTouple.Item2;
-                    using (Graphics gr = Graphics.FromImage(bmp))
+                    using (var gr = Graphics.FromImage(bmp))
                     {
                         gr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                         gr.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
@@ -3407,7 +3407,7 @@ int second = i.IndexOf(0,1);
         {
             if (start >= obj.Count()) return -1;
             if (start < 0) throw new IndexOutOfRangeException("start must be a non-negative integer");
-            for (int i = start; i < obj.Count(); ++i)
+            for (var i = start; i < obj.Count(); ++i)
             {
                 if (value.Equals(obj.ElementAt(i))) return i;
             }
@@ -3467,11 +3467,11 @@ long WindowsSize = WindowsDir.GetSize();
             long length = 0;
 
             // Loop through files and keep adding their size
-            foreach (FileInfo nextfile in dir.GetFiles())
+            foreach (var nextfile in dir.GetFiles())
                 length += nextfile.Exists ? nextfile.Length : 0;
 
             // Loop through subdirectories and keep adding their size
-            foreach (DirectoryInfo nextdir in dir.GetDirectories())
+            foreach (var nextdir in dir.GetDirectories())
                 length += nextdir.Exists ? nextdir.GetSize() : 0;
 
             return length;
@@ -3497,8 +3497,8 @@ System.Security.SecureString secure = password.ToSecureString();
         /// <returns></returns>
         public static System.Security.SecureString ToSecureString(this String str)
         {
-            System.Security.SecureString secureString = new System.Security.SecureString();
-            foreach (Char c in str)
+            var secureString = new System.Security.SecureString();
+            foreach (var c in str)
                 secureString.AppendChar(c);
 
             return secureString;
@@ -3521,14 +3521,14 @@ System.Security.SecureString secure = password.ToSecureString();
         {
             try
             {
-                string url = p.Request.Url.Scheme + "://" + p.Request.Url.Authority +
+                var url = p.Request.Url.Scheme + "://" + p.Request.Url.Authority +
                              "/_layouts/Authenticate.aspx?Source=" + p.Request.Url.LocalPath;
-                string Tag_A = "<a href=\"" + url + "\" title=\"" + title + "\">" + InnerText + "</a>";
+                var Tag_A = "<a href=\"" + url + "\" title=\"" + title + "\">" + InnerText + "</a>";
                 return Tag_A;
             }
             catch
             {
-                string Tag_A = "<a href=\"#ERROR\" title=\"" + title + "\">" + InnerText + "</a>";
+                var Tag_A = "<a href=\"#ERROR\" title=\"" + title + "\">" + InnerText + "</a>";
 
                 return Tag_A;
             }
@@ -3568,9 +3568,9 @@ bool contains = title.Contains("string", StringComparison.OrdinalIgnoreCase);
         {
             if (String.IsNullOrEmpty(str)) return "";
             // Unicode Character Handling: http://blogs.msdn.com/b/michkap/archive/2007/05/14/2629747.aspx
-            string stFormD = str.Trim().ToLowerInvariant().Normalize(NormalizationForm.FormD);
+            var stFormD = str.Trim().ToLowerInvariant().Normalize(NormalizationForm.FormD);
             var sb = new StringBuilder();
-            foreach (char t in
+            foreach (var t in
                 from t in stFormD
                 let uc = CharUnicodeInfo.GetUnicodeCategory(t)
                 where uc != UnicodeCategory.NonSpacingMark
@@ -3621,8 +3621,8 @@ Console.ReadLine();
         public static List<string> SplitIntoParts(this string input, int partLength)
         {
             var result = new List<string>();
-            int partIndex = 0;
-            int length = input.Length;
+            var partIndex = 0;
+            var length = input.Length;
             while (length > 0)
             {
                 var tempPartLength = length >= partLength ? partLength : length;
@@ -3676,9 +3676,9 @@ string[] strings = integers.Convert(i => i.ToString());
                 return null;
             }
 
-            List<TDestination> items = new List<TDestination>();
+            var items = new List<TDestination>();
 
-            foreach (TSource item in enumerable)
+            foreach (var item in enumerable)
             {
                 items.Add(converter(item));
             }
@@ -3723,7 +3723,7 @@ var pipeLine = obj.ToPipeDelimitedString();
 
             var builder = new StringBuilder();
             var props = obj.GetType().GetProperties();
-            for (int p = 0; p < props.Length; p++)
+            for (var p = 0; p < props.Length; p++)
                 builder.Append(func(obj, props[p]) + delimiter.ToString());
 
             //Remove the last character, the last delimiter

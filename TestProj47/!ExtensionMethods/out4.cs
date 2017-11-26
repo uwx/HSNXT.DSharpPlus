@@ -101,10 +101,10 @@ var myItems = from i in array.ToList<MyType>( o => { return (MyType)o; }) select
             if (items == null || mapFunction == null)
                 return new List<T>();
 
-            List<T> coll = new List<T>();
-            for (int i = 0; i < items.Length; i++)
+            var coll = new List<T>();
+            for (var i = 0; i < items.Length; i++)
             {
-                T val = mapFunction(items.GetValue(i));
+                var val = mapFunction(items.GetValue(i));
                 if (val != null)
                     coll.Add(val);
             }
@@ -207,7 +207,7 @@ noOfRows.Times(rowNo => {
 
         public static void Times(this int repeatCount, Action<int> action)
         {
-            for (int i = 1; i <= repeatCount; i++)
+            for (var i = 1; i <= repeatCount; i++)
             {
                 action(i);
             }
@@ -250,7 +250,7 @@ noOfRows.Times(rowNo => {
 
         public static System.IO.MemoryStream ToStream(this string Source)
         {
-            byte[] Bytes = System.Text.Encoding.ASCII.GetBytes(Source);
+            var Bytes = System.Text.Encoding.ASCII.GetBytes(Source);
             return new System.IO.MemoryStream(Bytes);
         }
 
@@ -274,7 +274,7 @@ byte[] imageBytes = image.ToBytes(ImageFormat.Png);
             if (format == null)
                 throw new ArgumentNullException("format");
 
-            using (MemoryStream stream = new MemoryStream())
+            using (var stream = new MemoryStream())
             {
                 image.Save(stream, format);
                 return stream.ToArray();
@@ -431,10 +431,10 @@ new List<object>().IsSingle(); // returns false
 
         public static void ShowWebPage(this string pAddress)
         {
-            ProcessStartInfo procFormsBuilderStartInfo = new ProcessStartInfo();
+            var procFormsBuilderStartInfo = new ProcessStartInfo();
             procFormsBuilderStartInfo.FileName = pAddress;
             procFormsBuilderStartInfo.WindowStyle = ProcessWindowStyle.Maximized;
-            Process procFormsBuilder = new Process();
+            var procFormsBuilder = new Process();
             procFormsBuilder.StartInfo = procFormsBuilderStartInfo;
             procFormsBuilder.Start();
         }
@@ -477,7 +477,7 @@ new List<object>().IsSingle(); // returns false
 
         public static bool IsDerived<T>(this Type type)
         {
-            Type baseType = typeof(T);
+            var baseType = typeof(T);
 
             if (baseType.FullName == type.FullName)
             {
@@ -501,8 +501,8 @@ new List<object>().IsSingle(); // returns false
 
         public static bool IsImplemented(Type type, Type baseType)
         {
-            Type[] faces = type.GetInterfaces();
-            foreach (Type face in faces)
+            var faces = type.GetInterfaces();
+            foreach (var face in faces)
             {
                 if (baseType.Name.Equals(face.Name))
                 {
@@ -832,7 +832,7 @@ else if (response.StatusCode == HttpStatusCode.NotFound)
             }
             catch (WebException ex)
             {
-                HttpWebResponse response = ex.Response as HttpWebResponse;
+                var response = ex.Response as HttpWebResponse;
                 if (response == null)
                 {
                     throw;
@@ -883,7 +883,7 @@ var thisDoesntThrow = thisActionThrows.AsDoesntThrow<NullReferenceException>();
 
         public static string LengthOfTime(this DateTime date)
         {
-            TimeSpan lengthOfTime = DateTime.Now.Subtract(date);
+            var lengthOfTime = DateTime.Now.Subtract(date);
             if (lengthOfTime.Minutes == 0)
                 return lengthOfTime.Seconds.ToString() + "s";
             else if (lengthOfTime.Hours == 0)
@@ -1068,10 +1068,10 @@ Console.WriteLine("New Text: {0}", newText.Truncate(40));
         {
             // replaces the truncated string to a ...
             const string suffix = "...";
-            string truncatedString = text;
+            var truncatedString = text;
 
             if (maxLength <= 0) return truncatedString;
-            int strLength = maxLength - suffix.Length;
+            var strLength = maxLength - suffix.Length;
 
             if (strLength <= 0) return truncatedString;
 
@@ -1130,15 +1130,15 @@ path.DeleteFiles("cs"); // Deletes all files with a CS extension
  */
         public static void DeleteFiles(this string folderPath, string ext)
         {
-            string mask = "*." + ext;
+            var mask = "*." + ext;
 
             try
             {
-                string[] fileList = Directory.GetFiles(folderPath, mask);
+                var fileList = Directory.GetFiles(folderPath, mask);
 
-                foreach (string file in fileList)
+                foreach (var file in fileList)
                 {
-                    FileInfo fileInfo = new FileInfo(file);
+                    var fileInfo = new FileInfo(file);
                     fileInfo.Delete();
                 }
             }
@@ -1183,8 +1183,8 @@ if(foo.IsNull())
 
         public static void DoubleBuffered<T>(this T obj, bool isDoubleBuffered)
         {
-            Type dgvType = obj.GetType();
-            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+            var dgvType = obj.GetType();
+            var pi = dgvType.GetProperty("DoubleBuffered",
                 BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.SetProperty);
             pi.SetValue(obj, isDoubleBuffered, null);
         }
@@ -1233,7 +1233,7 @@ int[] arr = num.ToArray();
                 number = -1 * number;
             }
 
-            List<int> list = new List<int>();
+            var list = new List<int>();
             while (number > 0)
             {
                 list.Add(number % 10);
@@ -1308,8 +1308,8 @@ Console.WriteLine(ir.Length()); //will write 5
             else
                 ratio = ratioHeight;
 
-            int targetWidth = (int) (image.Width * ratio);
-            int targetHeight = (int) (image.Height * ratio);
+            var targetWidth = (int) (image.Width * ratio);
+            var targetHeight = (int) (image.Height * ratio);
 
             var bitmap = new Bitmap(newSize.Width, newSize.Height);
             var graphics = Graphics.FromImage((System.Drawing.Image) bitmap);
@@ -1542,7 +1542,7 @@ queue.EnqueueAll(new string[]{"A", "B", "C"});
 
         public static string TrimDuplicates(this string input, TrimType trimType)
         {
-            string result = string.Empty;
+            var result = string.Empty;
 
             switch (trimType)
             {
@@ -1564,7 +1564,7 @@ queue.EnqueueAll(new string[]{"A", "B", "C"});
 
         private static string TrimCharacter(this string input, char character)
         {
-            string result = string.Empty;
+            var result = string.Empty;
 
             result = string.Join(character.ToString(), input.Split(character)
                 .Where(str => str != string.Empty)
@@ -1621,9 +1621,9 @@ gets:
             {
                 yield break;
             }
-            Queue<T> items = new Queue<T>();
+            var items = new Queue<T>();
             items.Enqueue(source.First());
-            foreach (T item in source.Skip(1))
+            foreach (var item in source.Skip(1))
             {
                 yield return items.Dequeue();
                 items.Enqueue(item);
@@ -1723,7 +1723,7 @@ if(value.ContainsAny(values))
             this string value,
             params string[] values)
         {
-            foreach (string one in values)
+            foreach (var one in values)
             {
                 if (value.Contains(one))
                 {
@@ -1818,7 +1818,7 @@ string unzipstring = zipstring.DecompressString();
 
         public static string CompressString(this string text)
         {
-            byte[] buffer = Encoding.UTF8.GetBytes(text);
+            var buffer = Encoding.UTF8.GetBytes(text);
             var memoryStream = new MemoryStream();
             using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Compress, true))
             {
@@ -1838,10 +1838,10 @@ string unzipstring = zipstring.DecompressString();
 
         public static string DecompressString(string compressedText)
         {
-            byte[] gZipBuffer = System.Convert.FromBase64String(compressedText);
+            var gZipBuffer = System.Convert.FromBase64String(compressedText);
             using (var memoryStream = new MemoryStream())
             {
-                int dataLength = BitConverter.ToInt32(gZipBuffer, 0);
+                var dataLength = BitConverter.ToInt32(gZipBuffer, 0);
                 memoryStream.Write(gZipBuffer, 4, gZipBuffer.Length - 4);
 
                 var buffer = new byte[dataLength];
@@ -1877,8 +1877,8 @@ string unzipstring = zipstring.DecompressString();
 
         public static string ToString(this object obj, NullOptions nullOption)
         {
-            bool isDbNull = false;
-            bool isNull = false;
+            var isDbNull = false;
+            var isNull = false;
 
             if (obj.GetType() == typeof(DBNull))
                 isDbNull = true;
@@ -1993,7 +1993,7 @@ dataSetName.Tables[0].RenameColumn("Column3", "RegistrationDate");
         {
             if (dt != null && !string.IsNullOrEmpty(oldName) && !string.IsNullOrEmpty(newName) && oldName != newName)
             {
-                int idx = dt.Columns.IndexOf(oldName);
+                var idx = dt.Columns.IndexOf(oldName);
                 dt.Columns[idx].ColumnName = newName;
                 dt.AcceptChanges();
             }
@@ -2046,8 +2046,8 @@ originalLinks.UpdateCollection(links);
                 throw new InvalidOperationException("Cannot update a read-only collection.");
             }
 
-            Collection<T> oldItems = new Collection<T>();
-            Collection<T> newItems = new Collection<T>();
+            var oldItems = new Collection<T>();
+            var newItems = new Collection<T>();
 
             foreach (var originalItem in originalCollection)
             {
@@ -2162,7 +2162,7 @@ bool isValid = codeMelli.IsValidCodeMelli();
             {
                 temp = System.Convert.ToInt16(number % 10);
                 number /= 10;
-                for (int i = 2; i < 11; i++)
+                for (var i = 2; i < 11; i++)
                 {
                     sum += System.Convert.ToInt16(i * (number % 10));
                     number /= 10;
@@ -2198,9 +2198,9 @@ t.SetSocketKeepAliveValues(300000, 1000);
             //KeepAliveInterval: default value is 1s and Detect 5 times
 
             uint dummy = 0; //lenth = 4
-            byte[] inOptionValues =
+            var inOptionValues =
                 new byte[System.Runtime.InteropServices.Marshal.SizeOf(dummy) * 3]; //size = lenth * 3 = 12
-            bool OnOff = true;
+            var OnOff = true;
 
             BitConverter.GetBytes((uint) (OnOff ? 1 : 0)).CopyTo(inOptionValues, 0);
             BitConverter.GetBytes((uint) KeepAliveTime).CopyTo(inOptionValues, Marshal.SizeOf(dummy));
@@ -2231,8 +2231,8 @@ string path = someIEnumerableString.PathCombine();
 
         public static string PathCombine(this IEnumerable<string> pathParts)
         {
-            string joinedPath = "";
-            foreach (string pathPart in pathParts)
+            var joinedPath = "";
+            foreach (var pathPart in pathParts)
                 joinedPath = Path.Combine(joinedPath, pathPart);
 
             return joinedPath;
@@ -2259,7 +2259,7 @@ string testString = test.ToSpecificCurrencyString("en-US");
         /// <returns>The double formatted based on specific culture currency settings.</returns>
         public static string ToSpecificCurrencyString(this double value, string cultureName)
         {
-            CultureInfo currentCulture = new CultureInfo(cultureName);
+            var currentCulture = new CultureInfo(cultureName);
             return (string.Format(currentCulture, "{0:C}", value));
         }
 
@@ -2286,11 +2286,11 @@ seq2.RandomElements().ToList().ForEach(Console.WriteLine);
             if (count > collection.Count() || count <= 0)
                 count = collection.Count();
 
-            List<int> usedIndices = new List<int>();
-            Random random = new Random((int) DateTime.Now.Ticks);
+            var usedIndices = new List<int>();
+            var random = new Random((int) DateTime.Now.Ticks);
             while (count > 0)
             {
-                int index = random.Next(collection.Count());
+                var index = random.Next(collection.Count());
                 if (!usedIndices.Contains(index))
                 {
                     yield return collection.ElementAt(index);
@@ -2462,13 +2462,13 @@ DateTime? ddn = sample.Parse<DateTime?>(); // returns null
         {
             // Get default value for type so if string
             // is empty then we can return default value.
-            T result = default(T);
+            var result = default(T);
             if (!string.IsNullOrEmpty(value))
             {
                 // we are not going to handle exception here
                 // if you need SafeParse then you should create
                 // another method specially for that.
-                TypeConverter tc = TypeDescriptor.GetConverter(typeof(T));
+                var tc = TypeDescriptor.GetConverter(typeof(T));
                 result = (T) tc.ConvertFrom(value);
             }
             return result;
@@ -2513,13 +2513,13 @@ File.Move(fileToMove, newLocation.EnsureFileNameIsUnique());
         {
             if (!File.Exists(intendedName)) return intendedName;
 
-            FileInfo file = new FileInfo(intendedName);
-            string extension = file.Extension;
-            string basePath = intendedName.Substring(0, intendedName.Length - extension.Length);
+            var file = new FileInfo(intendedName);
+            var extension = file.Extension;
+            var basePath = intendedName.Substring(0, intendedName.Length - extension.Length);
 
-            int counter = 1;
+            var counter = 1;
 
-            string newPath = "";
+            var newPath = "";
 
             do
             {
@@ -2553,14 +2553,14 @@ intList.Randomize(); // this will randomize the items in the list
 
         public static void Randomize<t>(this IList<t> target)
         {
-            Random RndNumberGenerator = new Random();
-            SortedList<int, t> newList = new SortedList<int, t>();
-            foreach (t item in target)
+            var RndNumberGenerator = new Random();
+            var newList = new SortedList<int, t>();
+            foreach (var item in target)
             {
                 newList.Add(RndNumberGenerator.Next(), item);
             }
             target.Clear();
-            for (int i = 0; i < newList.Count; i++)
+            for (var i = 0; i < newList.Count; i++)
             {
                 target.Add(newList.Values[i]);
             }
@@ -2648,7 +2648,7 @@ Console.WriteLine("Size of {0} is {1}", path, size);
         public static string ToXML(this string json)
         {
             // To convert JSON text contained in string json into an XML node
-            XmlDocument doc = JsonConvert.DeserializeXmlNode(json);
+            var doc = JsonConvert.DeserializeXmlNode(json);
             return doc.ToString();
         }
     }

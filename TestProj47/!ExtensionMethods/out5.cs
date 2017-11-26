@@ -116,11 +116,11 @@ PersonGridView.DataSource = persons.OrderBy(descending, p => p.Age, p => p.Name,
                 return null;
             }
 
-            IEnumerable<TSource> current = enumerable;
+            var current = enumerable;
 
             if (keySelectors != null)
             {
-                for (int i = keySelectors.Length - 1; i >= 0; i--)
+                for (var i = keySelectors.Length - 1; i >= 0; i--)
                 {
                     current = current.OrderBy(keySelectors[i]);
                 }
@@ -139,11 +139,11 @@ PersonGridView.DataSource = persons.OrderBy(descending, p => p.Age, p => p.Name,
                 return null;
             }
 
-            IEnumerable<TSource> current = enumerable;
+            var current = enumerable;
 
             if (keySelectors != null)
             {
-                for (int i = keySelectors.Length - 1; i >= 0; i--)
+                for (var i = keySelectors.Length - 1; i >= 0; i--)
                 {
                     current = current.OrderBy(keySelectors[i], descending);
                 }
@@ -474,7 +474,7 @@ sb.Clear();
                 if (input.Count == 1)
                     return input[0];
 
-                int n = _rand.Next(input.Count + 1);
+                var n = _rand.Next(input.Count + 1);
 
                 return input[n];
             }
@@ -628,7 +628,7 @@ string firstThree = "Awesome".TakeFirst(3);
         /// <param name="bufferSize">Size of the buffer.</param>
         public static void WriteTo(this Stream sourceStream, Stream stream, int bufferSize)
         {
-            byte[] buffer = new byte[bufferSize];
+            var buffer = new byte[bufferSize];
             int n;
             while ((n = sourceStream.Read(buffer, 0, buffer.Length)) != 0)
                 stream.Write(buffer, 0, n);
@@ -705,9 +705,9 @@ var teams =
             if (s.IndexOfAny(" ,\n".ToCharArray()) < 0 && s.Trim() == s)
                 return s;
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append('"');
-            foreach (char c in s)
+            foreach (var c in s)
             {
                 sb.Append(c);
                 if (c == '"')
@@ -779,8 +779,8 @@ Debug.WriteLine("That just took {0}", stopwatch.Elapsed.ToHumanTimeString());
         {
             if (!string.IsNullOrEmpty(input))
             {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 1; i <= number; i++)
+                var sb = new StringBuilder();
+                for (var i = 1; i <= number; i++)
                 {
                     sb.AppendFormat("{0}{1}", input, RepeatChar);
                 }
@@ -836,7 +836,7 @@ Debug.WriteLine("That just took {0}", stopwatch.Elapsed.ToHumanTimeString());
 
         public static IEnumerable<char> To(this char first, char last)
         {
-            bool reverseRequired = (first > last);
+            var reverseRequired = (first > last);
 
             if (reverseRequired)
                 Swap(ref first, ref last);
@@ -894,7 +894,7 @@ Debug.WriteLine("That just took {0}", stopwatch.Elapsed.ToHumanTimeString());
         /// <returns>The right part of the string after the character c, or the string itself when c isn't found.</returns>
         public static string RightOf(this string s, char c)
         {
-            int ndx = s.IndexOf(c);
+            var ndx = s.IndexOf(c);
             if (ndx == -1)
                 return s;
             return s.Substring(ndx + 1);
@@ -945,7 +945,7 @@ Console.WriteLine(result);
         {
             //Set table name in case it is not set
             tblIn.TableName = outputName;
-            string fileName = @"C:\OutDir\" + outputName + ".xsd";
+            var fileName = @"C:\OutDir\" + outputName + ".xsd";
             tblIn.WriteXmlSchema(fileName, true);
         }
 
@@ -971,7 +971,7 @@ int b = a.MultiplyBy(a);
             Int32 otherNumber)
 
         {
-            long result = (long) thisNumber * (long) otherNumber;
+            var result = (long) thisNumber * (long) otherNumber;
 
             if (result > (long) System.Math.Pow(2, 31) - 1)
 
@@ -1001,7 +1001,7 @@ int[] a = "Some primes: 2, 5, 11, and 17".ExtractInts();
 
         public static T[] REExtract<T>(this string s, string regex)
         {
-            TypeConverter tc = TypeDescriptor.GetConverter(typeof(T));
+            var tc = TypeDescriptor.GetConverter(typeof(T));
             if (!tc.CanConvertFrom(typeof(string)))
             {
                 throw new ArgumentException("Type does not have a TypeConverter from string", "T");
@@ -1060,12 +1060,12 @@ Response.ForceDownload(yourFilePath, saveFileAs);
 
         public static void RemoveClickEvent(this System.Windows.Forms.Button btn)
         {
-            FieldInfo f1 = typeof(Control).GetField("EventClick", BindingFlags.Static | BindingFlags.NonPublic);
+            var f1 = typeof(Control).GetField("EventClick", BindingFlags.Static | BindingFlags.NonPublic);
             if (f1 != null)
             {
-                object obj = f1.GetValue(btn);
-                PropertyInfo pi = btn.GetType().GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
-                EventHandlerList list = (EventHandlerList) pi.GetValue(btn, null);
+                var obj = f1.GetValue(btn);
+                var pi = btn.GetType().GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
+                var list = (EventHandlerList) pi.GetValue(btn, null);
                 list.RemoveHandler(obj, list[obj]);
             }
         }
@@ -1138,9 +1138,9 @@ date.Formating("####/##/##")
         {
             if (string.IsNullOrEmpty(input))
                 return string.Empty;
-            StringBuilder output = new StringBuilder();
-            int j = 0;
-            for (int i = 0; i < format.Length; i++)
+            var output = new StringBuilder();
+            var j = 0;
+            for (var i = 0; i < format.Length; i++)
             {
                 switch (format[i])
                 {
@@ -1173,7 +1173,7 @@ dataSetName.Tables[0].RemoveColumn("Column12");
         {
             if (dt != null && !string.IsNullOrEmpty(columnName) && dt.Columns.IndexOf(columnName) >= 0)
             {
-                int idx = dt.Columns.IndexOf(columnName);
+                var idx = dt.Columns.IndexOf(columnName);
                 dt.Columns.RemoveAt(idx);
                 dt.AcceptChanges();
             }
@@ -1234,13 +1234,13 @@ using (SqlDataReader dataReader = command.ExecuteReader())
 
         public static List<string> ToCSV(this IDataReader dataReader, bool includeHeaderAsFirstRow, string separator)
         {
-            List<string> csvRows = new List<string>();
+            var csvRows = new List<string>();
             StringBuilder sb = null;
 
             if (includeHeaderAsFirstRow)
             {
                 sb = new StringBuilder();
-                for (int index = 0; index < dataReader.FieldCount; index++)
+                for (var index = 0; index < dataReader.FieldCount; index++)
                 {
                     if (dataReader.GetName(index) != null)
                         sb.Append(dataReader.GetName(index));
@@ -1254,11 +1254,11 @@ using (SqlDataReader dataReader = command.ExecuteReader())
             while (dataReader.Read())
             {
                 sb = new StringBuilder();
-                for (int index = 0; index < dataReader.FieldCount - 1; index++)
+                for (var index = 0; index < dataReader.FieldCount - 1; index++)
                 {
                     if (!dataReader.IsDBNull(index))
                     {
-                        string value = dataReader.GetValue(index).ToString();
+                        var value = dataReader.GetValue(index).ToString();
                         if (dataReader.GetFieldType(index) == typeof(String))
                         {
                             //If double quotes are used in value, ensure each are replaced but 2.
@@ -1300,7 +1300,7 @@ using (SqlDataReader dataReader = command.ExecuteReader())
 
         public static bool IsValidMobile(this string number)
         {
-            bool bFound = false;
+            var bFound = false;
             try
             {
                 bFound = Regex.IsMatch(number, @"\A\+\b(639)[012]{1}[0-9]{1}[0-9]{3}[0-9]{4}\b\Z");
@@ -1480,21 +1480,21 @@ string data = c.ToSortedString();
 
         public static string ToSortedString(this object value)
         {
-            BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public;
-            SortedDictionary<string, string> values = new SortedDictionary<string, string>();
+            var bindingFlags = BindingFlags.Instance | BindingFlags.Public;
+            var values = new SortedDictionary<string, string>();
 
-            PropertyInfo[] properties = value.GetType().GetProperties(bindingFlags);
-            foreach (PropertyInfo property in properties)
+            var properties = value.GetType().GetProperties(bindingFlags);
+            foreach (var property in properties)
             {
-                string propertyName = property.Name;
-                object propertyValue = property.GetValue(value, null);
-                string maskedValue = propertyValue == null ? "null" : propertyValue.ToString();
+                var propertyName = property.Name;
+                var propertyValue = property.GetValue(value, null);
+                var maskedValue = propertyValue == null ? "null" : propertyValue.ToString();
 
                 values.Add(propertyName, maskedValue);
             }
 
-            StringBuilder sb = new StringBuilder();
-            foreach (KeyValuePair<string, string> item in values)
+            var sb = new StringBuilder();
+            foreach (var item in values)
             {
                 sb.AppendFormat("{0}={1}{2}", item.Key, item.Value, Environment.NewLine);
             }
@@ -1674,7 +1674,7 @@ Assert.AreEqual(res,stoTest.RemoveRightIfPresent("@mail.ru"));
 
         public static string RemoveRightIfPresent(this string s, string remove, bool ignoreCase = false)
         {
-            int rlen = remove.Length;
+            var rlen = remove.Length;
             if (s.EndsWith(remove, ignoreCase, System.Globalization.CultureInfo.CurrentCulture))
             {
                 return s.Substring(0, s.Length - rlen);
@@ -1730,7 +1730,7 @@ var joined2 = sb2.Join("|"); // return a
             if (sb == null) return String.Empty;
 
             var lst = new List<string>();
-            for (int i = 0; i < sb.Length; i++)
+            for (var i = 0; i < sb.Length; i++)
             {
                 lst.Add(sb[i].ToString());
             }
@@ -1755,11 +1755,11 @@ str.UcWords();
 
         public static StringBuilder UcWords(this string theString)
         {
-            StringBuilder output = new StringBuilder();
-            string[] pieces = theString.Split(' ');
-            foreach (string piece in pieces)
+            var output = new StringBuilder();
+            var pieces = theString.Split(' ');
+            foreach (var piece in pieces)
             {
-                char[] theChars = piece.ToCharArray();
+                var theChars = piece.ToCharArray();
                 theChars[0] = char.ToUpper(theChars[0]);
                 output.Append(' ');
                 output.Append(new string(theChars));
@@ -1816,9 +1816,9 @@ str.UcWords();
 
         public static string GetNestedXml(this XElement xe)
         {
-            StringBuilder xml = new StringBuilder();
+            var xml = new StringBuilder();
 
-            foreach (XNode node in xe.Nodes())
+            foreach (var node in xe.Nodes())
             {
                 xml.Append(node.ToString());
             }
@@ -2061,7 +2061,7 @@ else
 
         public static bool In(this int number, params int[] collection)
         {
-            bool isIn = false;
+            var isIn = false;
 
             foreach (var i in collection)
             {
@@ -2145,13 +2145,13 @@ Assert.AreEqual("Truncate...string.", truncated);
             // each  half if we were to have
             // exactly the same length string on either side 
             // of the elipsis.
-            int charsInEachHalf = (maxLength - 3) / 2;
+            var charsInEachHalf = (maxLength - 3) / 2;
 
             // Get the string to the right of the elipsis 
             // and then trim the beginning.  There is no
             // need to have a space immediately following 
             // the elipsis.
-            string right = value.Substring(
+            var right = value.Substring(
                     value.Length - charsInEachHalf, charsInEachHalf)
                 .TrimStart();
 
@@ -2159,7 +2159,7 @@ Assert.AreEqual("Truncate...string.", truncated);
             // We don't use "charsInEachHalf " here
             // because we may be able to take more characters
             // than that if "right" was trimmed.
-            string left = value.Substring(
+            var left = value.Substring(
                     0, (maxLength - 3) - right.Length)
                 .TrimEnd();
 
@@ -2415,8 +2415,8 @@ DataList parentDataList = tb.FindImmediateParentOfType<DataList>();
 
         public static T FindImmediateParentOfType<T>(this Control control) where T : Control
         {
-            T retVal = default(T);
-            Control parentCtl = control.Parent;
+            var retVal = default(T);
+            var parentCtl = control.Parent;
             while (parentCtl != null)
             {
                 if (parentCtl is T)
@@ -2465,9 +2465,9 @@ MyObject objectIWant = myList.MaxObject(item => item.ID);
             where U : IComparable<U>
         {
             if (source == null) throw new ArgumentNullException("source");
-            bool first = true;
-            T maxObj = default(T);
-            U maxKey = default(U);
+            var first = true;
+            var maxObj = default(T);
+            var maxKey = default(U);
             foreach (var item in source)
             {
                 if (first)
@@ -2478,7 +2478,7 @@ MyObject objectIWant = myList.MaxObject(item => item.ID);
                 }
                 else
                 {
-                    U currentKey = selector(item);
+                    var currentKey = selector(item);
                     if (currentKey.CompareTo(maxKey) > 0)
                     {
                         maxKey = currentKey;
@@ -2524,10 +2524,10 @@ int amIndex = "AM".ExcelColumnIndex();
 
         public static int ExcelColumnIndex(this string columnName)
         {
-            int number = 0;
-            int pow = 1;
+            var number = 0;
+            var pow = 1;
 
-            for (int i = columnName.Length - 1; i >= 0; i--)
+            for (var i = columnName.Length - 1; i >= 0; i--)
             {
                 number += (columnName[i] - 'A' + 1) * pow;
                 pow *= 26;
@@ -2557,7 +2557,7 @@ myDiv.InnerHtml += "</ul>";
         {
             var tag = String.Format("</{0}>", tagToWrap);
             var s = "";
-            foreach (T item in source)
+            foreach (var item in source)
             {
                 s += tag.Replace(@"/", "") + item.ToString() + tag;
             }
@@ -2588,9 +2588,9 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
         {
             if (s.Contains(searchFor))
             {
-                int length = Math.Max(s.Length, 0);
+                var length = Math.Max(s.Length, 0);
 
-                int index = s.IndexOf(searchFor);
+                var index = s.IndexOf(searchFor);
 
                 return s.Substring(index, length - index);
             }
@@ -2662,10 +2662,10 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
             int horizontalDiameter, int verticalDiameter, RectAngles rectAngles)
         {
             // get out data
-            int x = r.X;
-            int y = r.Y;
-            int width = r.Width;
-            int height = r.Height;
+            var x = r.X;
+            var y = r.Y;
+            var width = r.Width;
+            var height = r.Height;
             // adapt horizontal and vertical diameter if the rectangle is too little
             if (width < horizontalDiameter)
                 horizontalDiameter = width;
@@ -2689,17 +2689,17 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
                 tr = (rectAngles & RectAngles.TopRight) != 0,
                 br = (rectAngles & RectAngles.BottomRight) != 0,
                 bl = (rectAngles & RectAngles.BottomLeft) != 0;
-            Point pointP = tl ? new Point(x + horizontalDiameter / 2, y) : new Point(x, y);
-            Point pointQ = tr ? new Point(x + width - horizontalDiameter / 2 - 1, y) : new Point(x + width - 1, y);
-            Point pointR = tr ? new Point(x + width - 1, y + verticalDiameter / 2) : pointQ;
-            Point pointS = br
+            var pointP = tl ? new Point(x + horizontalDiameter / 2, y) : new Point(x, y);
+            var pointQ = tr ? new Point(x + width - horizontalDiameter / 2 - 1, y) : new Point(x + width - 1, y);
+            var pointR = tr ? new Point(x + width - 1, y + verticalDiameter / 2) : pointQ;
+            var pointS = br
                 ? new Point(x + width - 1, y + height - verticalDiameter / 2 - 1)
                 : new Point(x + width - 1, y + height - 1);
-            Point pointT = br ? new Point(x + width - horizontalDiameter / 2 - 1) : pointS;
-            Point pointU = bl ? new Point(x + horizontalDiameter / 2, y + height - 1) : new Point(x, y + height - 1);
-            Point pointV = bl ? new Point(x, y + height - verticalDiameter / 2 - 1) : pointU;
-            Point pointW = tl ? new Point(x, y + verticalDiameter / 2) : pointP;
-            using (GraphicsPath gp = new GraphicsPath())
+            var pointT = br ? new Point(x + width - horizontalDiameter / 2 - 1) : pointS;
+            var pointU = bl ? new Point(x + horizontalDiameter / 2, y + height - 1) : new Point(x, y + height - 1);
+            var pointV = bl ? new Point(x, y + height - verticalDiameter / 2 - 1) : pointU;
+            var pointW = tl ? new Point(x, y + verticalDiameter / 2) : pointP;
+            using (var gp = new GraphicsPath())
             {
                 // a
                 gp.AddLine(pointP, pointQ);
@@ -2759,7 +2759,7 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
             if (elementSelector == null) throw new ArgumentNullException("elementSelector");
 
             var dictionary = new Dictionary<TKey, TElement>();
-            foreach (TSource current in source)
+            foreach (var current in source)
             {
                 dictionary[keySelector(current)] = elementSelector(current);
             }
@@ -2789,7 +2789,7 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
         {
             if (string.IsNullOrEmpty(searchFor)) yield break;
 
-            int lastLoc = searchIn.IndexOf(searchFor);
+            var lastLoc = searchIn.IndexOf(searchFor);
             while (lastLoc != -1)
             {
                 yield return lastLoc;
@@ -2830,7 +2830,7 @@ myStringBuilder.AppendLine("This is the {0} line", "second");
 
         public static StringBuilder AppendLine(this StringBuilder sb, string format, params object[] arguments)
         {
-            string value = String.Format(format, arguments);
+            var value = String.Format(format, arguments);
             sb.AppendLine(value);
             return sb;
         }
@@ -2970,8 +2970,8 @@ Console.WriteLine("{0:0.00}", d.ConstrainToRange(1.0, 5.0));
         public static void FillRoundedRectangle(this Graphics g, Pen pen, Brush brush, int x, int y, int width,
             int height, int radius)
         {
-            Rectangle corner = new Rectangle(x, y, radius, radius);
-            GraphicsPath path = new GraphicsPath();
+            var corner = new Rectangle(x, y, radius, radius);
+            var path = new GraphicsPath();
             path.AddArc(corner, 180, 90);
             corner.X = x + width - radius;
             path.AddArc(corner, 270, 90);
@@ -3007,11 +3007,11 @@ root.AppendNode("Child 2 Name", 123);
 
         public static void AppendNode<T>(this XmlElement root, string name, T value)
         {
-            XmlDocument doc = root.OwnerDocument;
+            var doc = root.OwnerDocument;
             if (doc != null)
             {
-                XmlElement code = doc.CreateElement(name);
-                XmlText codeText = doc.CreateTextNode(value.ToString());
+                var code = doc.CreateElement(name);
+                var codeText = doc.CreateTextNode(value.ToString());
                 root.AppendChild(code);
                 code.AppendChild(codeText);
             }

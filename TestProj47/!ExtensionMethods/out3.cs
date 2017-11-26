@@ -137,7 +137,7 @@ var value = rdr.GetValue<int?>(columnName);
 
         public static T GetValue<T>(this IDataReader rdr, string columnName)
         {
-            object data = rdr.GetValue(rdr.GetOrdinal(columnName));
+            var data = rdr.GetValue(rdr.GetOrdinal(columnName));
             if (!string.IsNullOrEmpty(data.ToString()))
                 return (T) data;
 
@@ -165,7 +165,7 @@ if(value.ContainsAll(values))
             this string value,
             params string[] values)
         {
-            foreach (string one in values)
+            foreach (var one in values)
             {
                 if (!value.Contains(one))
                 {
@@ -298,8 +298,8 @@ drValues = dr.ItemArrayString(","); // 1,Rainmaker,MIKE
 
         public static int IndexOfOccurence(this string str, string stringToBeFound, int occurrence)
         {
-            int occurrenceCounter = 0;
-            int indexOfPassedString = 0 - stringToBeFound.Length;
+            var occurrenceCounter = 0;
+            var indexOfPassedString = 0 - stringToBeFound.Length;
 
             do
             {
@@ -347,13 +347,13 @@ NameValueCollection nv = a.ToNameValueCollection(';', '=');
             str = str.TrimEnd(OuterSeparator);
             if (!String.IsNullOrEmpty(str))
             {
-                String[] arrStrings = str.TrimEnd(OuterSeparator).Split(OuterSeparator);
+                var arrStrings = str.TrimEnd(OuterSeparator).Split(OuterSeparator);
 
-                foreach (String s in arrStrings)
+                foreach (var s in arrStrings)
                 {
-                    Int32 posSep = s.IndexOf(NameValueSeparator);
-                    String name = s.Substring(0, posSep);
-                    String value = s.Substring(posSep + 1);
+                    var posSep = s.IndexOf(NameValueSeparator);
+                    var name = s.Substring(0, posSep);
+                    var value = s.Substring(posSep + 1);
                     if (nvText == null)
                         nvText = new NameValueCollection();
                     nvText.Add(name, value);
@@ -509,17 +509,17 @@ Decryp2:123
         /// <returns></returns>
         public static string Encrypt(this string str)
         {
-            string strEncrKey = "?pws#m";
+            var strEncrKey = "?pws#m";
             byte[] byKey;
             byte[] IV = {18, 52, 86, 120, 144, 171, 205, 239};
 
             try
             {
                 byKey = System.Text.Encoding.UTF8.GetBytes(strEncrKey.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
-                byte[] inputByteArray = Encoding.UTF8.GetBytes(str);
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(byKey, IV), CryptoStreamMode.Write);
+                var des = new DESCryptoServiceProvider();
+                var inputByteArray = Encoding.UTF8.GetBytes(str);
+                var ms = new MemoryStream();
+                var cs = new CryptoStream(ms, des.CreateEncryptor(byKey, IV), CryptoStreamMode.Write);
                 cs.Write(inputByteArray, 0, inputByteArray.Length);
                 cs.FlushFinalBlock();
                 return System.Convert.ToBase64String(ms.ToArray());
@@ -537,7 +537,7 @@ Decryp2:123
         /// <returns></returns>
         public static string Decrypt(this string str)
         {
-            string sDecrKey = "?pws#m";
+            var sDecrKey = "?pws#m";
             byte[] byKey;
             byte[] IV = {18, 52, 86, 120, 144, 171, 205, 239};
 
@@ -547,13 +547,13 @@ Decryp2:123
             try
             {
                 byKey = System.Text.Encoding.UTF8.GetBytes(sDecrKey.Substring(0, 8));
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                var des = new DESCryptoServiceProvider();
                 inputByteArray = System.Convert.FromBase64String(str);
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(byKey, IV), CryptoStreamMode.Write);
+                var ms = new MemoryStream();
+                var cs = new CryptoStream(ms, des.CreateDecryptor(byKey, IV), CryptoStreamMode.Write);
                 cs.Write(inputByteArray, 0, inputByteArray.Length);
                 cs.FlushFinalBlock();
-                System.Text.Encoding encoding = System.Text.Encoding.UTF8;
+                var encoding = System.Text.Encoding.UTF8;
                 return encoding.GetString(ms.ToArray());
             }
             catch (Exception ex)
@@ -582,7 +582,7 @@ Exception ex2 = ex.GetMostInner();
         /// <returns></returns>
         public static Exception GetMostInner(this Exception ex)
         {
-            Exception ActualInnerEx = ex;
+            var ActualInnerEx = ex;
 
             while (ActualInnerEx != null)
             {
@@ -854,7 +854,7 @@ Console.WriteLine("File Size is: {0} bytes.", path.FileSize());
 
             try
             {
-                System.IO.FileInfo oFileInfo = new System.IO.FileInfo(filePath);
+                var oFileInfo = new System.IO.FileInfo(filePath);
                 bytes = oFileInfo.Length;
             }
             catch
@@ -990,7 +990,7 @@ var currentValue = datarow.GetValue(path);
 
         public static T ConvertJsonStringToObject<T>(this string stringToDeserialize)
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(stringToDeserialize);
         }
 
@@ -1066,7 +1066,7 @@ public void LeftOfTest()
         /// <returns>Truncated string</returns>
         public static string LeftOf(this string s, char c)
         {
-            int ndx = s.IndexOf(c);
+            var ndx = s.IndexOf(c);
             if (ndx >= 0)
             {
                 return s.Substring(0, ndx);
@@ -1146,7 +1146,7 @@ public partial class Form1 : Form
             {
                 using (var sr = new StreamReader(path))
                 {
-                    XmlSerializer xmlser = new XmlSerializer(typeof(FormSettings));
+                    var xmlser = new XmlSerializer(typeof(FormSettings));
                     var formSettings = (FormSettings) xmlser.Deserialize(sr);
                     if (formSettings != null)
                     {
@@ -1160,7 +1160,7 @@ public partial class Form1 : Form
 
         public static void SaveSettings(this Form form, string path)
         {
-            FormSettings formSettings = new FormSettings();
+            var formSettings = new FormSettings();
             formSettings.WindowState = form.WindowState;
             if (form.WindowState == FormWindowState.Normal)
             {
@@ -1174,7 +1174,7 @@ public partial class Form1 : Form
             }
             using (var sw = new StreamWriter(path))
             {
-                XmlSerializer xmlSer = new XmlSerializer(typeof(FormSettings));
+                var xmlSer = new XmlSerializer(typeof(FormSettings));
                 xmlSer.Serialize(sw, formSettings);
             }
         }
@@ -1233,11 +1233,11 @@ Console.WriteLine("Is Palindrome: {0}", "1234321".IsPalindrome()); // returns Tr
         public static bool IsPalindrome(this string word)
         {
             int nLen, nHalfLen;
-            bool bValid = true;
+            var bValid = true;
 
             nLen = word.Length - 1;
             nHalfLen = nLen / 2;
-            for (int i = 0; i < nHalfLen; i++)
+            for (var i = 0; i < nHalfLen; i++)
             {
                 if (word.Substring(i, 1) != word.Substring(nLen - i, 1)) bValid = false;
             }
@@ -1639,16 +1639,16 @@ Console.WriteLine (string.Join (", ", from l in list select l.ToString ()));
             if (comparison == null)
                 throw new ArgumentNullException("comparison");
 
-            int count = @this.Count;
+            var count = @this.Count;
             if (count <= 1)
                 return;
 
             // merge pairs of lists of doubling size
-            for (int mergeLength = 1; mergeLength < count; mergeLength *= 2)
+            for (var mergeLength = 1; mergeLength < count; mergeLength *= 2)
             {
                 LinkedListNode<T> mergedTail = null;
                 LinkedListNode<T> head2;
-                for (LinkedListNode<T> head1 = @this.First; head1 != null; head1 = head2)
+                for (var head1 = @this.First; head1 != null; head1 = head2)
                 {
                     // skip over the 1st part to the start 2nd
                     head2 = head1;
@@ -1657,7 +1657,7 @@ Console.WriteLine (string.Join (", ", from l in list select l.ToString ()));
                         head2 = head2.Next;
 
                     // assume we have a full-length 2nd part
-                    int length2 = mergeLength;
+                    var length2 = mergeLength;
 
                     // while we still have items to merge
                     while (length1 > 0 || (length2 > 0 && head2 != null))
@@ -1727,15 +1727,15 @@ Console.WriteLine (string.Join (", ", from l in list select l.ToString ()));
             if (comparison == null)
                 comparison = Comparer<T>.Default.Compare;
 
-            using (IEnumerator<T> e = @this.GetEnumerator())
+            using (var e = @this.GetEnumerator())
             {
                 if (!e.MoveNext())
                     return true;
 
-                T prev = e.Current;
+                var prev = e.Current;
                 while (e.MoveNext())
                 {
-                    T current = e.Current;
+                    var current = e.Current;
                     if (comparison(prev, current) > 0)
                         return false;
 
@@ -1961,20 +1961,20 @@ emp = s.FromJson<Employee>();
 
         public static string ToJson(this object obj)
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             return serializer.Serialize(obj);
         }
 
         public static string ToJson(this object obj, int recursionDepth)
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             serializer.RecursionLimit = recursionDepth;
             return serializer.Serialize(obj);
         }
 
         public static T FromJson<T>(this object obj)
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(obj as string);
         }
 
@@ -2032,8 +2032,8 @@ emp = s.FromJson<Employee>();
 
         public static TValue ConvertTo<TValue>(this string text)
         {
-            TValue res = default(TValue);
-            System.ComponentModel.TypeConverter tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(TValue));
+            var res = default(TValue);
+            var tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(TValue));
             if (tc.CanConvertFrom(text.GetType()))
                 res = (TValue) tc.ConvertFrom(text);
             else
@@ -2063,9 +2063,9 @@ a.Shuffle();
         public static T[] Shuffle<T>(this T[] list)
         {
             var r = new Random((int) DateTime.Now.Ticks);
-            for (int i = list.Length - 1; i > 0; i--)
+            for (var i = list.Length - 1; i > 0; i--)
             {
-                int j = r.Next(0, i - 1);
+                var j = r.Next(0, i - 1);
                 var e = list[i];
                 list[i] = list[j];
                 list[j] = e;
@@ -2160,7 +2160,7 @@ parms.SpinThread(action => {
 
         public static void SpinThread<T>(this T parms, Action<T> action)
         {
-            System.Threading.Thread t =
+            var t =
                 new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(p => action((T) p)));
             t.IsBackground = true;
             t.Start(parms);
@@ -2271,8 +2271,8 @@ hello world
 
         public static T Deserialize<T>(this XDocument xmlDocument)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-            using (XmlReader reader = xmlDocument.CreateReader())
+            var xmlSerializer = new XmlSerializer(typeof(T));
+            using (var reader = xmlDocument.CreateReader())
                 return (T) xmlSerializer.Deserialize(reader);
         }
 
@@ -2292,9 +2292,9 @@ a.Shuffle();
         public static ArrayList Shuffle(this ArrayList list)
         {
             var r = new Random((int) DateTime.Now.Ticks);
-            for (int i = list.Count - 1; i > 0; i--)
+            for (var i = list.Count - 1; i > 0; i--)
             {
-                int j = r.Next(0, i - 1);
+                var j = r.Next(0, i - 1);
                 var e = list[i];
                 list[i] = list[j];
                 list[j] = e;
@@ -2317,7 +2317,7 @@ string r = s.Reverse(); // "tseT"
 
         public static string Reverse(this string s)
         {
-            char[] c = s.ToCharArray();
+            var c = s.ToCharArray();
             Array.Reverse(c);
             return new string(c);
         }
@@ -2341,14 +2341,14 @@ string r = s.Reverse(); // "tseT"
         public static R Pipe<T, R>(this T o, Func<T, R> func)
         {
             if (func == null) throw new ArgumentNullException("func", "'func' can not be null.");
-            T buffer = o;
+            var buffer = o;
             return func(buffer);
         }
 
         public static T Pipe<T>(this T o, Action<T> action)
         {
             if (action == null) throw new ArgumentNullException("action", "'action' can not be null.");
-            T buffer = o;
+            var buffer = o;
             action(buffer);
             return buffer;
         }
@@ -2367,7 +2367,7 @@ string r = s.Reverse(); // "tseT"
 
         public static string join<T>(this IEnumerable<T> list, string separator)
         {
-            string s = "";
+            var s = "";
             foreach (object x in list)
             {
                 s += x.ToString() + separator;
@@ -2464,11 +2464,11 @@ string r = s.Reverse(); // "tseT"
                 return null;
 
             // Initialize DataTable and get all properties from the first Item in the List.
-            DataTable table = new DataTable(list.GetType().Name);
-            PropertyInfo[] properties = list[0].GetType().GetProperties();
+            var table = new DataTable(list.GetType().Name);
+            var properties = list[0].GetType().GetProperties();
 
             // Build all columns from properties found. (Custom attributes could be added later)
-            foreach (PropertyInfo info in properties)
+            foreach (var info in properties)
             {
                 try
                 {
@@ -2486,11 +2486,11 @@ string r = s.Reverse(); // "tseT"
             }
 
             // Add all rows
-            for (int index = 0; index < list.Count; index++)
+            for (var index = 0; index < list.Count; index++)
             {
-                object[] row = new object[properties.Length];
+                var row = new object[properties.Length];
 
-                for (int i = 0; i < row.Length; i++)
+                for (var i = 0; i < row.Length; i++)
                 {
                     row[i] = properties[i].GetValue(list[index], null); // Get the value for each items property
                 }
@@ -2529,9 +2529,9 @@ public static void SetLabelsToSentences(
         {
             var builder = new StringBuilder();
 
-            char[] chars = variableName.ToCharArray();
+            var chars = variableName.ToCharArray();
 
-            foreach (char c in chars)
+            foreach (var c in chars)
             {
                 if (char.IsLetter(c) && char.IsUpper(c))
                 {
@@ -2584,7 +2584,7 @@ string[] result;
         {
             string[] result = {"", ""};
 
-            int iIndexOfBegin = strSource.IndexOf(strBegin);
+            var iIndexOfBegin = strSource.IndexOf(strBegin);
 
             if (iIndexOfBegin != -1)
             {
@@ -2597,7 +2597,7 @@ string[] result;
                 strSource = strSource.Substring(iIndexOfBegin
                                                 + strBegin.Length);
 
-                int iEnd = strSource.IndexOf(strEnd);
+                var iEnd = strSource.IndexOf(strEnd);
 
                 if (iEnd != -1)
                 {
@@ -2647,7 +2647,7 @@ Collection<int> numbers = (from item in somearray
         public static Collection<T> ToCollection<T>(this IEnumerable<T> enumerable)
         {
             var collection = new Collection<T>();
-            foreach (T i in enumerable)
+            foreach (var i in enumerable)
                 collection.Add(i);
             return collection;
         }
@@ -2672,22 +2672,22 @@ textbox1.text.GetStrMoney() => 1,234,567.325
 
         public static string GetStrMoney(this string digit)
         {
-            string afterPoint = string.Empty;
-            string strDigit = digit;
-            int pos = digit.IndexOf('.');
+            var afterPoint = string.Empty;
+            var strDigit = digit;
+            var pos = digit.IndexOf('.');
             if (digit.IndexOf('.') != -1)
             {
                 strDigit = digit.Substring(0, pos);
                 afterPoint = digit.Substring(pos, digit.Length - pos);
             }
 
-            int len = strDigit.Length;
+            var len = strDigit.Length;
             if (len <= 3)
                 return digit;
 
             strDigit = strDigit.ReverseString();
-            string result = string.Empty;
-            for (int i = 0; i < len; i++)
+            var result = string.Empty;
+            for (var i = 0; i < len; i++)
             {
                 result += strDigit[i];
                 if ((i + 1) % 3 == 0 && i != len - 1)
@@ -2702,10 +2702,10 @@ textbox1.text.GetStrMoney() => 1,234,567.325
 
         public static string ReverseString(this string s)
         {
-            char[] c = s.ToCharArray();
-            string ts = string.Empty;
+            var c = s.ToCharArray();
+            var ts = string.Empty;
 
-            for (int i = c.Length - 1; i >= 0; i--)
+            for (var i = c.Length - 1; i >= 0; i--)
                 ts += c[i].ToString();
 
             return ts;
@@ -2725,7 +2725,7 @@ textbox1.text.GetStrMoney() => 1,234,567.325
 
         public static object ParseUnstrict(this Type enumtype, string value, object defaultValue)
         {
-            object res = defaultValue;
+            var res = defaultValue;
             try
             {
                 if (value == "")
@@ -2758,12 +2758,12 @@ textbox1.text.GetStrMoney() => 1,234,567.325
             if (the_string == null || the_string.Length < 2)
                 return the_string;
 
-            string[] words = the_string.Split(
+            var words = the_string.Split(
                 new char[] { },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            string result = words[0].ToLower();
-            for (int i = 1; i < words.Length; i++)
+            var result = words[0].ToLower();
+            for (var i = 1; i < words.Length; i++)
             {
                 result +=
                     words[i].Substring(0, 1).ToUpper() +
@@ -2802,7 +2802,7 @@ public IEnumerable<Customer> GetCustomers()
 
         public static Guid ToGuid(this int value)
         {
-            byte[] bytes = new byte[16];
+            var bytes = new byte[16];
             BitConverter.GetBytes(value).CopyTo(bytes, 0);
             return new Guid(bytes);
         }
@@ -2850,14 +2850,14 @@ public IEnumerable<Customer> GetCustomers()
 
         public static Uri ToTiny(this Uri longUri)
         {
-            WebRequest request = WebRequest.Create(String.Format
+            var request = WebRequest.Create(String.Format
             (
                 "http://tinyurl.com/api-create.php?url={0}",
                 UrlEncode(longUri.ToString())
             ));
-            WebResponse response = request.GetResponse();
+            var response = request.GetResponse();
             Uri returnUri = null;
-            using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream()))
+            using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
             {
                 returnUri = new Uri(reader.ReadToEnd());
             }
@@ -2890,18 +2890,18 @@ public IEnumerable<Customer> GetCustomers()
             {
                 return null;
             }
-            byte[] bytes = e.GetBytes(str);
+            var bytes = e.GetBytes(str);
             return UrlEncodeBytesToBytesInternal(bytes, 0, bytes.Length, false);
         }
 
         private static byte[] UrlEncodeBytesToBytesInternal(byte[] bytes, int offset, int count,
             bool alwaysCreateReturnValue)
         {
-            int num = 0;
-            int num2 = 0;
-            for (int i = 0; i < count; i++)
+            var num = 0;
+            var num2 = 0;
+            for (var i = 0; i < count; i++)
             {
-                char ch = (char) bytes[offset + i];
+                var ch = (char) bytes[offset + i];
                 if (ch == ' ')
                 {
                     num++;
@@ -2915,12 +2915,12 @@ public IEnumerable<Customer> GetCustomers()
             {
                 return bytes;
             }
-            byte[] buffer = new byte[count + (num2 * 2)];
-            int num4 = 0;
-            for (int j = 0; j < count; j++)
+            var buffer = new byte[count + (num2 * 2)];
+            var num4 = 0;
+            for (var j = 0; j < count; j++)
             {
-                byte num6 = bytes[offset + j];
-                char ch2 = (char) num6;
+                var num6 = bytes[offset + j];
+                var ch2 = (char) num6;
                 if (IsSafe(ch2))
                 {
                     buffer[num4++] = num6;
@@ -3106,7 +3106,7 @@ public IEnumerable<Customer> GetCustomers()
         {
             // Lazy yield based implementation
             var list = new List<T>();
-            foreach (T item in input)
+            foreach (var item in input)
             {
                 list.Add(item);
                 if (list.Count == n)
@@ -3154,7 +3154,7 @@ public IEnumerable<Customer> GetCustomers()
         /// <returns></returns>
         public static void ResizeToTextWidth(this Control control)
         {
-            using (System.Drawing.Graphics g = control.CreateGraphics())
+            using (var g = control.CreateGraphics())
             {
                 control.Width = (int) Math.Ceiling(g.MeasureString(control.Text, control.Font).Width);
             }
@@ -3298,7 +3298,7 @@ var jsonResult = xmlString.ToJSON();
         public static string ToJSON(this string xml)
         {
             // To convert an XML node contained in string xml into a JSON string
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
             doc.LoadXml(xml);
             return JsonConvert.SerializeXmlNode(doc);
         }

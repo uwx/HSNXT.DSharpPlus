@@ -128,7 +128,7 @@ dgvInstance.LoadConfiguration(@"C:\config.xml");
         public static void SaveConfiguration(this DataGridView dgv, string fileName)
         {
             var columns = new List<ColumnInfo>();
-            for (int i = 0; i < dgv.Columns.Count; i++)
+            for (var i = 0; i < dgv.Columns.Count; i++)
             {
                 var column = new ColumnInfo();
                 column.Name = dgv.Columns[i].Name;
@@ -189,7 +189,7 @@ queue.EnqueueRange(list);
 
         public static void EnqueueRange<T>(this Queue<T> queue, IEnumerable<T> collection)
         {
-            foreach (T item in collection)
+            foreach (var item in collection)
                 queue.Enqueue(item);
         }
 
@@ -315,11 +315,11 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
 
         static private DateTime WorkMethod(DateTime dt, long ReturnType, TimeInterval Interval)
         {
-            long Interval1 = (long) Interval;
-            long TicksFromFloor = 0L;
-            int IntervalFloor = 0;
-            int FloorOffset = 0;
-            int IntervalLength = 0;
+            var Interval1 = (long) Interval;
+            var TicksFromFloor = 0L;
+            var IntervalFloor = 0;
+            var FloorOffset = 0;
+            var IntervalLength = 0;
             DateTime floorDate;
             DateTime ceilingDate;
 
@@ -439,7 +439,7 @@ sentence.ReverseWords();
                 throw new ArgumentOutOfRangeException("maxValue", maxValue,
                     "maxValue must not be less than the instance. ");
 
-            int count = (maxValue - instance + 1);
+            var count = (maxValue - instance + 1);
             return System.Linq.Enumerable.Range(instance, count).ToList();
         }
 
@@ -491,7 +491,7 @@ var x = new[]{3,4,5}.Concat(1); // yields 3,4,5,1
         /// <returns>An IEnumerable, enumerating first the items in the existing enumerable</returns>
         public static IEnumerable<T> ConcatItem<T>(this IEnumerable<T> target, T item)
         {
-            foreach (T t in target) yield return t;
+            foreach (var t in target) yield return t;
             yield return item;
         }
 
@@ -882,9 +882,9 @@ Console.WriteLine(l.Capacity);
 
         public static DateTime CurrentDateTimeInAmsterdam(this DateTime date)
         {
-            TimeZoneInfo localZone =
+            var localZone =
                 TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
-            DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, localZone);
+            var localTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, localZone);
 
             return localTime;
         }
@@ -928,8 +928,8 @@ Console.WriteLine(l.Capacity);
             {
                 return number == 2;
             }
-            int sqrt = (int) Math.Sqrt(number);
-            for (int t = 3; t <= sqrt; t = t + 2)
+            var sqrt = (int) Math.Sqrt(number);
+            for (var t = 3; t <= sqrt; t = t + 2)
             {
                 if (number % t == 0)
                 {
@@ -1099,8 +1099,8 @@ bool result = a.ReferenceEquals(b);
             {
                 if (!string.IsNullOrEmpty(xml) && !string.IsNullOrWhiteSpace(xml))
                 {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                    using (StringReader stringReader = new StringReader(xml))
+                    var xmlSerializer = new XmlSerializer(typeof(T));
+                    using (var stringReader = new StringReader(xml))
                     {
                         return (T) xmlSerializer.Deserialize(stringReader);
                     }
@@ -1156,7 +1156,7 @@ Console.WriteLine(l.FindMax(emp => emp.Salary)?.Name);
         public static T FindMin<T, TValue>(this IEnumerable<T> list, Func<T, TValue> predicate)
             where TValue : IComparable<TValue>
         {
-            T result = list.FirstOrDefault();
+            var result = list.FirstOrDefault();
             if (result != null)
             {
                 var bestMin = predicate(result);
@@ -1176,7 +1176,7 @@ Console.WriteLine(l.FindMax(emp => emp.Salary)?.Name);
         public static T FindMax<T, TValue>(this IEnumerable<T> list, Func<T, TValue> predicate)
             where TValue : IComparable<TValue>
         {
-            T result = list.FirstOrDefault();
+            var result = list.FirstOrDefault();
             if (result != null)
             {
                 var bestMax = predicate(result);
@@ -1224,15 +1224,15 @@ string[][] jagged_array = rectangular_array.ToJaggedArray();
 
         public static T[][] ToJaggedArray<T>(this T[,] multiArray)
         {
-            int firstElement = multiArray.GetLength(0);
-            int secondElement = multiArray.GetLength(1);
+            var firstElement = multiArray.GetLength(0);
+            var secondElement = multiArray.GetLength(1);
 
-            T[][] jaggedArray = new T[firstElement][];
+            var jaggedArray = new T[firstElement][];
 
-            for (int c = 0; c < firstElement; c++)
+            for (var c = 0; c < firstElement; c++)
             {
                 jaggedArray[c] = new T[secondElement];
-                for (int r = 0; r < secondElement; r++)
+                for (var r = 0; r < secondElement; r++)
                 {
                     jaggedArray[c][r] = multiArray[c, r];
                 }
@@ -1265,8 +1265,8 @@ HashSet<int> hsi = li.ToHashSet<int>();
         /// <returns>A new HashSet</returns>
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> enumerable)
         {
-            HashSet<T> hs = new HashSet<T>();
-            foreach (T item in enumerable)
+            var hs = new HashSet<T>();
+            foreach (var item in enumerable)
                 hs.Add(item);
             return hs;
         }
@@ -1346,7 +1346,7 @@ Requires a reference System.Text.RegularExpressions.
 
         public static DateTime FirstMondayOfYear(int ThisYear)
         {
-            DateTime firstDay = new DateTime(ThisYear, 1, 1);
+            var firstDay = new DateTime(ThisYear, 1, 1);
             return new DateTime(ThisYear, 1, (8 - (int) firstDay.DayOfWeek) % 7 + 1);
         }
 
@@ -1415,10 +1415,10 @@ Requires a reference System.Text.RegularExpressions.
 
         public static bool CheckValidity(this long socialCode)
         {
-            char[] splitSocialCode = socialCode.ToString().ToCharArray();
-            int sum = 0;
+            var splitSocialCode = socialCode.ToString().ToCharArray();
+            var sum = 0;
             for (int i = 0, j = 10; i < 9 & j > 1; sum += int.Parse(splitSocialCode[i++].ToString()) * j--) ;
-            int reminder = sum % 11;
+            var reminder = sum % 11;
             if (reminder < 2)
                 return reminder == int.Parse(splitSocialCode[9].ToString()); // controlling digit
             else
@@ -1447,7 +1447,7 @@ Requires a reference System.Text.RegularExpressions.
                     {
                         try
                         {
-                            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+                            var xmlSerializer = new XmlSerializer(typeof(List<T>));
                             using (TextReader textReader = new StreamReader(physicalPath))
                             {
                                 return (T) xmlSerializer.Deserialize(textReader);
@@ -1495,7 +1495,7 @@ Ahmer-
         /// <param name="length">The number of characters to split</param>
         public static string[] Split(this string str, int startindex, int length)
         {
-            string[] strrtn = new string[3];
+            var strrtn = new string[3];
             if (startindex == 0)
                 strrtn = new string[] {str.Substring(startindex, length), str.Remove(startindex, length)};
             else if (startindex > 0)
@@ -1629,9 +1629,9 @@ var result = value.GetPercentage(50); //Get 50% of 100 which is 50.
         {
             try
             {
-                int ordinal = rd.GetOrdinal(column);
+                var ordinal = rd.GetOrdinal(column);
 
-                object value = rd[ordinal];
+                var value = rd[ordinal];
 
                 if (rd.IsDBNull(ordinal))
                 {
@@ -1668,7 +1668,7 @@ var result = value.GetPercentage(50); //Get 50% of 100 which is 50.
 
         public static DateTime TakeStartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
         {
-            int diff = dt.DayOfWeek - startOfWeek;
+            var diff = dt.DayOfWeek - startOfWeek;
             if (diff < 0)
             {
                 diff += 7;
@@ -1690,7 +1690,7 @@ var result = value.GetPercentage(50); //Get 50% of 100 which is 50.
 
         public static DateTime GetSaturday(this DateTime dt)
         {
-            DateTime date = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
+            var date = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
             return new GregorianCalendar().AddDays(date, -((int) date.DayOfWeek) + 6);
         }
 
@@ -1711,7 +1711,7 @@ results in a value of 2017-April-30 which is correct in this instance.
 
         public static DateTime GetSunday(this DateTime dt)
         {
-            DateTime date = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
+            var date = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
             return new GregorianCalendar().AddDays(date, -((int) date.DayOfWeek));
         }
 
@@ -1739,7 +1739,7 @@ string log = ex.ToLogString(“A fatal error occurred!”);
         /// <returns></returns>
         public static string ToLogString(this Exception ex, string additionalMessage)
         {
-            StringBuilder msg = new StringBuilder();
+            var msg = new StringBuilder();
 
             if (!string.IsNullOrEmpty(additionalMessage))
             {
@@ -1751,7 +1751,7 @@ string log = ex.ToLogString(“A fatal error occurred!”);
             {
                 try
                 {
-                    Exception orgEx = ex;
+                    var orgEx = ex;
 
                     msg.Append("Exception:");
                     msg.Append(Environment.NewLine);
@@ -1764,7 +1764,7 @@ string log = ex.ToLogString(“A fatal error occurred!”);
 
                     if (ex.Data != null)
                     {
-                        foreach (object i in ex.Data)
+                        foreach (var i in ex.Data)
                         {
                             msg.Append("Data :");
                             msg.Append(i.ToString());
@@ -1796,7 +1796,7 @@ string log = ex.ToLogString(“A fatal error occurred!”);
                         msg.Append(Environment.NewLine);
                     }
 
-                    Exception baseException = ex.GetBaseException();
+                    var baseException = ex.GetBaseException();
                     if (baseException != null)
                     {
                         msg.Append("BaseException:");
@@ -1956,8 +1956,8 @@ UriEscaped => 1
             if (t == null) throw new NullReferenceException();
             if (!t.IsEnum) throw new InvalidCastException("object is not an Enumeration");
 
-            string[] names = Enum.GetNames(t);
-            Array values = Enum.GetValues(t);
+            var names = Enum.GetNames(t);
+            var values = Enum.GetValues(t);
 
             return (from i in System.Linq.Enumerable.Range(0, names.Length)
                     select new {Key = names[i], Value = (int) values.GetValue(i)})
@@ -1983,7 +1983,7 @@ if (newFileName.ContainsAny(invalidFileNameCharacters))
 
         public static bool ContainsAny(this string theString, char[] characters)
         {
-            foreach (char character in characters)
+            foreach (var character in characters)
             {
                 if (theString.Contains(character.ToString()))
                 {
@@ -2076,7 +2076,7 @@ Console.WriteLine(i.ToString(":"));
         /// <returns>A String consisting of the elements of value interspersed with the separator string.</returns>
         public static string ToString<T>(this IEnumerable<T> list, string separator)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             foreach (var obj in list)
             {
                 if (sb.Length > 0)
@@ -2109,16 +2109,16 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
         public static bool IsValidNIP(this string input)
         {
             int[] weights = {6, 5, 7, 2, 3, 4, 5, 6, 7};
-            bool result = false;
+            var result = false;
             if (input.Length == 10)
             {
-                int controlSum = CalculateControlSum(input, weights);
-                int controlNum = controlSum % 11;
+                var controlSum = CalculateControlSum(input, weights);
+                var controlNum = controlSum % 11;
                 if (controlNum == 10)
                 {
                     controlNum = 0;
                 }
-                int lastDigit = int.Parse(input[input.Length - 1].ToString());
+                var lastDigit = int.Parse(input[input.Length - 1].ToString());
                 result = controlNum == lastDigit;
             }
             return result;
@@ -2130,7 +2130,7 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
             if (input.Length == 7 || input.Length == 9)
             {
                 int[] weights = {8, 9, 2, 3, 4, 5, 6, 7};
-                int offset = 9 - input.Length;
+                var offset = 9 - input.Length;
                 controlSum = CalculateControlSum(input, weights, offset);
             }
             else if (input.Length == 14)
@@ -2143,12 +2143,12 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
                 return false;
             }
 
-            int controlNum = controlSum % 11;
+            var controlNum = controlSum % 11;
             if (controlNum == 10)
             {
                 controlNum = 0;
             }
-            int lastDigit = int.Parse(input[input.Length - 1].ToString());
+            var lastDigit = int.Parse(input[input.Length - 1].ToString());
 
             return controlNum == lastDigit;
         }
@@ -2156,17 +2156,17 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
         public static bool IsValidPESEL(this string input)
         {
             int[] weights = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-            bool result = false;
+            var result = false;
             if (input.Length == 11)
             {
-                int controlSum = CalculateControlSum(input, weights);
-                int controlNum = controlSum % 10;
+                var controlSum = CalculateControlSum(input, weights);
+                var controlNum = controlSum % 10;
                 controlNum = 10 - controlNum;
                 if (controlNum == 10)
                 {
                     controlNum = 0;
                 }
-                int lastDigit = int.Parse(input[input.Length - 1].ToString());
+                var lastDigit = int.Parse(input[input.Length - 1].ToString());
                 result = controlNum == lastDigit;
             }
             return result;
@@ -2174,8 +2174,8 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
 
         private static int CalculateControlSum(string input, int[] weights, int offset = 0)
         {
-            int controlSum = 0;
-            for (int i = 0; i < input.Length - 1; i++)
+            var controlSum = 0;
+            for (var i = 0; i < input.Length - 1; i++)
             {
                 controlSum += weights[i + offset] * int.Parse(input[i].ToString());
             }
@@ -2288,18 +2288,18 @@ Debug.Assert(!s.IsIsin());
             }
 
             var digits = new int[22];
-            int index = 0;
-            for (int i = 0; i < 11; i++)
+            var index = 0;
+            for (var i = 0; i < 11; i++)
             {
-                char c = isin[i];
+                var c = isin[i];
                 if (c >= '0' && c <= '9')
                 {
                     digits[index++] = c - '0';
                 }
                 else if (c >= 'A' && c <= 'Z')
                 {
-                    int n = c - 'A' + 10;
-                    int tens = n / 10;
+                    var n = c - 'A' + 10;
+                    var tens = n / 10;
                     if (tens != 0)
                     {
                         digits[index++] = tens;
@@ -2312,10 +2312,10 @@ Debug.Assert(!s.IsIsin());
                     return false;
                 }
             }
-            int sum = 0;
-            for (int i = 0; i < index; i++)
+            var sum = 0;
+            for (var i = 0; i < index; i++)
             {
-                int digit = digits[index - 1 - i];
+                var digit = digits[index - 1 - i];
                 if (i % 2 == 0)
                 {
                     digit *= 2;
@@ -2324,13 +2324,13 @@ Debug.Assert(!s.IsIsin());
                 sum += digit % 10;
             }
 
-            int checkDigit = isin[11] - '0';
+            var checkDigit = isin[11] - '0';
             if (checkDigit < 0 || checkDigit > 9)
             {
                 // Not a digit.
                 return false;
             }
-            int tensComplement = (sum % 10 == 0) ? 0 : ((sum / 10) + 1) * 10 - sum;
+            var tensComplement = (sum % 10 == 0) ? 0 : ((sum / 10) + 1) * 10 - sum;
             return checkDigit == tensComplement;
         }
 
@@ -2382,19 +2382,19 @@ fileInfo.MoveTo(@"d:\", true);
         /// <param name="renameWhenExists">Bool to specify if current instance should be renamed when exists</param>
         public static void MoveTo(this FileInfo fileInfo, string destFileName, bool renameWhenExists = false)
         {
-            string newFullPath = string.Empty;
+            var newFullPath = string.Empty;
 
             if (renameWhenExists)
             {
-                int count = 1;
+                var count = 1;
 
-                string fileNameOnly = Path.GetFileNameWithoutExtension(fileInfo.FullName);
-                string extension = Path.GetExtension(fileInfo.FullName);
+                var fileNameOnly = Path.GetFileNameWithoutExtension(fileInfo.FullName);
+                var extension = Path.GetExtension(fileInfo.FullName);
                 newFullPath = Path.Combine(destFileName, fileInfo.Name);
 
                 while (File.Exists(newFullPath))
                 {
-                    string tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
+                    var tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
                     newFullPath = Path.Combine(destFileName, tempFileName + extension);
                 }
             }
@@ -2475,13 +2475,13 @@ string decoded = encoded.Decrypt("mykey");
                 throw new ArgumentException("Cannot encrypt using an empty key. Please supply an encryption key.");
             }
 
-            CspParameters cspp = new CspParameters();
+            var cspp = new CspParameters();
             cspp.KeyContainerName = key;
 
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cspp);
+            var rsa = new RSACryptoServiceProvider(cspp);
             rsa.PersistKeyInCsp = true;
 
-            byte[] bytes = rsa.Encrypt(System.Text.UTF8Encoding.UTF8.GetBytes(stringToEncrypt), true);
+            var bytes = rsa.Encrypt(System.Text.UTF8Encoding.UTF8.GetBytes(stringToEncrypt), true);
 
             return BitConverter.ToString(bytes);
         }
@@ -2509,18 +2509,18 @@ string decoded = encoded.Decrypt("mykey");
 
             try
             {
-                CspParameters cspp = new CspParameters();
+                var cspp = new CspParameters();
                 cspp.KeyContainerName = key;
 
-                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cspp);
+                var rsa = new RSACryptoServiceProvider(cspp);
                 rsa.PersistKeyInCsp = true;
 
-                string[] decryptArray = stringToDecrypt.Split(new string[] {"-"}, StringSplitOptions.None);
-                byte[] decryptByteArray = Array.ConvertAll<string, byte>(decryptArray,
+                var decryptArray = stringToDecrypt.Split(new string[] {"-"}, StringSplitOptions.None);
+                var decryptByteArray = Array.ConvertAll<string, byte>(decryptArray,
                     (s => System.Convert.ToByte(byte.Parse(s, System.Globalization.NumberStyles.HexNumber))));
 
 
-                byte[] bytes = rsa.Decrypt(decryptByteArray, true);
+                var bytes = rsa.Decrypt(decryptByteArray, true);
 
                 result = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             }
@@ -2549,8 +2549,8 @@ Console.WriteLine("Title Case: {0}", s.ToProperCase());
 
         public static string ToProperCase(this string text)
         {
-            System.Globalization.CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-            System.Globalization.TextInfo textInfo = cultureInfo.TextInfo;
+            var cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            var textInfo = cultureInfo.TextInfo;
             return textInfo.ToTitleCase(text);
         }
 
@@ -2570,7 +2570,7 @@ test
 
         public static bool IsValidUrl(this string text)
         {
-            Regex rx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
+            var rx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
             return rx.IsMatch(text);
         }
 
@@ -2664,7 +2664,7 @@ String.Format("{0} {1}", commentCount, "comment".ToPlural(commentCount)); // ret
         {
             while (toCheck != typeof(object))
             {
-                Type cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;
+                var cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;
                 if (baseType == cur)
                 {
                     return true;

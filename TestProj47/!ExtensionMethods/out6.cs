@@ -285,11 +285,11 @@ var monthDiff = dt1.GetMonthDiff(dt2);
         /// <returns></returns>
         public static string RemoveSpecialCharacters(this string input, string allowedCharacters)
         {
-            char[] buffer = new char[input.Length];
-            int index = 0;
+            var buffer = new char[input.Length];
+            var index = 0;
 
-            char[] allowedSpecialCharacters = allowedCharacters.ToCharArray();
-            foreach (char c in input.Where(c => char.IsLetterOrDigit(c) || allowedSpecialCharacters.Any(x => x == c)))
+            var allowedSpecialCharacters = allowedCharacters.ToCharArray();
+            foreach (var c in input.Where(c => char.IsLetterOrDigit(c) || allowedSpecialCharacters.Any(x => x == c)))
             {
                 buffer[index] = c;
                 index++;
@@ -338,7 +338,7 @@ namespace ConsoleApplication3 {
         public static int IndexOf<TSource>(this IEnumerable<TSource> list, TSource value,
             IEqualityComparer<TSource> comparer)
         {
-            int index = 0;
+            var index = 0;
             foreach (var item in list)
             {
                 if (comparer.Equals(item, value))
@@ -387,7 +387,7 @@ MessageBox.Show(result_string);
 
         public static List<T> InsertFirst<T>(this List<T> lst, T Obj)
         {
-            List<T> NewList = new List<T>();
+            var NewList = new List<T>();
 
             NewList.Add(Obj);
             NewList.AddRange(lst);
@@ -439,7 +439,7 @@ MessageBox.Show(result_string);
         public static void RequireOrPermanentRedirect<T>(this System.Web.UI.Page page, string QueryStringKey,
             string RedirectUrl)
         {
-            string QueryStringValue = page.Request.QueryString[QueryStringKey];
+            var QueryStringValue = page.Request.QueryString[QueryStringKey];
 
             if (String.IsNullOrEmpty(QueryStringValue))
             {
@@ -448,7 +448,7 @@ MessageBox.Show(result_string);
 
             try
             {
-                T value = (T) System.Convert.ChangeType(QueryStringValue, typeof(T));
+                var value = (T) System.Convert.ChangeType(QueryStringValue, typeof(T));
             }
             catch
             {
@@ -503,7 +503,7 @@ MessageBox.Show(result_string);
         public static void SetLiteralText(this System.Web.UI.WebControls.ListViewItem item, string literalName,
             string text)
         {
-            Literal literal = (Literal) item.FindControl(literalName);
+            var literal = (Literal) item.FindControl(literalName);
             literal.Text = text;
         }
 
@@ -526,18 +526,18 @@ string htmlTable = dt.ConvertDataTableToHTML();
 
         public static string ConvertDataTableToHTML(this DataTable dt)
         {
-            string html = "<table>";
+            var html = "<table>";
 
             //add header row
             html += "<tr>";
-            for (int i = 0; i < dt.Columns.Count; i++)
+            for (var i = 0; i < dt.Columns.Count; i++)
                 html += "<td>" + dt.Columns[i].ColumnName + "</td>";
             html += "</tr>";
             //add rows
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (var i = 0; i < dt.Rows.Count; i++)
             {
                 html += "<tr>";
-                for (int j = 0; j < dt.Columns.Count; j++)
+                for (var j = 0; j < dt.Columns.Count; j++)
                     html += "<td>" + dt.Rows[i][j].ToString() + "</td>";
                 html += "</tr>";
             }
@@ -573,7 +573,7 @@ string result = result.Slice(2,3); // Returns "67"
                 return value;
             }
 
-            int upperBound = value.Length - 1;
+            var upperBound = value.Length - 1;
 
             //
             // Check the arguments
@@ -752,7 +752,7 @@ will return "POTATOE"
 
         public static String ToUpperCheckForNull(this string input)
         {
-            string retval = input;
+            var retval = input;
 
             if (!String.IsNullOrEmpty(retval))
             {
@@ -802,7 +802,7 @@ value = value.UppercaseFirstLetter();
             //
             if (value.Length > 0)
             {
-                char[] array = value.ToCharArray();
+                var array = value.ToCharArray();
                 array[0] = char.ToUpper(array[0]);
                 return new string(array);
             }
@@ -876,9 +876,9 @@ var query = "select * from {TableName} where id >= {Id};".WithVar(new {TableName
                 {
                     if (alreadyMatch.Contains(m.Value)) continue;
                     else alreadyMatch.Add(m.Value);
-                    string oldValue = m.Value;
+                    var oldValue = m.Value;
                     string newValue = null;
-                    string format = "{0" + m.Groups[1].Value + "}";
+                    var format = "{0" + m.Groups[1].Value + "}";
                     if (member is FieldInfo)
                         newValue = format.With(((FieldInfo) member).GetValue(arg));
                     if (member is PropertyInfo)
@@ -976,8 +976,8 @@ bool isSaved = str.Save("D:\myfile.txt");
         public static List<TSource> ExceptWithDuplicates<TSource>(this IEnumerable<TSource> first,
             IEnumerable<TSource> second)
         {
-            List<TSource> s1 = second.ToList();
-            List<TSource> ret = new List<TSource>();
+            var s1 = second.ToList();
+            var ret = new List<TSource>();
 
             first.ToList().ForEach(n =>
             {
@@ -1008,11 +1008,11 @@ Debug.Assert(d.EntryEquals (d2));
         public static bool EntryEquals<TKey, TValue>(this IDictionary<TKey, TValue> dict,
             IDictionary<TKey, TValue> other) where TValue : class
         {
-            foreach (KeyValuePair<TKey, TValue> kvp in dict)
+            foreach (var kvp in dict)
             {
                 if (other.ContainsKey(kvp.Key))
                 {
-                    TValue otherValue = other[kvp.Key];
+                    var otherValue = other[kvp.Key];
                     if (!kvp.Value.Equals(otherValue)) return false;
                 }
                 else
@@ -1503,7 +1503,7 @@ Some examples:
 
         public static Decimal timeToDecimal(this string time)
         {
-            int Hours = time.Split(':')[0].ToInt();
+            var Hours = time.Split(':')[0].ToInt();
             decimal Minutes = time.Split(':')[1].ToInt();
             while (Minutes >= 60)
             {
@@ -1511,7 +1511,7 @@ Some examples:
                 Hours++;
             }
             //Minutes = Minutes/60;
-            long test = System.Convert.ToInt64((Minutes / 60) / 10);
+            var test = System.Convert.ToInt64((Minutes / 60) / 10);
             return Hours + Minutes / 60;
         }
 
@@ -1555,8 +1555,8 @@ Some examples:
 
         public static IEnumerable<string> GetMatchValue(this string rawString, string pattern, bool uniqueOnly = false)
         {
-            MatchCollection matches = Regex.Matches(rawString, pattern, RegexOptions.IgnoreCase);
-            IEnumerable<string> result = matches.Cast<Match>().Select(m => m.Value);
+            var matches = Regex.Matches(rawString, pattern, RegexOptions.IgnoreCase);
+            var result = matches.Cast<Match>().Select(m => m.Value);
             if (uniqueOnly) return result.Distinct().ToList<string>();
 
             return result.ToList<string>();
@@ -1580,8 +1580,8 @@ Examples:
 
         public static string decimalToTime(this decimal time)
         {
-            string Hours = Math.Truncate(time).ToString();
-            string Minuten = Math.Round((time - Math.Truncate(time)) * 60).ToString();
+            var Hours = Math.Truncate(time).ToString();
+            var Minuten = Math.Round((time - Math.Truncate(time)) * 60).ToString();
             return Hours + ":" + Minuten;
         }
 
@@ -1602,7 +1602,7 @@ Examples:
             var d = 0;
 
             // Counting the perceptive luminance - human eye favors green color... 
-            double a = 1 - (0.299 * value.R + 0.587 * value.G + 0.114 * value.B) / 255;
+            var a = 1 - (0.299 * value.R + 0.587 * value.G + 0.114 * value.B) / 255;
 
             if (a < 0.5)
                 d = 0; // bright colors - black font
@@ -1798,7 +1798,7 @@ linkedItems.RemoveAll(x => x > 2);
 
         public static void RemoveAll<T>(this ICollection<T> @this, Func<T, bool> predicate)
         {
-            List<T> list = @this as List<T>;
+            var list = @this as List<T>;
 
             if (list != null)
             {
@@ -1806,7 +1806,7 @@ linkedItems.RemoveAll(x => x > 2);
             }
             else
             {
-                List<T> itemsToDelete = @this
+                var itemsToDelete = @this
                     .Where(predicate)
                     .ToList();
 
@@ -1869,10 +1869,10 @@ bool isOdd = number.IsOdd(); // false
 
         public static IEnumerable<T> GetDuplicates<T>(this IEnumerable<T> source)
         {
-            HashSet<T> itemsSeen = new HashSet<T>();
-            HashSet<T> itemsYielded = new HashSet<T>();
+            var itemsSeen = new HashSet<T>();
+            var itemsYielded = new HashSet<T>();
 
-            foreach (T item in source)
+            foreach (var item in source)
             {
                 if (!itemsSeen.Add(item))
                 {
@@ -1994,7 +1994,7 @@ var value=new Random().NextEnum<AjaxResultEnum>();
         public static T NextEnum<T>(this System.Random random)
             where T : struct
         {
-            Type type = typeof(T);
+            var type = typeof(T);
             if (type.IsEnum == false) throw new InvalidOperationException();
 
             var array = Enum.GetValues(type);
@@ -2050,7 +2050,7 @@ var value=new Random().NextEnum<AjaxResultEnum>();
 
             types.Add(typeof(T));
 
-            for (int i = 0; i < strings.Length; i++)
+            for (var i = 0; i < strings.Length; i++)
             {
                 if (i != 0)
                     types.Add(properties[i - 1].PropertyType);
@@ -2060,7 +2060,7 @@ var value=new Random().NextEnum<AjaxResultEnum>();
 
             var parameter = System.Linq.Expressions.Expression.Parameter(types[0], "p");
 
-            for (int i = 0; i < properties.Count; i++)
+            for (var i = 0; i < properties.Count; i++)
             {
                 propertyAccesses.Add(i == 0
                     ? System.Linq.Expressions.Expression.MakeMemberAccess(parameter, properties[i])
@@ -2090,12 +2090,12 @@ var value=new Random().NextEnum<AjaxResultEnum>();
         {
             public static string RandomString(int length)
             {
-                Random random = new Random((int) DateTime.Now.Ticks);
-                StringBuilder sb = new StringBuilder();
+                var random = new Random((int) DateTime.Now.Ticks);
+                var sb = new StringBuilder();
 
-                string validChars = "abcdefghijklmnopqrstuvwxyz0123456789";
+                var validChars = "abcdefghijklmnopqrstuvwxyz0123456789";
                 char c;
-                for (int i = 0; i < length; i++)
+                for (var i = 0; i < length; i++)
                 {
                     c = validChars[random.Next(0, validChars.Length)];
                     sb.Append(c);
@@ -2153,15 +2153,15 @@ list.Follow(4);
             try
             {
                 var dateTime = dt.ToDateTime();
-                PersianCalendar persianCalendar = new PersianCalendar();
-                string year = persianCalendar.GetYear(dateTime).ToString();
-                string month = persianCalendar.GetMonth(dateTime).ToString()
+                var persianCalendar = new PersianCalendar();
+                var year = persianCalendar.GetYear(dateTime).ToString();
+                var month = persianCalendar.GetMonth(dateTime).ToString()
                     .PadLeft(2, '0');
-                string day = persianCalendar.GetDayOfMonth(dateTime).ToString()
+                var day = persianCalendar.GetDayOfMonth(dateTime).ToString()
                     .PadLeft(2, '0');
-                string hour = dateTime.Hour.ToString().PadLeft(2, '0');
-                string minute = dateTime.Minute.ToString().PadLeft(2, '0');
-                string second = dateTime.Second.ToString().PadLeft(2, '0');
+                var hour = dateTime.Hour.ToString().PadLeft(2, '0');
+                var minute = dateTime.Minute.ToString().PadLeft(2, '0');
+                var second = dateTime.Second.ToString().PadLeft(2, '0');
                 return String.Format("{0}/{1}/{2} {3}:{4}:{5}", year, month, day, hour, minute, second);
             }
             catch
@@ -2283,14 +2283,14 @@ int? nullsAreSafe = thisWillNotThrowException.ToNullable<int>();
         private static void AddPropertyToDictionary<T>(PropertyDescriptor property, object source,
             Dictionary<string, T> dictionary)
         {
-            object value = property.GetValue(source);
+            var value = property.GetValue(source);
             if (IsOfType<T>(value))
             {
                 dictionary.Add(property.Name, (T) value);
             }
             else
             {
-                T newValue = (T) System.Convert.ChangeType(value, typeof(T));
+                var newValue = (T) System.Convert.ChangeType(value, typeof(T));
                 dictionary.Add(property.Name, newValue);
             }
         }
@@ -4653,7 +4653,7 @@ double dblCorrelation = tblWeather.PearsonCorrelation("WindSpeed" , "Temperature
             double YY = 0; // Sum of Y * Y
             double XY = 0; // Sum of X * Y
 
-            int iRowCount = aSourceTable.Rows.Count;
+            var iRowCount = aSourceTable.Rows.Count;
 
             foreach (DataRow row in aSourceTable.Rows)
             {
@@ -4890,9 +4890,9 @@ bool isEven = number.IsEven(); // true
             if (string.IsNullOrEmpty(value) == false)
             {
                 // Search Begin
-                int start = -1;
+                var start = -1;
                 // search with number of occurs
-                for (int i = 1; i <= occur; i++)
+                for (var i = 1; i <= occur; i++)
                     start = value.IndexOf(begin_text, start + 1);
 
                 if (start < 0)
@@ -4903,7 +4903,7 @@ bool isEven = number.IsEven(); // true
                 // Search End
                 if (string.IsNullOrEmpty(end_text))
                     return value.Substring(start);
-                int end = value.IndexOf(end_text, start);
+                var end = value.IndexOf(end_text, start);
                 if (end < 0)
                     return value.Substring(start);
 
@@ -4939,7 +4939,7 @@ dynamicObject.Print();
         {
             var dynamicDictionary = dynamicObject as IDictionary<string, object>;
 
-            foreach (KeyValuePair<string, object> property in dynamicDictionary)
+            foreach (var property in dynamicDictionary)
             {
                 Console.WriteLine("{0}: {1}", property.Key, property.Value.ToString());
             }
@@ -4985,7 +4985,7 @@ dynamicObject.Print();
 
                 if (key.Equals(true))
                 {
-                    int index = source.IndexOf(item);
+                    var index = source.IndexOf(item);
                     source.Remove(item);
                     source.Insert(index, replacement);
                     break;
@@ -5045,22 +5045,22 @@ else {
         {
             int count, position0, position1;
             count = position0 = position1 = 0;
-            string upperString = str.ToUpper();
-            string upperPattern = pattern.ToUpper();
-            int inc = (str.Length / pattern.Length) *
+            var upperString = str.ToUpper();
+            var upperPattern = pattern.ToUpper();
+            var inc = (str.Length / pattern.Length) *
                       (replacement.Length - pattern.Length);
-            char[] chars = new char[str.Length + Math.Max(0, inc)];
+            var chars = new char[str.Length + Math.Max(0, inc)];
             while ((position1 = upperString.IndexOf(upperPattern,
                        position0)) != -1)
             {
-                for (int i = position0; i < position1; ++i)
+                for (var i = position0; i < position1; ++i)
                     chars[count++] = str[i];
-                for (int i = 0; i < replacement.Length; ++i)
+                for (var i = 0; i < replacement.Length; ++i)
                     chars[count++] = replacement[i];
                 position0 = position1 + pattern.Length;
             }
             if (position0 == 0) return str;
-            for (int i = position0; i < str.Length; ++i)
+            for (var i = position0; i < str.Length; ++i)
                 chars[count++] = str[i];
             return new string(chars, 0, count);
         }
