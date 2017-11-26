@@ -1,51 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Data;
-using System.Data.Common;
-using System.Data.Objects;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Globalization;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Sockets;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
-using System.Web.DynamicData;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using HSNXT;
-using Newtonsoft.Json;
 using Control = System.Windows.Forms.Control;
-using Formatting = System.Xml.Formatting;
-using Image = System.Web.UI.WebControls.Image;
 
 namespace HSNXT2
 {
@@ -413,7 +386,7 @@ bool value = HasVideo.DefaultValue(false);
             T result = null;
 
             // Try to find the configuration attribute for the default logger if it exists
-            object[] configAttributes = Attribute.GetCustomAttributes(callingAssembly,
+            Attribute[] configAttributes = Attribute.GetCustomAttributes(callingAssembly,
                 typeof(T), false);
 
             // get just the first one
@@ -1332,7 +1305,7 @@ string testString = test.ToLocalCurrencyString();
         /// <returns>The double formatted based on the local culture currency settings.</returns>
         public static string ToLocalCurrencyString(this double value)
         {
-            return (String.Format("{0:C}", value));
+            return ($"{value:C}");
         }
 
 
@@ -2164,7 +2137,7 @@ Assert.AreEqual("Truncate...string.", truncated);
                 .TrimEnd();
 
             // Concatenate and return the result.
-            return string.Format("{0}...{1}", left, right);
+            return $"{left}...{right}";
         } // end InnerTruncate
 
 
@@ -2282,38 +2255,6 @@ var second = t.IndicesOf(new int[]{0,3});
             return (from i in Enumerable.Range(0, obj.Count())
                 where value.Contains(obj.ElementAt(i))
                 select i);
-        }
-
-
-/*
- * IsNullOrEmpty
- * Determines whether a collection is null or has no elements without having to enumerate the entire collection to get a count.
- * 
- * Author: Kelly Adams
- * Submitted on: 10/15/2010 7:08:35 PM
- * 
- * Example: 
- * var list = new List<string>();
-list.Add("Test1");
-list.Add("Test2");
-Assert.IsFalse(list.IsNullOrEmpty());
-list.Clear();
-Assert.IsTrue(list.IsNullOrEmpty());
-list = null;
-Assert.IsTrue(list.IsNullOrEmpty());
- */
-
-        /// <summary>
-        /// Determines whether a collection is null or has no elements without having to enumerate the entire collection to get a count.  Uses LINQ.
-        /// </summary>
-        /// <typeparam name="T">The item type.</typeparam>
-        /// <param name="items">The items.</param>
-        /// <returns>
-        /// <c>true</c> if this list is null or empty; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsNullOrEmpty<T>(this IList<T> items)
-        {
-            return items == null || !items.Any();
         }
 
 
@@ -2555,7 +2496,7 @@ myDiv.InnerHtml += "</ul>";
 
         public static string WrapEachWithTag<T>(this IEnumerable<T> source, string tagToWrap)
         {
-            var tag = String.Format("</{0}>", tagToWrap);
+            var tag = $"</{tagToWrap}>";
             var s = "";
             foreach (var item in source)
             {
@@ -2811,7 +2752,7 @@ Console.WriteLine (s.TakeFrom("d"));   // "de"
 
         internal static string ToReversedDateTime(this DateTime value)
         {
-            return string.Format("{0:u}", value);
+            return $"{value:u}";
         }
 
 

@@ -1,47 +1,26 @@
 using System;
-using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Data.Common;
-using System.Data.Objects;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Net.Mail;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Script.Serialization;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Windows.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using HSNXT.ComLib.Web;
-using Microsoft.CSharp;
 using Newtonsoft.Json;
 using Control = System.Windows.Forms.Control;
-using Image = System.Web.UI.WebControls.Image;
 
 namespace HSNXT2
 {
@@ -2850,11 +2829,7 @@ public IEnumerable<Customer> GetCustomers()
 
         public static Uri ToTiny(this Uri longUri)
         {
-            var request = WebRequest.Create(String.Format
-            (
-                "http://tinyurl.com/api-create.php?url={0}",
-                UrlEncode(longUri.ToString())
-            ));
+            var request = WebRequest.Create($"http://tinyurl.com/api-create.php?url={UrlEncode(longUri.ToString())}");
             var response = request.GetResponse();
             Uri returnUri = null;
             using (var reader = new System.IO.StreamReader(response.GetResponseStream()))

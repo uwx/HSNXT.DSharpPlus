@@ -1,50 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.ComponentModel.Design.Serialization;
-using System.Configuration;
-using System.Diagnostics;
 using System.IO;
-using System.IO.Pipes;
-using System.IO.Ports;
-using System.Net;
-using System.Net.Mail;
-using System.Net.NetworkInformation;
-using System.Net.Security;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Contexts;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Timers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Services.Client;
 using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Dynamic;
 using System.Globalization;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using System.Xml.Serialization;
-using HSNXT;
-using Microsoft.Office.Interop.Excel;
 
 namespace HSNXT2
 {
@@ -74,7 +47,7 @@ string display = ts.TimeSpanToString(); // 30 hours 4 mins
         {
             var s = TimeSpan.FromSeconds(timeSpan.TotalSeconds);
 
-            return string.Format("{0} hours {1} mins", (int) s.TotalHours, s.Minutes);
+            return $"{(int) s.TotalHours} hours {s.Minutes} mins";
         }
 
 
@@ -236,27 +209,27 @@ var cityListObsCollection = cityList.ToObservableCollection();
 DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.YearFromJanuary); // Returns January 1 of next year at midnight.
  */
 
-        static public DateTime DateTimeFloor(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeFloor(this DateTime dt, TimeInterval Interval)
         {
             return WorkMethod(dt, 0L, Interval);
         }
 
-        static public DateTime DateTimeMidpoint(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeMidpoint(this DateTime dt, TimeInterval Interval)
         {
             return WorkMethod(dt, 2L, Interval);
         }
 
-        static public DateTime DateTimeCeiling(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeCeiling(this DateTime dt, TimeInterval Interval)
         {
             return WorkMethod(dt, 1L, Interval);
         }
 
-        static public DateTime DateTimeCeilingUnbounded(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeCeilingUnbounded(this DateTime dt, TimeInterval Interval)
         {
             return WorkMethod(dt, 1L, Interval).AddTicks(-1);
         }
 
-        static public DateTime DateTimeRound(this DateTime dt, TimeInterval Interval)
+        public static DateTime DateTimeRound(this DateTime dt, TimeInterval Interval)
         {
             if (dt >= WorkMethod(dt, 2L, Interval))
                 return WorkMethod(dt, 1L, Interval);
@@ -313,7 +286,7 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
             ThousandthOfASecond = TimeSpan.TicksPerSecond / 1000L
         }
 
-        static private DateTime WorkMethod(DateTime dt, long ReturnType, TimeInterval Interval)
+        private static DateTime WorkMethod(DateTime dt, long ReturnType, TimeInterval Interval)
         {
             var Interval1 = (long) Interval;
             var TicksFromFloor = 0L;
@@ -570,46 +543,6 @@ public ActionResult Process(MyLovelyModel model)
 
                 return json;
             }
-        }
-
-
-/*
- * IsNullOrEmpty
- * Check either IList object is null or empty.
- * 
- * Author: Muhammad Shoaib Ijaz
- * Submitted on: 9/16/2016 3:11:43 PM
- * 
- * Example: 
- * List<string> countryList = null;
-if (countryList.IsNullOrEmpty())
-{ 
-
-}
-else
-{ 
-
-}
-
-var cityList = new List<string> { "NewYork", "London" };
-if (cityList.IsNullOrEmpty())
-{
-
-}
-else
-{
-
-}
- */
-
-        /// <summary>
-        /// Determines whether the given IList object [is null or empty].
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns><c>true</c> if the given IList object [is null or empty]; otherwise, <c>false</c>.</returns>
-        public static bool IsNullOrEmpty(this IList obj)
-        {
-            return obj == null || obj.Count == 0;
         }
 
 
@@ -954,7 +887,7 @@ DateTime nextAnnivers = DateTime.Now.NextAnniversary(12, 16); // Returns the nex
 DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns the next occurance of February 28 or February 29 depending on if the next anniversary is in a leap year.
  */
 
-        static public DateTime NextAnniversary(this DateTime dt, DateTime eventDate, bool preserveMonth = false)
+        public static DateTime NextAnniversary(this DateTime dt, DateTime eventDate, bool preserveMonth = false)
         {
             DateTime calcDate;
 
@@ -971,7 +904,7 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
                 return calcDate.AddYears(dt.Month == 2 && dt.Day == 28 ? 1 : 0).AddDays(-1);
         }
 
-        static public DateTime NextAnniversary(this DateTime dt, int eventMonth, int eventDay,
+        public static DateTime NextAnniversary(this DateTime dt, int eventMonth, int eventDay,
             bool preserveMonth = false)
         {
             DateTime calcDate;
@@ -1006,7 +939,7 @@ bool result = a.ReferenceEquals(b);
 // result will true
  */
 
-        public static new bool ReferenceEquals(this object objA, object objB)
+        public new static bool ReferenceEquals(this object objA, object objB)
         {
             return Object.ReferenceEquals(objA, objB);
         }
@@ -2394,7 +2327,7 @@ fileInfo.MoveTo(@"d:\", true);
 
                 while (File.Exists(newFullPath))
                 {
-                    var tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
+                    var tempFileName = $"{fileNameOnly}({count++})";
                     newFullPath = Path.Combine(destFileName, tempFileName + extension);
                 }
             }

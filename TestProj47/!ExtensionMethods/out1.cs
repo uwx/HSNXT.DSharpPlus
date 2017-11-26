@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Common;
 using System.Data.Objects;
@@ -20,16 +19,13 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using HSNXT;
 using Control = System.Windows.Forms.Control;
 
 namespace HSNXT2
@@ -505,7 +501,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 #endregion
 
                 default:
-                    throw new Exception(String.Format("DatePart \"{0}\" is unknown", DatePart));
+                    throw new Exception($"DatePart \"{DatePart}\" is unknown");
             }
             return DateDiffVal;
         }
@@ -715,7 +711,7 @@ B getB = a.IfNotNull( x => x.Inner );
 }
  */
 
-        private readonly static Regex domainRegex =
+        private static readonly Regex domainRegex =
             new Regex(
                 @"(((?<scheme>http(s)?):\/\/)?([\w-]+?\.\w+)+([a-zA-Z0-9\~\!\@\#\$\%\^\&amp;\*\(\)_\-\=\+\\\/\?\.\:\;\,]*)?)",
                 RegexOptions.Compiled | RegexOptions.Multiline);
@@ -731,7 +727,7 @@ B getB = a.IfNotNull( x => x.Inner );
 
                     var url = new UriBuilder(link) {Scheme = scheme}.Uri.ToString();
 
-                    return string.Format(@"<a href=""{0}"" target=""{1}"">{2}</a>", url, target, link);
+                    return $@"<a href=""{url}"" target=""{target}"">{link}</a>";
                 }
             );
         }
@@ -2722,7 +2718,7 @@ list.AddElement("line 1")
                 if (SourceTable.Columns.Contains(s))
                     dt.Columns.Add(s, SourceTable.Columns[s].DataType);
                 else
-                    throw new Exception(String.Format("The column {0} does not exist.", s));
+                    throw new Exception($"The column {s} does not exist.");
             }
 
             Object[] LastValues = null;

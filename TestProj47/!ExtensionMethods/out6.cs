@@ -413,7 +413,7 @@ MessageBox.Show(result_string);
             {
                 if (number == 1) return input;
 
-                return string.Format("{0}s", input);
+                return $"{input}s";
             }
             else
             {
@@ -586,7 +586,7 @@ string result = result.Slice(2,3); // Returns "67"
             if (end > upperBound)
             {
                 throw new ArgumentOutOfRangeException("end",
-                    string.Format("end cannot be greater than {0}", upperBound));
+                    $"end cannot be greater than {upperBound}");
             }
 
             if (start > end)
@@ -823,7 +823,7 @@ value = value.UppercaseFirstLetter();
 int age = henrybirthdate.Age();
  */
 
-        static public int Age(this DateTime dateOfBirth)
+        public static int Age(this DateTime dateOfBirth)
         {
             if (DateTime.Today.Month < dateOfBirth.Month ||
                 DateTime.Today.Month == dateOfBirth.Month &&
@@ -2162,7 +2162,7 @@ list.Follow(4);
                 var hour = dateTime.Hour.ToString().PadLeft(2, '0');
                 var minute = dateTime.Minute.ToString().PadLeft(2, '0');
                 var second = dateTime.Second.ToString().PadLeft(2, '0');
-                return String.Format("{0}/{1}/{2} {3}:{4}:{5}", year, month, day, hour, minute, second);
+                return $"{year}/{month}/{day} {hour}:{minute}:{second}";
             }
             catch
             {
@@ -2320,7 +2320,7 @@ int? nullsAreSafe = thisWillNotThrowException.ToNullable<int>();
 var encryptedAndCompressedData = unencyrptedData.CompressAndEncrypt();
  */
 
-        public unsafe static byte[] CompressAndEncrypt(this byte[] source)
+        public static unsafe byte[] CompressAndEncrypt(this byte[] source)
         {
             fixed (byte* p = source)
             {
@@ -4725,7 +4725,7 @@ string display = seconds.SecondsToString(); // 2 hours 11 mins
         {
             var s = TimeSpan.FromSeconds(totalSeconds);
 
-            return string.Format("{0} hours {1} mins", (int) s.TotalHours, s.Minutes);
+            return $"{(int) s.TotalHours} hours {s.Minutes} mins";
         }
 
 

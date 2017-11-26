@@ -4,13 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Data;
-using System.Data.Common;
-using System.Data.Objects;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Drawing;
@@ -20,31 +15,18 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Net.Mail;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
-using System.Web.DynamicData;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
-using HSNXT;
 using Newtonsoft.Json;
 using Control = System.Windows.Forms.Control;
-using Formatting = System.Xml.Formatting;
-using Image = System.Web.UI.WebControls.Image;
 
 namespace HSNXT2
 {
@@ -231,7 +213,7 @@ noOfRows.Times(rowNo => {
 
             var connectionString = connectionStrings[name];
             if (connectionString == null)
-                throw new Exception(String.Format("The connection string '{0}' was not found.", name));
+                throw new Exception($"The connection string '{name}' was not found.");
 
             return connectionString.ConnectionString;
         }
@@ -328,7 +310,7 @@ string fullName = firstName.CombineWith(lastName);
                 }
                 else
                 {
-                    return string.Format("{0}{1}{2}", input, separator, suffix);
+                    return $"{input}{separator}{suffix}";
                 }
             }
         }
@@ -554,7 +536,7 @@ bool hasTen = bigCollection.CountOf( 10 ); // true
 
         public static string ToOracleSqlDate(this DateTime dateTime)
         {
-            return String.Format("to_date('{0}','dd.mm.yyyy hh24.mi.ss')", dateTime.ToString("dd.MM.yyyy HH:mm:ss"));
+            return $"to_date('{dateTime.ToString("dd.MM.yyyy HH:mm:ss")}','dd.mm.yyyy hh24.mi.ss')";
         }
 
 
@@ -798,7 +780,7 @@ Image myImage = imageBytes.ToImage();
             }
             catch (Exception)
             {
-                var errMsg = string.Format("Not find'{0}'", paraName);
+                var errMsg = $"Not find'{paraName}'";
                 throw new ArgumentException(errMsg);
             }
         }
@@ -2523,9 +2505,7 @@ File.Move(fileToMove, newLocation.EnsureFileNameIsUnique());
 
             do
             {
-                newPath = string.Format("{0} - Copy{1}{2}", basePath,
-                    counter == 1 ? "" : string.Format(" ({0})", counter),
-                    extension);
+                newPath = $"{basePath} - Copy{(counter == 1 ? "" : $" ({counter})")}{extension}";
 
                 counter += 1;
             } while (File.Exists(newPath));
