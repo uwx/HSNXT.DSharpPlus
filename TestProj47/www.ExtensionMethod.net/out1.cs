@@ -303,7 +303,7 @@ test2
             }
         }
 
-        /*
+/*
  * ToUnixTimestamp
  * Converts a System.DateTime object to Unix timestamp.
  * 
@@ -1133,7 +1133,6 @@ var custListUnder5000 = custs.WhereIf(showAccountBalancesUnder5000, c=>c.AcctBal
             else
                 return source;
         }
-
 
 
 /*
