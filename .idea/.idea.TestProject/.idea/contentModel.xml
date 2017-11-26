@@ -832,15 +832,6 @@
         <e p="SuperOEISGenerator.csproj" t="IncludeRecursive" />
       </e>
       <e p="TestProj47" t="IncludeRecursive">
-        <e p="!ExtensionMethods" t="Include">
-          <e p="out1.cs" t="Include" />
-          <e p="out2.cs" t="Include" />
-          <e p="out3.cs" t="Include" />
-          <e p="out4.cs" t="Include" />
-          <e p="out5.cs" t="Include" />
-          <e p="out6.cs" t="Include" />
-          <e p="out7.cs" t="Include" />
-        </e>
         <e p="aResources" t="Include">
           <e p="Resource1.Designer.cs" t="Include" />
           <e p="Resource1.resx" t="Include" />
@@ -2912,6 +2903,15 @@
             <e p="PointN.cs" t="Include" />
             <e p="Triangle.cs" t="Include" />
           </e>
+        </e>
+        <e p="www.ExtensionMethod.net" t="Include">
+          <e p="out1.cs" t="Include" />
+          <e p="out2.cs" t="Include" />
+          <e p="out3.cs" t="Include" />
+          <e p="out4.cs" t="Include" />
+          <e p="out5.cs" t="Include" />
+          <e p="out6.cs" t="Include" />
+          <e p="out7.cs" t="Include" />
         </e>
         <e p="ZExtensionMethods_Compressed" t="Include">
           <e p="GetDeclaration.cs" t="Include" />
