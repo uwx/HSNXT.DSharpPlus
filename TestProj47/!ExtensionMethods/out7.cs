@@ -19,6 +19,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 // ReSharper disable PossibleNullReferenceException
+#pragma warning disable 1574
 
 namespace HSNXT2
 {
@@ -291,9 +292,7 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
             var ticksFromFloor = 0L;
             int intervalFloor;
             int floorOffset;
-            int intervalLength;
             DateTime floorDate;
-            DateTime ceilingDate;
 
             if (interval1 > 132L) //Set variables to calculate date for time interval less than one day.
             {
@@ -312,7 +311,7 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
             }
             else //Set variables to calculate date for time interval one month or greater.
             {
-                intervalLength = interval1 >= 130L ? 12 : (int) (interval1 / 10L);
+                var intervalLength = interval1 >= 130L ? 12 : (int) (interval1 / 10L);
                 intervalFloor = (int) (interval1 % intervalLength);
                 floorOffset = (dt.Month - 1) % intervalLength;
                 floorDate = new DateTime(dt.Year, dt.Month, 1, 0, 0, 0, dt.Kind).AddMonths(-(intervalFloor > floorOffset
@@ -320,8 +319,8 @@ DateTime nextYear = DateTime.Now.DateTimeCeiling(DateExtensions.TimeInterval.Yea
                     : floorOffset - intervalFloor));
                 if (returnType != 0L)
                 {
-                    ceilingDate = floorDate.AddMonths(intervalLength);
-                    ticksFromFloor = (long) ceilingDate.Subtract(floorDate).Ticks / returnType;
+                    var ceilingDate = floorDate.AddMonths(intervalLength);
+                    ticksFromFloor = ceilingDate.Subtract(floorDate).Ticks / returnType;
                 }
             }
             return floorDate.AddTicks(ticksFromFloor);
@@ -343,8 +342,7 @@ double d = s.ToDouble(); // 2.2365
 
         public static double ToDouble(this string theValue)
         {
-            double retNum;
-            var result = double.TryParse(theValue, out retNum);
+            var result = double.TryParse(theValue, out var retNum);
             return result ? retNum : 0;
         }
 
@@ -408,11 +406,11 @@ sentence.ReverseWords();
         {
             // Validate arguments
             if (maxValue < instance)
-                throw new ArgumentOutOfRangeException("maxValue", maxValue,
+                throw new ArgumentOutOfRangeException(nameof(maxValue), maxValue,
                     "maxValue must not be less than the instance. ");
 
             var count = (maxValue - instance + 1);
-            return System.Linq.Enumerable.Range(instance, count).ToList();
+            return Enumerable.Range(instance, count).ToList();
         }
 
 
@@ -529,13 +527,13 @@ public ActionResult Process(MyLovelyModel model)
 }
  */
 
-        public static string ToJson<T>(this T item, System.Text.Encoding encoding = null,
-            System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = null)
+        public static string ToJson<T>(this T item, Encoding encoding = null,
+            DataContractJsonSerializer serializer = null)
         {
             encoding = encoding ?? Encoding.Default;
             serializer = serializer ?? new DataContractJsonSerializer(typeof(T));
 
-            using (var stream = new System.IO.MemoryStream())
+            using (var stream = new MemoryStream())
             {
                 serializer.WriteObject(stream, item);
                 var json = encoding.GetString((stream.ToArray()));
@@ -888,12 +886,10 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
 
         public static DateTime NextAnniversary(this DateTime dt, DateTime eventDate, bool preserveMonth = false)
         {
-            DateTime calcDate;
-
             if (dt.Date < eventDate.Date) // Return the original event date if it occurs later than initial input date.
                 return new DateTime(eventDate.Year, eventDate.Month, eventDate.Day, 0, 0, 0, dt.Kind);
 
-            calcDate = new DateTime(
+            var calcDate = new DateTime(
                 dt.Year + (dt.Month < eventDate.Month || dt.Month == eventDate.Month && dt.Day < eventDate.Day ? 0 : 1),
                 eventDate.Month, 1, 0, 0, 0, dt.Kind).AddDays(eventDate.Day - 1);
 
@@ -906,14 +902,12 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
         public static DateTime NextAnniversary(this DateTime dt, int eventMonth, int eventDay,
             bool preserveMonth = false)
         {
-            DateTime calcDate;
-
             if (eventDay > 31 || eventDay < 1 || eventMonth > 12 || eventMonth < 1 ||
                 ((eventMonth == 4 || eventMonth == 6 || eventMonth == 9 || eventMonth == 11) && eventDay > 30) ||
                 (eventMonth == 2 && eventDay > 29))
                 throw new Exception("Invalid combination of Event Year and Event Month.");
 
-            calcDate = new DateTime(
+            var calcDate = new DateTime(
                 dt.Year + (dt.Month < eventMonth || dt.Month == eventMonth && dt.Day < eventDay ? 0 : 1), eventMonth, 1,
                 0, 0, 0, dt.Kind).AddDays(eventDay - 1);
 
@@ -957,8 +951,7 @@ bool result = a.ReferenceEquals(b);
 
         public static int SelectionValue(this DropDownList ddl)
         {
-            var r = -1;
-            int.TryParse(ddl.SelectedValue, out r);
+            int.TryParse(ddl.SelectedValue, out var r);
             return r;
         }
 
@@ -980,8 +973,7 @@ bool result = a.ReferenceEquals(b);
         {
             if (dictionary != null && dictionary.ContainsKey(dictionaryKey))
             {
-                object dictionaryValue;
-                dictionary.TryGetValue(dictionaryKey, out dictionaryValue);
+                dictionary.TryGetValue(dictionaryKey, out var dictionaryValue);
 
                 if (dictionaryValue != null)
                 {
@@ -989,14 +981,14 @@ bool result = a.ReferenceEquals(b);
                 }
             }
 
-            return default(T);
+            return default;
         }
 
         public static T TryToCast<T>(this object value)
         {
-            if (value is T)
+            if (value is T variable)
             {
-                return (T) value;
+                return variable;
             }
             try
             {
@@ -1009,7 +1001,7 @@ bool result = a.ReferenceEquals(b);
             }
             catch (Exception)
             {
-                return default(T);
+                return default;
             }
         }
 
@@ -1040,6 +1032,7 @@ bool result = a.ReferenceEquals(b);
             }
             catch (Exception)
             {
+                // ignored
             }
             return null;
         }
@@ -1056,12 +1049,11 @@ bool result = a.ReferenceEquals(b);
  * ToDecimal(row["col"]
  */
 
-        private static decimal? ToDecimal(this Object obj)
+        public static decimal? ToDecimal(this object obj)
         {
-            decimal result = 0;
             if (obj == null) return null;
 
-            if (decimal.TryParse(obj.ToString(), out result))
+            if (decimal.TryParse(obj.ToString(), out var result))
                 return result;
             return null;
         }
@@ -1088,11 +1080,12 @@ Console.WriteLine(l.FindMax(emp => emp.Salary)?.Name);
         public static T FindMin<T, TValue>(this IEnumerable<T> list, Func<T, TValue> predicate)
             where TValue : IComparable<TValue>
         {
-            var result = list.FirstOrDefault();
+            var en = list as T[] ?? list.ToArray();
+            var result = en.FirstOrDefault();
             if (result != null)
             {
                 var bestMin = predicate(result);
-                foreach (var item in list.Skip(1))
+                foreach (var item in en.Skip(1))
                 {
                     var v = predicate(item);
                     if (v.CompareTo(bestMin) < 0)
@@ -1108,11 +1101,12 @@ Console.WriteLine(l.FindMax(emp => emp.Salary)?.Name);
         public static T FindMax<T, TValue>(this IEnumerable<T> list, Func<T, TValue> predicate)
             where TValue : IComparable<TValue>
         {
-            var result = list.FirstOrDefault();
+            var en = list as T[] ?? list.ToArray();
+            var result = en.FirstOrDefault();
             if (result != null)
             {
                 var bestMax = predicate(result);
-                foreach (var item in list.Skip(1))
+                foreach (var item in en.Skip(1))
                 {
                     var v = predicate(item);
                     if (v.CompareTo(bestMax) > 0)
@@ -1229,11 +1223,7 @@ Requires a reference System.Text.RegularExpressions.
         /// <returns></returns>
         public static string SplitPascalCase(this string text)
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                return text;
-            }
-            return Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+            return string.IsNullOrEmpty(text) ? text : Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
         }
 
 
@@ -1313,8 +1303,7 @@ Requires a reference System.Text.RegularExpressions.
                     return false;
             }
 
-            long result;
-            if (long.TryParse(codeMelli, out result))
+            if (long.TryParse(codeMelli, out var result))
             {
                 switch (result.NoOfDigits())
                 {
@@ -1349,7 +1338,9 @@ Requires a reference System.Text.RegularExpressions.
         {
             var splitSocialCode = socialCode.ToString().ToCharArray();
             var sum = 0;
-            for (int i = 0, j = 10; i < 9 & j > 1; sum += int.Parse(splitSocialCode[i++].ToString()) * j--) ;
+            for (int i = 0, j = 10; i < 9 & j > 1; sum += int.Parse(splitSocialCode[i++].ToString()) * j--)
+            {
+            }
             var reminder = sum % 11;
             if (reminder < 2)
                 return reminder == int.Parse(splitSocialCode[9].ToString()); // controlling digit
@@ -1394,6 +1385,7 @@ Requires a reference System.Text.RegularExpressions.
             }
             catch (Exception)
             {
+                // ignored
             }
             return null;
         }
@@ -1423,15 +1415,16 @@ Ahmer-
         /// <summary>
         /// Extension method to split string by number of characters.
         /// </summary>
+        /// <param name="str">this object</param>
         /// <param name="startindex">The zero-based position to split the specified string.</param>
         /// <param name="length">The number of characters to split</param>
         public static string[] Split(this string str, int startindex, int length)
         {
             var strrtn = new string[3];
             if (startindex == 0)
-                strrtn = new string[] {str.Substring(startindex, length), str.Remove(startindex, length)};
+                strrtn = new[] {str.Substring(startindex, length), str.Remove(startindex, length)};
             else if (startindex > 0)
-                strrtn = new string[]
+                strrtn = new[]
                 {
                     str.Substring(startindex, length), str.Substring(0, startindex), str.Remove(0, length + startindex)
                 };
@@ -1456,17 +1449,16 @@ Ahmer-
         /// <summary>
         /// Extension method to validate that input text is a number.
         /// </summary>
+        /// <param name="txt">this object</param>
         /// <param name="e">Key Press Event Initialization.</param>
         /// <param name="isCalculation">if true then decimal point (.) is allowed, if false then decimal point (.) is not allowed</param>
         public static void ValidateNumber(this System.Windows.Forms.TextBox txt, KeyPressEventArgs e,
             bool isCalculation)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                if (e.KeyChar == '.' && isCalculation)
-                    if (txt.Text.IndexOf('.') > -1)
-                        e.Handled = true;
-                    else e.Handled = false;
-                else e.Handled = true;
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar)) return;
+            if (e.KeyChar == '.' && isCalculation)
+                e.Handled = txt.Text.IndexOf('.') > -1;
+            else e.Handled = true;
         }
 
 
@@ -1679,66 +1671,60 @@ string log = ex.ToLogString(“A fatal error occurred!”);
                 msg.Append(Environment.NewLine);
             }
 
-            if (ex != null)
+            if (ex == null) return msg.ToString();
+            var orgEx = ex;
+
+            msg.Append("Exception:");
+            msg.Append(Environment.NewLine);
+            while (orgEx != null)
             {
-                try
-                {
-                    var orgEx = ex;
+                msg.Append(orgEx.Message);
+                msg.Append(Environment.NewLine);
+                orgEx = orgEx.InnerException;
+            }
 
-                    msg.Append("Exception:");
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            if (ex.Data != null)
+            {
+                foreach (var i in ex.Data)
+                {
+                    msg.Append("Data :");
+                    msg.Append(i);
                     msg.Append(Environment.NewLine);
-                    while (orgEx != null)
-                    {
-                        msg.Append(orgEx.Message);
-                        msg.Append(Environment.NewLine);
-                        orgEx = orgEx.InnerException;
-                    }
-
-                    if (ex.Data != null)
-                    {
-                        foreach (var i in ex.Data)
-                        {
-                            msg.Append("Data :");
-                            msg.Append(i.ToString());
-                            msg.Append(Environment.NewLine);
-                        }
-                    }
-
-                    if (ex.StackTrace != null)
-                    {
-                        msg.Append("StackTrace:");
-                        msg.Append(Environment.NewLine);
-                        msg.Append(ex.StackTrace.ToString());
-                        msg.Append(Environment.NewLine);
-                    }
-
-                    if (ex.Source != null)
-                    {
-                        msg.Append("Source:");
-                        msg.Append(Environment.NewLine);
-                        msg.Append(ex.Source);
-                        msg.Append(Environment.NewLine);
-                    }
-
-                    if (ex.TargetSite != null)
-                    {
-                        msg.Append("TargetSite:");
-                        msg.Append(Environment.NewLine);
-                        msg.Append(ex.TargetSite.ToString());
-                        msg.Append(Environment.NewLine);
-                    }
-
-                    var baseException = ex.GetBaseException();
-                    if (baseException != null)
-                    {
-                        msg.Append("BaseException:");
-                        msg.Append(Environment.NewLine);
-                        msg.Append(ex.GetBaseException());
-                    }
                 }
-                finally
-                {
-                }
+            }
+
+            if (ex.StackTrace != null)
+            {
+                msg.Append("StackTrace:");
+                msg.Append(Environment.NewLine);
+                msg.Append(ex.StackTrace);
+                msg.Append(Environment.NewLine);
+            }
+
+            if (ex.Source != null)
+            {
+                msg.Append("Source:");
+                msg.Append(Environment.NewLine);
+                msg.Append(ex.Source);
+                msg.Append(Environment.NewLine);
+            }
+
+            if (ex.TargetSite != null)
+            {
+                msg.Append("TargetSite:");
+                msg.Append(Environment.NewLine);
+                msg.Append(ex.TargetSite);
+                msg.Append(Environment.NewLine);
+            }
+
+            var baseException = ex.GetBaseException();
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            if (baseException != null)
+            {
+                msg.Append("BaseException:");
+                msg.Append(Environment.NewLine);
+                msg.Append(ex.GetBaseException());
             }
             return msg.ToString();
         }
@@ -1891,7 +1877,7 @@ UriEscaped => 1
             var names = Enum.GetNames(t);
             var values = Enum.GetValues(t);
 
-            return (from i in System.Linq.Enumerable.Range(0, names.Length)
+            return (from i in Enumerable.Range(0, names.Length)
                     select new {Key = names[i], Value = (int) values.GetValue(i)})
                 .ToDictionary(k => k.Key, k => k.Value);
         }
@@ -1953,10 +1939,11 @@ var result = numbers.Combinations( 2, true );
             Contract.Requires(source != null);
             Contract.Requires(select >= 0);
 
+            var en = source as T[] ?? source.ToArray();
             return select == 0
                 ? new[] {new T[0]}
-                : source.SelectMany((element, index) =>
-                    source
+                : en.SelectMany((element, index) =>
+                    en
                         .Skip(repetition ? index : index + 1)
                         .Combinations(select - 1, repetition)
                         .Select(c => new[] {element}.Concat(c)));
@@ -1978,7 +1965,7 @@ var result = numbers.Combinations( 2, true );
         {
             if (collection == null)
             {
-                throw new ArgumentNullException("collection");
+                throw new ArgumentNullException(nameof(collection));
             }
             foreach (var item in collection)
             {
@@ -2283,13 +2270,14 @@ Debug.Assert(!s.IsIsin());
         public static T Aggregate<T>(
             this IEnumerable<T> list, Func<T, T, T> aggregateFunction)
         {
-            return Aggregate<T>(list, default(T), aggregateFunction);
+            return Aggregate(list, default, aggregateFunction);
         }
 
         public static T Aggregate<T>(this IEnumerable<T> list, T defaultValue,
             Func<T, T, T> aggregateFunction)
         {
-            return list.Count() <= 0 ? defaultValue : list.Aggregate<T>(aggregateFunction);
+            var en = list as T[] ?? list.ToArray();
+            return en.Length <= 0 ? defaultValue : en.Aggregate(aggregateFunction);
         }
 
 
@@ -2407,13 +2395,11 @@ string decoded = encoded.Decrypt("mykey");
                 throw new ArgumentException("Cannot encrypt using an empty key. Please supply an encryption key.");
             }
 
-            var cspp = new CspParameters();
-            cspp.KeyContainerName = key;
+            var cspp = new CspParameters {KeyContainerName = key};
 
-            var rsa = new RSACryptoServiceProvider(cspp);
-            rsa.PersistKeyInCsp = true;
+            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
 
-            var bytes = rsa.Encrypt(System.Text.UTF8Encoding.UTF8.GetBytes(stringToEncrypt), true);
+            var bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(stringToEncrypt), true);
 
             return BitConverter.ToString(bytes);
         }
@@ -2427,8 +2413,6 @@ string decoded = encoded.Decrypt("mykey");
         /// <exception cref="ArgumentException">Occurs when stringToDecrypt or key is null or empty.</exception>
         public static string Decrypt(this string stringToDecrypt, string key)
         {
-            string result = null;
-
             if (string.IsNullOrEmpty(stringToDecrypt))
             {
                 throw new ArgumentException("An empty string value cannot be encrypted.");
@@ -2439,27 +2423,18 @@ string decoded = encoded.Decrypt("mykey");
                 throw new ArgumentException("Cannot decrypt using an empty key. Please supply a decryption key.");
             }
 
-            try
-            {
-                var cspp = new CspParameters();
-                cspp.KeyContainerName = key;
+            var cspp = new CspParameters {KeyContainerName = key};
 
-                var rsa = new RSACryptoServiceProvider(cspp);
-                rsa.PersistKeyInCsp = true;
+            var rsa = new RSACryptoServiceProvider(cspp) {PersistKeyInCsp = true};
 
-                var decryptArray = stringToDecrypt.Split(new string[] {"-"}, StringSplitOptions.None);
-                var decryptByteArray = Array.ConvertAll<string, byte>(decryptArray,
-                    (s => System.Convert.ToByte(byte.Parse(s, System.Globalization.NumberStyles.HexNumber))));
+            var decryptArray = stringToDecrypt.Split(new[] {"-"}, StringSplitOptions.None);
+            var decryptByteArray = Array.ConvertAll(decryptArray,
+                (s => System.Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
 
 
-                var bytes = rsa.Decrypt(decryptByteArray, true);
+            var bytes = rsa.Decrypt(decryptByteArray, true);
 
-                result = System.Text.UTF8Encoding.UTF8.GetString(bytes);
-            }
-            finally
-            {
-                // no need for further processing
-            }
+            var result = Encoding.UTF8.GetString(bytes);
 
             return result;
         }
@@ -2545,35 +2520,6 @@ Console.WriteLine(c.IsNotNullOrEmpty()); // false
         {
             return new DateTime(dateTime.Year, dateTime.Month, 1).AddMonths(1).AddDays(-1);
         }
-
-
-/*
- * ToPlural
- * Returns the plural form of the specified word.
- * 
- * Author: Shawn Miller
- * Submitted on: 2/3/2011 6:45:53 AM
- * 
- * Example: 
- * "goose".ToPlural(); // returns "geese"
-"wolf".ToPlural(); // returns "wolves"
-
-String.Format("{0} {1}", commentCount, "comment".ToPlural(commentCount)); // returns "1 comment" or "2 comments"
- */
-
-        /// <summary>
-        /// Returns the plural form of the specified word.
-        /// </summary>
-        /// <param name="count">How many of the specified word there are. A count equal to 1 will not pluralize the specified word.</param>
-        /// <returns>A string that is the plural form of the input parameter.</returns>
-        public static string ToPlural(this string @this, int count = 0)
-        {
-            return count == 1
-                ? @this
-                : System.Data.Entity.Design.PluralizationServices.PluralizationService
-                    .CreateService(new System.Globalization.CultureInfo("en-US")).Pluralize(@this);
-        }
-
 
 /*
  * IsSubclassOfRawGeneric
