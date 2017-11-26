@@ -7,7 +7,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Dickscord.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="Dickscord.AssemblyInfo.cs" t="Include" />
             </e>
@@ -22,7 +22,7 @@
         <e p="DRPCTest.csproj" t="IncludeRecursive" />
         <e p="DRPCTest.csproj.DotSettings" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="DRPCTest.AssemblyInfo.cs" t="Include" />
             </e>
@@ -51,7 +51,7 @@
         <e p="Example.cs" t="Include" />
         <e p="LICENSE" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
             </e>
@@ -65,7 +65,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ExtensionMethodApplier.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="ExtensionMethodApplier.AssemblyInfo.cs" t="Include" />
             </e>
@@ -769,8 +769,8 @@
           <e p="99.json" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp2.0" t="Include">
+          <e p="Release" t="Include">
+            <e p="net47" t="Include">
               <e p="ExtensionMethodHarvester.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -780,7 +780,7 @@
       <e p="OEISReader" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="OEISReader.AssemblyInfo.cs" t="Include" />
             </e>
@@ -793,7 +793,7 @@
       <e p="ReflectToArrayTest" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="ReflectToArrayTest.AssemblyInfo.cs" t="Include" />
             </e>
@@ -805,7 +805,7 @@
       <e p="RegexesToAssembly" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="RegexesToAssembly.AssemblyInfo.cs" t="Include" />
             </e>
@@ -822,7 +822,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="EnumerableStream.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="SuperOEISGenerator.AssemblyInfo.cs" t="Include" />
             </e>
@@ -2472,7 +2472,7 @@
           <e p="ObjectExtensions.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="TestProj47.AssemblyInfo.cs" t="Include" />
             </e>
@@ -2987,7 +2987,7 @@
       <e p="Wither" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="net47" t="Include">
               <e p="Wither.AssemblyInfo.cs" t="Include" />
             </e>
