@@ -303,40 +303,7 @@ test2
             }
         }
 
-
-/*
- * ForEach
- * Shortcut for foreach and create new list
- * 
- * Author: Pedram Jabbari
- * Submitted on: 3/24/2013 10:25:55 PM
- * 
- * Example: 
- * string[] names = new string[] { "C#", "Java" };
-names.ForEach(i => Console.WriteLine(i));
-
-IEnumerable<int> namesLen = names.ForEach(i => i.Length);
-namesLen.ForEach(i => Console.WriteLine(i));
- */
-        public static IEnumerable<T> ForEach<T>(this IEnumerable arr, Action<T> act)
-        {
-            return arr.Cast<T>().ForEach<T>(act);
-        }
-
-        public static IEnumerable<RT> ForEach<T, RT>(this IEnumerable<T> array, Func<T, RT> func)
-        {
-            var list = new List<RT>();
-            foreach (var i in array)
-            {
-                var obj = func(i);
-                if (obj != null)
-                    list.Add(obj);
-            }
-            return list;
-        }
-
-
-/*
+        /*
  * ToUnixTimestamp
  * Converts a System.DateTime object to Unix timestamp.
  * 

@@ -453,7 +453,7 @@ namespace HSNXT.ComLib.Entities
             var row = GetRow(id);
             if(row != null)
             {
-                var counter = 0;
+                int counter;
                 if (_table.Columns.Contains(fieldName))
                 {
                     counter = Convert.ToInt32(row[fieldName]);
@@ -540,7 +540,7 @@ namespace HSNXT.ComLib.Entities
 
         private DataRow[] GetRows(IQuery criteria)
         {
-            DataRow[] rows = null;
+            DataRow[] rows;
             if (criteria != null)
             {
                 var filter = criteria.Builder.BuildConditions(false);
@@ -576,7 +576,7 @@ namespace HSNXT.ComLib.Entities
         /// <returns>Matching result.</returns>
         protected override TResult ExecuteAggregateWithFilter<TResult>(string funcName, string columnName, string filter)
         {
-            if (string.Compare(funcName, "count", true) == 0)
+            if (string.Compare(funcName, "count", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 object count = _table.Rows.Count;
                 if (!string.IsNullOrEmpty(filter))
@@ -585,8 +585,7 @@ namespace HSNXT.ComLib.Entities
                 }
                 return Converter.ConvertTo<TResult>(count);
             }
-            var sql = string.Format("{0}({1})",
-                         DataUtils.Encode(funcName), DataUtils.Encode(columnName), _tableName);
+            var sql = $"{DataUtils.Encode(funcName)}({DataUtils.Encode(columnName)})";
             var result = _table.Compute(sql, filter);
             if (result == DBNull.Value)
                 return default;
