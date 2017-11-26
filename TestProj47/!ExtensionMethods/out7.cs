@@ -9,8 +9,6 @@ using System.Data.Services.Client;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 using System.Security.Cryptography;
 using System.Text;
@@ -897,7 +895,7 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
                     return (T) Enum.Parse(typeof(T), value.ToString());
                 }
 
-                return (T) System.Convert.ChangeType(value, typeof(T));
+                return (T) Convert.ChangeType(value, typeof(T));
             }
             catch (Exception)
             {
@@ -1384,7 +1382,7 @@ var result = value.GetPercentage(50); //Get 50% of 100 which is 50.
                     value = defaultValue;
                 }
 
-                return (T) System.Convert.ChangeType(value, typeof(T));
+                return (T) Convert.ChangeType(value, typeof(T));
             }
             catch (Exception e)
             {

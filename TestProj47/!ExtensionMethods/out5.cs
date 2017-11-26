@@ -24,31 +24,6 @@ namespace HSNXT
 {
     public static partial class Extensions
     {
-/*
- * IsNotNull
- * This method returns true if the value if not null otherwise it returns false.
- * 
- * Author: Omkar Panhalkar
- * Submitted on: 5/7/2012 3:18:08 AM
- * 
- * Example: 
- * var stringBuilder = new StringBuilder();
-
-if(stringBuilder.IsNotNull())
-{
-   //yeah, it's not null
-}
- */
-
-        public static bool IsNotNull<T>(this T input)
-        {
-            var output = false;
-            if (null != input)
-            {
-                output = true;
-            }
-            return output;
-        }
 
 
 /*
@@ -364,42 +339,6 @@ bool value = HasVideo.DefaultValue(false);
 
 
 /*
- * GetAttribute
- * Gets the first assembly attribute of the specified type from the assembly it is called from.
- * 
- * Author: James Michael Hare (BlackRabbitCoder)
- * Submitted on: 10/14/2010 6:04:58 PM
- * 
- * Example: 
- * var attribute = Assembly.GetExecutingAssembly().GetAttribute<InstallPerformanceCounterAttribute>();
- */
-
-        /// <summary>
-        /// Loads the configuration from assembly attributes
-        /// </summary>
-        /// <typeparam name="T">The type of the custom attribute to find.</typeparam>
-        /// <param name="callingAssembly">The calling assembly to search.</param>
-        /// <returns>The custom attribute of type T, if found.</returns>
-        public static T GetAttribute<T>(this Assembly callingAssembly)
-            where T : Attribute
-        {
-            T result = null;
-
-            // Try to find the configuration attribute for the default logger if it exists
-            Attribute[] configAttributes = Attribute.GetCustomAttributes(callingAssembly,
-                typeof(T), false);
-
-            // get just the first one
-            if (!configAttributes.IsNullOrEmpty())
-            {
-                result = (T) configAttributes[0];
-            }
-
-            return result;
-        }
-
-
-/*
  * Clear
  * clear the contents of a StringBuilder object
  * 
@@ -636,28 +575,6 @@ var teams =
             }
         }
 
-
-/*
- * IsWeekend
- * Lets you easily figure out ifdateTime holds a date value that is a weekend.
- * 
- * Author: DavidV
- * Submitted on: 3/10/2008 11:58:08 AM
- * 
- * Example: 
- * for (DateTime date = dateFrom; date <= dateTo; date = date.AddDays(1))
-{
-    if (date.IsWeekend()) continue;
-    // do some date related stuff
-}
- */
-
-        public static bool IsWeekend(this DateTime value)
-        {
-            return (value.DayOfWeek == DayOfWeek.Sunday || value.DayOfWeek == DayOfWeek.Saturday);
-        }
-
-
 /*
  * CSVQuoted
  * If a string contains a space or a comma or a newline, quotes it, suitable for a field in a CSV file.
@@ -689,43 +606,6 @@ var teams =
             sb.Append('"');
             return sb.ToString();
         }
-
-
-/*
- * TimeSpan ToHumanTimeString
- * Light-weight extension to output time. If you need additional human readable strings
- * 
- * Author: Greg Wilson
- * Submitted on: 3/27/2015 8:36:28 PM
- * 
- * Example: 
- * var stopwatch = new StopWatch();
-stopwatch.Start();
-Thread.Sleep(10000);
-stopwatch.Stop();
-Debug.WriteLine("That just took {0}", stopwatch.Elapsed.ToHumanTimeString());
- */
-
-        /// <summary>
-        /// Converts <see cref="TimeSpan"/> objects to a simple human-readable string.  Examples: 3.1 seconds, 2 minutes, 4.23 hours, etc.
-        /// </summary>
-        /// <param name="span">The timespan.</param>
-        /// <param name="significantDigits">Significant digits to use for output.</param>
-        /// <returns></returns>
-        public static string ToHumanTimeString(this TimeSpan span, int significantDigits = 3)
-        {
-            var format = "G" + significantDigits;
-            return span.TotalMilliseconds < 1000
-                ? span.TotalMilliseconds.ToString(format) + " milliseconds"
-                : (span.TotalSeconds < 60
-                    ? span.TotalSeconds.ToString(format) + " seconds"
-                    : (span.TotalMinutes < 60
-                        ? span.TotalMinutes.ToString(format) + " minutes"
-                        : (span.TotalHours < 24
-                            ? span.TotalHours.ToString(format) + " hours"
-                            : span.TotalDays.ToString(format) + " days")));
-        }
-
 
 /*
  * Repeat
@@ -806,22 +686,6 @@ Debug.WriteLine("That just took {0}", stopwatch.Elapsed.ToHumanTimeString());
             b ^= a;
             a ^= b;
         }
-
-        public static IEnumerable<char> To(this char first, char last)
-        {
-            var reverseRequired = (first > last);
-
-            if (reverseRequired)
-                Swap(ref first, ref last);
-
-            var result = Enumerable.Range(first, last - first + 1).Select(charCode => (char) charCode);
-
-            if (reverseRequired)
-                result = result.Reverse();
-
-            return result;
-        }
-
 
 /*
  * RightOf
@@ -921,39 +785,6 @@ Console.WriteLine(result);
             var fileName = @"C:\OutDir\" + outputName + ".xsd";
             tblIn.WriteXmlSchema(fileName, true);
         }
-
-
-/*
- * MultiplyBy
- * A simple multiplication extension. Backing idea is to overcome the ridiculous flaw in the Int32 value type when a regular multiplication overflows the Int32 value range. Along these lines it would also be possible to gracefully return larger values as e.g. longs, or as BigInt (when the BCL team gets around to implementing it ;-). But the example here sticks to the bounds of the Int32 range.
- * 
- * Author: Arjan Keene
- * Submitted on: 2/20/2008 7:25:40 PM
- * 
- * Example: 
- * //results in -1651507200
-int a = 2000000000;
-int b = a*a;
-
-//results in exception
-int a = 2000000000;
-int b = a.MultiplyBy(a);
- */
-
-        public static Int32 MultiplyBy(this Int32 thisNumber,
-            Int32 otherNumber)
-
-        {
-            var result = (long) thisNumber * (long) otherNumber;
-
-            if (result > (long) System.Math.Pow(2, 31) - 1)
-
-                throw new InvalidOperationException(
-                    "Product result is larger than an Int32 value.");
-
-            return (Int32) result;
-        }
-
 
 /*
  * REExtract
@@ -1475,71 +1306,6 @@ string data = c.ToSortedString();
             return sb.ToString();
         }
 
-
-/*
- * GetFirst
- * get fist n charactor in string
- * 
- * Author: Phakawan Wongpetanan
- * Submitted on: 2/22/2014 11:39:12 AM
- * 
- * Example: 
- * string number = "123456789".GetFirst(5); //12345
- */
-
-        public static string GetLast(this string source, int tailLength)
-        {
-            if (source == null || tailLength >= source.Length)
-                return source;
-            return source.Substring(source.Length - tailLength);
-        }
-
-
-/*
- * Between
- * c# version of "Between" clause of sql query
- * 
- * Author: Raveendra sharma
- * Submitted on: 11/1/2012 7:35:30 PM
- * 
- * Example: 
- * DateTime today = DateTime.Now;
-var from = new DateTime(2012, 2, 1);
-var to = new DateTime(2012, 12,20);
-
-bool isBetween = today.Between(from, to);
- */
-
-        public static bool Between<T>(this T value, T from, T to) where T : IComparable<T>
-        {
-            return value.CompareTo(from) >= 0 && value.CompareTo(to) <= 0;
-        }
-
-
-/*
- * In
- * Determines whether a IEnumerable<T> contains a specific value
- * 
- * Author: Lucas
- * Submitted on: 3/7/2008 9:07:19 PM
- * 
- * Example: 
- * int[] numbers = {1, 2, 3, 4 };
-int a = 3;
-
-if(a.In(numbers))
-{ ... }
- */
-
-        public static bool In<T>(this T value, IEnumerable<T> values)
-        {
-            if (values == null)
-                throw new ArgumentNullException("values");
-
-            return values.Contains(value);
-        }
-
-
 /*
  * ExcelColumnName
  * Returns the excel column name from a column index
@@ -1740,41 +1506,6 @@ str.UcWords();
 
             return output;
         }
-
-
-/*
- * LastChar
- * Select Last character in string .
- * 
- * Author: Mehrdad Ghasemi
- * Submitted on: 3/28/2009 11:31:11 AM
- * 
- * Example: 
- * string name = "mehrdad";
-        Response.Write("Name is : " + name);
-        Response.Write("<br />");
-        Response.Write("Last Char : "+name.LastChar());
- */
-
-        public static string LastChar(this string input)
-        {
-            if (!string.IsNullOrEmpty(input))
-            {
-                if (input.Length >= 1)
-                {
-                    return input.Substring(input.Length - 1, 1);
-                }
-                else
-                {
-                    return input;
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
-
 
 /*
  * GetNestedXml
@@ -1992,27 +1723,6 @@ Console.WriteLine(19.Days().From(new DateTime(2007,1,1)));
             {
                 return new TimeSpan(365 * refValue, 0, 0, 0);
             }
-        }
-
-        public static WeekSelector Weeks(this int value)
-        {
-            var ws = new WeekSelector();
-            ws.ReferenceValue = value;
-            return ws;
-        }
-
-        public static YearsSelector Years(this int value)
-        {
-            var ws = new YearsSelector();
-            ws.ReferenceValue = value;
-            return ws;
-        }
-
-        public static DaysSelector Days(this int value)
-        {
-            var ws = new DaysSelector();
-            ws.ReferenceValue = value;
-            return ws;
         }
 
 

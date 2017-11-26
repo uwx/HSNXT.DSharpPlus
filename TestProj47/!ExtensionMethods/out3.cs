@@ -124,36 +124,6 @@ var value = rdr.GetValue<int?>(columnName);
         }
 
 
-/*
- * ContainsAll
- * Check whether the specified string contains an array of strings for each.
- * 
- * Author: kevinjong
- * Submitted on: 3/24/2010 8:05:38 AM
- * 
- * Example: 
- * string value = "Kevin from Taiwan.";
-string[] values = new string[] { "Kevin", "Taiwan" };
-if(value.ContainsAll(values))
-{
-	Console.WriteLine("Hi Kevin, we love Taiwan!");
-}
- */
-
-        public static bool ContainsAll(
-            this string value,
-            params string[] values)
-        {
-            foreach (var one in values)
-            {
-                if (!value.Contains(one))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
 
 /*
  * Enum.ParseWithDefault
@@ -766,22 +736,6 @@ lang.If(l=>l.Name!="Spanish", l=> MessageBox.Show("Non-spanish language!"));
         }
 
 
-/*
- * Distinct
- * Provides a Distinct method that takes a key selector lambda as parameter. The .net framework only provides a Distinct method that takes an instance of an implementation of IEqualityComparer<T> where the standard parameterless Distinct that uses the default equality comparer doesn't suffice.
- * 
- * Author: Martin Rosén-Lidholm
- * Submitted on: 12/21/2010 5:16:25 PM
- * 
- * Example: 
- * var instrumentSet = _instrumentBag.Distinct(i => i.Name);
- */
-
-        public static IEnumerable<T> Distinct<T, TKey>(this IEnumerable<T> @this, Func<T, TKey> keySelector)
-        {
-            return @this.GroupBy(keySelector).Select(grps => grps).Select(e => e.First());
-        }
-
 
 /*
  * SplitTo
@@ -1195,80 +1149,6 @@ public partial class Form1 : Form
         {
             return intToBeSquared * intToBeSquared;
         }
-
-
-/*
- * IsPalindrome
- * Checks to see if the given text is a valid palindrome or not.
- * 
- * Author: Earljon Hidalgo
- * Submitted on: 3/26/2008 8:58:45 AM
- * 
- * Example: 
- * Console.WriteLine("Is Palindrome: {0}", "earljon".IsPalindrome()); // returns False
-Console.WriteLine("Is Palindrome: {0}", "1234321".IsPalindrome()); // returns True
- */
-
-        public static bool IsPalindrome(this string word)
-        {
-            int nLen, nHalfLen;
-            var bValid = true;
-
-            nLen = word.Length - 1;
-            nHalfLen = nLen / 2;
-            for (var i = 0; i < nHalfLen; i++)
-            {
-                if (word.Substring(i, 1) != word.Substring(nLen - i, 1)) bValid = false;
-            }
-
-            return bValid;
-        }
-
-
-/*
- * Repeat
- * Repeats a character a given number of times, a little cleaner shortcut than using the string constructor.
- * 
- * Author: James Michael Hare (BlackRabbitCoder)
- * Submitted on: 10/14/2010 8:32:22 PM
- * 
- * Example: 
- * // write a line of 80 -'s to screen:
-Console.WriteLine('-'.Repeat(80));
- */
-
-        /// <summary>
-        /// Repeat the given char the specified number of times.
-        /// </summary>
-        /// <param name="input">The char to repeat.</param>
-        /// <param name="count">The number of times to repeat the string.</param>
-        /// <returns>The repeated char string.</returns>
-        public static string Repeat(this char input, int count)
-        {
-            return new string(input, count);
-        }
-
-
-/*
- * IsNull
- * check value is null
- * 
- * Author: unkown
- * Submitted on: 3/28/2008 7:04:00 PM
- * 
- * Example: 
- * string foo = null;
-if(foo.IsNull())
-{
-  ///
-}
- */
-
-        public static bool IsNull(this object source)
-        {
-            return source == null;
-        }
-
 
 /*
  * CacheGeneratedResults
@@ -1900,29 +1780,6 @@ string message = "We had {0} transactions.".Fill(transactionsCount);
             return string.Format(original, values);
         }
 
-
-/*
- * In
- * Allows you to compare a value to a list of values analogous to the 'In' statement in sql. This makes for a very friendly syntax that is (IMHO) superior to a list of 'or' clauses. Instead of : if (s=="John" || s=="Peter" or s=="Paul") one can write if (s.In("John","Paul","Peter"))
- * 
- * Author: C.F. Meijers
- * Submitted on: 3/3/2010 4:31:06 PM
- * 
- * Example: 
- * string s="John";
-
-if (s.In("John","Paul","Peter"))
-{
-   Debug.WriteLine("Are you an apostle?");
-}
- */
-
-        public static bool In<T>(this T source, params T[] list)
-        {
-            return list.ToList().Contains(source);
-        }
-
-
 /*
  * ToJson() and FromJson<T>()
  * Convert an object to JSON an back
@@ -1937,12 +1794,6 @@ emp = null;
 emp = s.FromJson<Employee>();
  */
 
-
-        public static string ToJson(this object obj)
-        {
-            var serializer = new JavaScriptSerializer();
-            return serializer.Serialize(obj);
-        }
 
         public static string ToJson(this object obj, int recursionDepth)
         {
@@ -2226,36 +2077,6 @@ Response.Write(nullableDate.NullDateToString("mm/dd/yy", "-no date found-"));
                 return nullResult;
         }
 
-
-/*
- * Deserialize<T>
- * Deserialize an XDocument to a generic type
- * 
- * Author: asawyer
- * Submitted on: 7/8/2010 4:12:18 PM
- * 
- * Example: 
- * string hi = "hello world";
-string xml = hi.SerializeToXml();
-Console.WriteLine(xml);
-
-string hi2 = XDocument.Parse(xml).Deserialize<string>();
-Console.WriteLine(hi2);
-
-Output:
-
-<string>hello world</string>
-hello world
- */
-
-        public static T Deserialize<T>(this XDocument xmlDocument)
-        {
-            var xmlSerializer = new XmlSerializer(typeof(T));
-            using (var reader = xmlDocument.CreateReader())
-                return (T) xmlSerializer.Deserialize(reader);
-        }
-
-
 /*
  * Shuffle
  * Shuffle an ArrayList in O(n) time (fastest possible way in theory and practice!)
@@ -2280,27 +2101,6 @@ a.Shuffle();
             }
             return list;
         }
-
-
-/*
- * Reverse
- * Reverse a string
- * 
- * Author: unknown
- * Submitted on: 8/21/2007 8:53:16 PM
- * 
- * Example: 
- * string s = "Test";
-string r = s.Reverse(); // "tseT"
- */
-
-        public static string Reverse(this string s)
-        {
-            var c = s.ToCharArray();
-            Array.Reverse(c);
-            return new string(c);
-        }
-
 
 /*
  * Pipe
@@ -2481,51 +2281,6 @@ string r = s.Reverse(); // "tseT"
             ;
         }
 
-
-/*
- * ToSentence
- * Creates a sentence from a variable name.
- * 
- * Author: Richard Bogle
- * Submitted on: 9/30/2009 4:02:09 PM
- * 
- * Example: 
- * Create an extension method on a DataGrid to pretty print the column names.
-
-public static void SetLabelsToSentences(
-    this XamDataGrid xamDataGrid)
-{
-    foreach (
-        Field field in xamDataGrid.FieldLayouts[0].Fields)
-    {
-        xamDataGrid.SetLabel(
-            field.Name, field.Name.ToSentence());
-    }
-}
- */
-
-        public static string ToSentence(this string variableName)
-        {
-            var builder = new StringBuilder();
-
-            var chars = variableName.ToCharArray();
-
-            foreach (var c in chars)
-            {
-                if (char.IsLetter(c) && char.IsUpper(c))
-                {
-                    builder.Append(" ");
-                }
-
-                builder.Append(c);
-            }
-
-            variableName = builder.ToString().TrimStart();
-
-            return variableName;
-        }
-
-
 /*
  * AddTime
  * Adds time to existing DateTime
@@ -2605,34 +2360,6 @@ string[] result;
 
             return result;
         }
-
-
-/*
- * ToCollection<T>()
- * Convert a IEnumerable<T> to a Collection<T>
- * 
- * Author: Dawid van Zyl
- * Submitted on: 11/4/2009 2:46:21 PM
- * 
- * Example: 
- * var somearray = new int[] {1,2,3,4,5,6,7,8}
-Collection<int> numbers = (from item in somearray
-                          where item > 4
-                          select item).ToCollection();
- */
-
-        #region Public Static Methods
-
-        public static Collection<T> ToCollection<T>(this IEnumerable<T> enumerable)
-        {
-            var collection = new Collection<T>();
-            foreach (var i in enumerable)
-                collection.Add(i);
-            return collection;
-        }
-
-        #endregion Public Static Methods
-
 
 /*
  * GetStrMoney
@@ -2718,38 +2445,6 @@ textbox1.text.GetStrMoney() => 1,234,567.325
                 //do nothing
             }
             return res;
-        }
-
-
-/*
- * ToCamelCase
- * Convert a String into CamelCase
- * 
- * Author: Anonymous
- * Submitted on: 4/27/2016 2:00:07 PM
- * 
- * Example: 
- * Var str="this is Sampel String".ToCamelCase();
- */
-
-        public static string ToCamelCase(this string the_string)
-        {
-            if (the_string == null || the_string.Length < 2)
-                return the_string;
-
-            var words = the_string.Split(
-                new char[] { },
-                StringSplitOptions.RemoveEmptyEntries);
-
-            var result = words[0].ToLower();
-            for (var i = 1; i < words.Length; i++)
-            {
-                result +=
-                    words[i].Substring(0, 1).ToUpper() +
-                    words[i].Substring(1);
-            }
-
-            return result;
         }
 
 /*
@@ -2841,15 +2536,6 @@ public IEnumerable<Customer> GetCustomers()
 
         #region Reflected from System.Web.HttpUtility
 
-        private static string UrlEncode(string str)
-        {
-            if (str == null)
-            {
-                return null;
-            }
-            return UrlEncode(str, Encoding.UTF8);
-        }
-
         private static string UrlEncode(string str, Encoding e)
         {
             if (str == null)
@@ -2857,16 +2543,6 @@ public IEnumerable<Customer> GetCustomers()
                 return null;
             }
             return Encoding.ASCII.GetString(UrlEncodeToBytes(str, e));
-        }
-
-        private static byte[] UrlEncodeToBytes(string str, Encoding e)
-        {
-            if (str == null)
-            {
-                return null;
-            }
-            var bytes = e.GetBytes(str);
-            return UrlEncodeBytesToBytesInternal(bytes, 0, bytes.Length, false);
         }
 
         private static byte[] UrlEncodeBytesToBytesInternal(byte[] bytes, int offset, int count,
@@ -3150,39 +2826,6 @@ public IEnumerable<Customer> GetCustomers()
         public static T FindControlByType<T>(this Control ctrl)
         {
             return ctrl.GetChildren().OfType<T>().SingleOrDefault();
-        }
-
-
-/*
- * Each
- * Iterates over all the elements in a collection and performs the given action, usually given as a lambda.
- * 
- * Author: Ricardo Amores Hernández
- * Submitted on: 5/3/2012 8:46:22 PM
- * 
- * Example: 
- * List<string> l = new List<string>(new[] {"hello", "world"});
-l.Each( s => Console.Write(s.ToUpper() );
-// Prints HELLOWORLD
- */
-
-        /// <summary>
-        ///     Applies an Action <typeparamref name="T"/> to all elements
-        ///     of an array.
-        /// </summary>
-        /// <typeparam name="T">
-        ///     Type of elements in the array
-        /// </typeparam>
-        /// <param name="elements">
-        ///     Array of elements
-        /// </param>
-        /// <param name="action">
-        ///     The <see cref="Action{TProperty}"/> to be performed in all
-        ///     elements.
-        /// </param>
-        public static void Each<T>(this IEnumerable<T> elements, Action<T> action)
-        {
-            foreach (var e in elements) action(e);
         }
 
 

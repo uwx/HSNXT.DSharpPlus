@@ -765,11 +765,11 @@ int e = d.ChangeType<int>(); //Exception System.InvalidCastException
 int f = d.ChangeType(0); //Successful conversion to int (f=0)
  */
 
-        public static U ChangeType<U>(this object source, U returnValueIfException)
+        public static T ChangeType<T>(this object source, T returnValueIfException)
         {
             try
             {
-                return source.ChangeType<U>();
+                return source.ChangeType<T>();
             }
             catch
             {

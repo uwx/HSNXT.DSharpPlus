@@ -70,42 +70,6 @@ Console.WriteLine(dt.FormatIf(d => d.Date != DateTime.Now.Date, "The selected da
         }
 
 
-/*
- * Left
- * Returns the first few characters of the string with a length specified by the given parameter. If the string's length is less than the given length the complete string is returned. If length is zero or less an empty string is returned
- * 
- * Author: C.F.Meijers
- * Submitted on: 12/11/2007 2:45:30 PM
- * 
- * Example: 
- * string s = "abcde";
-
-s = s.Left(2);    //s becomes "ab"
- */
-
-        /// <summary>
-        /// Returns the first few characters of the string with a length
-        /// specified by the given parameter. If the string's length is less than the 
-        /// given length the complete string is returned. If length is zero or 
-        /// less an empty string is returned
-        /// </summary>
-        /// <param name="s">the string to process</param>
-        /// <param name="length">Number of characters to return</param>
-        /// <returns></returns>
-        public static string Left(this string s, int length)
-        {
-            length = Math.Max(length, 0);
-
-            if (s.Length > length)
-            {
-                return s.Substring(0, length);
-            }
-            else
-            {
-                return s;
-            }
-        }
-
 
 /*
  * IsTrue
@@ -174,22 +138,6 @@ bool hasMultSpaces = myStr2.HasMultipleInstancesOf(' '); //returns false
             return false;
         }
 
-
-/*
- * GetAttribute
- * get custom attribute helper
- * 
- * Author: UnstableMutex
- * Submitted on: 10/23/2014 3:39:30 PM
- * 
- * Example: 
- * var attribute = PropertyInfoInstance.GetAttribute<XmlSerializationAttribute>();
- */
-
-        public static T GetAttribute<T>(this PropertyInfo pi) where T : Attribute
-        {
-            return pi.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
-        }
 
 
 /*
@@ -715,27 +663,6 @@ var monthTotalDiff = dt1.GetMonthDiff(dt2);
 
 
 /*
- * Slice of IEnumerable
- * Returns count elements, beginning from the specified
- * 
- * Author: Sergei Bogachev
- * Submitted on: 8/25/2015 1:12:15 PM
- * 
- * Example: 
- * int[] fake = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
-var seq2 = Slice(fake, 3, 2).ToArray(); // returns { 4, 5 }
- */
-
-        public static IEnumerable<T> Slice<T>(this IEnumerable<T> collection, int start, int count)
-        {
-            if (collection == null)
-                throw new ArgumentNullException("collection");
-
-            return collection.Skip(start).Take(count);
-        }
-
-
-/*
  * Uppercase with null check
  * Converts a string to upper-case but checks for null strings first
  * 
@@ -778,61 +705,6 @@ variavel = variavel.toggle(); // false
         public static bool toggle(this bool value)
         {
             return !value;
-        }
-
-
-/*
- * UppercaseFirstLetter
- * Upper case first letter
- * 
- * Author: Luã Govinda
- * Submitted on: 6/11/2015 10:07:08 PM
- * 
- * Example: 
- * string value = "dot net perls";
-value = value.UppercaseFirstLetter();
-
-//Return "Dot net perls"
- */
-
-        public static string UppercaseFirstLetter(this string value)
-        {
-            //
-            // Uppercase the first letter in the string.
-            //
-            if (value.Length > 0)
-            {
-                var array = value.ToCharArray();
-                array[0] = char.ToUpper(array[0]);
-                return new string(array);
-            }
-            return value;
-        }
-
-
-/*
- * Age
- * Get the actual age of a person
- * 
- * Author: Detlef Meyer
- * Submitted on: 2/7/2009 6:40:41 PM
- * 
- * Example: 
- * DateTime henrybirthdate = new DateTime(1998,10,12);
-
-int age = henrybirthdate.Age();
- */
-
-        public static int Age(this DateTime dateOfBirth)
-        {
-            if (DateTime.Today.Month < dateOfBirth.Month ||
-                DateTime.Today.Month == dateOfBirth.Month &&
-                DateTime.Today.Day < dateOfBirth.Day)
-            {
-                return DateTime.Today.Year - dateOfBirth.Year - 1;
-            }
-            else
-                return DateTime.Today.Year - dateOfBirth.Year;
         }
 
 
@@ -889,12 +761,6 @@ var query = "select * from {TableName} where id >= {Id};".WithVar(new {TableName
             }
             return str;
         }
-
-        public static string With(this string str, params object[] param)
-        {
-            return string.Format(str, param);
-        }
-
 
 /*
  * String write/save in file
@@ -1634,44 +1500,6 @@ var formatted = "My name is {0}.".Format("Faraz");
 var result = "CoreSystem".In("CoreSystem", "Library");
  */
 
-        /// <summary>
-        ///  Replaces the format item in a specified System.String with the text equivalent
-        ///  of the value of a specified System.Object instance.
-        /// </summary>
-        /// <param name="value">A composite format string</param>
-        /// <param name="args">An System.Object array containing zero or more objects to format.</param>
-        /// <returns>A copy of format in which the format items have been replaced by the System.String
-        /// equivalent of the corresponding instances of System.Object in args.</returns>
-        public static string Format(this string value, params object[] args)
-        {
-            return string.Format(value, args);
-        }
-
-
-/*
- * Shuffle
- * Shuffles an IEnumerable list
- * 
- * Author: Wes Caldwell
- * Submitted on: 7/13/2009 10:09:55 PM
- * 
- * Example: 
- * var names = new List<string>();
-names.Add("Harry");
-names.Add("Dick");
-names.Add("Tom");
-var namesShuffled = names.Shuffle();
- */
-
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
-        {
-            var r = new Random((int) DateTime.Now.Ticks);
-            var shuffledList = list.Select(x => new {Number = r.Next(), Item = x}).OrderBy(x => x.Number)
-                .Select(x => x.Item);
-            return shuffledList.ToList();
-        }
-
-
 /*
  * LimitTextLength
  * Limits a piece of text to a certain maximum length for the purpose of showing it to the user as part of some (G)UI or report that has limited space.
@@ -1819,27 +1647,6 @@ linkedItems.RemoveAll(x => x > 2);
 
 
 /*
- * IsOdd
- * Checks whether a number is odd
- * 
- * Author: K M Thomas
- * Submitted on: 3/25/2016 7:54:58 PM
- * 
- * Example: 
- * int number = 1;
-bool isOdd = number.IsOdd(); // true
-
-int number = 2;
-bool isOdd = number.IsOdd(); // false
- */
-
-        public static bool IsOdd(this int value)
-        {
-            return value % 2 != 0;
-        }
-
-
-/*
  * GetBoolString
  * If you need to show "Yes" or "No" depending on some bool property
  * 
@@ -1855,34 +1662,6 @@ bool isOdd = number.IsOdd(); // false
             return value ? "Yes" : "No";
         }
 
-
-/*
- * Duplicates within an IEnumerable
- * Duplicates within an IEnumerable
- * 
- * Author: Cătălin Rădoi
- * Submitted on: 6/18/2015 3:24:23 PM
- * 
- * Example: 
- * var duplicates = list.GetDuplicates();
- */
-
-        public static IEnumerable<T> GetDuplicates<T>(this IEnumerable<T> source)
-        {
-            var itemsSeen = new HashSet<T>();
-            var itemsYielded = new HashSet<T>();
-
-            foreach (var item in source)
-            {
-                if (!itemsSeen.Add(item))
-                {
-                    if (itemsYielded.Add(item))
-                    {
-                        yield return item;
-                    }
-                }
-            }
-        }
 
 /*
  * IsVowel
@@ -2914,7 +2693,7 @@ static void Main()
         public static BindIPEndPoint ToBindIPEndPoint(
             this Func<ServicePoint, IPEndPoint, int, IPEndPoint> func)
         {
-            return new BindIPEndPoint(func.Invoke);
+            return func.Invoke;
         }
 
         public static Func<ServicePoint, IPEndPoint, int, IPEndPoint> ToFunc(
@@ -4484,31 +4263,6 @@ Console.ReadLine();
         }
 
 
-/*
- * IsValidEmail
- * Validate Email ID in C#
- * 
- * Author: Hitendra
- * Submitted on: 7/31/2013 6:33:44 PM
- * 
- * Example: 
- * string ToAddress = "check@test.com";
-ToAddress.IsValidEmail()
- */
-
-        public static bool IsValidEmail(this string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
 
 /*
  * Merge
@@ -4810,28 +4564,6 @@ string display = seconds.SecondsToString(); // 2 hours 11 mins
                 rwlock.ExitUpgradeableReadLock();
             }
         }
-
-
-/*
- * IsEven
- * Checks whether a number is even
- * 
- * Author: K M Thomas
- * Submitted on: 3/25/2016 7:56:36 PM
- * 
- * Example: 
- * int number = 1;
-bool isEven = number.IsEven(); // false
-
-int number = 2;
-bool isEven = number.IsEven(); // true
- */
-
-        public static bool IsEven(this int value)
-        {
-            return value % 2 == 0;
-        }
-
 
 /*
  * Cache()

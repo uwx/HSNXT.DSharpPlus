@@ -121,29 +121,6 @@ Double elapsed = dtStart.ElapsedSeconds();
             return DateTime.Now.Subtract(input).TotalSeconds;
         }
 
-
-/*
- * ToInt
- * tries to parse a string to an int, returns zero if it is unable to parse
- * 
- * Author: Sean Biefeld
- * Submitted on: 11/10/2010 10:37:04 PM
- * 
- * Example: 
- * var someString = "5";
-var someInt = someString.ToInt();
- */
-
-        public static int ToInt(this string current)
-        {
-            int convertedValue;
-
-            int.TryParse(current, out convertedValue);
-
-            return convertedValue;
-        }
-
-
 /*
  * IsNull
  * Essentially the implementation of the sql 'isnull' function, allowing the string type (when null) to be replaced with another value.
@@ -170,32 +147,6 @@ string aSaferString = myString.IsNull(string.Empty);
             else return inString;
         }
 
-
-/*
- * Times
- * Repeats an action a number of times.
- * 
- * Author: Richard Bushnell
- * Submitted on: 3/3/2008 9:17:58 PM
- * 
- * Example: 
- * DataTable table = GetSomeTable();
-var noOfRows = table.Rows.Count;
-noOfRows.Times(rowNo => {
-  var row = table.Rows[rowNo];
-  Console.WriteLine("rowNo:{0}, Name:{1}", rowNo, row["Name"]);
-});
- */
-
-        public static void Times(this int repeatCount, Action<int> action)
-        {
-            for (var i = 1; i <= repeatCount; i++)
-            {
-                action(i);
-            }
-        }
-
-
 /*
  * GetOrThrow(string connectionStringName)
  * By default, ConfigurationManager.ConnectionStrings returns null if the requested connection string doesn't exist. Use this extension method if you want something a bit more snappy - an exception.
@@ -217,25 +168,6 @@ noOfRows.Times(rowNo => {
 
             return connectionString.ConnectionString;
         }
-
-
-/*
- * ToStream
- * Converts a String to a MemoryStream
- * 
- * Author: Rory Becker
- * Submitted on: 2/7/2011 8:50:56 PM
- * 
- * Example: 
- * stream MyStream = "Fred".ToStream();
- */
-
-        public static System.IO.MemoryStream ToStream(this string Source)
-        {
-            var Bytes = System.Text.Encoding.ASCII.GetBytes(Source);
-            return new System.IO.MemoryStream(Bytes);
-        }
-
 
 /*
  * ToBytes
@@ -337,32 +269,6 @@ string fullName = firstName.CombineWith(lastName);
             if (ddl.Items.FindByValue(value) != null)
                 ddl.Items.FindByValue(value).Selected = true;
         }
-
-
-/*
- * IsNotNullOrEmpty
- * It returns false if given collection is null or empty otherwise it returns true.
- * 
- * Author: Omkar Panhalkar
- * Submitted on: 5/7/2012 3:27:45 AM
- * 
- * Example: 
- * var list = new List<string>();
-Assert.IsFalse( list.IsNotNullOrEmpty());
-
-
-List<string> list = null;
-Assert.IsFalse( list.IsFalseNullOrEmpty());
-
-var list = new[] {"One, Two"};
-Assert.IsTrue( list.IsNotNullOrEmpty());
- */
-
-        public static bool IsNotNullOrEmpty<T>(this System.Collections.Generic.IEnumerable<T> source)
-        {
-            return source != null && source.Any();
-        }
-
 
 /*
  * IsSingle
@@ -562,43 +468,6 @@ SomeEvent.Raise(this, e);
             }
         }
 
-
-/*
- * ToDataTable
- * Used with IDataReader to return a DataTable from the reader.
- * 
- * Author: Ralfich
- * Submitted on: 3/3/2011 10:00:11 PM
- * 
- * Example: 
- * // Set up your connection and command objects first
-var reader = command.ExecuteReader();
-var table = reader.ToDataTable();
- */
-
-        public static DataTable ToDataTable(this IDataReader dr)
-        {
-            var dt = new DataTable();
-            for (var i = 0; i > dr.FieldCount; ++i)
-            {
-                dt.Columns.Add(new DataColumn
-                    {
-                        ColumnName = dr.GetName(i),
-                        DataType = dr.GetFieldType(i)
-                    }
-                );
-            }
-            while (dr.Read())
-            {
-                var row = dt.NewRow();
-                dr.GetValues(row.ItemArray);
-                dt.Rows.Add(row);
-            }
-
-            return dt;
-        }
-
-
 /*
  * ContainsSameKeys<>
  * Checks if the two dictionaries have the same keys
@@ -725,28 +594,6 @@ if (target is ItemDoesNotExistNavigationTarget){
             }
         }
 
-
-/*
- * ToImage
- * Create a new Image from a byte array
- * 
- * Author: Lucas
- * Submitted on: 3/7/2008 8:58:35 PM
- * 
- * Example: 
- * byte[] imageBytes = GetImageBytesFromDB();
-Image myImage = imageBytes.ToImage();
- */
-
-        public static System.Drawing.Image ToImage(this byte[] bytes)
-        {
-            if (bytes == null)
-                throw new ArgumentNullException("bytes");
-
-            return System.Drawing.Image.FromStream(new MemoryStream(bytes));
-        }
-
-
 /*
  * Format
  * string formator,replece string.Format
@@ -757,19 +604,6 @@ Image myImage = imageBytes.ToImage();
  * Example: 
  * string result = StrFormater.Format(@"Hello @Name! Welcome to C#!", new { Name = "World" });
  */
-
-        /// <summary>
-        /// string formator,replece string.Format
-        /// </summary>
-        /// <example>string result = StrFormater.Format(@"Hello @Name! Welcome to C#!", new { Name = "World" });///</example>
-        /// <param name="template"></param>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static string Format(this string template, object data)
-        {
-            return Regex.Replace(template, @"@([\w\d]+)", match => GetValue(match, data));
-        }
-
         static string GetValue(Match match, object data)
         {
             var paraName = match.Groups[1].Value;
@@ -849,31 +683,6 @@ var thisDoesntThrow = thisActionThrows.AsDoesntThrow<NullReferenceException>();
                 {
                 }
             });
-        }
-
-
-/*
- * LengthOfTime
- * return the length of time between the start and current date
- * 
- * Author: Sanction10
- * Submitted on: 9/2/2010 2:09:44 PM
- * 
- * Example: 
- * lastActivityDate.LengthOfTime();
- */
-
-        public static string LengthOfTime(this DateTime date)
-        {
-            var lengthOfTime = DateTime.Now.Subtract(date);
-            if (lengthOfTime.Minutes == 0)
-                return lengthOfTime.Seconds.ToString() + "s";
-            else if (lengthOfTime.Hours == 0)
-                return lengthOfTime.Minutes.ToString() + "m";
-            else if (lengthOfTime.Days == 0)
-                return lengthOfTime.Hours.ToString() + "h";
-            else
-                return lengthOfTime.Days.ToString() + "d";
         }
 
 
@@ -1026,44 +835,6 @@ dgvCase.RemoveSelectedRows();
  * Example: 
  * Dictionary<string,List<Product>> results = productList.GroupBy(product => product.Category).ToDictionary();
  */
-
-
-/*
- * Truncate
- * Truncate the specified string based on the given length. Replaces the truncated data to "..."
- * 
- * Author: Earljon Hidalgo
- * Submitted on: 4/23/2008 7:11:49 PM
- * 
- * Example: 
- * string newText = "this is the palce i want to be, Cindys is the place to be!";
-Console.WriteLine("New Text: {0}", newText.Truncate(40));
- */
-
-        /// <summary>
-        /// Truncates the string to a specified length and replace the truncated to a ...
-        /// </summary>
-        /// <param name="text">string that will be truncated</param>
-        /// <param name="maxLength">total length of characters to maintain before the truncate happens</param>
-        /// <returns>truncated string</returns>
-        public static string Truncate(this string text, int maxLength)
-        {
-            // replaces the truncated string to a ...
-            const string suffix = "...";
-            var truncatedString = text;
-
-            if (maxLength <= 0) return truncatedString;
-            var strLength = maxLength - suffix.Length;
-
-            if (strLength <= 0) return truncatedString;
-
-            if (text == null || text.Length <= maxLength) return truncatedString;
-
-            truncatedString = text.Substring(0, strLength);
-            truncatedString = truncatedString.TrimEnd();
-            truncatedString += suffix;
-            return truncatedString;
-        }
 
 
 /*
@@ -1307,26 +1078,6 @@ Console.WriteLine(ir.Length()); //will write 5
             return (System.Drawing.Image) bitmap;
         }
 
-
-/*
- * Strip Html
- * Removes any HTML or XML tags from a string. Super simple, but I didn't see anything here like it. I've created similar methods in the past to take into account things like <script> blocks, but I'm not worrying about that here.
- * 
- * Author: Jason Norris
- * Submitted on: 5/3/2011 6:38:04 PM
- * 
- * Example: 
- * var htmlText = "<p>Here is some text. <span class="bold">This is bold.</span> Talk to you later.</p>;
-var cleanString = htmlText.StripHtml();
- */
-
-// Used when we want to completely remove HTML code and not encode it with XML entities.
-        public static string StripHtml(this string input)
-        {
-            // Will this simple expression replace all tags???
-            var tagsExpression = new Regex(@"</?.+?>");
-            return tagsExpression.Replace(input, " ");
-        }
 
 
 /*
@@ -1640,35 +1391,6 @@ if(files != null)
 
 
 /*
- * IsDate
- * Wraps DateTime.TryParse() and all the other kinds of code you need to determine if a given string holds a value that can be converted into a DateTime object.
- * 
- * Author: Phil Campbell
- * Submitted on: 3/30/2010 5:58:41 PM
- * 
- * Example: 
- * string nonDate = "Foo";
-string someDate = "Jan 1 2010";
-
-bool isDate = nonDate.IsDate(); //false
-isDate = someDate.IsDate(); //true
- */
-
-        public static bool IsDate(this string input)
-        {
-            if (!string.IsNullOrEmpty(input))
-            {
-                DateTime dt;
-                return (DateTime.TryParse(input, out dt));
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
-/*
  * CopyToFile
  * Writes the specified StringBuilder to the file using the specified path. If the file already exists, it is overwritten.
  * 
@@ -1683,38 +1405,6 @@ isDate = someDate.IsDate(); //true
         {
             File.WriteAllText(path, sBuilder.ToString());
         }
-
-
-/*
- * ContainsAny
- * Checks if a given string contains any of the string array.
- * 
- * Author: kevinjong
- * Submitted on: 3/24/2010 7:56:50 AM
- * 
- * Example: 
- * string value = "Kevin from Taiwan.";
-string[] values = new string[] { "Kevin", "Sunny" };
-if(value.ContainsAny(values))
-{
-	Console.WriteLine("Hi!");
-}
- */
-
-        public static bool ContainsAny(
-            this string value,
-            params string[] values)
-        {
-            foreach (var one in values)
-            {
-                if (value.Contains(one))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
 
 /*
  * Upgrade
@@ -1881,61 +1571,6 @@ string unzipstring = zipstring.DecompressString();
             }
         }
 
-
-/*
- * HttpUtility Helpers
- * Make easily accessible some functions available in HttpUtility into an Extension.
- * 
- * Author: Earljon Hidalgo
- * Submitted on: 4/23/2008 11:11:20 AM
- * 
- * Example: 
- * string html = "<title>this is the Test Title</title>";
-string url = "http://www.domain.com?q=test&a=123&g=test";
-
-Console.WriteLine("UrlEncode: {0}", url.UrlEncode());
-Console.WriteLine("UrlDecode: {0}", url.UrlDecode());
-Console.WriteLine("UrlPathEncode: {0}", url.UrlPathEncode());
-Console.WriteLine("HtmlEncode: {0}", html.HtmlEncode());
-Console.WriteLine("HtmlDecode: {0}", html.HtmlDecode());
-
-int idx = url.IndexOf('?');
-String querystring = null;
-if (idx >= 0)
-{
-	querystring = (idx < url.Length - 1) ? url.Substring(idx + 1) : String.Empty;
-}
-
-System.Collections.Specialized.NameValueCollection coll = querystring.ParseQueryString();
-Console.WriteLine("   [INDEX] KEY        VALUE");
-for (int i = 0; i < coll.Count; i++)
-	Console.WriteLine("   [{0}]     {1,-10} {2}", i, coll.GetKey(i), coll.Get(i));
- */
-
-        public static string HtmlEncode(this string data)
-        {
-            return HttpUtility.HtmlEncode(data);
-        }
-
-        public static string HtmlDecode(this string data)
-        {
-            return HttpUtility.HtmlDecode(data);
-        }
-
-        public static NameValueCollection ParseQueryString(this string query)
-        {
-            return HttpUtility.ParseQueryString(query);
-        }
-
-        public static string UrlDecode(this string url)
-        {
-            return HttpUtility.UrlDecode(url);
-        }
-
-        public static string UrlPathEncode(this string url)
-        {
-            return HttpUtility.UrlPathEncode(url);
-        }
 
 /*
  * ToException
@@ -2200,28 +1835,6 @@ t.SetSocketKeepAliveValues(300000, 1000);
 
 
 /*
- * PathCombine
- * Combines an IEnumerable<string> using Path.Combine(), which will use the separator character that is correct for the platform used. It is a shorter and more correct way to combine paths than just using + "\\" + . Requires "using System.IO;" at the top of your extension method class.
- * 
- * Author: Callum Rogers
- * Submitted on: 9/17/2009 7:13:44 PM
- * 
- * Example: 
- * string path = new[] { s1, s2, s3 }.PathCombine();
-string path = someIEnumerableString.PathCombine();
- */
-
-        public static string PathCombine(this IEnumerable<string> pathParts)
-        {
-            var joinedPath = "";
-            foreach (var pathPart in pathParts)
-                joinedPath = Path.Combine(joinedPath, pathPart);
-
-            return joinedPath;
-        }
-
-
-/*
  * ToSpecificCurrencyString
  * Convert a double to a string formatted using the culture settings (string representation) passed into the procedure.
  * 
@@ -2414,48 +2027,6 @@ Console.WriteLine(string.Join('--',x));
             var stream = assembly.GetManifestResourceStream(imageResourcePath);
             return stream != null ? new Bitmap(stream) : null;
         }
-
-
-/*
- * Parse<T>
- * Parse a string to any other type including nullable types.
- * 
- * Author: Jigar Desai
- * Submitted on: 3/27/2008 3:37:08 PM
- * 
- * Example: 
- * // regular parsing
-int i = "123".Parse<int>(); 
-int? inull = "123".Parse<int?>(); 
-DateTime d = "01/12/2008".Parse<DateTime>(); 
-DateTime? dn = "01/12/2008".Parse<DateTime?>();
-
-
-// null values
-string sample = null; 
-int? k = sample.Parse<int?>(); // returns null
-int l = sample.Parse<int>();   // returns 0
-DateTime dd = sample.Parse<DateTime>(); // returns 01/01/0001
-DateTime? ddn = sample.Parse<DateTime?>(); // returns null
- */
-
-
-        public static T Parse<T>(this string value)
-        {
-            // Get default value for type so if string
-            // is empty then we can return default value.
-            var result = default(T);
-            if (!string.IsNullOrEmpty(value))
-            {
-                // we are not going to handle exception here
-                // if you need SafeParse then you should create
-                // another method specially for that.
-                var tc = TypeDescriptor.GetConverter(typeof(T));
-                result = (T) tc.ConvertFrom(value);
-            }
-            return result;
-        }
-
 
 /*
  * Product
