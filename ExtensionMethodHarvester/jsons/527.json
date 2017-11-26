@@ -1,0 +1,1 @@
+{"Name":"Format","Description":"Formats any value type","Author":"Patrick A. Lorenz","SubmittedOn":"3/19/2008 8:27:38 AM","Entries":["public static string Format<T>(this T value, string format) where T : struct {\r\n return string.Format(format, value);\r\n}","Console.WriteLine(DateTime.Now.Format(\"It's {0:t}\"));"]}

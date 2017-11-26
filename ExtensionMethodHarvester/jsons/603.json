@@ -1,0 +1,1 @@
+{"Name":"GetBoolString","Description":"If you need to show \"Yes\" or \"No\" depending on some bool property","Author":"Djordje Djukic","SubmittedOn":"7/10/2016 6:36:56 PM","Entries":["public static string GetBoolString(this bool value)\r\n        {\r\n            return value ? \"Yes\" : \"No\";\r\n        }","string active = viewModel.IsActive.GetBoolStringFor();"]}

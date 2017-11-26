@@ -1,0 +1,1 @@
+{"Name":"SelectionValue","Description":"Returns Dropdownlist Selected Value as Integer","Author":"Andi Haviari","SubmittedOn":"4/29/2016 11:40:32 AM","Entries":["public static int SelectionValue(this DropDownList ddl)\r\n{\r\n    var r = -1;\r\n    int.TryParse(ddl.SelectedValue, out r);\r\n    return r;\r\n}","var selectedValue = ddl.SelectedValue();"]}

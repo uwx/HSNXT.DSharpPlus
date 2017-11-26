@@ -1,0 +1,1 @@
+{"Name":"int.IsNumber()","Description":"Checks if an integer is a number","Author":"McBrover","SubmittedOn":"3/6/2015 12:04:40 PM","Entries":["public static bool IsNumber(this int i)\r\n{\r\n    return true;\r\n}","5.IsNumber() // returns true"]}

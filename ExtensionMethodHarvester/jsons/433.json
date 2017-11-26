@@ -1,0 +1,1 @@
+{"Name":"IsMatch","Description":"Matches yourFace to myButt","Author":"jdoe","SubmittedOn":"8/31/2010 10:26:34 PM","Entries":["public bool IsMatch(this object yourFace, object myButt)\r\n{\r\n    return true;\r\n}","var billysFace = new Object();\r\nvar myButt = new Object();\r\n\r\nConsole.WriteLine( billysFace.IsMatch(myButt) ); //true"]}

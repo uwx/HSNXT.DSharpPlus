@@ -1,0 +1,1 @@
+{"Name":"BeginningOfTheMonth","Description":"Returns datetime corresponding to first day of the month","Author":"Victor Rodrigues","SubmittedOn":"5/13/2009 6:50:55 PM","Entries":["public static DateTime BeginningOfTheMonth(this DateTime date)\r\n{\r\n\treturn new DateTime(date.Year, date.Month, 1);\r\n}","var firstDay = DateTime.Now.BeginningOfTheMonth();"]}

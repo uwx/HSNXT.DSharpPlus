@@ -1,0 +1,1 @@
+{"Name":"Id","Description":"Identity function","Author":"Anderson Vieira","SubmittedOn":"6/9/2015 2:34:56 PM","Entries":["public static T Id<T>(this T value) \r\n{\r\n   return value;\r\n}","Console.WriteLine(\"Hello word\".Id());"]}

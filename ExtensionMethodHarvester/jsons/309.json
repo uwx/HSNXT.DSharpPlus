@@ -1,0 +1,1 @@
+{"Name":"Identity","Description":"Returns the identity of a value","Author":"McBrover","SubmittedOn":"3/6/2015 10:18:50 AM","Entries":["public static T Identity<T>(this T value)\r\n{\r\n    return value;\r\n}","5.Identity(); // should return 5"]}

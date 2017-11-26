@@ -1,0 +1,1 @@
+{"Name":"GetData<T>","Description":"Get a saved value from the app domain and convert it back to its original type","Author":"Lee Hull","SubmittedOn":"1/6/2012 2:53:47 PM","Entries":["public static T GetData<T>(this AppDomain app, string name)\r\n{\r\n  return (T)Convert.ChangeType(app.GetData(name), typeof(T));\r\n}","AppDomain.CurrentDomain.GetData<MyClass>(\"settings\");"]}

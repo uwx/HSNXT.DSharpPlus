@@ -1,0 +1,1 @@
+{"Name":"ContainsNoSpaces","Description":"Checks if a string contains no spaces","Author":"R. van Duren","SubmittedOn":"9/4/2008 1:23:10 PM","Entries":["public static bool ContainsNoSpaces(this string s)\r\n{\r\n  var regex = new Regex(@\"^[a-zA-Z0-9]+$\");\r\n  return regex.IsMatch(s);\r\n}","if (!textBoxUserIdNew.Text.Trim().ContainsNoSpaces())"]}

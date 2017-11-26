@@ -1,53 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <LangVersion>7.1</LangVersion>
-        <NoWarn>1591</NoWarn>
-        <Optimize>True</Optimize>
-        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <PackageId>DSharpPlus.CNextNotifier</PackageId>
-        <Authors>uwx / fallk</Authors>
-        <Company>uwx</Company>
-        <Description>Addon for DSharpPlus.CommandsNext adding support for fluent error handling through attributes.
+  <PropertyGroup>
+    <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>7.1</LangVersion>
+    <NoWarn>1591</NoWarn>
+    <Optimize>True</Optimize>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>DSharpPlus.CNextNotifier</PackageId>
+    <Authors>uwx / fallk</Authors>
+    <Company>uwx</Company>
+    <Description>Addon for DSharpPlus.CommandsNext adding support for fluent error handling through attributes.
             Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
             regarding this package in official DSharpPlus discussion boards.
         </Description>
-        <PackageLicenseUrl>
+    <PackageLicenseUrl>
             https://gitlab.com/chrishansen69/TestProject-CSharp/raw/master/DSharpPlus.CNextNotifier/LICENSE
         </PackageLicenseUrl>
-        <PackageProjectUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
+    <PackageProjectUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
         </PackageProjectUrl>
-        <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png
+    <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png
         </PackageIconUrl>
-        <RepositoryUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
+    <RepositoryUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
         </RepositoryUrl>
-        <RepositoryType>Git</RepositoryType>
-        <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#
         </PackageTags>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
-        <Version>1.0.2</Version>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <FileVersion>1.0.2</FileVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
-        <Version>1.0.$(Appveyor_Build_Number)</Version>
-        <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
-        <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-        <Optimize>False</Optimize>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00368"/>
-        <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-beta-00368"/>
-    </ItemGroup>
-
-    <ItemGroup
-            Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
-        <Reference Include="System"/>
-    </ItemGroup>
-
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
+    <Version>1.0.$(Appveyor_Build_Number)</Version>
+    <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
+    <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" />
+  <ItemGroup>
+    <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00368" />
+    <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-beta-00368" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
+    <Reference Include="System" />
+  </ItemGroup>
 </Project>

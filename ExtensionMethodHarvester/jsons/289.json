@@ -1,0 +1,1 @@
+{"Name":"IsInRange","Description":"Finds if the int is the specified range","Author":"Marwan Aouida","SubmittedOn":"10/15/2010 6:34:17 PM","Entries":["public static bool IsInRange(this int target, int start, int end) {\r\n\r\nreturn target >= start && target <= end;\r\n\r\n}","int foo = 4;\r\nConsole.WriteLine(foo.IsInRange(2,6)); // output 'True'"]}

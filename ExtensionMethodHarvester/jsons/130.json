@@ -1,0 +1,1 @@
+{"Name":"IsNumeric","Description":"Checks if a string value is numeric","Author":"unknown","SubmittedOn":"4/22/2008 3:57:04 PM","Entries":["public static bool IsNumeric(this string value)\r\n{\r\n    Regex regex = new Regex(@\"[0-9]\");\r\n    return regex.IsMatch(value);\r\n}","Public void Test()"]}

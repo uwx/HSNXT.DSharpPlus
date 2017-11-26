@@ -1,0 +1,1 @@
+{"Name":"IsTrue","Description":"Returns 'true' if a Boolean value is true.","Author":"Bradley Grainger","SubmittedOn":"6/6/2015 9:19:01 PM","Entries":["public static bool IsTrue(this bool value)\r\n{\r\n    return value;\r\n}","if ((input == 42).IsTrue())\r\n{\r\n    // handle the case when input is 42\r\n}"]}

@@ -1,0 +1,1 @@
+{"Name":"IsOdd","Description":"Checks whether a number is odd","Author":"K M Thomas","SubmittedOn":"3/25/2016 7:54:58 PM","Entries":["public static bool IsOdd(this int value)\r\n        {\r\n            return value % 2 != 0;\r\n        }","int number = 1;\r\nbool isOdd = number.IsOdd(); // true\r\n\r\nint number = 2;\r\nbool isOdd = number.IsOdd(); // false"]}

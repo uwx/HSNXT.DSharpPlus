@@ -1,0 +1,1 @@
+{"Name":"GetDate","Description":"Return the current date and time","Author":"Thor Jack","SubmittedOn":"3/25/2015 11:03:18 AM","Entries":["public static class ExtensionMethod\r\n{\r\npublic static DateTime GetCurrentDate(this object source)\r\n{\r\nreturn DateTime.Now;\r\n}\r\n}","object anything = new object();\r\nDateTime date = anything.GetCurrentDate();"]}

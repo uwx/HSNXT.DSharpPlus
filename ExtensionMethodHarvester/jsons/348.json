@@ -1,0 +1,1 @@
+{"Name":"AddTime","Description":"Adds time to existing DateTime","Author":"Cătălin Rădoi","SubmittedOn":"5/21/2015 11:06:02 AM","Entries":["public static DateTime AddTime(this DateTime date, int hour, int minutes)\r\n        {\r\n            return date + new TimeSpan(hour, minutes, 0);\r\n        }","var today = DateTime.Today;\r\nvar myDate = today.AddTime(1, 55);"]}

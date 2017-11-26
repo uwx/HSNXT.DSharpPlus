@@ -1,0 +1,1 @@
+{"Name":"toggle for bool","Description":"Toggle to bool","Author":"Luã Govinda","SubmittedOn":"6/11/2015 10:03:04 PM","Entries":["public static bool toggle(this bool value)\r\n    {\r\n         return !value;\r\n    }","bool variavel = true;\r\nvariavel = variavel.toggle(); // false"]}
