@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodHarvester", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodApplier", "ExtensionMethodApplier\ExtensionMethodApplier.csproj", "{14ADF76E-12EB-4607-AA43-5DAD46218E03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotTest", "BotTest\BotTest.csproj", "{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{14ADF76E-12EB-4607-AA43-5DAD46218E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14ADF76E-12EB-4607-AA43-5DAD46218E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14ADF76E-12EB-4607-AA43-5DAD46218E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
