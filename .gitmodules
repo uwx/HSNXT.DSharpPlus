@@ -1,0 +1,6 @@
+[submodule "DSharpPlus"]
+	path = DSharpPlus
+	url = https://github.com/uwx/DSharpPlus.git
+[submodule "DSharpPlus.ModernEmbedBuilder"]
+	path = DSharpPlus.ModernEmbedBuilder
+	url = https://github.com/uwx/DSharpPlus.ModernEmbedBuilder.git
