@@ -60,6 +60,54 @@ artifacts:
  - path: "DRPCTest\\bin\\x64\\Release\\net47\\*.dll"
    name: DRPCTest Release DLLs (.NET 4.7)
    type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\net46"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\net47"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\netstandard1.1"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\netstandard1.3"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\netstandard2.0"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus\DSharpPlus\bin\Release\net45"
+   name: DSharpPlus Release DLLs
+   type: zip
+ - path: "DSharpPlus.ModernEmbedBuilder\bin\Release\net47"
+   name: DSharpPlus.ModernEmbedBuilder Release DLLs
+   type: zip
+ - path: "DSharpPlus.ModernEmbedBuilder\bin\Release\netstandard2.0"
+   name: DSharpPlus.ModernEmbedBuilder Release DLLs
+   type: zip
+ - path: "BotTest\bin\Release"
+   name: BotTest Release DLLs
+   type: zip
+ - path: "DSharpPlus.Extended\bin\Release\netstandard2.0"
+   name: DSharpPlus.Extended Release DLLs
+   type: zip
+ - path: "ExtensionMethodApplier\bin\Release\net47"
+   name: ExtensionMethodApplier Release DLLs
+   type: zip
+ - path: "ExtensionMethodHarvester\bin\Release\netcoreapp2.0"
+   name: ExtensionMethodHarvester Release DLLs
+   type: zip
+ - path: "ExtensionMethodHarvester\bin\Release\net47"
+   name: ExtensionMethodHarvester Release DLLs
+   type: zip
+ - path: "RegexesToAssembly\bin\Release\net47"
+   name: RegexesToAssembly Release DLLs
+   type: zip
+ - path: "SuperOEISGenerator\SuperOEISGenerator\bin\Release\net47"
+   name: SuperOEISGenerator Release DLLs
+   type: zip
+ - path: "TestProject2\bin\Release\netcoreapp2.0"
+   name: TestProject2 Release DLLs
+   type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
 nuget:

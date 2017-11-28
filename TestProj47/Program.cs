@@ -8,9 +8,11 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json.Converters;
 using TestProj47;
@@ -302,6 +304,21 @@ namespace HSNXT
 
             process.ProcessorAffinity = oldAffinity;
         }
+        
+        public static ConfiguredTaskAwaitable<T> Cfg<T>(this Task<T> task)
+        {
+            return task.ConfigureAwait(false);
+        }
+        
+        public static T Sync<T>(this Task<T> task)
+        {
+            return task.GetAwaiter().GetResult();
+        }
+        
+        public static T AwaitSync<T>(this Task<T> task)
+        {
+            return task.GetAwaiter().GetResult();
+        }
 
         public static string UncollapseDigits(this string s)
         {
@@ -312,6 +329,15 @@ namespace HSNXT
         {
             n = n >> 16 | n << 16;
             return(n & 0xFF00FF00) >> 8 | (n & 0xFF00FF) << 8;
+        }
+
+        public static ulong Sums(this ulong n, ulong p1, ulong p2, ulong upperBound)
+        {
+            var result = 0UL;
+            for (var i = 0UL; i < upperBound; i++)
+                if (i % p1 == 0UL || i % p2 == 0UL)
+                    result += i;
+            return result;
         }
 
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>

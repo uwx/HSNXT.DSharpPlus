@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DSharpPlus, Version=3.2.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\DSharpPlus.3.2.3\lib\net45\DSharpPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="DSharpPlus.WebSocket.WebSocket4Net, Version=3.2.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\DSharpPlus.WebSocket.WebSocket4Net.3.2.3\lib\net45\DSharpPlus.WebSocket.WebSocket4Net.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -62,6 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4Net\DSharpPlus.WebSocket.WebSocket4Net.csproj">
+      <Project>{f7c6f73e-be5d-43d7-9972-639d6264a303}</Project>
+      <Name>DSharpPlus.WebSocket.WebSocket4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj">
+      <Project>{75e73c6b-79b8-4a80-957a-01f00bafc06a}</Project>
+      <Name>DSharpPlus</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
