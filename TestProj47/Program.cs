@@ -13,10 +13,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using Newtonsoft.Json.Converters;
-using TestProj47;
-using TestProj47.aResources;
+using HSNXT.aResources;
 
 // ReSharper disable StringCompareIsCultureSpecific.1
 // ReSharper disable ReturnValueOfPureMethodIsNotUsed
@@ -331,9 +329,36 @@ namespace HSNXT
             return(n & 0xFF00FF00) >> 8 | (n & 0xFF00FF) << 8;
         }
 
+        public static ulong Sums(this uint n, uint p1, uint p2, uint upperBound)
+        {
+            var result = 0U;
+            for (var i = 0U; i < upperBound; i++)
+                if (i % p1 == 0U || i % p2 == 0U)
+                    result += i;
+            return result;
+        }
+
+        public static ulong Sums(this uint n, uint p1, uint p2, uint upperBound, out uint result)
+        {
+            result = 0;
+            for (var i = 0U; i < upperBound; i++)
+                if (i % p1 == 0U || i % p2 == 0U)
+                    result += i;
+            return result;
+        }
+
         public static ulong Sums(this ulong n, ulong p1, ulong p2, ulong upperBound)
         {
             var result = 0UL;
+            for (var i = 0UL; i < upperBound; i++)
+                if (i % p1 == 0UL || i % p2 == 0UL)
+                    result += i;
+            return result;
+        }
+
+        public static ulong Sums(this ulong n, ulong p1, ulong p2, ulong upperBound, out ulong result)
+        {
+            result = 0;
             for (var i = 0UL; i < upperBound; i++)
                 if (i % p1 == 0UL || i % p2 == 0UL)
                     result += i;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestProj47.aResources {
+namespace HSNXT.aResources {
     using System;
     
     

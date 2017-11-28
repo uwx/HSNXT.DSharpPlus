@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
 using System.Data.Objects;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
-using System.Net.Mail;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -115,8 +113,7 @@ list.OrderBy("Name desc");
 
                 if (descending)
                     return list.OrderByDescending(x => prop.GetValue(x, null));
-                else
-                    return list.OrderBy(x => prop.GetValue(x, null));
+                return list.OrderBy(x => prop.GetValue(x, null));
             }
 
             return list;
@@ -142,9 +139,9 @@ Console.WriteLine(b.Length);
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static byte[] ConvertToByteArray(this System.IO.Stream stream)
+        public static byte[] ConvertToByteArray(this Stream stream)
         {
-            var streamLength = System.Convert.ToInt32(stream.Length);
+            var streamLength = Convert.ToInt32(stream.Length);
             var data = new byte[streamLength + 1];
 
             //convert to to a byte array
@@ -254,7 +251,7 @@ test2
                 where s.Name.Equals(property)
                 select s.GetValue(source, null)).FirstOrDefault();
 
-            return propertyValue != null ? (T) propertyValue : default(T);
+            return propertyValue != null ? (T) propertyValue : default;
         }
 
 
@@ -361,7 +358,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
         public static Int64 DateDiff(this DateTime StartDate, String DatePart, DateTime EndDate)
         {
             Int64 DateDiffVal = 0;
-            var cal = System.Threading.Thread.CurrentThread.CurrentCulture.Calendar;
+            var cal = Thread.CurrentThread.CurrentCulture.Calendar;
             var ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
             switch (DatePart.ToLower().Trim())
             {
@@ -370,7 +367,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "year":
                 case "yy":
                 case "yyyy":
-                    DateDiffVal = (Int64) (cal.GetYear(EndDate) - cal.GetYear(StartDate));
+                    DateDiffVal = cal.GetYear(EndDate) - cal.GetYear(StartDate);
                     break;
 
                 #endregion
@@ -380,10 +377,10 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "quarter":
                 case "qq":
                 case "q":
-                    DateDiffVal = (Int64) ((((cal.GetYear(EndDate)
-                                              - cal.GetYear(StartDate)) * 4)
-                                            + ((cal.GetMonth(EndDate) - 1) / 3))
-                                           - ((cal.GetMonth(StartDate) - 1) / 3));
+                    DateDiffVal = (((cal.GetYear(EndDate)
+                                     - cal.GetYear(StartDate)) * 4)
+                                   + ((cal.GetMonth(EndDate) - 1) / 3))
+                                  - ((cal.GetMonth(StartDate) - 1) / 3);
                     break;
 
                 #endregion
@@ -393,10 +390,10 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "month":
                 case "mm":
                 case "m":
-                    DateDiffVal = (Int64) (((cal.GetYear(EndDate)
-                                             - cal.GetYear(StartDate)) * 12
-                                            + cal.GetMonth(EndDate))
-                                           - cal.GetMonth(StartDate));
+                    DateDiffVal = ((cal.GetYear(EndDate)
+                                    - cal.GetYear(StartDate)) * 12
+                                   + cal.GetMonth(EndDate))
+                                  - cal.GetMonth(StartDate);
                     break;
 
                 #endregion
@@ -575,7 +572,7 @@ bool isString = type.IsBoolean();
             var data = source.ToList();
             var average = data.Average();
             var differences = data.Select(u => Math.Pow(average - u, 2.0)).ToList();
-            return Math.Sqrt(differences.Sum() / (differences.Count() - buffer));
+            return Math.Sqrt(differences.Sum() / (differences.Count - buffer));
         }
 
         private static double StdDevLogic(this IEnumerable<int> source, int buffer = 1)
@@ -592,7 +589,7 @@ bool isString = type.IsBoolean();
             var data = source.ToList();
             var average = data.Average();
             var differences = data.Select(u => Math.Pow(average - u, 2.0)).ToList();
-            return (float) Math.Sqrt(differences.Sum() / (differences.Count() - buffer));
+            return (float) Math.Sqrt(differences.Sum() / (differences.Count - buffer));
         }
 
 /*
@@ -753,7 +750,7 @@ str.UcFirst();
         public static T[] ConvertTo<T>(this Array ar)
         {
             var ret = new T[ar.Length];
-            var tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
+            var tc = TypeDescriptor.GetConverter(typeof(T));
             if (tc.CanConvertFrom(ar.GetValue(0).GetType()))
             {
                 for (var i = 0; i < ar.Length; i++)
@@ -763,7 +760,7 @@ str.UcFirst();
             }
             else
             {
-                tc = System.ComponentModel.TypeDescriptor.GetConverter(ar.GetValue(0).GetType());
+                tc = TypeDescriptor.GetConverter(ar.GetValue(0).GetType());
                 if (tc.CanConvertTo(typeof(T)))
                 {
                     for (var i = 0; i < ar.Length; i++)
@@ -922,7 +919,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="defaultValue"></param>
         /// <returns></returns>
         public static DateTime GetDateTime(this IDataReader dataReader, string fieldName,
-            DateTime defaultValue = default(DateTime))
+            DateTime defaultValue = default)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetDateTime(fieldOrdinal);
@@ -974,7 +971,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="fieldName">The field name that we are getting the Guid value for</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Guid GetGuid(this IDataReader dataReader, string fieldName, Guid defaultValue = default(Guid))
+        public static Guid GetGuid(this IDataReader dataReader, string fieldName, Guid defaultValue = default)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetGuid(fieldOrdinal);
@@ -1121,8 +1118,7 @@ var custListUnder5000 = custs.WhereIf(showAccountBalancesUnder5000, c=>c.AcctBal
         {
             if (condition)
                 return source.Where(predicate);
-            else
-                return source;
+            return source;
         }
 
         public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> source, bool condition,
@@ -1130,8 +1126,7 @@ var custListUnder5000 = custs.WhereIf(showAccountBalancesUnder5000, c=>c.AcctBal
         {
             if (condition)
                 return source.Where(predicate);
-            else
-                return source;
+            return source;
         }
 
 
@@ -1159,35 +1154,35 @@ var betterTemp=a.GetValueOrDefault(p=>p.b,p=>p.c,p=>p.d,p=>p.value);
         public static T3 GetValueOrDefault<T1, T2, T3>(this T1 prop1, Func<T1, T2> prop2, Func<T2, T3> prop3)
         {
             var prop = prop1.GetValueOrDefault(prop2);
-            return Comparer<T2>.Default.Compare(prop, default(T2)) != 0 ? prop3(prop) : default(T3);
+            return Comparer<T2>.Default.Compare(prop, default) != 0 ? prop3(prop) : default;
         }
 
         public static T4 GetValueOrDefault<T1, T2, T3, T4>(this T1 prop1, Func<T1, T2> prop2, Func<T2, T3> prop3,
             Func<T3, T4> prop4)
         {
             var prop = prop1.GetValueOrDefault(prop2, prop3);
-            return Comparer<T3>.Default.Compare(prop, default(T3)) != 0 ? prop4(prop) : default(T4);
+            return Comparer<T3>.Default.Compare(prop, default) != 0 ? prop4(prop) : default;
         }
 
         public static T5 GetValueOrDefault<T1, T2, T3, T4, T5>(this T1 prop1, Func<T1, T2> prop2, Func<T2, T3> prop3,
             Func<T3, T4> prop4, Func<T4, T5> prop5)
         {
             var prop = prop1.GetValueOrDefault(prop2, prop3, prop4);
-            return Comparer<T4>.Default.Compare(prop, default(T4)) != 0 ? prop5(prop) : default(T5);
+            return Comparer<T4>.Default.Compare(prop, default) != 0 ? prop5(prop) : default;
         }
 
         public static T6 GetValueOrDefault<T1, T2, T3, T4, T5, T6>(this T1 prop1, Func<T1, T2> prop2,
             Func<T2, T3> prop3, Func<T3, T4> prop4, Func<T4, T5> prop5, Func<T5, T6> prop6)
         {
             var prop = prop1.GetValueOrDefault(prop2, prop3, prop4, prop5);
-            return Comparer<T5>.Default.Compare(prop, default(T5)) != 0 ? prop6(prop) : default(T6);
+            return Comparer<T5>.Default.Compare(prop, default) != 0 ? prop6(prop) : default;
         }
 
         public static T7 GetValueOrDefault<T1, T2, T3, T4, T5, T6, T7>(this T1 prop1, Func<T1, T2> prop2,
             Func<T2, T3> prop3, Func<T3, T4> prop4, Func<T4, T5> prop5, Func<T5, T6> prop6, Func<T6, T7> prop7)
         {
             var prop = prop1.GetValueOrDefault(prop2, prop3, prop4, prop5, prop6);
-            return Comparer<T6>.Default.Compare(prop, default(T6)) != 0 ? prop7(prop) : default(T7);
+            return Comparer<T6>.Default.Compare(prop, default) != 0 ? prop7(prop) : default;
         }
 
 
@@ -1224,7 +1219,7 @@ if(tester.IsSet(MyEnum.FlagA))
 
         public static bool IsSet(this Enum input, Enum matchTo)
         {
-            return (System.Convert.ToUInt32(input) & System.Convert.ToUInt32(matchTo)) != 0;
+            return (Convert.ToUInt32(input) & Convert.ToUInt32(matchTo)) != 0;
         }
 
 
@@ -1384,7 +1379,7 @@ Console.WriteLine(maskedWithDashes);
             /// <summary>
             /// Masks only alphabetic and numeric characters within the masking region.
             /// </summary>
-            AlphaNumericOnly,
+            AlphaNumericOnly
         }
 
         /// <summary>
@@ -1623,7 +1618,7 @@ string[] myQueryResults = waitForQueryData();
         public static Func<TResult> Async<T, TResult>(this IEnumerable<T> enumerable,
             Func<IEnumerable<T>, TResult> asyncSelector)
         {
-            System.Diagnostics.Debug.Assert(!(enumerable is ICollection),
+            Debug.Assert(!(enumerable is ICollection),
                 "Async does not work on arrays/lists/collections, only on true enumerables/queryables.");
 
             // Create delegate to exec async
@@ -1830,7 +1825,7 @@ txtName.DataBindings.Add<tblProduct>("Text", ds, p => p.ProductName, true, DataS
             else if (expression.Body is MemberExpression)
                 relatedNameChain = (expression.Body as MemberExpression).ToString();
 
-            var skippedName = String.Join(".", relatedNameChain.Split(new char[] {'.'}).Skip(1).ToArray());
+            var skippedName = String.Join(".", relatedNameChain.Split('.').Skip(1).ToArray());
             return bindingCollection.Add(property, datasource, skippedName);
         }
 
@@ -1918,7 +1913,7 @@ if(Enum<MyEnum>.TryParse("Fi", out c) == false)
         {
             public static T Parse(string value)
             {
-                return Enum<T>.Parse(value, true);
+                return Parse(value, true);
             }
 
             public static T Parse(string value, bool ignoreCase)
@@ -1928,7 +1923,7 @@ if(Enum<MyEnum>.TryParse("Fi", out c) == false)
 
             public static bool TryParse(string value, out T returnedValue)
             {
-                return Enum<T>.TryParse(value, true, out returnedValue);
+                return TryParse(value, true, out returnedValue);
             }
 
             public static bool TryParse(string value, bool ignoreCase, out T returnedValue)
@@ -1940,7 +1935,7 @@ if(Enum<MyEnum>.TryParse("Fi", out c) == false)
                 }
                 catch
                 {
-                    returnedValue = default(T);
+                    returnedValue = default;
                     return false;
                 }
             }
@@ -1997,7 +1992,7 @@ var 1tb = 1.TB();
         /// <returns></returns>
         public static long TB(this int value)
         {
-            return (long) value.GB() * (long) 1024;
+            return value.GB() * (long) 1024;
         }
 
 
@@ -2121,12 +2116,11 @@ If (DateTime.Now.IsInRange(monday, friday) {
  */
 
 //Get the current row of binding source as datarow    
-        public static DataRow GetCurrentDataRow(this System.Windows.Forms.BindingSource bindingSource)
+        public static DataRow GetCurrentDataRow(this BindingSource bindingSource)
         {
             if (bindingSource.Current == null)
                 return null;
-            else
-                return ((DataRowView) bindingSource.Current).Row;
+            return ((DataRowView) bindingSource.Current).Row;
         }
 
 
@@ -2318,15 +2312,12 @@ list.AddElement("line 1")
         private static Object[] GetRowFields(DataRow dr, String[] arrFieldNames)
         {
             if (arrFieldNames.Length == 1)
-                return new Object[] {dr[arrFieldNames[0]]};
-            else
-            {
-                var itemArray = new ArrayList();
-                foreach (var field in arrFieldNames)
-                    itemArray.Add(dr[field]);
+                return new[] {dr[arrFieldNames[0]]};
+            var itemArray = new ArrayList();
+            foreach (var field in arrFieldNames)
+                itemArray.Add(dr[field]);
 
-                return itemArray.ToArray();
-            }
+            return itemArray.ToArray();
         }
 
         /// <summary>
@@ -2417,14 +2408,14 @@ MyObject value4 = Session.GetValue<MyObject>("key4", new MyObject());
 
         public static T GetValue<T>(this HttpSessionStateBase session, string key)
         {
-            return session.GetValue<T>(key, default(T));
+            return session.GetValue(key, default(T));
         }
 
         public static T GetValue<T>(this HttpSessionStateBase session, string key, T defaultValue)
         {
             if (session[key] != null)
             {
-                return (T) System.Convert.ChangeType(session[key], typeof(T));
+                return (T) Convert.ChangeType(session[key], typeof(T));
             }
 
             return defaultValue;
@@ -2522,7 +2513,7 @@ dataTableExportToCSV.ToCSV (",",false);
             {
                 foreach (var item in row.ItemArray)
                 {
-                    if (item is System.DBNull)
+                    if (item is DBNull)
 
                         result.Append(delimiter);
 
@@ -2607,7 +2598,7 @@ foreach (string item in list.Reverse<string>()
             var list = (IList<T>) items;
 
             if (list == null)
-                yield return default(T);
+                yield return default;
 
             for (var i = list.Count - 1; i >= 0; i--)
             {
@@ -2629,8 +2620,8 @@ foreach (string item in list.Reverse<string>()
 
         public static bool IsUnicode(this string value)
         {
-            var asciiBytesCount = System.Text.Encoding.ASCII.GetByteCount(value);
-            var unicodBytesCount = System.Text.Encoding.UTF8.GetByteCount(value);
+            var asciiBytesCount = Encoding.ASCII.GetByteCount(value);
+            var unicodBytesCount = Encoding.UTF8.GetByteCount(value);
 
             if (asciiBytesCount != unicodBytesCount)
             {
@@ -2870,7 +2861,7 @@ Output:
             try
             {
                 if (!string.IsNullOrEmpty(number))
-                    resultNum = System.Convert.ToInt32(number);
+                    resultNum = Convert.ToInt32(number);
             }
             catch
             {

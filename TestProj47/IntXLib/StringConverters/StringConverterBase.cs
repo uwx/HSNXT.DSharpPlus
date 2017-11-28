@@ -1,6 +1,6 @@
 using System;
 using System.Text;
-using TestProj47;
+using HSNXT;
 
 namespace HSNXT
 {

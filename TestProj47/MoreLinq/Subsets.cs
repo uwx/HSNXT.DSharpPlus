@@ -21,7 +21,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TestProj47.aResources;
+using HSNXT.aResources;
 
 namespace HSNXT
 {

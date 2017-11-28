@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
-using TestProj47.aResources;
+using HSNXT.aResources;
 
 namespace HSNXT
 {

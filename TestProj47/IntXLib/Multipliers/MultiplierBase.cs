@@ -1,5 +1,5 @@
 using System;
-using TestProj47;
+using HSNXT;
 
 namespace HSNXT
 {
