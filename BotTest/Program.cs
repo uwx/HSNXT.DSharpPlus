@@ -14,30 +14,25 @@ namespace BotTest
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            
+
             MainTask().GetAwaiter().GetResult();
-            
         }
 
         private static async Task MainTask()
         {
             // First we'll want to initialize our DiscordClient..
-            var client = new DiscordClient(new DiscordConfiguration()
+            var cfg = new DiscordConfiguration()
             {
                 AutoReconnect = true, // Whether you want DSharpPlus to automatically reconnect
-                LargeThreshold = 250, // Total number of members where the gateway will stop sending offline members in the guild member list
+                LargeThreshold =
+                    250, // Total number of members where the gateway will stop sending offline members in the guild member list
                 LogLevel = LogLevel.Debug, // Minimum log level you want to use
                 Token = "Mzc0NjkzNzMxNjMyMTUyNTc2.DP8ZIw.KIhCKhhMoYdgJ8Mxcr_IkllmrPY", // Your token
                 TokenType = TokenType.Bot, // Your token type. Most likely "Bot"
                 UseInternalLogHandler = true, // Whether you want to use the internal log handler
-            });
-
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT ||
-                Environment.OSVersion.Platform == PlatformID.Win32S ||
-                Environment.OSVersion.Platform == PlatformID.Win32Windows)
-            {
-                client.SetWebSocketClient<WebSocket4NetClient>();
-            }
+                WebSocketClientFactory = WebSocket4NetClient.CreateNew
+            };
+            var client = new DiscordClient(cfg);
 
             // Now we'll want to define our events
             client.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing events", DateTime.Now);
@@ -46,9 +41,9 @@ namespace BotTest
             client.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing MessageCreated", DateTime.Now);
 
             client.MessageCreated += MessageCreated;
-            
+
             await client.ConnectAsync();
-            
+
             client.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Connected", DateTime.Now);
 
             await Task.Delay(-1);
@@ -56,12 +51,16 @@ namespace BotTest
 
         private static async Task MessageCreated(MessageCreateEventArgs e)
         {
+            if (e.Message.Content.StartsWith("bouphe2"))
+            {
+                await e.Channel.SendFileAsync(new FileStream(@"C:\Users\Rafael\Pictures\1.jpg", FileMode.Open), "graph.jpg");
+            }
             if (e.Message.Content.StartsWith("bouphe1"))
             {
                 _ = Task.Run(async () =>
                 {
                     await Task.Yield();
-                    
+
                     var d = new List<DataPoint>();
                     for (var i = 0; i < 10; i++)
                         d.Add(new DataPoint(i, i));
@@ -75,7 +74,7 @@ namespace BotTest
                 });
             }
         }
-        
+
         public static void GeneratePlot(IList<DataPoint> series, Stream outputStream)
         {
             using (var ch = new Chart())
