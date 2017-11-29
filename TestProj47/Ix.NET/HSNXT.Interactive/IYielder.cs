@@ -3,12 +3,7 @@
 // See the LICENSE file in the project root for more information. 
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security;
-using System.Threading.Tasks;
-using System;
-using System.Linq;
 using HSNXT.Linq;
 
 namespace HSNXT.Linq

@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-using HSNXT.Linq;
 namespace HSNXT.Linq
 {
     public class AsyncOrderedEnumerable<T> : IOrderedEnumerable<T>

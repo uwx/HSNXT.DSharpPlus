@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.Web;
 

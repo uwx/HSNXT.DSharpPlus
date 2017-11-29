@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the Apache 2.0 License.
 // See the LICENSE file in the project root for more information. 
 
-using System.Collections.Generic;
-using System.Linq;
 using HSNXT.Reactive.Concurrency;
 using HSNXT.Reactive.Disposables;
 using HSNXT.Reactive.Threading.Tasks;

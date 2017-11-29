@@ -17,7 +17,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using HSNXT;
 using HSNXT.ComLib.IO;
 using HSNXT.ComLib.Reflection;
 

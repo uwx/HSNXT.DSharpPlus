@@ -5,7 +5,6 @@
 #pragma warning disable 1591
 
 using System.Linq.Expressions;
-using System;
 
 namespace HSNXT.Reactive.Joins
 {

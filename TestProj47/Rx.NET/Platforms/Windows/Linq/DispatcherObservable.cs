@@ -4,7 +4,6 @@
 
 #if !WINDOWS
 using HSNXT.Reactive.Concurrency;
-using System.Windows;
 using System.Windows.Threading;
 using System;
 

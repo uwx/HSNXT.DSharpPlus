@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information. 
 
 using HSNXT.Reactive.Concurrency;
-using HSNXT.Reactive.Disposables;
 using HSNXT.Reactive.Subjects;
 using System;
 

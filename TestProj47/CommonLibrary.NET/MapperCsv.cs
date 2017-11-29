@@ -15,7 +15,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Reflection;
 using HSNXT.ComLib.CsvParse;
 using HSNXT.ComLib.Reflection;

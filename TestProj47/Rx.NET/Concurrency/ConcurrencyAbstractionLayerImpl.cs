@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information. 
 
 #if !NO_THREAD
-using System.Collections.Generic;
 using HSNXT.Reactive.Disposables;
 using System.Threading;
 using System;

@@ -10,7 +10,6 @@ using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 
-using HSNXT.Linq;
 namespace HSNXT.Linq
 {
     public static partial class TaskFactoryExtensions

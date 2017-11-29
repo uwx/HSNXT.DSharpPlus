@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information. 
 
 using System.Threading;
-using HSNXT.Reactive.Disposables;
 using HSNXT.Reactive.Subjects;
 using System;
 

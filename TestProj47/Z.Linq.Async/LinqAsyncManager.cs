@@ -5,7 +5,6 @@
 // More projects: http://www.zzzprojects.com/
 // Copyright (c) 2015 ZZZ Projects. All rights reserved.
 
-using HSNXT.Linq;
 namespace HSNXT.Linq.Async
 {
     public static class LinqAsyncManager

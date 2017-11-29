@@ -4,8 +4,6 @@
 
 using System.Collections.Generic;
 using HSNXT.Reactive.Concurrency;
-using HSNXT.Reactive.Disposables;
-using HSNXT.Reactive.Subjects;
 using System;
 
 namespace HSNXT.Reactive.Linq

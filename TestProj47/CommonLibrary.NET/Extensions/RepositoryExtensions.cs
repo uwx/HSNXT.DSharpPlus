@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-using System.Collections.Generic;
 using HSNXT.ComLib.Entities;
 
 namespace HSNXT

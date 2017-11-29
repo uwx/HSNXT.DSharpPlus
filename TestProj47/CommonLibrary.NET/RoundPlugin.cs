@@ -1,6 +1,5 @@
 ﻿using System;
 using HSNXT.ComLib.Lang.AST;
-using HSNXT.ComLib.Lang.Core;
 using HSNXT.ComLib.Lang.Helpers;
 using HSNXT.ComLib.Lang.Parsing;
 using HSNXT.ComLib.Lang.Types;

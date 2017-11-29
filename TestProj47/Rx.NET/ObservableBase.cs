@@ -5,7 +5,6 @@
 using System;
 using HSNXT.Reactive.Concurrency;
 using HSNXT.Reactive.Disposables;
-using System;
 
 namespace HSNXT.Reactive
 {

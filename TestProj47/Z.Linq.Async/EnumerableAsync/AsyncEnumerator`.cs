@@ -9,7 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-using HSNXT.Linq;
 namespace HSNXT.Linq
 {
     public class AsyncEnumerator<T> : IEnumerator<T>

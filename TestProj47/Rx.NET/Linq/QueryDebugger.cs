@@ -13,7 +13,6 @@
 // perform a runtime check for the loaded assembly versions to ensure everything
 // lines up correctly.
 //
-using System;
 
 namespace HSNXT.Reactive.Linq
 {

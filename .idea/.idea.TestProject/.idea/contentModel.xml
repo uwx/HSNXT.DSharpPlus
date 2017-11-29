@@ -2012,6 +2012,7 @@
         <e p="LICENSE.ExtensionMinder.txt" t="Include" />
         <e p="LICENSE.ExtensionOverflow.txt" t="Include" />
         <e p="LICENSE.IntXLib.txt" t="Include" />
+        <e p="LICENSE.LINQ-Async.txt" t="Include" />
         <e p="LICENSE.Linq2Charts.txt" t="Include" />
         <e p="LICENSE.MiscUtil.txt" t="Include" />
         <e p="LICENSE.MoreLinq.txt" t="Include" />

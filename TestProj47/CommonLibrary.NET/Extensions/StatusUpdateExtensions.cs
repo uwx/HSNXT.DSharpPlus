@@ -14,7 +14,6 @@
  */
 
 using System;
-using System.Collections.Generic;
 using HSNXT.ComLib;
 using HSNXT.ComLib.Entities;
 using HSNXT.ComLib.StatusUpdater;

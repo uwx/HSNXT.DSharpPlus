@@ -17,7 +17,6 @@ using System.Web;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using HSNXT;
 using Control = System.Windows.Forms.Control;
 
 namespace HSNXT

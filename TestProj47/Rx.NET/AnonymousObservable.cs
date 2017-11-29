@@ -4,7 +4,6 @@
 
 using System;
 using HSNXT.Reactive.Disposables;
-using System;
 
 namespace HSNXT.Reactive
 {
