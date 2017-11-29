@@ -266,6 +266,26 @@ namespace HSNXT
             return source1;
         }
 
+        public static Task All(this IEnumerable<Task> tasks)
+        {
+            return Task.WhenAll(tasks);
+        }
+
+        public static Task Any(this IEnumerable<Task> tasks)
+        {
+            return Task.WhenAny(tasks);
+        }
+
+        public static Task All<T>(this IEnumerable<Task<T>> tasks)
+        {
+            return Task.WhenAll(tasks);
+        }
+
+        public static Task Any<T>(this IEnumerable<Task<T>> tasks)
+        {
+            return Task.WhenAny(tasks);
+        }
+
         public static void Benchmark(this Action a)
         {
             Benchmark(a, 10000);

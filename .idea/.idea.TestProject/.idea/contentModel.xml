@@ -181,7 +181,6 @@
             <e p="IOAuth2Payload.cs" t="Include" />
             <e p="ReadyPayload.cs" t="Include" />
             <e p="RestChannelPayloads.cs" t="Include" />
-            <e p="RestEmojiPayloads.cs" t="Include" />
             <e p="RestGuildPayloads.cs" t="Include" />
             <e p="RestUserPayloads.cs" t="Include" />
             <e p="RestWebhookPayloads.cs" t="Include" />
@@ -3172,6 +3171,546 @@
           <e p="out5.cs" t="Include" />
           <e p="out6.cs" t="Include" />
           <e p="out7.cs" t="Include" />
+        </e>
+        <e p="Z.Linq.Async" t="Include">
+          <e p="EnumerableAsync" t="Include">
+            <e p="AsyncEnumerable.cs" t="Include" />
+            <e p="AsyncEnumerable`.cs" t="Include" />
+            <e p="AsyncEnumerator.cs" t="Include" />
+            <e p="AsyncEnumerator`.cs" t="Include" />
+            <e p="AsyncOrderedEnumerable`.cs" t="Include" />
+            <e p="AsyncWhereEnumerable`.cs" t="Include" />
+            <e p="EnumerableTask" t="Include">
+              <e p="Deferred_EnumerableTask" t="Include">
+                <e p="IEnumerable`" t="Include">
+                  <e p="OrderByCompletion.cs" t="Include" />
+                  <e p="SelectResult.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Linq" t="Include">
+              <e p="Deferred_Enumerable" t="Include">
+                <e p="IEnumerable" t="Include">
+                  <e p="CastAsync.cs" t="Include" />
+                  <e p="OfTypeAsync.cs" t="Include" />
+                </e>
+                <e p="IEnumerable`" t="Include">
+                  <e p="AsEnumerableAsync.cs" t="Include" />
+                  <e p="ConcatAsync.cs" t="Include" />
+                  <e p="DefaultIfEmptyAsync.cs" t="Include" />
+                  <e p="DistinctAsync.cs" t="Include" />
+                  <e p="ExceptAsync.cs" t="Include" />
+                  <e p="GroupByAsync.cs" t="Include" />
+                  <e p="GroupJoinAsync.cs" t="Include" />
+                  <e p="IntersectAsync.cs" t="Include" />
+                  <e p="JoinAsync.cs" t="Include" />
+                  <e p="OrderByAsync.cs" t="Include" />
+                  <e p="OrderByDescendingAsync.cs" t="Include" />
+                  <e p="ReverseAsync.cs" t="Include" />
+                  <e p="SelectAsync.cs" t="Include" />
+                  <e p="SelectManyAsync.cs" t="Include" />
+                  <e p="SkipAsync.cs" t="Include" />
+                  <e p="SkipWhileAsync.cs" t="Include" />
+                  <e p="TakeAsync.cs" t="Include" />
+                  <e p="TakeWhileAsync.cs" t="Include" />
+                  <e p="UnionAsync.cs" t="Include" />
+                  <e p="WhereAsync.cs" t="Include" />
+                  <e p="ZipAsync.cs" t="Include" />
+                </e>
+                <e p="IOrderedEnumerable`" t="Include">
+                  <e p="ThenByAsync.cs" t="Include" />
+                  <e p="ThenByDescendingAsync.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Deferred_Task" t="Include">
+                <e p="Array" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                  <e p="Cast.cs" t="Include" />
+                  <e p="Concat.cs" t="Include" />
+                  <e p="DefaultIfEmpty.cs" t="Include" />
+                  <e p="Distinct.cs" t="Include" />
+                  <e p="Except.cs" t="Include" />
+                  <e p="GroupBy.cs" t="Include" />
+                  <e p="GroupJoin.cs" t="Include" />
+                  <e p="Intersect.cs" t="Include" />
+                  <e p="Join.cs" t="Include" />
+                  <e p="OfType.cs" t="Include" />
+                  <e p="OrderBy.cs" t="Include" />
+                  <e p="OrderByDescending.cs" t="Include" />
+                  <e p="Reverse.cs" t="Include" />
+                  <e p="Select.cs" t="Include" />
+                  <e p="SelectMany.cs" t="Include" />
+                  <e p="Skip.cs" t="Include" />
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Take.cs" t="Include" />
+                  <e p="TakeWhile.cs" t="Include" />
+                  <e p="Union.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                  <e p="Zip.cs" t="Include" />
+                </e>
+                <e p="AsyncWhereEnumerable`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                  <e p="Cast.cs" t="Include" />
+                  <e p="Concat.cs" t="Include" />
+                  <e p="DefaultIfEmpty.cs" t="Include" />
+                  <e p="Distinct.cs" t="Include" />
+                  <e p="Except.cs" t="Include" />
+                  <e p="GroupBy.cs" t="Include" />
+                  <e p="GroupJoin.cs" t="Include" />
+                  <e p="Intersect.cs" t="Include" />
+                  <e p="Join.cs" t="Include" />
+                  <e p="OfType.cs" t="Include" />
+                  <e p="OrderBy.cs" t="Include" />
+                  <e p="OrderByDescending.cs" t="Include" />
+                  <e p="Reverse.cs" t="Include" />
+                  <e p="Select.cs" t="Include" />
+                  <e p="SelectMany.cs" t="Include" />
+                  <e p="Skip.cs" t="Include" />
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Take.cs" t="Include" />
+                  <e p="TakeWhile.cs" t="Include" />
+                  <e p="Union.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                  <e p="Zip.cs" t="Include" />
+                </e>
+                <e p="Collection`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="Dictionary`2" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="ICollection`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="IDictionary`2" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="IEnumerable" t="Include">
+                  <e p="Cast.cs" t="Include" />
+                  <e p="OfType.cs" t="Include" />
+                </e>
+                <e p="IEnumerable`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                  <e p="Concat.cs" t="Include" />
+                  <e p="DefaultIfEmpty.cs" t="Include" />
+                  <e p="Distinct.cs" t="Include" />
+                  <e p="Except.cs" t="Include" />
+                  <e p="GroupBy.cs" t="Include" />
+                  <e p="GroupJoin.cs" t="Include" />
+                  <e p="Intersect.cs" t="Include" />
+                  <e p="Join.cs" t="Include" />
+                  <e p="OrderBy.cs" t="Include" />
+                  <e p="OrderByDescending.cs" t="Include" />
+                  <e p="Reverse.cs" t="Include" />
+                  <e p="Select.cs" t="Include" />
+                  <e p="SelectMany.cs" t="Include" />
+                  <e p="Skip.cs" t="Include" />
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Take.cs" t="Include" />
+                  <e p="TakeWhile.cs" t="Include" />
+                  <e p="ThenBy.cs" t="Include" />
+                  <e p="ThenByDescending.cs" t="Include" />
+                  <e p="Union.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                  <e p="Zip.cs" t="Include" />
+                </e>
+                <e p="IList`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="ILookup`2" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="IOrderedEnumerable`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                  <e p="Cast.cs" t="Include" />
+                  <e p="Concat.cs" t="Include" />
+                  <e p="DefaultIfEmpty.cs" t="Include" />
+                  <e p="Distinct.cs" t="Include" />
+                  <e p="Except.cs" t="Include" />
+                  <e p="GroupBy.cs" t="Include" />
+                  <e p="GroupJoin.cs" t="Include" />
+                  <e p="Intersect.cs" t="Include" />
+                  <e p="Join.cs" t="Include" />
+                  <e p="OfType.cs" t="Include" />
+                  <e p="OrderBy.cs" t="Include" />
+                  <e p="OrderByDescending.cs" t="Include" />
+                  <e p="Reverse.cs" t="Include" />
+                  <e p="Select.cs" t="Include" />
+                  <e p="SelectMany.cs" t="Include" />
+                  <e p="Skip.cs" t="Include" />
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Take.cs" t="Include" />
+                  <e p="TakeWhile.cs" t="Include" />
+                  <e p="Union.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                  <e p="Zip.cs" t="Include" />
+                </e>
+                <e p="IReadOnlyCollection`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="IReadOnlyDictionary`2" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="IReadOnlyList`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="List`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                  <e p="Cast.cs" t="Include" />
+                  <e p="Concat.cs" t="Include" />
+                  <e p="DefaultIfEmpty.cs" t="Include" />
+                  <e p="Distinct.cs" t="Include" />
+                  <e p="Except.cs" t="Include" />
+                  <e p="GroupBy.cs" t="Include" />
+                  <e p="GroupJoin.cs" t="Include" />
+                  <e p="Intersect.cs" t="Include" />
+                  <e p="Join.cs" t="Include" />
+                  <e p="OfType.cs" t="Include" />
+                  <e p="OrderBy.cs" t="Include" />
+                  <e p="OrderByDescending.cs" t="Include" />
+                  <e p="Reverse.cs" t="Include" />
+                  <e p="Select.cs" t="Include" />
+                  <e p="SelectMany.cs" t="Include" />
+                  <e p="Skip.cs" t="Include" />
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Take.cs" t="Include" />
+                  <e p="TakeWhile.cs" t="Include" />
+                  <e p="Union.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                  <e p="Zip.cs" t="Include" />
+                </e>
+                <e p="Lookup`2" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+                <e p="ReadOnlyCollection`" t="Include">
+                  <e p="AsEnumerable.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Immediate_Enumerable" t="Include">
+                <e p="IEnumerable`" t="Include">
+                  <e p="AggregateAsync.cs" t="Include" />
+                  <e p="AllAsync.cs" t="Include" />
+                  <e p="AnyAsync.cs" t="Include" />
+                  <e p="AverageAsync.cs" t="Include" />
+                  <e p="ContainsAsync.cs" t="Include" />
+                  <e p="CountAsync.cs" t="Include" />
+                  <e p="ElementAtAsync.cs" t="Include" />
+                  <e p="ElementAtOrDefaultAsync.cs" t="Include" />
+                  <e p="FirstAsync.cs" t="Include" />
+                  <e p="FirstOrDefaultAsync.cs" t="Include" />
+                  <e p="LastAsync.cs" t="Include" />
+                  <e p="LastOrDefaultAsync.cs" t="Include" />
+                  <e p="LongCountAsync.cs" t="Include" />
+                  <e p="MaxAsync.cs" t="Include" />
+                  <e p="MinAsync.cs" t="Include" />
+                  <e p="SequenceEqualAsync.cs" t="Include" />
+                  <e p="SingleAsync.cs" t="Include" />
+                  <e p="SingleOrDefaultAsync.cs" t="Include" />
+                  <e p="SumAsync.cs" t="Include" />
+                  <e p="ToArrayAsync.cs" t="Include" />
+                  <e p="ToDictionaryAsync.cs" t="Include" />
+                  <e p="ToListAsync.cs" t="Include" />
+                  <e p="ToLookupAsync.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Immediate_Task" t="Include">
+                <e p="Array" t="Include">
+                  <e p="Aggregate.cs" t="Include" />
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Average.cs" t="Include" />
+                  <e p="Contains.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="ElementAt.cs" t="Include" />
+                  <e p="ElementAtOrDefault.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Max.cs" t="Include" />
+                  <e p="Min.cs" t="Include" />
+                  <e p="SequenceEqual.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                  <e p="Sum.cs" t="Include" />
+                  <e p="ToArray.cs" t="Include" />
+                  <e p="ToDictionary.cs" t="Include" />
+                  <e p="ToList.cs" t="Include" />
+                  <e p="ToLookup.cs" t="Include" />
+                </e>
+                <e p="AsyncWhereEnumerable`" t="Include">
+                  <e p="Aggregate.cs" t="Include" />
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Average.cs" t="Include" />
+                  <e p="Contains.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="ElementAt.cs" t="Include" />
+                  <e p="ElementAtOrDefault.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Max.cs" t="Include" />
+                  <e p="Min.cs" t="Include" />
+                  <e p="SequenceEqual.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                  <e p="Sum.cs" t="Include" />
+                  <e p="ToArray.cs" t="Include" />
+                  <e p="ToDictionary.cs" t="Include" />
+                  <e p="ToList.cs" t="Include" />
+                  <e p="ToLookup.cs" t="Include" />
+                </e>
+                <e p="IEnumerable`" t="Include">
+                  <e p="Aggregate.cs" t="Include" />
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Average.cs" t="Include" />
+                  <e p="Contains.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="ElementAt.cs" t="Include" />
+                  <e p="ElementAtOrDefault.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Max.cs" t="Include" />
+                  <e p="Min.cs" t="Include" />
+                  <e p="SequenceEqual.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                  <e p="Sum.cs" t="Include" />
+                  <e p="ToArray.cs" t="Include" />
+                  <e p="ToDictionary.cs" t="Include" />
+                  <e p="ToList.cs" t="Include" />
+                  <e p="ToLookup.cs" t="Include" />
+                </e>
+                <e p="IOrderedEnumerable`" t="Include">
+                  <e p="Aggregate.cs" t="Include" />
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Average.cs" t="Include" />
+                  <e p="Contains.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="ElementAt.cs" t="Include" />
+                  <e p="ElementAtOrDefault.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Max.cs" t="Include" />
+                  <e p="Min.cs" t="Include" />
+                  <e p="SequenceEqual.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                  <e p="Sum.cs" t="Include" />
+                  <e p="ToArray.cs" t="Include" />
+                  <e p="ToDictionary.cs" t="Include" />
+                  <e p="ToList.cs" t="Include" />
+                  <e p="ToLookup.cs" t="Include" />
+                </e>
+                <e p="List`" t="Include">
+                  <e p="Aggregate.cs" t="Include" />
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Average.cs" t="Include" />
+                  <e p="Contains.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="ElementAt.cs" t="Include" />
+                  <e p="ElementAtOrDefault.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Max.cs" t="Include" />
+                  <e p="Min.cs" t="Include" />
+                  <e p="SequenceEqual.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                  <e p="Sum.cs" t="Include" />
+                  <e p="ToArray.cs" t="Include" />
+                  <e p="ToDictionary.cs" t="Include" />
+                  <e p="ToList.cs" t="Include" />
+                  <e p="ToLookup.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="PredicateAsync" t="Include">
+              <e p="Deferred_Enumerable_AsyncFunc" t="Include">
+                <e p="IEnumerable`" t="Include">
+                  <e p="SkipWhileAsync.cs" t="Include" />
+                  <e p="WhereAsync.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Deferred_Task_AsyncFunc" t="Include">
+                <e p="Array" t="Include">
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                </e>
+                <e p="AsyncWhereEnumerable`" t="Include">
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                </e>
+                <e p="IEnumerable`" t="Include">
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                </e>
+                <e p="IOrderedEnumerable`" t="Include">
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                </e>
+                <e p="List`" t="Include">
+                  <e p="SkipWhile.cs" t="Include" />
+                  <e p="Where.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Immediate_Enumerable_AsyncFunc" t="Include">
+                <e p="IEnumerable`" t="Include">
+                  <e p="AllAsync.cs" t="Include" />
+                  <e p="AnyAsync.cs" t="Include" />
+                  <e p="CountAsync.cs" t="Include" />
+                  <e p="FirstAsync.cs" t="Include" />
+                  <e p="FirstOrDefaultAsync.cs" t="Include" />
+                  <e p="LastAsync.cs" t="Include" />
+                  <e p="LastOrDefaultAsync.cs" t="Include" />
+                  <e p="LongCountAsync.cs" t="Include" />
+                  <e p="SingleAsync.cs" t="Include" />
+                  <e p="SingleOrDefaultAsync.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Immediate_Task_AsyncFunc" t="Include">
+                <e p="`AsyncWhereEnumerable" t="Include">
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                </e>
+                <e p="Array" t="Include">
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                </e>
+                <e p="IEnumerable`" t="Include">
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                </e>
+                <e p="IOrderedEnumerable`" t="Include">
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                </e>
+                <e p="List`" t="Include">
+                  <e p="All.cs" t="Include" />
+                  <e p="Any.cs" t="Include" />
+                  <e p="Count.cs" t="Include" />
+                  <e p="First.cs" t="Include" />
+                  <e p="FirstOrDefault.cs" t="Include" />
+                  <e p="Last.cs" t="Include" />
+                  <e p="LastOrDefault.cs" t="Include" />
+                  <e p="LongCount.cs" t="Include" />
+                  <e p="Single.cs" t="Include" />
+                  <e p="SingleOrDefault.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="TaskFactory" t="Include">
+              <e p="Array" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="AsyncWhereEnumerable`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="Collection`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="Dictionary`2" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="FromEnumerableAsync.cs" t="Include" />
+              <e p="ICollection`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IDictionary`2" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IEnumerable" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IEnumerable`" t="Include">
+                <e p="FromEnumerable.cs" t="Include" />
+                <e p="FromTaskEnumerable.cs" t="Include" />
+                <e p="FromWhereEnumerable.cs" t="Include" />
+                <e p="FromWhereTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IList`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="ILookup`2" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IOrdoredEnumerable`" t="Include">
+                <e p="FromEnumerable.cs" t="Include" />
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IReadOnlyCollection`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IReadOnlyDictionary`2" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="IReadOnlyList`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="List" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="Lookup`2" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+              <e p="ReadOnlyCollection`" t="Include">
+                <e p="FromTaskEnumerable.cs" t="Include" />
+              </e>
+            </e>
+            <e p="WhereAsyncEnumerable`" t="Include">
+              <e p="OrderByPredicateCompletion.cs" t="Include" />
+              <e p="StartPredicateConcurrently.cs" t="Include" />
+            </e>
+          </e>
+          <e p="LinqAsyncManager.cs" t="Include" />
         </e>
         <e p="ZExtensionMethods_Compressed" t="Include">
           <e p="GetDeclaration.cs" t="Include" />
