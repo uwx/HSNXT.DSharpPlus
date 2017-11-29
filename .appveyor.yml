@@ -120,3 +120,8 @@ deploy:
     skip_symbols: false
     api_key:
       secure: ZkuAOJwTjYBiEAHrTHkVDYaNRBaWDDmvpkUVN+9PnsHWQnfDDdDWWAMPltRlYNYn
+      
+notifications:
+  - provider: Slack
+    incoming_webhook:
+      secure: AAABBB+CCC+DDD==
