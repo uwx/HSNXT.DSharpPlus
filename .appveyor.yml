@@ -65,52 +65,52 @@ artifacts:
     name: DRPCTest Release DLLs (.NET 4.7)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\net46"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET 4.6)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\net47"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET 4.7)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\netstandard1.1"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET Standard 1.1)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\netstandard1.3"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET Standard 1.3)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\netstandard2.0"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET Standard 2.0)
     type: zip
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\net45"
-    name: DSharpPlus Release DLLs
+    name: DSharpPlus Release DLLs (.NET 4.5)
     type: zip
   - path: "DSharpPlus.ModernEmbedBuilder\\bin\\Release\\net47"
-    name: DSharpPlus.ModernEmbedBuilder Release DLLs
+    name: DSharpPlus.ModernEmbedBuilder Release DLLs (.NET 4.7)
     type: zip
   - path: "DSharpPlus.ModernEmbedBuilder\\bin\\Release\\netstandard2.0"
-    name: DSharpPlus.ModernEmbedBuilder Release DLLs
+    name: DSharpPlus.ModernEmbedBuilder Release DLLs (.NET Standard 2.0)
     type: zip
   - path: "BotTest\\bin\\Release"
     name: BotTest Release DLLs
     type: zip
   - path: "DSharpPlus.Extended\\bin\\Release\\netstandard2.0"
-    name: DSharpPlus.Extended Release DLLs
+    name: DSharpPlus.Extended Release DLLs (.NET Standard 2.0)
     type: zip
   - path: "ExtensionMethodApplier\\bin\\Release\\net47"
-    name: ExtensionMethodApplier Release DLLs
+    name: ExtensionMethodApplier Release DLLs (.NET 4.7)
     type: zip
   - path: "ExtensionMethodHarvester\\bin\\Release\\netcoreapp2.0"
-    name: ExtensionMethodHarvester Release DLLs
+    name: ExtensionMethodHarvester Release DLLs (.NET Core 2.0)
     type: zip
   - path: "ExtensionMethodHarvester\\bin\\Release\\net47"
-    name: ExtensionMethodHarvester Release DLLs
+    name: ExtensionMethodHarvester Release DLLs (.NET 4.7)
     type: zip
   - path: "RegexesToAssembly\\bin\\Release\\net47"
-    name: RegexesToAssembly Release DLLs
+    name: RegexesToAssembly Release DLLs (.NET 4.7)
     type: zip
   - path: "SuperOEISGenerator\\SuperOEISGenerator\\bin\\Release\\net47"
-    name: SuperOEISGenerator Release DLLs
+    name: SuperOEISGenerator Release DLLs (.NET 4.7)
     type: zip
   - path: "TestProject2\\bin\\Release\\netcoreapp2.0"
-    name: TestProject2 Release DLLs
+    name: TestProject2 Release DLLs (.NET Core 2.0)
     type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
