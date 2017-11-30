@@ -1,4 +1,4 @@
-﻿#if !TEST
+﻿#if TEST
 using System;
 using System.Collections.Generic;
 using DSharpPlus.Entities;
