@@ -123,8 +123,7 @@ deploy:
       
 notifications:
   - provider: Slack
-    settings:
-      on_build_success: true
-      on_build_failure: true
+    on_build_success: true
+    on_build_failure: true
     incoming_webhook:
       secure: /tQzfO0uCSjCMZF2eqIdIGAxeA/Zyn2eKDJKfcnvwV7PsWf0sLZolUFnbnWva3KWtNuYgOXz30QpuRl/fcza4Kp7Ymg7COchmmFXpAPu+ZW/yuY4SiEEgTIRmpLZZFLVlFPOlb+9+JjNvk2Ck6LnWD799g3ErcK7arpJF7O0CrK3Bs/Ib3Qeyigdu7g71Lva
