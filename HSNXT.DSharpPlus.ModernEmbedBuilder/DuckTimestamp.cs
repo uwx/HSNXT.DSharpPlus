@@ -34,12 +34,12 @@ namespace DSharpPlus.ModernEmbedBuilder
         /// <summary>
         /// Implicitly converts DuckTimestamp to a DateTimeOffset.
         /// </summary>
-        public static implicit operator DateTimeOffset?(DuckTimestamp c) => DateTimeOffset.FromUnixTimeSeconds(c.Value);
+        public static implicit operator DateTimeOffset?(DuckTimestamp c) => DateTimeOffset.FromUnixTimeMilliseconds(c.Value);
 
         /// <summary>
         /// Implicitly converts DateTimeOffset to a DuckTimestamp.
         /// </summary>
-        public static implicit operator DuckTimestamp(DateTimeOffset? c) => new DuckTimestamp(c?.ToUnixTimeSeconds());
+        public static implicit operator DuckTimestamp(DateTimeOffset? c) => new DuckTimestamp(c?.ToUnixTimeMilliseconds());
 
         /// <summary>
         /// Implicitly parse a DuckTimestamp from a string.
@@ -51,7 +51,7 @@ namespace DSharpPlus.ModernEmbedBuilder
         /// </summary>
         public static implicit operator DuckTimestamp(long millis) => DateTimeOffset.FromUnixTimeMilliseconds(millis);
         
-        public static DuckTimestamp Now => new DuckTimestamp(DateTimeOffset.Now.ToUnixTimeSeconds());
+        public static DuckTimestamp Now => new DuckTimestamp(DateTimeOffset.Now.ToUnixTimeMilliseconds());
         
         public long Value { get; }
 
