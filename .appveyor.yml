@@ -6,6 +6,10 @@ image: Visual Studio 2017
 
 clone_folder: c:\projects\dsp
 
+clone_script:
+- cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://gitlab.com/chrishansen69/TestProject-CSharp.git %APPVEYOR_BUILD_FOLDER%
+- cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
+
 branches:
   only:
     - oh_god
