@@ -27,9 +27,12 @@
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
-  
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Compile Include="..\DSharpPlus.Extended\Color.cs">
+      <Link>Color.cs</Link>
+    </Compile>
+  </ItemGroup>
 </Project>

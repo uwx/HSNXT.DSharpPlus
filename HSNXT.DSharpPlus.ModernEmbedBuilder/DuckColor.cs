@@ -3,12 +3,27 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.ModernEmbedBuilder
 {
-    public struct DuckColor
+    public partial struct DuckColor
     {
         /// <summary>
         /// Implicitly converts RGB tuple to a color.
         /// </summary>
         public static implicit operator DuckColor((byte r, byte g, byte b) rgb) => new DuckColor(rgb.r, rgb.g, rgb.b);
+        
+        /// <summary>
+        /// Implicitly converts RGB float tuple to a color.
+        /// </summary>
+        public static implicit operator DuckColor((float r, float g, float b) rgb) => new DuckColor(rgb.r, rgb.g, rgb.b);
+        
+        /// <summary>
+        /// Implicitly converts RGB array to a color.
+        /// </summary>
+        public static implicit operator DuckColor(byte[] rgb) => new DuckColor(rgb[0], rgb[1], rgb[2]);
+        
+        /// <summary>
+        /// Implicitly converts RGB float array to a color.
+        /// </summary>
+        public static implicit operator DuckColor(float[] rgb) => new DuckColor(rgb[0], rgb[1], rgb[2]);
         
         /// <summary>
         /// Implicitly converts packed int to a color.
@@ -51,6 +66,11 @@ namespace DSharpPlus.ModernEmbedBuilder
         public byte B => (byte)(Value & 0xFF);
 
         /// <summary>
+        /// Gets an array containing the three color components of this color, each as an 8-bit integer.
+        /// </summary>
+        public byte[] Components => new[] {R, G, B};
+
+        /// <summary>
         /// Creates a new color with specified value.
         /// </summary>
         /// <param name="color">Value of the color.</param>
@@ -88,13 +108,20 @@ namespace DSharpPlus.ModernEmbedBuilder
         public DuckColor(float r, float g, float b)
         {
             if (r < 0 || r > 1 || g < 0 || g > 1 || b < 0 || b > 1)
-                throw new ArgumentOutOfRangeException("Each component must be between 0.0 and 1.0 inclusive.");
+                throw new ArgumentOutOfRangeException(nameof(r) + "/" + nameof(g) + "/" + nameof(b), 
+                    "Each component must be between 0.0 and 1.0 inclusive.");
 
             var rb = (byte)(r * 255);
             var gb = (byte)(g * 255);
             var bb = (byte)(b * 255);
 
             Value = rb << 16 | gb << 8 | bb;
+        }
+        
+        public static DiscordColor FromHSB(float h, float s, float br)
+        {
+            Colors.HSBtoRGB(h, s, br, out var r, out var g, out var b);
+            return new DiscordColor(r, g, b);
         }
     }
 }
