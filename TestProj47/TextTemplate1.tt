@@ -1,0 +1,81 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+  /*
+   * var d = 1.0d; // double
+   * var d1 = 1e+3; // double
+   * var d2 = 1e-3; // double
+   * var f = 1.0f; // float
+   * var m = 1.0m; // decimal
+   * var i = 1; // int
+   * var ui = 1U; // uint
+   * var ul = 1UL; // ulong
+   * var l = 1L; // long
+   */
+  var t = new string[] {
+    "byte", "sbyte", "short", "ushort", "int", "uint", "long", "ulong", "float", "double", "decimal", "Int128", "Int256", "BigInteger", "System.Numerics.BigInteger"
+  };
+  var re = new string[] {
+    "(byte) $s", "(sbyte) $s", "(short) $s", "(ushort) $s", "$s", "$sU", "$sL", "$sUL", "$sF", "$sD", "$sM", "(Int128) $s", "(Int256) $s", "(BigInteger) $s", "(System.Numerics.BigInteger) $s"
+  };
+#>
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using HSNXT.aResources;
+using Newtonsoft.Json.Converters;
+
+namespace HSNXT
+{
+    public static partial class Extensions
+    {
+<#
+		for (var i = 0; i < t.Length; i++)
+		{
+			// zero literal
+			var z0 = re[i].Replace("$s", "0");
+			// type
+			var y = t[i];	
+#>
+        public static <#= y #> Sums(this <#= y #> n, <#= y #> p1, <#= y #> p2, <#= y #> upperBound)
+        {
+            var result = <#= z0 #>;
+            for (var i = <#= z0 #>; i < upperBound; i++)
+                if (i % p1 == <#= z0 #> || i % p2 == <#= z0 #>)
+                    result += i;
+            return result;
+        }
+
+        public static <#= y #> Sums(this <#= y #> n, <#= y #> p1, <#= y #> p2, <#= y #> upperBound, out <#= y #> result)
+        {
+            result = <#= z0 #>;
+            for (var i = <#= z0 #>; i < upperBound; i++)
+                if (i % p1 == <#= z0 #> || i % p2 == <#= z0 #>)
+                    result += i;
+            return result;
+        }
+
+		public static bool IsNPrime(this <#= y #> n, <#= y #> i)
+		{
+			return n == i || (i > i % n == true) != IsNPrime(n + 1, i);
+		}
+<#
+		}
+#>
+	}
+}
