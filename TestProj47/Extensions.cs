@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
@@ -13,114 +11,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Converters;
 using HSNXT.aResources;
-
-// ReSharper disable StringCompareIsCultureSpecific.1
-// ReSharper disable ReturnValueOfPureMethodIsNotUsed
+using Newtonsoft.Json.Converters;
 
 namespace HSNXT
 {
-    public class LazySplitter : IEnumerable<string>
-    {
-        private readonly string _self;
-        private readonly char _c;
-
-        public LazySplitter(string self, char c)
-        {
-            _self = self;
-            _c = c;
-        }
-
-        public IEnumerator<string> GetEnumerator() => new LazyEnumerator(_self, _c);
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
-
-    public class LazySplitterIndex : IEnumerable<(string, int)>
-    {
-        private readonly string _self;
-        private readonly char _c;
-
-        public LazySplitterIndex(string self, char c)
-        {
-            _self = self;
-            _c = c;
-        }
-
-        public IEnumerator<(string, int)> GetEnumerator() => new LazyEnumeratorIndex(_self, _c);
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
-
-    public class LazyEnumerator : IEnumerator<string>
-    {
-        private readonly string _self;
-        private readonly char _c;
-        private int _position;
-
-        public LazyEnumerator(string self, char c)
-        {
-            _self = self;
-            _c = c;
-        }
-
-        public bool MoveNext()
-        {
-            var idx = _self.IndexOf(_c, _position);
-            if (idx == -1) return false;
-
-            Current = _self.Substring(_position, idx);
-
-            _position = idx + 1; // + c.Length
-            return true;
-        }
-
-        public void Reset() => _position = 0;
-
-        public string Current { get; private set; }
-
-        object IEnumerator.Current => Current;
-
-        public void Dispose()
-        {
-        }
-    }
-
-    public class LazyEnumeratorIndex : IEnumerator<(string, int)>
-    {
-        private readonly string _self;
-        private readonly char _c;
-        private int _position;
-
-        public LazyEnumeratorIndex(string self, char c)
-        {
-            _self = self;
-            _c = c;
-        }
-
-        public bool MoveNext()
-        {
-            var idx = _self.IndexOf(_c, _position);
-            if (idx == -1) return false;
-
-            Current = (_self.Substring(_position, idx), _position);
-
-            _position = idx + 1; // + c.Length
-            return true;
-        }
-
-        public void Reset() => _position = 0;
-
-        public (string, int) Current { get; private set; }
-
-        object IEnumerator.Current => Current;
-
-        public void Dispose()
-        {
-        }
-    }
-
     public static partial class Extensions
     {
         // Convert a byte array into a string of hexadecimal values.
@@ -348,43 +243,7 @@ namespace HSNXT
             n = n >> 16 | n << 16;
             return(n & 0xFF00FF00) >> 8 | (n & 0xFF00FF) << 8;
         }
-
-        public static ulong Sums(this uint n, uint p1, uint p2, uint upperBound)
-        {
-            var result = 0U;
-            for (var i = 0U; i < upperBound; i++)
-                if (i % p1 == 0U || i % p2 == 0U)
-                    result += i;
-            return result;
-        }
-
-        public static ulong Sums(this uint n, uint p1, uint p2, uint upperBound, out uint result)
-        {
-            result = 0;
-            for (var i = 0U; i < upperBound; i++)
-                if (i % p1 == 0U || i % p2 == 0U)
-                    result += i;
-            return result;
-        }
-
-        public static ulong Sums(this ulong n, ulong p1, ulong p2, ulong upperBound)
-        {
-            var result = 0UL;
-            for (var i = 0UL; i < upperBound; i++)
-                if (i % p1 == 0UL || i % p2 == 0UL)
-                    result += i;
-            return result;
-        }
-
-        public static ulong Sums(this ulong n, ulong p1, ulong p2, ulong upperBound, out ulong result)
-        {
-            result = 0;
-            for (var i = 0UL; i < upperBound; i++)
-                if (i % p1 == 0UL || i % p2 == 0UL)
-                    result += i;
-            return result;
-        }
-
+        
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
         /// <param name="self">This object</param>
         /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>
@@ -1183,11 +1042,5 @@ namespace HSNXT
         }
 
         public static void AddAll<T>(this ICollection<T> self, params T[] items) => self.AddRange(items);
-    }
-
-    public class ReadOnlyDictionaryBuilder<TKey, TVal> : Dictionary<TKey, TVal>
-    {
-        public static implicit operator ReadOnlyDictionary<TKey, TVal>(ReadOnlyDictionaryBuilder<TKey, TVal> self) =>
-            new ReadOnlyDictionary<TKey, TVal>(self);
     }
 }
