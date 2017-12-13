@@ -3,4 +3,4 @@
 	url = https://github.com/uwx/DSharpPlus.git
 [submodule "DSharpPlus.ModernEmbedBuilder"]
 	path = DSharpPlus.ModernEmbedBuilder
-	url = https://github.com/uwx/DSharpPlus.ModernEmbedBuilder.git
+	url = https://gitlab.com/chrishansen69/DSharpPlus.ModernEmbedBuilder-local.git
