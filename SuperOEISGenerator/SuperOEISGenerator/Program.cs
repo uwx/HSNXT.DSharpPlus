@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SuperOEISGenerator
 {
     internal static class Program
     {
+        private static readonly Regex SpaceTrimmer = new Regex(" {2,}", RegexOptions.Compiled);
+        private static readonly Regex StartLineTrimmer = new Regex("(^ +| +$|(,) +| +(=>) +| +(=) +|(\r\n)\r\n)", RegexOptions.Compiled | RegexOptions.Multiline);
+        
         private const string Header = @"using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -71,7 +77,9 @@ namespace OEISReader.DatabaseX
     {{
         public IEnumerator<byte[]> GetEnumerator()
         {{
-            throw new NotImplementedException();
+            foreach (var b in {oeisId}.Bytes) {{
+                yield return b;
+            }}
         }}
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -144,7 +152,9 @@ namespace OEISReader.DatabaseX
     {{
         public IEnumerator<byte[]> GetEnumerator()
         {{
-            throw new NotImplementedException();
+            foreach (var b in {oeisId}.Bytes) {{
+                yield return b;
+            }}
         }}
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -190,13 +200,16 @@ namespace OEISReader.DatabaseX
                 }
             });
 
+            var projects = new List<(string guid, string name, string path)>();
             var cnt = entries.Count;
+            var guids = new string[cnt / 100 + 1];
             for (var i = 0; i < cnt; i += 100)
             {
-                if (i %1000 == 0) Console.WriteLine("d"+i);
+                if (i % 1000 == 0) Console.WriteLine("d"+i);
                 var arr = new string[100];
                 for (var j = 0; j < 100; j++)
                 {
+                    if (entries.IsEmpty) break;
                     do
                     {
                         if (!entries.TryTake(out var got)) continue;
@@ -204,9 +217,72 @@ namespace OEISReader.DatabaseX
                         break;
                     } while (true);
                 }
-                File.WriteAllText($@"C:\Users\Rafael\Downloads\oeis\Singular\OEIS{i.ToString().PadLeft(5)}.cs", 
-                    Header + "\n" + string.Join("\n", arr) + "\n" + Footer);
+                //OEISOutputPart{i}
+                Directory.CreateDirectory(
+                    $@"C:\Users\Rafael\Documents\GitHub\OEISOutput\TestProject.OEISHarvester.OEISOutputPart{i}");
+                File.WriteAllText($@"C:\Users\Rafael\Documents\GitHub\OEISOutput\TestProject.OEISHarvester.OEISOutputPart{i}\TestProject.OEISHarvester.OEISOutputPart{i}.csproj", 
+                    @"
+<Project Sdk=""Microsoft.NET.Sdk"">
+  <PropertyGroup>
+    <TargetFramework>net47</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include=""..\SuperOEISGenerator\SuperOEISGenerator.csproj"" />
+  </ItemGroup>
+</Project>
+");
+                File.WriteAllText($@"C:\Users\Rafael\Documents\GitHub\OEISOutput\TestProject.OEISHarvester.OEISOutputPart{i}\Lib.cs", 
+                    Minify(Header + "\n" + string.Join("\n", arr) + "\n" + Footer));
+                guids[i / 100] = Guid.NewGuid().ToString();
             }
+
+            var sln = new StringBuilder(@"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1");
+            for (var i = 0; i < cnt; i += 100)
+            {
+                if (i % 1000 == 0) Console.WriteLine("e"+i);
+                var name = $@"TestProject.OEISHarvester.OEISOutputPart{i}";
+                var path = $@"TestProject.OEISHarvester.OEISOutputPart{i}\TestProject.OEISHarvester.OEISOutputPart{i}.csproj";
+                sln.Append($@"
+Project(""{{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}}"") = ""{name}"", ""{path}"", ""{{{guids[i / 100]}}}""
+EndProject");
+            }
+
+            sln.Append(@"
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
+            
+            for (var i = 0; i < cnt; i += 100)
+            {
+                if (i % 1000 == 0) Console.WriteLine("f"+i);
+                var guid = guids[i / 100];
+                sln.Append($@"
+		{{{guid}}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{{{guid}}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{{{guid}}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{{{guid}}}.Release|Any CPU.Build.0 = Release|Any CPU");
+            }
+
+            sln.Append(@"
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+");
+            File.WriteAllText(@"C:\Users\Rafael\Documents\GitHub\OEISOutput\OEISOutput.sln", sln.ToString());
+        }
+
+        private static string Minify(string s)
+        {
+            return StartLineTrimmer.Replace(SpaceTrimmer.Replace(s, " "), "$2$3$4$5");
         }
     }
 }

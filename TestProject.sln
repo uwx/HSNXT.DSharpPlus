@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.WebSocket.WebSoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended", "DSharpPlus.Extended\DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSPEmojiGenerator", "DSPEmojiGenerator\DSPEmojiGenerator.csproj", "{FA8B4CBB-ED95-4293-86F0-26C07299A50F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Emoji", "DSharpPlus.Extended.Emoji\DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +109,14 @@ Global
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

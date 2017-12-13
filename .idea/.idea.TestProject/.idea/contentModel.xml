@@ -6,12 +6,15 @@
       <e p="BotTest" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="BotTest.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="BotTest.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
       </e>
       <e p="Dickscord" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -19,6 +22,9 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
+              <e p="Dickscord.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
               <e p="Dickscord.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -279,6 +285,7 @@
       </e>
       <e p="DSharpPlus.Extended" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Color.cs" t="Include" />
         <e p="DiscordChannelExtensions.cs" t="Include" />
         <e p="DiscordGuildExtensions.cs" t="Include" />
         <e p="DiscordMemberExtensions.cs" t="Include" />
@@ -286,12 +293,28 @@
         <e p="GuildEmojiExtensions.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
+            </e>
             <e p="netstandard2.0" t="Include">
               <e p="DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="WebhookExtensions.cs" t="Include" />
+      </e>
+      <e p="DSharpPlus.Extended.Emoji" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DSharpPlus.Extended.Emoji.csproj" t="IncludeRecursive" />
+        <e p="E.cs" t="Include" />
+        <e p="Emoji.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.Extended.Emoji.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
       </e>
       <e p="DSharpPlus.ModernEmbedBuilder" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
@@ -319,6 +342,20 @@
             </e>
           </e>
         </e>
+      </e>
+      <e p="DSPEmojiGenerator" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="DSPEmojiGenerator.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="out.txt" t="Include" />
+        <e p="Program.cs" t="Include" />
       </e>
       <e p="ExtensionMethodApplier" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -1080,6 +1117,7 @@
         <e p="A999990.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="EnumerableStream.cs" t="Include" />
+        <e p="Lib.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
@@ -1900,6 +1938,7 @@
             <e p="WebTextBoxExtensions.cs" t="Include" />
           </e>
         </e>
+        <e p="Extensions.cs" t="Include" />
         <e p="ExtensionsHelper.cs" t="Include" />
         <e p="FunctionalInvariant.cs" t="Include" />
         <e p="FunctionalWith.cs" t="Include" />
@@ -1999,6 +2038,10 @@
             <e p="QueryableEx.cs" t="Include" />
           </e>
         </e>
+        <e p="LazyEnumerator.cs" t="Include" />
+        <e p="LazyEnumeratorIndex.cs" t="Include" />
+        <e p="LazySplitter.cs" t="Include" />
+        <e p="LazySplitterIndex.cs" t="Include" />
         <e p="LICENSE.BCLExtensions.txt" t="Include" />
         <e p="LICENSE.BigMath.txt" t="Include" />
         <e p="LICENSE.C5.txt" t="Include" />
@@ -2739,7 +2782,7 @@
           </e>
         </e>
         <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
+        <e p="ReadOnlyDictionaryBuilder.cs" t="Include" />
         <e p="RegexCache" t="Include">
           <e p="IsEmailBigRe.cs" t="Include" />
           <e p="IsEmailBigReFactory12.cs" t="Include" />
@@ -3155,6 +3198,8 @@
         <e p="String.cs" t="Include" />
         <e p="TestProj47.csproj" t="IncludeRecursive" />
         <e p="TestProj47.csproj.DotSettings" t="Include" />
+        <e p="TextTemplate1.cs" t="Include" />
+        <e p="TextTemplate1.tt" t="Include" />
         <e p="Triangulator" t="Include">
           <e p="Delaunay.cs" t="Include" />
           <e p="Geometry" t="Include">
