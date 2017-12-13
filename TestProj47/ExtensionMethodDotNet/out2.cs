@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Contracts;
+using SD = System.Drawing;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -20,6 +21,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using Microsoft.CSharp;
+using SDD2D = System.Drawing.Drawing2D;
 
 namespace HSNXT
 {
@@ -191,7 +193,7 @@ private void button1_Click(object sender, EventArgs e)
         {
             // If the collection is null, or if it contains zero elements,
             // then return an empty string.
-            if (strings == null || strings.Count() == 0)
+            if (strings == null || !strings.Any())
                 return String.Empty;
 
             // Build the flattened string
@@ -1233,7 +1235,7 @@ bool b = s.IsStrongPassword();
  * Image test = someImg.ScaleImage(591, 1096);
  */
 
-        public static System.Drawing.Image ScaleImage(this System.Drawing.Image img, int height, int width)
+        public static SD.Image ScaleImage(this SD.Image img, int height, int width)
         {
             if (img == null || height <= 0 || width <= 0)
             {
@@ -1246,7 +1248,7 @@ bool b = s.IsStrongPassword();
 
             var bmp = new Bitmap(width, height);
             var g = Graphics.FromImage(bmp);
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            g.InterpolationMode = SDD2D.InterpolationMode.HighQualityBilinear;
 
             // use this when debugging.
             //g.FillRectangle(Brushes.Aqua, 0, 0, bmp.Width - 1, bmp.Height - 1);
@@ -1790,16 +1792,16 @@ var urlName = name.ToUrlSlug(); // returns serdar-buyuktemiz-csguio
                 this.SuspendLayout();
                 this.lstColumns.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.lstColumns.FormattingEnabled = true;
-                this.lstColumns.Location = new System.Drawing.Point(0, 0);
+                this.lstColumns.Location = new SD.Point(0, 0);
                 this.lstColumns.Name = "lstColumns";
-                this.lstColumns.Size = new System.Drawing.Size(258, 214);
+                this.lstColumns.Size = new SD.Size(258, 214);
                 this.lstColumns.TabIndex = 0;
                 this.lstColumns.CheckOnClick = true;
                 this.lstColumns.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstColumns_ItemCheck);
 
-                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+                this.AutoScaleDimensions = new SD.SizeF(6F, 13F);
                 this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                this.ClientSize = new System.Drawing.Size(258, 214);
+                this.ClientSize = new SD.Size(258, 214);
                 this.Controls.Add(this.lstColumns);
                 this.Name = "FrmColumnsConfig";
                 this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -2797,8 +2799,8 @@ Console.WriteLine(animalQuantities["cat"]); // 2
       }
  */
 
-        private static readonly IList<Tuple<Rectangle, System.Drawing.Image>> BitmapSizes =
-            new List<Tuple<Rectangle, System.Drawing.Image>>();
+        private static readonly IList<Tuple<Rectangle, SD.Image>> BitmapSizes =
+            new List<Tuple<Rectangle, SD.Image>>();
 
         //adapted from http://www.webcosmoforums.com/asp/321-create-high-quality-thumbnail-resize-image-dynamically-asp-net-c-code.html
         //TODO: figure out how expensive this method is
@@ -2806,55 +2808,47 @@ Console.WriteLine(animalQuantities["cat"]); // 2
         //TODO: make sure caching is set up properly to reduce usage
         public static byte[] Resize(this byte[] source, int width, int height)
         {
-            try
+            using (var image = SD.Image.FromStream(new MemoryStream(source), true, true))
             {
-                using (var image = System.Drawing.Image.FromStream(new MemoryStream(source), true, true))
+                var srcWidth = image.PhysicalDimension.Width;
+                var srcHeight = image.PhysicalDimension.Height;
+                if (srcWidth == width && srcHeight == height)
+                    return source;
+                var scaleW = (double) width / srcWidth;
+                var scaleH = (double) height / srcHeight;
+                if (scaleW < scaleH)
                 {
-                    var srcWidth = image.PhysicalDimension.Width;
-                    var srcHeight = image.PhysicalDimension.Height;
-                    if (srcWidth == width && srcHeight == height)
-                        return source;
-                    var scaleW = (double) width / srcWidth;
-                    var scaleH = (double) height / srcHeight;
-                    if (scaleW < scaleH)
+                    width = (int) Math.Round((scaleW * srcWidth));
+                    height = (int) Math.Round((scaleW * srcHeight));
+                }
+                else
+                {
+                    width = (int) Math.Round((scaleH * srcWidth));
+                    height = (int) Math.Round((scaleH * srcHeight));
+                }
+                var bmpTouple = BitmapSizes.FirstOrDefault(t => t.Item1.Height == height && t.Item1.Width == width);
+                if (bmpTouple == null)
+                {
+                    bmpTouple = new Tuple<Rectangle, SD.Image>(
+                        new Rectangle(0, 0, width, height),
+                        new Bitmap(width, height));
+                    BitmapSizes.Add(bmpTouple);
+                }
+                var rect = bmpTouple.Item1;
+                var bmp = bmpTouple.Item2;
+                using (var gr = Graphics.FromImage(bmp))
+                {
+                    gr.SmoothingMode = SDD2D.SmoothingMode.HighQuality;
+                    gr.CompositingQuality = SDD2D.CompositingQuality.HighQuality;
+                    gr.InterpolationMode = SDD2D.InterpolationMode.High;
+                    gr.DrawImage(image, rect);
+                    using (var outStream = new MemoryStream())
                     {
-                        width = (int) Math.Round((scaleW * srcWidth));
-                        height = (int) Math.Round((scaleW * srcHeight));
-                    }
-                    else
-                    {
-                        width = (int) Math.Round((scaleH * srcWidth));
-                        height = (int) Math.Round((scaleH * srcHeight));
-                    }
-                    var bmpTouple = BitmapSizes.FirstOrDefault(t => t.Item1.Height == height && t.Item1.Width == width);
-                    if (bmpTouple == null)
-                    {
-                        bmpTouple = new Tuple<Rectangle, System.Drawing.Image>(
-                            new Rectangle(0, 0, width, height),
-                            new Bitmap(width, height));
-                        BitmapSizes.Add(bmpTouple);
-                    }
-                    var rect = bmpTouple.Item1;
-                    var bmp = bmpTouple.Item2;
-                    using (var gr = Graphics.FromImage(bmp))
-                    {
-                        gr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                        gr.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                        gr.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
-                        gr.DrawImage(image, rect);
-                        using (var outStream = new MemoryStream())
-                        {
-                            bmp.Save(outStream, ImageFormat.Jpeg);
-                            return outStream.ToArray();
-                        }
+                        bmp.Save(outStream, ImageFormat.Jpeg);
+                        return outStream.ToArray();
                     }
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            return null;
         }
 
 
