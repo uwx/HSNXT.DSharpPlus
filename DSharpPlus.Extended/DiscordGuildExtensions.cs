@@ -16,8 +16,11 @@ namespace DSharpPlus.Extended
         /// <returns>The modified guild object.</returns>
         public static Task<DiscordGuild> RenameAsync(this DiscordGuild @this, string name, string reason = null)
         {
-            return @this.ModifyAsync(name, null, null,
-                null, null, null, null, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Name = name;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -30,8 +33,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetVoiceRegionAsync(this DiscordGuild @this, DiscordVoiceRegion region,
             string reason = null)
         {
-            return @this.ModifyAsync(null, region, null,
-                null, null, null, null, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Region = region;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -43,8 +49,11 @@ namespace DSharpPlus.Extended
         /// <returns>The modified guild object.</returns>
         public static Task<DiscordGuild> SetIconAsync(this DiscordGuild @this, Stream icon, string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, null, null, null, null, icon, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Icon = icon;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -57,8 +66,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetVerificationLevelAsync(this DiscordGuild @this,
             VerificationLevel verificationLevel, string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                verificationLevel, null, null, null, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.VerificationLevel = verificationLevel;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -71,8 +83,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetDefaultMessageNotificationsAsync(this DiscordGuild @this,
             DefaultMessageNotifications defaultMessageNotifications, string reason = null)
         {
-            return @this.ModifyAsync(null, null, null, null,
-                defaultMessageNotifications, null, null, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.DefaultMessageNotifications = defaultMessageNotifications;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -84,8 +99,11 @@ namespace DSharpPlus.Extended
         /// <returns>The modified guild object.</returns>
         public static Task<DiscordGuild> SetMfaAsync(this DiscordGuild @this, MfaLevel mfaLevel, string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, mfaLevel, null, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.MfaLevel = mfaLevel;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -98,8 +116,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetExplicitContentFilterAsync(this DiscordGuild @this,
             ExplicitContentFilter explicitContentFilter, string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, explicitContentFilter, null, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.ExplicitContentFilter = explicitContentFilter;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -115,8 +136,11 @@ namespace DSharpPlus.Extended
             if (afkChannel.Type != ChannelType.Voice)
                 throw new ArgumentException("AFK channel needs to be a voice channel.");
 
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, null, afkChannel, null, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.AfkChannel = afkChannel;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -129,8 +153,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetAfkTimeoutAsync(this DiscordGuild @this, int afkTimeout,
             string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, null, null, afkTimeout, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.AfkTimeout = afkTimeout;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -143,8 +170,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetOwnerAsync(this DiscordGuild @this, DiscordMember owner,
             string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, null, null, null, owner, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Owner = owner;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -157,8 +187,11 @@ namespace DSharpPlus.Extended
         public static Task<DiscordGuild> SetInviteSplashAsync(this DiscordGuild @this, Stream splash,
             string reason = null)
         {
-            return @this.ModifyAsync(null, null, null,
-                null, null, null, null, null, null, null, splash, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Splash = splash;
+                e.AuditLogReason = reason;
+            });
         }
     }
 }

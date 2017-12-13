@@ -42,7 +42,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" />
   <ItemGroup>
-    <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00368" />
+    <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00395" />
     <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-beta-00368" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">

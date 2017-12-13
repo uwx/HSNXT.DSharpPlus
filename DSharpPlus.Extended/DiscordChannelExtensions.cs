@@ -18,7 +18,11 @@ namespace DSharpPlus.Extended
             if (@this.Guild == null)
                 throw new InvalidOperationException("Cannot rename non-guild channels.");
 
-            return @this.ModifyAsync(name, null, null, default, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Name = name;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -35,7 +39,11 @@ namespace DSharpPlus.Extended
             if (@this.Type != ChannelType.Text)
                 throw new InvalidOperationException("Cannot set topic of non-text channels.");
 
-            return @this.ModifyAsync(null, null, topic, default, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Topic = topic;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -51,7 +59,11 @@ namespace DSharpPlus.Extended
             if (@this.Guild == null)
                 throw new InvalidOperationException("Cannot set parent of non-guild channels.");
 
-            return @this.ModifyAsync(null, null, null, parent, null, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Parent = parent;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -68,7 +80,11 @@ namespace DSharpPlus.Extended
             if (@this.Type != ChannelType.Voice)
                 throw new InvalidOperationException("Cannot set user limit of non-voice channels.");
 
-            return @this.ModifyAsync(null, null, null, default, bitrate, null, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Bitrate = bitrate;
+                e.AuditLogReason = reason;
+            });
         }
 
         /// <summary>
@@ -85,7 +101,11 @@ namespace DSharpPlus.Extended
             if (@this.Type != ChannelType.Voice)
                 throw new InvalidOperationException("Cannot set user limit of non-voice channels.");
 
-            return @this.ModifyAsync(null, null, null, default, null, userLimit, reason);
+            return @this.ModifyAsync(e =>
+            {
+                e.Userlimit = userLimit;
+                e.AuditLogReason = reason;
+            });
         }
     }
 }
