@@ -814,7 +814,7 @@ dgvCase.RemoveSelectedRows();
 
                 return true;
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 return false;
             }
@@ -891,7 +891,7 @@ path.DeleteFiles("cs"); // Deletes all files with a CS extension
                     fileInfo.Delete();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Console.WriteLine("Error Deleting file. Reason: {0}", ex.Message);
             }

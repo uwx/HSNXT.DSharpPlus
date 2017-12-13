@@ -8,7 +8,7 @@ using DSharpPlus.Entities;
 
 namespace Dickscord
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {

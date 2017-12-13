@@ -4,7 +4,7 @@ namespace HSNXT.Linq.Charting
 {
     partial class StackedBarOr_<S>
     {
-        partial class DataPoint 
+        new partial class DataPoint 
         {
             /// <summary>
             /// Specifies the placement of the data point label.

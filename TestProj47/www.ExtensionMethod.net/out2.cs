@@ -640,7 +640,7 @@ Console.WriteLine("MD5 Hash is: {0}.", file.GetMD5());
                 hashData = BitConverter.ToString(arrByteHashValue).Replace("-", "");
                 result = hashData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Console.WriteLine(ex.Message);
             }
@@ -2850,7 +2850,7 @@ Console.WriteLine(animalQuantities["cat"]); // 2
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

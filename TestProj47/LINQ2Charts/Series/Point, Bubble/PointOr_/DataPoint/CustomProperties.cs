@@ -4,7 +4,7 @@ namespace HSNXT.Linq.Charting
 {
     partial class PointOr_<S> 
     {
-        partial class DataPoint 
+        new partial class DataPoint 
         {
             /// <summary>
             /// Specifies the value to be used for empty points. 

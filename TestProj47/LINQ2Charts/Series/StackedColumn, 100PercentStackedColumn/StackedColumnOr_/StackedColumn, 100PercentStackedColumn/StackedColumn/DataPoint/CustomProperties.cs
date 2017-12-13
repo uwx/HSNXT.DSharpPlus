@@ -4,7 +4,7 @@ namespace HSNXT.Linq.Charting
 {
     partial class StackedColumn 
     {
-        partial class DataPoint 
+        new partial class DataPoint 
         {
         }
     }

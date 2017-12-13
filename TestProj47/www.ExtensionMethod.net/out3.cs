@@ -2438,7 +2438,7 @@ textbox1.text.GetStrMoney() => 1,234,567.325
                 }
                 res = System.Enum.Parse(enumtype, value);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //do nothing
             }

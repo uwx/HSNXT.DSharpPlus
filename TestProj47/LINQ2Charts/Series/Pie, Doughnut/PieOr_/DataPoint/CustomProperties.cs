@@ -6,7 +6,7 @@ namespace HSNXT.Linq.Charting
 {
     partial class PieOr_<S>
     {
-        partial class DataPoint 
+        new partial class DataPoint 
         {
             /// <summary>
             /// Specifies whether the <see cref="Pie"/> data point is exploded.

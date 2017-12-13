@@ -3,6 +3,7 @@
     <TargetFramework>net47</TargetFramework>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputType>Exe</OutputType>
     <PackageId>TestProject.BotTest</PackageId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">

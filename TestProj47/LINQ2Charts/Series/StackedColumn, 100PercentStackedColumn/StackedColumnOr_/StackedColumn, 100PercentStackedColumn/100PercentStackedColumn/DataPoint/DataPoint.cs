@@ -4,7 +4,7 @@ namespace HSNXT.Linq.Charting
 {
     partial class StackedColumn100
     {
-        public partial class DataPoint : StackedColumnOr_<DataPoint>.DataPoint
+        public new partial class DataPoint : StackedColumnOr_<DataPoint>.DataPoint
         {
             public DataPoint(object value) : base(value) { }
         }

@@ -4,7 +4,7 @@ namespace HSNXT.Linq.Charting
 {
     public partial class PointOr_<S> 
     {
-        public abstract partial class DataPoint : Series<S>.DataPoint
+        public new abstract partial class DataPoint : Series<S>.DataPoint
         {
             internal DataPoint(object value) : base(value) { }
 
