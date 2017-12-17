@@ -652,19 +652,6 @@ namespace DSharpPlus.Entities
             => this._channels.FirstOrDefault(xc => xc.Id == id);
 
         /// <summary>
-        /// Creates a custom emoji. On whitelisted bots, creates a global emoji.
-        /// </summary>
-        /// <param name="name">The name of the emoji.</param>
-        /// <param name="image">ID of the last member in the previous chunk.</param>
-        /// <param name="roles">The roles for which this emoji will be whitelisted. Only applies to whitelisted bots.</param>
-        /// <returns>The created emoji instance.</returns>
-        public Task<DiscordEmoji> CreateEmojiAsync(string name, Stream image, IEnumerable<DiscordRole> roles = null)
-        {
-            using (var imgtool = new ImageTool(image))
-                return this.Discord.ApiClient.CreateGuildEmojiAsync(this.Id, name, imgtool.GetBase64(), roles);
-        }
-
-        /// <summary>
         /// Gets audit log entries for this guild.
         /// </summary>
         /// <param name="limit">Maximum number of entries to fetch.</param>
