@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -31,12 +32,11 @@ namespace DSharpPlus.CommandsNext
         /// </summary>
         /// <param name="client">Client to enable CommandsNext for.</param>
         /// <param name="cfg">CommandsNext configuration to use.</param>
-        /// <returns>A dictionary of created <see cref="CommandsNextExtension"/>, indexed by shard id..</returns>
-        public static IReadOnlyDictionary<int, CommandsNextExtension> UseCommandsNext(this DiscordShardedClient client, CommandsNextConfiguration cfg)
+        /// <returns>A dictionary of created <see cref="CommandsNextExtension"/>, indexed by shard id.</returns>
+        public static async Task<IReadOnlyDictionary<int, CommandsNextExtension>> UseCommandsNextAsync(this DiscordShardedClient client, CommandsNextConfiguration cfg)
         {
             var modules = new Dictionary<int, CommandsNextExtension>();
-
-            client.InitializeShardsAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+            await client.InitializeShardsAsync().ConfigureAwait(false);
 
             foreach (var shard in client.ShardClients.Select(xkvp => xkvp.Value))
             {
@@ -44,7 +44,7 @@ namespace DSharpPlus.CommandsNext
                 if (cnext == null)
                     cnext = shard.UseCommandsNext(cfg);
 
-                modules.Add(shard.ShardId, cnext);
+                modules[shard.ShardId] = cnext;
             }
 
             return new ReadOnlyDictionary<int, CommandsNextExtension>(modules);

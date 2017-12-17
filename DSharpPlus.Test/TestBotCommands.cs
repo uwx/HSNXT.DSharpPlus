@@ -9,19 +9,44 @@ namespace DSharpPlus.Test
 {
     public class TestBotCommands
     {
-        public static ConcurrentDictionary<ulong, string> Prefixes { get; } = new ConcurrentDictionary<ulong, string>();
+        public static ConcurrentDictionary<ulong, string> PrefixSettings { get; } = new ConcurrentDictionary<ulong, string>();
+
+        [Command("testmodify")]
+        public async Task TestModifyAsync(CommandContext ctx, DiscordMember m)
+        {
+            await ctx.Channel.ModifyAsync(x =>
+            {
+                x.Name = "poopies_and_peepees";
+                x.Topic = "Childish stuff";
+                x.AuditLogReason = "Just because..";
+            });
+
+            await ctx.Guild.ModifyAsync(x =>
+            {
+                x.Name = "House of memes";
+                x.AuditLogReason = "This is our name now.";
+            });
+
+            await m.ModifyAsync(x =>
+            {
+                x.Nickname = "Lord of the memes";
+                x.AuditLogReason = "He owns u nao";
+            });
+
+            await ctx.RespondAsync($"You are now the lord of memes, {m.Mention}. Here in the house of memes. In the channel of poopies and peepees.");
+        }
 
         [Command("setprefix"), Aliases("channelprefix"), Description("Sets custom command prefix for current channel. The bot will still respond to the default one."), RequireOwner]
         public async Task SetPrefixAsync(CommandContext ctx, [Description("The prefix to use for current channel.")] string prefix = null)
         {
             if (string.IsNullOrWhiteSpace(prefix))
-                if (Prefixes.TryRemove(ctx.Channel.Id, out _))
+                if (PrefixSettings.TryRemove(ctx.Channel.Id, out _))
                     await ctx.RespondAsync("👍").ConfigureAwait(false);
                 else
                     await ctx.RespondAsync("👎").ConfigureAwait(false);
             else
             {
-                Prefixes.AddOrUpdate(ctx.Channel.Id, prefix, (k, vold) => prefix);
+                PrefixSettings.AddOrUpdate(ctx.Channel.Id, prefix, (k, vold) => prefix);
                 await ctx.RespondAsync("👍").ConfigureAwait(false);
             }
         }
@@ -66,8 +91,46 @@ namespace DSharpPlus.Test
             [Command("bool"), Description("Attempts to bind a boolean.")]
             public Task BoolAsync(CommandContext ctx, bool b)
                 => ctx.RespondAsync($"{b}");
+
+            [Command("nullable"), Description("Attempts to bind a nullable integer.")]
+            public Task NullableAsync(CommandContext ctx, int? x = 4)
+                => ctx.RespondAsync(x?.ToString("#,##0") ?? "<null>");
+
+            //[Command("enum"), Description("Attempts to bind an enum value.")]
+            //public Task EnumAsync(CommandContext ctx, TestEnum? te = null)
+            //    => ctx.RespondAsync(te?.ToString() ?? "<null>");
+
+            //public enum TestEnum
+            //{
+            //    String,
+            //    Integer
+            //}
         }
-        
+
+        [Group]
+        public class ImplicitGroup
+        {
+            [Command]
+            public Task ImplicitAsync(CommandContext ctx)
+                => ctx.RespondAsync("Hello from trimmed name!");
+
+            [Command]
+            public Task Another(CommandContext ctx)
+                => ctx.RespondAsync("Hello from untrimmed name!");
+        }
+
+        [Group]
+        public class Prefixes
+        {
+            [Command, RequirePrefixes("<<", ShowInHelp = true)]
+            public Task PrefixShown(CommandContext ctx)
+                => ctx.RespondAsync("Hello from shown prefix.");
+
+            [Command, RequirePrefixes("<<", ShowInHelp = false)]
+            public Task PrefixHidden(CommandContext ctx)
+                => ctx.RespondAsync("Hello from hidden prefix.");
+        }
+
         // this is a mention of _moonPtr#8058 (276460831187664897)
         // I don't hate you, in fact I appreciate you breaking this stuff
         // but revenge is revenge

@@ -100,6 +100,21 @@ namespace DSharpPlus.Entities
             return this.HasValue ? this.Value.GetHashCode() : 0;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="Optional{T}"/> with specified value and valid state.
+        /// </summary>
+        /// <param name="value">Value to populate the optional with.</param>
+        /// <returns>Created optional.</returns>
+        public static Optional<T> FromValue(T value)
+            => new Optional<T>(value);
+
+        /// <summary>
+        /// Creates a new empty <see cref="Optional{T}"/> with no value and invalid state.
+        /// </summary>
+        /// <returns>Created optional.</returns>
+        public static Optional<T> FromNoValue()
+            => default;
+
         public static implicit operator Optional<T>(T val) 
             => new Optional<T>(val);
 

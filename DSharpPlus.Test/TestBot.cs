@@ -71,10 +71,10 @@ namespace DSharpPlus.Test
             // commandsnext config and the commandsnext service itself
             var cncfg = new CommandsNextConfiguration
             {
-                StringPrefix = this.Config.CommandPrefix,
-                CustomPrefixPredicate = msg =>
+                StringPrefixes = this.Config.CommandPrefix != null ? new[] { this.Config.CommandPrefix } : this.Config.CommandPrefixes,
+                PrefixResolver = msg =>
                 {
-                    if (TestBotCommands.Prefixes.ContainsKey(msg.Channel.Id) && TestBotCommands.Prefixes.TryGetValue(msg.Channel.Id, out var pfix))
+                    if (TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
                         return Task.FromResult(msg.GetStringPrefixLength(pfix));
                     return Task.FromResult(-1);
                 },
@@ -95,7 +95,7 @@ namespace DSharpPlus.Test
             // interactivity service
             var icfg = new InteractivityConfiguration()
             {
-                PaginationBehaviour = TimeoutBehaviour.DeleteMessage,
+                PaginationBehavior = TimeoutBehaviour.DeleteMessage,
                 PaginationTimeout = TimeSpan.FromSeconds(30),
                 Timeout = TimeSpan.FromSeconds(30)
             };
