@@ -1818,30 +1818,6 @@ namespace DSharpPlus.Net
         }
         #endregion
 
-        #region Emoji
-        
-        internal async Task<DiscordEmoji> CreateGuildEmojiAsync(ulong guild_id, string name, string image, IEnumerable<DiscordRole> roles)
-        {
-            var payload = new RestEmojiCreatePayload
-            {
-                Name = name,
-                Image = image,
-                Roles = roles,
-            };
-
-            var route = string.Concat(Endpoints.GUILDS, "/:guild_id", Endpoints.EMOJIS);
-            var bucket = this.Rest.GetBucket(RestRequestMethod.GET, route, new { guild_id = guild_id.ToString(CultureInfo.InvariantCulture) }, out var path);
-
-            var url = new Uri(string.Concat(Utilities.GetApiBaseUri(), path));
-            var res = await this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.POST, Utilities.GetBaseHeaders(), JsonConvert.SerializeObject(payload));
-
-            var emoji = JsonConvert.DeserializeObject<DiscordEmoji>(res.Response);
-            emoji.Discord = this.Discord;
-            return emoji;
-        }
-
-        #endregion
-        
         #region Misc
         internal Task<DiscordApplication> GetCurrentApplicationInfoAsync()
             => this.GetApplicationInfoAsync("@me");
