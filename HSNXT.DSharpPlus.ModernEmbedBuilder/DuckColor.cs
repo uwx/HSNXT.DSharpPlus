@@ -3,7 +3,7 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.ModernEmbedBuilder
 {
-    public partial struct DuckColor
+    public struct DuckColor
     {
         /// <summary>
         /// Implicitly converts RGB tuple to a color.

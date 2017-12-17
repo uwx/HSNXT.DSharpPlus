@@ -32,7 +32,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DSharpPlus.Extended\Color.cs">
+    <Compile Include="..\..\TestProject\DSharpPlus.Extended\Color.cs">
       <Link>Color.cs</Link>
     </Compile>
   </ItemGroup>
