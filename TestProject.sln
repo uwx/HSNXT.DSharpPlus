@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSPEmojiGenerator", "DSPEmo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Emoji", "DSharpPlus.Extended.Emoji\DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Promise", "HSNXT.Promise\HSNXT.Promise.csproj", "{4270BE69-4B61-4423-8E30-A08F021053F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4270BE69-4B61-4423-8E30-A08F021053F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4270BE69-4B61-4423-8E30-A08F021053F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4270BE69-4B61-4423-8E30-A08F021053F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4270BE69-4B61-4423-8E30-A08F021053F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
