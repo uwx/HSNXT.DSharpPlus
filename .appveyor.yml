@@ -43,6 +43,7 @@ build_script:
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" HSNXT.DSharpPlus.Rest
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" HSNXT.DSharpPlus.VoiceNext
   # publish D#+ projects
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" --configuration Release -f netstandard2.0
   - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f netstandard2.0
   - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f netstandard2.0
