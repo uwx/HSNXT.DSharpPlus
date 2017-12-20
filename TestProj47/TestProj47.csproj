@@ -4,6 +4,8 @@
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageId>TestProject.Extensions.HSNXT</PackageId>
+    <Company>uwx</Company>
+    <Description>Yet another extension method library.</Description>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
     <Version>1.0.2</Version>
