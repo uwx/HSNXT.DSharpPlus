@@ -43,12 +43,38 @@ build_script:
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" HSNXT.DSharpPlus.Rest
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" HSNXT.DSharpPlus.VoiceNext
   # publish D#+ projects
+  #net45;net46;net47;netstandard1.1;netstandard1.3;netstandard2.0
   - ps: dotnet publish "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f net45
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f net46
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f net47
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f netstandard1.1
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f net45
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f net46
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f net47
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f netstandard1.1
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f net45
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f net46
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f net47
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f netstandard1.1
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f net45
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f net46
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f net47
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f netstandard1.1
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f net45
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f net46
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f net47
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard1.1
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard1.3
   - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard2.0
   # pack projects 1
   - ps: dotnet pack "TestProj47/TestProj47.csproj" -c Release -o "Proj1" --no-build
