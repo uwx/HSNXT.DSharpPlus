@@ -5,4 +5,15 @@
     <Description>Basic JavaScript-like promises -> tasks for C#.</Description>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
+    <Version>1.0.$(Appveyor_Build_Number)</Version>
+    <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
+    <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
+  </PropertyGroup>
+  
 </Project>
