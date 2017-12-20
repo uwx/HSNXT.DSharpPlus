@@ -60,6 +60,7 @@
         </e>
       </e>
       <e p="dsharpplus\dsharpplus" t="IncludeRecursive">
+        <e p="AssemblyInfo.cs" t="Include" />
         <e p="AsyncEvent.cs" t="Include" />
         <e p="BaseDiscordClient.cs" t="Include" />
         <e p="BaseExtension.cs" t="Include" />
@@ -187,6 +188,7 @@
             <e p="IOAuth2Payload.cs" t="Include" />
             <e p="ReadyPayload.cs" t="Include" />
             <e p="RestChannelPayloads.cs" t="Include" />
+            <e p="RestEmojiPayloads.cs" t="Include" />
             <e p="RestGuildPayloads.cs" t="Include" />
             <e p="RestUserPayloads.cs" t="Include" />
             <e p="RestWebhookPayloads.cs" t="Include" />
@@ -200,6 +202,11 @@
           <e p="BaseRestRequest.cs" t="Include" />
           <e p="DiscordApiClient.cs" t="Include" />
           <e p="Endpoints.cs" t="Include" />
+          <e p="Models" t="Include">
+            <e p="ChannelEditModel.cs" t="Include" />
+            <e p="GuildEditModel.cs" t="Include" />
+            <e p="MemberEditModel.cs" t="Include" />
+          </e>
           <e p="MultipartWebRequest.cs" t="Include" />
           <e p="RateLimitBucket.cs" t="Include" />
           <e p="RestClient.cs" t="Include" />
@@ -352,7 +359,10 @@
         <e p="DSPEmojiGenerator.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp2.0" t="Include">
+            <e p="net47" t="Include">
+              <e p="DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
               <e p="DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
             </e>
           </e>

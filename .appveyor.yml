@@ -36,12 +36,41 @@ build_script:
   - ps: dotnet publish "DSharpPlus.Extended.Emoji/DSharpPlus.Extended.Emoji.csproj" --configuration Release -f netstandard2.0
   - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder/DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
   
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" HSNXT.DSharpPlus.WebSocket.WebSocket4NetCore
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus/DSharpPlus.csproj" HSNXT.DSharpPlus
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" HSNXT.DSharpPlus.CommandsNext
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" HSNXT.DSharpPlus.Interactivity
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" HSNXT.DSharpPlus.Rest
+  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" HSNXT.DSharpPlus.VoiceNext
+  
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus/DSharpPlus.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard2.0
+  
   - ps: dotnet pack "TestProj47/TestProj47.csproj" -c Release -o "Proj1" --no-build
   - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -c Release -o "Proj2" --no-build
   - ps: dotnet pack "DSharpPlus.Extended/DSharpPlus.Extended.csproj" -c Release -o "Proj3" --no-build
   - ps: dotnet pack "DSharpPlus.ModernEmbedBuilder/DSharpPlus.ModernEmbedBuilder.csproj" -c Release -o "Proj4" --no-build
+  
+  - ps: dotnet pack "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" -c Release -o "DSP1" --no-build
+  - ps: dotnet pack "DSharpPlus/DSharpPlus/DSharpPlus.csproj" -c Release -o "DSP2" --no-build
+  - ps: dotnet pack "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" -c Release -o "DSP3" --no-build
+  - ps: dotnet pack "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" -c Release -o "DSP4" --no-build
+  - ps: dotnet pack "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" -c Release -o "DSP5" --no-build
+  - ps: dotnet pack "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" -c Release -o "DSP6" --no-build
+  
 
 artifacts:
+  - path: "DSharpPlus\\DSharpPlus.WebSocket.WebSocket4NetCore\\DSP1\\*.nupkg"
+  - path: "DSharpPlus\\DSharpPlus\\DSP2\\*.nupkg"
+  - path: "DSharpPlus\\DSharpPlus.CommandsNext\\DSP3\\*.nupkg"
+  - path: "DSharpPlus\\DSharpPlus.Interactivity\\DSP4\\*.nupkg"
+  - path: "DSharpPlus\\DSharpPlus.Rest\\DSP5\\*.nupkg"
+  - path: "DSharpPlus\\DSharpPlus.VoiceNext\\DSP6\\*.nupkg"
+  
   - path: "TestProj47\\Proj1\\*.nupkg"
   - path: "DSharpPlus.CNextNotifier\\Proj2\\*.nupkg"
   - path: "DSharpPlus.Extended\\Proj3\\*.nupkg"
