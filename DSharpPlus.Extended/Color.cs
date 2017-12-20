@@ -354,19 +354,15 @@ using DSharpPlus.Entities;
 //     so, delete this exception statement from your version.
 #endregion
 
-namespace
 #if DSPExtended
-DSharpPlus.Extended
-#else
-DSharpPlus.ModernEmbedBuilder
-#endif
+namespace DSharpPlus.Extended
 {
-#if DSPExtended
-    public
+    public class Colors
 #else
-    internal
+namespace DSharpPlus.ModernEmbedBuilder
+{
+    internal class Colors
 #endif
-    class Colors
     {
         public static DiscordColor FromHSB(float h, float s, float br)
         {
