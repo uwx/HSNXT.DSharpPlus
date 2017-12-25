@@ -23,51 +23,26 @@ namespace HSNXT
     {
         public static TimeSpan Millisecond(this int i)
         {
-            if (i != 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
-            return TimeSpan.FromMilliseconds(1);
+            return TimeSpan.FromMilliseconds(i);
         }
 
         public static TimeSpan Second(this int i)
         {
-            if (i != 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
-            return TimeSpan.FromSeconds(1);
+            return TimeSpan.FromSeconds(i);
         }
 
         public static TimeSpan Minute(this int i)
         {
-            if (i != 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
-            return TimeSpan.FromMinutes(1);
+            return TimeSpan.FromMinutes(i);
         }
 
         public static TimeSpan Hour(this int i)
         {
-            if (i != 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
-            return TimeSpan.FromHours(1);
+            return TimeSpan.FromHours(i);
         }
 
         public static TimeSpan Day(this int i)
         {
-            if (i != 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
             return TimeSpan.FromDays(i);
         }
 

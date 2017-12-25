@@ -2062,28 +2062,6 @@ This finally gets rid of that nasty piece of untyping in an otherwise lovely typ
 
 
 /*
- * TakeUntil
- * The opposite of TakeWhile, inverts the expression and passes to TakeWhile so that instead of taking while an expression is true, you take until an expression is true.
- * 
- * Author: James Michael Hare (BlackRabbitCoder)
- * Submitted on: 10/14/2010 6:13:25 PM
- * 
- * Example: 
- * foreach(var item in list.TakeUntil(i => i.Name == null);
- */
-        /// <summary>
-        /// Continues processing items in a collection until the end condition is true.
-        /// </summary>
-        /// <typeparam name="T">The type of the collection.</typeparam>
-        /// <param name="collection">The collection to iterate.</param>
-        /// <param name="endCondition">The condition that returns true if iteration should stop.</param>
-        /// <returns>Iterator of sub-list.</returns>
-        public static IEnumerable<T> TakeUntil<T>(this IEnumerable<T> collection, Predicate<T> endCondition)
-        {
-            return collection.TakeWhile(item => !endCondition(item));
-        }
-
-/*
  * IsInRange
  * Determines if a date is within a given date range
  * 
@@ -2568,42 +2546,10 @@ Console.WriteLine(string.Join('--',x));
 // returns foo--bar--bla
  */
 
-        static IEnumerable<T> Concat<T>(IEnumerable<T> target, T element)
+        static IEnumerable<T> Concat<T>(this IEnumerable<T> target, T element)
         {
             foreach (var e in target) yield return e;
             yield return element;
-        }
-
-
-/*
- * Reverse
- * Reverses the order of the list that you wish to enumerate.
- * 
- * Author: Jonathan Crossland
- * Submitted on: 4/6/2009 2:28:24 PM
- * 
- * Example: 
- * List<string> list = new List<string>();
-list.add("a");
-list.add("b");
-
-foreach (string item in list.Reverse<string>()
-{
-//todo: item
-}
- */
-
-        public static IEnumerable<T> Reverse<T>(this IEnumerable<T> items)
-        {
-            var list = (IList<T>) items;
-
-            if (list == null)
-                yield return default;
-
-            for (var i = list.Count - 1; i >= 0; i--)
-            {
-                yield return list[i];
-            }
         }
 
 

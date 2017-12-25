@@ -55,7 +55,7 @@ namespace HSNXT
         {
             if (source.IsGenericType)
                 return source.GetGenericTypeDefinition() == typeof(Nullable<>);
-            return false;
+            return !source.IsValueType;
         }
 
         /// <summary>

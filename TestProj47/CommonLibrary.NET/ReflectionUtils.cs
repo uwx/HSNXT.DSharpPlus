@@ -207,7 +207,7 @@ namespace HSNXT.ComLib.Reflection
         {
             var allProps = type.GetProperties();
             var propToGet = new List<PropertyInfo>();
-            var propsMap = props.ToDictionary();
+            var propsMap = props.ToSameDictionary();
             foreach (var prop in allProps)
             {
                 if (propsMap.ContainsKey(prop.Name))
@@ -228,7 +228,7 @@ namespace HSNXT.ComLib.Reflection
         {
             var allProps = type.GetProperties(flags);            
             var propToGet = new List<PropertyInfo>();
-            var propsMap = props.ToDictionary();
+            var propsMap = props.ToSameDictionary();
             foreach (var prop in allProps)
             {
                 if (propsMap.ContainsKey(prop.Name))

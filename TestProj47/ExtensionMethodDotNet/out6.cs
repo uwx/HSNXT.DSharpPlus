@@ -2035,9 +2035,9 @@ int? nullsAreSafe = thisWillNotThrowException.ToNullable<int>();
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static IDictionary<string, object> ToDictionary(this object source)
+        public static IDictionary<string, object> ToObjDictionary(this object source)
         {
-            return source.ToDictionary<object>();
+            return source.ToStringKeyDictionary<object>();
         }
 
         /// <summary>
@@ -2046,7 +2046,7 @@ int? nullsAreSafe = thisWillNotThrowException.ToNullable<int>();
         /// <typeparam name="T"></typeparam>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static IDictionary<string, T> ToDictionary<T>(this object source)
+        public static IDictionary<string, T> ToStringKeyDictionary<T>(this object source)
         {
             if (source == null)
                 ThrowExceptionWhenSourceArgumentIsNull();

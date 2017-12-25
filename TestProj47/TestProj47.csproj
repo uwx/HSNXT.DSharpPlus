@@ -6,6 +6,7 @@
     <PackageId>TestProject.Extensions.HSNXT</PackageId>
     <Company>uwx</Company>
     <Description>Yet another extension method library.</Description>
+    <DefineConstants>FUNC16</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
     <Version>1.0.2</Version>

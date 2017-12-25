@@ -75,7 +75,7 @@ namespace HSNXT
         /// A <see cref="Dictionary{TKey, TValue}"/> containing the values
         /// mapped to their keys.
         /// </returns>
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+        public static Dictionary<TKey, TValue> ToDictionaryFromTuple<TKey, TValue>(
             this IEnumerable<(TKey Key, TValue Value)> source) =>
             source.ToDictionary(null);
 

@@ -31,6 +31,14 @@ namespace HSNXT
             ReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
             ReaderSettings.ValidationType = ValidationType.None;
             ReaderSettings.CloseInput = true;
+            
+            LookupTableLower = new char[256][];
+            LookupTableUpper = new char[256][];
+            for (var i = 0; i < 256; i++)
+            {
+                LookupTableLower[i] = i.ToString("x2").ToCharArray();
+                LookupTableUpper[i] = i.ToString("X2").ToCharArray();
+            }
         }
 
         /// <summary>

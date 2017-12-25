@@ -915,7 +915,7 @@ if(foo.IsNull())
 
         public static bool IsDbNull(this object obj)
         {
-            return obj == null || obj == DBNull.Value || System.Convert.IsDBNull(obj);
+            return obj == DBNull.Value || System.Convert.IsDBNull(obj);
         }
 
 

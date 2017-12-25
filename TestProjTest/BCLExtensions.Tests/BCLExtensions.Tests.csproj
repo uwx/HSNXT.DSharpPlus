@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+<PropertyGroup>
+    <Product>BCLExtensions</Product>
+    <Copyright>Copyright © csMACnz 2017</Copyright>
+    <Description>Tests for BCLExtensions</Description>
+    <AssemblyTitle>Tests for BCLExtensions</AssemblyTitle>
+    <NeutralLanguage>en-NZ</NeutralLanguage>
+    <Authors>dev-markc</Authors>
+    <TargetFrameworks>netcoreapp1.1</TargetFrameworks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <AssemblyName>BCLExtensions.Tests</AssemblyName>
+    <PackageId>BCLExtensions.Tests</PackageId>
+    <PackageLicenseUrl>https://github.com/csMACnz/BCLExtensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/csMACnz/BCLExtensions</PackageProjectUrl>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <PackageReference Include="FakeItEasy" Version="3.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BCLExtensions\BCLExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0-beta1-build3642" />
+  </ItemGroup>
+
+</Project>

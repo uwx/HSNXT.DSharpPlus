@@ -509,7 +509,7 @@ namespace HSNXT
         /// <returns>true if numeric, false if not.</returns>
         public static bool IsNumeric(this string @this)
         {
-            return !Regex.IsMatch(@this, "[^0-9]");
+            return double.TryParse(@this, out var _);
         }
 
         /// <summary>A string extension method that query if '@this' is palindrome.</summary>
@@ -2047,7 +2047,7 @@ namespace HSNXT
                 }
             }
 
-            return Convert.ToDecimal(sb.ToString());
+            return Convert.ToDecimal(sb.ToString(), CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -2070,7 +2070,7 @@ namespace HSNXT
                 }
             }
 
-            return Convert.ToDouble(sb.ToString());
+            return Convert.ToDouble(sb.ToString(), CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -2151,7 +2151,7 @@ namespace HSNXT
         {
             return Regex.Matches(@this, @"[-]?\d+(\.\d+)?")
                 .Cast<Match>()
-                .Select(x => Convert.ToDecimal(x.Value))
+                .Select(x => Convert.ToDecimal(x.Value, CultureInfo.InvariantCulture))
                 .ToArray();
         }
 
@@ -2164,7 +2164,7 @@ namespace HSNXT
         {
             return Regex.Matches(@this, @"[-]?\d+(\.\d+)?")
                 .Cast<Match>()
-                .Select(x => Convert.ToDouble(x.Value))
+                .Select(x => Convert.ToDouble(x.Value, CultureInfo.InvariantCulture))
                 .ToArray();
         }
 

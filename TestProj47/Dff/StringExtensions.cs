@@ -92,24 +92,6 @@ namespace HSNXT
             return source.Length >= removeCharacters ? source.Substring(removeCharacters) : source;
         }
 
-        public static string FillUpFirstCharacters(this string source, int totalLength, char fillUpWith)
-        {
-            if (source == null)
-                source = string.Empty;
-            while (source.Length < totalLength)
-                source = (int) fillUpWith + source;
-            return source;
-        }
-
-        public static string FillUpLastCharacters(this string source, int totalLength, char fillUpWith)
-        {
-            if (source == null)
-                source = string.Empty;
-            while (source.Length < totalLength)
-                source += (string) (object) fillUpWith;
-            return source;
-        }
-
         public static Bitmap BitmapFromBase64(string base64)
         {
             try

@@ -9,19 +9,6 @@ namespace HSNXT
         private static readonly Random Rand = new Random((int)DateTime.Now.Ticks);
 
         /// <summary>
-        /// Checks if object is null or default
-        /// <para>
-        /// Checks for strings as well if null or empty/null or whitespace.
-        /// </para>
-        /// </summary>
-        public static bool IsNullOrEmpty<T>(this T obj)
-        {
-            if (obj == null) return true;
-            if (!(obj is string)) return false;
-            return string.IsNullOrEmpty(obj.ToString()) || string.IsNullOrWhiteSpace(obj.ToString());
-        }
-
-        /// <summary>
         /// Serialize the object into a string.
         /// </summary>
         public static string Serialize<T>(this T obj)

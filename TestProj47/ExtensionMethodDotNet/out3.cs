@@ -602,7 +602,7 @@ lang.If(l=>l.Name!="Spanish", l=> MessageBox.Show("Non-spanish language!"));
         /// <typeparam name="TValue">Element type of the grouping and dictionary list.</typeparam>
         /// <param name="groupings">The enumeration of groupings from a GroupBy() clause.</param>
         /// <returns>A dictionary of groupings such that the key of the dictionary is TKey type and the value is List of TValue type.</returns>
-        public static Dictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(
+        public static Dictionary<TKey, List<TValue>> ToMultiDictionary<TKey, TValue>(
             this IEnumerable<IGrouping<TKey, TValue>> groupings)
         {
             return groupings.ToDictionary(group => group.Key, group => group.ToList());

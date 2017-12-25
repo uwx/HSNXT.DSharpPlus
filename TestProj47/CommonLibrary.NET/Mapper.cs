@@ -17,6 +17,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using HSNXT.ComLib.CsvParse;
 using HSNXT.ComLib.IO;
@@ -302,7 +303,7 @@ namespace HSNXT.ComLib.MapperSupport
         public static void MapToCsv<T>(IList<T> items, string path, IErrors errors, List<string> excludeProps) where T : class, new()
         {
             var mapper = new MapperCsv<T>();
-            var excludedPropsMap = excludeProps.ToDictionary();
+            var excludedPropsMap = excludeProps.ToSameDictionary();
             mapper.MapToFile(items, excludedPropsMap, path, errors);
         }
     }

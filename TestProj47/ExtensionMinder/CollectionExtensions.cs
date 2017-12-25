@@ -25,12 +25,12 @@ namespace HSNXT
             // ReSharper restore PossibleMultipleEnumeration
         }
 
-        public static TSource MaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> selector)
+        public static TSource MaxBy1<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> selector)
         {
             return source.MaxBy(selector, Comparer<TKey>.Default);
         }
 
-        public static TSource MaxBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> selector,
+        public static TSource MaxBy1<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> selector,
             IComparer<TKey> comparer)
         {
             if (source == null)

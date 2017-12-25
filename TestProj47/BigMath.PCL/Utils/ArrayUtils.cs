@@ -7,12 +7,9 @@
 using System;
 using System.Linq;
 
-namespace HSNXT.Utils
+namespace HSNXT
 {
-    /// <summary>
-    ///     Utils for the <see cref="Array" /> class.
-    /// </summary>
-    public static class ArrayUtils
+    public static partial class Extensions
     {
         private static readonly byte[] CharToByteLookupTable =
         {
@@ -40,17 +37,6 @@ namespace HSNXT.Utils
 
         private static readonly char[][] LookupTableUpper;
         private static readonly char[][] LookupTableLower;
-
-        static ArrayUtils()
-        {
-            LookupTableLower = new char[256][];
-            LookupTableUpper = new char[256][];
-            for (var i = 0; i < 256; i++)
-            {
-                LookupTableLower[i] = i.ToString("x2").ToCharArray();
-                LookupTableUpper[i] = i.ToString("X2").ToCharArray();
-            }
-        }
 
         /// <summary>
         ///     Converts an array of one type to an array of another type.

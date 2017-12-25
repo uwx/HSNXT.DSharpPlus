@@ -18,14 +18,83 @@ namespace HSNXT
 {
     public static partial class Extensions
     {
-        // Convert a byte array into a string of hexadecimal values.
+        /// <summary>
+        /// Checks if this string is a valid VEVO user account.
+        /// Requirements for valid VEVO user account strings:
+        /// <ul>
+        /// <li>Must only contain uppercase, lowercase, and digit characters.</li>
+        /// <li>Must not exceed 80 characters length.</li>
+        /// <li>Must not contain any whitespace characters (whitespaces, tabs, etc.)</li>
+        /// <li>Must have "VEVO" substring at the end of string</li>
+        /// </ul>
+        /// </summary>
+        /// <example>
+        /// <p>Valid inputs:</p>
+        /// <br/>AdeleVEVO
+        /// <br/>ConnieTalbotVEVO
+        /// <br/>SHMVEVO
+        /// <br/>justimberlakeVEVO
+        /// <br/>DJMartinJensenVEVO
+        /// <br/>test123VEVO
+        /// </example><example>
+        /// <p>Invalid inputs:</p>
+        /// <br/>syam kapuk
+        /// <br/>jypentertainment
+        /// <br/>Noche de Brujas
+        /// <br/>testVEVO123
+        /// </example>
+        /// <param name="a">The string to check.</param>
+        /// <returns></returns>
+        public static bool IsVevo(this string a) =>
+            !a.Contains("\t") & !a.Contains(" ") & a.Length < 81 & a.EndsWith("VEVO");
+        
+        /// <summary>
+        /// Draws ASCII christmas lights!
+        /// </summary>
+        /// <param name="i">The amount of christmas lights to draw</param>
+        /// <returns>ASCII christmas lights.</returns>
+        public static string ChristmasLights(this int i)
+        {
+            var j = 1;
+            var o = new StringBuilder("     .");
+            for (; j++ < i;)
+            {
+                o.Append("--.__.--.");
+            }
+            o.Append("\n   _(_    ");
+            for (; --j > 2;)
+            {
+                o.Append("   _Y_   ");
+            }
+            o.Append("    _)_");
+            string[] a = {"  [___]  ", "  /:' \\  ", " |::   | ", " \\::.  / ", "  \\::./  ", "   '='   "};
+            foreach (var b in a)
+            {
+                for (j = 0; j++ < i;)
+                {
+                    o.Append(j == 1 ? "\n" + b + " " :
+                             j == i ? " " + b : b);
+                }
+            }
+            return o.ToString();
+        }
+
+        /// <summary>
+        /// Convert a byte array into a string of hexadecimal values.
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
         public static string ToHex(this byte[] bytes)
         {
             return BitConverter.ToString(bytes, 0).Replace("-", " ");
         }
 
-        // Convert a string containing 2-digit hexadecimal
-        // values separated by spaces or dashes into a byte array.
+        /// <summary>
+        /// Convert a string containing 2-digit hexadecimal
+        /// values separated by spaces or dashes into a byte array.
+        /// </summary>
+        /// <param name="hex"></param>
+        /// <returns></returns>
         public static byte[] ToBytes(this string hex)
         {
             // Separate the bytes.
@@ -161,21 +230,43 @@ namespace HSNXT
             return source1;
         }
 
+        /// <summary>
+        /// Get a task that resolves when all these tasks have successfully completed
+        /// </summary>
+        /// <param name="tasks"></param>
+        /// <returns></returns>
         public static Task All(this IEnumerable<Task> tasks)
         {
             return Task.WhenAll(tasks);
         }
 
+        /// <summary>
+        /// Get a task that resolves when any of these tasks have successfully completed
+        /// </summary>
+        /// <param name="tasks"></param>
+        /// <returns></returns>
         public static Task Any(this IEnumerable<Task> tasks)
         {
             return Task.WhenAny(tasks);
         }
 
+        /// <summary>
+        /// Get a task that resolves when all these tasks have successfully completed
+        /// </summary>
+        /// <param name="tasks"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Task All<T>(this IEnumerable<Task<T>> tasks)
         {
             return Task.WhenAll(tasks);
         }
 
+        /// <summary>
+        /// Get a task that resolves when any of these tasks have successfully completed
+        /// </summary>
+        /// <param name="tasks"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Task Any<T>(this IEnumerable<Task<T>> tasks)
         {
             return Task.WhenAny(tasks);
@@ -217,17 +308,35 @@ namespace HSNXT
 
             process.ProcessorAffinity = oldAffinity;
         }
-        
+
+        /// <summary>
+        /// Disable continue on captured context for this task
+        /// </summary>
+        /// <param name="task"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static ConfiguredTaskAwaitable<T> Cfg<T>(this Task<T> task)
         {
             return task.ConfigureAwait(false);
         }
-        
+
+        /// <summary>
+        /// Synchronously await this task
+        /// </summary>
+        /// <param name="task"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Sync<T>(this Task<T> task)
         {
             return task.GetAwaiter().GetResult();
         }
-        
+
+        /// <summary>
+        /// Synchronously await this task
+        /// </summary>
+        /// <param name="task"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T AwaitSync<T>(this Task<T> task)
         {
             return task.GetAwaiter().GetResult();
@@ -243,7 +352,7 @@ namespace HSNXT
             n = n >> 16 | n << 16;
             return(n & 0xFF00FF00) >> 8 | (n & 0xFF00FF) << 8;
         }
-        
+
         /// <summary>Returns a new <see cref="T:System.DateTime" /> that subtracts the specified number of days to the value of this instance.</summary>
         /// <param name="self">This object</param>
         /// <param name="value">A number of whole and fractional days. The <paramref name="value" /> parameter can be negative or positive. </param>

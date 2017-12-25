@@ -177,15 +177,15 @@ namespace HSNXT.ComLib
         {
             // 1. Map of columns to include.
             var colsToInclude = string.IsNullOrEmpty(includePropsDelimeted) ? new string[0] : includePropsDelimeted.Split(',');
-            var colsToIncludeMap = colsToInclude.ToDictionary();
+            var colsToIncludeMap = colsToInclude.ToSameDictionary();
 
             // 2. Map of columns to exclude.
             var colsToExclude = string.IsNullOrEmpty(excludePropsDelimted) ? new string[0] : excludePropsDelimted.Split(',');
-            var colsToExcludeMap = colsToExclude.ToDictionary();
+            var colsToExcludeMap = colsToExclude.ToSameDictionary();
 
             // 2. Get map of string clob props.
             var stringClobProps = string.IsNullOrEmpty(stringClobPropsDelimited) ? new string[0] : stringClobPropsDelimited.Split(',');
-            var stringClobMap = stringClobProps.ToDictionary();
+            var stringClobMap = stringClobProps.ToSameDictionary();
 
             // 3. Get all the props as both 1(list) and 2(map).
             var props = type.GetProperties(BindingFlags.Instance | BindingFlags.SetProperty | BindingFlags.GetProperty);

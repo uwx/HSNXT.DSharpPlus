@@ -189,7 +189,7 @@ namespace HSNXT
         /// <typeparam name="T">Type of items to use.</typeparam>
         /// <param name="items">List of items.</param>
         /// <returns>Converted list as dictionary.</returns>
-        public static IDictionary<T, T> ToDictionary<T>(this IList<T> items)
+        public static IDictionary<T, T> ToSameDictionary<T>(this IList<T> items)
         {
             IDictionary<T, T> dict = new Dictionary<T, T>();
             foreach (var item in items)

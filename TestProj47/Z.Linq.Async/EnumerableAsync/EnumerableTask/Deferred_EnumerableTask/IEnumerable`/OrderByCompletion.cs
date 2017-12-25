@@ -12,12 +12,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HSNXT.Linq
+namespace HSNXT
 {
     /// <summary>
     ///     Provides extension methods for tasks.
     /// </summary>
-    public static partial class EnumerableAsync
+    public static partial class Extensions
     {
         /// <summary>
         ///     Creates a new array of tasks which complete in order.
