@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -383,42 +384,72 @@ namespace DRPCTest
             
             while(true)
             {
-                await Task.Delay(3000);
-
-                var status = await new GetRequest("http://127.0.0.1:8080/requests/status.json")
+                try
                 {
-                    Auth = ("", "dumbo"),//vlc username is emtpty
-                }.AsJsonAsync<VLCStatus>();
+                    await Task.Delay(3000);
 
-                var playlist = await new GetRequest("http://127.0.0.1:8080/requests/playlist.xml")
+                    var status = await new GetRequest("http://127.0.0.1:8080/requests/status.json")
+                    {
+                        Auth = ("", "dumbo"), //vlc username is emtpty
+                    }.AsJsonAsync<VLCStatus>();
+
+                    var playlist = await new GetRequest("http://127.0.0.1:8080/requests/playlist.xml")
+                    {
+                        Auth = ("", "dumbo"), //vlc username is emtpty
+                    }.AsStringAsync();
+
+                    if (status.Body?.Information?.Category?.Meta == null || playlist.Body?.Length == 0)
+                    {
+                        _presence.state = "Idle";
+                        _presence.details = null;
+                        _presence.largeImageText = null;
+                        _presence.smallImageText = null;
+                        _presence.partySize = 0;
+                        _presence.partyMax = 0;
+                        _presence.startTimestamp = 0;
+                        _presence.endTimestamp = 0;
+                        DiscordRpc.UpdatePresence(ref _presence);
+                        Console.WriteLine("nulled");
+                        continue;
+                    }
+
+                    var xml = new XmlDocument();
+                    xml.LoadXml(playlist.Body);
+                    var leaves = xml.GetElementsByTagName("leaf");
+                    var total = leaves.Count;
+                    var current = 1 + leaves.Cast<XmlNode>().ToList()
+                                      .FindIndex(c =>
+                                          status.Body.CurrentPlayingId ==
+                                          int.Parse(c.Attributes?["id"]?.InnerText ?? "-1"));
+
+                    var meta = status.Body.Information.Category.Meta;
+
+                    // playing/paused <title>
+                    _presence.details =
+                        $"{status.Body.State} {meta.Title}";
+                    
+                    // by <artist> (or just file name if other fields are not present)
+                    _presence.state = !string.IsNullOrEmpty(meta.Artist) 
+                        ? $"by {meta.Artist}" 
+                        : Path.GetFileNameWithoutExtension($"{meta.Filename}");
+
+                    _presence.partySize = current;
+                    _presence.partyMax = total;
+
+                    _presence.smallImageText = "Album: " + meta.Album + " (" + meta.Year + ")";
+
+                    _presence.startTimestamp =
+                        DateTimeOffset.UtcNow.AddSeconds(-status.Body.Time).ToUnixTimeSeconds();
+                    _presence.endTimestamp =
+                        DateTimeOffset.UtcNow.AddSeconds(status.Body.Length - status.Body.Time).ToUnixTimeSeconds();
+
+                    Console.WriteLine($"hi!!!{status.Body.Time},{status.Body.Length}");
+                    DiscordRpc.UpdatePresence(ref _presence);
+                }
+                catch (Exception e)
                 {
-                    Auth = ("", "dumbo"), //vlc username is emtpty
-                }.AsStringAsync();
-
-                var xml = new XmlDocument();
-                xml.LoadXml(playlist.Body);
-                var leaves = xml.GetElementsByTagName("leaf");
-                var total = leaves.Count;
-                var current = 1+leaves.Cast<XmlNode>().ToList()
-                    .FindIndex(c => status.Body.CurrentPlayingId == int.Parse(c.Attributes?["id"]?.InnerText ?? "-1"));
-
-                var meta = status.Body.Information.Category.Meta;
-                _presence.state = $"{meta.Artist} - {meta.Title}";
-
-                _presence.details = $"{status.Body.State} {status.Body.Time / 60}:{status.Body.Time % 60:00} / {status.Body.Length / 60}:{status.Body.Length % 60:00}";
-
-                _presence.partySize = current;
-                _presence.partyMax = total;
-
-                //presence.startTimestamp =
-                //    DateTimeOffset.Now.AddSeconds(-status.Body.Time).ToUnixTimeMilliseconds();
-                //presence.endTimestamp =
-                //    DateTimeOffset.Now.AddSeconds(status.Body.Length-status.Body.Time).ToUnixTimeMilliseconds();
-
-                Console.WriteLine($"hi!!!{status.Body.Time},{status.Body.Length}");
-                Console.WriteLine($"Now:{DateTimeOffset.Now};Then{DateTimeOffset.Now.AddSeconds(-status.Body.Time)};Now-Then{DateTimeOffset.Now - DateTimeOffset.Now.AddSeconds(-status.Body.Time)}");
-                Console.WriteLine($"Now:{DateTimeOffset.Now.ToUnixTimeMilliseconds()};Then{DateTimeOffset.Now.AddSeconds(-status.Body.Time).ToUnixTimeMilliseconds()};Now-Then{(DateTimeOffset.Now - DateTimeOffset.Now.AddSeconds(-status.Body.Time)).TotalMilliseconds}");
-                DiscordRpc.UpdatePresence(ref _presence);
+                    Console.WriteLine(e);
+                }
             }
         }
 
