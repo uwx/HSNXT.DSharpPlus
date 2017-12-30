@@ -26,14 +26,38 @@ namespace DSharpPlus.Entities
         /// <summary>
         /// Gets whether this emoji requires colons to use.
         /// </summary>
-        [JsonProperty("require_colons", NullValueHandling = NullValueHandling.Ignore)]
-        public bool RequireColons { get; internal set; }
+        [JsonProperty("require_colons")]
+        public bool RequiresColons { get; internal set; }
 
         /// <summary>
         /// Gets whether this emoji is managed by an integration.
         /// </summary>
-        [JsonProperty("managed", NullValueHandling = NullValueHandling.Ignore)]
-        public bool Managed { get; internal set; }
+        [JsonProperty("managed")]
+        public bool IsManaged { get; internal set; }
+
+        /// <summary>
+        /// Gets whether this emoji is animated.
+        /// </summary>
+        [JsonProperty("animated")]
+        public bool IsAnimated { get; internal set; }
+
+        /// <summary>
+        /// Gets the image URL of this emoji.
+        /// </summary>
+        [JsonIgnore]
+        public string Url
+        {
+            get
+            {
+                if (this.Id == 0)
+                    throw new InvalidOperationException("Cannot get URL of unicode emojis.");
+
+                if (this.IsAnimated)
+                    return $"https://cdn.discordapp.com/emojis/{this.Id.ToString(CultureInfo.InvariantCulture)}.gif";
+
+                return $"https://cdn.discordapp.com/emojis/{this.Id.ToString(CultureInfo.InvariantCulture)}.png";
+            }
+        }
 
         internal DiscordEmoji() { }
 
@@ -57,7 +81,13 @@ namespace DSharpPlus.Entities
         public override string ToString()
         {
             if (this.Id != 0)
-                return $"<:{this.Name}:{this.Id.ToString(CultureInfo.InvariantCulture)}>";
+            {
+                if (this.IsAnimated)
+                    return $"<a:{this.Name}:{this.Id.ToString(CultureInfo.InvariantCulture)}>";
+                else
+                    return $"<:{this.Name}:{this.Id.ToString(CultureInfo.InvariantCulture)}>";
+            }
+
             return this.Name;
         }
 
