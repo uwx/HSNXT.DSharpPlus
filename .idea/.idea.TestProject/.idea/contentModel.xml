@@ -33,6 +33,7 @@
       <e p="Dickscord" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Dickscord.csproj" t="IncludeRecursive" />
+        <e p="emoji.txt" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
@@ -218,6 +219,7 @@
           <e p="DiscordApiClient.cs" t="Include" />
           <e p="Endpoints.cs" t="Include" />
           <e p="Models" t="Include">
+            <e p="BaseEditModel.cs" t="Include" />
             <e p="ChannelEditModel.cs" t="Include" />
             <e p="GuildEditModel.cs" t="Include" />
             <e p="MemberEditModel.cs" t="Include" />
@@ -228,6 +230,9 @@
           <e p="RestRequest.cs" t="Include" />
           <e p="RestRequestMethod.cs" t="Include" />
           <e p="RestResponse.cs" t="Include" />
+          <e p="Serialization" t="Include">
+            <e p="DiscordJson.cs" t="Include" />
+          </e>
           <e p="Udp" t="Include">
             <e p="BaseUdpClient.cs" t="Include" />
             <e p="ConnectionEndpoint.cs" t="Include" />
@@ -311,6 +316,7 @@
         <e p="DiscordChannelExtensions.cs" t="Include" />
         <e p="DiscordGuildExtensions.cs" t="Include" />
         <e p="DiscordMemberExtensions.cs" t="Include" />
+        <e p="DiscordRoleExtensions.cs" t="Include" />
         <e p="DSharpPlus.Extended.csproj" t="IncludeRecursive" />
         <e p="GuildEmojiExtensions.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -1117,6 +1123,7 @@
           </e>
         </e>
       </e>
+      <e p="HSNXT.SublimeRPC\HSNXT.SublimeRPC.csproj" t="IncludeRecursive" />
       <e p="OEISReader" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
