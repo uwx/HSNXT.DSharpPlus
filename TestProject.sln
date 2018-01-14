@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Promise", "HSNXT.Prom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjTest", "TestProjTest\TestProjTest.csproj", "{55C30702-8FBF-4483-A001-95E297779C2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.SublimeRPC", "HSNXT.SublimeRPC\HSNXT.SublimeRPC.csproj", "{0511E967-9C91-4ECD-A0FA-0311075E1C25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{55C30702-8FBF-4483-A001-95E297779C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55C30702-8FBF-4483-A001-95E297779C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55C30702-8FBF-4483-A001-95E297779C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0511E967-9C91-4ECD-A0FA-0311075E1C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0511E967-9C91-4ECD-A0FA-0311075E1C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0511E967-9C91-4ECD-A0FA-0311075E1C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0511E967-9C91-4ECD-A0FA-0311075E1C25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
