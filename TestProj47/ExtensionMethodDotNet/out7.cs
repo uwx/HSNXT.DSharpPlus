@@ -2087,13 +2087,13 @@ Debug.Assert(!s.IsIsin());
 	  select _map[x]).			    Aggregate(MyFlags.None, (x, y) => x | y);
  */
 
-        public static T Aggregate<T>(
+        public static T Aggregate2<T>(
             this IEnumerable<T> list, Func<T, T, T> aggregateFunction)
         {
-            return Aggregate(list, default, aggregateFunction);
+            return Aggregate2(list, default, aggregateFunction);
         }
 
-        public static T Aggregate<T>(this IEnumerable<T> list, T defaultValue,
+        public static T Aggregate2<T>(this IEnumerable<T> list, T defaultValue,
             Func<T, T, T> aggregateFunction)
         {
             var en = list as T[] ?? list.ToArray();

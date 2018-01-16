@@ -2,7 +2,7 @@ using System; using HSNXT;
 using System.Collections.Generic;
 using System.Linq;
 using BCLExtensions.Tests.TestHelpers;
-using Xunit; using HSNXT;
+using Xunit;
 
 namespace BCLExtensions.Tests.IEnumerableExtensions
 {

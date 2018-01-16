@@ -563,7 +563,7 @@ var teams =
     select new { TeamName = ts.Key, Members = from tm in ts select tm.Person };
  */
 
-        public static IEnumerable<T> Cycle<T>(this IEnumerable<T> source)
+        public static IEnumerable<T> CycleAlways<T>(this IEnumerable<T> source)
         {
             while (true)
             {

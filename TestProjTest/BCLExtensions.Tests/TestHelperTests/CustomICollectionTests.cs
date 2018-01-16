@@ -1,10 +1,8 @@
 ﻿using BCLExtensions.Tests.TestHelpers;
 using FakeItEasy;
-using System; using HSNXT;
 using System.Collections;
 using System.Collections.Generic;
-using Xunit; using HSNXT;
-using Xunit.Extensions;
+using Xunit;
 
 namespace BCLExtensions.Tests.TestHelperTests
 {

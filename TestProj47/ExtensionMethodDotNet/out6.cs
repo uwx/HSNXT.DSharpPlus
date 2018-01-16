@@ -1299,28 +1299,20 @@ Console.WriteLine(s.Or("value not found")):
         /// <param name="this">current object to be OR'ed</param>
         /// <param name="oValues">Array of type <c>T</c> for the rest of the list</param>
         /// <returns><see cref=""/> Item - or if null/empty move to next item chech and return &lt;-- Looping trought all items in oValues if all are empty, returnds default <see cref="T"/>value</returns>
-        public static T Or<T>(this T @this, params T[] oValues)
+        public static T OrFirstIn<T>(this T @this, params T[] oValues)
         {
+            if (@this != null) return @this;
+            
             foreach (var item in oValues)
             {
-                if (@this is string)
+                // ReSharper disable once CompareNonConstrainedGenericWithNull
+                if (item != null)
                 {
-                    if (string.IsNullOrWhiteSpace(@this.ToString()) == false)
-                    {
-                        return (@this);
-                    }
-                }
-                else
-                {
-                    // ReSharper disable once CompareNonConstrainedGenericWithNull
-                    if (item != null)
-                    {
-                        return (item);
-                    }
+                    return (item);
                 }
             }
 
-            return default(T);
+            return default;
         }
 
 

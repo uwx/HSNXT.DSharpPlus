@@ -1,18 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text;
-
 using NUnit.Framework;
-
-
-using ComLib;
 using HSNXT.ComLib.LocationSupport;
 using HSNXT.ComLib.Entities;
-
-using CommonLibrary.Tests;
-
 
 
 namespace CommonLibrary.Tests.LocationTests

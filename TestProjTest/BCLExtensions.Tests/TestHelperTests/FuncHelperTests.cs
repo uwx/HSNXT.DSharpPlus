@@ -1,5 +1,5 @@
 ﻿using BCLExtensions.Tests.TestHelpers;
-using Xunit; using HSNXT;
+using Xunit;
 
 namespace BCLExtensions.Tests.TestHelperTests
 {

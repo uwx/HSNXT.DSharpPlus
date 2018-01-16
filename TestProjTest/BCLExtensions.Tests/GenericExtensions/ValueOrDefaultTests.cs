@@ -1,9 +1,7 @@
 ﻿using System; using HSNXT;
 using System.Collections.Generic;
 using System.Reflection;
-using BCLExtensions.Tests.TestHelpers;
-using Xunit; using HSNXT;
-using Xunit.Extensions;
+using Xunit;
 using Xunit.Sdk;
 
 namespace BCLExtensions.Tests.GenericExtensions

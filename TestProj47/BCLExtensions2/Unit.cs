@@ -1,6 +1,6 @@
 using System;
 
-namespace HSNXT
+namespace HSNXT.BCLExtensions2
 {
     /// <inheritdoc cref="IEquatable{T}" />
     /// <summary>

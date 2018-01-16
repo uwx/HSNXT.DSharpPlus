@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net;
-
-using Xunit;
-
-namespace HSNXT.Tests
+﻿namespace HSNXT.Tests
 {
     public sealed class WebScrapperTests
     {

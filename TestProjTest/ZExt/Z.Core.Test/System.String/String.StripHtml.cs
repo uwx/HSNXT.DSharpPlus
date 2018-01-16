@@ -3,8 +3,8 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
-using System;
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test

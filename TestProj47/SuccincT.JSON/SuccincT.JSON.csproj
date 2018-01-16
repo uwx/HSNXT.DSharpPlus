@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <PackageId>SuccincT.JSON</PackageId>
+    <Product>SuccincT.JSON</Product>
+    <Authors>David Arno</Authors>
+    <Copyright>Copyright © David Arno, 2017</Copyright>
+    <Description>SuccincT.JSON adds JSON serialization support to Succinc&lt;T&gt;, a .NET library that adds a number of functional features to C#.</Description>
+    <AssemblyName>SuccincT.JSON</AssemblyName>
+    <RootNamespace>SuccincT</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReleaseNotes>V3.0.1 adds direct support for .NET Framework 4.5+, to prevent this package pulling in multiple dependencies needed for netstandard libraries to work with the .NET framework.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SuccincT\SuccincT.csproj" />
+  </ItemGroup>
+
+</Project>

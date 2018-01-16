@@ -1,4 +1,5 @@
 ﻿using System;
+using HSNXT.BCLExtensions2;
 
 namespace HSNXT
 {
