@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using NUnit.Framework;
-
-using ComLib;
-using HSNXT.ComLib.Lang;
 using HSNXT.ComLib.Lang.Plugins;
-using HSNXT.ComLib.Tests;
-
-using CommonLibrary.Tests.Common;
 using HSNXT.ComLib.Lang.Tests.Common;
 
 

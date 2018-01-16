@@ -1,5 +1,6 @@
 ﻿using System; using HSNXT;
-using Xunit; using HSNXT;
+using Xunit;
+using HSNXT.BCLExtensions2;
 
 namespace BCLExtensions.Tests.ActionExtensions
 {

@@ -19,7 +19,6 @@
  SOFTWARE.
 */
 
-using System;
 using HSNXT.C5;
 using NUnit.Framework;
 using SCG = System.Collections.Generic;

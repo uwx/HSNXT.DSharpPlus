@@ -1,7 +1,5 @@
 ﻿using System; using HSNXT;
-using BCLExtensions.Tests.TestHelpers;
-using Xunit; using HSNXT;
-using Xunit.Extensions;
+using Xunit;
 
 namespace BCLExtensions.Tests.TypeExtensions
 {

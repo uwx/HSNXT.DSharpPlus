@@ -1,6 +1,5 @@
 ﻿using System; using HSNXT;
-using Xunit; using HSNXT;
-using Xunit.Extensions;
+using Xunit;
 
 namespace BCLExtensions.Tests.IntTimespanExtensions
 {

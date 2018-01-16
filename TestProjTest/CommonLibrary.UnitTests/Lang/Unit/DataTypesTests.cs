@@ -1,14 +1,9 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-
-
-using HSNXT.ComLib.Lang.Core;
 using HSNXT.ComLib.Lang.Types;
 using HSNXT.ComLib.Lang.Parsing;
 using HSNXT.ComLib.Lang.AST;
-using HSNXT.ComLib.Tests;
-using HSNXT.ComLib.Lang.Tests.Common;
 
 namespace HSNXT.ComLib.Lang.Tests.Unit
 {

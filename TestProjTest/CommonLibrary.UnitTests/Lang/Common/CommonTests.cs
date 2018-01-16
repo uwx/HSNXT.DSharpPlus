@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HSNXT.ComLib.Lang;
 using HSNXT.ComLib.Lang.Plugins;
 
 namespace HSNXT.ComLib.Lang.Tests.Common

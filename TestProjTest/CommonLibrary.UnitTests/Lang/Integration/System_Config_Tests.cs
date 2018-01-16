@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HSNXT.ComLib.Lang;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 
 namespace HSNXT.ComLib.Lang.Tests.Integration.System

@@ -1,7 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
-
-namespace HSNXT.C5.NET45.Tests
+﻿namespace HSNXT.C5.NET45.Tests
 {
 #if NET45
     [TestFixture]

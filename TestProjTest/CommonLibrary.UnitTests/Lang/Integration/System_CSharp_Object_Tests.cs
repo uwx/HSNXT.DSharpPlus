@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using HSNXT.ComLib.Lang.Types;
 using HSNXT.ComLib.Tests;
 using NUnit.Framework;
 

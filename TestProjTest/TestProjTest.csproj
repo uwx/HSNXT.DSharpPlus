@@ -1,9 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net47</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.10.12" />
+    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.12" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.10.12" />
+    <PackageReference Include="BenchmarkDotNet.Toolchains.Roslyn" Version="0.10.12" />
     <PackageReference Include="FakeItEasy" Version="4.3.0" />
     <PackageReference Include="FluentAssertions" Version="4.19.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
@@ -13,6 +24,7 @@
     <PackageReference Include="NBuilder" Version="5.0.0" />
     <PackageReference Include="NUnit" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
+    <PackageReference Include="ReversedString" Version="1.0.1" />
     <PackageReference Include="Shouldly" Version="2.8.3" />
     <PackageReference Include="System.Runtime" Version="4.3.0" />
     <PackageReference Include="xunit" Version="2.2.0" />

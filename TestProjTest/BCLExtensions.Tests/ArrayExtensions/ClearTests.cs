@@ -1,5 +1,5 @@
 ﻿using HSNXT;
-using Xunit; using HSNXT;
+using Xunit;
 
 namespace BCLExtensions.Tests.ArrayExtensions
 {

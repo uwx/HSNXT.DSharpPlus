@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using HSNXT;
 //using BigMath.Utils;
-using HSNXT.Utils;
 using NUnit.Framework;
 
 namespace BigMath.Tests

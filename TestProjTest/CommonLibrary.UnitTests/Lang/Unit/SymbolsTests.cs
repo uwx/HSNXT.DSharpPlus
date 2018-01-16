@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
-
-using HSNXT.ComLib.Lang;
+﻿using NUnit.Framework;
 using HSNXT.ComLib.Lang.Core;
 using HSNXT.ComLib.Lang.Types;
 
