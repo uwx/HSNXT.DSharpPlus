@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.1.18\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.1.18\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+    <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.1.18\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
     <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.2.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
     <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.2.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
     <e p="C:\Users\Rafael\.nuget\packages\mstest.testadapter\1.2.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
@@ -15,7 +18,7 @@
     <e p="C:\Users\Rafael\.nuget\packages\xunit.runner.visualstudio\2.2.0\build\_common\xunit.runner.reporters.net452.dll" t="Include" />
     <e p="C:\Users\Rafael\.nuget\packages\xunit.runner.visualstudio\2.2.0\build\_common\xunit.runner.utility.net35.dll" t="Include" />
     <e p="C:\Users\Rafael\.nuget\packages\xunit.runner.visualstudio\2.2.0\build\_common\xunit.runner.visualstudio.testadapter.dll" t="Include" />
-    <e p="C:\Users\Rafael\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_TestProject.-1012734039.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_TestProject.-1012734039.00" t="ExcludeRecursive" />
     <e p="C:\Users\Rafael\Documents\GitHub\TestProject" t="IncludeFlat">
       <e p="BotTest" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -274,6 +277,104 @@
         <e p="RingBuffer.cs" t="Include" />
         <e p="Utilities.cs" t="Include" />
       </e>
+      <e p="dsharpplus\dsharpplus.commandsnext" t="IncludeRecursive">
+        <e p="Attributes" t="Include">
+          <e p="AliasesAttribute.cs" t="Include" />
+          <e p="CheckBaseAttribute.cs" t="Include" />
+          <e p="CommandAttribute.cs" t="Include" />
+          <e p="CooldownAttribute.cs" t="Include" />
+          <e p="DescriptionAttribute.cs" t="Include" />
+          <e p="DontInjectAttribute.cs" t="Include" />
+          <e p="GroupAttribute.cs" t="Include" />
+          <e p="HiddenAttribute.cs" t="Include" />
+          <e p="RemainingTextAttribute.cs" t="Include" />
+          <e p="RequireBotPermissionsAttribute.cs" t="Include" />
+          <e p="RequireNsfwAttribute.cs" t="Include" />
+          <e p="RequireOwnerAttribute.cs" t="Include" />
+          <e p="RequirePermissionsAttribute.cs" t="Include" />
+          <e p="RequirePrefixesAttribute.cs" t="Include" />
+          <e p="RequireRolesAttribute.cs" t="Include" />
+          <e p="RequireUserPermissionsAttribute.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CommandsNextConfiguration.cs" t="Include" />
+        <e p="CommandsNextExtension.cs" t="Include" />
+        <e p="CommandsNextUtilities.cs" t="Include" />
+        <e p="Converters" t="Include">
+          <e p="ArgumentBindingResult.cs" t="Include" />
+          <e p="BaseHelpFormatter.cs" t="Include" />
+          <e p="DefaultHelpFormatter.cs" t="Include" />
+          <e p="EntityConverters.cs" t="Include" />
+          <e p="EnumConverter.cs" t="Include" />
+          <e p="HelpFormatterFactory.cs" t="Include" />
+          <e p="IArgumentConverter.cs" t="Include" />
+          <e p="NullableConverter.cs" t="Include" />
+          <e p="NumericConverters.cs" t="Include" />
+          <e p="StringConverter.cs" t="Include" />
+          <e p="TimeConverters.cs" t="Include" />
+        </e>
+        <e p="DSharpPlus.CommandsNext.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Command.cs" t="Include" />
+          <e p="CommandArgument.cs" t="Include" />
+          <e p="CommandGroup.cs" t="Include" />
+          <e p="CommandHelpMessage.cs" t="Include" />
+          <e p="CommandResult.cs" t="Include" />
+        </e>
+        <e p="EventArgs" t="Include">
+          <e p="CommandContext.cs" t="Include" />
+          <e p="CommandErrorEventArgs.cs" t="Include" />
+          <e p="CommandEventArgs.cs" t="Include" />
+          <e p="CommandExecutionEventArgs.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="ChecksFailedException.cs" t="Include" />
+          <e p="CommandNotFoundException.cs" t="Include" />
+          <e p="DuplicateCommandException.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net45" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net46" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net47" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.1" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.3" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Polyfills.cs" t="Include" />
+      </e>
+      <e p="dsharpplus\DSharpPlus.MSTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DSharpPlus.MSTest.csproj" t="IncludeRecursive" />
+        <e p="NetStandard1_1Shims.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp1.1" t="Include">
+              <e p="DSharpPlus.MSTest.AssemblyInfo.cs" t="Include" />
+              <e p="DSharpPlus.MSTest.Program.cs" t="Include" />
+            </e>
+            <e p="netcoreapp2.0" t="Include">
+              <e p="DSharpPlus.MSTest.AssemblyInfo.cs" t="Include" />
+              <e p="DSharpPlus.MSTest.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestJson.cs" t="Include" />
+      </e>
       <e p="dsharpplus\DSharpPlus.WebSocket.WebSocket4Net" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="DSharpPlus.WebSocket.WebSocket4Net.csproj" t="IncludeRecursive" />
@@ -313,23 +414,37 @@
       <e p="DSharpPlus.Extended" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Color.cs" t="Include" />
-        <e p="DiscordChannelExtensions.cs" t="Include" />
-        <e p="DiscordGuildExtensions.cs" t="Include" />
-        <e p="DiscordMemberExtensions.cs" t="Include" />
-        <e p="DiscordRoleExtensions.cs" t="Include" />
         <e p="DSharpPlus.Extended.csproj" t="IncludeRecursive" />
-        <e p="GuildEmojiExtensions.cs" t="Include" />
+        <e p="DSharpPlus.Extended.Lite.csproj" t="IncludeRecursive" />
+        <e p="DspExtended.cs" t="Include" />
+        <e p="EventArgs" t="Include">
+          <e p="ExtensionErrorEventArgs.cs" t="Include" />
+          <e p="MentionReceivedEventArgs.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods" t="Include">
+          <e p="ChannelExtensions.cs" t="Include" />
+          <e p="MemberExtensions.cs" t="Include" />
+          <e p="ModifyShortcuts" t="Include">
+            <e p="ChannelExtensions.cs" t="Include" />
+            <e p="GuildEmojiExtensions.cs" t="Include" />
+            <e p="GuildExtensions.cs" t="Include" />
+            <e p="MemberExtensions.cs" t="Include" />
+            <e p="WebhookExtensions.cs" t="Include" />
+          </e>
+          <e p="RoleExtensions.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
               <e p="DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
+              <e p="DSharpPlus.Extended.Lite.AssemblyInfo.cs" t="Include" />
             </e>
             <e p="netstandard2.0" t="Include">
               <e p="DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
+              <e p="DSharpPlus.Extended.Lite.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
-        <e p="WebhookExtensions.cs" t="Include" />
       </e>
       <e p="DSharpPlus.Extended.Emoji" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -390,6 +505,19 @@
           </e>
         </e>
         <e p="out.txt" t="Include" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="DSPEmojiGenerator2" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DSPEmojiGenerator2.csproj" t="IncludeRecursive" />
+        <e p="emoji.txt" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="DSPEmojiGenerator2.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Program.cs" t="Include" />
       </e>
       <e p="ExtensionMethodApplier" t="IncludeRecursive">
@@ -1123,7 +1251,6 @@
           </e>
         </e>
       </e>
-      <e p="HSNXT.SublimeRPC\HSNXT.SublimeRPC.csproj" t="IncludeRecursive" />
       <e p="OEISReader" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -2042,6 +2169,7 @@
         <e p="LICENSE.NBasicExtensionMethod.txt" t="Include" />
         <e p="LICENSE.Rx.NET.txt" t="Include" />
         <e p="LICENSE.Saiko.txt" t="Include" />
+        <e p="LICENSE.SuccincT.txt" t="Include" />
         <e p="LICENSE.Z.ExtensionMethods.txt" t="Include" />
         <e p="LINQ2Charts" t="Include">
           <e p="Chart" t="Include">
@@ -2736,6 +2864,7 @@
           <e p="TimeSpanExtensions.cs" t="Include" />
           <e p="TypeExtensions.cs" t="Include" />
         </e>
+        <e p="NetFxCompat.cs" t="Include" />
         <e p="NorthHorizon.Common.Xmp" t="Include">
           <e p="CollectionExtensions.cs" t="Include" />
           <e p="DictionaryExtensions.cs" t="Include" />
@@ -2745,6 +2874,9 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
+              <e p="TestProj47.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
               <e p="TestProj47.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -3164,6 +3296,189 @@
           <e p="TimespanExtension.cs" t="Include" />
         </e>
         <e p="String.cs" t="Include" />
+        <e p="SuccincT" t="Include">
+          <e p=".gitignore" t="Include" />
+          <e p="Directory.Build.props" t="Include" />
+          <e p="Functional" t="Include">
+            <e p="ActionExtensions.cs" t="Include" />
+            <e p="ConsEnumerable.cs" t="Include" />
+            <e p="ConsListBuilderEnumerator.cs" t="Include" />
+            <e p="ConsNode.cs" t="Include" />
+            <e p="ConsNodeEnumerator.cs" t="Include" />
+            <e p="ConsNodeState.cs" t="Include" />
+            <e p="ConsResult.cs" t="Include" />
+            <e p="EnumerableExtensions.cs" t="Include" />
+            <e p="IConsEnumerable.cs" t="Include" />
+            <e p="PartialFunctionApplications.cs" t="Include" />
+            <e p="PipeExtensions.cs" t="Include" />
+            <e p="RepeatingEnumerations.cs" t="Include" />
+            <e p="TailActionApplications.cs" t="Include" />
+            <e p="TailFunctionApplications.cs" t="Include" />
+            <e p="TypedLambdas.cs" t="Include" />
+            <e p="Unit.cs" t="Include" />
+          </e>
+          <e p="Options" t="Include">
+            <e p="INoneActionMatchHandler.cs" t="Include" />
+            <e p="INoneFuncMatchHandler.cs" t="Include" />
+            <e p="IOptionActionMatcher.cs" t="Include" />
+            <e p="IOptionFuncMatcher.cs" t="Include" />
+            <e p="ISuccessActionMatcher.cs" t="Include" />
+            <e p="ISuccessActionMatchHandler.cs" t="Include" />
+            <e p="ISuccessFuncMatcher.cs" t="Include" />
+            <e p="ISuccessFuncMatchHandler.cs" t="Include" />
+            <e p="IValueOrErrorActionMatcher.cs" t="Include" />
+            <e p="IValueOrErrorFuncMatcher.cs" t="Include" />
+            <e p="Maybe{T}.cs" t="Include" />
+            <e p="OptionExtensions.cs" t="Include" />
+            <e p="OptionExtensionsForDictionaryType.cs" t="Include" />
+            <e p="OptionExtensionsForGeneralTypes.cs" t="Include" />
+            <e p="OptionExtensionsForIEnumerable.cs" t="Include" />
+            <e p="OptionMatcher{T,TR}.cs" t="Include" />
+            <e p="Option{T}.cs" t="Include" />
+            <e p="Success.cs" t="Include" />
+            <e p="SuccessMatcher{T,TR}.cs" t="Include" />
+            <e p="Success{T}.cs" t="Include" />
+            <e p="ValueOrError.cs" t="Include" />
+            <e p="ValueOrErrorMatcher{TR}.cs" t="Include" />
+          </e>
+          <e p="Parsers" t="Include">
+            <e p="BooleanParser.cs" t="Include" />
+            <e p="EnumParser.cs" t="Include" />
+            <e p="FloatParsers.cs" t="Include" />
+            <e p="IntParsers.cs" t="Include" />
+          </e>
+          <e p="PatternMatchers" t="Include">
+            <e p="Any.cs" t="Include" />
+            <e p="ConsActionMatcher.cs" t="Include" />
+            <e p="ConsFuncMatcher.cs" t="Include" />
+            <e p="EitherTuple.cs" t="Include" />
+            <e p="EitherTuple{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="EitherTuple{T1,T2,T3}.cs" t="Include" />
+            <e p="EitherTuple{T1,T2}.cs" t="Include" />
+            <e p="GeneralMatcher" t="Include">
+              <e p="GeneralMatcherExtensions.cs" t="Include" />
+            </e>
+            <e p="IActionMatcherAfterElse.cs" t="Include" />
+            <e p="IActionMatcher{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="IActionMatcher{T1,T2,T3}.cs" t="Include" />
+            <e p="IActionMatcher{T1,T2}.cs" t="Include" />
+            <e p="IActionMatcher{T1}.cs" t="Include" />
+            <e p="IActionWhereHandler{TM,T1,T2,T3,T4}.cs" t="Include" />
+            <e p="IActionWhereHandler{TM,T1,T2,T3}.cs" t="Include" />
+            <e p="IActionWhereHandler{TM,T1,T2}.cs" t="Include" />
+            <e p="IActionWhereHandler{TM,T1}.cs" t="Include" />
+            <e p="IActionWithHandler{TM,T1,T2,T3,T4}.cs" t="Include" />
+            <e p="IActionWithHandler{TM,T1,T2,T3}.cs" t="Include" />
+            <e p="IActionWithHandler{TM,T1,T2}.cs" t="Include" />
+            <e p="IActionWithHandler{TM,T1}.cs" t="Include" />
+            <e p="IConsActionMatcher.cs" t="Include" />
+            <e p="IConsFuncConsHandler.cs" t="Include" />
+            <e p="IConsFuncConsWhereHandler.cs" t="Include" />
+            <e p="IConsFuncMatcher.cs" t="Include" />
+            <e p="IConsFuncNoneHandler.cs" t="Include" />
+            <e p="IConsFuncRecursiveConsHandler.cs" t="Include" />
+            <e p="IConsFuncRecursiveConsWhereHandler.cs" t="Include" />
+            <e p="IConsFuncSingleWhereHandler.cs" t="Include" />
+            <e p="IConsSingleHandler.cs" t="Include" />
+            <e p="IFuncMatcherAfterElse{TR}.cs" t="Include" />
+            <e p="IFuncMatcher{T1,T2,T3,T4,TR}.cs" t="Include" />
+            <e p="IFuncMatcher{T1,T2,T3,TR}.cs" t="Include" />
+            <e p="IFuncMatcher{T1,T2,TR}.cs" t="Include" />
+            <e p="IFuncMatcher{T1,TR}.cs" t="Include" />
+            <e p="IFuncWhereHandler{TM,T1,T2,T3,T4,TR}.cs" t="Include" />
+            <e p="IFuncWhereHandler{TM,T1,T2,T3,TR}.cs" t="Include" />
+            <e p="IFuncWhereHandler{TM,T1,T2,TR}.cs" t="Include" />
+            <e p="IFuncWhereHandler{TM,T1,TR}.cs" t="Include" />
+            <e p="IFuncWithHandler{TM,T1,T2,T3,T4,TR}.cs" t="Include" />
+            <e p="IFuncWithHandler{TM,T1,T2,T3,TR}.cs" t="Include" />
+            <e p="IFuncWithHandler{TM,T1,T2,TR}.cs" t="Include" />
+            <e p="IFuncWithHandler{TM,T1,TR}.cs" t="Include" />
+            <e p="IMapperMatcher.cs" t="Include" />
+            <e p="IMapperNoneHandler.cs" t="Include" />
+            <e p="IMapperRecursiveConsHandler.cs" t="Include" />
+            <e p="IMapperRecursiveConsWhereHandler.cs" t="Include" />
+            <e p="IMapperSingleHandler.cs" t="Include" />
+            <e p="IMapperSingleWhereHandler.cs" t="Include" />
+            <e p="IMatcher{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="IMatcher{T1,T2,T3}.cs" t="Include" />
+            <e p="IMatcher{T1,T2}.cs" t="Include" />
+            <e p="IMatcher{T1}.cs" t="Include" />
+            <e p="ITypeMatcherCaseHandler.cs" t="Include" />
+            <e p="ITypeMatcherFuncPatternMatcherAfterElse.cs" t="Include" />
+            <e p="ITypeMatcher{T,TR}.cs" t="Include" />
+            <e p="ITypeMatcher{T}.cs" t="Include" />
+            <e p="MapperMatcher.cs" t="Include" />
+            <e p="Matcher{T1,T2,T3,T4,TR}.cs" t="Include" />
+            <e p="Matcher{T1,T2,T3,TR}.cs" t="Include" />
+            <e p="Matcher{T1,T2,TR}.cs" t="Include" />
+            <e p="Matcher{T1.TR}.cs" t="Include" />
+            <e p="MatchFunctionSelector.cs" t="Include" />
+            <e p="MatchFunctionSelectorData.cs" t="Include" />
+            <e p="NoMatchException.cs" t="Include" />
+            <e p="SpecificTypeMatcherExtensions.cs" t="Include" />
+            <e p="TypeMatcherCaseHandler.cs" t="Include" />
+            <e p="TypeMatcherCaseOfData.cs" t="Include" />
+            <e p="TypeMatcher{T,TR}.cs" t="Include" />
+            <e p="TypeMatcher{T}.cs" t="Include" />
+          </e>
+          <e p="Tuples" t="Include">
+            <e p="ITupleMatchable{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="ITupleMatchable{T1,T2,T3}.cs" t="Include" />
+            <e p="ITupleMatchable{T1,T2}.cs" t="Include" />
+          </e>
+          <e p="Unions" t="Include">
+            <e p="Either.cs" t="Include" />
+            <e p="InvalidCaseException.cs" t="Include" />
+            <e p="InvalidCaseOfTypeException.cs" t="Include" />
+            <e p="IUnion.cs" t="Include" />
+            <e p="IUnionCreator{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="IUnionCreator{T1,T2,T3}.cs" t="Include" />
+            <e p="IUnionCreator{T1,T2}.cs" t="Include" />
+            <e p="None.cs" t="Include" />
+            <e p="PatternMatchers" t="Include">
+              <e p="IUnionActionPatternCaseHandler.cs" t="Include" />
+              <e p="IUnionActionPatternMatcherAfterElse.cs" t="Include" />
+              <e p="IUnionActionPatternMatcher{T1,T2,T3,T4}.cs" t="Include" />
+              <e p="IUnionActionPatternMatcher{T1,T2,T3}.cs" t="Include" />
+              <e p="IUnionActionPatternMatcher{T1,T2}.cs" t="Include" />
+              <e p="IUnionFuncPatternCaseHandler.cs" t="Include" />
+              <e p="IUnionFuncPatternMatcherAfterElse.cs" t="Include" />
+              <e p="IUnionFuncPatternMatcher{T1,T2,T3,T4,TR}.cs" t="Include" />
+              <e p="IUnionFuncPatternMatcher{T1,T2,T3,TR}.cs" t="Include" />
+              <e p="IUnionFuncPatternMatcher{T1,T2,TR}.cs" t="Include" />
+              <e p="MatchSelectorsCreator.cs" t="Include" />
+              <e p="MatchSelectorsForCases.cs" t="Include" />
+              <e p="UnionPatternCaseHandler{TM,T,TR}.cs" t="Include" />
+              <e p="UnionPatternMatcher{T1,T2,T3,T4,TR}.cs" t="Include" />
+              <e p="UnionPatternMatcher{T1,T2,T3,TR}.cs" t="Include" />
+              <e p="UnionPatternMatcher{T1,T2,TR}.cs" t="Include" />
+            </e>
+            <e p="Union.cs" t="Include" />
+            <e p="UnionCreator{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="UnionCreator{T1,T2,T3}.cs" t="Include" />
+            <e p="UnionCreator{T1,T2}.cs" t="Include" />
+            <e p="Union{T1,T2,T3,T4}.cs" t="Include" />
+            <e p="Union{T1,T2,T3}.cs" t="Include" />
+            <e p="Union{T1,T2}.cs" t="Include" />
+            <e p="Variant.cs" t="Include" />
+          </e>
+        </e>
+        <e p="SuccincT.JSON" t="Include">
+          <e p="Directory.Build.props" t="Include" />
+          <e p="JSON" t="Include">
+            <e p="EitherConverter.cs" t="Include" />
+            <e p="NoneAndUnitConverter.cs" t="Include" />
+            <e p="OptionConverter.cs" t="Include" />
+            <e p="packages.config" t="Include" />
+            <e p="SuccessConverter.cs" t="Include" />
+            <e p="SuccinctContractResolver.cs" t="Include" />
+            <e p="TypeExtensions.cs" t="Include" />
+            <e p="UnionOf2Converter.cs" t="Include" />
+            <e p="UnionOf3Converter.cs" t="Include" />
+            <e p="UnionOf4Converter.cs" t="Include" />
+            <e p="ValueOrErrorConverter.cs" t="Include" />
+          </e>
+        </e>
         <e p="TestProj47.csproj" t="IncludeRecursive" />
         <e p="TestProj47.csproj.DotSettings" t="Include" />
         <e p="TextTemplate1.cs" t="Include" />
@@ -4267,7 +4582,174 @@
             </e>
           </e>
         </e>
+        <e p="SuccincT" t="Include">
+          <e p="SuccincT.Examples" t="Include">
+            <e p="Directory.Build.props" t="Include" />
+            <e p="LexicalAnalyserUsingUnions.cs" t="Include" />
+            <e p="TrafficLights.cs" t="Include" />
+            <e p="TreeUsingUnions.cs" t="Include" />
+            <e p="UserInputExamples.cs" t="Include" />
+          </e>
+          <e p="SuccincT.Tests" t="Include">
+            <e p="Directory.Build.props" t="Include" />
+            <e p="Examples" t="Include">
+              <e p="ColorMatcher.cs" t="Include" />
+              <e p="Fibonacci.cs" t="Include" />
+              <e p="OptionMatcherExamples.cs" t="Include" />
+              <e p="PatternWithOrAndElseMatcher.cs" t="Include" />
+              <e p="UnionMatcherExamples.cs" t="Include" />
+              <e p="ValueOrErrorExamples.cs" t="Include" />
+            </e>
+            <e p="ExampleTests" t="Include">
+              <e p="ColorMatcherTester.cs" t="Include" />
+              <e p="DiscountTests.cs" t="Include" />
+              <e p="DiscountTestsV2.cs" t="Include" />
+              <e p="FibonacciTests.cs" t="Include" />
+              <e p="LexicalAnalyserUsingUnionsTests.cs" t="Include" />
+              <e p="OptionMatcherExamplesTester.cs" t="Include" />
+              <e p="PatternWithOrAndElseMatcherTester.cs" t="Include" />
+              <e p="SinglePositiveOddDigitOptionTests.cs" t="Include" />
+              <e p="SinglePositiveOddDigitUnionTests.cs" t="Include" />
+              <e p="TrafficLightsTests.cs" t="Include" />
+              <e p="TreeUsingUnionsTests.cs" t="Include" />
+              <e p="UnionMatcherExamplesTests.cs" t="Include" />
+              <e p="ValueOrErrorExamplesTests.cs" t="Include" />
+            </e>
+            <e p="SuccincT" t="Include">
+              <e p="BasicTypesParsers" t="Include">
+                <e p="BooleanParserTests.cs" t="Include" />
+                <e p="FloatParsersTests.cs" t="Include" />
+                <e p="IntParsersTests.cs" t="Include" />
+              </e>
+              <e p="EnumParsers" t="Include">
+                <e p="EnumParserTests.cs" t="Include" />
+              </e>
+              <e p="Functional" t="Include">
+                <e p="ActionExtensionsTests.cs" t="Include" />
+                <e p="ConsEnumerableTests.cs" t="Include" />
+                <e p="ForwardPipeTests.cs" t="Include" />
+                <e p="IndexedEnumerationTests.cs" t="Include" />
+                <e p="PartialFunctionApplicationTests.cs" t="Include" />
+                <e p="RepeatingEnumerationsTests.cs" t="Include" />
+                <e p="TailApplicationActionTests.cs" t="Include" />
+                <e p="TailApplicationTests.cs" t="Include" />
+                <e p="TypedLambdasActionTests.cs" t="Include" />
+                <e p="TypedLambdasFuncTests.cs" t="Include" />
+                <e p="TypedLambdasLambdaTests.cs" t="Include" />
+                <e p="TypedLambdasTransformTests.cs" t="Include" />
+                <e p="UnitTests.cs" t="Include" />
+              </e>
+              <e p="Options" t="Include">
+                <e p="ElementAtOrNoneTests.cs" t="Include" />
+                <e p="FirstOrNoneTests.cs" t="Include" />
+                <e p="LastOrNoneTests.cs" t="Include" />
+                <e p="MaybeEqualityTests.cs" t="Include" />
+                <e p="MaybeTests.cs" t="Include" />
+                <e p="OptionEqualityTests.cs" t="Include" />
+                <e p="OptionExtensionsForDictionaryTypeTests.cs" t="Include" />
+                <e p="OptionExtensionsForGeneralTypesTests.cs" t="Include" />
+                <e p="OptionExtensionsTests.cs" t="Include" />
+                <e p="OptionIgnoreElseTests.cs" t="Include" />
+                <e p="OptionTests.cs" t="Include" />
+                <e p="SingleOrNoneTests.cs" t="Include" />
+                <e p="SuccessIgnoreElseTests.cs" t="Include" />
+                <e p="SuccessTests.cs" t="Include" />
+                <e p="ValueOrErrorEqualityTests.cs" t="Include" />
+                <e p="ValueOrErrorExecTests.cs" t="Include" />
+                <e p="ValueOrErrorTests.cs" t="Include" />
+              </e>
+              <e p="PatternMatchers" t="Include">
+                <e p="AnyTests.cs" t="Include" />
+                <e p="ConsFuncMatcherTests.cs" t="Include" />
+                <e p="MapperMatcherTests.cs" t="Include" />
+                <e p="TypeMatcherTests.cs" t="Include" />
+                <e p="ValueMatchExecTests.cs" t="Include" />
+                <e p="ValueMatchTests.cs" t="Include" />
+              </e>
+              <e p="Tuples" t="Include">
+                <e p="TupleExecTestsT1.cs" t="Include" />
+                <e p="TupleExecTestsT1T2.cs" t="Include" />
+                <e p="TupleExecTestsT1T2T3.cs" t="Include" />
+                <e p="TupleExecTestsT1T2T3T4.cs" t="Include" />
+                <e p="TupleExecTestsUsingAnyT1T2.cs" t="Include" />
+                <e p="TupleExecTestsUsingAnyT1T2T3.cs" t="Include" />
+                <e p="TupleExecTestsUsingAnyT1T2T3T4.cs" t="Include" />
+                <e p="TupleIgnoreElseTests.cs" t="Include" />
+                <e p="TupleMatchableTestsT1T2.cs" t="Include" />
+                <e p="TupleMatchableTestsT1T2T3.cs" t="Include" />
+                <e p="TupleMatchableTestsT1T2T3T4.cs" t="Include" />
+                <e p="TupleMatchableTestsUsingAnyT1T2.cs" t="Include" />
+                <e p="TupleMatchableTestsUsingAnyT1T2T3.cs" t="Include" />
+                <e p="TupleMatchableTestsUsingAnyT1T2T3T4.cs" t="Include" />
+                <e p="TupleTestsT1.cs" t="Include" />
+                <e p="TupleTestsT1T2.cs" t="Include" />
+                <e p="TupleTestsT1T2T3.cs" t="Include" />
+                <e p="TupleTestsT1T2T3T4.cs" t="Include" />
+              </e>
+              <e p="Unions" t="Include">
+                <e p="EitherTests.cs" t="Include" />
+                <e p="NoneTests.cs" t="Include" />
+                <e p="UnionCreatorTests.cs" t="Include" />
+                <e p="UnionIgnoreElseTests.cs" t="Include" />
+                <e p="UnionT1T2CaseOfTests.cs" t="Include" />
+                <e p="UnionT1T2ComplexMatchersTests.cs" t="Include" />
+                <e p="UnionT1T2DirectValueTests.cs" t="Include" />
+                <e p="UnionT1T2EqualityTests.cs" t="Include" />
+                <e p="UnionT1T2T3BasicMatchExecTests.cs" t="Include" />
+                <e p="UnionT1T2T3BasicMatchTests.cs" t="Include" />
+                <e p="UnionT1T2T3CaseOfTests.cs" t="Include" />
+                <e p="UnionT1T2T3ComplexMatchersExecTests.cs" t="Include" />
+                <e p="UnionT1T2T3ComplexMatchersTests.cs" t="Include" />
+                <e p="UnionT1T2T3DirectValueTests.cs" t="Include" />
+                <e p="UnionT1T2T3EqualityTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4BasicMatchElseExecTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4BasicMatchElseTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4BasicMatchExecTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4BasicMatchTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4CaseOfTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4ComplexMatchersExecTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4ComplexMatchersTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4DirectValueTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4EqualityTests.cs" t="Include" />
+                <e p="UnionT1T2T3T4Tests.cs" t="Include" />
+                <e p="UnionT1T2T3Tests.cs" t="Include" />
+                <e p="UnionT1T2Tests.cs" t="Include" />
+              </e>
+            </e>
+            <e p="WorkedExamplesTests" t="Include">
+              <e p="UserInputExamplesTests.cs" t="Include" />
+            </e>
+          </e>
+          <e p="SuccincT.Tests.JSON" t="Include">
+            <e p="Directory.Build.props" t="Include" />
+            <e p="EitherConverterTests.cs" t="Include" />
+            <e p="NoneAndUnitConverterTests.cs" t="Include" />
+            <e p="OptionConverterTests.cs" t="Include" />
+            <e p="SuccessConverterTests.cs" t="Include" />
+            <e p="SuccinctContractResolverTests.cs" t="Include" />
+            <e p="UnionOf2ConverterTests.cs" t="Include" />
+            <e p="UnionOf3ConverterTests.cs" t="Include" />
+            <e p="UnionOf4ConverterTests.cs" t="Include" />
+            <e p="ValueOrErrorConverterTests.cs" t="Include" />
+          </e>
+          <e p="SuccincTPerformanceTests" t="Include">
+            <e p="BenchmarkDotNet.Artifacts" t="Include">
+              <e p="results" t="Include">
+                <e p="UnionT1T2Benchmarks-report-github.md" t="Include" />
+                <e p="UnionT1T2Benchmarks-report.csv" t="Include" />
+                <e p="UnionT1T2Benchmarks-report.html" t="Include" />
+              </e>
+              <e p="UnionT1T2Benchmarks.log" t="Include" />
+            </e>
+            <e p="Configuration.cs" t="Include" />
+            <e p="Directory.Build.props" t="Include" />
+            <e p="OptionBenchmarks.cs" t="Include" />
+            <e p="Program.cs" t="Include" />
+            <e p="UnionT1T2Benchmarks.cs" t="Include" />
+          </e>
+        </e>
         <e p="TestProjTest.csproj" t="IncludeRecursive" />
+        <e p="TestProjTest.csproj.DotSettings" t="Include" />
         <e p="UnitTest1.cs" t="Include" />
         <e p="XunitShould.4.0.0" t="Include">
           <e p="AssertContainment.cs" t="Include" />
@@ -4310,45 +4792,6 @@
             <e p="PredicateError.cs" t="Include" />
             <e p="ToListError.cs" t="Include" />
           </e>
-          <e p="ExceptionHandling.cs" t="Include" />
-          <e p="OrderByCompletion" t="Include">
-            <e p="IsOrdered.cs" t="Include" />
-          </e>
-          <e p="OrderByCompletion.cs" t="Include" />
-          <e p="OrderByPredicateCompletion" t="Include">
-            <e p="IsFalse_Default.cs" t="Include" />
-            <e p="IsTrue.cs" t="Include" />
-            <e p="Manager_IsFalse.cs" t="Include" />
-            <e p="Manager_IsFalse_Order_IsFalse.cs" t="Include" />
-            <e p="Manager_IsFalse_Order_IsTrue.cs" t="Include" />
-            <e p="Manager_IsTrue.cs" t="Include" />
-            <e p="Manager_IsTrue_Order_IsFalse.cs" t="Include" />
-            <e p="Manager_IsTrue_Order_IsTrue.cs" t="Include" />
-          </e>
-          <e p="OrderByPredicateCompletion.cs" t="Include" />
-          <e p="PredicateAsync_StartConcurrentlyAndOrderByCompletion" t="Include">
-            <e p="IsFalse_IsFalse_Default.cs" t="Include" />
-            <e p="IsFalse_IsTrue.cs" t="Include" />
-            <e p="IsTrue_IsFalse.cs" t="Include" />
-            <e p="IsTrue_IsTrue.cs" t="Include" />
-          </e>
-          <e p="PredicateAsync_StartConcurrentlyAndOrderByCompletion.cs" t="Include" />
-          <e p="SelectResult" t="Include">
-            <e p="IsOrdered.cs" t="Include" />
-            <e p="OrderByCompletion_IsOrdered.cs" t="Include" />
-          </e>
-          <e p="SelectResult.cs" t="Include" />
-          <e p="StartPredicateConcurrently" t="Include">
-            <e p="IsFalse_Default.cs" t="Include" />
-            <e p="IsTrue.cs" t="Include" />
-            <e p="Manager_IsFalse.cs" t="Include" />
-            <e p="Manager_IsFalse_Order_IsFalse.cs" t="Include" />
-            <e p="Manager_IsFalse_Order_IsTrue.cs" t="Include" />
-            <e p="Manager_IsTrue.cs" t="Include" />
-            <e p="Manager_IsTrue_Order_IsFalse.cs" t="Include" />
-            <e p="Manager_IsTrue_Order_IsTrue.cs" t="Include" />
-          </e>
-          <e p="StartPredicateConcurrently.cs" t="Include" />
           <e p="Z.Test.Linq.Async.csproj.vspscc" t="Include" />
         </e>
         <e p="ZExt" t="Include">
@@ -4676,9 +5119,6 @@
               <e p="DataTable.FirstRow.cs" t="Include" />
               <e p="DataTable.ToEntities.cs" t="Include" />
               <e p="DataTable.ToExpandoObjects.cs" t="Include" />
-            </e>
-            <e p="System.Data.IDataRecord" t="Include">
-              <e p="IDataRecord.IndexOf.cs" t="Include" />
             </e>
             <e p="System.Data.IDbConnection" t="Include">
               <e p="IDbConnection.IsInState.cs" t="Include" />
