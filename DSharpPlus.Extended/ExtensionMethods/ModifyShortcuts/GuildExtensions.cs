@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended
+namespace DSharpPlus.Extended.ModifyShortcuts
 {
     public static class GuildExtensions
     {
