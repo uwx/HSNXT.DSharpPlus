@@ -137,7 +137,7 @@ namespace DSharpPlus.CNextNotifier
             this.Commands = this.Client.UseCommandsNext(new CommandsNextConfiguration
             {
                 // let's use the string prefix defined in config.json
-                StringPrefix = cfgjson.CommandPrefix,
+                StringPrefixes = new[] { cfgjson.CommandPrefix },
 
                 // enable responding in direct messages
                 EnableDms = true,
