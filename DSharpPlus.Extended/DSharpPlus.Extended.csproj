@@ -15,13 +15,13 @@
             regarding this package in official DSharpPlus discussion boards.
         </Description>
     <PackageLicenseUrl>
-            https://gitlab.com/chrishansen69/TestProject-CSharp/raw/master/DSharpPlus.CNextNotifier/LICENSE
+            https://gitlab.com/chrishansen69/TestProject-CSharp/raw/master/DSharpPlus.Extended/LICENSE
         </PackageLicenseUrl>
-    <PackageProjectUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
+    <PackageProjectUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.Extended
         </PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png
         </PackageIconUrl>
-    <RepositoryUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.CNextNotifier
+    <RepositoryUrl>https://gitlab.com/chrishansen69/TestProject-CSharp/tree/master/DSharpPlus.Extended
         </RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#
