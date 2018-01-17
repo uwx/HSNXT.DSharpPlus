@@ -12,12 +12,18 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HSNXT.aResources;
+using HSNXT.SuccincT.Functional;
 using Newtonsoft.Json.Converters;
 
 namespace HSNXT
 {
     public static partial class Extensions
     {
+        public static T GetHead<T>(this IConsEnumerable<T> @this)
+        {
+            return @this.Cons().Head.Value;
+        }
+        
         /// <summary>
         /// Checks if this string is a valid VEVO user account.
         /// Requirements for valid VEVO user account strings:
