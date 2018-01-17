@@ -5,7 +5,7 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.Extended
 {
-    public static class DiscordGuildExtensions
+    public static class GuildExtensions
     {
         /// <summary>
         /// Renames this guild.

@@ -3,7 +3,7 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.Extended
 {
-    public static class DiscordRoleExtensions
+    public static class RoleExtensions
     {
         /// <summary>
         /// Checks if a given role can interact with another role (kick, ban, modify permissions).
