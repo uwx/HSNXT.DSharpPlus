@@ -5,7 +5,7 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.Extended
 {
-    public static class DiscordMemberExtensions
+    public static class MemberExtensions
     {
         /// <summary>
         /// Renames this member.
