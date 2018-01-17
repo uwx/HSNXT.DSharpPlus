@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using HSNXT.ComLib.Authentication;
 using HSNXT.ComLib.Entities;
 using HSNXT.ComLib.Feeds;
@@ -206,3 +207,4 @@ namespace HSNXT
         }
     }
 }
+#endif

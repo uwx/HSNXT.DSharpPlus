@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -618,6 +619,7 @@ namespace HSNXT.ComLib.Logging
 
 
         #region Protected Methods
+        
         /// <summary>
         /// Construct the logevent using the values supplied.
         /// Fills in other data values in the log event.
@@ -728,3 +730,4 @@ namespace HSNXT.ComLib.Logging
         #endregion
     }
 }
+#endif

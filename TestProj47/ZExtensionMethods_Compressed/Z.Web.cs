@@ -1,3 +1,4 @@
+#if NetFX
 using System.Web;
 using System.Web.UI;
 
@@ -387,3 +388,4 @@ namespace HSNXT
         }
     }
 }
+#endif

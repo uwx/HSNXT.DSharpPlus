@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using HSNXT.ComLib.Data;
 
 namespace HSNXT.ComLib.Entities
@@ -15,3 +16,4 @@ namespace HSNXT.ComLib.Entities
         protected Func<object, T> _entityFactoryMethod;
     }
 }
+#endif

@@ -2,7 +2,7 @@
 // Type: SimpleExtension.DateTimeExtension
 // Assembly: SimpleExtension, Version=0.0.23.0, Culture=neutral, PublicKeyToken=null
 // MVID: B43B1EC6-29EF-47CC-B98E-E2FE4FC2095C
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\SimpleExtension.dll
+// Assembly location: ...\bin\Debug\SimpleExtension.dll
 
 using System;
 using System.Globalization;
@@ -96,7 +96,11 @@ namespace HSNXT
 
         public static string MimeDateTime(this DateTime time)
         {
+#if NetFX
             var utcOffset = TimeZone.CurrentTimeZone.GetUtcOffset(time);
+#else
+            var utcOffset = TimeZoneInfo.Local.GetUtcOffset(time);
+#endif
             var str = (utcOffset.Hours < 0
                           ? $"-{(object) (utcOffset.Hours * -1).ToString().PadLeft(2, '0')}"
                           : $"+{(object) utcOffset.Hours.ToString().PadLeft(2, '0')}"

@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -24,7 +25,6 @@ namespace HSNXT.ComLib.Authentication
     public class AuthWin : AuthBase, IAuth
     {
         private IPrincipal _user = UserPrincipal.Empty;
-
 
         /// <summary>
         /// Default constructor.
@@ -159,3 +159,4 @@ namespace HSNXT.ComLib.Authentication
         }
     }
 }
+#endif

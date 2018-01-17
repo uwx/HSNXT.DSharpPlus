@@ -2,7 +2,7 @@
 // Type: Extensions
 // Assembly: ExtensionMethodsCore.Collections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: CE9DD4F1-668E-4D0B-937C-49597777AEF5
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionMethodsCore.Collections.dll
+// Assembly location: ...\bin\Debug\ExtensionMethodsCore.Collections.dll
 
 using System.Collections.Generic;
 using System.Linq;

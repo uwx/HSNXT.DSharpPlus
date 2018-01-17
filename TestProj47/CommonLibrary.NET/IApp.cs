@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using HSNXT.ComLib.Arguments;
@@ -189,3 +190,4 @@ namespace HSNXT.ComLib.Application
         void DisplayEnd();
     }
 }
+#endif

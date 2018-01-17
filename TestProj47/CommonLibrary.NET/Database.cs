@@ -1,4 +1,5 @@
-﻿/*
+﻿#if NetFX
+/*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
  * Title: CommonLibrary.NET
@@ -451,7 +452,6 @@ namespace HSNXT.ComLib.Data
             return con;
         }
 
-
         /// <summary>
         /// Create a dbCommand given the DbConnection.
         /// </summary>
@@ -649,7 +649,6 @@ namespace HSNXT.ComLib.Data
             return result;
         }
 
-
         /// <summary>
         /// Initialize the database factory.
         /// </summary>
@@ -663,3 +662,4 @@ namespace HSNXT.ComLib.Data
         #endregion
     }
 }
+#endif

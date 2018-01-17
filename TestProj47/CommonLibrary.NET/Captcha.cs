@@ -98,7 +98,7 @@ namespace HSNXT.ComLib.CaptchaSupport
         string GetRandomTextEncoded();
     }
 
-
+#if NetFX
     /// <summary>
     /// This class provides a default Captcha implementation
     /// for web usage.
@@ -198,4 +198,5 @@ namespace HSNXT.ComLib.CaptchaSupport
             return _captcha.Generate(randomText);
         }
     }
+#endif
 }

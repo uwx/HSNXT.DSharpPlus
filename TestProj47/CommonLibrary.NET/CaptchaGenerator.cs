@@ -1,3 +1,4 @@
+#if NetFX
 
 /*
  * Author: Kishore Reddy
@@ -67,7 +68,6 @@ namespace HSNXT.ComLib.CaptchaSupport
             return Generate(text);
         }
 
-
         /// <summary>
         /// Generate a new BitMap using the encoded random text supplied in the url.
         /// </summary>
@@ -78,7 +78,6 @@ namespace HSNXT.ComLib.CaptchaSupport
             var randomText = Crypto.Decrypt(encodedRandomText);
             return Generate(randomText);
         }
-
 
         /// <summary>
         /// Get random text.
@@ -103,7 +102,6 @@ namespace HSNXT.ComLib.CaptchaSupport
             var encoded = Crypto.Encrypt(text);
             return encoded;
         }
-
 
         /// <summary>
         /// Determine whether the captca image is correct based on the 
@@ -133,7 +131,6 @@ namespace HSNXT.ComLib.CaptchaSupport
             var isMatch = string.Compare(captchText, userInput, !Settings.IsCaseSensitive) == 0;
             return isMatch;
         }
-
 
         /// <summary>
         /// Determine whether the captca image is correct based on the 
@@ -272,3 +269,4 @@ namespace HSNXT.ComLib.CaptchaSupport
         #endregion
     }
 }
+#endif

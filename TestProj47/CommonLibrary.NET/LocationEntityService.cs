@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using HSNXT.ComLib.Entities;
 
 namespace HSNXT.ComLib.LocationSupport
@@ -59,3 +60,4 @@ namespace HSNXT.ComLib.LocationSupport
         }
     }
 }
+#endif

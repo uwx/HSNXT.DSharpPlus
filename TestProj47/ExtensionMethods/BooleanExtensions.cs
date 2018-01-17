@@ -2,7 +2,7 @@
 // Type: ExtensionMethods.BooleanExtensions
 // Assembly: ExtensionMethods, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 // MVID: 4A78E21D-808B-4A21-BFAA-D781C27D2CD5
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionMethods.dll
+// Assembly location: ...\bin\Debug\ExtensionMethods.dll
 
 namespace HSNXT
 {

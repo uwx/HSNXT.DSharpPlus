@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -73,3 +74,4 @@ namespace HSNXT.ComLib.LocationSupport
         public virtual string StateName { get; set; }   
     }
 }
+#endif

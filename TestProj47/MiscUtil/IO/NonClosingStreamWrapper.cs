@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+#if NetFX
 using System.Runtime.Remoting;
+#endif
 
 namespace HSNXT.MiscUtil.IO
 {
@@ -129,6 +131,7 @@ namespace HSNXT.MiscUtil.IO
 			_closed = true;			
 		}
 
+#if NetFX
 		/// <summary>
 		/// Throws a NotSupportedException.
 		/// </summary>
@@ -138,6 +141,7 @@ namespace HSNXT.MiscUtil.IO
 		{
 			throw new NotSupportedException();
 		}
+#endif
 
 		/// <summary>
 		/// Waits for the pending asynchronous read to complete.

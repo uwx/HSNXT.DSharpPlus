@@ -220,6 +220,7 @@ namespace HSNXT
             return Activator.CreateInstance(type, nonPublic);
         }
 
+#if NetFX
         /// <summary>
         ///     Creates a proxy for the well-known object indicated by the specified type and URL.
         /// </summary>
@@ -242,5 +243,6 @@ namespace HSNXT
         {
             return Activator.GetObject(type, url, state);
         }
+#endif
     }
 }

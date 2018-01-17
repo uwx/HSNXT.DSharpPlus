@@ -2,7 +2,7 @@
 // Type: ExtensionMinder.FileExtensions
 // Assembly: ExtensionMinder, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 // MVID: 9895DAEA-F52E-4F0C-B5FD-FB311AEFF61C
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionMinder.dll
+// Assembly location: ...\bin\Debug\ExtensionMinder.dll
 
 using System.IO;
 using System.Linq;

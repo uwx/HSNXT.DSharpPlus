@@ -1,3 +1,4 @@
+#if NetFX
 //using System.Data.SqlServerCe;
 
 using System.Windows.Forms;
@@ -26,3 +27,4 @@ namespace HSNXT
         }
     }
 }
+#endif

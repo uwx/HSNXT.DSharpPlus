@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -159,3 +160,4 @@ namespace HSNXT.ComLib.LocationSupport
         BoolMessageItem<IList<City>> CitiesFor(string countryname, string states);
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.Collections.Generic;
 using HSNXT.ComLib.Entities;
 
@@ -189,3 +190,4 @@ namespace HSNXT.ComLib.LocationSupport
         }
     }
 }
+#endif

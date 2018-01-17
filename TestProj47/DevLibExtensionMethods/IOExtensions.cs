@@ -2,7 +2,7 @@
 // Type: TestProj47.IOExtensions
 // Assembly: TestProj47, Version=2.17.8.0, Culture=neutral, PublicKeyToken=null
 // MVID: EBD9079F-5399-47E4-A18F-3F30589453C6
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\TestProj47.dll
+// Assembly location: ...\bin\Debug\TestProj47.dll
 
 using System;
 using System.Diagnostics;
@@ -514,17 +514,22 @@ namespace HSNXT
         public static int ExecuteCmdLine(this string sourceCmd, Action onExited = null, bool runasAdmin = true,
             bool hidden = true, int? milliseconds = null)
         {
-            var processStartInfo = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "cmd.exe"));
-            processStartInfo.Arguments = $" /C {sourceCmd}";
-            processStartInfo.CreateNoWindow = hidden;
-            processStartInfo.ErrorDialog = true;
-            processStartInfo.UseShellExecute = true;
-            processStartInfo.WindowStyle = hidden ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal;
+            var processStartInfo =
+                new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "cmd.exe"))
+                {
+                    Arguments = $" /C {sourceCmd}",
+                    CreateNoWindow = hidden,
+                    ErrorDialog = true,
+                    UseShellExecute = true,
+                    WindowStyle = hidden ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal
+                };
             if (runasAdmin)
                 processStartInfo.Verb = "runas";
-            var process = new Process();
-            process.StartInfo = processStartInfo;
-            process.EnableRaisingEvents = true;
+            var process = new Process
+            {
+                StartInfo = processStartInfo,
+                EnableRaisingEvents = true
+            };
             process.Exited += (EventHandler) ((s, e) =>
             {
                 if (onExited == null)

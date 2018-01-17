@@ -17,7 +17,9 @@ using System.Web;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+#if NetFX
 using Control = System.Windows.Forms.Control;
+#endif
 
 namespace HSNXT
 {
@@ -100,6 +102,7 @@ PersonGridView.DataSource = persons.OrderBy(descending, p => p.Age, p => p.Name,
         }
 
 
+#if NetFX
 /*
  * ScrollToBottom
  * Scrolls to the bottom of a Textbox.
@@ -123,7 +126,7 @@ PersonGridView.DataSource = persons.OrderBy(descending, p => p.Age, p => p.Name,
             box.SelectionStart = box.TextLength;
             box.ScrollToCaret();
         }
-
+#endif
 
 /*
  * BinarySerializer
@@ -823,6 +826,7 @@ int[] a = "Some primes: 2, 5, 11, and 17".ExtractInts();
         }
 
 
+#if NetFX
 /*
  * Force Download any file!
  * Forces your browser to download any kind of file instead of trying to open it inside the browser (e.g. pictures, pdf, mp3). Works in Chrome, Opera, Firefox and IE 7 & 8!
@@ -849,7 +853,6 @@ Response.ForceDownload(yourFilePath, saveFileAs);
             Response.End();
         }
 
-
 /*
  * RemoveClickEvent
  * Remove click event from given button.
@@ -872,7 +875,7 @@ Response.ForceDownload(yourFilePath, saveFileAs);
                 list.RemoveHandler(obj, list[obj]);
             }
         }
-
+#endif
 
 /*
  * IsNullOrEmpty
@@ -1967,6 +1970,7 @@ var second = t.IndicesOf(new int[]{0,3});
         }
 
 
+#if NetFX
 /*
  * Say
  * Speaks any object using the speech synthesis API
@@ -2015,7 +2019,6 @@ Say("bytes");
             return thing;
         }
 
-
 /*
  * GetSelectedValue
  * Get the selected value of a DropDownList by returning the value stored in the forms collection. This allows you to turn EnableViewState off on a DropDownList and still easily retrieve the selected value
@@ -2031,7 +2034,7 @@ Say("bytes");
         {
             return System.Web.HttpContext.Current.Request.Form[ddl.UniqueID];
         }
-
+#endif
 
 /*
  * GetData<T>
@@ -2050,6 +2053,7 @@ Say("bytes");
         }
 
 
+#if NetFX
 /*
  * FindImmediateParentOfType<T>
  * An extension method to find the parent control of a specific type in asp.net
@@ -2081,7 +2085,7 @@ DataList parentDataList = tb.FindImmediateParentOfType<DataList>();
             }
             return retVal;
         }
-
+#endif
 
 /*
  * MaxObject

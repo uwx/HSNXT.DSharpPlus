@@ -1,4 +1,5 @@
-﻿/*
+﻿#if NetFX
+/*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
  * Title: CommonLibrary.NET
@@ -563,3 +564,4 @@ namespace HSNXT.ComLib.Entities
         #endregion
     }
 }
+#endif

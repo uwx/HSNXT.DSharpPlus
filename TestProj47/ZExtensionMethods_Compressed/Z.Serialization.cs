@@ -2,8 +2,10 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Web.Script.Serialization;
 using System.Xml.Serialization;
+#if NetFX
+using System.Web.Script.Serialization;
+#endif
 
 //using System.Data.SqlServerCe;
 
@@ -57,6 +59,7 @@ namespace HSNXT
             }
         }
 
+#if NetFX
         /// <summary>
         ///     A T extension method that serialize java script.
         /// </summary>
@@ -68,7 +71,8 @@ namespace HSNXT
             var serializer = new JavaScriptSerializer();
             return serializer.Serialize(@this);
         }
-
+#endif
+        
         /// <summary>
         ///     A T extension method that serialize an object to Json.
         /// </summary>
@@ -154,6 +158,7 @@ namespace HSNXT
             }
         }
 
+#if NetFX
         /// <summary>
         ///     A string extension method that deserialize a string binary as &lt;T&gt;.
         /// </summary>
@@ -165,7 +170,8 @@ namespace HSNXT
             var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(@this);
         }
-
+#endif
+        
         /// <summary>
         ///     A string extension method that deserialize a Json string to object.
         /// </summary>

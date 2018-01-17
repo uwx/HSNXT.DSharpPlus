@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -132,10 +133,7 @@ namespace HSNXT
             // To uniquely identify a status.
             var filter = $" BatchId = {this.BatchId} and BatchName = '{this.BatchName}' and Task = '{taskName}' ";
             var items = Find(filter);
-            var isCreating = false;
-
-            if (items == null || items.Count == 0)
-                isCreating = true;
+            bool isCreating = items == null || items.Count == 0;
 
             var entry = isCreating ? new StatusUpdate() : items[0];
             entry.Task = taskName;
@@ -191,3 +189,4 @@ namespace HSNXT
         }
     }
 }
+#endif

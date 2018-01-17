@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 
 namespace HSNXT.ComLib.Logging
 {
@@ -42,3 +43,4 @@ namespace HSNXT.ComLib.Logging
         }
     }
 }
+#endif

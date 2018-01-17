@@ -18,11 +18,13 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+#if NetFX
+using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Control = System.Windows.Forms.Control;
+#endif
 
 namespace HSNXT
 {
@@ -243,7 +245,7 @@ string fullName = firstName.CombineWith(lastName);
             }
         }
 
-
+#if NetFX
 /*
  * SelectItem
  * Select a item in a DropDownList by value.
@@ -265,7 +267,8 @@ string fullName = firstName.CombineWith(lastName);
             if (ddl.Items.FindByValue(value) != null)
                 ddl.Items.FindByValue(value).Selected = true;
         }
-
+#endif
+        
 /*
  * IsSingle
  * Determines whether the collection has exactly one element
@@ -783,6 +786,7 @@ Console.WriteLine("Alphabet Only: " + testString.Strip(@"[\d]"); // returns alph
         }
 
 
+#if NetFX
 /*
  * RemoveSelectedRows
  * Removes all selected rows from datagridview and returns the response on success
@@ -819,7 +823,7 @@ dgvCase.RemoveSelectedRows();
                 return false;
             }
         }
-
+#endif
 
 /*
  * ToDictionary() - for enumerations of groupings
@@ -2149,7 +2153,7 @@ Console.WriteLine("Size of {0} is {1}", path, size);
             return totalFolderSize;
         }
 
-
+#if NetFX
 /*
  * FindControlsByType
  * Used in conjunction with GetChildren(), it will return a list of T from a list of children of a control. Get Children is located at: http://www.extensionmethod.net/Details.aspx?ID=309
@@ -2165,7 +2169,7 @@ Console.WriteLine("Size of {0} is {1}", path, size);
         {
             return ctrl.GetChildren().OfType<T>().ToList();
         }
-
+#endif
 
 /*
  * JSON to XML

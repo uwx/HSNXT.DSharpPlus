@@ -2,7 +2,7 @@
 // Type: CSharpBasicExtensionsKit.NullCheckExtensions
 // Assembly: CSharpBasicExtensionsKit, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null
 // MVID: EC83AE8C-D918-490B-8983-23C0E093D8F5
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\CSharpBasicExtensionsKit.dll
+// Assembly location: ...\bin\Debug\CSharpBasicExtensionsKit.dll
 
 using System;
 

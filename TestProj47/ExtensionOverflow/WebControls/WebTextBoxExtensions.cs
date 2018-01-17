@@ -1,4 +1,5 @@
-﻿using System.Web.UI.WebControls;
+﻿#if NetFX
+using System.Web.UI.WebControls;
 
 namespace HSNXT
 {
@@ -36,3 +37,4 @@ namespace HSNXT
         #endregion
     }
 }
+#endif

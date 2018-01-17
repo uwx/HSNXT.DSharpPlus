@@ -14,8 +14,6 @@ using System.Net.NetworkInformation;
 using System.Net.Security;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Contexts;
-using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -30,10 +28,14 @@ using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+#if NetFX
+using System.Runtime.Remoting.Contexts;
+using System.Runtime.Remoting.Messaging;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
+#endif
 
 namespace HSNXT
 {
@@ -164,6 +166,7 @@ if (index.HasValueAndEquals(10))...
         }
 
 
+#if NetFX
 /*
  * NumericUpDown SafeValue()
  * http://peshir.blogspot.nl/2011/02/safely-set-numericupdown-control-value.html
@@ -179,7 +182,7 @@ if (index.HasValueAndEquals(10))...
         {
             c.Value = Math.Max(c.Minimum, Math.Min(value, c.Maximum));
         }
-
+#endif
 
 /*
  * GetMonthDiff
@@ -369,6 +372,7 @@ MessageBox.Show(result_string);
         }
 
 
+#if NetFX
 /*
  * RequireOrPermanentRedirect<T>
  * Use this method to easily check that a required querystring both exists and is of a certain type. This lets you fire off a few checks in your page_load and then write the rest of the code on the page safe in the knowledge that the querystring exists, has a value and can be parsed as the intended data type. If the querystring is not present or is an invalid type the user is sent to the RedirectUrl. Urls starting with a tilde (~) are also supported. This url is normally the next logical level up the tree such as an admin manaagement page, a product index page or if there isn't an appropriate page then you can send the user back to the homepage.
@@ -402,7 +406,7 @@ MessageBox.Show(result_string);
                 page.Response.Redirect(page.ResolveUrl(RedirectUrl));
             }
         }
-
+#endif
 
 /*
  * FindCommonAncestor
@@ -431,6 +435,7 @@ MessageBox.Show(result_string);
         }
 
 
+#if NetFX
 /*
  * SetLiteralText
  * Often you have to set the text of lots of literal when databinding a ListView control in ASP.Net. This method lets you write that in one line.
@@ -453,7 +458,7 @@ MessageBox.Show(result_string);
             var literal = (Literal) item.FindControl(literalName);
             literal.Text = text;
         }
-
+#endif
 
 /*
  * ConvertDataTableToHTML
@@ -641,6 +646,7 @@ var monthTotalDiff = dt1.GetMonthDiff(dt2);
         }
 
 
+#if NetFX
 /*
  * GetFilesInVirtualDirectory
  * This extension method acts similarly to Directory.GetFiles except that the directory path is expressed as a virtual directory.
@@ -659,7 +665,7 @@ var monthTotalDiff = dt1.GetMonthDiff(dt2);
         {
             return Directory.GetFiles(targetPage.Server.MapPath(directoryPath)).Select(f => Path.GetFileName(f));
         }
-
+#endif
 
 /*
  * Uppercase with null check
@@ -2133,6 +2139,7 @@ static void Main()
  */
 
 
+#if NetFX
         public static AppDomainInitializer ToAppDomainInitializer(
             this Action<string[]> action)
         {
@@ -2144,7 +2151,8 @@ static void Main()
         {
             return new Action<string[]>(@delegate.Invoke);
         }
-
+#endif
+        
         public static AssemblyLoadEventHandler ToAssemblyEventHandler(
             this Action<object, AssemblyLoadEventArgs> action)
         {
@@ -2205,6 +2213,7 @@ static void Main()
             return new Func<TInput, TOutput>(@delegate.Invoke);
         }
 
+#if NetFX
         public static CrossAppDomainDelegate ToCrossAppDomainDelegate(
             this Action action)
         {
@@ -2216,6 +2225,7 @@ static void Main()
         {
             return new Action(@delegate.Invoke);
         }
+#endif
 
         public static EventHandler ToEventHandler(
             this Action<object, EventArgs> action)
@@ -2531,6 +2541,7 @@ static void Main()
             return new Action<object, ResolveNameEventArgs>(@delegate.Invoke);
         }
 
+#if NetFX
         public static SettingChangingEventHandler ToSettingChangingEventHandler(
             this Action<object, SettingChangingEventArgs> action)
         {
@@ -2566,6 +2577,7 @@ static void Main()
         {
             return new Action<object, CancelEventArgs>(@delegate.Invoke);
         }
+#endif
 
         public static DataReceivedEventHandler ToDataReceivedEventHandler(
             this Action<object, DataReceivedEventArgs> action)
@@ -2579,12 +2591,14 @@ static void Main()
             return new Action<object, DataReceivedEventArgs>(@delegate.Invoke);
         }
 
+#if NetFX
         public static EntryWrittenEventHandler ToEntryWrittenEventHandler(
             this Action<object, EntryWrittenEventArgs> action)
         {
             return new EntryWrittenEventHandler(action.Invoke);
         }
-
+#endif
+        
         public static ErrorEventHandler ToErrorEventHandler(
             this Action<object, ErrorEventArgs> action)
         {
@@ -2935,6 +2949,7 @@ static void Main()
             return new Func<Type, object, bool>(@delegate.Invoke);
         }
 
+#if NetFX
         public static ObjectCreationDelegate ToObjectCreationDelegate(
             this Func<IntPtr, IntPtr> func)
         {
@@ -2982,7 +2997,7 @@ static void Main()
         {
             return new Func<string, object, bool>(@delegate.Invoke);
         }
-
+#endif
         public static MatchEvaluator ToMatchEvaluator(
             this Func<Match, string> func)
         {
@@ -3391,6 +3406,7 @@ static void Main()
             return new EventHandler<ResolveNameEventArgs>(@delegate.Invoke);
         }
 
+#if NetFX
         public static SettingChangingEventHandler ToSettingChangingEventHandler(
             this EventHandler<SettingChangingEventArgs> @delegate)
         {
@@ -3438,6 +3454,7 @@ static void Main()
         {
             return new CancelEventHandler(@delegate.Invoke);
         }
+#endif
 
         public static DataReceivedEventHandler ToDataReceivedEventHandler(
             this EventHandler<DataReceivedEventArgs> @delegate)
@@ -3451,6 +3468,7 @@ static void Main()
             return new EventHandler<DataReceivedEventArgs>(@delegate.Invoke);
         }
 
+#if NetFX
         public static EntryWrittenEventHandler ToEntryWrittenEventHandler(
             this EventHandler<EntryWrittenEventArgs> @delegate)
         {
@@ -3462,6 +3480,7 @@ static void Main()
         {
             return new EventHandler<EntryWrittenEventArgs>(@delegate.Invoke);
         }
+#endif
 
         public static ErrorEventHandler ToErrorEventHandler(
             this EventHandler<ErrorEventArgs> @delegate)

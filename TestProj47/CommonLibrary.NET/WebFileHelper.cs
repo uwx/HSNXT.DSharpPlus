@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.Web;
 
 namespace HSNXT.ComLib.Web.Helpers
@@ -73,3 +74,4 @@ namespace HSNXT.ComLib.Web.Helpers
         }
     }
 }
+#endif

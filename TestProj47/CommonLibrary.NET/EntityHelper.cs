@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.ServiceModel.Syndication;
 using HSNXT.ComLib.Feeds;
 
@@ -62,3 +63,4 @@ namespace HSNXT.ComLib.Entities
         }
     }
 }
+#endif

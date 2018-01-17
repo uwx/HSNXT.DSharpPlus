@@ -12,13 +12,15 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web.Script.Serialization;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+#if NetFX
+using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Control = System.Windows.Forms.Control;
+#endif
 
 namespace HSNXT
 {
@@ -327,7 +329,7 @@ Console.WriteLine(foo.IsInRange(2,6)); // output 'True'
             return target >= start && target <= end;
         }
 
-
+#if NetFX
 /*
  * SafeInvoke
  * Properly invokes an action if it is required. Best way to handle events and threaded operations on a form.
@@ -351,7 +353,7 @@ this.SafeInvoke(() =>
             if (control.InvokeRequired) control.Invoke(handler);
             else handler();
         }
-
+#endif
 
 /*
  * ThisWeekMonday
@@ -408,7 +410,7 @@ var v = YesNo.CloneExplicit((t, s) => { t.Text = s.Text; t.Value = s.Value; });
                 select chain(new T(), t => assign(t, s))).ToList();
         }
 
-
+#if NetFX
 /*
  * ClearControls
  * clean the controls on a form. Please send suggestions.
@@ -435,7 +437,7 @@ this.ClearControls();
                 //if (item is ...)
             }
         }
-
+#endif
 
 /*
  * کد کردن و دی کد کردن رشته در C#
@@ -609,6 +611,7 @@ lang.If(l=>l.Name!="Spanish", l=> MessageBox.Show("Non-spanish language!"));
         }
 
 
+#if NetFX
 /*
  * DataBind
  * Bind to a ListControl (Dropdownlist, listbox, checkboxlist, radiobutton) in minimal amounts of code. Also returns true false if items are in the control after binding and sets the selected index to first value.
@@ -654,7 +657,7 @@ lang.If(l=>l.Name!="Spanish", l=> MessageBox.Show("Non-spanish language!"));
             }
             else return false;
         }
-
+#endif
 
 /*
  * Pivot
@@ -907,6 +910,7 @@ var currentValue = datarow.GetValue(path);
             return value;
         }
 
+#if NetFX
 
 /*
  * ConvertJsonStringToObject
@@ -924,7 +928,7 @@ var currentValue = datarow.GetValue(path);
             var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(stringToDeserialize);
         }
-
+#endif
 
 /*
  * DefaultIfEmpty
@@ -1006,27 +1010,7 @@ public void LeftOfTest()
             return s;
         }
 
-
-/*
- * SetInitialFocus
- * Set the initial focus for a Silverlight ChildWindow.
- * 
- * Author: Fons Sonnemans
- * Submitted on: 2/24/2010 8:24:35 PM
- * 
- * Example: 
- * public partial class DemoWindow : ChildWindow {
-
-    public DemoWindow() {
-        InitializeComponent();
-
-        this.SetInitialFocus(this.TextBoxFirstname);
-    }
-
-    ...
- */
-
-
+#if NetFX
 /*
  * Load & Save form configuration
  * This extension methods allows you to load/save location, size and window state (normal, maximized, minimized) of any form to single XML file at program runtime.
@@ -1109,7 +1093,7 @@ public partial class Form1 : Form
                 xmlSer.Serialize(sw, formSettings);
             }
         }
-
+#endif
 
 /*
  * IsNullOrEmptyThenValue
@@ -1603,6 +1587,7 @@ Console.WriteLine (string.Join (", ", from l in list select l.ToString ()));
         }
 
 
+#if NetFX
 /*
  * GetQueryStringValue
  * Gets a query string value from a System.Web.UI.UserControl HTTP Request object.
@@ -1618,7 +1603,7 @@ Console.WriteLine (string.Join (", ", from l in list select l.ToString ()));
         {
             return (T) System.Convert.ChangeType(control.Request.QueryString[name], typeof(T));
         }
-
+#endif
 
 /*
  * HasItems
@@ -1730,6 +1715,7 @@ bool isString = type.IsInteger();
         }
 
 
+#if NetFX
 /*
  * RemoveCssClass
  * Removes a css class from the webcontrol. Let's say you have a webcontrol (a label for example) with more than one css class: "defaultClass loggedIn". With the RemoveCssClass extension method, you can easily remove one of them.
@@ -1757,7 +1743,7 @@ if (!userIsLoggedIn)
 
             control.CssClass = string.Join(" ", classes);
         }
-
+#endif
 
 /*
  * Fill
@@ -1778,6 +1764,7 @@ string message = "We had {0} transactions.".Fill(transactionsCount);
             return string.Format(original, values);
         }
 
+#if NetFX
 /*
  * ToJson() and FromJson<T>()
  * Convert an object to JSON an back
@@ -1805,7 +1792,7 @@ emp = s.FromJson<Employee>();
             var serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(obj as string);
         }
-
+#endif
 
 /*
  * Object properties to dictionary converter
@@ -2769,6 +2756,7 @@ public IEnumerable<Customer> GetCustomers()
         }
 
 
+#if NetFX
 /*
  * Resize To Text Width
  * Resizes width of a Windows control to the text that contains.
@@ -2808,8 +2796,9 @@ public IEnumerable<Customer> GetCustomers()
                 control.Width = (int) Math.Ceiling(g.MeasureString(control.Text, control.Font).Width);
             }
         }
+#endif
 
-
+#if NetFX
 /*
  * FindControlByType
  * Used in conjunction with GetChildren(), it will return a T from a list of children of a control. If you are looking to return a list of T, use FindControlsByType() at http://www.extensionmethod.net/Details.aspx?ID=310 Get Children is located at: http://www.extensionmethod.net/Details.aspx?ID=309
@@ -2825,7 +2814,7 @@ public IEnumerable<Customer> GetCustomers()
         {
             return ctrl.GetChildren().OfType<T>().SingleOrDefault();
         }
-
+#endif
 
 /*
  * To

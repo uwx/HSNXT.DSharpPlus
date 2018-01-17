@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using HSNXT.ComLib.Authentication;
@@ -182,3 +183,4 @@ namespace HSNXT.ComLib.Logging
         }
     }
 }
+#endif

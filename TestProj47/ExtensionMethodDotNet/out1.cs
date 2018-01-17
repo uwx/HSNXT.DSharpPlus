@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Objects;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
@@ -18,14 +17,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+#if NetFX
+using System.Data.Objects;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Control = System.Windows.Forms.Control;
-
+#endif
+    
 namespace HSNXT
 {
     public static partial class Extensions
@@ -1222,6 +1224,7 @@ if(tester.IsSet(MyEnum.FlagA))
             return (Convert.ToUInt32(input) & Convert.ToUInt32(matchTo)) != 0;
         }
 
+#if NetFX
 
 /*
  * Strongly Typed Databinding
@@ -1316,8 +1319,8 @@ txtCLSId.Bind(c => c.Text, _TaskListItem, ProjectServicesTaskList p) => p.CLSHea
                 return null != member ? member.Member.Name : string.Empty;
             }
         }
-
-
+#endif
+        
 /*
  * GetDisplayName()
  * Converts the pascal-cased Name property of a type to a displayable name.
@@ -1802,6 +1805,7 @@ Debug.WriteLine("Inject more values and event build in types {0:integer} {1} wit
             }
         }
 
+#if NetFX
 
 /*
  * Add<T>
@@ -1828,8 +1832,7 @@ txtName.DataBindings.Add<tblProduct>("Text", ds, p => p.ProductName, true, DataS
             var skippedName = string.Join(".", relatedNameChain.Split('.').Skip(1).ToArray());
             return bindingCollection.Add(property, datasource, skippedName);
         }
-
-
+#endif
 /*
  * SelectRandom
  * This method selects a random element from an Enumerable with only one pass (O(N) complexity). It contains optimizations for argumens that implement ICollection<T> by using the Count property and the ElementAt LINQ method. The ElementAt LINQ method itself contains optimizations for IList<T>
@@ -2014,6 +2017,7 @@ Assert.IsFalse(IsNullOrEmptyOrWhiteSpace("TestValue"));
         {
             return string.IsNullOrEmpty(input) || input.Trim() == string.Empty;
         }
+#if NetFX
 
 /*
  * Include
@@ -2059,7 +2063,7 @@ This finally gets rid of that nasty piece of untyping in an otherwise lovely typ
 
             return data.Include(name);
         }
-
+#endif
 
 /*
  * IsInRange
@@ -2081,7 +2085,8 @@ If (DateTime.Now.IsInRange(monday, friday) {
         {
             return (currentDate >= beginDate && currentDate <= endDate);
         }
-
+        
+#if NetFX
 /*
  * GetCurrentDataRow
  * The System.Windows.Forms.BindingSource has a property to return the current row as DataRowView object. But most of the time we need this as DataRow to manipulate the data. This extension method checks the Current property of BindingSource for nullity, returns null if it is null and returns the current Row as DataRow object if the Current property is not null.
@@ -2100,7 +2105,7 @@ If (DateTime.Now.IsInRange(monday, friday) {
                 return null;
             return ((DataRowView) bindingSource.Current).Row;
         }
-
+#endif
 
 /*
  * DefaultIfNull
@@ -2340,7 +2345,7 @@ list.AddElement("line 1")
 
         #endregion
 
-
+#if NetFX
 /*
  * AddCssClass
  * Adds a css class to the webcontrol. Instead of having to pass one string to the CssClass property, you can add them one by one with the AddCssClass extension method. This can come in handy when a webcontrol has a default class (from the ASP.NET markup) and then needs additional classes based on a condition (like whether or not a user is logged in).
@@ -2367,8 +2372,9 @@ else
         {
             control.CssClass += " " + cssClass;
         }
+#endif
 
-
+#if NetFX
 /*
  * Session GetValue
  * A cleaner way to get values from Session
@@ -2398,6 +2404,7 @@ MyObject value4 = Session.GetValue<MyObject>("key4", new MyObject());
 
             return defaultValue;
         }
+#endif
 
 /*
  * FixPersianChars
@@ -2576,6 +2583,7 @@ Console.WriteLine(string.Join('--',x));
             return false;
         }
 
+#if NetFX
 /*
  * GetChildren
  * This is a recursive function to get all child controls under the target control.
@@ -2596,8 +2604,9 @@ IEnumerable<Control> children = Container.GetChildren();
             var children = control.Controls.Cast<Control>();
             return children.SelectMany(GetChildren).Concat(children);
         }
+#endif
 
-
+#if NetFX
 /*
  * AddJavaScript
  * Dynamically adds a javascript file (.js) to a page even if using master page.
@@ -2622,8 +2631,8 @@ IEnumerable<Control> children = Container.GetChildren();
             js.Attributes["src"] = url;
             page.Header.Controls.Add(js);
         }
-
-
+#endif
+#if NetFX
 /*
  * AddCSS
  * Dynamically adds a cascading style sheet (a.k.a. CSS) file to a page even if using master page.
@@ -2649,7 +2658,7 @@ IEnumerable<Control> children = Container.GetChildren();
             link.Attributes["type"] = "text/css";
             page.Header.Controls.Add(link);
         }
-
+#endif
 
 /*
  * TryDispose
@@ -2843,7 +2852,7 @@ double ipNumber = ipAddress.inet_aton();
             return num;
         }
 
-
+#if NetFX
 /*
  * FindParent
  * A simple type safe method to find a parent control
@@ -2870,7 +2879,7 @@ double ipNumber = ipAddress.inet_aton();
 
             return target.Parent.FindParent<T>();
         }
-
+#endif
 
 /*
  * Clamp

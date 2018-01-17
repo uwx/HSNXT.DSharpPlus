@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NetFX
+using System;
 using System.IO;
 
 namespace HSNXT.ComLib.Logging
@@ -168,3 +169,4 @@ namespace HSNXT.ComLib.Logging
         }
     }
 }
+#endif

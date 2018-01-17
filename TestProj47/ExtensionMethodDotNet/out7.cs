@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Data.Services.Client;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
@@ -13,9 +12,13 @@ using System.Runtime.Serialization.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+#if NetFX
+using System.Data.Services.Client;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+#endif
+
 // ReSharper disable PossibleNullReferenceException
 #pragma warning disable 1574
 
@@ -72,6 +75,7 @@ dgvInstance.LoadConfiguration(@"C:\config.xml");
             public bool Visible { get; set; }
         }
 
+#if NetFX
         /// <summary>
         /// Loads columns information from the specified XML file
         /// </summary>
@@ -92,7 +96,7 @@ dgvInstance.LoadConfiguration(@"C:\config.xml");
                 dgv.Columns[column.Name].Visible = column.Visible;
             }
         }
-
+    
         /// <summary>
         /// Saves columns information to the specified XML file
         /// </summary>
@@ -118,7 +122,7 @@ dgvInstance.LoadConfiguration(@"C:\config.xml");
                 xmlSerializer.Serialize(streamWriter, columns);
             }
         }
-
+#endif
 
 /*
  * StringToTimeSpan
@@ -836,6 +840,7 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
                 return calcDate.AddYears(dt.Month == 2 && dt.Day == 28 ? 1 : 0).AddDays(-1);
         }
 
+#if NetFX
 /*
  * SelectionValue
  * Returns Dropdownlist Selected Value as Integer
@@ -852,7 +857,7 @@ DateTime leapDayEvent = DateTime.Now.NextAnniversary(2, 29, true); // Returns th
             int.TryParse(ddl.SelectedValue, out var r);
             return r;
         }
-
+#endif
 
 /*
  * ValidateAndConvertDictionaryData
@@ -1277,7 +1282,7 @@ Ahmer-
             return strrtn;
         }
 
-
+#if NetFX
 /*
  * ValidateNumber
  * Validates that input text is a number
@@ -1306,7 +1311,7 @@ Ahmer-
                 e.Handled = txt.Text.IndexOf('.') > -1;
             else e.Handled = true;
         }
-
+#endif
 
 /*
  * Zero Index CopyTo
@@ -1922,6 +1927,7 @@ Console.WriteLine(pesel.IsValidPESEL() ? "PESEL is valid" : "PESEL is not valid"
         }
 
 
+#if NetFX
 /*
  * QueryAsync
  * Returns a Task<IEnumerable<TResult>> to be used with the new async / await keyword.
@@ -1941,7 +1947,7 @@ var result = await webQ.QueryAsync() ;
         {
             return Task<IEnumerable<TResult>>.Factory.FromAsync(query.BeginExecute, query.EndExecute, null);
         }
-
+#endif
 
 /*
  * Memoize<T, TResult>

@@ -142,6 +142,7 @@ namespace HSNXT
             return Convert.ToBase64String(inArray, offset, length, options);
         }
 
+#if NetFX
         /// <summary>
         ///     Encodes a byte array into its equivalent string representation using base 64 digits, which is usable for
         ///     transmission on the URL.
@@ -155,7 +156,8 @@ namespace HSNXT
         {
             return HttpServerUtility.UrlTokenEncode(input);
         }
-
+#endif
+        
         /// <summary>
         ///     Converts a URL-encoded byte array into a decoded string using the specified decoding object.
         /// </summary>

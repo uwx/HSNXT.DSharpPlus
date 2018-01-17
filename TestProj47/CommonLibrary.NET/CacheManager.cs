@@ -27,7 +27,7 @@ namespace HSNXT.ComLib.Caching
     {
         private readonly ICache _cache;
 
-
+#if NetFX
         /// <summary>
         /// Create using initialization.
         /// </summary>
@@ -35,7 +35,7 @@ namespace HSNXT.ComLib.Caching
         {
             _cache = new CacheAspNet();
         }
-
+#endif
 
         /// <summary>
         /// Constructor

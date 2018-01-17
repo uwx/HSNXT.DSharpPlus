@@ -26,6 +26,7 @@ namespace HSNXT.ComLib.Caching
     {
         private static ICache _provider;
 
+#if NetFX
         /// <summary>
         /// Initialize with spring cache.
         /// </summary>
@@ -33,7 +34,7 @@ namespace HSNXT.ComLib.Caching
         {
             _provider = new CacheAspNet();
         }
-
+#endif
 
         /// <summary>
         /// Get the current cache provider being used.

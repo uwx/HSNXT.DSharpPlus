@@ -1,4 +1,5 @@
-﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
+﻿#if NetFX
+// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
 namespace HSNXT.Linq.Charting
 {
@@ -23,3 +24,4 @@ namespace HSNXT.Linq.Charting
         }
     }
 }
+#endif

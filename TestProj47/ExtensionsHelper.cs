@@ -2,7 +2,7 @@
 // Type: ExtensionsHelper.ExtensionMethods
 // Assembly: ExtensionsHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: CBB71023-6F30-4742-BBDC-1F25F766135A
-// Assembly location: C:\Users\Rafael\Documents\GitHub\TestProject\TestProj47\bin\Debug\ExtensionsHelper.dll
+// Assembly location: ...\bin\Debug\ExtensionsHelper.dll
 
 using System;
 using System.Collections.Generic;

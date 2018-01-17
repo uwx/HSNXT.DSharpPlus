@@ -16,12 +16,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.CSharp;
+using SDD2D = System.Drawing.Drawing2D;
+#if NetFX
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using Microsoft.CSharp;
-using SDD2D = System.Drawing.Drawing2D;
+#endif
 
 namespace HSNXT
 {
@@ -777,7 +779,8 @@ int f = d.ChangeType(0); //Successful conversion to int (f=0)
                 return returnValueIfException;
             }
         }
-
+    
+#if NetFX
 /*
  * CSharpCompile
  * Compiles a string into an assembly. .NET 4
@@ -814,8 +817,8 @@ public class Example1
 
             return csc.CompileAssemblyFromSource(parameters, code);
         }
-
-
+#endif
+        
 /*
  * Enum HasDescription
  * Multiple ways to check if an enum has description
@@ -1740,6 +1743,7 @@ var urlName = name.ToUrlSlug(); // returns serdar-buyuktemiz-csguio
 
 
 
+#if NetFX
 /*
  * DataGridView columns visibility configuration window
  * This code allows you to change visibility of columns of any DataGridView component at program runtime. It shows simple window filled with list of columns of DataGridView. You can check columns on the list you want to be visible. Use this code with my other DataGridView extension methods http://extensionmethod.net/csharp/datagridview/load-save-configuration.
@@ -1818,7 +1822,7 @@ var urlName = name.ToUrlSlug(); // returns serdar-buyuktemiz-csguio
                 base.Dispose(disposing);
             }
         }
-
+#endif
 
 /*
  * Enum Name To Display Name
@@ -1905,7 +1909,11 @@ Amount.Text = amount.ToUIString();
         /// <returns>The specified date formatted as a RFC822 date string.</returns>
         public static string ToRFC822DateString(this DateTime date)
         {
+#if NetFX
             var offset = TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).Hours;
+#else
+            var offset = TimeZoneInfo.Local.GetUtcOffset(DateTime.Now).Hours;
+#endif
             var timeZone = "+" + offset.ToString().PadLeft(2, '0');
             if (offset < 0)
             {
@@ -2353,6 +2361,7 @@ s = pi.ToString("0.00");  //s = 3.14
             return Path.GetDirectoryName(filePath);
         }
 
+#if NetFX
 /*
  * InvokeAction
  * A set of Dispatcher extenstions that make it easy to cleanly queue lambdas on the Dispatcher.
@@ -2441,7 +2450,8 @@ dispatcher.InvokeAction(x=>Console.Write(X), "yay lol");
                 throw new ArgumentNullException("action");
             dispatcher.Invoke(action, priority, arg1, arg2, arg3);
         }
-
+#endif
+        
 /*
  * None(), OneOf(), Many(), XOf()
  * Count-based extensions which make checking the length of something more readable. * Updated on 2010-01-16 following suggestion from @Sane regarding the use of Count() in None(). Switched to Any(). Thanks!
@@ -2637,13 +2647,15 @@ MessageBox.Show(hash);
             HMACSHA256,
             HMACSHA384,
             HMACSHA512,
-            MACTripleDES,
             MD5,
-            RIPEMD160,
             SHA1,
             SHA256,
             SHA384,
-            SHA512
+            SHA512,
+#if NetFX
+            MACTripleDES,
+            RIPEMD160,
+#endif
         }
 
         private static byte[] GetHash(string input, eHashType hash)
@@ -2670,14 +2682,8 @@ MessageBox.Show(hash);
                 case eHashType.HMACSHA512:
                     return HMACSHA512.Create().ComputeHash(inputBytes);
 
-                case eHashType.MACTripleDES:
-                    return MACTripleDES.Create().ComputeHash(inputBytes);
-
                 case eHashType.MD5:
                     return MD5.Create().ComputeHash(inputBytes);
-
-                case eHashType.RIPEMD160:
-                    return RIPEMD160.Create().ComputeHash(inputBytes);
 
                 case eHashType.SHA1:
                     return SHA1.Create().ComputeHash(inputBytes);
@@ -2691,6 +2697,14 @@ MessageBox.Show(hash);
                 case eHashType.SHA512:
                     return SHA512.Create().ComputeHash(inputBytes);
 
+#if NetFX
+                case eHashType.MACTripleDES:
+                    return MACTripleDES.Create().ComputeHash(inputBytes);
+
+                case eHashType.RIPEMD160:
+                    return RIPEMD160.Create().ComputeHash(inputBytes);
+#endif
+                
                 default:
                     return inputBytes;
             }
@@ -2719,7 +2733,7 @@ MessageBox.Show(hash);
                 return string.Empty;
             }
         }
-
+#if NetFX
 /*
  * AddToEnd
  * Adds an item to a listbox as the last item, and makes sure it is visible.
@@ -2738,7 +2752,6 @@ ListBox1.AddToEnd( "bar" );
             lb.TopIndex = lb.Items.Count - 1;
             lb.ClearSelected();
         }
-
 
 /*
  * Add
@@ -2759,7 +2772,7 @@ ddl.Items.Add(new string[] { "Apple", "orange", "Pair" });
                 col.Add(s);
             }
         }
-
+#endif
 
 /*
  * IncrementAt<T>
@@ -2916,7 +2929,8 @@ Console.WriteLine("Total Words: {0}", word.WordCount());
             }
             return count;
         }
-
+        
+#if NetFX
 /*
  * Generates a Hyper Link to redirect user to Authentication form
  * this method generates a Hyper Link to redirect user to Authentication form . gets Titla attribute of tag and inner Text of Tag and generate tag A . then returns user to referrer page .
@@ -2945,7 +2959,7 @@ Console.WriteLine("Total Words: {0}", word.WordCount());
                 return Tag_A;
             }
         }
-
+#endif
 
 /*
  * ToUrlString

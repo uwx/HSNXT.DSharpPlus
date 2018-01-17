@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
-using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,7 +12,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
 using System.Xml.Linq;
-
+#if NetFX
+using System.Data.Entity.Design.PluralizationServices;
+#endif
 //using System.Data.SqlServerCe;
 // ReSharper disable StringIndexOfIsCultureSpecific.1
 
@@ -1072,7 +1073,8 @@ namespace HSNXT
             Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
             return new MemoryStream(encoding.GetBytes(@this));
         }
-
+    
+#if NetFX
         /// <summary>
         ///     A string extension method that converts the @this to a plural.
         /// </summary>
@@ -1093,6 +1095,7 @@ namespace HSNXT
         {
             return PluralizationService.CreateService(cultureInfo).Pluralize(@this);
         }
+#endif
 
         /// <summary>
         ///     A String extension method that converts the @this to a secure string.

@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+#if NetFX
 using System.Security.AccessControl;
+#endif
 
 //using System.Data.SqlServerCe;
 
@@ -142,6 +144,7 @@ namespace HSNXT
             return Directory.CreateDirectory(@this.FullName);
         }
 
+#if NetFX
         /// <summary>
         ///     Creates all the directories in the specified @this, applying the specified Windows security.
         /// </summary>
@@ -187,6 +190,7 @@ namespace HSNXT
         {
             return Directory.CreateDirectory(@this.FullName, directorySecurity);
         }
+#endif
 
         /// <summary>
         ///     A DirectoryInfo extension method that deletes the directories where.
@@ -305,6 +309,7 @@ namespace HSNXT
             return Directory.CreateDirectory(@this.FullName);
         }
 
+#if NetFX
         /// <summary>
         ///     Creates all directories and subdirectories in the specified @this if the directory doesn't already exists.
         ///     This methods is the same as FileInfo.CreateDirectory however it's less ambigues about what happen if the
@@ -352,7 +357,8 @@ namespace HSNXT
         {
             return Directory.CreateDirectory(@this.FullName, directorySecurity);
         }
-
+#endif
+        
         /// <summary>
         ///     Returns an enumerable collection of directory names in a specified @this.
         /// </summary>

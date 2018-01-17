@@ -1,3 +1,4 @@
+#if NetFX
 /*
  * Author: Kishore Reddy
  * Url: http://commonlibrarynet.codeplex.com/
@@ -50,4 +51,4 @@ namespace HSNXT.CommonLibrary.Web.UI
         }
     }
 }
-
+#endif
