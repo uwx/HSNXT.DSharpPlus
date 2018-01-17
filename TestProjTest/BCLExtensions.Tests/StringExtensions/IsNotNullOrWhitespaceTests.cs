@@ -7,7 +7,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WhenInputHasContentThenReturnsTrue()
         {
-            string input = "Test";
+            var input = "Test";
             var result = input.IsNotNullOrWhitespace();
             Assert.True(result);
         }
@@ -23,7 +23,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WhenInputIsStringEmptyThenReturnsFalse()
         {
-            string input = string.Empty;
+            var input = string.Empty;
             var result = input.IsNotNullOrWhitespace();
             Assert.False(result);
         }
@@ -31,7 +31,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WhenInputIsEmptyStringThenReturnsFalse()
         {
-            string input = "";
+            var input = "";
             var result = input.IsNotNullOrWhitespace();
             Assert.False(result);
         }
@@ -39,7 +39,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WhenInputIsWhitespaceThenReturnsFalse()
         {
-            string input = "    ";
+            var input = "    ";
             var result = input.IsNotNullOrWhitespace();
             Assert.False(result);
         }
@@ -47,7 +47,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WhenInputIsNewlineThenReturnsFalse()
         {
-            string input = "\n";
+            var input = "\n";
             var result = input.IsNotNullOrWhitespace();
             Assert.False(result);
         }

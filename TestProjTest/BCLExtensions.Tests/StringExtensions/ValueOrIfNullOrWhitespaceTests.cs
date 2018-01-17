@@ -12,7 +12,7 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void DefaultStringReturnsDefaultString()
             {
-                string expected = "(Default)";
+                var expected = "(Default)";
                 var result = input.ValueOrIfNullOrWhitespace(expected);
                 Assert.Equal(expected, result);
             }

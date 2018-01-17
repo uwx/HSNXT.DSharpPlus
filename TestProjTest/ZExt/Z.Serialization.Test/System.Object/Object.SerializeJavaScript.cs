@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.Serialization.Test
             var @this = new List<string> {"Fizz", "Buzz"};
 
             // Examples
-            string result = @this.SerializeJavaScript(); // Serialize the object into a string.
+            var result = @this.SerializeJavaScript(); // Serialize the object into a string.
 
             // Unit Test
             var result2 = result.DeserializeJavaScript<List<string>>();

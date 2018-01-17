@@ -6,6 +6,11 @@
 // Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 
+// ReSharper disable StaticMemberInGenericType
+// ReSharper disable InconsistentNaming
+#pragma warning disable 169
+#pragma warning disable 67
+
 namespace HSNXT.Z.Reflection.Test
 {
     public class FieldModel<T>

@@ -17,7 +17,7 @@ namespace HSNXT.Z.Core.Test
         {
             {
                 // Type
-                string @this = "test@hotmail.com";
+                var @this = "test@hotmail.com";
 
                 // Exemples
                 var result = @this.IsValidEmail(); // return true;
@@ -28,7 +28,7 @@ namespace HSNXT.Z.Core.Test
 
             {
                 // Type
-                string @this = "mike@GOTBLOG.ONLINE";
+                var @this = "mike@GOTBLOG.ONLINE";
 
                 // Exemples
                 var result = @this.IsValidEmail(); // return true;

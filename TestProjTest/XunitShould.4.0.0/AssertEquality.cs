@@ -43,14 +43,14 @@ namespace XunitShould
         }
 
         public static void ShouldEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected, IComparer<T> comparer) {
-            List<T> actualList = actual.ToList();
-            List<T> expectedList = expected.ToList();
+            var actualList = actual.ToList();
+            var expectedList = expected.ToList();
 
-            int index = 0;
-            int lastBoth = Math.Min(actualList.Count, expectedList.Count);
+            var index = 0;
+            var lastBoth = Math.Min(actualList.Count, expectedList.Count);
             for (; index < lastBoth; index++) {
-                T actualItem = actualList[index];
-                T expectedItem = expectedList[index];
+                var actualItem = actualList[index];
+                var expectedItem = expectedList[index];
                 if (comparer.Compare(actualItem, expectedItem) != 0) {
                     throw new EnumerableEqualException(expectedItem, actualItem, index, expectedList.Count, actualList.Count);
                 }

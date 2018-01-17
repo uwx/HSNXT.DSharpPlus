@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,10 +15,10 @@ namespace HSNXT.Z.Core.Test
         public void Reverse()
         {
             // Type
-            string @this = "FizzBuzz";
+            var @this = "FizzBuzz";
 
             // Examples
-            string value = @this.Reverse(); // return "zzuBzziF";
+            var value = @this.Reverse(); // return "zzuBzziF";
 
             // Unit Test
             Assert.AreEqual("zzuBzziF", value);

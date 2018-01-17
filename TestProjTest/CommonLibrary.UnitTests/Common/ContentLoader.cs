@@ -17,13 +17,13 @@ namespace CommonLibrary.Tests.Common
         /// <returns></returns>
         public static string GetTextFileContent(string fullFilePath)
         {
-            string path = string.Format("CommonLibrary.Tests.Content.{0}", fullFilePath);
-            Assembly current = Assembly.GetExecutingAssembly();
-            Stream stream = current.GetManifestResourceStream(path);
+            var path = string.Format("CommonLibrary.Tests.Content.{0}", fullFilePath);
+            var current = Assembly.GetExecutingAssembly();
+            var stream = current.GetManifestResourceStream(path);
             if (stream == null) throw new FileNotFoundException(path);
 
-            StreamReader reader = new StreamReader(stream);
-            string content = reader.ReadToEnd();
+            var reader = new StreamReader(stream);
+            var content = reader.ReadToEnd();
             return content;
         }
     }

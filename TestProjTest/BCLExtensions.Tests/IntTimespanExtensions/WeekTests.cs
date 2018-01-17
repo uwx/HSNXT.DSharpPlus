@@ -8,7 +8,7 @@ namespace BCLExtensions.Tests.IntTimespanExtensions
         [Fact]
         public void WorksWhenUsedOnAnInlineConstant()
         {
-            TimeSpan result = (5).Week();
+            var result = (5).Week();
 
             Assert.Equal(35, result.TotalDays);
         }
@@ -29,7 +29,7 @@ namespace BCLExtensions.Tests.IntTimespanExtensions
         [InlineData(1525028, 10675196)]
         public void WhenGivenANumberThenReturnsCorrectTimeSpan(int numberOfWeeks, int numberOfDays)
         {
-            TimeSpan result = numberOfWeeks.Week();
+            var result = numberOfWeeks.Week();
 
             Assert.Equal(numberOfDays, result.TotalDays);
         }

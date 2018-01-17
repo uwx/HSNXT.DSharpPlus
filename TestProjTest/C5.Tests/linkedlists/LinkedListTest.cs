@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -128,7 +128,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Apply()
             {
-                int sum = 0;
+                var sum = 0;
                 Action<int> a = delegate(int i) { sum = i + 10 * sum; };
 
                 list.Apply(a);
@@ -159,7 +159,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Empty()
             {
-                SCG.IEnumerator<int> e = list.GetEnumerator();
+                var e = list.GetEnumerator();
 
                 Assert.IsFalse(e.MoveNext());
             }
@@ -175,7 +175,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 list.Add(10);
                 list.Add(1);
 
-                SCG.IEnumerator<int> e = list.GetEnumerator();
+                var e = list.GetEnumerator();
 
                 Assert.IsTrue(e.MoveNext());
                 Assert.AreEqual(5, e.Current);
@@ -200,7 +200,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 list.Add(8);
                 list.Add(5);
 
-                SCG.IEnumerator<int> e = list.GetEnumerator();
+                var e = list.GetEnumerator();
 
                 e.MoveNext();
                 e.MoveNext();
@@ -215,7 +215,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 list.Add(8);
                 list.Add(5);
 
-                SCG.IEnumerator<int> e = list.GetEnumerator();
+                var e = list.GetEnumerator();
 
                 e.MoveNext();
                 list.Add(99);
@@ -302,7 +302,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             {
                 list.Add(3); list.Add(4); list.Add(5);
 
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
 
                 list2.AddAll(list);
                 Assert.IsTrue(IC.eq(list2, 3, 4, 5));
@@ -412,7 +412,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             {
                 list = new LinkedList<int>();
                 a = new int[10];
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     a[i] = 1000 + i;
             }
 
@@ -426,7 +426,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 if (a.Length != b.Length)
                     return "Lengths differ: " + a.Length + " != " + b.Length;
 
-                for (int i = 0; i < a.Length; i++)
+                for (var i = 0; i < a.Length; i++)
                     if (a[i] != b[i])
                         return string.Format("{0}'th elements differ: {1} != {2}", i, a[i], b[i]);
 
@@ -585,7 +585,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void ContainsAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
 
                 Assert.IsTrue(list.ContainsAll(list2));
                 list2.Add(4);
@@ -604,7 +604,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RetainAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
 
                 list.Add(4); list.Add(4); list.Add(5); list.Add(4); list.Add(6);
                 list2.Add(5); list2.Add(4); list2.Add(7); list2.Add(7); list2.Add(4);
@@ -628,7 +628,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RemoveAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
 
                 list.Add(4); list.Add(4); list.Add(5); list.Add(4); list.Add(6);
                 list2.Add(5); list2.Add(4); list2.Add(7); list2.Add(7); list2.Add(4);
@@ -854,13 +854,13 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void FirstBad()
             {
-                Assert.Throws<NoSuchItemException>(() => { int f = lst.First; });
+                Assert.Throws<NoSuchItemException>(() => { var f = lst.First; });
             }
 
             [Test]
             public void LastBad()
             {
-                Assert.Throws<NoSuchItemException>(() => { int f = lst.Last; });
+                Assert.Throws<NoSuchItemException>(() => { var f = lst.Last; });
             }
 
             [Test]
@@ -892,7 +892,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             {
                 Assert.Throws<IndexOutOfRangeException>(() =>
                 {
-                    int f = lst[0];
+                    var f = lst[0];
                 });
             }
 
@@ -903,7 +903,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
 
                 Assert.Throws<IndexOutOfRangeException>(() =>
                 {
-                    int f = lst[-1];
+                    var f = lst[-1];
                 });
             }
 
@@ -914,7 +914,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
 
                 Assert.Throws<IndexOutOfRangeException>(() =>
                 {
-                    int f = lst[1];
+                    var f = lst[1];
                 });
             }
 
@@ -952,7 +952,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Init()
             {
                 lst = new LinkedList<KeyValuePair<int, int>>(new KeyValuePairEqualityComparer<int, int>());
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     lst.Add(new KeyValuePair<int, int>(i, i + 30));
             }
 
@@ -964,7 +964,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Find()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.Find(ref p));
                 Assert.AreEqual(3, p.Key);
@@ -977,7 +977,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void FindOrAdd()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.FindOrAdd(ref p));
                 Assert.AreEqual(3, p.Key);
@@ -992,7 +992,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Update()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.Update(p));
                 Assert.AreEqual(3, lst[3].Key);
@@ -1005,7 +1005,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void UpdateOrAdd1()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.UpdateOrAdd(p));
                 Assert.AreEqual(3, lst[3].Key);
@@ -1033,7 +1033,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RemoveWithReturn()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.Remove(p, out p));
                 Assert.AreEqual(3, p.Key);
@@ -1127,7 +1127,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void FIFO()
             {
-                for (int i = 0; i < 7; i++)
+                for (var i = 0; i < 7; i++)
                     lst.Add(2 * i);
 
                 Assert.IsTrue(lst.FIFO);
@@ -1245,7 +1245,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Map()
             {
                 Func<int, string> m = delegate(int i) { return "<<" + i + ">>"; };
-                IList<string> r = lst.Map(m);
+                var r = lst.Map(m);
 
                 Assert.IsTrue(r.Check());
                 Assert.IsTrue(r.IsEmpty);
@@ -1256,7 +1256,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 r = lst.Map(m);
                 Assert.IsTrue(r.Check());
                 Assert.AreEqual(4, r.Count);
-                for (int i = 0; i < 4; i++)
+                for (var i = 0; i < 4; i++)
                     Assert.AreEqual("<<" + (i + 1) + ">>", r[i]);
             }
             [Test]
@@ -1353,7 +1353,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Reverse()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     lst.Add(i);
 
                 lst.Reverse();
@@ -1377,7 +1377,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void BadReverse()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     lst.Add(i);
                 }
@@ -1432,7 +1432,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 lst2.Sort(c);
                 Assert.IsTrue(lst2.IsSorted(c));
 
-                KeyValuePair<int, string> p = lst2.RemoveFirst();
+                var p = lst2.RemoveFirst();
 
                 Assert.AreEqual(3, p.Key);
                 Assert.AreEqual("e", p.Value);
@@ -1475,11 +1475,11 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Shuffle()
             {
                 lst.Add(5); lst.Add(6); lst.Add(5); lst.Add(7); lst.Add(3);
-                for (int i = 0; i < 100; i++)
+                for (var i = 0; i < 100; i++)
                 {
                     lst.Shuffle(new C5Random(i + 1));
                     Assert.IsTrue(lst.Check(), "Check " + i);
-                    int[] lst2 = lst.ToArray();
+                    var lst2 = lst.ToArray();
                     Sorting.IntroSort<int>(lst2);
                     Assert.IsTrue(IC.eq(lst2, 3, 5, 5, 6, 7), "Contents " + i);
                 }
@@ -1584,7 +1584,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void GetRange()
             {
                 //Assert.IsTrue(IC.eq(lst[0, 0)));
-                for (int i = 0; i < 10; i++) lst.Add(i);
+                for (var i = 0; i < 10; i++) lst.Add(i);
 
                 Assert.IsTrue(IC.eq(lst[0, 3], 0, 1, 2));
                 Assert.IsTrue(IC.eq(lst[3, 4], 3, 4, 5, 6));
@@ -1603,7 +1603,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Backwards()
             {
-                for (int i = 0; i < 10; i++) lst.Add(i);
+                for (var i = 0; i < 10; i++) lst.Add(i);
 
                 Assert.IsTrue(IC.eq(lst.Backwards(), 9, 8, 7, 6, 5, 4, 3, 2, 1, 0));
                 Assert.IsTrue(IC.eq(lst[0, 4].Backwards(), 3, 2, 1, 0));
@@ -1614,7 +1614,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void DirectionAndCount()
             {
-                for (int i = 0; i < 10; i++) lst.Add(i);
+                for (var i = 0; i < 10; i++) lst.Add(i);
 
                 Assert.AreEqual(EnumerationDirection.Forwards, lst.Direction);
                 Assert.AreEqual(EnumerationDirection.Forwards, lst[3, 7].Direction);
@@ -1628,11 +1628,11 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void MoveNextAfterUpdate()
             {
-                for (int i = 0; i < 10; i++) lst.Add(i);
+                for (var i = 0; i < 10; i++) lst.Add(i);
 
                 Assert.Throws<CollectionModifiedException>(() =>
                 {
-                    foreach (int i in lst)
+                    foreach (var i in lst)
                     {
                         lst.Add(45 + i);
                     }
@@ -1678,7 +1678,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void InsertPointer()
             {
-                IList<int> view2 = list.View(2, 0);
+                var view2 = list.View(2, 0);
                 list.Insert(view2, 7);
                 check();
                 list.Insert(list, 8);
@@ -1721,7 +1721,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Span()
             {
-                IList<int> span = list.View(1, 0).Span(list.View(2, 0));
+                var span = list.View(1, 0).Span(list.View(2, 0));
                 Assert.IsTrue(span.Check());
                 Assert.AreEqual(1, span.Offset);
                 Assert.AreEqual(1, span.Count);
@@ -1736,9 +1736,9 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void ViewOf()
             {
-                for (int i = 0; i < 4; i++)
+                for (var i = 0; i < 4; i++)
                     list.Add(i);
-                IList<int> v = view.ViewOf(2);
+                var v = view.ViewOf(2);
                 Assert.IsTrue(v.Check());
                 Assert.IsTrue(IC.eq(v, 2));
                 Assert.AreEqual(2, v.Offset);
@@ -1767,7 +1767,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void ArrayStuff()
             {
                 Assert.IsTrue(IC.eq(view.ToArray(), 1, 2));
-                int[] extarray = new int[5];
+                var extarray = new int[5];
                 view.CopyTo(extarray, 2);
                 Assert.IsTrue(IC.eq(extarray, 0, 0, 1, 2, 0));
             }
@@ -1810,7 +1810,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(IC.eq(list, 0, 8, 18, 12, 15, 3));
                 Assert.IsTrue(IC.eq(view, 8, 18, 12, 15));
 
-                LinkedList<int> lst2 = new LinkedList<int>();
+                var lst2 = new LinkedList<int>();
 
                 lst2.Add(90); lst2.Add(92);
                 view.AddAll(lst2);
@@ -1843,7 +1843,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(view.Contains(1));
                 Assert.IsFalse(view.Contains(0));
 
-                LinkedList<int> lst2 = new LinkedList<int>();
+                var lst2 = new LinkedList<int>();
 
                 lst2.Add(2);
                 Assert.IsTrue(view.ContainsAll(lst2));
@@ -1861,7 +1861,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void CreateView()
             {
-                LinkedList<int> view2 = (LinkedList<int>)view.View(1, 0);
+                var view2 = (LinkedList<int>)view.View(1, 0);
 
                 Assert.AreSame(list, view2.Underlying);
             }
@@ -1888,12 +1888,12 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void MapEtc()
             {
-                LinkedList<double> dbl = (LinkedList<double>)view.Map(new Func<int, double>(delegate(int i) { return i / 10.0; }));
+                var dbl = (LinkedList<double>)view.Map(new Func<int, double>(delegate(int i) { return i / 10.0; }));
 
                 Assert.IsTrue(dbl.Check());
                 Assert.AreEqual(0.1, dbl[0]);
                 Assert.AreEqual(0.2, dbl[1]);
-                for (int i = 0; i < 10; i++) view.Add(i);
+                for (var i = 0; i < 10; i++) view.Add(i);
 
                 list = (LinkedList<int>)view.FindAll(new Func<int, bool>(delegate(int i) { return i % 4 == 1; }));
                 Assert.IsTrue(list.Check());
@@ -1913,14 +1913,14 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Indexing()
             {
                 list.Clear();
-                for (int i = 0; i < 20; i++) list.Add(i);
+                for (var i = 0; i < 20; i++) list.Add(i);
 
                 view = (LinkedList<int>)list.View(5, 7);
-                for (int i = 0; i < 7; i++) Assert.AreEqual(i + 5, view[i]);
+                for (var i = 0; i < 7; i++) Assert.AreEqual(i + 5, view[i]);
 
-                for (int i = 0; i < 7; i++) Assert.AreEqual(i, view.IndexOf(i + 5));
+                for (var i = 0; i < 7; i++) Assert.AreEqual(i, view.IndexOf(i + 5));
 
-                for (int i = 0; i < 7; i++) Assert.AreEqual(i, view.LastIndexOf(i + 5));
+                for (var i = 0; i < 7; i++) Assert.AreEqual(i, view.LastIndexOf(i + 5));
             }
 
 
@@ -1997,7 +1997,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 view.Add(1); view.Add(5); view.Add(3); view.Add(1); view.Add(3); view.Add(0);
                 Assert.IsTrue(IC.eq(view, 2, 5, 1, 1, 5, 3, 1, 3, 0));
 
-                LinkedList<int> l2 = new LinkedList<int>();
+                var l2 = new LinkedList<int>();
 
                 l2.Add(1); l2.Add(2); l2.Add(2); l2.Add(3); l2.Add(1);
                 view.RemoveAll(l2);
@@ -2026,7 +2026,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Reverse()
             {
                 view.Clear();
-                for (int i = 0; i < 10; i++) view.Add(10 + i);
+                for (var i = 0; i < 10; i++) view.Add(10 + i);
 
                 view.View(3, 4).Reverse();
                 check();
@@ -2063,7 +2063,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             {
                 list.Clear();
                 view = null;
-                foreach (int i in new int[] { 2, 4, 8, 13, 6, 1, 2, 7 }) list.Add(i);
+                foreach (var i in new int[] { 2, 4, 8, 13, 6, 1, 2, 7 }) list.Add(i);
 
                 view = (LinkedList<int>)list.View(list.Count - 2, 2);
                 while (true)
@@ -2099,13 +2099,13 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Init()
             {
                 list = new LinkedList<int>();
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                     list.Add(i);
                 views = new IList<int>[7][];
-                for (int i = 0; i < 7; i++)
+                for (var i = 0; i < 7; i++)
                 {
                     views[i] = new IList<int>[7 - i];
-                    for (int j = 0; j < 7 - i; j++)
+                    for (var j = 0; j < 7 - i; j++)
                         views[i][j] = list.View(i, j);
                 }
             }
@@ -2121,8 +2121,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before insert");
                 list.Insert(3, 777);
                 Assert.IsTrue(list.Check(), "list check after insert");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i < 3 || (i == 3 && j == 0) ? i : i + 1, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i < 3 && i + j > 3 ? j + 1 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2134,8 +2134,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before remove");
                 list.RemoveAt(3);
                 Assert.IsTrue(list.Check(), "list check after remove");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i <= 3 ? i : i - 1, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i <= 3 && i + j > 3 ? j - 1 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2148,8 +2148,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before remove");
                 list.RemoveInterval(3, 2);
                 Assert.IsTrue(list.Check(), "list check after remove");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i <= 3 ? i : i <= 5 ? 3 : i - 2, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(j == 0 ? 0 : i <= 3 && i + j > 4 ? j - 2 : i > 4 || i + j <= 3 ? j : j - 1, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2163,8 +2163,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before insert");
                 list.InsertLast(777);
                 Assert.IsTrue(list.Check(), "list check after insert");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2176,8 +2176,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before remove");
                 list.RemoveAt(5);
                 Assert.IsTrue(list.Check(), "list check after remove");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i <= 5 ? i : i - 1, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i <= 5 && i + j > 5 ? j - 1 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2189,8 +2189,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before insert");
                 list.Insert(0, 777);
                 Assert.IsTrue(list.Check(), "list check after insert");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i == 0 && j == 0 ? 0 : i + 1, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2202,8 +2202,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before remove");
                 list.RemoveAt(0);
                 Assert.IsTrue(list.Check(), "list check after remove");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i == 0 ? i : i - 1, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i == 0 && j > 0 ? j - 1 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2215,8 +2215,8 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
                 Assert.IsTrue(list.Check(), "list check before clear");
                 views[2][3].Clear();
                 Assert.IsTrue(list.Check(), "list check after clear");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i < 2 ? i : i < 6 ? 2 : i - 3, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(s(i, j), views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2226,7 +2226,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             private int s(int i, int j)
             {
                 if (j == 0) return 0;
-                int k = i + j - 1; //end
+                var k = i + j - 1; //end
                 if (i > 4 || k <= 1) return j;
                 if (i >= 2) return k > 4 ? k - 4 : 0;
                 if (i <= 2) return k >= 4 ? j - 3 : 2 - i;
@@ -2235,13 +2235,13 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void InsertAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
-                for (int i = 0; i < 5; i++) { list2.Add(100 + i); }
+                var list2 = new LinkedList<int>();
+                for (var i = 0; i < 5; i++) { list2.Add(100 + i); }
                 Assert.IsTrue(list.Check(), "list check before insertAll");
                 list.InsertAll(3, list2);
                 Assert.IsTrue(list.Check(), "list check after insertAll");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i < 3 || (i == 3 && j == 0) ? i : i + 5, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i < 3 && i + j > 3 ? j + 5 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2251,13 +2251,13 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void AddAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
-                for (int i = 0; i < 5; i++) { list2.Add(100 + i); }
+                var list2 = new LinkedList<int>();
+                for (var i = 0; i < 5; i++) { list2.Add(100 + i); }
                 Assert.IsTrue(list.Check(), "list check before AddAll");
                 list.View(1, 2).AddAll(list2);
                 Assert.IsTrue(list.Check(), "list check after AddAll");
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         Assert.AreEqual(i < 3 || (i == 3 && j == 0) ? i : i + 5, views[i][j].Offset, "view[" + i + "][" + j + "] offset");
                         Assert.AreEqual(i < 3 && i + j > 3 ? j + 5 : j, views[i][j].Count, "view[" + i + "][" + j + "] count");
@@ -2267,16 +2267,16 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RemoveAll1()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
                 list2.Add(1); list2.Add(3); list2.Add(4);
 
-                for (int i = 0; i < 7; i++)
+                for (var i = 0; i < 7; i++)
                 {
-                    for (int j = 0; j < 7 - i; j++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         list = new LinkedList<int>();
-                        for (int k = 0; k < 6; k++) list.Add(k);
-                        LinkedList<int> v = (LinkedList<int>)list.View(i, j);
+                        for (var k = 0; k < 6; k++) list.Add(k);
+                        var v = (LinkedList<int>)list.View(i, j);
                         list.RemoveAll(list2);
                         Assert.IsTrue(list.Check(), "list check after RemoveAll, i=" + i + ", j=" + j);
                     }
@@ -2285,7 +2285,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RemoveAll2()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
                 list2.Add(1); list2.Add(3); list2.Add(4);
                 Assert.IsTrue(list.Check(), "list check before RemoveAll");
                 list.RemoveAll(list2);
@@ -2354,7 +2354,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RetainAll()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
                 list2.Add(2); list2.Add(4); list2.Add(5);
                 Assert.IsTrue(list.Check(), "list check before RetainAll");
                 list.RetainAll(list2);
@@ -2423,15 +2423,15 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void RemoveAllCopies()
             {
-                LinkedList<int> list2 = new LinkedList<int>();
+                var list2 = new LinkedList<int>();
                 list2.Add(0); list2.Add(2); list2.Add(2); list2.Add(2); list2.Add(5); list2.Add(2); list2.Add(1);
-                for (int i = 0; i < 7; i++)
+                for (var i = 0; i < 7; i++)
                 {
-                    for (int j = 0; j < 7 - i; j++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         list = new LinkedList<int>();
                         list.AddAll(list2);
-                        LinkedList<int> v = (LinkedList<int>)list.View(i, j);
+                        var v = (LinkedList<int>)list.View(i, j);
                         list.RemoveAllCopies(2);
                         Assert.AreEqual(i == 0 ? 0 : i <= 4 ? 1 : i <= 6 ? 2 : 3, v.Offset, "v.Offset, i=" + i + ", j=" + j);
                         Assert.AreEqual((i == 0 && j > 0 ? 1 : 0) + (i <= 4 && i + j > 4 ? 1 : 0) + (i <= 6 && i + j > 6 ? 1 : 0), v.Count, "v.Count, i=" + i + ", j=" + j);
@@ -2442,9 +2442,9 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
 
             private void checkDisposed(bool reverse, int start, int count)
             {
-                int k = 0;
-                for (int i = 0; i < 7; i++)
-                    for (int j = 0; j < 7 - i; j++)
+                var k = 0;
+                for (var i = 0; i < 7; i++)
+                    for (var j = 0; j < 7 - i; j++)
                     {
                         if (i + j <= start || i >= start + count || (i <= start && i + j >= start + count) || (reverse && start <= i && start + count >= i + j))
                         {
@@ -2478,7 +2478,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Reverse()
             {
                 int start = 2, count = 3;
-                IList<int> list2 = list.View(start, count);
+                var list2 = list.View(start, count);
                 Assert.IsTrue(list.Check(), "list check before Reverse");
                 list2.Reverse();
                 Assert.IsTrue(list.Check(), "list check after Reverse");
@@ -2488,7 +2488,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Sort()
             {
                 int start = 2, count = 3;
-                IList<int> list2 = list.View(start, count);
+                var list2 = list.View(start, count);
                 Assert.IsTrue(list.Check(), "list check before Sort");
                 list2.Sort();
                 Assert.IsTrue(list.Check(), "list check after Sort");
@@ -2498,7 +2498,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Shuffle()
             {
                 int start = 2, count = 3;
-                IList<int> list2 = list.View(start, count);
+                var list2 = list.View(start, count);
                 Assert.IsTrue(list.Check(), "list check before Shuffle");
                 list2.Shuffle();
                 Assert.IsTrue(list.Check(), "list check after Shuffle");
@@ -2518,7 +2518,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             public void Init()
             {
                 list = new LinkedList<int>();
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                     list.Add(i);
                 view = list.View(2, 3);
                 view.Dispose();
@@ -2651,7 +2651,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void Find()
             {
-                int i = 0;
+                var i = 0;
 
                 Assert.Throws<ViewDisposedException>(() => view.Find(ref i));
             }
@@ -2665,7 +2665,7 @@ namespace HSNXT.C5UnitTests.linkedlists.plain
             [Test]
             public void FindOrAdd()
             {
-                int i = 0;
+                var i = 0;
 
                 Assert.Throws<ViewDisposedException>(() => view.FindOrAdd(ref i));
             }

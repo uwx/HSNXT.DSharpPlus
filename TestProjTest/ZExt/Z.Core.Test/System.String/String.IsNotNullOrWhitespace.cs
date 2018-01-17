@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -18,10 +18,10 @@ namespace HSNXT.Z.Core.Test
             string @thisNull = null;
 
             // Examples
-            bool value1 = "  Z".IsNotNullOrWhiteSpace(); // return true;
-            bool value2 = @thisNull.IsNotNullOrWhiteSpace(); // return false;
-            bool value3 = "".IsNotNullOrWhiteSpace(); // return false;
-            bool value4 = "   ".IsNotNullOrWhiteSpace(); // return false;
+            var value1 = "  Z".IsNotNullOrWhiteSpace(); // return true;
+            var value2 = @thisNull.IsNotNullOrWhiteSpace(); // return false;
+            var value3 = "".IsNotNullOrWhiteSpace(); // return false;
+            var value4 = "   ".IsNotNullOrWhiteSpace(); // return false;
 
             // Unit Test
             Assert.IsTrue(value1);

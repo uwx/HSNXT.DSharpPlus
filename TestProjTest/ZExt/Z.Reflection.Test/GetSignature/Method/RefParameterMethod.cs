@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.Reflection.Test
             var @this = typeof(MethodModel<>).GetMethod("RefParameterMethod", BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
             // Exemples
-            string result = @this.GetSignature();
+            var result = @this.GetSignature();
 
             // Unit Test
             Assert.AreEqual("RefParameterMethod(ref int)", result);

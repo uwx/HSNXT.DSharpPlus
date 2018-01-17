@@ -29,7 +29,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         [Fact]
         public void TruePredicateReturnsFunctionResult()
         {
-            string input = "Hello World";
+            var input = "Hello World";
 
             Func<string, string> function = ReturnsNewValue;
             var result = input.When(AlwaysTrue, function);
@@ -48,7 +48,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         [Fact]
         public void FalsePredicateReturnsInputValue()
         {
-            string input = "Hello World";
+            var input = "Hello World";
 
             Func<string,string> function = ReturnsNewValue;
             var result = input.When(AlwaysFalse, function);
@@ -95,7 +95,7 @@ namespace BCLExtensions.Tests.GenericExtensions
         private bool TestFunctionExecution(Func<string, bool> predicate)
         {
             var executed = false;
-            string input = "Hello World";
+            var input = "Hello World";
 
             input.When(predicate, s =>
             {

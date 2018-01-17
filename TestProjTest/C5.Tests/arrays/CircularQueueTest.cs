@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -80,7 +80,7 @@ namespace HSNXT.C5UnitTests.arrays.circularqueue
         public void Format()
         {
             Assert.AreEqual("{  }", coll.ToString());
-            foreach (int i in new int[] { -4, 28, 129, 65530 })
+            foreach (var i in new int[] { -4, 28, 129, 65530 })
                 coll.Enqueue(i);
             Assert.AreEqual("{ -4, 28, 129, 65530 }", coll.ToString());
             Assert.AreEqual("{ -4, 1C, 81, FFFA }", coll.ToString(null, rad16));
@@ -114,7 +114,7 @@ namespace HSNXT.C5UnitTests.arrays.circularqueue
         void loadup2()
         {
             loadup1();
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 queue.Dequeue();
                 queue.Enqueue(1000 + i);
@@ -123,12 +123,12 @@ namespace HSNXT.C5UnitTests.arrays.circularqueue
 
         void loadup3()
         {
-            for (int i = 0; i < 18; i++)
+            for (var i = 0; i < 18; i++)
             {
                 queue.Enqueue(i);
                 Assert.IsTrue(queue.Check());
             }
-            for (int i = 0; i < 14; i++)
+            for (var i = 0; i < 14; i++)
             {
                 Assert.IsTrue(queue.Check());
                 queue.Dequeue();
@@ -208,13 +208,13 @@ namespace HSNXT.C5UnitTests.arrays.circularqueue
         [Test]
         public void SW200602()
         {
-            C5.CircularQueue<int> list = new C5.CircularQueue<int>(8);
-            for (int count = 0; count <= 7; count++)
+            var list = new C5.CircularQueue<int>(8);
+            for (var count = 0; count <= 7; count++)
             {
                 list.Enqueue(count);
             }
-            int end = list.Count;
-            for (int index = 0; index < end; index++)
+            var end = list.Count;
+            for (var index = 0; index < end; index++)
             {
                 Assert.AreEqual(index, list[0]);
                 list.Dequeue();

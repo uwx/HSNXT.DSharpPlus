@@ -17,10 +17,10 @@ namespace HSNXT.Z.Reflection.Test
         public void GetSignature()
         {
             // Type
-            ConstructorInfo @this = typeof(PrivateConstructorModel).GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)[0];
+            var @this = typeof(PrivateConstructorModel).GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)[0];
 
             // Exemples
-            string result = @this.GetSignature();
+            var result = @this.GetSignature();
 
             // Unit Test
             Assert.AreEqual("PrivateConstructorModel()", result);

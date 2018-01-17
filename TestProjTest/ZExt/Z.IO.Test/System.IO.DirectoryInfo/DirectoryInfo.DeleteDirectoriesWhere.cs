@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -25,7 +25,7 @@ namespace HSNXT.Z.IO.Test
 
             // Exemples
             root.DeleteDirectoriesWhere(x => x.Name.StartsWith("DirFizz"));
-            int result = root.GetDirectories().Length;
+            var result = root.GetDirectories().Length;
 
             // Unit Test
             Assert.AreEqual(2, result);

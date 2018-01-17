@@ -11,7 +11,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void IsNotMultiplePages()
         {
-            Pager pager = new Pager(1, 1);
+            var pager = new Pager(1, 1);
             Assert.IsFalse(pager.IsMultiplePages);
             CheckNavigation(pager, false, false, false, false);
             CheckPages(pager, 1, 1, 1, 1, 1);
@@ -21,7 +21,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void IsMultiplePages()
         {
-            Pager pager = new Pager(1, 4);
+            var pager = new Pager(1, 4);
             Assert.IsTrue(pager.IsMultiplePages);
             CheckNavigation(pager, false, false, false, false);
             CheckPages(pager, 1, 1, 1, 4, 2);
@@ -31,7 +31,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanMoveToNextPage_SingleRange()
         {
-            Pager pager = new Pager(1, 4);
+            var pager = new Pager(1, 4);
             CheckPages(pager, 1, 1, 1, 4, 2);
             CheckNavigation(pager, false, false, false, false);
 
@@ -44,7 +44,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanMoveToNextPage_ManyRanges()
         {
-            Pager pager = new Pager(1, 18, new PagerSettings() { NumberPagesToDisplay = 5 });
+            var pager = new Pager(1, 18, new PagerSettings() { NumberPagesToDisplay = 5 });
             CheckPages(pager, 1, 1, 1, 5, 2);
             CheckNavigation(pager, false, false, true, true);
 
@@ -57,7 +57,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanMoveToNextRange_2Ranges()
         {
-            Pager pager = new Pager(1, 10, new PagerSettings() { NumberPagesToDisplay = 5 });
+            var pager = new Pager(1, 10, new PagerSettings() { NumberPagesToDisplay = 5 });
             CheckPages(pager, 1, 1, 1, 5, 2);
             CheckNavigation(pager, false, false, true, true);
 
@@ -77,7 +77,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanMoveTo2ndRange_3Ranges()
         {
-            Pager pager = new Pager(1, 15, new PagerSettings() { NumberPagesToDisplay = 5 });
+            var pager = new Pager(1, 15, new PagerSettings() { NumberPagesToDisplay = 5 });
             CheckPages(pager, 1, 1, 1, 5, 2);
             CheckNavigation(pager, false, false, true, true);
 
@@ -97,7 +97,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanMoveTo3rdRange_3Ranges()
         {
-            Pager pager = new Pager(1, 13, new PagerSettings() { NumberPagesToDisplay = 5 });
+            var pager = new Pager(1, 13, new PagerSettings() { NumberPagesToDisplay = 5 });
             CheckPages(pager, 1, 1, 1, 5, 2);
             CheckNavigation(pager, false, false, true, true);
 

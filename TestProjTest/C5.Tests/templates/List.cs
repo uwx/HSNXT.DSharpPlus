@@ -29,7 +29,7 @@ namespace HSNXT.C5UnitTests.Templates.List
     {
         public static void Tester<U>() where U : class, IList<int>, new()
         {
-            U extensible = new U();
+            var extensible = new U();
             extensible.Dispose();
         }
     }

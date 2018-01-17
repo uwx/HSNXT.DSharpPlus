@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,7 +18,7 @@ namespace HSNXT.Z.Serialization.Test
         {
             // Type
             var @this = new Dictionary<string, string> {{"Fizz", "Buzz"}};
-            string s = @this.SerializeBinary();
+            var s = @this.SerializeBinary();
 
             // Examples
             var value = s.DeserializeBinary<Dictionary<string, string>>(); // return new Dictionary<string, string> {{"Fizz", "Buzz"}};
@@ -32,7 +32,7 @@ namespace HSNXT.Z.Serialization.Test
             product.Sizes = new[] {"Small"};
 
             // Serialize
-            string resultProduct = product.SerializeBinary();
+            var resultProduct = product.SerializeBinary();
 
             // Deserialize
             var product2 = resultProduct.DeserializeBinary<Product>();

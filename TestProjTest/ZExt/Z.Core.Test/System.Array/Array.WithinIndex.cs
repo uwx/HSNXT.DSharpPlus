@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,8 +19,8 @@ namespace HSNXT.Z.Core.Test
             Array @this = new[] {"Fizz", "Buzz"};
 
             // Exemples
-            bool result1 = @this.WithinIndex(1); // return true;
-            bool result2 = @this.WithinIndex(2); // return false;
+            var result1 = @this.WithinIndex(1); // return true;
+            var result2 = @this.WithinIndex(2); // return false;
 
             // Unit Test
             Assert.IsTrue(result1);

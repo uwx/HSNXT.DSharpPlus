@@ -15,10 +15,10 @@ namespace HSNXT.Z.Core.Test
         public void EncryptRSA()
         {
             // Type
-            string @this = "Fizz";
+            var @this = "Fizz";
 
             // Examples
-            string value = @this.EncryptRsa("Buzz"); // return Encrypted string;
+            var value = @this.EncryptRsa("Buzz"); // return Encrypted string;
 
             // Unit Test
             Assert.AreEqual("Fizz", value.DecryptRsa("Buzz"));

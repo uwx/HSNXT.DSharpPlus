@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -24,7 +24,7 @@ namespace HSNXT.Z.Data.Test
             @this.Rows.Add("Buzz");
 
             // Exemples
-            DataRow result = @this.FirstRow(); // return @this.Rows[0];
+            var result = @this.FirstRow(); // return @this.Rows[0];
 
             // Unit Test
             Assert.AreEqual("Fizz", result["UnitTest"]);

@@ -22,9 +22,9 @@ namespace HSNXT.Z.Core.Test
             string actionOutput2 = null;
 
             // Exemples
-            string result1 = values.IfNotNull(x => x.First(), "FizzBuzz"); // return "Fizz";
-            string result2 = valuesNull.IfNotNull(x => x.First(), "FizzBuzz"); // return "FizzBuzz";
-            string result3 = valuesNull.IfNotNull(x => x.First(), () => "FizzBuzz"); // return "FizzBuzz"
+            var result1 = values.IfNotNull(x => x.First(), "FizzBuzz"); // return "Fizz";
+            var result2 = valuesNull.IfNotNull(x => x.First(), "FizzBuzz"); // return "FizzBuzz";
+            var result3 = valuesNull.IfNotNull(x => x.First(), () => "FizzBuzz"); // return "FizzBuzz"
 
             values.IfNotNull(x => actionOutput1 = string.Join("", values)); // = "FizzBuzz"
             valuesNull.IfNotNull(x => actionOutput2 = string.Join("", values)); // Do Nothing

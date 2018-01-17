@@ -7,7 +7,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithEmptyInputStringReturnsNull()
         {
-            string input = "";
+            var input = "";
             var result = input.ValueOrNullIfWhitespace();
             Assert.Null(result);
         }
@@ -23,7 +23,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithNewLineInputStringReturnsNull()
         {
-            string input = "\n";
+            var input = "\n";
             var result = input.ValueOrNullIfWhitespace();
             Assert.Null(result);
         }
@@ -31,7 +31,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithEmptySpacesInputStringReturnsNull()
         {
-            string input = "   ";
+            var input = "   ";
             var result = input.ValueOrNullIfWhitespace();
             Assert.Null(result);
         }
@@ -39,7 +39,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithNonEmptyInputStringReturnsOriginalString()
         {
-            string input = "The quick brown fox jumps over the lazy dog.";
+            var input = "The quick brown fox jumps over the lazy dog.";
             var result = input.ValueOrNullIfWhitespace();
             Assert.Equal(input, result);
         }

@@ -19,7 +19,7 @@ namespace ExtensionOverflowTests
 		[TestMethod]
 		public void Elapset15min()
 		{
-            DateTime datetime = DateTime.Now.AddMinutes(-15);
+            var datetime = DateTime.Now.AddMinutes(-15);
 			Assert.AreEqual(15, datetime.Elapsed().Minutes);
 		}
 
@@ -38,8 +38,8 @@ namespace ExtensionOverflowTests
         [TestMethod]
         public void FirstDateOfWeek()
         {
-            DateTime date = new DateTime(2008, 11, 27);
-            DateTime result = new DateTime(2008, 11, 24);
+            var date = new DateTime(2008, 11, 27);
+            var result = new DateTime(2008, 11, 24);
             Assert.AreEqual(result, date.FirstDateTimeOfWeek(DayOfWeek.Monday));
             Assert.AreEqual(result, result.FirstDateTimeOfWeek(DayOfWeek.Monday));
             date = new DateTime(2008, 11, 30);
@@ -50,8 +50,8 @@ namespace ExtensionOverflowTests
         [TestMethod]
         public void GetDateOfWeekFromDay()
         {
-            DateTime date = new DateTime(2008, 11, 27);
-            DateTime result = new DateTime(2008, 11, 25);
+            var date = new DateTime(2008, 11, 27);
+            var result = new DateTime(2008, 11, 25);
             Assert.AreEqual(result, date.GetDateTimeForDayOfWeek(DayOfWeek.Tuesday, DayOfWeek.Monday ));
             Assert.AreEqual(result, date.GetDateTimeForDayOfWeek(DayOfWeek.Tuesday, DayOfWeek.Sunday));
             date = new DateTime(2008, 11, 19);

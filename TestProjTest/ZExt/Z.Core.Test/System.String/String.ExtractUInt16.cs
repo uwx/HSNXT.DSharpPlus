@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,11 +18,11 @@ namespace HSNXT.Z.Core.Test
             // Type
 
             // Exemples
-            ushort result1 = "Fizz 123 Buzz".ExtractUInt16(); // return 123;
-            ushort result2 = "Fizz -123 Buzz".ExtractUInt16(); // return 123;
-            ushort result3 = "-Fizz 123 Buzz".ExtractUInt16(); // return 123;
-            ushort result4 = "Fizz 123.4 Buzz".ExtractUInt16(); // return 1234;
-            ushort result5 = "Fizz -123Fizz.Buzz4 Buzz".ExtractUInt16(); // return 1234;
+            var result1 = "Fizz 123 Buzz".ExtractUInt16(); // return 123;
+            var result2 = "Fizz -123 Buzz".ExtractUInt16(); // return 123;
+            var result3 = "-Fizz 123 Buzz".ExtractUInt16(); // return 123;
+            var result4 = "Fizz 123.4 Buzz".ExtractUInt16(); // return 1234;
+            var result5 = "Fizz -123Fizz.Buzz4 Buzz".ExtractUInt16(); // return 1234;
 
             // Unit Test
             Assert.AreEqual((UInt16) 123, result1);

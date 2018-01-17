@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -116,7 +116,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void Apply()
             {
-                int sum = 0;
+                var sum = 0;
                 Action<int> a = delegate (int i) { sum = i + 10 * sum; };
 
                 list.Apply(a);
@@ -157,7 +157,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void Empty()
             {
-                SCG.IEnumerator<int> e = hashset.GetEnumerator();
+                var e = hashset.GetEnumerator();
 
                 Assert.IsFalse(e.MoveNext());
             }
@@ -186,7 +186,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
                 hashset.Add(8);
                 hashset.Add(5);
 
-                SCG.IEnumerator<int> e = hashset.GetEnumerator();
+                var e = hashset.GetEnumerator();
 
                 e.MoveNext();
                 e.MoveNext();
@@ -201,7 +201,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
                 hashset.Add(8);
                 hashset.Add(5);
 
-                SCG.IEnumerator<int> e = hashset.GetEnumerator();
+                var e = hashset.GetEnumerator();
 
                 e.MoveNext();
                 hashset.Add(99);
@@ -311,7 +311,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             {
                 hashset.Add(3); hashset.Add(4); hashset.Add(5);
 
-                HashSet<int> hashset2 = new HashSet<int>();
+                var hashset2 = new HashSet<int>();
 
                 hashset2.AddAll(hashset);
                 Assert.IsTrue(IC.seteq(hashset2, 3, 4, 5));
@@ -417,7 +417,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
                 Debug.UseDeterministicHashing = true;
 				hashset = new HashSet<int>(MemoryType);
                 a = new int[10];
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     a[i] = 1000 + i;
             }
 
@@ -435,7 +435,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
                 if (a.Length != b.Length)
                     return "Lengths differ: " + a.Length + " != " + b.Length;
 
-                for (int i = 0; i < a.Length; i++)
+                for (var i = 0; i < a.Length; i++)
                     if (a[i] != b[i])
                         return string.Format("{0}'th elements differ: {1} != {2}", i, a[i], b[i]);
 
@@ -451,7 +451,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
                 hashset.Add(3);
                 hashset.Add(10);
 
-                int[] r = hashset.ToArray();
+                var r = hashset.ToArray();
 
                 Array.Sort(r);
                 Assert.AreEqual("Alles klar", aeq(r, 3, 7, 10));
@@ -631,10 +631,10 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void Many()
             {
-                int j = 7373;
-                int[] a = new int[j];
+                var j = 7373;
+                var a = new int[j];
 
-                for (int i = 0; i < j; i++)
+                for (var i = 0; i < j; i++)
                 {
                     hashset.Add(3 * i + 1);
                     a[i] = 3 * i + 1;
@@ -680,7 +680,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void ContainsAll()
             {
-                HashSet<int> list2 = new HashSet<int>(MemoryType);
+                var list2 = new HashSet<int>(MemoryType);
 
                 Assert.IsTrue(hashset.ContainsAll(list2));
                 list2.Add(4);
@@ -699,7 +699,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void RetainAll()
             {
-                HashSet<int> list2 = new HashSet<int>();
+                var list2 = new HashSet<int>();
 
                 hashset.Add(4); hashset.Add(5); hashset.Add(6);
                 list2.Add(5); list2.Add(4); list2.Add(7);
@@ -717,34 +717,34 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void RetainAll2()
             {
-                int LARGE_ARRAY_SIZE = 30;
-                int LARGE_ARRAY_MID = 15;
-                string[] _largeArrayOne = new string[LARGE_ARRAY_SIZE];
-                string[] _largeArrayTwo = new string[LARGE_ARRAY_SIZE];
-                for (int i = 0; i < LARGE_ARRAY_SIZE; i++)
+                var LARGE_ARRAY_SIZE = 30;
+                var LARGE_ARRAY_MID = 15;
+                var _largeArrayOne = new string[LARGE_ARRAY_SIZE];
+                var _largeArrayTwo = new string[LARGE_ARRAY_SIZE];
+                for (var i = 0; i < LARGE_ARRAY_SIZE; i++)
                 {
                     _largeArrayOne[i] = "" + i;
                     _largeArrayTwo[i] = "" + (i + LARGE_ARRAY_MID);
                 }
 
-                HashSet<string> setOne = new HashSet<string>();
+                var setOne = new HashSet<string>();
                 setOne.AddAll(_largeArrayOne);
 
-                HashSet<string> setTwo = new HashSet<string>();
+                var setTwo = new HashSet<string>();
                 setTwo.AddAll(_largeArrayTwo);
 
                 setOne.RetainAll(setTwo);
 
                 Assert.IsTrue(setOne.Check(), "setOne check fails");
 
-                for (int i = LARGE_ARRAY_MID; i < LARGE_ARRAY_SIZE; i++)
+                for (var i = LARGE_ARRAY_MID; i < LARGE_ARRAY_SIZE; i++)
                     Assert.IsTrue(setOne.Contains(_largeArrayOne[i]), "missing " + i);
             }
 
             [Test]
             public void RemoveAll()
             {
-                HashSet<int> list2 = new HashSet<int>();
+                var list2 = new HashSet<int>();
 
                 hashset.Add(4); hashset.Add(5); hashset.Add(6);
                 list2.Add(5); list2.Add(7); list2.Add(4);
@@ -817,7 +817,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             public void Init()
             {
                 lst = new HashSet<KeyValuePair<int, int>>(new KeyValuePairEqualityComparer<int, int>(), MemoryType);
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     lst.Add(new KeyValuePair<int, int>(i, i + 30));
             }
 
@@ -829,7 +829,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void Find()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
 
                 Assert.IsTrue(lst.Find(ref p));
                 Assert.AreEqual(3, p.Key);
@@ -842,8 +842,8 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void FindOrAdd()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-                KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+                var p = new KeyValuePair<int, int>(3, 78);
+                var q = new KeyValuePair<int, int>();
 
                 Assert.IsTrue(lst.FindOrAdd(ref p));
                 Assert.AreEqual(3, p.Key);
@@ -860,8 +860,8 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void Update()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-                KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+                var p = new KeyValuePair<int, int>(3, 78);
+                var q = new KeyValuePair<int, int>();
 
                 Assert.IsTrue(lst.Update(p));
                 q.Key = 3;
@@ -876,8 +876,8 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void UpdateOrAdd1()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-                KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+                var p = new KeyValuePair<int, int>(3, 78);
+                var q = new KeyValuePair<int, int>();
 
                 Assert.IsTrue(lst.UpdateOrAdd(p));
                 q.Key = 3;
@@ -908,7 +908,7 @@ namespace HSNXT.C5UnitTests.hashtable.set
             [Test]
             public void RemoveWithReturn()
             {
-                KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+                var p = new KeyValuePair<int, int>(3, 78);
                 //KeyValuePair<int,int> q = new KeyValuePair<int,int>();
 
                 Assert.IsTrue(lst.Remove(p, out p));

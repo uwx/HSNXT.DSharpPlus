@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,10 +16,10 @@ namespace HSNXT.Z.Core.Test
         public void ToMemoryStream()
         {
             // Type
-            string @this = "FizzBuzz";
+            var @this = "FizzBuzz";
 
             // Examples
-            using (Stream value = @this.ToMemoryStream()) // return a MemoryStream from the text
+            using (var value = @this.ToMemoryStream()) // return a MemoryStream from the text
             {
                 // Unit Test
                 Assert.IsNotNull(value);

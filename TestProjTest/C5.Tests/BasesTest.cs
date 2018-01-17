@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -57,7 +57,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void Check()
             {
-                ABT abt = new ABT(MemoryType);
+                var abt = new ABT(MemoryType);
 
                 abt.thesize = 3;
                 abt[2] = "aaa";
@@ -91,9 +91,9 @@ namespace HSNXT.C5UnitTests.support
             public void GenericC()
             {
                 SCG.IComparer<dbl> h = SCG.Comparer<dbl>.Default;
-                dbl s = new dbl(3.4);
-                dbl t = new dbl(3.4);
-                dbl u = new dbl(7.4);
+                var s = new dbl(3.4);
+                var t = new dbl(3.4);
+                var u = new dbl(7.4);
 
                 Assert.AreEqual(0, h.Compare(s, t));
                 Assert.IsTrue(h.Compare(s, u) < 0);
@@ -104,9 +104,9 @@ namespace HSNXT.C5UnitTests.support
             public void OrdinaryC()
             {
                 SCG.IComparer<string> h = SCG.Comparer<string>.Default;
-                string s = "bamse";
-                string t = "bamse";
-                string u = "bimse";
+                var s = "bamse";
+                var t = "bamse";
+                var u = "bimse";
 
                 Assert.AreEqual(0, h.Compare(s, t));
                 Assert.IsTrue(h.Compare(s, u) < 0);
@@ -117,9 +117,9 @@ namespace HSNXT.C5UnitTests.support
             public void GenericCViaBuilder()
             {
                 SCG.IComparer<dbl> h = SCG.Comparer<dbl>.Default;
-                dbl s = new dbl(3.4);
-                dbl t = new dbl(3.4);
-                dbl u = new dbl(7.4);
+                var s = new dbl(3.4);
+                var t = new dbl(3.4);
+                var u = new dbl(7.4);
 
                 Assert.AreEqual(0, h.Compare(s, t));
                 Assert.IsTrue(h.Compare(s, u) < 0);
@@ -131,9 +131,9 @@ namespace HSNXT.C5UnitTests.support
             public void OrdinaryCViaBuilder()
             {
                 SCG.IComparer<string> h = SCG.Comparer<string>.Default;
-                string s = "bamse";
-                string t = "bamse";
-                string u = "bimse";
+                var s = "bamse";
+                var t = "bamse";
+                var u = "bimse";
 
                 Assert.AreEqual(0, h.Compare(s, t));
                 Assert.IsTrue(h.Compare(s, u) < 0);
@@ -176,9 +176,9 @@ namespace HSNXT.C5UnitTests.support
             public void IntComparerViaBuilder()
             {
                 SCG.IComparer<int> h = SCG.Comparer<int>.Default;
-                int s = 4;
-                int t = 4;
-                int u = 5;
+                var s = 4;
+                var t = 4;
+                var u = 5;
 
                 Assert.AreEqual(0, h.Compare(s, t));
                 Assert.IsTrue(h.Compare(s, u) < 0);
@@ -200,10 +200,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ReftypeequalityComparer()
             {
-                SCG.IEqualityComparer<string> h = C5.EqualityComparer<string>.Default;
-                string s = "bamse";
-                string t = "bamse";
-                string u = "bimse";
+                var h = C5.EqualityComparer<string>.Default;
+                var s = "bamse";
+                var t = "bamse";
+                var u = "bimse";
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -214,10 +214,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ValuetypeequalityComparer()
             {
-                SCG.IEqualityComparer<double> h = C5.EqualityComparer<double>.Default;
-                double s = 3.4;
-                double t = 3.4;
-                double u = 5.7;
+                var h = C5.EqualityComparer<double>.Default;
+                var s = 3.4;
+                var t = 3.4;
+                var u = 5.7;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -227,10 +227,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ReftypeequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<string> h = C5.EqualityComparer<string>.Default;
-                string s = "bamse";
-                string t = "bamse";
-                string u = "bimse";
+                var h = C5.EqualityComparer<string>.Default;
+                var s = "bamse";
+                var t = "bamse";
+                var u = "bimse";
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -242,10 +242,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ValuetypeequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<double> h = C5.EqualityComparer<double>.Default;
-                double s = 3.4;
-                double t = 3.4;
-                double u = 5.7;
+                var h = C5.EqualityComparer<double>.Default;
+                var s = 3.4;
+                var t = 3.4;
+                var u = 5.7;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -256,10 +256,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void CharequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<char> h = C5.EqualityComparer<char>.Default;
-                char s = 'å';
-                char t = 'å';
-                char u = 'r';
+                var h = C5.EqualityComparer<char>.Default;
+                var s = 'Ã¥';
+                var t = 'Ã¥';
+                var u = 'r';
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -270,7 +270,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void SbyteequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<sbyte> h = C5.EqualityComparer<sbyte>.Default;
+                var h = C5.EqualityComparer<sbyte>.Default;
                 sbyte s = 3;
                 sbyte t = 3;
                 sbyte u = -5;
@@ -284,7 +284,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ByteequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<byte> h = C5.EqualityComparer<byte>.Default;
+                var h = C5.EqualityComparer<byte>.Default;
                 byte s = 3;
                 byte t = 3;
                 byte u = 5;
@@ -298,7 +298,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void ShortequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<short> h = C5.EqualityComparer<short>.Default;
+                var h = C5.EqualityComparer<short>.Default;
                 short s = 3;
                 short t = 3;
                 short u = -5;
@@ -312,7 +312,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UshortequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<ushort> h = C5.EqualityComparer<ushort>.Default;
+                var h = C5.EqualityComparer<ushort>.Default;
                 ushort s = 3;
                 ushort t = 3;
                 ushort u = 60000;
@@ -326,10 +326,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void IntequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<int> h = C5.EqualityComparer<int>.Default;
-                int s = 3;
-                int t = 3;
-                int u = -5;
+                var h = C5.EqualityComparer<int>.Default;
+                var s = 3;
+                var t = 3;
+                var u = -5;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -340,10 +340,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UintequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<uint> h = C5.EqualityComparer<uint>.Default;
+                var h = C5.EqualityComparer<uint>.Default;
                 uint s = 3;
                 uint t = 3;
-                uint u = 3000000000;
+                var u = 3000000000;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -354,10 +354,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void LongequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<long> h = C5.EqualityComparer<long>.Default;
+                var h = C5.EqualityComparer<long>.Default;
                 long s = 3;
                 long t = 3;
-                long u = -500000000000000L;
+                var u = -500000000000000L;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -368,10 +368,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UlongequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<ulong> h = C5.EqualityComparer<ulong>.Default;
+                var h = C5.EqualityComparer<ulong>.Default;
                 ulong s = 3;
                 ulong t = 3;
-                ulong u = 500000000000000UL;
+                var u = 500000000000000UL;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -382,10 +382,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void FloatequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<float> h = C5.EqualityComparer<float>.Default;
-                float s = 3.1F;
-                float t = 3.1F;
-                float u = -5.2F;
+                var h = C5.EqualityComparer<float>.Default;
+                var s = 3.1F;
+                var t = 3.1F;
+                var u = -5.2F;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -396,10 +396,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void DoubleequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<double> h = C5.EqualityComparer<double>.Default;
-                double s = 3.12345;
-                double t = 3.12345;
-                double u = -5.2;
+                var h = C5.EqualityComparer<double>.Default;
+                var s = 3.12345;
+                var t = 3.12345;
+                var u = -5.2;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -410,10 +410,10 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void DecimalequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<decimal> h = C5.EqualityComparer<decimal>.Default;
-                decimal s = 3.0001M;
-                decimal t = 3.0001M;
-                decimal u = -500000000000000M;
+                var h = C5.EqualityComparer<decimal>.Default;
+                var s = 3.0001M;
+                var t = 3.0001M;
+                var u = -500000000000000M;
 
                 Assert.AreEqual(s.GetHashCode(), h.GetHashCode(s));
                 Assert.IsTrue(h.Equals(s, t));
@@ -424,7 +424,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UnseqequalityComparerViaBuilder()
             {
-                SCG.IEqualityComparer<C5.ICollection<int>> h = C5.EqualityComparer<C5.ICollection<int>>.Default;
+                var h = C5.EqualityComparer<C5.ICollection<int>>.Default;
                 C5.ICollection<int> s = new LinkedList<int>();
                 C5.ICollection<int> t = new LinkedList<int>();
                 C5.ICollection<int> u = new LinkedList<int>();
@@ -440,8 +440,8 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void SeqequalityComparerViaBuilder2()
             {
-                SCG.IEqualityComparer<LinkedList<int>> h = C5.EqualityComparer<LinkedList<int>>.Default;
-                LinkedList<int> s = new LinkedList<int>();
+                var h = C5.EqualityComparer<LinkedList<int>>.Default;
+                var s = new LinkedList<int>();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.sequencedhashcode(1, 2, 3), h.GetHashCode(s));
             }
@@ -449,8 +449,8 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UnseqequalityComparerViaBuilder2()
             {
-                SCG.IEqualityComparer<C5.HashSet<int>> h = C5.EqualityComparer<C5.HashSet<int>>.Default;
-                C5.HashSet<int> s = new C5.HashSet<int>();
+                var h = C5.EqualityComparer<C5.HashSet<int>>.Default;
+                var s = new C5.HashSet<int>();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.unsequencedhashcode(1, 2, 3), h.GetHashCode(s));
             }
@@ -459,7 +459,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void SeqequalityComparerViaBuilder3()
             {
-                SCG.IEqualityComparer<C5.IList<int>> h = C5.EqualityComparer<C5.IList<int>>.Default;
+                var h = C5.EqualityComparer<C5.IList<int>>.Default;
                 C5.IList<int> s = new LinkedList<int>();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.sequencedhashcode(1, 2, 3), h.GetHashCode(s));
@@ -476,7 +476,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UnseqequalityComparerViaBuilder3()
             {
-                SCG.IEqualityComparer<IFoo<int>> h = C5.EqualityComparer<IFoo<int>>.Default;
+                var h = C5.EqualityComparer<IFoo<int>>.Default;
                 IFoo<int> s = new Foo<int>();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.unsequencedhashcode(1, 2, 3), h.GetHashCode(s));
@@ -496,7 +496,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void SeqequalityComparerViaBuilder4()
             {
-                SCG.IEqualityComparer<IBaz> h = C5.EqualityComparer<IBaz>.Default;
+                var h = C5.EqualityComparer<IBaz>.Default;
                 IBaz s = new Baz();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.sequencedhashcode(1, 2, 3), h.GetHashCode(s));
@@ -539,7 +539,7 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void UnseqequalityComparerViaBuilder4()
             {
-                SCG.IEqualityComparer<IBar> h = C5.EqualityComparer<IBar>.Default;
+                var h = C5.EqualityComparer<IBar>.Default;
                 IBar s = new Bar();
                 s.Add(1); s.Add(2); s.Add(3);
                 Assert.AreEqual(CHC.unsequencedhashcode(1, 2, 3), h.GetHashCode(s));
@@ -548,8 +548,8 @@ namespace HSNXT.C5UnitTests.support
             [Test]
             public void StaticEqualityComparerWithNull()
             {
-                ArrayList<double> arr = new ArrayList<double>();
-                SCG.IEqualityComparer<double> eqc = C5.EqualityComparer<double>.Default;
+                var arr = new ArrayList<double>();
+                var eqc = C5.EqualityComparer<double>.Default;
                 Assert.IsTrue(CollectionBase<double>.StaticEquals(arr, arr, eqc));
                 Assert.IsTrue(CollectionBase<double>.StaticEquals(null, null, eqc));
                 Assert.IsFalse(CollectionBase<double>.StaticEquals(arr, null, eqc));

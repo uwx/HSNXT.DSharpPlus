@@ -35,9 +35,9 @@ namespace HSNXT.Tests
         public void Verify_inserts(string[] items)
         {
             var collection = new OrderedCollection<string>();
-            for (int i = 0; i < items.Length; i++)
+            for (var i = 0; i < items.Length; i++)
             {
-                string item = items[i];
+                var item = items[i];
                 collection.Add(item);
                 Assert.Equal(i + 1, collection.Count);
                 AssertCollection(collection, (x, y) => string.CompareOrdinal(x, y) <= 0);
@@ -49,9 +49,9 @@ namespace HSNXT.Tests
         public void Verify_inserts_reverse(string[] items)
         {
             var collection = new OrderedCollection<string>(new OrderedCollectionOptions(false, true));
-            for (int i = 0; i < items.Length; i++)
+            for (var i = 0; i < items.Length; i++)
             {
-                string item = items[i];
+                var item = items[i];
                 collection.Add(item);
                 Assert.Equal(i + 1, collection.Count);
                 AssertCollection(collection, (x, y) => string.CompareOrdinal(x, y) >= 0);
@@ -60,7 +60,7 @@ namespace HSNXT.Tests
 
         private static void AssertCollection(OrderedCollection<string> collection, Func<string, string, bool> compareLogic)
         {
-            for (int i = 0; i < collection.Count - 1; i++)
+            for (var i = 0; i < collection.Count - 1; i++)
                 Assert.True(compareLogic(collection[i], collection[i + 1]));
         }
 

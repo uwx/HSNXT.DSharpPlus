@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.Core.Test
             var @this = new DateTime(2014, 04, 16);
 
             // Exemples
-            DateTime result = @this.FirstDayOfWeek(); // result = "2013/04/13";
+            var result = @this.FirstDayOfWeek(); // result = "2013/04/13";
 
             // Unit Test
             Assert.AreEqual(new DateTime(2014, 04, 13), result);

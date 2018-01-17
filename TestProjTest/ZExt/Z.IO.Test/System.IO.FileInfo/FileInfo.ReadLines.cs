@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,14 +23,14 @@ namespace HSNXT.Z.IO.Test
             var @this = new FileInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Examples_System_IO_FileInfo_ReadLines.txt"));
 
             // Intialization
-            using (FileStream stream = @this.Create())
+            using (var stream = @this.Create())
             {
-                byte[] byteToWrites = Encoding.Default.GetBytes("Fizz" + Environment.NewLine + "Buzz");
+                var byteToWrites = Encoding.Default.GetBytes("Fizz" + Environment.NewLine + "Buzz");
                 stream.Write(byteToWrites, 0, byteToWrites.Length);
             }
 
             // Examples
-            List<string> result = @this.ReadLines().ToList(); // return new [] {"Fizz", "Buzz"};
+            var result = @this.ReadLines().ToList(); // return new [] {"Fizz", "Buzz"};
 
             // Unit Test
             Assert.AreEqual("Fizz", result[0]);

@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Compression.Test
@@ -15,10 +15,10 @@ namespace HSNXT.Z.Compression.Test
         public void DecompressGZip()
         {
             // Type
-            byte[] @this = "FizzBuzz".CompressGZip();
+            var @this = "FizzBuzz".CompressGZip();
 
             // Exemples
-            string result = @this.DecompressGZip(); // return "FizzBuzz";
+            var result = @this.DecompressGZip(); // return "FizzBuzz";
 
             // Unit Test
             Assert.AreEqual("FizzBuzz", result);

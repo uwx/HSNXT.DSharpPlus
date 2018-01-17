@@ -74,7 +74,7 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void ThrowIfArgumentIsNotNullOnDummyClass()
 		{
-			DummyClass sut = new DummyClass();
+			var sut = new DummyClass();
 
 			sut.ThrowIfArgumentIsNull("DummyClass");
 		}
@@ -90,7 +90,7 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void ThrowIfArgumentIsNotNullOnString()
 		{
-			string sut = "not null";
+			var sut = "not null";
 
 			sut.ThrowIfArgumentIsNull("string");
 		}

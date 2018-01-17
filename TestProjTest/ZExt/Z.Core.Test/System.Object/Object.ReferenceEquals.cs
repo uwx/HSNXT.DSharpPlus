@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -18,8 +18,8 @@ namespace HSNXT.Z.Core.Test
             string @this = null;
 
             // Examples
-            bool result1 = @this.ReferenceEquals(null); // return true;
-            bool result2 = @this.ReferenceEquals(""); // return false;
+            var result1 = @this.ReferenceEquals(null); // return true;
+            var result2 = @this.ReferenceEquals(""); // return false;
 
             // Unit Test
             Assert.IsTrue(result1);

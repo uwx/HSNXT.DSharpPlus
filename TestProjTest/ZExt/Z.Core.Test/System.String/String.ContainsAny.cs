@@ -16,13 +16,13 @@ namespace HSNXT.Z.Core.Test
         public void ContainsAny()
         {
             // Type
-            string @this = "Fizz";
+            var @this = "Fizz";
 
             // Examples
-            bool value1 = @this.ContainsAny("F", "Buzz"); // value = ";
-            bool value2 = @this.ContainsAny("Bizz", "Buzz"); // value = ";
-            bool value3 = @this.ContainsAny(StringComparison.InvariantCultureIgnoreCase, "f", "Buzz"); // value = ";
-            bool value4 = @this.ContainsAny(StringComparison.InvariantCulture, "f", "Buzz"); // value = ";
+            var value1 = @this.ContainsAny("F", "Buzz"); // value = ";
+            var value2 = @this.ContainsAny("Bizz", "Buzz"); // value = ";
+            var value3 = @this.ContainsAny(StringComparison.InvariantCultureIgnoreCase, "f", "Buzz"); // value = ";
+            var value4 = @this.ContainsAny(StringComparison.InvariantCulture, "f", "Buzz"); // value = ";
 
             // Unit Test
             Assert.IsTrue(value1);

@@ -17,11 +17,11 @@ namespace HSNXT.Z.Core.Test
             // Type
 
             // Exemples
-            decimal result1 = "Fizz 123 Buzz".ExtractDecimal(); // return 123;
-            decimal result2 = "Fizz -123 Buzz".ExtractDecimal(); // return -123;
-            decimal result3 = "-Fizz 123 Buzz".ExtractDecimal(); // return 123;
-            decimal result4 = "Fizz 123.456 Buzz".ExtractDecimal(); // return 123.456;
-            decimal result5 = "Fizz -123Fizz.Buzz456 Buzz".ExtractDecimal(); // return -123.456;
+            var result1 = "Fizz 123 Buzz".ExtractDecimal(); // return 123;
+            var result2 = "Fizz -123 Buzz".ExtractDecimal(); // return -123;
+            var result3 = "-Fizz 123 Buzz".ExtractDecimal(); // return 123;
+            var result4 = "Fizz 123.456 Buzz".ExtractDecimal(); // return 123.456;
+            var result5 = "Fizz -123Fizz.Buzz456 Buzz".ExtractDecimal(); // return -123.456;
 
             // Unit Test
             Assert.AreEqual(123M, result1);

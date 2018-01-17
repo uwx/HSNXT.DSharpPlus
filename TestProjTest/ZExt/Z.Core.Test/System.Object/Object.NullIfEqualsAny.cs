@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -18,8 +18,8 @@ namespace HSNXT.Z.Core.Test
             object @this = "1";
 
             // Exemples
-            object result1 = @this.NullIfEqualsAny("0", "1", "2"); // return null;
-            object result2 = @this.NullIfEqualsAny("2"); // return "1";
+            var result1 = @this.NullIfEqualsAny("0", "1", "2"); // return null;
+            var result2 = @this.NullIfEqualsAny("2"); // return "1";
 
             // Unit Test
             Assert.AreEqual(null, result1);

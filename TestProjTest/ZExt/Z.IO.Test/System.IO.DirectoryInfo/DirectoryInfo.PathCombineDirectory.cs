@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,11 +19,11 @@ namespace HSNXT.Z.IO.Test
             // Type
             var @this = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 
-            string path1 = "Fizz";
-            string path2 = "Buzz";
+            var path1 = "Fizz";
+            var path2 = "Buzz";
 
             // Exemples
-            DirectoryInfo result = @this.PathCombineDirectory(path1, path2); // Combine path1 and path2 with the DirectoryInfo
+            var result = @this.PathCombineDirectory(path1, path2); // Combine path1 and path2 with the DirectoryInfo
 
             // Unit Test
             var expected = new DirectoryInfo(Path.Combine(@this.FullName, path1, path2));

@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,13 +16,13 @@ namespace HSNXT.Z.Core.Test
         public void ContainsAll()
         {
             // Type
-            string @this = "Fizz";
+            var @this = "Fizz";
 
             // Examples
-            bool value1 = @this.ContainsAll("F", "i"); // return true;
-            bool value2 = @this.ContainsAll("F", "i", "Buzz"); // return false;
-            bool value3 = @this.ContainsAll(StringComparison.InvariantCultureIgnoreCase, "f", "i"); // return true;
-            bool value4 = @this.ContainsAll(StringComparison.InvariantCulture, "f", "i"); // return false;
+            var value1 = @this.ContainsAll("F", "i"); // return true;
+            var value2 = @this.ContainsAll("F", "i", "Buzz"); // return false;
+            var value3 = @this.ContainsAll(StringComparison.InvariantCultureIgnoreCase, "f", "i"); // return true;
+            var value4 = @this.ContainsAll(StringComparison.InvariantCulture, "f", "i"); // return false;
 
             // Unit Test
             Assert.IsTrue(value1);

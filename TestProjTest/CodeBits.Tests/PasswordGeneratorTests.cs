@@ -24,12 +24,12 @@ namespace HSNXT.Tests
         [Fact]
         public void Generated_password_lengths_equals_input_length()
         {
-            for (int i = 1; i <= 50; i++)
+            for (var i = 1; i <= 50; i++)
             {
-                string password = PasswordGenerator.Generate(i);
+                var password = PasswordGenerator.Generate(i);
                 password.Length.ShouldBe(i);
 
-                SecureString securePassword = PasswordGenerator.GenerateSecure(i);
+                var securePassword = PasswordGenerator.GenerateSecure(i);
                 securePassword.Length.ShouldBe(i);
             }
         }
@@ -40,14 +40,14 @@ namespace HSNXT.Tests
         [InlineData(PasswordCharacters.AlphaNumeric, "OlIS015")]
         public void Excluded_characters_are_excluded(PasswordCharacters allowedCharacters, string excludeCharacters)
         {
-            for (int i = 0; i < 50; i++)
+            for (var i = 0; i < 50; i++)
             {
-                string password = PasswordGenerator.Generate(40, allowedCharacters, excludeCharacters);
-                foreach (char excludeChar in excludeCharacters)
+                var password = PasswordGenerator.Generate(40, allowedCharacters, excludeCharacters);
+                foreach (var excludeChar in excludeCharacters)
                     password.ShouldNotContain(excludeChar);
 
-                SecureString securePassword = PasswordGenerator.GenerateSecure(40, allowedCharacters, excludeCharacters);
-                foreach (char excludeChar in excludeCharacters)
+                var securePassword = PasswordGenerator.GenerateSecure(40, allowedCharacters, excludeCharacters);
+                foreach (var excludeChar in excludeCharacters)
                     SecureStringToString(securePassword).ShouldNotContain(excludeChar);
             }
         }
@@ -55,7 +55,7 @@ namespace HSNXT.Tests
         // Converts a SecureString to a string
         private static string SecureStringToString(SecureString secureString)
         {
-            IntPtr valuePtr = IntPtr.Zero;
+            var valuePtr = IntPtr.Zero;
             try
             {
                 valuePtr = Marshal.SecureStringToGlobalAllocUnicode(secureString);

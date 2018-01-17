@@ -8,8 +8,8 @@ namespace BCLExtensions.Tests.TimeSpanExtensions
         [Fact]
         public void WorksWhenUsedAsAnExtension()
         {
-            TimeSpan duration = 2.Minutes();
-            DateTime result = duration.FromNow();
+            var duration = 2.Minutes();
+            var result = duration.FromNow();
             var now = DateTime.Now;
 
             var errorMargin = 1.Second();

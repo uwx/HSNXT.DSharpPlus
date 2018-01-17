@@ -17,8 +17,8 @@ namespace HSNXT.Z.Core.Test
             // Type
 
             // Exemples
-            decimal[] result1 = "1Fizz-2Buzz".ExtractManyDecimal(); // return new [] {1, -2};
-            decimal[] result2 = "12.34Fizz-0.456".ExtractManyDecimal(); // return new [] {12.34, -0.456};
+            var result1 = "1Fizz-2Buzz".ExtractManyDecimal(); // return new [] {1, -2};
+            var result2 = "12.34Fizz-0.456".ExtractManyDecimal(); // return new [] {12.34, -0.456};
 
             // Unit Test
             Assert.AreEqual(1M, result1[0]);

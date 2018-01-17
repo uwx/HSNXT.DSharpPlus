@@ -96,7 +96,7 @@ namespace CommonLibrary.Tests
 
         public void ProcessString(IList<string> names, bool isGenericsApplicable, string handlerName)
         {
-            Dictionary<string, bool> validValues = new Dictionary<string, bool>();
+            var validValues = new Dictionary<string, bool>();
             validValues["kdog"] = true;
             validValues["kishore"] = true;
             validValues["reddy"] = true;
@@ -114,7 +114,7 @@ namespace CommonLibrary.Tests
                 Assert.IsTrue(Queues.IsBusy(handlerName));
             }
 
-            foreach (string name in names)
+            foreach (var name in names)
                 Assert.IsTrue(validValues.ContainsKey(name));
         }        
     }

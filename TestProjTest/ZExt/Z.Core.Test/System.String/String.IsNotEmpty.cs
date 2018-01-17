@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,12 +15,12 @@ namespace HSNXT.Z.Core.Test
         public void IsNotEmpty()
         {
             // Type
-            string @thisEmpty = "";
-            string @thisNotEmpty = "FizzBuzz";
+            var @thisEmpty = "";
+            var @thisNotEmpty = "FizzBuzz";
 
             // Exemples
-            bool result1 = @thisEmpty.IsNotEmpty(); // return false;
-            bool result2 = @thisNotEmpty.IsNotEmpty(); // return true;
+            var result1 = @thisEmpty.IsNotEmpty(); // return false;
+            var result2 = @thisNotEmpty.IsNotEmpty(); // return true;
 
             // Unit Test
             Assert.IsFalse(result1);

@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,13 +18,13 @@ namespace HSNXT.Z.Collections.Test
         {
             // Type
             List<string> @thisNull = null;
-            IEnumerable<string> @thisEmpty = new List<string>().AsEnumerable();
-            IEnumerable<string> @thisNotEmpty = new List<string> {"Fizz"}.AsEnumerable();
+            var @thisEmpty = new List<string>().AsEnumerable();
+            var @thisNotEmpty = new List<string> {"Fizz"}.AsEnumerable();
 
             // Exemples
-            bool result1 = @thisNull.IsNotNullOrEmpty(); // return false;
-            bool result2 = @thisEmpty.IsNotNullOrEmpty(); // return false;
-            bool result3 = @thisNotEmpty.IsNotNullOrEmpty(); // return true;
+            var result1 = @thisNull.IsNotNullOrEmpty(); // return false;
+            var result2 = @thisEmpty.IsNotNullOrEmpty(); // return false;
+            var result3 = @thisNotEmpty.IsNotNullOrEmpty(); // return true;
 
             // Unit Test
             Assert.IsFalse(result1);

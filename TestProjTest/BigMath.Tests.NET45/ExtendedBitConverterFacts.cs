@@ -27,12 +27,12 @@ namespace BigMath.Tests
         [TestCase("0x010203040000", "0x010203040000", "0x01020304")]
         public void Should_trim_zeros(string bytesS, string expectedTrimmedBigEndianBytesS, string expectedTrimmedLittleEndianBytesS)
         {
-            byte[] bytes = bytesS.HexToBytes();
-            byte[] expectedTrimmedBigEndianBytes = expectedTrimmedBigEndianBytesS.HexToBytes();
-            byte[] expectedTrimmedLittleEndianBytes = expectedTrimmedLittleEndianBytesS.HexToBytes();
+            var bytes = bytesS.HexToBytes();
+            var expectedTrimmedBigEndianBytes = expectedTrimmedBigEndianBytesS.HexToBytes();
+            var expectedTrimmedLittleEndianBytes = expectedTrimmedLittleEndianBytesS.HexToBytes();
 
-            byte[] actualTrimmedBigEndianBytes = bytes.TrimZeros(false);
-            byte[] actualTrimmedLittleEndianBytes = bytes.TrimZeros(true);
+            var actualTrimmedBigEndianBytes = bytes.TrimZeros(false);
+            var actualTrimmedLittleEndianBytes = bytes.TrimZeros(true);
 
             actualTrimmedBigEndianBytes.Should().BeEquivalentTo(expectedTrimmedBigEndianBytes);
             actualTrimmedLittleEndianBytes.Should().BeEquivalentTo(expectedTrimmedLittleEndianBytes);
@@ -41,10 +41,10 @@ namespace BigMath.Tests
         [Test]
         public void Should_convert_bytes_to_int128()
         {
-            Int128 expectedBigEndian = Int128.Parse(Int128Value);
-            Int128 expectedLittleEndian = Int128.Parse(Int128ValueLittleEndian);
+            var expectedBigEndian = Int128.Parse(Int128Value);
+            var expectedLittleEndian = Int128.Parse(Int128ValueLittleEndian);
 
-            byte[] bytes = Int128Value.HexToBytes();
+            var bytes = Int128Value.HexToBytes();
 
             bytes.ToInt128(0, false).Should().Be(expectedBigEndian);
             bytes.ToInt128(0, true).Should().Be(expectedLittleEndian);
@@ -53,25 +53,25 @@ namespace BigMath.Tests
         [Test]
         public void Should_convert_bytes_to_int128_less_than_size_of_int128()
         {
-            Int128 expectedBigEndian = Int128.Parse(Int128LessValue);
-            Int128 expectedLittleEndian = Int128.Parse(Int128LessValueLittleEndian);
+            var expectedBigEndian = Int128.Parse(Int128LessValue);
+            var expectedLittleEndian = Int128.Parse(Int128LessValueLittleEndian);
 
-            byte[] bytes = Int128LessValue.HexToBytes();
+            var bytes = Int128LessValue.HexToBytes();
 
-            Int128 actualBigEndian = bytes.ToInt128(0, false);
+            var actualBigEndian = bytes.ToInt128(0, false);
             actualBigEndian.Should().Be(expectedBigEndian);
 
-            Int128 actualLittleEndian = bytes.ToInt128(0, true);
+            var actualLittleEndian = bytes.ToInt128(0, true);
             actualLittleEndian.Should().Be(expectedLittleEndian);
         }
 
         [Test]
         public void Should_convert_int128_to_bytes()
         {
-            Int128 i = Int128.Parse(Int128Value);
-            byte[] expectedBytes = Int128Value.HexToBytes();
+            var i = Int128.Parse(Int128Value);
+            var expectedBytes = Int128Value.HexToBytes();
 
-            byte[] actualBytes = i.ToBytes(false);
+            var actualBytes = i.ToBytes(false);
             actualBytes.ShouldAllBeEquivalentTo(expectedBytes);
 
             actualBytes = i.ToBytes(true);

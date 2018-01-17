@@ -20,7 +20,7 @@ namespace HSNXT.Z.Reflection.Test
             var @this = typeof(FieldModel<int>).GetField("ReadOnlyField", BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
             // Exemples
-            string result = @this.GetSignature();
+            var result = @this.GetSignature();
 
             // Unit Test
             Assert.AreEqual("ReadOnlyField", result);

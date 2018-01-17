@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -21,8 +21,8 @@ namespace HSNXT.Z.Core.Test
             // Exemples
             var result1 = intValue.ToOrDefault<int>(); // return 1;
             var result2 = invalidValue.ToOrDefault<int>(); // return 0;
-            int result3 = invalidValue.ToOrDefault(3); // return 3;
-            int result4 = invalidValue.ToOrDefault(() => 4); // return 4;
+            var result3 = invalidValue.ToOrDefault(3); // return 3;
+            var result4 = invalidValue.ToOrDefault(() => 4); // return 4;
 
             // Unit Test
             Assert.AreEqual(1, result1);

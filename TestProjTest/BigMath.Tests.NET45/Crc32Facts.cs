@@ -23,7 +23,7 @@ namespace BigMath.Tests
         [TestCase("req_pq nonce:int128 = ResPQ", 0x60469778u)]
         public void Should_compute_correct_crc32(string text, uint correctCrc32)
         {
-            uint crc32 = Crc32.Compute(text, Encoding.UTF8);
+            var crc32 = Crc32.Compute(text, Encoding.UTF8);
             crc32.Should().Be(correctCrc32);
         }
     }

@@ -16,10 +16,10 @@ namespace HSNXT.Z.Reflection.Test
         public void GetSignature()
         {
             // Type
-            Type @this = typeof(GenericClass<,>);
+            var @this = typeof(GenericClass<,>);
 
             // Exemples
-            string result = @this.GetSignature();
+            var result = @this.GetSignature();
 
             // Unit Test
             Assert.AreEqual("GenericClass<T1, T2>", result);

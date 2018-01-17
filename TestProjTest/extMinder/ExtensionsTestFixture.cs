@@ -9,8 +9,8 @@ namespace HSNXT.Tests
         [Fact]
         public void TrimToLengthShouldCutStringToSpecfiedLength()
         {
-            string s = "123456";
-            string x = s.TrimToLength(3);
+            var s = "123456";
+            var x = s.TrimToLength(3);
             x.Length.ShouldEqual(3);
         }
 

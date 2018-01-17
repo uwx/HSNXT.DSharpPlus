@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.Drawing.Test
             var @this = new Bitmap(2, 2);
 
             // Examples
-            Image value = @this.Cut(1, 1, 1, 1); // Return an Image(1, 1)
+            var value = @this.Cut(1, 1, 1, 1); // Return an Image(1, 1)
 
             // Unit Test
             Assert.AreEqual(1, value.Width);

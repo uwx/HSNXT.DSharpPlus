@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,12 +26,12 @@ namespace HSNXT.Z.Xml.Linq.Test
             }
 
             // Type
-            XElement @this = xDocument.Root;
+            var @this = xDocument.Root;
 
-            int result1 = @this.Elements("test2").ToList().Count; // return 0;
+            var result1 = @this.Elements("test2").ToList().Count; // return 0;
             // Exemples
             @this = @this.RemoveAllNamespaces(); // remove the "z" namespace
-            int result2 = @this.Elements("test2").ToList().Count; // return 1;
+            var result2 = @this.Elements("test2").ToList().Count; // return 1;
 
             // Unit Test
             Assert.AreEqual(0, result1);

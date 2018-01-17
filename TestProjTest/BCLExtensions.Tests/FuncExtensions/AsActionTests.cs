@@ -25,7 +25,7 @@ namespace BCLExtensions.Tests.FuncExtensions
         [Fact]
         public void InternalFunctionExecutes()
         {
-            bool internalFunctionWasCalled = false;
+            var internalFunctionWasCalled = false;
             Func<int> function = () =>
             {
                 internalFunctionWasCalled = true;

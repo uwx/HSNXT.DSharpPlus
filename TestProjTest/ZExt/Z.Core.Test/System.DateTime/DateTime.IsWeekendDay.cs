@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -20,8 +20,8 @@ namespace HSNXT.Z.Core.Test
             var @thisSaturday = new DateTime(2013, 11, 23); // Saturday
 
             // Examples
-            bool value1 = @thisFriday.IsWeekendDay(); // return false;
-            bool value2 = @thisSaturday.IsWeekendDay(); // return true;
+            var value1 = @thisFriday.IsWeekendDay(); // return false;
+            var value2 = @thisSaturday.IsWeekendDay(); // return true;
 
             // Unit Test
             Assert.IsFalse(value1);

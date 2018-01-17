@@ -30,7 +30,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         [Fact]
         public void InternalFunctionExecutes()
         {
-            bool internalFunctionWasCalled = false;
+            var internalFunctionWasCalled = false;
             Action<int> action = parameter =>
             {
                 internalFunctionWasCalled = true;
@@ -46,7 +46,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         public void InternalFunctionCapturesCorrectParameter()
         {
             const int expectedParameter = 12;
-            int passedParameter = 0;
+            var passedParameter = 0;
             Action<int> action = parameter =>
             {
                 passedParameter = parameter;

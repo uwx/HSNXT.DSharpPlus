@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.IO.Test
             var @this = new List<string> {"c:\\", "Fizz", "Buzz.txt"};
 
             // Exemples
-            string result = @this.PathCombine(); // return "c:\Fizz\Buzz.txt"
+            var result = @this.PathCombine(); // return "c:\Fizz\Buzz.txt"
 
             // Unit Test
             Assert.AreEqual(@"c:\Fizz\Buzz.txt", result);

@@ -17,14 +17,14 @@ namespace HSNXT.Z.Caching.Test
             var cache1 = new CacheTest();
             var cache2 = new CacheTest();
 
-            int cache1_1 = cache1.FromCache(i => cache1.Increment());
-            int cache1_2 = cache1.FromCache(i => cache1.Increment());
+            var cache1_1 = cache1.FromCache(i => cache1.Increment());
+            var cache1_2 = cache1.FromCache(i => cache1.Increment());
 
-            int cache2_1 = cache1.FromCache("CustomKey", i => cache2.Increment());
-            int cache2_2 = cache1.FromCache("CustomKey", i => cache2.Increment());
+            var cache2_1 = cache1.FromCache("CustomKey", i => cache2.Increment());
+            var cache2_2 = cache1.FromCache("CustomKey", i => cache2.Increment());
 
-            int cache3_1 = cache1.FromCache("CustomKeyWithValue", 1);
-            int cache3_2 = cache1.FromCache("CustomKeyWithValue", 2);
+            var cache3_1 = cache1.FromCache("CustomKeyWithValue", 1);
+            var cache3_2 = cache1.FromCache("CustomKeyWithValue", 2);
 
             Assert.AreEqual(1, cache1_1);
             Assert.AreEqual(1, cache1_2);

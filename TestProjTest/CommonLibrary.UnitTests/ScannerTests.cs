@@ -11,8 +11,8 @@ namespace CommonLibrary.Tests
     {
         public Scanner Create()
         {
-            LexSettings settings = new LexSettings();
-            Scanner reader = new Scanner("abcd1234'	a \\b   k", '\\', settings.QuotesChars, settings.WhiteSpaceChars);
+            var settings = new LexSettings();
+            var reader = new Scanner("abcd1234'	a \\b   k", '\\', settings.QuotesChars, settings.WhiteSpaceChars);
             return reader;
         }
 
@@ -20,8 +20,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParse()
         {
-            Scanner reader = Create();
-            char current = reader.ReadChar();
+            var reader = Create();
+            var current = reader.ReadChar();
             Assert.AreEqual('a', current);
             Assert.AreEqual('b', reader.PeekChar());
             Assert.AreEqual("bc", reader.PeekChars(2));

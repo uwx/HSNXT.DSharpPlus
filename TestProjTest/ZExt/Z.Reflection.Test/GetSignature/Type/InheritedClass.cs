@@ -16,10 +16,10 @@ namespace HSNXT.Z.Reflection.Test
         public void GetSignature()
         {
             // Type
-            Type @this = typeof(InheritedClass);
+            var @this = typeof(InheritedClass);
 
             // Exemples
-            string result = @this.GetSignature();
+            var result = @this.GetSignature();
 
             // Unit Test
             Assert.AreEqual("InheritedClass", result);

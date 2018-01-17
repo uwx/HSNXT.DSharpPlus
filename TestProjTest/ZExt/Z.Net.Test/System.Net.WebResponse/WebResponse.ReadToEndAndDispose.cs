@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,13 +15,13 @@ namespace HSNXT.Z.Net.Test
         [TestMethod]
         public void ReadToEndAndDispose()
         {
-            WebRequest webRequest = WebRequest.Create("http://www.zzzportal.com/");
+            var webRequest = WebRequest.Create("http://www.zzzportal.com/");
 
             // Type
-            WebResponse @this = webRequest.GetResponseSafe();
+            var @this = webRequest.GetResponseSafe();
 
             // Examples
-            string value = @this.ReadToEndAndDispose();
+            var value = @this.ReadToEndAndDispose();
 
             // Unit Test
             Assert.IsNotNull(value);

@@ -38,7 +38,7 @@ namespace CommonLibrary.Tests.LocationTests
             Location.CreateCountry("United States", "USA", true);
             Location.CreateCountry("United States", "America", true);
             Location.CreateCountry("United States", "U.S.A", true);
-            IList<Country> countries = Location.Countries.GetAll();
+            var countries = Location.Countries.GetAll();
 
             StateId_NY = Location.CreateState("New York", "NY", "USA").Item.Id;
             StateId_NJ = Location.CreateState("New Jersey", "NJ", "USA").Item.Id;
@@ -46,7 +46,7 @@ namespace CommonLibrary.Tests.LocationTests
             StateId_ItalyState1 = Location.CreateState("ItalianState1", "IT1", "Italy").Item.Id;
             Location.CreateState("Florida", "FL", "USA");
             Location.CreateState("California", "CA", "USA");
-            IList<State> states = Location.States.GetAll();
+            var states = Location.States.GetAll();
 
             Location.CreateCity("New York", "New York", "USA");
             Location.CreateCity("Brooklyn", "New York", "USA");
@@ -56,7 +56,7 @@ namespace CommonLibrary.Tests.LocationTests
             Location.CreateCity("Trenton", "New Jersey", "USA");
             Location.CreateCity("Miami", "Florida", "USA");
             Location.CreateCity("Venice", "ItalianState1", "Italy");
-            IList<City> cities = Location.Cities.GetAll();
+            var cities = Location.Cities.GetAll();
         }
 
         
@@ -70,8 +70,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseCityAllLowerCase()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("bronx");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("bronx");
 
             Assert.IsTrue(lookupResult.LookUpType == LocationLookUpType.City);
             Assert.IsTrue(lookupResult.IsValid);
@@ -86,8 +86,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseCityAllCAPS()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("BRONX");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("BRONX");
 
             Assert.IsTrue(lookupResult.LookUpType == LocationLookUpType.City);
             Assert.IsTrue(lookupResult.IsValid);
@@ -102,8 +102,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseKnownCityInEuropeWithMixedCase()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("veNice");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("veNice");
 
             Assert.IsTrue(lookupResult.LookUpType == LocationLookUpType.City);
             Assert.IsTrue(lookupResult.IsValid);
@@ -118,8 +118,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByCityStateFullName()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("nEw YOrk,new york");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("nEw YOrk,new york");
 
             Assert.IsTrue(lookupResult.IsLookUpByCity);
             Assert.IsTrue(lookupResult.IsValid);
@@ -134,8 +134,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByCityCountryInEuropeFullName()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse(" Venice , Italy ");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse(" Venice , Italy ");
 
             Assert.IsTrue(lookupResult.IsLookUpByCity);
             Assert.IsTrue(lookupResult.IsValid);            
@@ -147,8 +147,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByCityStateInEuropeWithInvalidCountry()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse(" Venice , United States ");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse(" Venice , United States ");
 
             Assert.IsTrue(lookupResult.IsLookUpByCityCountry);
             Assert.IsTrue(lookupResult.IsValid);
@@ -160,8 +160,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByKnownCityInWithDifferentState()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse(" bronx , Connecticut ");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse(" bronx , Connecticut ");
 
             Assert.IsTrue(lookupResult.IsLookUpByCityState);
             Assert.IsTrue(lookupResult.IsValid);
@@ -174,8 +174,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByKnownCityWithStateResultingInSimpleCitySearch()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse(" bronx , New York ");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse(" bronx , New York ");
 
             Assert.IsTrue(lookupResult.IsLookUpByCity);
             Assert.IsTrue(lookupResult.IsValid);
@@ -188,9 +188,9 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByStateAbbr()
         {
-            ILocationService locationService = GetLocationService();
+            var locationService = GetLocationService();
 
-            LocationLookUpResult lookupResult = locationService.Parse("ny");
+            var lookupResult = locationService.Parse("ny");
             Assert.IsTrue(lookupResult.IsLookUpByState);
             Assert.IsTrue(lookupResult.IsValid);
             Assert.AreEqual(lookupResult.State.ToLower(), "new york");
@@ -201,8 +201,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByStateFullName()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("nEw Jersey");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("nEw Jersey");
 
             Assert.IsTrue(lookupResult.IsLookUpByState);
             Assert.IsTrue(lookupResult.IsValid);
@@ -214,8 +214,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByCityStateAbbr()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("nEw YOrk,ny");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("nEw YOrk,ny");
 
             Assert.IsTrue(lookupResult.IsLookUpByCity);
             Assert.IsTrue(lookupResult.IsValid);
@@ -230,8 +230,8 @@ namespace CommonLibrary.Tests.LocationTests
         [Test]
         public void CanParseByCountry()
         {
-            ILocationService locationService = GetLocationService();
-            LocationLookUpResult lookupResult = locationService.Parse("Italy");
+            var locationService = GetLocationService();
+            var lookupResult = locationService.Parse("Italy");
 
             Assert.IsTrue(lookupResult.IsLookUpByCountry);
             Assert.IsTrue(lookupResult.IsValid);

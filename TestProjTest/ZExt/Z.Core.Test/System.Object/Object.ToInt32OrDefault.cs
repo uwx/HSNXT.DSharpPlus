@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,14 +15,14 @@ namespace HSNXT.Z.Core.Test
         public void ToInt32OrDefault()
         {
             // Type
-            string @thisValid = "32";
-            string @thisInvalid = "FizzBuzz";
+            var @thisValid = "32";
+            var @thisInvalid = "FizzBuzz";
 
             // Exemples
-            int result1 = @thisValid.ToInt32OrDefault(); // return 32;
-            int result2 = @thisInvalid.ToInt32OrDefault(); // return 0;
-            int result3 = @thisInvalid.ToInt32OrDefault(-1); // return -1;
-            int result4 = @thisInvalid.ToInt32OrDefault(() => -2); // return -2;
+            var result1 = @thisValid.ToInt32OrDefault(); // return 32;
+            var result2 = @thisInvalid.ToInt32OrDefault(); // return 0;
+            var result3 = @thisInvalid.ToInt32OrDefault(-1); // return -1;
+            var result4 = @thisInvalid.ToInt32OrDefault(() => -2); // return -2;
 
             // Unit Test
             Assert.AreEqual(32, result1);

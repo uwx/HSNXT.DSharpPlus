@@ -96,7 +96,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Values()
         {
-            string map = "var book = {  name: 'fs', author: 'ch', pages: 100 };";
+            var map = "var book = {  name: 'fs', author: 'ch', pages: 100 };";
 
             var statements = new List<Tuple<string, Type, object, string>>()
             {
@@ -114,7 +114,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Set_Values()
         {
-            string map = "var book = {  name: 'fs', author: 'ch', pages: 100 };";
+            var map = "var book = {  name: 'fs', author: 'ch', pages: 100 };";
 
             var statements = new List<Tuple<string, Type, object, string>>()
             {
@@ -135,7 +135,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Nested_Member_Property()
         {
-            string maptxt = @"{ FirstName: 'john', LastName: 'doe', Email: 'johndoe@email.com', IsMale: true, Salary: 10.5, BirthDate: new Date(), Address: { City: 'Queens', State: 'NY' } }";
+            var maptxt = @"{ FirstName: 'john', LastName: 'doe', Email: 'johndoe@email.com', IsMale: true, Salary: 10.5, BirthDate: new Date(), Address: { City: 'Queens', State: 'NY' } }";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "john",              "var p = " + maptxt + "; var result = p.FirstName;" ),
@@ -152,7 +152,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Set_Nested_Member_Property()
         {
-            string maptxt = @"{ FirstName: 'john', LastName: 'doe', Email: 'johndoe@email.com', IsMale: true, Salary: 10.5, BirthDate: new Date(), Address: { City: 'Queens', State: 'NY' } }";
+            var maptxt = @"{ FirstName: 'john', LastName: 'doe', Email: 'johndoe@email.com', IsMale: true, Salary: 10.5, BirthDate: new Date(), Address: { City: 'Queens', State: 'NY' } }";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "jane",              "var p = " + maptxt + ";  p.FirstName = 'jane';     var result = p.FirstName;" ),
@@ -260,8 +260,8 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Declare_Time_With_New()
         {
-            DateTime d1 = DateTime.Now;
-            DateTime d2 = DateTime.Now.AddDays(-1);
+            var d1 = DateTime.Now;
+            var d2 = DateTime.Now.AddDays(-1);
             var d3 = d2 - d1;
 
             var statements = new List<Tuple<string, Type, object, string>>()
@@ -339,7 +339,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Array_Basic_Type_Values_ByIndex()
         {
-            string maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5 ]";
+            var maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5 ]";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "john",              "var p = " + maptxt + "; var result = p[0];"),
@@ -353,7 +353,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Array_ByIndex()
         {
-            string maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
+            var maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "Queens",            "var p = " + maptxt + "; var result = p[5].City;"),
@@ -370,7 +370,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Array_Item_By_Index_Right_After_Declaration()
         {
-            string arr = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
+            var arr = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "john",              "var result = " + arr + "[0];"),
@@ -387,7 +387,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Get_Array_Item_By_Nested_Indexes()
         {
-            string maptxt = @"var users = ['john1', 'john2', 'john3']; var indexes = [0, 1, 2]; ";
+            var maptxt = @"var users = ['john1', 'john2', 'john3']; var indexes = [0, 1, 2]; ";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "john2",  maptxt + " var result = users[indexes[1]];"),
@@ -401,7 +401,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Set_Array_ByIndex()
         {
-            string maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
+            var maptxt = @"[ 'john', 'johndoe@email.com', true, 10.5, new Date(), { City: 'Queens', State: 'NY' }, [0, 1, 2] ]";
             var testcases = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(string),   "jane",              "var p = " + maptxt + "; p[0] = 'jane';  var result = p[0];"),
@@ -436,7 +436,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
                 LangTestsHelper.Compare(result, stmt.Item3);
 
                 // Check length
-                LArray arr = i.Memory.Get<LArray>("arr");
+                var arr = i.Memory.Get<LArray>("arr");
                 Assert.AreEqual(stmt.Item4, arr.Value.Count);
             }
         }

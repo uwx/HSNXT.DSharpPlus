@@ -21,8 +21,8 @@ namespace HSNXT.Z.Core.Test
             // Exemples
             var result1 = intValue.AsOrDefault<int>(); // return 1;
             var result2 = invalidValue.AsOrDefault<int>(); // return 0;
-            int result3 = invalidValue.AsOrDefault(3); // return 3;
-            int result4 = invalidValue.AsOrDefault(() => 4); // return 4;
+            var result3 = invalidValue.AsOrDefault(3); // return 3;
+            var result4 = invalidValue.AsOrDefault(() => 4); // return 4;
 
             // Unit Test
             Assert.AreEqual(1, result1);

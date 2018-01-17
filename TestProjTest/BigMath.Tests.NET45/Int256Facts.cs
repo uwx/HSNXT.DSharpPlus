@@ -24,7 +24,7 @@ namespace BigMath.Tests
             var i1 = (Int256) x;
             var i2 = (Int256) y;
 
-            Int256 i3 = i1 - i2;
+            var i3 = i1 - i2;
 
             ((int) i3).Should().Be(z);
             i3.ToString().Should().Be(z.ToString(CultureInfo.InvariantCulture));
@@ -38,10 +38,10 @@ namespace BigMath.Tests
         [TestCase("0x0FEDCBA9876543210FEDCBA987654321", "0x0123456789ABCDEF0123456789ABCDEF", "0x0ECA8641FDB975320ECA8641FDB97532")]
         public void Should_substruct_big_numbers_correctly(string x, string y, string z)
         {
-            Int256 i1 = Int256.Parse(x);
-            Int256 i2 = Int256.Parse(y);
+            var i1 = Int256.Parse(x);
+            var i2 = Int256.Parse(y);
 
-            Int256 i3 = i1 - i2;
+            var i3 = i1 - i2;
 
             ("0x" + i3.ToString("X32")).Should().Be(z);
         }
@@ -56,7 +56,7 @@ namespace BigMath.Tests
             var i1 = (Int256) x;
             var i2 = (Int256) y;
 
-            Int256 i3 = i1 + i2;
+            var i3 = i1 + i2;
 
             ((int) i3).Should().Be(z);
             i3.ToString().Should().Be(z.ToString(CultureInfo.InvariantCulture));
@@ -70,10 +70,10 @@ namespace BigMath.Tests
         [TestCase("0x0FEDCBA9876543210FEDCBA987654321", "0x0123456789ABCDEF0123456789ABCDEF", "0x11111111111111101111111111111110")]
         public void Should_sum_big_numbers_correctly(string x, string y, string z)
         {
-            Int256 i1 = Int256.Parse(x);
-            Int256 i2 = Int256.Parse(y);
+            var i1 = Int256.Parse(x);
+            var i2 = Int256.Parse(y);
 
-            Int256 i3 = i1 + i2;
+            var i3 = i1 + i2;
 
             ("0x" + i3.ToString("X32")).Should().Be(z);
         }
@@ -88,7 +88,7 @@ namespace BigMath.Tests
             var i1 = (Int256) x;
             var i2 = (Int256) y;
 
-            Int256 i3 = i1*i2;
+            var i3 = i1*i2;
 
             ((int) i3).Should().Be(z);
             i3.ToString().Should().Be(z.ToString(CultureInfo.InvariantCulture));
@@ -103,10 +103,10 @@ namespace BigMath.Tests
         [TestCase("0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", "0x1")]
         public void Should_multiply_big_numbers_correctly(string x, string y, string z)
         {
-            Int256 i1 = Int256.Parse(x);
-            Int256 i2 = Int256.Parse(y);
+            var i1 = Int256.Parse(x);
+            var i2 = Int256.Parse(y);
 
-            Int256 i3 = i1*i2;
+            var i3 = i1*i2;
 
             ("0x" + i3.ToString("X")).Should().Be(z);
         }
@@ -122,7 +122,7 @@ namespace BigMath.Tests
             var i1 = (Int256) x;
             var i2 = (Int256) y;
 
-            Int256 i3 = i1/i2;
+            var i3 = i1/i2;
 
             ((int) i3).Should().Be(z);
             i3.ToString().Should().Be(z.ToString(CultureInfo.InvariantCulture));
@@ -137,10 +137,10 @@ namespace BigMath.Tests
         [TestCase("0x59FE45F3CACCE58279EFEC87FED69879", "0x00000000000000000937F5E11CA789F3", "0x0000000000000009C31BD9DCA1E0BEDC")]
         public void Should_devide_big_numbers_correctly(string x, string y, string z)
         {
-            Int256 i1 = Int256.Parse(x);
-            Int256 i2 = Int256.Parse(y);
+            var i1 = Int256.Parse(x);
+            var i2 = Int256.Parse(y);
 
-            Int256 i3 = i1/i2;
+            var i3 = i1/i2;
 
             ("0x" + i3.ToString("X32")).Should().Be(z);
         }
@@ -158,7 +158,7 @@ namespace BigMath.Tests
             var i1 = (Int256) x;
             var i2 = (Int256) y;
 
-            bool value = z.HasValue && z.Value;
+            var value = z.HasValue && z.Value;
 
             (i1 > i2).Should().Be(value);
             (i1 < i2).Should().Be(z.HasValue && !value);
@@ -178,10 +178,10 @@ namespace BigMath.Tests
         {
             // z == null means that numbers are equal.
 
-            Int256 i1 = Int256.Parse(x);
-            Int256 i2 = Int256.Parse(y);
+            var i1 = Int256.Parse(x);
+            var i2 = Int256.Parse(y);
 
-            bool value = z.HasValue && z.Value;
+            var value = z.HasValue && z.Value;
 
             (i1 > i2).Should().Be(value);
             (i1 < i2).Should().Be(z.HasValue && !value);
@@ -200,9 +200,9 @@ namespace BigMath.Tests
             //
             // X >> Y should = z
             //
-            Int256 i1 = Int256.Parse(x);
-            int shifthBy = int.Parse(y);
-            Int256 i3 = i1 >> shifthBy;
+            var i1 = Int256.Parse(x);
+            var shifthBy = int.Parse(y);
+            var i3 = i1 >> shifthBy;
 
             ("0x" + i3.ToString("X32")).Should().Be(z);
         }
@@ -219,9 +219,9 @@ namespace BigMath.Tests
             //
             // X >> Y should = z
             //
-            Int256 i1 = Int256.Parse(x);
-            int shifthBy = int.Parse(y);
-            Int256 i3 = i1 << shifthBy;
+            var i1 = Int256.Parse(x);
+            var shifthBy = int.Parse(y);
+            var i3 = i1 << shifthBy;
 
             ("0x" + i3.ToString("X32")).Should().Be(z);
         }

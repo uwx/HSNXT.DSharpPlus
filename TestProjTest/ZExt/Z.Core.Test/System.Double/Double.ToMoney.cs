@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,12 +15,12 @@ namespace HSNXT.Z.Core.Test
         public void ToMoney()
         {
             // Type
-            double @this1 = 2.311;
-            double @this2 = 2.3191;
+            var @this1 = 2.311;
+            var @this2 = 2.3191;
 
             // Exemples
-            double result1 = @this1.ToMoney(); // return 2.31;
-            double result2 = @this2.ToMoney(); // return 2.32;
+            var result1 = @this1.ToMoney(); // return 2.31;
+            var result2 = @this2.ToMoney(); // return 2.32;
 
             // Unit Test
             Assert.AreEqual(2.31, result1);

@@ -16,10 +16,9 @@ namespace HSNXT.ComLib.Lang.Tests.Common
             if (actual is LObject && actual != LObjects.Null)
                 actual = ((LObject)actual).GetValue();
 
-            if (actual is DateTime)
+            if (actual is DateTime d1)
             {
-                DateTime d1 = (DateTime)actual;
-                DateTime d2 = (DateTime)expected;
+                var d2 = (DateTime)expected;
                 if ((d1.Hour > 0 || d1.Minute > 0 || d1.Second > 0 || d1.Millisecond > 0)
                      && (d2.Hour > 0 || d2.Minute > 0 || d2.Second > 0 || d2.Millisecond > 0))
                     Assert.AreEqual(d1, d2);
@@ -33,15 +32,15 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
         public static void CompareType(object actual, object expected)
         {
-            if (actual.GetType() == typeof(LString) && expected == typeof(string))
+            if (actual.GetType() == typeof(LString) && (Type) expected == typeof(string))
                 return;
-            if (actual.GetType() == typeof(LBool) && expected == typeof(bool))
+            if (actual.GetType() == typeof(LBool) && (Type) expected == typeof(bool))
                 return;
-            if (actual.GetType() == typeof(LNumber) && expected == typeof(double))
+            if (actual.GetType() == typeof(LNumber) && (Type) expected == typeof(double))
                 return;
-            if (actual.GetType() == typeof(LDate) && expected == typeof(DateTime))
+            if (actual.GetType() == typeof(LDate) && (Type) expected == typeof(DateTime))
                 return;
-            if (actual.GetType() == typeof(LTime) && expected == typeof(TimeSpan))
+            if (actual.GetType() == typeof(LTime) && (Type) expected == typeof(TimeSpan))
                 return;
             Assert.Fail("Types do not match");
         }
@@ -52,7 +51,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
             foreach (var stmt in statements)
             {
 
-                Interpreter i = new Interpreter();
+                var i = new Interpreter();
                 if (initializer != null)
                     initializer(i);
 
@@ -71,7 +70,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
         public static void RunExpression(Memory memory, List<Tuple<Type, object, Expr>> expressions)
         {
-            Context ctx = new Context();
+            var ctx = new Context();
             RunExpression2(ctx, memory, expressions);
         }
 

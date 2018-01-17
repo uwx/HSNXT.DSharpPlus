@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -21,7 +21,7 @@ namespace HSNXT.Z.IO.Test
             // Examples
             string result;
 
-            using (FileStream @this = fileInfo.Create())
+            using (var @this = fileInfo.Create())
             {
                 @this.WriteByte(0);
                 result = @this.ToMD5Hash(); // return "D41D8CD98F00B204E9800998ECF8427E";

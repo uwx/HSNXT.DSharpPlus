@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -365,7 +365,7 @@ namespace HSNXT.C5UnitTests.trees.RBDictionary
         [Test]
         public void KeysEnumerator()
         {
-            SCG.IEnumerator<string> keys = dict.Keys.GetEnumerator();
+            var keys = dict.Keys.GetEnumerator();
             Assert.AreEqual(3, dict.Keys.Count);
             Assert.IsTrue(keys.MoveNext());
             Assert.AreEqual("R", keys.Current);
@@ -379,7 +379,7 @@ namespace HSNXT.C5UnitTests.trees.RBDictionary
         [Test]
         public void KeysISorted()
         {
-            ISorted<string> keys = dict.Keys;
+            var keys = dict.Keys;
             Assert.IsTrue(keys.IsReadOnly);
             Assert.AreEqual("R", keys.FindMin());
             Assert.AreEqual("T", keys.FindMax());
@@ -400,7 +400,7 @@ namespace HSNXT.C5UnitTests.trees.RBDictionary
         [Test]
         public void KeysISortedPred()
         {
-            ISorted<string> keys = dict.Keys;
+            var keys = dict.Keys;
             String res;
             Assert.IsTrue(keys.TryPredecessor("S", out res));
             Assert.AreEqual("R", res);
@@ -428,7 +428,7 @@ namespace HSNXT.C5UnitTests.trees.RBDictionary
         [Test]
         public void ValuesEnumerator()
         {
-            SCG.IEnumerator<string> values = dict.Values.GetEnumerator();
+            var values = dict.Values.GetEnumerator();
             Assert.AreEqual(3, dict.Values.Count);
             Assert.IsTrue(values.MoveNext());
             Assert.AreEqual("C", values.Current);
@@ -496,7 +496,7 @@ namespace HSNXT.C5UnitTests.trees.RBDictionary
                 Assert.IsFalse(dict.IsReadOnly);
                 Assert.IsTrue(snap.IsReadOnly);
                 //Finally, update of root node:
-                TreeDictionary<string, string> snap2 = (TreeDictionary<string, string>)dict.Snapshot();
+                var snap2 = (TreeDictionary<string, string>)dict.Snapshot();
                 dict["S"] = "abe";
                 Assert.AreEqual("abe", dict["S"]);
             }

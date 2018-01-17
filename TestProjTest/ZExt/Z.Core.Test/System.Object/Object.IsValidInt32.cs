@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -16,10 +16,10 @@ namespace HSNXT.Z.Core.Test
         {
             // Exemples
             object nullValue = null;
-            bool result1 = nullValue.IsValidInt32(); // return true;
-            bool result2 = "12345".IsValidInt32(); // return true;
-            bool result3 = "1.32".IsValidInt32(); // return false;
-            bool result4 = "ABC".IsValidInt32(); // return false;
+            var result1 = nullValue.IsValidInt32(); // return true;
+            var result2 = "12345".IsValidInt32(); // return true;
+            var result3 = "1.32".IsValidInt32(); // return false;
+            var result4 = "ABC".IsValidInt32(); // return false;
 
             // Unit Test
             Assert.IsTrue(result1);

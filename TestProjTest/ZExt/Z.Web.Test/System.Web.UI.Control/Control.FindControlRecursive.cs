@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -22,9 +22,9 @@ namespace HSNXT.Z.Web.Test
             @this.Controls[0].Controls.Add(new Literal {ID = "Buzz"});
 
             // Examples
-            Control value1 = @this.FindControlRecursive("Fizz"); // return control as Control.
+            var value1 = @this.FindControlRecursive("Fizz"); // return control as Control.
             var value2 = @this.FindControlRecursive<Literal>("Buzz"); // return control as Literal.
-            Control value3 = @this.FindControlRecursive("Z"); // return null;
+            var value3 = @this.FindControlRecursive("Z"); // return null;
         }
     }
 }
