@@ -12,7 +12,8 @@
     <Company>uwx</Company>
     <Description>Addon for DSharpPlus adding a variety of extension methods.
             Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
-            regarding this package in official DSharpPlus discussion boards.
+            regarding this package in official DSharpPlus discussion boards. The "lite" version of the package
+            removes some contested content.
         </Description>
     <PackageLicenseUrl>
             https://gitlab.com/chrishansen69/TestProject-CSharp/raw/master/DSharpPlus.Extended/LICENSE
