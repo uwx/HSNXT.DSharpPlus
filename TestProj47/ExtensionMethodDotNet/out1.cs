@@ -355,9 +355,9 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
         /// <param name="DatePart"></param>
         /// <param name="EndDate"></param>
         /// <returns></returns>
-        public static Int64 DateDiff(this DateTime StartDate, String DatePart, DateTime EndDate)
+        public static long DateDiff(this DateTime StartDate, string DatePart, DateTime EndDate)
         {
-            Int64 DateDiffVal = 0;
+            long DateDiffVal = 0;
             var cal = Thread.CurrentThread.CurrentCulture.Calendar;
             var ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
             switch (DatePart.ToLower().Trim())
@@ -403,7 +403,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "day":
                 case "d":
                 case "dd":
-                    DateDiffVal = (Int64) ts.TotalDays;
+                    DateDiffVal = (long) ts.TotalDays;
                     break;
 
                 #endregion
@@ -413,7 +413,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "week":
                 case "wk":
                 case "ww":
-                    DateDiffVal = (Int64) (ts.TotalDays / 7);
+                    DateDiffVal = (long) (ts.TotalDays / 7);
                     break;
 
                 #endregion
@@ -422,7 +422,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
 
                 case "hour":
                 case "hh":
-                    DateDiffVal = (Int64) ts.TotalHours;
+                    DateDiffVal = (long) ts.TotalHours;
                     break;
 
                 #endregion
@@ -432,7 +432,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "minute":
                 case "mi":
                 case "n":
-                    DateDiffVal = (Int64) ts.TotalMinutes;
+                    DateDiffVal = (long) ts.TotalMinutes;
                     break;
 
                 #endregion
@@ -442,7 +442,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
                 case "second":
                 case "ss":
                 case "s":
-                    DateDiffVal = (Int64) ts.TotalSeconds;
+                    DateDiffVal = (long) ts.TotalSeconds;
                     break;
 
                 #endregion
@@ -451,7 +451,7 @@ Int64 hours = dt.DateDiff("hour", DateTime.Now);
 
                 case "millisecond":
                 case "ms":
-                    DateDiffVal = (Int64) ts.TotalMilliseconds;
+                    DateDiffVal = (long) ts.TotalMilliseconds;
                     break;
 
                 #endregion
@@ -477,7 +477,7 @@ bool isString = type.IsBoolean();
 
         public static bool IsBoolean(this Type type)
         {
-            return type.Equals(typeof(Boolean));
+            return type.Equals(typeof(bool));
         }
 
 /*
@@ -792,7 +792,7 @@ str.UcFirst();
         public static int TryParse(this string input, int defaultValue)
         {
             int value;
-            if (Int32.TryParse(input, out value))
+            if (int.TryParse(input, out value))
             {
                 return value;
             }
@@ -932,7 +932,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="fieldName">The field name that we are getting the Decimal value for</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Decimal GetDecimal(this IDataReader dataReader, string fieldName, Decimal defaultValue = 0m)
+        public static decimal GetDecimal(this IDataReader dataReader, string fieldName, decimal defaultValue = 0m)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetDecimal(fieldOrdinal);
@@ -984,7 +984,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="fieldName">The field name that we are getting the Int16 value for</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Int16 GetInt16(this IDataReader dataReader, string fieldName, Int16 defaultValue)
+        public static short GetInt16(this IDataReader dataReader, string fieldName, short defaultValue)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetInt16(fieldOrdinal);
@@ -997,7 +997,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="fieldName">The field name that we are getting the Int32 value for</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Int32 GetInt32(this IDataReader dataReader, string fieldName, Int32 defaultValue = 0)
+        public static int GetInt32(this IDataReader dataReader, string fieldName, int defaultValue = 0)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetInt32(fieldOrdinal);
@@ -1010,7 +1010,7 @@ var ItemName = datareader.GetString("ItemName", "Unknown");
         /// <param name="fieldName">The field name that we are getting the Int64 value for</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Int64 GetInt64(this IDataReader dataReader, string fieldName, Int64 defaultValue = 0)
+        public static long GetInt64(this IDataReader dataReader, string fieldName, long defaultValue = 0)
         {
             var fieldOrdinal = dataReader.GetOrdinal(fieldName);
             return dataReader.IsDBNull(fieldOrdinal) ? defaultValue : dataReader.GetInt64(fieldOrdinal);
@@ -1574,7 +1574,7 @@ list = list.OrderBy(emp => emp.Salary).ToObservableCollection();
 // => i_m_a_cute_post_title
  */
 
-        public static String toSlug(this string text)
+        public static string toSlug(this string text)
         {
             var value = text.Normalize(NormalizationForm.FormD).Trim();
             var builder = new StringBuilder();
@@ -1825,7 +1825,7 @@ txtName.DataBindings.Add<tblProduct>("Text", ds, p => p.ProductName, true, DataS
             else if (expression.Body is MemberExpression)
                 relatedNameChain = (expression.Body as MemberExpression).ToString();
 
-            var skippedName = String.Join(".", relatedNameChain.Split('.').Skip(1).ToArray());
+            var skippedName = string.Join(".", relatedNameChain.Split('.').Skip(1).ToArray());
             return bindingCollection.Add(property, datasource, skippedName);
         }
 
@@ -2243,11 +2243,11 @@ list.AddElement("line 1")
         /// "SELECT DISTINCT" over a DataTable
         /// </summary>
         /// <param name="SourceTable">Input DataTable</param>
-        /// <param name="FieldNames">Fields to select (distinct)</param>
+        /// <param name="FieldName">Fields to select (distinct)</param>
         /// <returns></returns>
-        public static DataTable SelectDistinct(this DataTable SourceTable, String FieldName)
+        public static DataTable SelectDistinct(this DataTable SourceTable, string FieldName)
         {
-            return SelectDistinct(SourceTable, FieldName, String.Empty);
+            return SelectDistinct(SourceTable, FieldName, string.Empty);
         }
 
         /// <summary>
@@ -2257,7 +2257,7 @@ list.AddElement("line 1")
         /// <param name="FieldNames">Fields to select (distinct)</param>
         /// <param name="Filter">Optional filter to be applied to the selection</param>
         /// <returns></returns>
-        public static DataTable SelectDistinct(this DataTable SourceTable, String FieldNames, String Filter)
+        public static DataTable SelectDistinct(this DataTable SourceTable, string FieldNames, string Filter)
         {
             var dt = new DataTable();
             var arrFieldNames = FieldNames.Replace(" ", "").Split(',');
@@ -2269,7 +2269,7 @@ list.AddElement("line 1")
                     throw new Exception($"The column {s} does not exist.");
             }
 
-            Object[] LastValues = null;
+            object[] LastValues = null;
             foreach (var dr in SourceTable.Select(Filter, FieldNames))
             {
                 var NewValues = GetRowFields(dr, arrFieldNames);
@@ -2287,7 +2287,7 @@ list.AddElement("line 1")
 
         #region Private Methods
 
-        private static Object[] GetRowFields(DataRow dr, String[] arrFieldNames)
+        private static object[] GetRowFields(DataRow dr, string[] arrFieldNames)
         {
             if (arrFieldNames.Length == 1)
                 return new[] {dr[arrFieldNames[0]]};
@@ -2301,10 +2301,10 @@ list.AddElement("line 1")
         /// <summary>
         /// Compares two values to see if they are equal. Also compares DBNULL.Value.
         /// </summary>
-        /// <param name="A">Object A</param>
-        /// <param name="B">Object B</param>
+        /// <param name="a">Object A</param>
+        /// <param name="b">Object B</param>
         /// <returns></returns>
-        private static Boolean ObjectComparison(Object a, Object b)
+        private static bool ObjectComparison(object a, object b)
         {
             if (a == DBNull.Value && b == DBNull.Value) //  both are DBNull.Value
                 return true;
@@ -2319,7 +2319,7 @@ list.AddElement("line 1")
         /// <param name="A">Object Array A</param>
         /// <param name="B">Object Array B</param>
         /// <returns></returns>
-        private static Boolean ObjectComparison(Object[] a, Object[] b)
+        private static bool ObjectComparison(object[] a, object[] b)
         {
             var retValue = true;
             var singleCheck = false;

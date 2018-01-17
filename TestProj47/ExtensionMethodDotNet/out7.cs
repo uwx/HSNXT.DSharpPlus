@@ -1010,7 +1010,7 @@ Console.WriteLine(l.FindMax(emp => emp.Salary)?.Name);
 var everyone = strings.Join(", "); // returns "Ace, Bil, Cal, Dan"
  */
 
-        public static string Join(this IEnumerable<string> source, string separator) => String.Join(separator, source);
+        public static string Join(this IEnumerable<string> source, string separator) => string.Join(separator, source);
 
 
 /*

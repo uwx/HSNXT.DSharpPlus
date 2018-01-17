@@ -356,7 +356,7 @@ MessageBox.Show(result_string);
 
         public static string PleuraliseByAddingS(this string input, int number)
         {
-            if (!String.IsNullOrEmpty(input))
+            if (!string.IsNullOrEmpty(input))
             {
                 if (number == 1) return input;
 
@@ -388,7 +388,7 @@ MessageBox.Show(result_string);
         {
             var QueryStringValue = page.Request.QueryString[QueryStringKey];
 
-            if (String.IsNullOrEmpty(QueryStringValue))
+            if (string.IsNullOrEmpty(QueryStringValue))
             {
                 page.Response.Redirect(page.ResolveUrl(RedirectUrl));
             }
@@ -676,11 +676,11 @@ return g.ToUpperCheckForNull();
 will return "POTATOE"
  */
 
-        public static String ToUpperCheckForNull(this string input)
+        public static string ToUpperCheckForNull(this string input)
         {
             var retval = input;
 
-            if (!String.IsNullOrEmpty(retval))
+            if (!string.IsNullOrEmpty(retval))
             {
                 retval = retval.ToUpper();
             }
@@ -910,7 +910,7 @@ string hi = test.ToStringLimit(5);
 // nice little extension helper :)
  */
 
-        public static string ToStringLimit(this String str, int limit)
+        public static string ToStringLimit(this string str, int limit)
         {
             if (str.Length > limit)
             {
@@ -1358,7 +1358,7 @@ Some examples:
 12:45 to 12.75
  */
 
-        public static Decimal timeToDecimal(this string time)
+        public static decimal timeToDecimal(this string time)
         {
             var Hours = time.Split(':')[0].ToInt();
             decimal Minutes = time.Split(':')[1].ToInt();

@@ -194,7 +194,7 @@ private void button1_Click(object sender, EventArgs e)
             // If the collection is null, or if it contains zero elements,
             // then return an empty string.
             if (strings == null || !strings.Any())
-                return String.Empty;
+                return string.Empty;
 
             // Build the flattened string
             var flattenedString = new StringBuilder();
@@ -225,7 +225,7 @@ private void button1_Click(object sender, EventArgs e)
             // Return the flattened string
             return strings
                 .Select(s => $"{prefix}{s}{suffix}")
-                .Flatten(String.Empty, head, tail);
+                .Flatten(string.Empty, head, tail);
         }
 
 
@@ -673,12 +673,12 @@ Console.WriteLine("MD5 Hash is: {0}.", file.GetMD5());
         {
             var type = t.GetTypeWithoutNullability();
             return
-                type == typeof(Int16) ||
-                type == typeof(Int32) ||
-                type == typeof(Int64) ||
-                type == typeof(UInt16) ||
-                type == typeof(UInt32) ||
-                type == typeof(UInt64) ||
+                type == typeof(short) ||
+                type == typeof(int) ||
+                type == typeof(long) ||
+                type == typeof(ushort) ||
+                type == typeof(uint) ||
+                type == typeof(ulong) ||
                 type == typeof(decimal) ||
                 type == typeof(float) ||
                 type == typeof(double);
@@ -1976,7 +1976,7 @@ border: solid 1 black;}</style>";
             string rowStyle, string alternateRowStyle)
         {
             var result = new StringBuilder();
-            if (String.IsNullOrEmpty(tableSyle))
+            if (string.IsNullOrEmpty(tableSyle))
             {
                 result.Append("<table id=\"" + typeof(T).Name + "Table\">");
             }
@@ -1988,7 +1988,7 @@ border: solid 1 black;}</style>";
             var propertyArray = typeof(T).GetProperties();
             foreach (var prop in propertyArray)
             {
-                if (String.IsNullOrEmpty(headerStyle))
+                if (string.IsNullOrEmpty(headerStyle))
                 {
                     result.AppendFormat("<th>{0}</th>", prop.Name);
                 }
@@ -2000,7 +2000,7 @@ border: solid 1 black;}</style>";
 
             for (var i = 0; i < list.Count(); i++)
             {
-                if (!String.IsNullOrEmpty(rowStyle) && !String.IsNullOrEmpty(alternateRowStyle))
+                if (!string.IsNullOrEmpty(rowStyle) && !string.IsNullOrEmpty(alternateRowStyle))
                 {
                     result.AppendFormat("<tr class=\"{0}\">", i % 2 == 0 ? rowStyle : alternateRowStyle);
                 }
@@ -2012,7 +2012,7 @@ border: solid 1 black;}</style>";
                 foreach (var prop in propertyArray)
                 {
                     var value = prop.GetValue(list.ElementAt(i), null);
-                    result.AppendFormat("<td>{0}</td>", value ?? String.Empty);
+                    result.AppendFormat("<td>{0}</td>", value ?? string.Empty);
                 }
                 result.AppendLine("</tr>");
             }
@@ -2181,7 +2181,7 @@ LayoutRoot.Background = new SolidColorBrush(c);
         /// <param name="dr">DataReader</param>
         /// <param name="ColumnName">Name of the column to find</param>
         /// <returns>Returns true if the column exists in the DataReader, else returns false</returns>
-        public static Boolean ColumnExists(this IDataReader dr, String ColumnName)
+        public static bool ColumnExists(this IDataReader dr, string ColumnName)
         {
             for (var i = 0; i < dr.FieldCount; i++)
                 if (dr.GetName(i).Equals(ColumnName, StringComparison.OrdinalIgnoreCase))
@@ -2960,7 +2960,7 @@ Console.WriteLine("Total Words: {0}", word.WordCount());
 
         public static string ToUrlString(this string str)
         {
-            if (String.IsNullOrEmpty(str)) return "";
+            if (string.IsNullOrEmpty(str)) return "";
             // Unicode Character Handling: http://blogs.msdn.com/b/michkap/archive/2007/05/14/2629747.aspx
             var stFormD = str.Trim().ToLowerInvariant().Normalize(NormalizationForm.FormD);
             var sb = new StringBuilder();

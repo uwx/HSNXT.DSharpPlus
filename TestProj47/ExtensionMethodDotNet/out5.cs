@@ -1062,7 +1062,7 @@ using (SqlDataReader dataReader = command.ExecuteReader())
                     if (!dataReader.IsDBNull(index))
                     {
                         var value = dataReader.GetValue(index).ToString();
-                        if (dataReader.GetFieldType(index) == typeof(String))
+                        if (dataReader.GetFieldType(index) == typeof(string))
                         {
                             //If double quotes are used in value, ensure each are replaced but 2.
                             if (value.IndexOf("\"") >= 0)
@@ -1465,7 +1465,7 @@ var joined2 = sb2.Join("|"); // return a
 
         public static string Join(this StringBuilder sb, string seperator)
         {
-            if (sb == null) return String.Empty;
+            if (sb == null) return string.Empty;
 
             var lst = new List<string>();
             for (var i = 0; i < sb.Length; i++)
@@ -1473,7 +1473,7 @@ var joined2 = sb2.Join("|"); // return a
                 lst.Add(sb[i].ToString());
             }
 
-            return String.Join(seperator, lst.ToArray());
+            return string.Join(seperator, lst.ToArray());
         }
 
 
@@ -2480,7 +2480,7 @@ myStringBuilder.AppendLine("This is the {0} line", "second");
 
         public static StringBuilder AppendLine(this StringBuilder sb, string format, params object[] arguments)
         {
-            var value = String.Format(format, arguments);
+            var value = string.Format(format, arguments);
             sb.AppendLine(value);
             return sb;
         }

@@ -287,12 +287,12 @@ NameValueCollection nv = a.ToNameValueCollection(';', '=');
         /// <param name="OuterSeparator">Separator for each "NameValue"</param>
         /// <param name="NameValueSeparator">Separator for Name/Value splitting</param>
         /// <returns></returns>
-        public static NameValueCollection ToNameValueCollection(this String str, Char OuterSeparator,
-            Char NameValueSeparator)
+        public static NameValueCollection ToNameValueCollection(this string str, char OuterSeparator,
+            char NameValueSeparator)
         {
             NameValueCollection nvText = null;
             str = str.TrimEnd(OuterSeparator);
-            if (!String.IsNullOrEmpty(str))
+            if (!string.IsNullOrEmpty(str))
             {
                 var arrStrings = str.TrimEnd(OuterSeparator).Split(OuterSeparator);
 
@@ -816,7 +816,7 @@ with2.Parameters( );   // <string, string>{{"v", "1"}, {"v2", "2"}}
         public static Dictionary<string, string> Parameters(
             this Uri self)
         {
-            return String.IsNullOrEmpty(self.Query)
+            return string.IsNullOrEmpty(self.Query)
                 ? new Dictionary<string, string>()
                 : self.Query.Substring(1).Split('&').ToDictionary(
                     p => p.Split('=')[0],
@@ -1643,7 +1643,7 @@ strings.HasItems(); //false
         /// </summary>
         /// <param name="enumerable">the IEnumerable</param>
         /// <returns>false if enumerable is null or contains no items</returns>
-        public static Boolean HasItems(this IEnumerable enumerable)
+        public static bool HasItems(this IEnumerable enumerable)
         {
             if (enumerable == null)
                 return false;
@@ -1755,7 +1755,7 @@ if (!userIsLoggedIn)
                 where !c.Equals(cssClass, StringComparison.OrdinalIgnoreCase)
                 select c;
 
-            control.CssClass = String.Join(" ", classes);
+            control.CssClass = string.Join(" ", classes);
         }
 
 
@@ -1913,7 +1913,7 @@ a.Shuffle();
  * Boolean isLeapDay = new DateTime(2012, 2, 29).IsLeapDay();
  */
 
-        public static Boolean IsLeapDay(this DateTime date)
+        public static bool IsLeapDay(this DateTime date)
         {
             return(date.Month == 2 && date.Day == 29);
         }
@@ -2149,7 +2149,7 @@ a.Shuffle();
             {
                 s += x.ToString() + separator;
             }
-            return (s.Length > separator.Length) ? s.Remove(s.Length - separator.Length) : String.Empty;
+            return (s.Length > separator.Length) ? s.Remove(s.Length - separator.Length) : string.Empty;
         }
 
 

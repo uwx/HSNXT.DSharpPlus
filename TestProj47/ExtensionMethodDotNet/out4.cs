@@ -112,7 +112,7 @@ Double elapsed = dtStart.ElapsedSeconds();
         /// Double elapsed = dtStart.ElapsedSeconds();
         /// </example>
         /// <seealso cref="Elapsed()"/>
-        public static Double ElapsedSeconds(this DateTime input)
+        public static double ElapsedSeconds(this DateTime input)
         {
             return DateTime.Now.Subtract(input).TotalSeconds;
         }
@@ -156,7 +156,7 @@ string aSaferString = myString.IsNull(string.Empty);
 
         public static string GetOrThrow(this ConnectionStringSettingsCollection connectionStrings, string name)
         {
-            if (String.IsNullOrWhiteSpace(name)) throw new ArgumentException("name was null or empty.", "name");
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name was null or empty.", "name");
 
             var connectionString = connectionStrings[name];
             if (connectionString == null)
@@ -1174,7 +1174,7 @@ var formattedMessage = message.FormatSafe("World");
             {
                 try
                 {
-                    return String.Format(format, args);
+                    return string.Format(format, args);
                 }
                 catch
                 {
@@ -1768,9 +1768,9 @@ bool isValid = codeMelli.IsValidCodeMelli();
 
         public static bool IsValidCodeMelli(this string codeMelli)
         {
-            Int64 number;
+            long number;
             int sum = 0, temp;
-            Int64.TryParse(codeMelli, out number);
+            long.TryParse(codeMelli, out number);
             if (Math.Log10(number) > 6 && Math.Log10(number) < 10)
             {
                 temp = System.Convert.ToInt16(number % 10);
