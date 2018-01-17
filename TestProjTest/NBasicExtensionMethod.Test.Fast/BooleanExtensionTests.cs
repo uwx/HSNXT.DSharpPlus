@@ -26,8 +26,8 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void And_Should_Return_True_When_Both_Values_Are_True() {
 			// Arrange
-			bool bValueA = true;
-			bool bValueB = true;
+			var bValueA = true;
+			var bValueB = true;
 
 			// Act & Assert
 			bValueA.And(bValueB).Should().Be(true);
@@ -46,8 +46,8 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Or_Should_Return_False_When_Both_Values_Are_False() {
 			// Arrange
-			bool bValueA = false;
-			bool bValueB = false;
+			var bValueA = false;
+			var bValueB = false;
 
 			// Act & Assert
 			bValueA.Or(bValueB).Should().Be(false);

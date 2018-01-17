@@ -12,7 +12,7 @@ namespace BCLExtensions.Tests.StringExtensions
             [Fact]
             public void DefaultStringReturnsDefaultString()
             {
-                string expected = "(Default)";
+                var expected = "(Default)";
                 var result = _input.ValueOrIfNull(expected);
                 Assert.Equal(expected, result);
             }
@@ -28,7 +28,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithEmptyStringReturnsEmptyString()
         {
-            string input = "";
+            var input = "";
             var result = input.ValueOrIfNull("(Default)");
             Assert.Equal(string.Empty, result);
         }
@@ -36,7 +36,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithStringEmptyReturnsEmptyString()
         {
-            string input = string.Empty;
+            var input = string.Empty;
             var result = input.ValueOrIfNull("(Default)");
             Assert.Equal(string.Empty, result);
         }
@@ -44,7 +44,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void WithWhitespaceReturnsInputString()
         {
-            string input = "   ";
+            var input = "   ";
             var result = input.ValueOrIfNull("(Default)");
             Assert.Equal(input, result);
         }

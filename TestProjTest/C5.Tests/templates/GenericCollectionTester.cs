@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -33,7 +33,7 @@ namespace HSNXT.C5UnitTests.Templates
         public GenericCollectionTester()
         {
             testMethods = new CircularQueue<MethodInfo>();
-            foreach (MethodInfo minfo in this.GetType().GetMethods())
+            foreach (var minfo in this.GetType().GetMethods())
             {
                 if (minfo.GetParameters().Length == 0 &&
                      minfo.GetCustomAttributes(typeof(TestAttribute), false).Length > 0)
@@ -43,9 +43,9 @@ namespace HSNXT.C5UnitTests.Templates
 
         public virtual void Test(Func<U> factory, MemoryType memoryType = MemoryType.Normal)
         {
-            foreach (MethodInfo minfo in testMethods)
+            foreach (var minfo in testMethods)
             {
-                foreach (W testSpec in GetSpecs())
+                foreach (var testSpec in GetSpecs())
                 {
                     SetUp(factory(), testSpec, memoryType);
                     //Console.WriteLine("Testing {0}, with method {1} and testSpec {{{2}}}", typeof(U), minfo.Name, testSpec);

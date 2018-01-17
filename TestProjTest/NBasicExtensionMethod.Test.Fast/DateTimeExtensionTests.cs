@@ -64,7 +64,7 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void IsInFuture_Should_Return_True_When_Date_Is_Grater_Than_Now() {
 			// Arrange
-			DateTime dtFutureDate = DateTime.Now.AddDays(2);
+			var dtFutureDate = DateTime.Now.AddDays(2);
 			// Act
 
 			// Assert
@@ -74,7 +74,7 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void IsInFuture_Should_Return_False_When_Date_Is_Less_Than_Now() {
 			// Arrange
-			DateTime dtValue = DateTime.Now.AddDays(-1);
+			var dtValue = DateTime.Now.AddDays(-1);
 			// Act
 
 			// Assert
@@ -84,7 +84,7 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void IsInFuture_Should_Return_False_When_Date_Equals_Now() {
 			// Arrange
-			DateTime dtValue = DateTime.Now;
+			var dtValue = DateTime.Now;
 			// Act
 
 			// Assert

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -262,18 +262,18 @@ namespace HSNXT.C5UnitTests.hashtable.dictionary
         [Test]
         public void DeepBucket()
         {
-            HashDictionary<int, int> dict2 = new HashDictionary<int, int>();
+            var dict2 = new HashDictionary<int, int>();
 
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
                 dict2[16 * i] = 5 * i;
 
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
                 Assert.AreEqual(5 * i, dict2[16 * i]);
 
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
                 dict2[16 * i] = 7 * i + 1;
 
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
                 Assert.AreEqual(7 * i + 1, dict2[16 * i]);
             Assert.IsTrue(dict.Check());
         }

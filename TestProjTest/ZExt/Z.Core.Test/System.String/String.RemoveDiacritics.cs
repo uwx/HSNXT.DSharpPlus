@@ -15,10 +15,10 @@ namespace HSNXT.Z.Core.Test
         public void RemoveDiacritics()
         {
             // Type
-            string @this = "éèêôîâ";
+            var @this = "éèêôîâ";
 
             // Examples
-            string value = @this.RemoveDiacritics(); // return "eeeoia";
+            var value = @this.RemoveDiacritics(); // return "eeeoia";
 
             // Unit Test
             Assert.AreEqual("eeeoia", value);

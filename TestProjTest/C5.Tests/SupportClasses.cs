@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -106,7 +106,7 @@ namespace HSNXT.C5UnitTests
         {
             int i = 0, maxind = that.Length - 1;
 
-            foreach (int item in me)
+            foreach (var item in me)
                 if (i > maxind || item != that[i++])
                     return false;
 
@@ -114,13 +114,13 @@ namespace HSNXT.C5UnitTests
         }
         public static bool seteq(ICollectionValue<int> me, params int[] that)
         {
-            int[] me2 = me.ToArray();
+            var me2 = me.ToArray();
 
             Array.Sort(me2);
 
             int i = 0, maxind = that.Length - 1;
 
-            foreach (int item in me2)
+            foreach (var item in me2)
                 if (i > maxind || item != that[i++])
                     return false;
 
@@ -128,10 +128,10 @@ namespace HSNXT.C5UnitTests
         }
         public static bool seteq(ICollectionValue<KeyValuePair<int, int>> me, params int[] that)
         {
-            ArrayList<KeyValuePair<int, int>> first = new ArrayList<KeyValuePair<int, int>>();
+            var first = new ArrayList<KeyValuePair<int, int>>();
             first.AddAll(me);
-            ArrayList<KeyValuePair<int, int>> other = new ArrayList<KeyValuePair<int, int>>();
-            for (int i = 0; i < that.Length; i += 2)
+            var other = new ArrayList<KeyValuePair<int, int>>();
+            for (var i = 0; i < that.Length; i += 2)
             {
                 other.Add(new KeyValuePair<int, int>(that[i], that[i + 1]));
             }
@@ -159,7 +159,7 @@ namespace HSNXT.C5UnitTests
 
         public SCG.IEnumerator<int> GetEnumerator()
         {
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
                 yield return f(i);
         }
 
@@ -189,7 +189,7 @@ namespace HSNXT.C5UnitTests
 
         public override SCG.IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < contents.Length; i++)
+            for (var i = 0; i < contents.Length; i++)
                 yield return contents[i];
             throw exception;
         }
@@ -236,8 +236,8 @@ namespace HSNXT.C5UnitTests
         /// <param name="expected"></param>
         public void Check(SCG.IEnumerable<CollectionEvent<T>> expected)
         {
-            int i = 0;
-            foreach (CollectionEvent<T> expectedEvent in expected)
+            var i = 0;
+            foreach (var expectedEvent in expected)
             {
                 if ((expectedEvent.Act & listenTo) == 0)
                     continue;
@@ -355,8 +355,8 @@ namespace HSNXT.C5UnitTests
     {
         static public int unsequencedhashcode(params int[] a)
         {
-            int h = 0;
-            foreach (int i in a)
+            var h = 0;
+            foreach (var i in a)
             {
                 h += (int)(((uint)i * 1529784657 + 1) ^ ((uint)i * 2912831877) ^ ((uint)i * 1118771817 + 2));
             }
@@ -364,8 +364,8 @@ namespace HSNXT.C5UnitTests
         }
         static public int sequencedhashcode(params int[] a)
         {
-            int h = 0;
-            foreach (int i in a) { h = h * 31 + i; }
+            var h = 0;
+            foreach (var i in a) { h = h * 31 + i; }
             return h;
         }
     }
@@ -475,9 +475,9 @@ namespace HSNXT.C5UnitTests
             // The formatting is handled here.
             if (intToBeFormatted == 0)
                 return "0";
-            int digitIndex = 0;
+            var digitIndex = 0;
             int intPositive;
-            char[] outDigits = new char[31];
+            var outDigits = new char[31];
 
             // Verify that the argument can be converted to a int integer.
             // Extract the magnitude for conversion.

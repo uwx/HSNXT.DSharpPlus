@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,10 +16,10 @@ namespace HSNXT.Z.Core.Test
         public void StartOfYear()
         {
             // Type
-            DateTime @this = DateTime.Now;
+            var @this = DateTime.Now;
 
             // Examples
-            DateTime value = @this.StartOfYear(); // value = "yyyy/01/01 00:00:00:000";
+            var value = @this.StartOfYear(); // value = "yyyy/01/01 00:00:00:000";
 
             // Unit Test
             Assert.AreEqual(new DateTime(value.Year, 1, 1), value);

@@ -15,7 +15,7 @@ namespace CommonLibrary.Tests
         public void CanGetTable()
         {
             var db = new Database(ConnectionInfo.Default);
-            DataTable table = db.ExecuteDataTable("select * from wk_adminqueries", System.Data.CommandType.Text);
+            var table = db.ExecuteDataTable("select * from wk_adminqueries", System.Data.CommandType.Text);
 
             Assert.IsNotNull(table);
         }
@@ -25,7 +25,7 @@ namespace CommonLibrary.Tests
         public void CanGetScalar()
         {
             var db = new Database(ConnectionInfo.Default);
-            object totalRecords = db.ExecuteScalar("select count(*) from wk_adminqueries", System.Data.CommandType.Text);
+            var totalRecords = db.ExecuteScalar("select count(*) from wk_adminqueries", System.Data.CommandType.Text);
 
             Assert.AreEqual(8, totalRecords);
         }
@@ -35,8 +35,8 @@ namespace CommonLibrary.Tests
         public void CanUpdateData()
         {
             var db = new Database(ConnectionInfo.Default);
-            object maxId = db.ExecuteScalar("select max(id) from wk_adminqueries", System.Data.CommandType.Text);
-            int rowsAffected = db.ExecuteNonQuery("update wk_adminqueries set description = 'unit test update' where id = " + maxId, CommandType.Text);
+            var maxId = db.ExecuteScalar("select max(id) from wk_adminqueries", System.Data.CommandType.Text);
+            var rowsAffected = db.ExecuteNonQuery("update wk_adminqueries set description = 'unit test update' where id = " + maxId, CommandType.Text);
 
             Assert.AreEqual(1, rowsAffected);
         }
@@ -46,11 +46,11 @@ namespace CommonLibrary.Tests
         public void Can1()
         {
             var db = new Database(ConnectionInfo.Default);
-            DbParameter[] dbparams = new DbParameter[2];
+            var dbparams = new DbParameter[2];
             dbparams[0] = db.BuildInParam("@groupid", DbType.Int32, 1);
             dbparams[1] = db.BuildInParam("@name", DbType.String, "aboutus");
-            DataTable table = db.ExecuteDataTable("Kd_PageContent_Retrieve", CommandType.StoredProcedure, dbparams);
-            string content = table.Rows[0]["Description"].ToString();
+            var table = db.ExecuteDataTable("Kd_PageContent_Retrieve", CommandType.StoredProcedure, dbparams);
+            var content = table.Rows[0]["Description"].ToString();
             Assert.IsNotNull(content);
          
         }

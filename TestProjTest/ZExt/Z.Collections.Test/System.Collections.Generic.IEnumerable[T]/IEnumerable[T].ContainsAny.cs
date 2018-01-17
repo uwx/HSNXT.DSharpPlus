@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,11 +17,11 @@ namespace HSNXT.Z.Collections.Test
         public void ContainsAny()
         {
             // Type
-            IEnumerable<string> @this = new List<string> {"zA", "zB", "C"}.AsEnumerable();
+            var @this = new List<string> {"zA", "zB", "C"}.AsEnumerable();
 
             // Exemples
-            bool value1 = @this.ContainsAny("1", "zA", "3"); // return true;
-            bool value2 = @this.ContainsAny("1", "2", "3"); // return false;
+            var value1 = @this.ContainsAny("1", "zA", "3"); // return true;
+            var value2 = @this.ContainsAny("1", "2", "3"); // return false;
 
             // Unit Test
             Assert.IsTrue(value1);

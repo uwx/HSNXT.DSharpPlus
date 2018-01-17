@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using System.Text;
@@ -21,14 +21,14 @@ namespace HSNXT.Z.IO.Test
             var @this = new FileInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Examples_System_IO_FileInfo_ReadToEnd.txt"));
 
             // Intialization
-            using (FileStream stream = @this.Create())
+            using (var stream = @this.Create())
             {
-                byte[] byteToWrites = Encoding.Default.GetBytes("Fizz" + Environment.NewLine + "Buzz");
+                var byteToWrites = Encoding.Default.GetBytes("Fizz" + Environment.NewLine + "Buzz");
                 stream.Write(byteToWrites, 0, byteToWrites.Length);
             }
 
             // Examples
-            string result = @this.ReadToEnd(); // return "Fizz" + Environment.NewLine + "Buzz";
+            var result = @this.ReadToEnd(); // return "Fizz" + Environment.NewLine + "Buzz";
 
             // Unit Test
             Assert.AreEqual("Fizz" + Environment.NewLine + "Buzz", result);

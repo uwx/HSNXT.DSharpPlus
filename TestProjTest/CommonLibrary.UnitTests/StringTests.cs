@@ -12,8 +12,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseKeyValuePairs()
         {
-            string test = "city=Queens, state=Ny, zipcode=12345, Country=usa";
-            IDictionary<string, string> pairs = StringHelper.ToMap(test, ',', '=', false, true);
+            var test = "city=Queens, state=Ny, zipcode=12345, Country=usa";
+            var pairs = StringHelper.ToMap(test, ',', '=', false, true);
 
             Assert.AreEqual(pairs["city"], "Queens");
             Assert.AreEqual(pairs["state"], "Ny");
@@ -30,7 +30,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseDelimitedData()
         {
-            string[] pageNums = StringHelper.GetDelimitedChars("search-classes-workshops-4-1-2-6",
+            var pageNums = StringHelper.GetDelimitedChars("search-classes-workshops-4-1-2-6",
                 "search-classes-workshops-", '-');
             Assert.AreEqual(4, pageNums.Length);
             Assert.AreEqual("4", pageNums[0]);
@@ -43,8 +43,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanConvertSingleWordToSentenceCase()
         {
-            string lowerCase = "newyork";
-            string sentenceCase = StringHelper.ConvertToSentanceCase(lowerCase, ' ');
+            var lowerCase = "newyork";
+            var sentenceCase = StringHelper.ConvertToSentanceCase(lowerCase, ' ');
 
             Assert.AreEqual("Newyork", sentenceCase);
         }
@@ -53,8 +53,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanConvertMultipleWordsToSentenceCase()
         {
-            string lowerCase = "AMERICAN SAMOA";
-            string sentenceCase = StringHelper.ConvertToSentanceCase(lowerCase, ' ');
+            var lowerCase = "AMERICAN SAMOA";
+            var sentenceCase = StringHelper.ConvertToSentanceCase(lowerCase, ' ');
 
             Assert.AreEqual("American Samoa", sentenceCase);
         }
@@ -64,11 +64,11 @@ namespace CommonLibrary.Tests
         public void CanTrucateNullOrEmpty()
         {
             string txt = null;
-            string t = StringHelper.Truncate(txt, 10);
+            var t = StringHelper.Truncate(txt, 10);
             Assert.AreEqual(null, t);
 
             txt = string.Empty;
-            string t2 = StringHelper.Truncate(txt, 10);
+            var t2 = StringHelper.Truncate(txt, 10);
             Assert.AreEqual(string.Empty, t2);
         }
 
@@ -76,12 +76,12 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanTrucate()
         {
-            string txt = "1234567890";
-            string t = StringHelper.Truncate(txt, 5);
+            var txt = "1234567890";
+            var t = StringHelper.Truncate(txt, 5);
             Assert.AreEqual("12345", t);
 
             txt = "1234567890";
-            string t2 = StringHelper.Truncate(txt, 15);
+            var t2 = StringHelper.Truncate(txt, 15);
             Assert.AreEqual("1234567890", t2);
         }
 
@@ -118,8 +118,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanSplitSingleLongWord()
         {
-            string longWord = "abcdefghijklmnopqrstuvwxyz";
-            string splitWord = TextSplitter.SplitWord(longWord, 5, " ");
+            var longWord = "abcdefghijklmnopqrstuvwxyz";
+            var splitWord = TextSplitter.SplitWord(longWord, 5, " ");
 
             Assert.AreEqual("abcde fghij klmno pqrst uvwxy z", splitWord);
         }
@@ -128,8 +128,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void DoesNotSplitSingleShortWord()
         {
-            string longWord = "abcdefghijklmn";
-            string splitWord = TextSplitter.SplitWord(longWord, 15, " ");
+            var longWord = "abcdefghijklmn";
+            var splitWord = TextSplitter.SplitWord(longWord, 15, " ");
             Assert.AreEqual("abcdefghijklmn", splitWord);
 
             longWord = null;
@@ -146,8 +146,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanCheckSingleLinWithSplitting()
         {
-            string text = "kishore 12345678901234567890 reddy";
-            string splitText = TextSplitter.CheckAndSplitText(text, 15);
+            var text = "kishore 12345678901234567890 reddy";
+            var splitText = TextSplitter.CheckAndSplitText(text, 15);
 
             Assert.AreEqual("kishore 123456789012345 67890 reddy", splitText);
         }
@@ -156,8 +156,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanCheckSingleLineWithoutSplitting()
         {
-            string text = "kishore 1234567890 1234567890 reddy";
-            string splitText = TextSplitter.CheckAndSplitText(text, 15);
+            var text = "kishore 1234567890 1234567890 reddy";
+            var splitText = TextSplitter.CheckAndSplitText(text, 15);
 
             Assert.AreEqual("kishore 1234567890 1234567890 reddy", splitText);
         }
@@ -166,13 +166,13 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanCheckMultiLineWithOutSplitting()
         {
-            string text = "Famed archaeologist/adventurer Dr. Henry \"Indiana\" Jones" + Environment.NewLine
+            var text = "Famed archaeologist/adventurer Dr. Henry \"Indiana\" Jones" + Environment.NewLine
                         + "is called back into action when he becomes entangled in a " + Environment.NewLine
                         + "Soviet plot to uncover the secret behind mysterious artifacts" + Environment.NewLine
                         + "known as the Crystal Skulls";
 
 
-            string splitText = TextSplitter.CheckAndSplitText(text, 25);
+            var splitText = TextSplitter.CheckAndSplitText(text, 25);
 
             Assert.AreEqual(text, splitText);
         }
@@ -181,13 +181,13 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanCheckMultipleWithSplitting()
         {
-            string text = "Famed archaeologist/adventurer123 Dr. Henry \"Indiana\" Jones" + Environment.NewLine
+            var text = "Famed archaeologist/adventurer123 Dr. Henry \"Indiana\" Jones" + Environment.NewLine
                         + "is called back into action when he becomes entangled in a " + Environment.NewLine
                         + "Soviet plot to uncoverTheSecretBehindMysteriousArtifacts" + Environment.NewLine
                         + "known as the Crystal Skulls";
 
-            string splitText = TextSplitter.CheckAndSplitText(text, 25);
-            string expected = "Famed archaeologist/adventurer1 23 Dr. Henry \"Indiana\" Jones" + Environment.NewLine
+            var splitText = TextSplitter.CheckAndSplitText(text, 25);
+            var expected = "Famed archaeologist/adventurer1 23 Dr. Henry \"Indiana\" Jones" + Environment.NewLine
                         + "is called back into action when he becomes entangled in a " + Environment.NewLine
                         + "Soviet plot to uncoverTheSecretBehindMys teriousArtifacts" + Environment.NewLine
                         + "known as the Crystal Skulls";

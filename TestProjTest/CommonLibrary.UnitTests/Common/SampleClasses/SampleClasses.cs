@@ -80,7 +80,7 @@ namespace HSNXT.ComLib.Tests
 
         public string FullNameWithPrefix(string prefix, bool isSenior)
         {
-            string fullname = string.IsNullOrEmpty(prefix) ? "" : prefix + " ";
+            var fullname = string.IsNullOrEmpty(prefix) ? "" : prefix + " ";
             fullname += FirstName + " " + LastName;
             if (isSenior)
                 fullname += " sr.";

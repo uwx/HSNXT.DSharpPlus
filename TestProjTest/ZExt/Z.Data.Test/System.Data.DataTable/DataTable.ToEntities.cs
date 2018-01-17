@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace HSNXT.Z.Data.Test
             @this.Rows.Add(2, "Buzz");
 
             // Exemples
-            List<TestObject> entities = @this.ToEntities<TestObject>().ToList();
+            var entities = @this.ToEntities<TestObject>().ToList();
 
             // Unit Test
             Assert.AreEqual(2, entities.Count);

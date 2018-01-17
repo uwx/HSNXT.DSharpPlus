@@ -25,14 +25,14 @@ Weapons=Star, Fists";
         [Fact]
         public void Basic_tests()
         {
-            IniFile ini = IniFile.Load(ValidIni, null);
+            var ini = IniFile.Load(ValidIni, null);
 
             Assert.Equal(3, ini.Count);
             Assert.Equal("Game State", ini[0].Name);
             Assert.Equal("Jeevan", ini[1].Name);
             Assert.Equal("Merina", ini[2].Name);
 
-            IniFile.Section section = ini[0];
+            var section = ini[0];
             Assert.Equal(2, section.Count);
             Assert.Equal("Jeevan", section["Player1"]);
             Assert.Equal("Merina", section["Player2"]);

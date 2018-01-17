@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -94,7 +94,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         public void Init()
         {
             lst = new HashBag<KeyValuePair<int, int>>(new KeyValuePairEqualityComparer<int, int>());
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 lst.Add(new KeyValuePair<int, int>(i, i + 30));
         }
 
@@ -106,7 +106,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void Find()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.Find(ref p));
             Assert.AreEqual(3, p.Key);
@@ -119,8 +119,8 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void FindOrAdd()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-            KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+            var p = new KeyValuePair<int, int>(3, 78);
+            var q = new KeyValuePair<int, int>();
 
             Assert.IsTrue(lst.FindOrAdd(ref p));
             Assert.AreEqual(3, p.Key);
@@ -137,8 +137,8 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void Update()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-            KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+            var p = new KeyValuePair<int, int>(3, 78);
+            var q = new KeyValuePair<int, int>();
 
             Assert.IsTrue(lst.Update(p));
             q.Key = 3;
@@ -153,8 +153,8 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void UpdateOrAdd1()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
-            KeyValuePair<int, int> q = new KeyValuePair<int, int>();
+            var p = new KeyValuePair<int, int>(3, 78);
+            var q = new KeyValuePair<int, int>();
 
             Assert.IsTrue(lst.UpdateOrAdd(p));
             q.Key = 3;
@@ -185,7 +185,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void RemoveWithReturn()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
             //KeyValuePair<int, int> q = new KeyValuePair<int, int>();
 
             Assert.IsTrue(lst.Remove(p, out p));
@@ -271,7 +271,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         {
             hashbag.Add(3); hashbag.Add(4); hashbag.Add(4); hashbag.Add(5); hashbag.Add(4);
 
-            HashBag<int> hashbag2 = new HashBag<int>();
+            var hashbag2 = new HashBag<int>();
 
             hashbag2.AddAll(hashbag);
             Assert.IsTrue(IC.seteq(hashbag2, 3, 4, 4, 4, 5));
@@ -318,7 +318,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void ContainsAll()
         {
-            HashBag<int> list2 = new HashBag<int>();
+            var list2 = new HashBag<int>();
 
             Assert.IsTrue(hashbag.ContainsAll(list2));
             list2.Add(4);
@@ -341,7 +341,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void RetainAll()
         {
-            HashBag<int> list2 = new HashBag<int>();
+            var list2 = new HashBag<int>();
 
             hashbag.Add(4); hashbag.Add(5); hashbag.Add(4); hashbag.Add(6); hashbag.Add(4);
             list2.Add(5); list2.Add(4); list2.Add(7); list2.Add(4);
@@ -358,7 +358,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
         [Test]
         public void RemoveAll()
         {
-            HashBag<int> list2 = new HashBag<int>();
+            var list2 = new HashBag<int>();
 
             hashbag.Add(4); hashbag.Add(5); hashbag.Add(6); hashbag.Add(4); hashbag.Add(5);
             list2.Add(5); list2.Add(4); list2.Add(7); list2.Add(4);
@@ -478,7 +478,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
             Debug.UseDeterministicHashing = true;
             hashbag = new HashBag<int>();
             a = new int[10];
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 a[i] = 1000 + i;
         }
 
@@ -496,7 +496,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
             if (a.Length != b.Length)
                 return "Lengths differ: " + a.Length + " != " + b.Length;
 
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
                 if (a[i] != b[i])
                     return string.Format("{0}'th elements differ: {1} != {2}", i, a[i], b[i]);
 
@@ -513,7 +513,7 @@ namespace HSNXT.C5UnitTests.hashtable.bag
             hashbag.Add(10);
             hashbag.Add(3);
 
-            int[] r = hashbag.ToArray();
+            var r = hashbag.ToArray();
 
             Array.Sort(r);
             Assert.AreEqual("Alles klar", aeq(r, 3, 3, 7, 10));

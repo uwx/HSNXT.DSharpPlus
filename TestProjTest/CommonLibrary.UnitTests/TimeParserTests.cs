@@ -13,7 +13,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanNotParse()
         {
-            BoolMessageItem<TimeSpan> result = TimeHelper.Parse("sf");
+            var result = TimeHelper.Parse("sf");
             Assert.IsFalse(result.Success);
         }
 
@@ -21,7 +21,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanNotParseWithOutAmPm()
         {
-            TimeSpan time = TimeHelper.Parse("1").Item;
+            var time = TimeHelper.Parse("1").Item;
             Assert.AreEqual(time.Hours, 1);
             Assert.AreEqual(time.Minutes, 0);           
         }
@@ -30,7 +30,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseWithoutMinutesInPm()
         {
-            TimeSpan time = TimeHelper.Parse("1pm").Item;
+            var time = TimeHelper.Parse("1pm").Item;
             Assert.AreEqual(time.Hours, 13);
             Assert.AreEqual(time.Minutes, 0);       
         }
@@ -39,7 +39,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseWithoutMinutesInAm()
         {
-            TimeSpan time = TimeHelper.Parse("8am").Item;
+            var time = TimeHelper.Parse("8am").Item;
             Assert.AreEqual(time.Hours, 8);
             Assert.AreEqual(time.Minutes, 0);       
         }
@@ -48,7 +48,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseWithMinutesInPm()
         {
-            TimeSpan time = TimeHelper.Parse("10:45pm").Item;
+            var time = TimeHelper.Parse("10:45pm").Item;
             Assert.AreEqual(time.Hours, 22);
             Assert.AreEqual(time.Minutes, 45);       
         }
@@ -57,7 +57,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseWithMinutesInAm()
         {
-            TimeSpan time = TimeHelper.Parse("6:30am").Item;
+            var time = TimeHelper.Parse("6:30am").Item;
             Assert.AreEqual(time.Hours, 6);
             Assert.AreEqual(time.Minutes, 30);       
         }
@@ -66,10 +66,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseTimeRange()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30am to 1pm");
+            var result = TimeHelper.ParseStartEndTimes("11:30am to 1pm");
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(end, result.End);           
@@ -79,10 +79,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseTimeRangeWithPeriodsInAmPm()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30 a.m. to 1 p.m.");
+            var result = TimeHelper.ParseStartEndTimes("11:30 a.m. to 1 p.m.");
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(end, result.End);
@@ -92,10 +92,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseTimeRangeWithSpacesBetweenTimeAndAm()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30 am to 1 pm");
+            var result = TimeHelper.ParseStartEndTimes("11:30 am to 1 pm");
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(end, result.End);
@@ -105,9 +105,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseTimeRangeWithOutEndTime()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30am");
+            var result = TimeHelper.ParseStartEndTimes("11:30am");
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
+            var start = new TimeSpan(11, 30, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(TimeSpan.MaxValue, result.End);
@@ -118,10 +118,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseIndividualStartEndTimes()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30am", "1pm", true);
+            var result = TimeHelper.ParseStartEndTimes("11:30am", "1pm", true);
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(end, result.End);   
@@ -131,10 +131,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanNotParseIndividualStartEndTimesWithMissingEndTime()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30am", "", true);
+            var result = TimeHelper.ParseStartEndTimes("11:30am", "", true);
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsFalse(result.IsValid);
             Assert.AreEqual(TimeSpan.MinValue, result.Start);
             Assert.AreEqual(TimeSpan.MaxValue, result.End);
@@ -144,10 +144,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseIndividualStartEndTimesWithMissingEndTime()
         {
-            TimeParseResult result = TimeHelper.ParseStartEndTimes("11:30am", "", false);
+            var result = TimeHelper.ParseStartEndTimes("11:30am", "", false);
 
-            TimeSpan start = new TimeSpan(11, 30, 0);
-            TimeSpan end = new TimeSpan(13, 0, 0);
+            var start = new TimeSpan(11, 30, 0);
+            var end = new TimeSpan(13, 0, 0);
             Assert.IsTrue(result.IsValid);
             Assert.AreEqual(start, result.Start);
             Assert.AreEqual(TimeSpan.MaxValue, result.End);

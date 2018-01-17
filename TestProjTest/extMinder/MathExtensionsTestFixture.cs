@@ -9,7 +9,7 @@ namespace HSNXT.Tests
         public void MultiplyBy100ShouldSetCorrectValue()
         {
             decimal x = 10;
-            decimal y = x.MultiplyBy(100);
+            var y = x.MultiplyBy(100);
             y.ShouldEqual(1000);
         }
 
@@ -17,7 +17,7 @@ namespace HSNXT.Tests
         public void DivideBy100ShouldSetCorrectValue()
         {
             decimal x = 1000;
-            decimal y = x.DivideBy(100);
+            var y = x.DivideBy(100);
             y.ShouldEqual(10);
         }
 

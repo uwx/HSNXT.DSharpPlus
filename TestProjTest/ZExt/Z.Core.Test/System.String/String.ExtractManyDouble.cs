@@ -17,8 +17,8 @@ namespace HSNXT.Z.Core.Test
             // Type
 
             // Exemples
-            double[] result1 = "1Fizz-2Buzz".ExtractManyDouble(); // return new [] {1, -2};
-            double[] result2 = "12.34Fizz-0.456".ExtractManyDouble(); // return new [] {12.34, -0.456};
+            var result1 = "1Fizz-2Buzz".ExtractManyDouble(); // return new [] {1, -2};
+            var result2 = "12.34Fizz-0.456".ExtractManyDouble(); // return new [] {12.34, -0.456};
 
             // Unit Test
             Assert.AreEqual(1, result1[0]);

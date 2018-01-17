@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,13 +20,13 @@ namespace HSNXT.Z.IO.Test
             var @this = new FileInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Examples_System_IO_FileInfo_ReadAllBytes.txt"));
 
             // Intialization
-            using (FileStream stream = @this.Create())
+            using (var stream = @this.Create())
             {
                 stream.WriteByte(0);
             }
 
             // Examples
-            byte[] value = @this.ReadAllBytes(); // return byte[] { 0 };
+            var value = @this.ReadAllBytes(); // return byte[] { 0 };
 
             // Unit Test
             Assert.AreEqual(0, value[0]);

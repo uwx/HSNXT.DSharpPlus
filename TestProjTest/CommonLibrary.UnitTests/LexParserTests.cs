@@ -13,7 +13,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseArguments()
         {
-            IDictionary<string, string> args = LexArgs.Parse(" pythontests.py  --config=\"prod.config\"  --trace=4  BLOGS 'c: d: e:'");
+            var args = LexArgs.Parse(" pythontests.py  --config=\"prod.config\"  --trace=4  BLOGS 'c: d: e:'");
 
             Assert.IsTrue(args.ContainsKey("pythontests.py"));
             Assert.IsTrue(args.ContainsKey("--config=\"prod.config\""));
@@ -27,7 +27,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseArgumentsQuoted()
         {
-            IDictionary<string, string> args = LexArgs.Parse(" 'squote' 's\"quote' 's\\'quote' \"dquote\" \"d'quote\" \"d\\\"quote\"");
+            var args = LexArgs.Parse(" 'squote' 's\"quote' 's\\'quote' \"dquote\" \"d'quote\" \"d\\\"quote\"");
 
             Assert.IsTrue(args.ContainsKey("squote"));
             Assert.IsTrue(args.ContainsKey("s\"quote"));
@@ -42,7 +42,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseArgumentsWithTabs()
         {
-            IDictionary<string, string> args = LexArgs.Parse(" 'squote'	's\"quote'	's\\'quote'");
+            var args = LexArgs.Parse(" 'squote'	's\"quote'	's\\'quote'");
             
             Assert.IsTrue(args.ContainsKey("squote"));
             Assert.IsTrue(args.ContainsKey("s\"quote"));
@@ -60,8 +60,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseNonQuotedListWithCommaSeparator()
         {
-            string line = "batman, bruce wayne, gambit";
-            IDictionary<string, string> items = LexList.Parse(line);
+            var line = "batman, bruce wayne, gambit";
+            var items = LexList.Parse(line);
 
             Assert.IsTrue(items.ContainsKey("batman"));
             Assert.IsTrue(items.ContainsKey("bruce wayne"));
@@ -72,8 +72,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseSingleQuotedListWithCommaSeparator()
         {
-            string line = "'batman', 'bruce wayne', 'gambit'";
-            IDictionary<string, string> items = LexList.Parse(line);
+            var line = "'batman', 'bruce wayne', 'gambit'";
+            var items = LexList.Parse(line);
 
             Assert.IsTrue(items.ContainsKey("batman"));
             Assert.IsTrue(items.ContainsKey("bruce wayne"));
@@ -84,9 +84,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseMultiLineSingleQuotedListWithCommaSeparator()
         {
-            string line = "'batman', 'lantern', 'superman' " + Environment.NewLine
+            var line = "'batman', 'lantern', 'superman' " + Environment.NewLine
                         + "'cyclops', 'colossus', 'logon'";
-            List<List<string>> items = LexList.ParseTable(line);
+            var items = LexList.ParseTable(line);
 
             Assert.IsTrue(items[0].Contains("batman"));
             Assert.IsTrue(items[0].Contains("lantern"));
@@ -100,8 +100,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseSingleQuotedListWithCommaSeparatorWithInnerComma()
         {
-            string line = "'batman', 'bruce, wayne', 'gambit'";
-            IDictionary<string, string> items = LexList.Parse(line);
+            var line = "'batman', 'bruce, wayne', 'gambit'";
+            var items = LexList.Parse(line);
 
             Assert.IsTrue(items.ContainsKey("batman"));
             Assert.IsTrue(items.ContainsKey("bruce, wayne"));
@@ -112,8 +112,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseDoubleQuotedListWithCommaSeparatorWithInnerComma()
         {
-            string line = "\"batman\", \"bruce, wayne\", \"gambit\"";
-            IDictionary<string, string> items = LexList.Parse(line);
+            var line = "\"batman\", \"bruce, wayne\", \"gambit\"";
+            var items = LexList.Parse(line);
 
             Assert.IsTrue(items.ContainsKey("batman"));
             Assert.IsTrue(items.ContainsKey("bruce, wayne"));
@@ -124,8 +124,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanParseQuotedListNewLine()
         {
-            string line = "'batman', 'bruce wayne', 'gambit'\r\n";
-            IDictionary<string, string> items = LexList.Parse(line);
+            var line = "'batman', 'bruce wayne', 'gambit'\r\n";
+            var items = LexList.Parse(line);
 
             Assert.IsTrue(items.ContainsKey("batman"));
             Assert.IsTrue(items.ContainsKey("bruce wayne"));

@@ -25,7 +25,7 @@ namespace BCLExtensions.Tests.FuncExtensions
         [Fact]
         public void InternalFunctionExecutes()
         {
-            bool internalFunctionWasCalled = false;
+            var internalFunctionWasCalled = false;
             Func<int, string, bool, decimal, decimal> function = (p1,p2,p3,p4) =>
             {
                 internalFunctionWasCalled = true;
@@ -45,10 +45,10 @@ namespace BCLExtensions.Tests.FuncExtensions
             const string expectedParameter2 = "24";
             const bool expectedParameter3 = true;
             const decimal expectedParameter4 = 3.14m;
-            int passedParameter1 = 0;
+            var passedParameter1 = 0;
             string passedParameter2 = null;
-            bool passedParameter3 = false;
-            decimal passedParameter4 = 0.0m;
+            var passedParameter3 = false;
+            var passedParameter4 = 0.0m;
             Func<int, string, bool, decimal, decimal> function = (p1,p2,p3,p4) =>
             {
                 passedParameter1 = p1;

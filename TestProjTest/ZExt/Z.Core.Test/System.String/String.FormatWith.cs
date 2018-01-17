@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,10 +15,10 @@ namespace HSNXT.Z.Core.Test
         public void FormatWith()
         {
             // Type
-            string @this = "{0}{1}";
+            var @this = "{0}{1}";
 
             // Examples
-            string value = @this.FormatWith("Fizz", "Buzz"); // return "FizzBuzz";
+            var value = @this.FormatWith("Fizz", "Buzz"); // return "FizzBuzz";
 
             // Unit Test
             Assert.AreEqual("FizzBuzz", value);

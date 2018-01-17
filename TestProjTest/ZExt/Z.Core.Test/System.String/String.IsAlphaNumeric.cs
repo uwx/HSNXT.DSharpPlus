@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,12 +15,12 @@ namespace HSNXT.Z.Core.Test
         public void IsAlphaNumeric()
         {
             // Type
-            string @thisAlphaNumeric = "abc123";
-            string @thisNotAlphaNumeric = "abc123!<>";
+            var @thisAlphaNumeric = "abc123";
+            var @thisNotAlphaNumeric = "abc123!<>";
 
             // Examples
-            bool value1 = @thisAlphaNumeric.IsAlphaNumeric(); // return true;
-            bool value2 = @thisNotAlphaNumeric.IsAlphaNumeric(); // return false;
+            var value1 = @thisAlphaNumeric.IsAlphaNumeric(); // return true;
+            var value2 = @thisNotAlphaNumeric.IsAlphaNumeric(); // return false;
 
             // Unit Test
             Assert.IsTrue(value1);

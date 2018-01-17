@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +25,7 @@ namespace HSNXT.Z.IO.Test
             root.CreateSubdirectory("Directory2");
 
             // Exemples
-            List<DirectoryInfo> result = root.EnumerateDirectories().ToList();
+            var result = root.EnumerateDirectories().ToList();
 
             // Unit Test
             Assert.AreEqual(2, result.Count);

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -163,7 +163,7 @@ namespace HSNXT.C5UnitTests.interfaces
     [Test]
     public void TryWrappedArrayAsSCIList1()
     {
-      B[] myarray = new B[] { new B(), new B(), new C() };
+      var myarray = new B[] { new B(), new B(), new C() };
       System.Collections.IList list = new WrappedArray<B>(myarray);
       // Should be called with a three-element WrappedArray<B>
       Assert.AreEqual(3, list.Count);
@@ -195,7 +195,7 @@ namespace HSNXT.C5UnitTests.interfaces
     [Test]
     public void TryWrappedArrayAsSCIList2()
     {
-      B[] myarray = new B[] { };
+      var myarray = new B[] { };
       System.Collections.IList list = new WrappedArray<B>(myarray);
       // Should be called with an empty WrappedArray<B>
       Assert.AreEqual(0, list.Count);
@@ -216,7 +216,7 @@ namespace HSNXT.C5UnitTests.interfaces
     {
       B b1_ = new B(), b2_ = new B();
       C c1_ = new C(), c2_ = new C();
-      ArrayList<B> mylist = new ArrayList<B>();
+      var mylist = new ArrayList<B>();
       mylist.AddAll(new B[] { b1_, b2_, c1_ });
       System.Collections.IList list = new GuardedList<B>(mylist);
       Object b1 = b1_, b2 = b2_, c1 = c1_, c2 = c2_;
@@ -265,7 +265,7 @@ namespace HSNXT.C5UnitTests.interfaces
     {
       B b1_ = new B(), b2_ = new B();
       C c1_ = new C(), c2_ = new C();
-      ArrayList<B> mylist = new ArrayList<B>();
+      var mylist = new ArrayList<B>();
       mylist.AddAll(new B[] { new B(), b1_, b2_, c1_, new B()});
       System.Collections.IList list = new GuardedList<B>(mylist).View(1, 3);
       Object b1 = b1_, b2 = b2_, c1 = c1_, c2 = c2_;
@@ -383,7 +383,7 @@ namespace HSNXT.C5UnitTests.interfaces
     [Test]
     public void TryGuardedViewAsSCIList()
     {
-      ArrayList<B> mylist = new ArrayList<B>();
+      var mylist = new ArrayList<B>();
       TryListViewAsSCIList2(new GuardedList<B>(mylist));
     }
   }

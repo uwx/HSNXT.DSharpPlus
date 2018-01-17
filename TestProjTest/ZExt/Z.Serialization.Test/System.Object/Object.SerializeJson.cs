@@ -19,7 +19,7 @@ namespace HSNXT.Z.Serialization.Test
             var @this = new List<string> {"Fizz", "Buzz"};
 
             // Examples
-            string result = @this.SerializeJson(); // Serialize the object into a string.
+            var result = @this.SerializeJson(); // Serialize the object into a string.
 
             // Unit Test
             var result2 = result.DeserializeJson<List<string>>();

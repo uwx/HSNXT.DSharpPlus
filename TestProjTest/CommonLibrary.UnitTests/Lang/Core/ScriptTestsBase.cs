@@ -48,7 +48,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
             var i = new Interpreter();
             i.Context.Types.Register(typeof(Person), () => new Person());
 
-            for (int ndx = 0; ndx < scenarios.Count; ndx++)
+            for (var ndx = 0; ndx < scenarios.Count; ndx++)
             {
                 var scenario = scenarios[ndx];
                 Console.WriteLine(scenario.Item3);
@@ -84,7 +84,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
                 {
                     if (testCases.SetupPlugins != null && testCases.SetupPlugins.Length > 0)
                     {
-                        for (int ndx = 0; ndx < testCases.SetupPlugins.Length; ndx++)
+                        for (var ndx = 0; ndx < testCases.SetupPlugins.Length; ndx++)
                         {
                             var plugin = testCases.SetupPlugins[ndx];
                             i.Context.Plugins.Register((ISetupPlugin)plugin);
@@ -112,7 +112,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
                 bool replaceSemicolonsWithNewLines = false, Action onNewScript = null)
         {
             var statements = testCases.Positive;
-            for(int ndx = 0; ndx < testCases.Failures.Count; ndx++)
+            for(var ndx = 0; ndx < testCases.Failures.Count; ndx++)
             {
                 var scenario = testCases.Failures[ndx];
                 var i = new Interpreter();
@@ -199,10 +199,10 @@ namespace HSNXT.ComLib.Lang.Tests.Common
                 bool execute = true, Action<Interpreter> initializer = null, 
                 bool replaceSemicolonsWithNewLines = false, Action onNewScript = null )
         {
-            for (int ndx = 0; ndx < statements.Count; ndx++)
+            for (var ndx = 0; ndx < statements.Count; ndx++)
             {
                 var stmt = statements[ndx];
-                Interpreter i = new Interpreter();
+                var i = new Interpreter();
                 if (initializer != null)
                     initializer(i);
                 
@@ -216,7 +216,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
                     if (stmt.Item1 != null)
                     {
-                        object obj = i.Memory[stmt.Item1];
+                        var obj = i.Memory[stmt.Item1];
                         Compare(obj, stmt.Item3); 
                     }
                     if (replaceSemicolonsWithNewLines)
@@ -230,7 +230,7 @@ namespace HSNXT.ComLib.Lang.Tests.Common
                         // For print statements no check for any result.
                         if (stmt.Item1 != null)
                         {
-                            object obj = i.Memory[stmt.Item1];
+                            var obj = i.Memory[stmt.Item1];
                             Compare(obj, stmt.Item3); 
                         }
                     }
@@ -260,8 +260,8 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
             if (actual is DateTime)
             {
-                DateTime d1 = (DateTime)actual;
-                DateTime d2 = (DateTime)expected;
+                var d1 = (DateTime)actual;
+                var d2 = (DateTime)expected;
                 if ( ( d1.Hour > 0 || d1.Minute > 0 || d1.Second > 0 || d1.Millisecond > 0 )
                      && ( d2.Hour > 0 || d2.Minute > 0 || d2.Second > 0 || d2.Millisecond > 0 ))
                     Assert.AreEqual(d1, d2);
@@ -275,13 +275,13 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
         protected void ParseFuncCalls(List<Tuple<string, int, Type, object, string>> statements)
         {
-            for (int ndx = 0; ndx < statements.Count; ndx++)
+            for (var ndx = 0; ndx < statements.Count; ndx++)
             {
                 var stmt = statements[ndx];
-                Interpreter i = new Interpreter();
+                var i = new Interpreter();
                 object result = null;
 
-                string funcCallTxt = stmt.Item5;
+                var funcCallTxt = stmt.Item5;
 
                 // Handle calls to "user.create".
                 i.SetFunctionCallback(stmt.Item1, (exp) =>
@@ -312,10 +312,10 @@ namespace HSNXT.ComLib.Lang.Tests.Common
 
         protected void RunTestCases(List<Tuple<string, Type, object, string>> testcases)
         {
-            for (int ndx = 0; ndx < testcases.Count; ndx++)
+            for (var ndx = 0; ndx < testcases.Count; ndx++)
             {
                 var test = testcases[ndx];
-                Interpreter i = new Interpreter();
+                var i = new Interpreter();
                 i.Context.Types.Register(typeof(Person), null);
                 Console.WriteLine(test.Item4);
                 i.Execute(test.Item4);

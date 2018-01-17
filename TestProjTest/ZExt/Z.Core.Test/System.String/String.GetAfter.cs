@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,11 +15,11 @@ namespace HSNXT.Z.Core.Test
         public void GetAfter()
         {
             // Type
-            string @this = "Fizz";
+            var @this = "Fizz";
 
             // Examples
-            string result1 = @this.GetAfter("i"); // return "zz";
-            string result2 = @this.GetAfter("a"); // return "";
+            var result1 = @this.GetAfter("i"); // return "zz";
+            var result2 = @this.GetAfter("a"); // return "";
 
             // Unit Test
             Assert.AreEqual("zz", result1);

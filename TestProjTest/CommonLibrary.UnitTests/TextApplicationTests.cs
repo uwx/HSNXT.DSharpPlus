@@ -9,7 +9,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanPrependText()
         {
-            string[] args = new string[] { "-checklicense:true", @"-licensefile:F:\dev\Workshops\KnowledgeDrink\doc\license.txt",
+            var args = new string[] { "-checklicense:true", @"-licensefile:F:\dev\Workshops\KnowledgeDrink\doc\license.txt",
                                            "-recurse:true", "-pattern:**/*.cs", @"-rootdir:F:\dev\Workshops\KnowledgeDrink\src\Lib\GenericCode",
                                            "-filetype:file", @"-outfile:F:\Dev\Workshops\KnowledgeDrink\doc\filesToLicense.txt"};
 

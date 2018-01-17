@@ -13,7 +13,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanSubstitute()
         {
-            List<string> vals  = new List<string>(){ "${today}", "${yesterday}" };
+            var vals  = new List<string>(){ "${today}", "${yesterday}" };
 
             Substitutor.Substitute(vals);
 
@@ -25,7 +25,7 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanSubstituteString()
         {
-            string val = Substitutor.Substitute("${t}");
+            var val = Substitutor.Substitute("${t}");
 
             Assert.AreEqual(val, DateTime.Today.ToShortDateString());
         }
@@ -35,7 +35,7 @@ namespace CommonLibrary.Tests
         public void CanSubstituteCustom()
         {
             Substitutor.Register(string.Empty, "user", (key) => Environment.UserName);
-            string val = Substitutor.Substitute("${user}");
+            var val = Substitutor.Substitute("${user}");
 
             Assert.AreEqual(val, Environment.UserName);
         }

@@ -27,8 +27,8 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanInitialize()
         {
-            IList<PageData> items = BuildList();
-            IndexedLookUp<int, PageData> lookup = CreateLookUp(items);
+            var items = BuildList();
+            var lookup = CreateLookUp(items);
             Assert.IsTrue(lookup.Count == 3);
         }
 
@@ -36,10 +36,10 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanLookUpById()
         {
-            IList<PageData> items = BuildList();
-            IndexedLookUp<int, PageData> lookup = CreateLookUp(items);
+            var items = BuildList();
+            var lookup = CreateLookUp(items);
 
-            PageData page = lookup[2];
+            var page = lookup[2];
             Assert.AreEqual(2, page.Id);
         }
 
@@ -47,11 +47,11 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanLookUpByNamedKey()
         {
-            IList<PageData> items = BuildList();
-            IndexedLookUp<int, PageData> lookup = CreateLookUp(items);
+            var items = BuildList();
+            var lookup = CreateLookUp(items);
 
-            string key = items[2].BuildKey();
-            PageData page = lookup[key];
+            var key = items[2].BuildKey();
+            var page = lookup[key];
             Assert.AreEqual(items[2], page);
         }
     }

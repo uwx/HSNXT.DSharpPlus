@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,13 +15,13 @@ namespace HSNXT.Z.Core.Test
         public void IsLike()
         {
             // Type
-            string @this = "FizzBuzz3";
+            var @this = "FizzBuzz3";
 
             // Examples
-            bool value1 = @this.IsLike("Fizz*"); // return true;
-            bool value2 = @this.IsLike("*zzB*"); // return true;
-            bool value3 = @this.IsLike("*Buzz#"); // return true;
-            bool value4 = @this.IsLike("*zz?u*"); // return true;
+            var value1 = @this.IsLike("Fizz*"); // return true;
+            var value2 = @this.IsLike("*zzB*"); // return true;
+            var value3 = @this.IsLike("*Buzz#"); // return true;
+            var value4 = @this.IsLike("*zz?u*"); // return true;
 
             // Unit Test
             Assert.IsTrue(value1);

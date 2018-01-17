@@ -19,7 +19,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         [EnumerablePermutationData]
         public void WhenEmptyThenReturnsNull<T>(T resolutionPlaceholder, IDataProvider<T> dataProvider)
         {
-            IEnumerable<T> input = dataProvider.GetEmptyEnumerable();
+            var input = dataProvider.GetEmptyEnumerable();
             var result = input.OrNullIfEmpty();
             Assert.Null(result);
         }
@@ -28,7 +28,7 @@ namespace BCLExtensions.Tests.IEnumerableExtensions
         [EnumerablePermutationData]
         public void WhenNonEmptyThenReturnsOriginalReference<T>(T resolutionPlaceholder, IDataProvider<T> dataProvider)
         {
-            IEnumerable<T> input = dataProvider.GetEnumerableWithOneNonNullItem();
+            var input = dataProvider.GetEnumerableWithOneNonNullItem();
             var result = input.OrNullIfEmpty();
             Assert.Equal(input, result);
         }

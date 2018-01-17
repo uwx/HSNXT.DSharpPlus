@@ -19,8 +19,8 @@ namespace HSNXT.Z.Core.Test
             object thisDbNull = DBNull.Value;
 
             // Examples
-            bool result1 = thisDbNull.IsDbNull(); // return true;
-            bool result2 = ((object) null).IsDbNull(); // return false;
+            var result1 = thisDbNull.IsDbNull(); // return true;
+            var result2 = ((object) null).IsDbNull(); // return false;
 
             // Unit Test
             Assert.IsTrue(result1);

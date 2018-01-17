@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,15 +15,15 @@ namespace HSNXT.Z.Core.Test
         public void ReplaceLast()
         {
             // Type
-            string @this = "zzzzz";
+            var @this = "zzzzz";
 
             // Exemples
-            string result1 = @this.ReplaceLast("z", "a"); // return "zzzza";
-            string result2 = @this.ReplaceLast(3, "z", "a"); // return "zzaaa";
-            string result3 = @this.ReplaceLast(3, "z", "za"); // return "zzzazaza";
-            string result4 = @this.ReplaceLast(4, "z", "a"); // return "zaaaa";
-            string result5 = @this.ReplaceLast(5, "z", "a"); // return "aaaaa";
-            string result6 = @this.ReplaceLast(10, "z", "a"); // return "aaaaa";
+            var result1 = @this.ReplaceLast("z", "a"); // return "zzzza";
+            var result2 = @this.ReplaceLast(3, "z", "a"); // return "zzaaa";
+            var result3 = @this.ReplaceLast(3, "z", "za"); // return "zzzazaza";
+            var result4 = @this.ReplaceLast(4, "z", "a"); // return "zaaaa";
+            var result5 = @this.ReplaceLast(5, "z", "a"); // return "aaaaa";
+            var result6 = @this.ReplaceLast(10, "z", "a"); // return "aaaaa";
 
             // Unit Test
             Assert.AreEqual("zzzza", result1);

@@ -27,9 +27,9 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Millisecond_Should_Retrun_Timespan_Object_With_One_Millisecond_Set() {
 			// Arrange
-			int iValue = 1;
+			var iValue = 1;
 			// Act
-			TimeSpan ts = iValue.Millisecond();
+			var ts = iValue.Millisecond();
 			// Assert
 			ts.TotalMilliseconds.Equals(1).Should().BeTrue();
 		}
@@ -41,7 +41,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Milliseconds();
+			var ts = iValue.Milliseconds();
 			// Assert
 			ts.TotalMilliseconds.Equals(iValue).Should().BeTrue();
 		}
@@ -49,9 +49,9 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Second_Should_Retrun_Timespan_Object_With_One_Second_Set() {
 			// Arrange
-			int iValue = 1;
+			var iValue = 1;
 			// Act
-			TimeSpan ts = iValue.Second();
+			var ts = iValue.Second();
 			// Assert
 			ts.TotalSeconds.Equals(1).Should().BeTrue();
 		}
@@ -63,7 +63,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Seconds();
+			var ts = iValue.Seconds();
 			// Assert
 			ts.TotalSeconds.Equals(iValue).Should().BeTrue();
 		}
@@ -71,9 +71,9 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Minute_Should_Retrun_Timespan_Object_With_One_Minute_Set() {
 			// Arrange
-			int iValue = 1;
+			var iValue = 1;
 			// Act
-			TimeSpan ts = iValue.Minute();
+			var ts = iValue.Minute();
 			// Assert
 			ts.TotalMinutes.Equals(1).Should().BeTrue();
 		}
@@ -85,7 +85,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Minutes();
+			var ts = iValue.Minutes();
 			// Assert
 			ts.TotalMinutes.Equals(iValue).Should().BeTrue();
 		}
@@ -93,9 +93,9 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Hour_Should_Retrun_Timespan_Object_With_One_Hour_Set() {
 			// Arrange
-			int iValue = 1;
+			var iValue = 1;
 			// Act
-			TimeSpan ts = iValue.Hour();
+			var ts = iValue.Hour();
 			// Assert
 			ts.TotalHours.Equals(1).Should().BeTrue();
 		}
@@ -107,7 +107,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Hours();
+			var ts = iValue.Hours();
 			// Assert
 			ts.TotalHours.Equals(iValue).Should().BeTrue();
 		}
@@ -115,9 +115,9 @@ namespace HSNXT.Test.Fast
 		[Test]
 		public void Day_Should_Retrun_Timespan_Object_With_One_Day_Set() {
 			// Arrange
-			int iValue = 1;
+			var iValue = 1;
 			// Act
-			TimeSpan ts = iValue.Day();
+			var ts = iValue.Day();
 			// Assert
 			ts.TotalDays.Equals(1).Should().BeTrue();
 		}
@@ -129,7 +129,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Days();
+			var ts = iValue.Days();
 			// Assert
 			ts.TotalDays.Equals(iValue).Should().BeTrue();
 		}
@@ -146,7 +146,7 @@ namespace HSNXT.Test.Fast
 			// Arrange
 
 			// Act
-			TimeSpan ts = iValue.Years();
+			var ts = iValue.Years();
 			// Assert
 			ts.TotalDays.Equals(iExpectedReturnValue).Should().BeTrue();
 		}

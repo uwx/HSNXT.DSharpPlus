@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -101,7 +101,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         {
             c = new IC();
             array = new SortedArray<int>(c, MemoryType);
-            for (int i = 1; i <= 10; i++)
+            for (var i = 1; i <= 10; i++)
             {
                 array.Add(i * 2);
             }
@@ -111,8 +111,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Enumerator()
         {
-            SCG.IEnumerator<int> e = array.RangeFromTo(5, 17).GetEnumerator();
-            int i = 3;
+            var e = array.RangeFromTo(5, 17).GetEnumerator();
+            var i = 3;
 
             while (e.MoveNext())
             {
@@ -126,7 +126,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Enumerator3()
         {
-            SCG.IEnumerator<int> e = array.RangeFromTo(5, 17).GetEnumerator();
+            var e = array.RangeFromTo(5, 17).GetEnumerator();
 
             e.MoveNext();
             array.Add(67);
@@ -138,7 +138,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Remove()
         {
-            int[] all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+            var all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
 
             array.RemoveRangeFrom(18);
             Assert.IsTrue(IC.eq(array, new int[] { 2, 4, 6, 8, 10, 12, 14, 16 }));
@@ -148,7 +148,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             Assert.IsTrue(IC.eq(array, new int[] { 2, 4, 6, 8, 10, 12 }));
             array.RemoveRangeFrom(2);
             Assert.IsTrue(IC.eq(array));
-            foreach (int i in all) array.Add(i);
+            foreach (var i in all) array.Add(i);
 
             array.RemoveRangeTo(10);
             Assert.IsTrue(IC.eq(array, new int[] { 10, 12, 14, 16, 18, 20 }));
@@ -156,7 +156,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             Assert.IsTrue(IC.eq(array, new int[] { 10, 12, 14, 16, 18, 20 }));
             array.RemoveRangeTo(21);
             Assert.IsTrue(IC.eq(array));
-            foreach (int i in all) array.Add(i);
+            foreach (var i in all) array.Add(i);
 
             array.RemoveRangeFromTo(4, 8);
             Assert.IsTrue(IC.eq(array, 2, 8, 10, 12, 14, 16, 18, 20));
@@ -171,7 +171,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Normal()
         {
-            int[] all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+            var all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
 
             Assert.IsTrue(IC.eq(array, all));
             Assert.IsTrue(IC.eq(array.RangeAll(), all));
@@ -204,8 +204,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Backwards()
         {
-            int[] all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
-            int[] lla = new int[] { 20, 18, 16, 14, 12, 10, 8, 6, 4, 2 };
+            var all = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+            var lla = new int[] { 20, 18, 16, 14, 12, 10, 8, 6, 4, 2 };
 
             Assert.IsTrue(IC.eq(array, all));
             Assert.IsTrue(IC.eq(array.RangeAll().Backwards(), lla));
@@ -271,7 +271,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void Init()
         {
             array = new SortedArray<int>(new IC(), MemoryType);
-            for (int i = 10; i < 20; i++)
+            for (var i = 10; i < 20; i++)
             {
                 array.Add(i);
                 array.Add(i + 10);
@@ -362,7 +362,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
 
         private void loadup()
         {
-            for (int i = 10; i < 20; i++)
+            for (var i = 10; i < 20; i++)
             {
                 array.Add(i);
                 array.Add(i + 10);
@@ -431,7 +431,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Test()
         {
-            KeyValuePair<int, string> p = new KeyValuePair<int, string>(3, "tre");
+            var p = new KeyValuePair<int, string>(3, "tre");
 
             Assert.IsFalse(bag.FindOrAdd(ref p));
             p.Value = "drei";
@@ -561,7 +561,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         {
             tree = new SortedArray<int>(new IC(), MemoryType);
             a = new int[10];
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 a[i] = 1000 + i;
         }
 
@@ -575,7 +575,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             if (a.Length != b.Length)
                 return "Lengths differ: " + a.Length + " != " + b.Length;
 
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
                 if (a[i] != b[i])
                     return string.Format("{0}'th elements differ: {1} != {2}", i, a[i], b[i]);
 
@@ -653,7 +653,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void Init()
         {
             lst = new SortedArray<KeyValuePair<int, int>>(new KeyValuePairComparer<int, int>(new IC()), MemoryType);
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 lst.Add(new KeyValuePair<int, int>(i, i + 30));
             }
@@ -666,7 +666,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Find()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.Find(ref p));
             Assert.AreEqual(3, p.Key);
@@ -679,7 +679,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void FindOrAdd()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.FindOrAdd(ref p));
             Assert.AreEqual(3, p.Key);
@@ -694,7 +694,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void Update()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.Update(p));
             Assert.AreEqual(3, lst[3].Key);
@@ -707,7 +707,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void UpdateOrAdd1()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.UpdateOrAdd(p));
             Assert.AreEqual(3, lst[3].Key);
@@ -735,8 +735,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void UpdateOrAddWithExpand()
         {
             // bug20071217
-            SortedArray<double> arr = new SortedArray<double>();
-            for (int i = 0; i < 50; i++)
+            var arr = new SortedArray<double>();
+            for (var i = 0; i < 50; i++)
             {
                 arr.UpdateOrAdd(i + 0.1);
                 arr.Add(i + 0.2);
@@ -748,10 +748,10 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void FindOrAddWithExpand()
         {
             // bug20071217
-            SortedArray<double> arr = new SortedArray<double>();
-            for (int i = 0; i < 50; i++)
+            var arr = new SortedArray<double>();
+            for (var i = 0; i < 50; i++)
             {
-                double iVar = i + 0.1;
+                var iVar = i + 0.1;
                 arr.FindOrAdd(ref iVar);
                 arr.Add(i * 0.2);
             }
@@ -761,7 +761,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         [Test]
         public void RemoveWithReturn()
         {
-            KeyValuePair<int, int> p = new KeyValuePair<int, int>(3, 78);
+            var p = new KeyValuePair<int, int>(3, 78);
 
             Assert.IsTrue(lst.Remove(p, out p));
             Assert.AreEqual(3, p.Key);
@@ -791,7 +791,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void Init()
         {
             array = new SortedArray<int>(new IC(), MemoryType);
-            for (int i = 10; i < 20; i++)
+            for (var i = 10; i < 20; i++)
             {
                 array.Add(i);
                 array.Add(i + 10);
@@ -814,8 +814,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         public void ByIndex()
         {
             //Remove root!
-            int n = array.Count;
-            int i = array[10];
+            var n = array.Count;
+            var i = array[10];
 
             array.RemoveAt(10);
             Assert.IsTrue(array.Check());
@@ -920,7 +920,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             Assert.IsTrue(array.Remove(15));
 
             //2+1c
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 array.Add(50 - 2 * i);
 
             Assert.IsTrue(array.Remove(42));
@@ -938,7 +938,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             Assert.IsTrue(array.Remove(21));
             Assert.IsTrue(array.Remove(22));
             Assert.IsTrue(array.Remove(24));
-            for (int i = 0; i < 48; i++)
+            for (var i = 0; i < 48; i++)
                 array.Remove(i);
 
             //Almost empty tree:
@@ -983,7 +983,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
 
         private void loadup()
         {
-            for (int i = 0; i < 20; i++)
+            for (var i = 0; i < 20; i++)
                 tree.Add(2 * i);
         }
 
@@ -1223,7 +1223,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
 
         private void loadup()
         {
-            foreach (int i in new int[] { 1, 2, 3, 4 })
+            foreach (var i in new int[] { 1, 2, 3, 4 })
                 tree.Add(i);
         }
 
@@ -1316,7 +1316,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
         {
             populate();
 
-            int[] a = array.ToArray();
+            var a = array.ToArray();
 
             Assert.AreEqual(4, a.Length);
             Assert.AreEqual(10, a[0]);
@@ -1446,7 +1446,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             public void Init()
             {
                 tree = new SortedArray<int>(new IC(), MemoryType);
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     tree.Add(i);
                 }
@@ -1519,7 +1519,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             public void Init()
             {
                 tree = new SortedArray<int>(new IC(), MemoryType);
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     tree.Add(i);
 
                 e = tree.RangeFromTo(3, 7).GetEnumerator();
@@ -1654,15 +1654,15 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void Apply()
             {
-                Simple simple1 = new Simple(MemoryType);
+                var simple1 = new Simple(MemoryType);
 
                 array.Apply(new Action<int>(simple1.apply));
                 Assert.AreEqual(0, simple1.appfield1);
                 Assert.AreEqual(0, simple1.appfield2);
 
-                Simple simple2 = new Simple(MemoryType);
+                var simple2 = new Simple(MemoryType);
 
-                for (int i = 0; i < 10; i++) array.Add(i);
+                for (var i = 0; i < 10; i++) array.Add(i);
 
                 array.Apply(new Action<int>(simple2.apply));
                 Assert.AreEqual(10, simple2.appfield1);
@@ -1676,19 +1676,19 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 Assert.IsTrue(array.All(new Func<int, bool>(never)));
                 Assert.IsTrue(array.All(new Func<int, bool>(even)));
                 Assert.IsTrue(array.All(new Func<int, bool>(always)));
-                for (int i = 0; i < 10; i++) array.Add(i);
+                for (var i = 0; i < 10; i++) array.Add(i);
 
                 Assert.IsFalse(array.All(new Func<int, bool>(never)));
                 Assert.IsFalse(array.All(new Func<int, bool>(even)));
                 Assert.IsTrue(array.All(new Func<int, bool>(always)));
                 array.Clear();
-                for (int i = 0; i < 10; i++) array.Add(i * 2);
+                for (var i = 0; i < 10; i++) array.Add(i * 2);
 
                 Assert.IsFalse(array.All(new Func<int, bool>(never)));
                 Assert.IsTrue(array.All(new Func<int, bool>(even)));
                 Assert.IsTrue(array.All(new Func<int, bool>(always)));
                 array.Clear();
-                for (int i = 0; i < 10; i++) array.Add(i * 2 + 1);
+                for (var i = 0; i < 10; i++) array.Add(i * 2 + 1);
 
                 Assert.IsFalse(array.All(new Func<int, bool>(never)));
                 Assert.IsFalse(array.All(new Func<int, bool>(even)));
@@ -1702,19 +1702,19 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 Assert.IsFalse(array.Exists(new Func<int, bool>(never)));
                 Assert.IsFalse(array.Exists(new Func<int, bool>(even)));
                 Assert.IsFalse(array.Exists(new Func<int, bool>(always)));
-                for (int i = 0; i < 10; i++) array.Add(i);
+                for (var i = 0; i < 10; i++) array.Add(i);
 
                 Assert.IsFalse(array.Exists(new Func<int, bool>(never)));
                 Assert.IsTrue(array.Exists(new Func<int, bool>(even)));
                 Assert.IsTrue(array.Exists(new Func<int, bool>(always)));
                 array.Clear();
-                for (int i = 0; i < 10; i++) array.Add(i * 2);
+                for (var i = 0; i < 10; i++) array.Add(i * 2);
 
                 Assert.IsFalse(array.Exists(new Func<int, bool>(never)));
                 Assert.IsTrue(array.Exists(new Func<int, bool>(even)));
                 Assert.IsTrue(array.Exists(new Func<int, bool>(always)));
                 array.Clear();
-                for (int i = 0; i < 10; i++) array.Add(i * 2 + 1);
+                for (var i = 0; i < 10; i++) array.Add(i * 2 + 1);
 
                 Assert.IsFalse(array.Exists(new Func<int, bool>(never)));
                 Assert.IsFalse(array.Exists(new Func<int, bool>(even)));
@@ -1726,7 +1726,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             public void FindAll()
             {
                 Assert.AreEqual(0, array.FindAll(new Func<int, bool>(never)).Count);
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(i);
 
                 Assert.AreEqual(0, array.FindAll(new Func<int, bool>(never)).Count);
@@ -1740,10 +1740,10 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             public void Map()
             {
                 Assert.AreEqual(0, array.Map(new Func<int, string>(themap), new SC()).Count);
-                for (int i = 0; i < 11; i++)
+                for (var i = 0; i < 11; i++)
                     array.Add(i * i * i);
 
-                IIndexedSorted<string> res = array.Map(new Func<int, string>(themap), new SC());
+                var res = array.Map(new Func<int, string>(themap), new SC());
 
                 Assert.IsTrue(((SortedArray<string>)res).Check());
                 Assert.AreEqual(11, res.Count);
@@ -1757,7 +1757,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void BadMap()
             {
-                for (int i = 0; i < 11; i++)
+                for (var i = 0; i < 11; i++)
                 {
                     array.Add(i * i * i);
                 }
@@ -1770,7 +1770,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void Cut()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(i);
 
                 int low, high;
@@ -1790,7 +1790,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void CutInt()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(2 * i);
 
                 int low, high;
@@ -1810,7 +1810,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void CutInterval()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(2 * i);
 
                 int lo, hi;
@@ -1824,7 +1824,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 Assert.IsTrue(lv && hv);
                 Assert.AreEqual(12, hi);
                 Assert.AreEqual(4, lo);
-                for (int i = 0; i < 100; i++)
+                for (var i = 0; i < 100; i++)
                     array.Add(2 * i);
 
                 array.Cut(new Interval(77, 105), out lo, out lv, out hi, out hv);
@@ -1845,7 +1845,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void UpperCut()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(i);
 
                 int l, h;
@@ -1902,7 +1902,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void SomeEmpty()
             {
-                for (int i = 4; i < 9; i++) array.Add(i);
+                for (var i = 4; i < 9; i++) array.Add(i);
 
                 array.AddAll(new FunEnumerable(0, new Func<int, int>(sqr)));
                 Assert.AreEqual(5, array.Count);
@@ -1926,7 +1926,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void SomeSome()
             {
-                for (int i = 3; i < 9; i++) array.Add(i);
+                for (var i = 3; i < 9; i++) array.Add(i);
 
                 array.AddAll(new FunEnumerable(4, new Func<int, int>(sqr)));
                 Assert.AreEqual(9, array.Count);
@@ -1977,7 +1977,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void SomeEmpty()
             {
-                for (int i = 4; i < 9; i++) array.Add(i);
+                for (var i = 4; i < 9; i++) array.Add(i);
 
                 array.AddSorted(new FunEnumerable(0, new Func<int, int>(sqr)));
                 Assert.AreEqual(5, array.Count);
@@ -2003,7 +2003,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void SomeSome()
             {
-                for (int i = 3; i < 9; i++) array.Add(i);
+                for (var i = 3; i < 9; i++) array.Add(i);
 
                 array.AddSorted(new FunEnumerable(4, new Func<int, int>(sqr)));
                 Assert.AreEqual(9, array.Count);
@@ -2049,10 +2049,10 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             {
                 array = new SortedArray<int>(new IC(), MemoryType);
                 array2 = new SortedArray<int>(new IC(), MemoryType);
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array.Add(i);
 
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     array2.Add(2 * i);
             }
 
@@ -2076,7 +2076,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 Assert.AreEqual(7, array.Count);
                 Assert.IsTrue(array.Check());
                 Assert.IsTrue(IC.eq(array, 0, 1, 2, 3, 5, 7, 9));
-                for (int i = 0; i < 10; i++) array2.Add(i);
+                for (var i = 0; i < 10; i++) array2.Add(i);
 
                 array.RemoveAll(array2.RangeFromTo(-1, 10));
                 Assert.AreEqual(0, array.Count);
@@ -2104,13 +2104,13 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 Assert.AreEqual(0, array.Count);
                 Assert.IsTrue(array.Check());
                 Assert.IsTrue(IC.eq(array));
-                for (int i = 0; i < 10; i++) array.Add(i);
+                for (var i = 0; i < 10; i++) array.Add(i);
 
                 array.RetainAll(array2.RangeFromTo(5, 5));
                 Assert.AreEqual(0, array.Count);
                 Assert.IsTrue(array.Check());
                 Assert.IsTrue(IC.eq(array));
-                for (int i = 0; i < 10; i++) array.Add(i);
+                for (var i = 0; i < 10; i++) array.Add(i);
 
                 array.RetainAll(array2.RangeFromTo(15, 25));
                 Assert.AreEqual(0, array.Count);
@@ -2232,8 +2232,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void Safe()
             {
-                System.Threading.Thread t1 = new System.Threading.Thread(new System.Threading.ThreadStart(safe1));
-                System.Threading.Thread t2 = new System.Threading.Thread(new System.Threading.ThreadStart(safe2));
+                var t1 = new System.Threading.Thread(new System.Threading.ThreadStart(safe1));
+                var t2 = new System.Threading.Thread(new System.Threading.ThreadStart(safe2));
 
                 t1.Start();
                 t2.Start();
@@ -2247,12 +2247,12 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             //[Test]
             public void UnSafe()
             {
-                bool bad = false;
+                var bad = false;
 
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
-                    System.Threading.Thread t1 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe1));
-                    System.Threading.Thread t2 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe2));
+                    var t1 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe1));
+                    var t2 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe2));
 
                     t1.Start();
                     t2.Start();
@@ -2272,8 +2272,8 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void SafeUnSafe()
             {
-                System.Threading.Thread t1 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe1));
-                System.Threading.Thread t2 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe2));
+                var t1 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe1));
+                var t2 = new System.Threading.Thread(new System.Threading.ThreadStart(unsafe2));
 
                 t1.Start();
                 t1.Join();
@@ -2289,21 +2289,21 @@ namespace HSNXT.C5UnitTests.arrays.sorted
 
             private void unsafe1()
             {
-                for (int i = 0; i < 2 * sz; i++)
+                for (var i = 0; i < 2 * sz; i++)
                     tree.Add(i * 2);
 
-                for (int i = 1; i < sz; i++)
+                for (var i = 1; i < sz; i++)
                     tree.Remove(i * 4);
             }
 
 
             private void safe1()
             {
-                for (int i = 0; i < 2 * sz; i++)
+                for (var i = 0; i < 2 * sz; i++)
                     lock (mySyncRoot)
                         tree.Add(i * 2);
 
-                for (int i = 1; i < sz; i++)
+                for (var i = 1; i < sz; i++)
                     lock (mySyncRoot)
                         tree.Remove(i * 4);
             }
@@ -2311,21 +2311,21 @@ namespace HSNXT.C5UnitTests.arrays.sorted
 
             private void unsafe2()
             {
-                for (int i = 2 * sz; i > 0; i--)
+                for (var i = 2 * sz; i > 0; i--)
                     tree.Add(i * 2 + 1);
 
-                for (int i = sz; i > 0; i--)
+                for (var i = sz; i > 0; i--)
                     tree.Remove(i * 4 + 1);
             }
 
 
             private void safe2()
             {
-                for (int i = 2 * sz; i > 0; i--)
+                for (var i = 2 * sz; i > 0; i--)
                     lock (mySyncRoot)
                         tree.Add(i * 2 + 1);
 
-                for (int i = sz; i > 0; i--)
+                for (var i = sz; i > 0; i--)
                     lock (mySyncRoot)
                         tree.Remove(i * 4 + 1);
             }
@@ -2356,7 +2356,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             public void Init()
             {
                 tree = new SortedArray<int>(new IC(), MemoryType);
-                for (int i = 0; i < sz; i++)
+                for (var i = 0; i < sz; i++)
                 {
                     tree.Add(i);
                 }
@@ -2405,7 +2405,7 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             [Test]
             public void Safe()
             {
-                A a = new A(tree);
+                var a = new A(tree);
 
                 a.traverse();
                 Assert.AreEqual(sz, a.count);
@@ -2417,19 +2417,19 @@ namespace HSNXT.C5UnitTests.arrays.sorted
             {
                 if (MemoryType == MemoryType.Strict) return;
 
-                System.Threading.Thread[] t = new System.Threading.Thread[10];
-                A[] a = new A[10];
-                for (int i = 0; i < 10; i++)
+                var t = new System.Threading.Thread[10];
+                var a = new A[10];
+                for (var i = 0; i < 10; i++)
                 {
                     a[i] = new A(tree);
 					t[i] = new System.Threading.Thread(new System.Threading.ThreadStart(a[i].traverse));
                 }
 
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     t[i].Start();
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     t[i].Join();
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     Assert.AreEqual(sz, a[i].count);
 
             }
@@ -2444,19 +2444,19 @@ namespace HSNXT.C5UnitTests.arrays.sorted
                 if (MemoryType != MemoryType.Strict)
                     return;
 
-                System.Threading.Thread[] t = new System.Threading.Thread[10];
-                A[] a = new A[10];
+                var t = new System.Threading.Thread[10];
+                var a = new A[10];
                 Action onError = () => { ErrorOnChildThread = true; };
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     a[i] = new A(tree);
                     var i1 = i;
                     t[i] = new System.Threading.Thread(obj => { a[i1].traverse(onError); });
                 }
 
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     t[i].Start();
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     t[i].Join();
 
                 Assert.True(ErrorOnChildThread);

@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -23,10 +23,10 @@ namespace HSNXT.Z.IO.Test
 
             var @this = new FileInfo(Path.Combine(workingDirectory.FullName, "Examples_System_IO_FileInfo_RenameWithoutExtension.txt"));
             var @thisNewFile = new FileInfo(Path.Combine(workingDirectory.FullName, "Examples_System_IO_FileInfo_RenameWithoutExtension2.txt"));
-            bool result1 = @thisNewFile.Exists;
+            var result1 = @thisNewFile.Exists;
 
             // Intialization
-            using (FileStream stream = @this.Create())
+            using (var stream = @this.Create())
             {
             }
 
@@ -35,7 +35,7 @@ namespace HSNXT.Z.IO.Test
 
             // Unit Test
             @thisNewFile = new FileInfo(Path.Combine(workingDirectory.FullName, "Examples_System_IO_FileInfo_RenameWithoutExtension2.txt"));
-            bool result2 = @thisNewFile.Exists;
+            var result2 = @thisNewFile.Exists;
 
             Assert.IsFalse(result1);
             Assert.IsTrue(result2);

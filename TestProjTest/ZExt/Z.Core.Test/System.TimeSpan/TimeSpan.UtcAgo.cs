@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace HSNXT.Z.Core.Test
             var @this = new TimeSpan(1, 0, 0, 0);
 
             // Examples
-            DateTime value = @this.UtcAgo(); // return yesterday.
+            var value = @this.UtcAgo(); // return yesterday.
 
             // Unit Test
             Assert.IsTrue(DateTime.UtcNow.Subtract(value).Days >= 1);

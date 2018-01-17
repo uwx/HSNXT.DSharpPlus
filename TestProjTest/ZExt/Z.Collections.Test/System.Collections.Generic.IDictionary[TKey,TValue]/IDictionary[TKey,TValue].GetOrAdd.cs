@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,9 +19,9 @@ namespace HSNXT.Z.Collections.Test
             var @this = new Dictionary<string, string>();
 
             // Examples
-            string value1 = @this.GetOrAdd("Fizz", "Buzz"); // return "Buzz";
-            string value2 = @this.GetOrAdd("Fizz", "Buzz2"); // return "Buzz"; // The Dictionary already contains the key
-            string value3 = @this.GetOrAdd("Fizz2", s => "Buzz"); // return "Buzz";
+            var value1 = @this.GetOrAdd("Fizz", "Buzz"); // return "Buzz";
+            var value2 = @this.GetOrAdd("Fizz", "Buzz2"); // return "Buzz"; // The Dictionary already contains the key
+            var value3 = @this.GetOrAdd("Fizz2", s => "Buzz"); // return "Buzz";
 
             // Unit Test
             Assert.AreEqual("Buzz", value1);

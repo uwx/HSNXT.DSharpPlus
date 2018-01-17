@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -22,7 +22,7 @@ namespace HSNXT.Z.Core.Test
             // Exemples
             var intValue = intObject.As<int>(); // return 13;
             var stringValue = stringObject.As<string>(); // return "FizzBuzz";
-            int arrayCount = arrayObject.As<string[]>().Length; // return 2;
+            var arrayCount = arrayObject.As<string[]>().Length; // return 2;
 
             // Unit Test
             Assert.AreEqual(13, intValue);

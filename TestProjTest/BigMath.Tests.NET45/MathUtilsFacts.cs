@@ -46,9 +46,9 @@ namespace BigMath.Tests
         //[TestCase("2852213850458175921094913949697", "51539607551", "55340232221128654847")]
         public void Should_get_prime_multipliers_for_Int128(string pqS, string expectedPs, string expectedQs)
         {
-            Int128 pq = Int128.Parse(pqS);
-            Int128 expectedP = Int128.Parse(expectedPs);
-            Int128 expectedQ = Int128.Parse(expectedQs);
+            var pq = Int128.Parse(pqS);
+            var expectedP = Int128.Parse(expectedPs);
+            var expectedQ = Int128.Parse(expectedQs);
             Int128 p, q;
 
             pq.GetPrimeMultipliers(out p, out q);
@@ -71,9 +71,9 @@ namespace BigMath.Tests
         //[TestCase("47928794074934470746074693488053803551576675688093033978263006055993", "845100400152152934331135470251", "56713727820156410577229101238628035243")]
         public void Should_get_prime_multipliers_for_Int256(string pqS, string expectedPs, string expectedQs)
         {
-            Int256 pq = Int256.Parse(pqS);
-            Int256 expectedP = Int256.Parse(expectedPs);
-            Int256 expectedQ = Int256.Parse(expectedQs);
+            var pq = Int256.Parse(pqS);
+            var expectedP = Int256.Parse(expectedPs);
+            var expectedQ = Int256.Parse(expectedQs);
             Int256 p, q;
 
             pq.GetPrimeMultipliers(out p, out q);
@@ -85,7 +85,7 @@ namespace BigMath.Tests
         [Test, TestCaseSource(typeof (MathUtilsTestCases), "ShiftTestCases")]
         public ulong[] Should_shift(ulong[] bits, int shift)
         {
-            ulong[] shiftedBits = MathUtils.Shift(bits, shift);
+            var shiftedBits = MathUtils.Shift(bits, shift);
             return shiftedBits;
         }
     }

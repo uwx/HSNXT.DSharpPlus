@@ -34,7 +34,7 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
             var stmts = new List<Expr>();
             stmts.Add(assignExpr);
 
-            bool success = semacts.Validate(stmts);
+            var success = semacts.Validate(stmts);
             var results = semacts.Results;
             Assert.IsFalse(success);
             Assert.IsFalse(results.Success);
@@ -66,7 +66,7 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
             var stmts = new List<Expr>();
             stmts.Add(assignExpr);
 
-            bool success = semacts.Validate(stmts);
+            var success = semacts.Validate(stmts);
             var results = semacts.Results;
             Assert.IsFalse(success);
             Assert.IsFalse(results.Success);

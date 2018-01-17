@@ -17,7 +17,7 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
         [Test]
         public void Can_Do_AssignmentExpressions()
         {
-            Memory memory = new Memory();
+            var memory = new Memory();
             memory.SetValue("age",    new LNumber(32));
             memory.SetValue("isMale", new LBool(true));
             memory.SetValue("name",   new LString("kishore"));
@@ -141,7 +141,7 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
         public void MemberAccessExpression()
         {
             // "result = user.Address.City";
-            Tuple<string, Type, object, string, Type, object, List<Expr>> i = new Tuple<string, Type, object, string, Type, object, List<Expr>>("user", typeof(Person), new Person(), "result", typeof(string), "new york", new List<Expr>()
+            var i = new Tuple<string, Type, object, string, Type, object, List<Expr>>("user", typeof(Person), new Person(), "result", typeof(string), "new york", new List<Expr>()
             {
                 //new MemberAccessExpression("user", "Address"),
                 //new MemberAccessExpression("City"),
@@ -159,11 +159,11 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
 
         private void Math(Memory memory, object left, object right, Operator op, double expected)
         {
-            Expr expLeft = (left.GetType() == typeof(string))
+            var expLeft = (left.GetType() == typeof(string))
                         ? (Expr)new VariableExpr(left.ToString())
                         : (Expr)new ConstantExpr(left);
 
-            Expr expRight = (right.GetType() == typeof(string))
+            var expRight = (right.GetType() == typeof(string))
                          ? (Expr)new VariableExpr(right.ToString())
                          : (Expr)new ConstantExpr(right);
             var ctx = new Context() { Memory = memory };
@@ -188,7 +188,7 @@ namespace HSNXT.ComLib.Lang.Tests.Unit
         {
             var ctx = new Context();
             ctx.Memory = memory;
-            Expr expr = isConst
+            var expr = isConst
                             ? (Expr)new ConstantExpr(val)
                             : (Expr)new VariableExpr(val.ToString());
             var exp = new AssignExpr(true, name, expr);

@@ -25,7 +25,7 @@ namespace BCLExtensions.Tests.ActionExtensions
         [Fact]
         public void InternalActionExecutes()
         {
-            bool internalActionWasCalled = false;
+            var internalActionWasCalled = false;
             Action<int, string, bool, decimal, byte, int> action = (p1, p2, p3, p4, p5, p6) =>
             {
                 internalActionWasCalled = true;
@@ -45,12 +45,12 @@ namespace BCLExtensions.Tests.ActionExtensions
             const decimal expectedParameter4 = 4.2m;
             const byte expectedParameter5 = 127;
             const int expectedParameter6 = 67;
-            int passedParameter1 = 0;
+            var passedParameter1 = 0;
             string passedParameter2 = null;
-            bool passedParameter3 = false;
-            decimal passedParameter4 = 0.0m;
+            var passedParameter3 = false;
+            var passedParameter4 = 0.0m;
             byte passedParameter5 = 0;
-            int passedParameter6 = 0;
+            var passedParameter6 = 0;
             Action<int, string, bool, decimal, byte, int> action = (p1, p2, p3, p4, p5, p6) =>
             {
                 passedParameter1 = p1;

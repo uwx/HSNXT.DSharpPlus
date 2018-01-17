@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,11 +15,11 @@ namespace HSNXT.Z.Core.Test
         public void LeftSafe()
         {
             // Type
-            string @this = "Fizz";
+            var @this = "Fizz";
 
             // Examples
-            string result1 = @this.LeftSafe(2); // return "Fi";
-            string result2 = @this.LeftSafe(int.MaxValue); // return "Fizz";
+            var result1 = @this.LeftSafe(2); // return "Fi";
+            var result2 = @this.LeftSafe(int.MaxValue); // return "Fizz";
 
             // Unit Test
             Assert.AreEqual("Fi", result1);

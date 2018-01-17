@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -45,7 +45,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 			ran = new Random(3456);
 			length = 100000;
 			a = new int[length];
-			for (int i = 0; i < length; i++)
+			for (var i = 0; i < length; i++)
 				a[i] = ran.Next();
 		}
 
@@ -54,7 +54,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void HeapSort()
 		{
 			Sorting.HeapSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -63,7 +63,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void IntroSort()
 		{
 			Sorting.IntroSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -73,11 +73,11 @@ namespace HSNXT.C5UnitTests.SortingTests
 		{
 			length = 1000;
 			Sorting.InsertionSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 
 			Sorting.InsertionSort<int>(a, length, 2 * length, ic);
-			for (int i = length + 1; i < 2 * length; i++)
+			for (var i = length + 1; i < 2 * length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -107,7 +107,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 			ran = new Random(3456);
 			length = 100000;
 			a = new int[length];
-			for (int i = 0; i < length; i++)
+			for (var i = 0; i < length; i++)
 				a[i] = ran.Next(3, 23);
 		}
 
@@ -116,7 +116,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void HeapSort()
 		{
 			Sorting.HeapSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -125,7 +125,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void IntroSort()
 		{
 			Sorting.IntroSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -135,11 +135,11 @@ namespace HSNXT.C5UnitTests.SortingTests
 		{
 			length = 1000;
 			Sorting.InsertionSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 
 			Sorting.InsertionSort<int>(a, length, 2 * length, ic);
-			for (int i = length + 1; i < 2 * length; i++)
+			for (var i = length + 1; i < 2 * length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -166,7 +166,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 			ic = new IC();
 			length = 100000;
 			a = new int[length];
-			for (int i = 0; i < length; i++)
+			for (var i = 0; i < length; i++)
 				a[i] = i;
 		}
 
@@ -175,7 +175,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void HeapSort()
 		{
 			Sorting.HeapSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -184,7 +184,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void IntroSort()
 		{
 			Sorting.IntroSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -194,11 +194,11 @@ namespace HSNXT.C5UnitTests.SortingTests
 		{
 			length = 1000;
 			Sorting.InsertionSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 
 			Sorting.InsertionSort<int>(a, length, 2 * length, ic);
-			for (int i = length + 1; i < 2 * length; i++)
+			for (var i = length + 1; i < 2 * length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -225,7 +225,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 			ic = new IC();
 			length = 100000;
 			a = new int[length];
-			for (int i = 0; i < length; i++)
+			for (var i = 0; i < length; i++)
 				a[i] = -i;
 		}
 
@@ -234,7 +234,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void HeapSort()
 		{
 			Sorting.HeapSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -243,7 +243,7 @@ namespace HSNXT.C5UnitTests.SortingTests
 		public void IntroSort()
 		{
 			Sorting.IntroSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 
@@ -253,11 +253,11 @@ namespace HSNXT.C5UnitTests.SortingTests
 		{
 			length = 1000;
 			Sorting.InsertionSort<int>(a, 0, length, ic);
-			for (int i = 1; i < length; i++)
+			for (var i = 1; i < length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 
 			Sorting.InsertionSort<int>(a, length, 2 * length, ic);
-			for (int i = length + 1; i < 2 * length; i++)
+			for (var i = length + 1; i < 2 * length; i++)
 				Assert.IsTrue(a[i - 1] <= a[i], "Inversion at " + i);
 		}
 

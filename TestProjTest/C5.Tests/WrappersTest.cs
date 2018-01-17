@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -244,7 +244,7 @@ namespace HSNXT.C5UnitTests.wrappers
             {
                 list.Add(4); list.Add(56); list.Add(8);
                 listen();
-                int val = 53;
+                var val = 53;
                 list.FindOrAdd(ref val);
                 seen.Check(new CollectionEvent<int>[] { });
                 val = 67;
@@ -260,7 +260,7 @@ namespace HSNXT.C5UnitTests.wrappers
             {
                 list.Add(4); list.Add(56); list.Add(8);
                 listen();
-                int val = 53;
+                var val = 53;
                 list.UpdateOrAdd(val);
                 seen.Check(new CollectionEvent<int>[] {
           new CollectionEvent<int>(EventTypeEnum.Removed, new ItemCountEventArgs<int>(56, 1), guarded),
@@ -305,7 +305,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void RemoveAll()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     list.Add(10 * i + 5);
                 }
@@ -359,7 +359,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void RetainAll()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     list.Add(10 * i + 5);
                 }
@@ -378,7 +378,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void RemoveAllCopies()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     list.Add(3 * i + 5);
                 }
@@ -407,7 +407,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void AddAll()
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     list.Add(10 * i + 5);
                 }
@@ -428,42 +428,42 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void ViewChanged()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
                 Assert.Throws<UnlistenableEventException>(() => w.CollectionChanged += new CollectionChangedHandler<int>(w_CollectionChanged));
             }
 
             [Test]
             public void ViewCleared()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
                 Assert.Throws<UnlistenableEventException>(() => w.CollectionCleared += new CollectionClearedHandler<int>(w_CollectionCleared));
             }
 
             [Test]
             public void ViewAdded()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
                 Assert.Throws<UnlistenableEventException>(() => w.ItemsAdded += new ItemsAddedHandler<int>(w_ItemAdded));
             }
 
             [Test]
             public void ViewInserted()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
                 Assert.Throws<UnlistenableEventException>(() => w.ItemInserted += new ItemInsertedHandler<int>(w_ItemInserted));
             }
 
             [Test]
             public void ViewRemoved()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
                 Assert.Throws<UnlistenableEventException>(() => w.ItemsRemoved += new ItemsRemovedHandler<int>(w_ItemRemoved));
             }
 
             [Test]
             public void ViewRemovedAt()
             {
-                IList<int> w = list.View(0, 0);
+                var w = list.View(0, 0);
 
                 Assert.Throws<UnlistenableEventException>(() => w.ItemRemovedAt += new ItemRemovedAtHandler<int>(w_ItemRemovedAt));
             }
@@ -614,9 +614,9 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void MultipleSeparateEnumeration()
             {
-                WrappedArray<int> wrapped = new WrappedArray<int>(new int[] { 4, 6, 5 }, MemoryType);
+                var wrapped = new WrappedArray<int>(new int[] { 4, 6, 5 }, MemoryType);
 
-                int j = 0;
+                var j = 0;
 
                 foreach (var item in wrapped)
                 {
@@ -651,7 +651,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void NoExc()
             {
-                WrappedArray<int> wrapped = new WrappedArray<int>(new int[] { 4, 6, 5 }, MemoryType);
+                var wrapped = new WrappedArray<int>(new int[] { 4, 6, 5 }, MemoryType);
                 Assert.AreEqual(6, wrapped[1]);
                 Assert.IsTrue(IC.eq(wrapped[1, 2], 6, 5));
                 //
@@ -669,7 +669,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 Assert.AreEqual(true, wrapped.ContainsAll(new ArrayList<int>()));
                 Assert.AreEqual(1, wrapped.ContainsCount(4));
                 Assert.AreEqual(Speed.Linear, wrapped.ContainsSpeed);
-                int[] extarray = new int[5];
+                var extarray = new int[5];
                 wrapped.CopyTo(extarray, 1);
                 Assert.IsTrue(IC.eq(extarray, 0, 4, 6, 5, 0));
                 Assert.AreEqual(3, wrapped.Count);
@@ -685,7 +685,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 if (MemoryType != MemoryType.Strict)
                     Assert.IsTrue(IC.eq(wrapped.Filter(is4), 4));
 
-                int j = 5;
+                var j = 5;
                 Assert.AreEqual(true, wrapped.Find(ref j));
                 Assert.AreEqual(true, wrapped.Find(is4, out j));
                 Assert.AreEqual("[ 0:4 ]", wrapped.FindAll(is4).ToString());
@@ -735,7 +735,7 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void WithExc()
             {
-                WrappedArray<int> wrapped = new WrappedArray<int>(new int[] { 3, 4, 6, 5, 7 }, MemoryType);
+                var wrapped = new WrappedArray<int>(new int[] { 3, 4, 6, 5, 7 }, MemoryType);
                 //
                 try { wrapped.Add(1); Assert.Fail("No throw"); }
                 catch (FixedSizeCollectionException) { }
@@ -745,7 +745,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 catch (FixedSizeCollectionException) { }
                 try { wrapped.Dispose(); Assert.Fail("No throw"); }
                 catch (FixedSizeCollectionException) { }
-                int j = 1;
+                var j = 1;
                 try { wrapped.FindOrAdd(ref j); Assert.Fail("No throw"); }
                 catch (FixedSizeCollectionException) { }
                 try { wrapped.Insert(1, 1); Assert.Fail("No throw"); }
@@ -788,10 +788,10 @@ namespace HSNXT.C5UnitTests.wrappers
                 if (MemoryType != MemoryType.Strict)
                     return;
 
-                int[] inner = new int[] { 3, 4, 6, 5, 7 };
-                WrappedArray<int> outerwrapped = new WrappedArray<int>(inner, MemoryType);
+                var inner = new int[] { 3, 4, 6, 5, 7 };
+                var outerwrapped = new WrappedArray<int>(inner, MemoryType);
 
-                WrappedArray<int> wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
+                var wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
                 Func<int, bool> is4 = delegate(int i) { return i == 4; };
 
                 if (MemoryType == MemoryType.Strict)
@@ -804,9 +804,9 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void View()
             {
-                int[] inner = new int[] { 3, 4, 6, 5, 7 };
-                WrappedArray<int> outerwrapped = new WrappedArray<int>(inner, MemoryType);
-                WrappedArray<int> wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
+                var inner = new int[] { 3, 4, 6, 5, 7 };
+                var outerwrapped = new WrappedArray<int>(inner, MemoryType);
+                var wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
                 //
                 Assert.AreEqual(6, wrapped[1]);
                 Assert.IsTrue(IC.eq(wrapped[1, 2], 6, 5));
@@ -823,7 +823,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 Assert.AreEqual(true, wrapped.ContainsAll(new ArrayList<int>()));
                 Assert.AreEqual(1, wrapped.ContainsCount(4));
                 Assert.AreEqual(Speed.Linear, wrapped.ContainsSpeed);
-                int[] extarray = new int[5];
+                var extarray = new int[5];
                 wrapped.CopyTo(extarray, 1);
                 Assert.IsTrue(IC.eq(extarray, 0, 4, 6, 5, 0));
                 Assert.AreEqual(3, wrapped.Count);
@@ -839,7 +839,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 if (MemoryType != MemoryType.Strict)
                     Assert.IsTrue(IC.eq(wrapped.Filter(is4), 4));
                 
-				int j = 5;
+				var j = 5;
                 Assert.AreEqual(true, wrapped.Find(ref j));
                 Assert.AreEqual(true, wrapped.Find(is4, out j));
                 Assert.AreEqual("[ 0:4 ]", wrapped.FindAll(is4).ToString());
@@ -900,9 +900,9 @@ namespace HSNXT.C5UnitTests.wrappers
             [Test]
             public void ViewWithExc()
             {
-                int[] inner = new int[] { 3, 4, 6, 5, 7 };
-                WrappedArray<int> outerwrapped = new WrappedArray<int>(inner, MemoryType);
-                WrappedArray<int> wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
+                var inner = new int[] { 3, 4, 6, 5, 7 };
+                var outerwrapped = new WrappedArray<int>(inner, MemoryType);
+                var wrapped = (WrappedArray<int>)outerwrapped.View(1, 3);
                 //
                 try { wrapped.Add(1); Assert.Fail("No throw"); }
                 catch (FixedSizeCollectionException) { }
@@ -913,7 +913,7 @@ namespace HSNXT.C5UnitTests.wrappers
                 //Should not throw
                 //try { wrapped.Dispose(); Assert.Fail("No throw"); }
                 //catch (FixedSizeCollectionException) { }
-                int j = 1;
+                var j = 1;
                 try { wrapped.FindOrAdd(ref j); Assert.Fail("No throw"); }
                 catch (FixedSizeCollectionException) { }
                 try { wrapped.Insert(1, 1); Assert.Fail("No throw"); }

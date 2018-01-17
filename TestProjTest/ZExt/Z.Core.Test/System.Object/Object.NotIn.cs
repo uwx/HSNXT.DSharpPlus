@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,11 +15,11 @@ namespace HSNXT.Z.Core.Test
         public void NotIn()
         {
             // Type
-            string @this = "a";
+            var @this = "a";
 
             // Examples
-            bool value1 = @this.NotIn("1", "2", "3"); // return true
-            bool value2 = @this.NotIn("a", "1", "2", "3"); // return false
+            var value1 = @this.NotIn("1", "2", "3"); // return true
+            var value2 = @this.NotIn("a", "1", "2", "3"); // return false
 
             // Unit Test
             Assert.IsTrue(value1);

@@ -13,12 +13,12 @@ namespace CommonLibrary.Tests
     {
         public ModelContext GetContext()
         {
-            string location = "";
-            string comlib = "";
+            var location = "";
+            var comlib = "";
             var _conn = new ConnectionInfo("");
 
             // Settings for the Code model builders.
-            ModelBuilderSettings settings = new ModelBuilderSettings()
+            var settings = new ModelBuilderSettings()
             {               
                 ModelCodeLocation = location + @"\src\lib\CommonLibraryNet.Web.Modules\Src\_Models\",
                 ModelInstallLocation = location + @"\Install\",
@@ -29,7 +29,7 @@ namespace CommonLibrary.Tests
                 AssemblyName = "CommonLibrary.Extensions"
             };
 
-            ModelContainer models = new ModelContainer()
+            var models = new ModelContainer()
             {
                 Settings = settings,
                 ExtendedSettings = new Dictionary<string, object>() { },
@@ -159,7 +159,7 @@ namespace CommonLibrary.Tests
         public void CanIterate()
         {
             var ctx = GetContext();
-            int codeableModelCount = 0;
+            var codeableModelCount = 0;
             
             ctx.AllModels.Iterate(m => m.GenerateCode, m => codeableModelCount++);
 
@@ -171,9 +171,9 @@ namespace CommonLibrary.Tests
         public void CanIterateDetailed()
         {
             var ctx = GetContext();
-            int countInheritedModels = 0;
-            int countIncludes = 0;
-            int countCompositions = 0;
+            var countInheritedModels = 0;
+            var countIncludes = 0;
+            var countCompositions = 0;
 
             ctx.AllModels.Iterate("Event", 
                     (m)          => countInheritedModels++,
@@ -191,9 +191,9 @@ namespace CommonLibrary.Tests
         public void CanIterateDetailed2()
         {
             var ctx = GetContext();
-            string currentModelName = "";
+            var currentModelName = "";
 
-            Dictionary<string, int> map = new Dictionary<string, int>();
+            var map = new Dictionary<string, int>();
             map["Post.CountInheritedModels"] = 0;
             map["Post.CountIncludes"] = 0;
             map["Post.CountCompositions"] = 0;

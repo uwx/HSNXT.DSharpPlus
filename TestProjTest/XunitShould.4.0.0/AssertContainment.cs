@@ -58,7 +58,7 @@ namespace XunitShould
             if (actual.Length < ending.Length) {
                 throw new EqualException(ending, actual);
             }
-            string temp = actual.Substring(actual.Length - ending.Length);
+            var temp = actual.Substring(actual.Length - ending.Length);
             Assert.Equal(ending, temp, stringComparison.GetComparer());
         }
 
@@ -108,7 +108,7 @@ namespace XunitShould
             if (actual.Length < ending.Length) {
                 return;
             }
-            string temp = actual.Substring(actual.Length - ending.Length);
+            var temp = actual.Substring(actual.Length - ending.Length);
             Assert.NotEqual(ending, temp, comparisonType.GetComparer());
         }
 
@@ -118,7 +118,7 @@ namespace XunitShould
             if (actual.Length < begining.Length) {
                 return;
             }
-            string temp = actual.Substring(0, begining.Length);
+            var temp = actual.Substring(0, begining.Length);
             Assert.NotEqual(begining, temp, comparisonType.GetComparer());
         }
 
@@ -135,7 +135,7 @@ namespace XunitShould
             if (actual.Length < begining.Length) {
                 throw new EqualException(begining, actual);
             }
-            string temp = actual.Substring(0, begining.Length);
+            var temp = actual.Substring(0, begining.Length);
             Assert.Equal(begining, temp, comparisonType.GetComparer());
         }
     }

@@ -41,16 +41,16 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
                 new Tuple<List<string>, List<Type>, List<object>, string>(new List<string>(){ "name", "age", "isActive"}, new List<Type>(){ typeof(string), typeof(double), typeof(bool)}, new List<object>(){ "kis", LObjects.Null, LObjects.Null },  "var name = 'kis', age, isActive;"),
                 new Tuple<List<string>, List<Type>, List<object>, string>(new List<string>(){ "name", "age", "isActive"}, new List<Type>(){ typeof(string), typeof(double), typeof(bool)}, new List<object>(){ LObjects.Null,  LObjects.Null, LObjects.Null },  "var name, age, isActive;"),
             };
-            for (int ndx = 0; ndx < statements.Count; ndx++)
+            for (var ndx = 0; ndx < statements.Count; ndx++)
             {
                 var stmt = statements[ndx];
                 var i = new Interpreter();
                 i.Execute(stmt.Item4);
-                for (int ndxV = 0; ndxV < stmt.Item1.Count; ndxV++)
+                for (var ndxV = 0; ndxV < stmt.Item1.Count; ndxV++)
                 {
-                    string varName = stmt.Item1[ndxV];
-                    Type type = stmt.Item2[ndxV];
-                    object val = stmt.Item3[ndxV];
+                    var varName = stmt.Item1[ndxV];
+                    var type = stmt.Item2[ndxV];
+                    var val = stmt.Item3[ndxV];
                     var actualValue = i.Memory.Get<object>(varName);
 
                     if (actualValue is LObject && actualValue != LObjects.Null)
@@ -793,7 +793,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
                 {
                     if (exp.ParamList.Count == 0) return 1;
 
-                    int indexOfparam= Convert.ToInt32(exp.ParamList[0]);
+                    var indexOfparam= Convert.ToInt32(exp.ParamList[0]);
                     return exp.ParamList[indexOfparam]; 
                 });
             });
@@ -923,7 +923,7 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Do_Single_Assignment_New_Expressions()
         {
-            Interpreter i = new Interpreter();
+            var i = new Interpreter();
             i.Context.Types.Register(typeof(Person), null);
             i.Execute("var result = new Person();");
 
@@ -1116,8 +1116,8 @@ namespace HSNXT.ComLib.Lang.Tests.Integration.System
         [Test]
         public void Can_Do_Statement_Callbacks()
         {
-            int statementCount = 0;
-            int expressionCount = 0;
+            var statementCount = 0;
+            var expressionCount = 0;
             var statements = new List<Tuple<string, Type, object, string>>()
             {
                 TestCase("result", typeof(double), 2,   "var result = 1; var b = 'abc'; if ( result == 1 ) result = 2;")

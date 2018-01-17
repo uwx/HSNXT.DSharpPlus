@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,13 +19,13 @@ namespace HSNXT.Z.Collections.Test
             var @this = new List<string>();
 
             // Examples
-            bool value1 = @this.IsNullOrEmpty(); // return true;
+            var value1 = @this.IsNullOrEmpty(); // return true;
 
             @this.Add("Fizz");
-            bool value2 = @this.IsNullOrEmpty(); // return false;
+            var value2 = @this.IsNullOrEmpty(); // return false;
 
             @this = null;
-            bool value3 = @this.IsNullOrEmpty(); // return true;
+            var value3 = @this.IsNullOrEmpty(); // return true;
 
             // Unit Test
             Assert.IsTrue(value1);

@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,7 +17,7 @@ namespace HSNXT.Z.Serialization.Test
         public void DeserializeJavaScript()
         {
             // Type
-            string @this = "[\"Fizz\",\"Buzz\"]";
+            var @this = "[\"Fizz\",\"Buzz\"]";
 
             // Examples
             var result = @this.DeserializeJavaScript<List<string>>();
@@ -33,7 +33,7 @@ namespace HSNXT.Z.Serialization.Test
             product.Sizes = new[] {"Small"};
 
             // Serialize
-            string resultProduct = product.SerializeJavaScript();
+            var resultProduct = product.SerializeJavaScript();
 
             // Deserialize
             var product2 = resultProduct.DeserializeJavaScript<Product>();

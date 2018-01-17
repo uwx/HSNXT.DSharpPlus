@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -15,12 +15,12 @@ namespace HSNXT.Z.Core.Test
         public void ToStringSafe()
         {
             // Type
-            int @thisValue = 1;
+            var @thisValue = 1;
             string @thisNull = null;
 
             // Exemples
-            string result1 = @thisValue.ToStringSafe(); // return "1";
-            string result2 = @thisNull.ToStringSafe(); // return "";
+            var result1 = @thisValue.ToStringSafe(); // return "1";
+            var result2 = @thisNull.ToStringSafe(); // return "";
 
             // Unit Test
             Assert.AreEqual(result1, "1");

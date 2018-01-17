@@ -16,11 +16,11 @@ namespace HSNXT.Z.Core.Test
         {
 
             // Examples
-            bool value1 = "abba".IsPalindrome();  // return true;
-            bool value2 = "ab ba".IsPalindrome();  // return true;
-            bool value3 = "ab'ba".IsPalindrome();   // return true;
-            bool value4 = "abca".IsPalindrome();      // return false;
-            bool value5 = "ab b ab".IsPalindrome(); // return false;
+            var value1 = "abba".IsPalindrome();  // return true;
+            var value2 = "ab ba".IsPalindrome();  // return true;
+            var value3 = "ab'ba".IsPalindrome();   // return true;
+            var value4 = "abca".IsPalindrome();      // return false;
+            var value5 = "ab b ab".IsPalindrome(); // return false;
 
             // Unit Test
             Assert.IsTrue(value1);

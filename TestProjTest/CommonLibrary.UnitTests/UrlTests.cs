@@ -10,9 +10,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanBuildValidUrlWithOutAnyInvalidChars()
         {
-            string title = "This is a post about optimizing a title";
-            string url = UrlSeoUtils.BuildValidUrl(title);
-            string expected = "this-is-a-post-about-optimizing-a-title";
+            var title = "This is a post about optimizing a title";
+            var url = UrlSeoUtils.BuildValidUrl(title);
+            var expected = "this-is-a-post-about-optimizing-a-title";
 
             Assert.AreEqual(expected, url);
         }
@@ -24,9 +24,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanBuildValidUrlWithInvalidChars()
         {
-            string title = "Really~1@# Bad-*7s;:Title";
-            string url = UrlSeoUtils.BuildValidUrl(title);
-            string expected = "really1-bad-7stitle";
+            var title = "Really~1@# Bad-*7s;:Title";
+            var url = UrlSeoUtils.BuildValidUrl(title);
+            var expected = "really1-bad-7stitle";
 
             Assert.AreEqual(expected, url);
         }
@@ -35,9 +35,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanBuildValidUrlWithSequentialSpaces()
         {
-            string title = "Too    many    spaces";
-            string url = UrlSeoUtils.BuildValidUrl(title);
-            string expected = "too-many-spaces";
+            var title = "Too    many    spaces";
+            var url = UrlSeoUtils.BuildValidUrl(title);
+            var expected = "too-many-spaces";
 
             Assert.AreEqual(expected, url);
         }
@@ -46,9 +46,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanBuildValidUrlWithSequentialDashes()
         {
-            string title = "Too---many---dashes";
-            string url = UrlSeoUtils.BuildValidUrl(title);
-            string expected = "too-many-dashes";
+            var title = "Too---many---dashes";
+            var url = UrlSeoUtils.BuildValidUrl(title);
+            var expected = "too-many-dashes";
 
             Assert.AreEqual(expected, url);
         }
@@ -57,9 +57,9 @@ namespace CommonLibrary.Tests
         [Test]
         public void CanBuildValidUrlWithInvalidCharsBetweenSpaces()
         {
-            string title = "Too ^&* many ;'\"[]\\_+= invalidChars";
-            string url = UrlSeoUtils.BuildValidUrl(title);
-            string expected = "too-many-invalidchars";
+            var title = "Too ^&* many ;'\"[]\\_+= invalidChars";
+            var url = UrlSeoUtils.BuildValidUrl(title);
+            var expected = "too-many-invalidchars";
 
             Assert.AreEqual(expected, url);
         }

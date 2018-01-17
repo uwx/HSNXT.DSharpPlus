@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -17,11 +17,11 @@ namespace HSNXT.Z.Core.Test
             // Type
 
             // Exemples
-            int result1 = "Fizz 123 Buzz".ExtractInt32(); // return 123;
-            int result2 = "Fizz -123 Buzz".ExtractInt32(); // return -123;
-            int result3 = "-Fizz 123 Buzz".ExtractInt32(); // return 123;
-            int result4 = "Fizz 123.456 Buzz".ExtractInt32(); // return 123456;
-            int result5 = "Fizz -123Fizz.Buzz456 Buzz".ExtractInt32(); // return -123456;
+            var result1 = "Fizz 123 Buzz".ExtractInt32(); // return 123;
+            var result2 = "Fizz -123 Buzz".ExtractInt32(); // return -123;
+            var result3 = "-Fizz 123 Buzz".ExtractInt32(); // return 123;
+            var result4 = "Fizz 123.456 Buzz".ExtractInt32(); // return 123456;
+            var result5 = "Fizz -123Fizz.Buzz456 Buzz".ExtractInt32(); // return -123456;
 
             // Unit Test
             Assert.AreEqual(123, result1);

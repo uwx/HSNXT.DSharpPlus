@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using System.Xml.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,10 +16,10 @@ namespace HSNXT.Z.Core.Test
         public void ToXDocument()
         {
             // Type
-            string @this = "<Fizz>Buzz</Fizz>";
+            var @this = "<Fizz>Buzz</Fizz>";
 
             // Examples
-            XDocument value = @this.ToXDocument(); // return a XDocument from the specified string.
+            var value = @this.ToXDocument(); // return a XDocument from the specified string.
 
             // Unit Test
             Assert.AreEqual("<Fizz>Buzz</Fizz>", value.ToString());

@@ -23,10 +23,10 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
         public void FormatWithStringOneArgument()
         {
-            string s = "{0} ought to be enough for everybody.";
-            string param0 = "64K";
+            var s = "{0} ought to be enough for everybody.";
+            var param0 = "64K";
 
-            string expected = "64K ought to be enough for everybody.";
+            var expected = "64K ought to be enough for everybody.";
 
             Assert.AreEqual(expected, s.FormatWith(param0),
                 "1-argument string.FormatWith is not formatting string properly.");
@@ -35,10 +35,10 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void FormatWithStringOneNullArgument()
 		{
-			string s = "{0} ought to be enough for everybody.";
+			var s = "{0} ought to be enough for everybody.";
 			string param0 = null;
 
-			string expected = " ought to be enough for everybody.";
+			var expected = " ought to be enough for everybody.";
 
 			Assert.AreEqual(expected, s.FormatWith(param0),
 				"1-argument string.FormatWith is not formatting string properly.");
@@ -47,11 +47,11 @@ namespace ExtensionOverflow.Tests
         [TestMethod]
         public void FormatWithStringTwoArguments()
         {
-            string s = "{0} ought to be enough for {1}.";
-            string param0 = "64K";
-            string param1 = "everybody";
+            var s = "{0} ought to be enough for {1}.";
+            var param0 = "64K";
+            var param1 = "everybody";
 
-            string expected = "64K ought to be enough for everybody.";
+            var expected = "64K ought to be enough for everybody.";
 
             Assert.AreEqual(expected, s.FormatWith(param0, param1),
                 "2-arguments string.FormatWith is not formatting string properly.");
@@ -60,11 +60,11 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void FormatWithStringTwoNullArguments()
 		{
-			string s = "{0} ought to be enough for {1}.";
+			var s = "{0} ought to be enough for {1}.";
 			string param0 = null;
 			string param1 = null;
 
-			string expected = " ought to be enough for .";
+			var expected = " ought to be enough for .";
 
 			Assert.AreEqual(expected, s.FormatWith(param0, param1),
 				"2-arguments string.FormatWith is not formatting string properly.");
@@ -73,12 +73,12 @@ namespace ExtensionOverflow.Tests
         [TestMethod]
         public void FormatWithStringThreeArguments()
         {
-            string s = "{0} ought to be {1} for {2}.";
-            string param0 = "64K";
-            string param1 = "enough";
-            string param2 = "everybody";
+            var s = "{0} ought to be {1} for {2}.";
+            var param0 = "64K";
+            var param1 = "enough";
+            var param2 = "everybody";
 
-            string expected = "64K ought to be enough for everybody.";
+            var expected = "64K ought to be enough for everybody.";
 
             Assert.AreEqual(expected, s.FormatWith(param0, param1, param2),
                 "3-arguments string.FormatWith is not formatting string properly.");
@@ -87,12 +87,12 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void FormatWithStringThreeNullArguments()
 		{
-			string s = "{0} ought to be {1} for {2}.";
+			var s = "{0} ought to be {1} for {2}.";
 			string param0 = null;
 			string param1 = null;
 			string param2 = null;
 
-			string expected = " ought to be  for .";
+			var expected = " ought to be  for .";
 
 			Assert.AreEqual(expected, s.FormatWith(param0, param1, param2),
 				"3-arguments string.FormatWith is not formatting string properly.");
@@ -101,13 +101,13 @@ namespace ExtensionOverflow.Tests
         [TestMethod]
         public void FormatWithStringMultipleArguments()
         {
-            string s = "{0} {1} to be {2} for {3}.";
-            string param0 = "64K";
-            string param1 = "ought";
-            string param2 = "enough";
-            string param3 = "everybody";
+            var s = "{0} {1} to be {2} for {3}.";
+            var param0 = "64K";
+            var param1 = "ought";
+            var param2 = "enough";
+            var param3 = "everybody";
 
-            string expected = "64K ought to be enough for everybody.";
+            var expected = "64K ought to be enough for everybody.";
 
             Assert.AreEqual(expected, s.FormatWith(param0, param1, param2, param3),
                 "4-arguments string.FormatWith is not formatting string properly.");
@@ -116,13 +116,13 @@ namespace ExtensionOverflow.Tests
 		[TestMethod]
 		public void FormatWithStringMultipleNullArguments()
 		{
-			string s = "{0} {1} to be {2} for {3}.";
+			var s = "{0} {1} to be {2} for {3}.";
 			string param0 = null;
 			string param1 = null;
 			string param2 = null;
 			string param3 = null;
 
-			string expected = "  to be  for .";
+			var expected = "  to be  for .";
 
 			Assert.AreEqual(expected, s.FormatWith(param0, param1, param2, param3),
 				"4-arguments string.FormatWith is not formatting string properly.");
@@ -131,9 +131,9 @@ namespace ExtensionOverflow.Tests
         [TestMethod]
         public void FormatWithStringObeyThreadCulture()
         {
-            string s = "{0} is used as the decimal separator in French, as in {1:#,##0.00}";
-            string param0 = "Comma";
-            float param1 = 123.45F;
+            var s = "{0} is used as the decimal separator in French, as in {1:#,##0.00}";
+            var param0 = "Comma";
+            var param1 = 123.45F;
 
             var expected = "Comma is used as the decimal separator in French, as in 123,45";
 
@@ -226,14 +226,14 @@ namespace ExtensionOverflow.Tests
         [TestMethod]
         public void DateTimeStringToDateTime()
         {
-            DateTime date = new DateTime(2000,1,1,13,12,11);
+            var date = new DateTime(2000,1,1,13,12,11);
             Assert.AreEqual(date, date.ToString().ToDateTime());
         }
 
         [TestMethod]
         public void DateStringToDateTime()
         {
-            DateTime date = DateTime.Now;
+            var date = DateTime.Now;
             Assert.AreEqual(date.Date, date.Date.ToString(CultureInfo.InvariantCulture).ToDateTime());
         }
 

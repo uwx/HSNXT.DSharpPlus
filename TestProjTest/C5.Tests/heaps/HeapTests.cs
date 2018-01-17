@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -104,7 +104,7 @@ namespace HSNXT.C5UnitTests.heaps
             int[] vals = { 34, 0, 56, 0, 34, 0, 12, 0, 56, 0, 12, 0, 4, 5, 6, 2, 0 };
             Acts[] acts = { Acts.Add, Acts.Changed, Acts.Add, Acts.Changed, Acts.Add, Acts.Changed, Acts.Add, Acts.Changed,
                 Acts.Remove, Acts.Changed, Acts.Remove, Acts.Changed, Acts.Add, Acts.Add, Acts.Add, Acts.Add, Acts.Changed };
-            for (int i = 0; i < vals.Length; i++)
+            for (var i = 0; i < vals.Length; i++)
             {
                 //Console.WriteLine("{0}", events[cell]);
                 Assert.AreEqual(acts[i], events[i].Key, "Action " + i);
@@ -136,7 +136,7 @@ namespace HSNXT.C5UnitTests.heaps
             int[] vals = { 34, 0, 56, 0, 34, 0, 12, 0, 56, 0, 12, 0, 4, 5, 6, 2, 0 };
             Acts[] acts = { Acts.Add, Acts.Changed, Acts.Add, Acts.Changed, Acts.Add, Acts.Changed, Acts.Add, Acts.Changed,
                 Acts.Remove, Acts.Changed, Acts.Remove, Acts.Changed, Acts.Add, Acts.Add, Acts.Add, Acts.Add, Acts.Changed };
-            for (int i = 0; i < vals.Length; i++)
+            for (var i = 0; i < vals.Length; i++)
             {
                 //Console.WriteLine("{0}", events[cell]);
                 Assert.AreEqual(vals[i], events[i].Value);
@@ -209,7 +209,7 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void Handles()
         {
-            IPriorityQueueHandle<int>[] handles = new IPriorityQueueHandle<int>[10];
+            var handles = new IPriorityQueueHandle<int>[10];
 
             queue.Add(ref handles[0], 7);
             Assert.IsTrue(queue.Check());
@@ -319,22 +319,22 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void Replace5a()
         {
-            for (int size = 0; size < 130; size++)
+            for (var size = 0; size < 130; size++)
             {
                 IPriorityQueue<double> q = new IntervalHeap<double>();
                 IPriorityQueueHandle<double> handle1 = null;
                 q.Add(ref handle1, 3.0);
                 Assert.AreEqual(3.0, q.FindMin());
-                for (int i = 1; i < size; i++)
+                for (var i = 1; i < size; i++)
                     q.Add(i + 3.0);
                 Assert.AreEqual(3.0, q.FindMin());
-                for (int min = 2; min >= -10; min--)
+                for (var min = 2; min >= -10; min--)
                 {
                     Assert.AreEqual(min + 1.0, q.Replace(handle1, min));
                     Assert.AreEqual(min, q.FindMin());
                 }
                 Assert.AreEqual(-10.0, q.DeleteMin());
-                for (int i = 1; i < size; i++)
+                for (var i = 1; i < size; i++)
                     Assert.AreEqual(i + 3.0, q.DeleteMin());
                 Assert.IsTrue(q.IsEmpty);
             }
@@ -343,22 +343,22 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void Replace5b()
         {
-            for (int size = 0; size < 130; size++)
+            for (var size = 0; size < 130; size++)
             {
                 IPriorityQueue<double> q = new IntervalHeap<double>();
                 IPriorityQueueHandle<double> handle1 = null;
                 q.Add(ref handle1, -3.0);
                 Assert.AreEqual(-3.0, q.FindMax());
-                for (int i = 1; i < size; i++)
+                for (var i = 1; i < size; i++)
                     q.Add(-i - 3.0);
                 Assert.AreEqual(-3.0, q.FindMax());
-                for (int max = -2; max <= 10; max++)
+                for (var max = -2; max <= 10; max++)
                 {
                     Assert.AreEqual(max - 1.0, q.Replace(handle1, max));
                     Assert.AreEqual(max, q.FindMax());
                 }
                 Assert.AreEqual(10.0, q.DeleteMax());
-                for (int i = 1; i < size; i++)
+                for (var i = 1; i < size; i++)
                     Assert.AreEqual(-i - 3.0, q.DeleteMax());
                 Assert.IsTrue(q.IsEmpty);
             }
@@ -457,15 +457,15 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void Enumerate()
         {
-            int[] a = new int[4];
-            int siz = 0;
-            foreach (int i in queue)
+            var a = new int[4];
+            var siz = 0;
+            foreach (var i in queue)
                 siz++;
             Assert.AreEqual(0, siz);
 
             queue.Add(8); queue.Add(18); queue.Add(8); queue.Add(3);
 
-            foreach (int i in queue)
+            foreach (var i in queue)
                 a[siz++] = i;
             Assert.AreEqual(4, siz);
             Array.Sort(a, 0, siz);
@@ -476,7 +476,7 @@ namespace HSNXT.C5UnitTests.heaps
 
             siz = 0;
             Assert.AreEqual(18, queue.DeleteMax());
-            foreach (int i in queue)
+            foreach (var i in queue)
                 a[siz++] = i;
             Assert.AreEqual(3, siz);
             Array.Sort(a, 0, siz);
@@ -486,7 +486,7 @@ namespace HSNXT.C5UnitTests.heaps
 
             siz = 0;
             Assert.AreEqual(8, queue.DeleteMax());
-            foreach (int i in queue)
+            foreach (var i in queue)
                 a[siz++] = i;
             Assert.AreEqual(2, siz);
             Array.Sort(a, 0, siz);
@@ -495,7 +495,7 @@ namespace HSNXT.C5UnitTests.heaps
 
             siz = 0;
             Assert.AreEqual(8, queue.DeleteMax());
-            foreach (int i in queue)
+            foreach (var i in queue)
                 a[siz++] = i;
             Assert.AreEqual(1, siz);
             Assert.AreEqual(3, a[0]);
@@ -504,16 +504,16 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void Random()
         {
-            int length = 1000;
-            int[] a = new int[length];
-            Random ran = new Random(6754);
+            var length = 1000;
+            var a = new int[length];
+            var ran = new Random(6754);
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
                 queue.Add(a[i] = ran.Next());
 
             Assert.IsTrue(queue.Check());
             Array.Sort(a);
-            for (int i = 0; i < length / 2; i++)
+            for (var i = 0; i < length / 2; i++)
             {
                 Assert.AreEqual(a[length - i - 1], queue.DeleteMax());
                 Assert.IsTrue(queue.Check());
@@ -527,11 +527,11 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void RandomWithHandles()
         {
-            int length = 1000;
-            int[] a = new int[length];
-            Random ran = new Random(6754);
+            var length = 1000;
+            var a = new int[length];
+            var ran = new Random(6754);
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 IPriorityQueueHandle<int> h = null;
                 queue.Add(ref h, a[i] = ran.Next());
@@ -540,7 +540,7 @@ namespace HSNXT.C5UnitTests.heaps
 
             Assert.IsTrue(queue.Check());
             Array.Sort(a);
-            for (int i = 0; i < length / 2; i++)
+            for (var i = 0; i < length / 2; i++)
             {
                 Assert.AreEqual(a[length - i - 1], queue.DeleteMax());
                 Assert.IsTrue(queue.Check());
@@ -554,13 +554,13 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void RandomWithDeleteHandles()
         {
-            Random ran = new Random(6754);
-            int length = 1000;
-            int[] a = new int[length];
-            ArrayList<int> shuffle = new ArrayList<int>(length);
-            IPriorityQueueHandle<int>[] h = new IPriorityQueueHandle<int>[length];
+            var ran = new Random(6754);
+            var length = 1000;
+            var a = new int[length];
+            var shuffle = new ArrayList<int>(length);
+            var h = new IPriorityQueueHandle<int>[length];
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 shuffle.Add(i);
                 queue.Add(ref h[i], a[i] = ran.Next());
@@ -569,9 +569,9 @@ namespace HSNXT.C5UnitTests.heaps
 
             Assert.IsTrue(queue.Check());
             shuffle.Shuffle(ran);
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
-                int j = shuffle[i];
+                var j = shuffle[i];
                 Assert.AreEqual(a[j], queue.Delete(h[j]));
                 Assert.IsTrue(queue.Check());
             }
@@ -582,14 +582,14 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void RandomIndexing()
         {
-            Random ran = new Random(6754);
-            int length = 1000;
-            int[] a = new int[length];
-            int[] b = new int[length];
-            ArrayList<int> shuffle = new ArrayList<int>(length);
-            IPriorityQueueHandle<int>[] h = new IPriorityQueueHandle<int>[length];
+            var ran = new Random(6754);
+            var length = 1000;
+            var a = new int[length];
+            var b = new int[length];
+            var shuffle = new ArrayList<int>(length);
+            var h = new IPriorityQueueHandle<int>[length];
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 shuffle.Add(i);
                 queue.Add(ref h[i], a[i] = ran.Next());
@@ -599,9 +599,9 @@ namespace HSNXT.C5UnitTests.heaps
 
             Assert.IsTrue(queue.Check());
             shuffle.Shuffle(ran);
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
-                int j = shuffle[i];
+                var j = shuffle[i];
                 Assert.AreEqual(a[j], queue[h[j]]);
                 queue[h[j]] = b[j];
                 Assert.AreEqual(b[j], queue[h[j]]);
@@ -614,18 +614,18 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void RandomDuplicates()
         {
-            int length = 1000;
+            var length = 1000;
             int s;
-            int[] a = new int[length];
-            Random ran = new Random(6754);
+            var a = new int[length];
+            var ran = new Random(6754);
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
                 queue.Add(a[i] = ran.Next(3, 13));
             Assert.IsTrue(queue.Check());
 
             Array.Sort(a);
 
-            for (int i = 0; i < length / 2; i++)
+            for (var i = 0; i < length / 2; i++)
             {
                 Assert.AreEqual(a[i], queue.DeleteMin());
                 Assert.IsTrue(queue.Check());
@@ -640,18 +640,18 @@ namespace HSNXT.C5UnitTests.heaps
         [Test]
         public void AddAll()
         {
-            int length = 1000;
-            int[] a = new int[length];
-            Random ran = new Random(6754);
+            var length = 1000;
+            var a = new int[length];
+            var ran = new Random(6754);
 
-            LinkedList<int> lst = new LinkedList<int>();
-            for (int i = 0; i < length; i++)
+            var lst = new LinkedList<int>();
+            for (var i = 0; i < length; i++)
                 lst.Add(a[i] = ran.Next());
 
             queue.AddAll(lst);
             Assert.IsTrue(queue.Check());
             Array.Sort(a);
-            for (int i = 0; i < length / 2; i++)
+            for (var i = 0; i < length / 2; i++)
             {
                 Assert.AreEqual(a[length - i - 1], queue.DeleteMax());
                 Assert.IsTrue(queue.Check());

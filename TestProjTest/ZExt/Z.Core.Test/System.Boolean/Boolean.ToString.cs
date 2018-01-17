@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright ï¿½ ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -12,15 +12,15 @@ namespace HSNXT.Z.Core.Test
     public class System_Boolean_ToString
     {
         [TestMethod]
-        public void ToString()
+        public void ToStringTest()
         {
             // Type
-            bool @thisTrue = true;
-            bool @thisFalse = false;
+            var @thisTrue = true;
+            var @thisFalse = false;
 
             // Exemples
-            string result1 = @thisTrue.ToString("Fizz", "Buzz"); // return "Fizz";
-            string result2 = @thisFalse.ToString("Fizz", "Buzz"); // return "Buzz";
+            var result1 = @thisTrue.ToString("Fizz", "Buzz"); // return "Fizz";
+            var result2 = @thisFalse.ToString("Fizz", "Buzz"); // return "Buzz";
 
             // Unit Test
             Assert.AreEqual("Fizz", result1);

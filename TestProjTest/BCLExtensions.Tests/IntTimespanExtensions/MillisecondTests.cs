@@ -8,7 +8,7 @@ namespace BCLExtensions.Tests.IntTimespanExtensions
         [Fact]
         public void WorksWhenUsedOnAnInlineConstant()
         {
-            TimeSpan result = (5).Millisecond();
+            var result = (5).Millisecond();
 
             Assert.Equal(5, result.TotalMilliseconds);
         }
@@ -29,7 +29,7 @@ namespace BCLExtensions.Tests.IntTimespanExtensions
         [InlineData(int.MaxValue)]
         public void WhenGivenANumberThenReturnsCorrectTimeSpan(int numberOfMilliseconds)
         {
-            TimeSpan result = numberOfMilliseconds.Millisecond();
+            var result = numberOfMilliseconds.Millisecond();
 
             Assert.Equal(numberOfMilliseconds, result.TotalMilliseconds);
         }

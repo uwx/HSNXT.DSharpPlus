@@ -16,7 +16,7 @@ namespace HSNXT.Z.Core.Test
         public void To()
         {
             string nullValue = null;
-            string value = "1";
+            var value = "1";
             object dbNullValue = DBNull.Value;
 
             // Exemples

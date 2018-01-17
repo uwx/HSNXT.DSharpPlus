@@ -18,7 +18,7 @@ namespace BCLExtensions.Tests.StringExtensions
         [Fact]
         public void EmptyStringReturnsEmpty()
         {
-            string input = string.Empty;
+            var input = string.Empty;
 
             var output = input.Unquoted();
 

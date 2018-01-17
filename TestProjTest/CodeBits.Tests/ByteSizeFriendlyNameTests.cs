@@ -32,7 +32,7 @@ namespace HSNXT.Tests
         [InlineData(1023, "1023 bytes")]
         public void Bytes_test(int bytes, string expectedFriendlyName)
         {
-            string friendlyName = ByteSizeFriendlyName.Build(bytes);
+            var friendlyName = ByteSizeFriendlyName.Build(bytes);
             Assert.Equal(expectedFriendlyName, friendlyName);
         }
 
@@ -47,7 +47,7 @@ namespace HSNXT.Tests
             var options = new FriendlyNameOptions {
                 UnitDisplayMode = UnitDisplayMode.HideOnlyForBytes
             };
-            string friendlyName = ByteSizeFriendlyName.Build(bytes, options);
+            var friendlyName = ByteSizeFriendlyName.Build(bytes, options);
             Assert.Equal(expectedFriendlyName, friendlyName);
         }
 
@@ -59,7 +59,7 @@ namespace HSNXT.Tests
             var options = new FriendlyNameOptions {
                 GroupDigits = true
             };
-            string friendlyName = ByteSizeFriendlyName.Build(bytes, options);
+            var friendlyName = ByteSizeFriendlyName.Build(bytes, options);
             Assert.Equal(expectedFriendlyName, friendlyName);
         }
 
@@ -68,7 +68,7 @@ namespace HSNXT.Tests
         {
             const long size = 1024L * 1024 * 10;
             
-            string friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { DecimalPlaces = 10 });
+            var friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { DecimalPlaces = 10 });
             friendlyName.ShouldBe("10 MB");
 
             friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { UnitDisplayMode = UnitDisplayMode.AlwaysHide });
@@ -83,7 +83,7 @@ namespace HSNXT.Tests
         {
             const long size = 1024L * 1024 * 1024 * 10;
             
-            string friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { DecimalPlaces = 10 });;
+            var friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { DecimalPlaces = 10 });;
             Assert.Equal("10 GB", friendlyName);
 
             friendlyName = ByteSizeFriendlyName.Build(size, new FriendlyNameOptions { UnitDisplayMode = UnitDisplayMode.AlwaysHide });

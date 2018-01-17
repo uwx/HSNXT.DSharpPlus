@@ -46,7 +46,7 @@ namespace HSNXT.Tests
         [Fact]
         public void Enumerator_should_return_all_enum_values_in_correct_order()
         {
-            List<DayOfWeek> daysOfWeek = EnumIterator.For<DayOfWeek>().ToList();
+            var daysOfWeek = EnumIterator.For<DayOfWeek>().ToList();
             daysOfWeek.Count.ShouldBe(7);
             daysOfWeek[0].ShouldBe(DayOfWeek.Sunday);
             daysOfWeek[1].ShouldBe(DayOfWeek.Monday);
@@ -60,7 +60,7 @@ namespace HSNXT.Tests
         [Fact]
         public void Non_generic_enumerator_should_return_all_enum_values_in_correct_order()
         {
-            List<DayOfWeek> daysOfWeek = EnumIterator.For(typeof(DayOfWeek)).OfType<DayOfWeek>().ToList();
+            var daysOfWeek = EnumIterator.For(typeof(DayOfWeek)).OfType<DayOfWeek>().ToList();
             daysOfWeek.Count.ShouldBe(7);
             daysOfWeek[0].ShouldBe(DayOfWeek.Sunday);
             daysOfWeek[1].ShouldBe(DayOfWeek.Monday);

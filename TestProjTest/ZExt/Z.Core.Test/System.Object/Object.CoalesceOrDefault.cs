@@ -3,7 +3,7 @@
 // Forum: https://github.com/zzzprojects/Z.ExtensionMethods/issues
 // License: https://github.com/zzzprojects/Z.ExtensionMethods/blob/master/LICENSE
 // More projects: http://www.zzzprojects.com/
-// Copyright © ZZZ Projects Inc. 2014 - 2016. All rights reserved.
+// Copyright Â© ZZZ Projects Inc. 2014 - 2016. All rights reserved.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HSNXT.Z.Core.Test
@@ -22,10 +22,10 @@ namespace HSNXT.Z.Core.Test
             object @thisNotNull = "Fizz";
 
             // Exemples
-            object result1 = @thisNull.CoalesceOrDefault(nullObject, nullObject, "Buzz"); // return "Buzz";
-            object result2 = @thisNull.CoalesceOrDefault(() => "Buzz", null, null); // return "Buzz";
-            object result3 = @thisNull.CoalesceOrDefault(x => "Buzz", null, null); // return "Buzz";
-            object result4 = @thisNotNull.CoalesceOrDefault(nullObject, nullObject, "Buzz"); // return "Fizz";
+            var result1 = @thisNull.CoalesceOrDefault(nullObject, nullObject, "Buzz"); // return "Buzz";
+            var result2 = @thisNull.CoalesceOrDefault(() => "Buzz", null, null); // return "Buzz";
+            var result3 = @thisNull.CoalesceOrDefault(x => "Buzz", null, null); // return "Buzz";
+            var result4 = @thisNotNull.CoalesceOrDefault(nullObject, nullObject, "Buzz"); // return "Fizz";
 
             // Unit Test
             Assert.AreEqual("Buzz", result1);

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus Lystrøm
+ Copyright (c) 2003-2017 Niels Kokholm, Peter Sestoft, and Rasmus LystrÃ¸m
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -45,12 +45,12 @@ namespace HSNXT.C5UnitTests.Templates.Events
         {
             get
             {
-                CircularQueue<EventTypeEnum> specs = new CircularQueue<EventTypeEnum>();
+                var specs = new CircularQueue<EventTypeEnum>();
                 //foreach (EventTypeEnum listenTo in Enum.GetValues(typeof(EventTypeEnum)))
                 //  if ((listenTo & ~EventTypeEnum.Basic) == 0)
                 //    specs.Enqueue(listenTo);
                 //specs.Enqueue(EventTypeEnum.Added | EventTypeEnum.Removed);
-                for (int spec = 0; spec <= (int)EventTypeEnum.Basic; spec++)
+                for (var spec = 0; spec <= (int)EventTypeEnum.Basic; spec++)
                     specs.Enqueue((EventTypeEnum)spec);
                 return specs;
             }
@@ -59,12 +59,12 @@ namespace HSNXT.C5UnitTests.Templates.Events
         {
             get
             {
-                CircularQueue<EventTypeEnum> specs = new CircularQueue<EventTypeEnum>();
+                var specs = new CircularQueue<EventTypeEnum>();
                 //foreach (EventTypeEnum listenTo in Enum.GetValues(typeof(EventTypeEnum)))
                 //  specs.Enqueue(listenTo);
                 //specs.Enqueue(EventTypeEnum.Added | EventTypeEnum.Removed);
 
-                for (int spec = 0; spec <= (int)EventTypeEnum.All; spec++)
+                for (var spec = 0; spec <= (int)EventTypeEnum.All; spec++)
                     specs.Enqueue((EventTypeEnum)spec);
                 return specs;
             }
@@ -100,7 +100,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
 
         public void AddAll()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 collection.Add(10 * i + 5);
             }
@@ -164,7 +164,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
         {
             collection.Add(4); collection.Add(56); collection.Add(8);
             listen();
-            int val = 53;
+            var val = 53;
             collection.FindOrAdd(ref val);
             seen.Check(new CollectionEvent<int>[] { });
             val = 67;
@@ -179,7 +179,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
         {
             collection.Add(4); collection.Add(56); collection.Add(8);
             listen();
-            int val = 53;
+            var val = 53;
             collection.UpdateOrAdd(val);
             seen.Check(new CollectionEvent<int>[] {
           new CollectionEvent<int>(EventTypeEnum.Removed, new ItemCountEventArgs<int>(56, 1), collection),
@@ -222,7 +222,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
 
         public void RemoveAll()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 collection.Add(10 * i + 5);
             }
@@ -239,7 +239,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
 
         public void RetainAll()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 collection.Add(10 * i + 5);
             }
@@ -257,7 +257,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
 
         public void RemoveAllCopies()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 collection.Add(3 * i + 5);
             }
@@ -379,7 +379,7 @@ namespace HSNXT.C5UnitTests.Templates.Events
 
         public void RemoveRange()
         {
-            for (int i = 0; i < 20; i++)
+            for (var i = 0; i < 20; i++)
                 collection.Add(i * 10 + 5);
             listen();
             collection.RemoveRangeFrom(173);
