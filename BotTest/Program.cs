@@ -27,7 +27,7 @@ namespace BotTest
                 LargeThreshold =
                     250, // Total number of members where the gateway will stop sending offline members in the guild member list
                 LogLevel = LogLevel.Debug, // Minimum log level you want to use
-                Token = "Mzc0NjkzNzMxNjMyMTUyNTc2.DP8ZIw.KIhCKhhMoYdgJ8Mxcr_IkllmrPY", // Your token
+                Token = File.ReadAllText("../token.txt").Trim(), // Your token
                 TokenType = TokenType.Bot, // Your token type. Most likely "Bot"
                 UseInternalLogHandler = true, // Whether you want to use the internal log handler
                 WebSocketClientFactory = WebSocket4NetClient.CreateNew
