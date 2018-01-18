@@ -44,7 +44,7 @@
     <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00405" />
     <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-beta-00405" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Appveyor_Build_Number)' != ''">
-    <Reference Include="netstandard" />
+  <ItemGroup Condition="'$(TargetFramework)' != 'net47'">
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   </ItemGroup>
 </Project>
