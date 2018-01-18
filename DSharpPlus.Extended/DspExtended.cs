@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
+using DSharpPlus.Extended.AsyncListeners;
 
 namespace DSharpPlus.Extended.Module
 {
@@ -16,12 +19,25 @@ namespace DSharpPlus.Extended.Module
     public class DspExtended
     {
         internal DiscordClient Client { get; set; }
+        internal CommandsNextExtension CNext { get; set; }
         
         internal DspExtended(DiscordClient client)
         {
             Client = client;
+            CNext = client.GetCommandsNext(); 
+            
             _extensionErrored = new AsyncEvent<ExtensionErrorEventArgs>(EventErrorHandler, "ExtensionErrored");
             _mentionReceived = new AsyncEvent<MentionReceivedEventArgs>(EventErrorHandler, "MentionReceived");
+        }
+
+        /// <summary>
+        /// Registers async listeners for an assembly
+        /// </summary>
+        /// <param name="assembly">the assembly to register</param>
+        public void RegisterAssembly(Assembly assembly = null)
+        {
+            if (assembly == null) assembly = Assembly.GetEntryAssembly();
+            AsyncListenerHandler.InstallListeners(Client, CNext, assembly.GetTypes());
         }
         
         internal void EventErrorHandler(string evname, Exception ex)
@@ -34,11 +50,11 @@ namespace DSharpPlus.Extended.Module
             }).ConfigureAwait(false).GetAwaiter().GetResult();
         }
         
-        private async Task OnMessageCreated(MessageCreateEventArgs e)
+        private Task OnMessageCreated(MessageCreateEventArgs e)
         {
             if (e.MentionedUsers.Contains(Client.CurrentUser))
             {
-                await _mentionReceived.InvokeAsync(new MentionReceivedEventArgs(Client)
+                return _mentionReceived.InvokeAsync(new MentionReceivedEventArgs(Client)
                 {
                     Message = e.Message,
                     MentionedChannels = e.MentionedChannels,
@@ -46,6 +62,8 @@ namespace DSharpPlus.Extended.Module
                     MentionedUsers = e.MentionedUsers,
                 });
             }
+
+            return Task.CompletedTask;
         }
         
         /// <summary>
