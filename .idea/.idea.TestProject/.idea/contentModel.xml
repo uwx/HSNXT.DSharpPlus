@@ -412,6 +412,11 @@
         </e>
       </e>
       <e p="DSharpPlus.Extended" t="IncludeRecursive">
+        <e p="AsyncListeners" t="Include">
+          <e p="AsyncListenerAttribute.cs" t="Include" />
+          <e p="AsyncListenerHandler.cs" t="Include" />
+          <e p="EventTypes.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Color.cs" t="Include" />
         <e p="DSharpPlus.Extended.csproj" t="IncludeRecursive" />
