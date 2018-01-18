@@ -81,7 +81,7 @@ build_script:
   - ps: dotnet pack "TestProj47/TestProj47.csproj" -c Release -o "Proj1" --no-build
   - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -c Release -o "Proj2" --no-build
   - ps: dotnet pack "DSharpPlus.Extended/DSharpPlus.Extended.csproj" -c Release -o "Proj3" --no-build
-  - ps: dotnet pack "DSharpPlus.Extended/DSharpPlus.Extended.Lite.csproj" -c Release -o "Proj4" --no-build
+  - ps: dotnet pack "DSharpPlus.Extended.Lite/DSharpPlus.Extended.Lite.csproj" -c Release -o "Proj4" --no-build
   - ps: dotnet pack "DSharpPlus.ModernEmbedBuilder/DSharpPlus.ModernEmbedBuilder.csproj" -c Release -o "Proj5" --no-build
   # pack D#+ projects
   - ps: dotnet pack "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" -c Release -o "DSP1" --no-build --version-suffix "$env:Appveyor_Build_Number"
@@ -103,7 +103,7 @@ artifacts:
   - path: "TestProj47\\Proj1\\*.nupkg"
   - path: "DSharpPlus.CNextNotifier\\Proj2\\*.nupkg"
   - path: "DSharpPlus.Extended\\Proj3\\*.nupkg"
-  - path: "DSharpPlus.Extended\\Proj4\\*.nupkg"
+  - path: "DSharpPlus.Extended.Lite\\Proj4\\*.nupkg"
   - path: "DSharpPlus.ModernEmbedBuilder\\Proj5\\*.nupkg"
   
   - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
