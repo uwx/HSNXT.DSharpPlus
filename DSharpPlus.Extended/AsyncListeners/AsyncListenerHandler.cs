@@ -12,7 +12,7 @@ namespace DSharpPlus.Extended.AsyncListeners
         
         public static void InstallListeners(DiscordClient client, CommandsNextExtension cnext, IEnumerable<Type> types)
         {
-            // find all methods from ModCore with AsyncListener attr
+            // find all methods with AsyncListener attr
             ListenerMethods =
                 from t in types
                 from m in t.GetMethods()
