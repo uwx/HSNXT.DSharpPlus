@@ -49,7 +49,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CommandsNext", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSPEmojiGenerator2", "DSPEmojiGenerator2\DSPEmojiGenerator2.csproj", "{EBF17D41-68A8-48B6-AE66-E2FE55760859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Lite", "DSharpPlus.Extended\DSharpPlus.Extended.Lite.csproj", "{06D9D6EF-4A28-4713-ABA1-50FA5AF7270C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Lite", "DSharpPlus.Extended.Lite\DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,10 +149,10 @@ Global
 		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06D9D6EF-4A28-4713-ABA1-50FA5AF7270C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06D9D6EF-4A28-4713-ABA1-50FA5AF7270C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06D9D6EF-4A28-4713-ABA1-50FA5AF7270C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06D9D6EF-4A28-4713-ABA1-50FA5AF7270C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

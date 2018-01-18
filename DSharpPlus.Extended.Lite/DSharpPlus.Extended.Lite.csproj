@@ -40,4 +40,21 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs" />
+    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs" />
+    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\EventTypes.cs" />
+    <Compile Include="..\DSharpPlus.Extended\Color.cs" />
+    <Compile Include="..\DSharpPlus.Extended\DspExtended.cs" />
+    <Compile Include="..\DSharpPlus.Extended\EventArgs\ExtensionErrorEventArgs.cs" />
+    <Compile Include="..\DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\ChannelExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildEmojiExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\MemberExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\WebhookExtensions.cs" />
+    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs" />
+  </ItemGroup>
 </Project>
