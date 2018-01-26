@@ -78,7 +78,6 @@ build_script:
   - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard1.3 --version-suffix "$env:Appveyor_Build_Number"
   - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard2.0 --version-suffix "$env:Appveyor_Build_Number"
   # pack projects 1
-  - ps: dotnet pack "TestProj47/TestProj47.csproj" -c Release -o "Proj1" --no-build
   - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -c Release -o "Proj2" --no-build
   - ps: dotnet pack "DSharpPlus.Extended/DSharpPlus.Extended.csproj" -c Release -o "Proj3" --no-build
   - ps: dotnet pack "DSharpPlus.Extended.Lite/DSharpPlus.Extended.Lite.csproj" -c Release -o "Proj4" --no-build
@@ -99,8 +98,6 @@ artifacts:
   - path: "DSharpPlus\\DSharpPlus.Interactivity\\DSP4\\*.nupkg"
   - path: "DSharpPlus\\DSharpPlus.Rest\\DSP5\\*.nupkg"
   - path: "DSharpPlus\\DSharpPlus.VoiceNext\\DSP6\\*.nupkg"
-  
-  - path: "TestProj47\\Proj1\\*.nupkg"
   - path: "DSharpPlus.CNextNotifier\\Proj2\\*.nupkg"
   - path: "DSharpPlus.Extended\\Proj3\\*.nupkg"
   - path: "DSharpPlus.Extended.Lite\\Proj4\\*.nupkg"
@@ -109,26 +106,8 @@ artifacts:
   - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
     name: DSharpPlus.CNextNotifier Release DLLs (.NET Standard 2.0)
     type: zip
-# - path: "ExtensionOverflow\\bin\\Release\\net47\\*.dll"
-#   name: ExtensionOverflow Release DLLs (.NET 4.7)
-#   type: zip
-  - path: "OEISReader\\bin\\Release\\net47\\*.dll"
-    name: OEISReader Release DLLs (.NET 4.7)
-    type: zip
-  - path: "TestProj47\\bin\\Release\\net47\\*.dll"
-    name: TestProj47 Release DLLs (.NET 4.7)
-    type: zip
-# - path: "TestProject2\\bin\\Release\\net47\\*.dll"
-#   name: TestProject2 Release DLLs (.NET 4.7)
-#   type: zip
-  - path: "Wither\\bin\\Release\\net47\\*.dll"
-    name: Wither Release DLLs (.NET 4.7)
-    type: zip
   - path: "Dickscord\\bin\\Release\\net47\\*.dll"
     name: Dickscord Release DLLs (.NET 4.7)
-    type: zip
-  - path: "ReflectToArrayTest\\bin\\Release\\net47\\*.dll"
-    name: ReflectToArrayTest Release DLLs (.NET 4.7)
     type: zip
   - path: "DRPCTest\\bin\\x64\\Release\\net47\\*.dll"
     name: DRPCTest Release DLLs (.NET 4.7)
@@ -162,24 +141,6 @@ artifacts:
     type: zip
   - path: "DSharpPlus.Extended\\bin\\Release\\netstandard2.0"
     name: DSharpPlus.Extended Release DLLs (.NET Standard 2.0)
-    type: zip
-  - path: "ExtensionMethodApplier\\bin\\Release\\net47"
-    name: ExtensionMethodApplier Release DLLs (.NET 4.7)
-    type: zip
-  - path: "ExtensionMethodHarvester\\bin\\Release\\netcoreapp2.0"
-    name: ExtensionMethodHarvester Release DLLs (.NET Core 2.0)
-    type: zip
-  - path: "ExtensionMethodHarvester\\bin\\Release\\net47"
-    name: ExtensionMethodHarvester Release DLLs (.NET 4.7)
-    type: zip
-  - path: "RegexesToAssembly\\bin\\Release\\net47"
-    name: RegexesToAssembly Release DLLs (.NET 4.7)
-    type: zip
-  - path: "SuperOEISGenerator\\SuperOEISGenerator\\bin\\Release\\net47"
-    name: SuperOEISGenerator Release DLLs (.NET 4.7)
-    type: zip
-  - path: "TestProject2\\bin\\Release\\netcoreapp2.0"
-    name: TestProject2 Release DLLs (.NET Core 2.0)
     type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
