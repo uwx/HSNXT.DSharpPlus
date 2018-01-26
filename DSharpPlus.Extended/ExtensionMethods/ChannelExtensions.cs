@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus.Entities;
 
@@ -41,6 +42,11 @@ namespace DSharpPlus.Extended
                     await chan.DeleteMessagesAsync(msgs, reason);
                 }
             }
+        }
+
+        public static async Task GetManyMessagesBeforeAsync(this DiscordChannel chan, DiscordMessage msg, int amount)
+        {
+            // TODO
         }
 
         private static IEnumerable<List<T>> SplitList<T>(List<T> locations, int nSize)

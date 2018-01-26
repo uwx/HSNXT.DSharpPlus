@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -328,6 +329,13 @@ namespace DRPCTest
 
         public static void Main()
         {
+            new Process
+            {
+                StartInfo =
+                {
+                    FileName = @"C:\Portable Programs\VLC\vlc.exe"
+                }
+            }.Start();
             MainAsync().GetAwaiter().GetResult();
         }
 
@@ -336,28 +344,28 @@ namespace DRPCTest
             _presence = new DiscordRpc.RichPresence()
             {
                 //the user's current party status
-                state = "loading",
+                state = "Nothing playing",
                 //what the player is currently doing
-                details = "loading",
+                details = "Idle",
                 //unix timestamp for the start of the game
                 //startTimestamp = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond,
                 //unix timestamp for when the game will end
                 // if not present shows 'elapsed'
                 //endTimestamp = (long) ((DateTime.Now.Ticks / (double)TimeSpan.TicksPerMillisecond) + 10 * 60e3),
                 //name of the uploaded image for the large profile artwork
-                largeImageKey = "bs",
+                largeImageKey = "vlc_big",
                 //tooltip for the largeImageKey
                 //largeImageText = "frank tooltip",
                 //name of the uploaded image for the small profile artwork
-                smallImageKey = "mosic",
+                smallImageKey = "sleep",
                 //tootltip for the smallImageKey
                 //smallImageText = "moosic",
                 ////id of the player's party, lobby, or group
                 //partyId = "party1234",
                 //current size of the player's party, lobby, or group
-                partySize = 1,
+                //partySize = 1,
                 //maximum size of the player's party, lobby, or group
-                partyMax = 6,
+                //partyMax = 6,
                 ////unique hashed string for Spectate and Join
                 //matchSecret = "xyzzy",
                 ////unique hased string for chat invitations and Ask to Join
@@ -398,11 +406,13 @@ namespace DRPCTest
                         Auth = ("", "dumbo"), //vlc username is emtpty
                     }.AsStringAsync();
 
+                    _presence.largeImageText = status.Body?.Version ?? null;
+                        
                     if (status.Body?.Information?.Category?.Meta == null || playlist.Body?.Length == 0)
                     {
-                        _presence.state = "Idle";
-                        _presence.details = null;
-                        _presence.largeImageText = null;
+                        _presence.state = "Nothing playing";
+                        _presence.details = "Idle";
+                        _presence.smallImageKey = "stopped";
                         _presence.smallImageText = null;
                         _presence.partySize = 0;
                         _presence.partyMax = 0;
@@ -426,7 +436,7 @@ namespace DRPCTest
 
                     // playing/paused <title>
                     _presence.details =
-                        $"{status.Body.State} {meta.Title}";
+                        $"{meta.Title}";
                     
                     // by <artist> (or just file name if other fields are not present)
                     _presence.state = !string.IsNullOrEmpty(meta.Artist) 
@@ -436,12 +446,20 @@ namespace DRPCTest
                     _presence.partySize = current;
                     _presence.partyMax = total;
 
-                    _presence.smallImageText = "Album: " + meta.Album + " (" + meta.Year + ")";
+                    _presence.smallImageKey = 
+                        status.Body.State == "playing" ? "play" : 
+                        status.Body.State == "paused" ? "pause" : 
+                        status.Body.State == "stopped" ? "stop" : "mosic";
+                    
+                    _presence.smallImageText = "Album: " + meta.Album + (meta.Year != null ? (" (" + meta.Year + ")") : "");
 
-                    _presence.startTimestamp =
-                        DateTimeOffset.UtcNow.AddSeconds(-status.Body.Time).ToUnixTimeSeconds();
-                    _presence.endTimestamp =
-                        DateTimeOffset.UtcNow.AddSeconds(status.Body.Length - status.Body.Time).ToUnixTimeSeconds();
+                    if (status.Body.State == "playing")
+                    {
+                        _presence.startTimestamp =
+                            DateTimeOffset.UtcNow.AddSeconds(-status.Body.Time).ToUnixTimeSeconds();
+                        _presence.endTimestamp =
+                            DateTimeOffset.UtcNow.AddSeconds(status.Body.Length - status.Body.Time).ToUnixTimeSeconds();
+                    }
 
                     Console.WriteLine($"hi!!!{status.Body.Time},{status.Body.Length}");
                     DiscordRpc.UpdatePresence(ref _presence);
