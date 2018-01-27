@@ -529,8 +529,6 @@
         </e>
         <e p="Program.cs" t="Include" />
       </e>
-      <e p="ExtensionMethodApplier\ExtensionMethodApplier.csproj" t="IncludeRecursive" />
-      <e p="ExtensionMethodHarvester\ExtensionMethodHarvester.csproj" t="IncludeRecursive" />
       <e p="HSNXT.Promise" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Class1.cs" t="Include" />
@@ -546,11 +544,7 @@
           </e>
         </e>
       </e>
-      <e p="OEISReader\OEISReader.csproj" t="IncludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="ReflectToArrayTest\ReflectToArrayTest.csproj" t="IncludeRecursive" />
-      <e p="RegexesToAssembly\RegexesToAssembly.csproj" t="IncludeRecursive" />
-      <e p="SuperOEISGenerator\SuperOEISGenerator\SuperOEISGenerator.csproj" t="IncludeRecursive" />
       <e p="SyncLauncher" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -563,10 +557,7 @@
         <e p="Program.cs" t="Include" />
         <e p="SyncLauncher.csproj" t="IncludeRecursive" />
       </e>
-      <e p="TestProj47\TestProj47.csproj" t="IncludeRecursive" />
       <e p="TestProject.sln" t="IncludeFlat" />
-      <e p="TestProjTest\TestProjTest.csproj" t="IncludeRecursive" />
-      <e p="Wither\Wither.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
