@@ -12,7 +12,7 @@ clone_script:
 
 branches:
   only:
-    - oh_god
+    - master
 
 environment:
   access_token:
