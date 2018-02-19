@@ -409,13 +409,15 @@ namespace DSharpPlus
         /// <param name="verificationLevel">Verification level for the guild.</param>
         /// <param name="defaultMessageNotifications">Default message notification settings for the guild.</param>
         /// <returns>The created guild.</returns>
-        public Task<DiscordGuild> CreateGuildAsync(string name, string region = null, Stream icon = null, VerificationLevel? verificationLevel = null,
+        public Task<DiscordGuild> CreateGuildAsync(string name, string region = null, Optional<Stream> icon = default, VerificationLevel? verificationLevel = null,
             DefaultMessageNotifications? defaultMessageNotifications = null)
         {
-            string iconb64 = null;
-            if (icon != null)
-                using (var imgtool = new ImageTool(icon))
+            var iconb64 = Optional<string>.FromNoValue();
+            if (icon.HasValue && icon.Value != null)
+                using (var imgtool = new ImageTool(icon.Value))
                     iconb64 = imgtool.GetBase64();
+            else if (icon.HasValue)
+                iconb64 = null;
 
             return this.ApiClient.CreateGuildAsync(name, region, iconb64, verificationLevel, defaultMessageNotifications);
         }
@@ -470,11 +472,11 @@ namespace DSharpPlus
             => this.ApiClient.GetWebhookWithTokenAsync(id, token);
 
         /// <summary>
-        /// Updates current user's status
+        /// Updates current user's activity and status.
         /// </summary>
-        /// <param name="activity">Game you're playing</param>
-        /// <param name="userStatus"></param>
-        /// <param name="idleSince"></param>
+        /// <param name="activity">Activity to set.</param>
+        /// <param name="userStatus">Status of the user.</param>
+        /// <param name="idleSince">Since when is the client performing the specified activity.</param>
         /// <returns></returns>
         public Task UpdateStatusAsync(DiscordActivity activity = null, UserStatus? userStatus = null, DateTimeOffset? idleSince = null)
             => this.InternalUpdateStatusAsync(activity, userStatus, idleSince);
@@ -493,12 +495,14 @@ namespace DSharpPlus
         /// <param name="username">New username.</param>
         /// <param name="avatar">New avatar.</param>
         /// <returns></returns>
-        public async Task<DiscordUser> EditCurrentUserAsync(string username = null, Stream avatar = null)
+        public async Task<DiscordUser> UpdateCurrentUserAsync(string username = null, Optional<Stream> avatar = default)
         {
-            string av64 = null;
-            if (avatar != null)
-                using (var imgtool = new ImageTool(avatar))
+            var av64 = Optional<string>.FromNoValue();
+            if (avatar.HasValue && avatar.Value != null)
+                using (var imgtool = new ImageTool(avatar.Value))
                     av64 = imgtool.GetBase64();
+            else if (avatar.HasValue)
+                av64 = null;
 
             var usr = await this.ApiClient.ModifyCurrentUserAsync(username, av64).ConfigureAwait(false);
 
@@ -1508,9 +1512,9 @@ namespace DSharpPlus
                 }
             }
 
-            message._mentioned_users = mentioned_users;
-            message._mentioned_roles = mentioned_roles;
-            message._mentioned_channels = mentioned_channels;
+            message._mentionedUsers = mentioned_users;
+            message._mentionedRoles = mentioned_roles;
+            message._mentionedChannels = mentioned_channels;
 
             if (message._reactions == null)
                 message._reactions = new List<DiscordReaction>();
@@ -1538,7 +1542,8 @@ namespace DSharpPlus
             message.Discord = this;
             var event_message = message;
 
-            if (this.Configuration.MessageCacheSize > 0 && this.MessageCache.TryGet(xm => xm.Id == event_message.Id && xm.ChannelId == event_message.ChannelId, out message) != true)
+            DiscordMessage oldmsg = null;
+            if (this.Configuration.MessageCacheSize > 0 && !this.MessageCache.TryGet(xm => xm.Id == event_message.Id && xm.ChannelId == event_message.ChannelId, out message))
             {
                 message = event_message;
                 guild = message.Channel?.Guild;
@@ -1572,6 +1577,8 @@ namespace DSharpPlus
             }
             else
             {
+                oldmsg = new DiscordMessage(message);
+
                 guild = message.Channel?.Guild;
                 message.EditedTimestampRaw = event_message.EditedTimestampRaw;
                 if (event_message.Content != null)
@@ -1601,14 +1608,14 @@ namespace DSharpPlus
                 }
             }
 
-            message._mentioned_users = mentioned_users;
-            message._mentioned_roles = mentioned_roles;
-            message._mentioned_channels = mentioned_channels;
+            message._mentionedUsers = mentioned_users;
+            message._mentionedRoles = mentioned_roles;
+            message._mentionedChannels = mentioned_channels;
 
             var ea = new MessageUpdateEventArgs(this)
             {
                 Message = message,
-
+                MessageBefore = oldmsg,
                 MentionedUsers = new ReadOnlyCollection<DiscordUser>(mentioned_users),
                 MentionedRoles = mentioned_roles != null ? new ReadOnlyCollection<DiscordRole>(mentioned_roles) : null,
                 MentionedChannels = mentioned_channels != null ? new ReadOnlyCollection<DiscordChannel>(mentioned_channels) : null

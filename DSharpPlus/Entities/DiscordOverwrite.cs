@@ -19,13 +19,13 @@ namespace DSharpPlus.Entities
         /// Gets the allowed permission set.
         /// </summary>
         [JsonProperty("allow", NullValueHandling = NullValueHandling.Ignore)]
-        public Permissions Allow { get; internal set; }
+        public Permissions Allowed { get; internal set; }
 
         /// <summary>
         /// Gets the denied permission set.
         /// </summary>
         [JsonProperty("deny", NullValueHandling = NullValueHandling.Ignore)]
-        public Permissions Deny { get; internal set; }
+        public Permissions Denied { get; internal set; }
 
         [JsonIgnore]
         internal ulong _channel_id;
@@ -46,7 +46,7 @@ namespace DSharpPlus.Entities
         /// <param name="reason">Reason as to why you made this change.</param>
         /// <returns></returns>
         public Task UpdateAsync(Permissions? allow = null, Permissions? deny = null, string reason = null)
-            => this.Discord.ApiClient.EditChannelPermissionsAsync(this._channel_id, this.Id, allow ?? this.Allow, deny ?? this.Deny, this.Type.ToString().ToLowerInvariant(), reason);
+            => this.Discord.ApiClient.EditChannelPermissionsAsync(this._channel_id, this.Id, allow ?? this.Allowed, deny ?? this.Denied, this.Type.ToString().ToLowerInvariant(), reason);
         #endregion
         
         /// <summary>
@@ -57,7 +57,7 @@ namespace DSharpPlus.Entities
         {
             if (this.Type != OverwriteType.Member)
                 throw new ArgumentException(nameof(this.Type), "This overwrite is for a role, not a member.");
-            return await (await this.Discord.ApiClient.GetChannelAsync(this._channel_id)).Guild.GetMemberAsync(this.Id);
+            return await (await this.Discord.ApiClient.GetChannelAsync(this._channel_id).ConfigureAwait(false)).Guild.GetMemberAsync(this.Id).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DSharpPlus.Entities
         {
             if (this.Type != OverwriteType.Role)
                 throw new ArgumentException(nameof(this.Type), "This overwrite is for a member, not a role.");
-            return (await this.Discord.ApiClient.GetChannelAsync(this._channel_id)).Guild.GetRole(this.Id);
+            return (await this.Discord.ApiClient.GetChannelAsync(this._channel_id).ConfigureAwait(false)).Guild.GetRole(this.Id);
         }
 
         internal DiscordOverwrite() { }
@@ -80,9 +80,9 @@ namespace DSharpPlus.Entities
         /// <returns>Whether given permissions are allowed, denied, or not set.</returns>
         public PermissionLevel CheckPermission(Permissions permission)
         {
-            if ((Allow & permission) != 0)
+            if ((Allowed & permission) != 0)
                 return PermissionLevel.Allowed;
-            if ((Deny & permission) != 0)
+            if ((Denied & permission) != 0)
                 return PermissionLevel.Denied;
             return PermissionLevel.Unset;
         }

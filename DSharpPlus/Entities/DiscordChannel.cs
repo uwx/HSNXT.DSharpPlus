@@ -132,6 +132,24 @@ namespace DSharpPlus.Entities
         }
 
         /// <summary>
+        /// Gets the list of members currently in the channel (if voice channel), or members who can see the channel (otherwise).
+        /// </summary>
+        [JsonIgnore]
+        public virtual IEnumerable<DiscordMember> Users
+        {
+            get
+            {
+                if (this.Guild != null)
+                    throw new InvalidOperationException("Cannot query users outside of guild channels.");
+
+                if (this.Type == ChannelType.Voice)
+                    return Guild.Members.Where(x => x.VoiceState.ChannelId == this.Id);
+
+                return Guild.Members.Where(x => (this.PermissionsFor(x) & Permissions.AccessChannels) == Permissions.AccessChannels);
+            }
+        }
+
+        /// <summary>
         /// Gets whether this channel is an NSFW channel.
         /// </summary>
         [JsonProperty("nsfw")]
@@ -154,6 +172,10 @@ namespace DSharpPlus.Entities
         {
             if (this.Type != ChannelType.Text && this.Type != ChannelType.Private && this.Type != ChannelType.Group)
                 throw new ArgumentException("Cannot send a file to a non-text channel");
+            if (string.IsNullOrWhiteSpace(content) && embed == null)
+                throw new ArgumentNullException("Must provide either content, embed or both, and content may not consist only of whitespace");
+            if (content != null && content.Length > 2000)
+                throw new ArgumentException("Message must be less than or exactly 2000 characters", nameof(content));
 
             return this.Discord.ApiClient.CreateMessageAsync(Id, content, tts, embed);
         }
@@ -238,6 +260,23 @@ namespace DSharpPlus.Entities
             => this.Discord.ApiClient.DeleteChannelAsync(Id, reason);
 
         /// <summary>
+        /// Clones this channel. This operation will create a channel with identical settings to this one. Note that this will not copy messages.
+        /// </summary>
+        /// <param name="reason">Reason for audit logs.</param>
+        /// <returns>Newly-created channel.</returns>
+        public async Task<DiscordChannel> CloneAsync(string reason = null)
+        {
+            if (this.Guild == null)
+                throw new InvalidOperationException("Non-guild channels cannot be cloned.");
+
+            var ovrs = new List<DiscordOverwriteBuilder>();
+            foreach (var ovr in this._permission_overwrites)
+                ovrs.Add(await new DiscordOverwriteBuilder().FromAsync(ovr).ConfigureAwait(false));
+
+            return await this.Guild.CreateChannelAsync(this.Name, this.Type, this.Parent, this.Bitrate, this.UserLimit, ovrs, this.IsNSFW, reason).ConfigureAwait(false);
+        }
+
+        /// <summary>
         /// Returns a specific message
         /// </summary>
         /// <param name="id"></param>
@@ -298,7 +337,7 @@ namespace DSharpPlus.Entities
         /// <param name="before">Message to fetch before from.</param>
         /// </summary> 
         public Task<IReadOnlyList<DiscordMessage>> GetMessagesBeforeAsync(ulong before, int limit = 100)
-            => this._getMessagesAsync(limit, before, null, null);
+            => this.GetMessagesInternalAsync(limit, before, null, null);
         
         /// <summary>  
         /// Returns a list of messages after a certain message.
@@ -306,7 +345,7 @@ namespace DSharpPlus.Entities
         /// <param name="after">Message to fetch after from.</param>
         /// </summary> 
         public Task<IReadOnlyList<DiscordMessage>> GetMessagesAfterAsync(ulong after, int limit = 100)
-            => this._getMessagesAsync(limit, null, after, null);
+            => this.GetMessagesInternalAsync(limit, null, after, null);
         
         /// <summary>  
         /// Returns a list of messages around a certain message.
@@ -314,13 +353,16 @@ namespace DSharpPlus.Entities
         /// <param name="around">Message to fetch around from.</param>
         /// </summary> 
         public Task<IReadOnlyList<DiscordMessage>> GetMessagesAroundAsync(ulong around, int limit = 100)
-            => this._getMessagesAsync(limit, null, null, around);
+            => this.GetMessagesInternalAsync(limit, null, null, around);
 
-        [System.Obsolete("GetMessagesAsync is deprecated, please use the separate methods instead.")]
-        public Task<IReadOnlyList<DiscordMessage>> GetMessagesAsync(int limit = 100, ulong? before = null, ulong? after = null, ulong? around = null) =>
-            _getMessagesAsync(limit, before, after, around);
+        /// <summary>  
+        /// Returns a list of messages from the last message in the channel.
+        /// <param name="limit">The amount of messages to fetch, up to a maximum of 100</param>
+        /// </summary> 
+        public Task<IReadOnlyList<DiscordMessage>> GetMessagesAsync(int limit = 100) =>
+            GetMessagesInternalAsync(limit, null, null, null);
 
-        private Task<IReadOnlyList<DiscordMessage>> _getMessagesAsync(int limit = 100, ulong? before = null, ulong? after = null, ulong? around = null)
+        private Task<IReadOnlyList<DiscordMessage>> GetMessagesInternalAsync(int limit = 100, ulong? before = null, ulong? after = null, ulong? around = null)
         {
             if (this.Type != ChannelType.Text && this.Type != ChannelType.Private && this.Type != ChannelType.Group)
                 throw new ArgumentException("Cannot get the messages of a non-text channel");
@@ -432,12 +474,14 @@ namespace DSharpPlus.Entities
         /// <param name="avatar"></param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns></returns>
-        public async Task<DiscordWebhook> CreateWebhookAsync(string name, Stream avatar = null, string reason = null)
+        public async Task<DiscordWebhook> CreateWebhookAsync(string name, Optional<Stream> avatar = default, string reason = null)
         {
-            string av64 = null;
-            if (avatar != null)
-                using (var imgtool = new ImageTool(avatar))
+            var av64 = Optional<string>.FromNoValue();
+            if (avatar.HasValue && avatar.Value != null)
+                using (var imgtool = new ImageTool(avatar.Value))
                     av64 = imgtool.GetBase64();
+            else if (avatar.HasValue)
+                av64 = null;
 
             return await this.Discord.ApiClient.CreateWebhookAsync(this.Id, name, av64, reason).ConfigureAwait(false);
         }
@@ -512,22 +556,22 @@ namespace DSharpPlus.Entities
             var everyoneOverwrites = this._permission_overwrites.FirstOrDefault(xo => xo.Id == everyoneRole.Id);
             if (everyoneOverwrites != null)
             {
-                perms &= ~everyoneOverwrites.Deny;
-                perms |= everyoneOverwrites.Allow;
+                perms &= ~everyoneOverwrites.Denied;
+                perms |= everyoneOverwrites.Allowed;
             }
 
             // assign channel permission overwrites for member's roles (explicit deny)
-            perms &= ~mbRoleOverrides.Aggregate(def, (c, overs) => c | overs.Deny);
+            perms &= ~mbRoleOverrides.Aggregate(def, (c, overs) => c | overs.Denied);
             // assign channel permission overwrites for member's roles (explicit allow)
-            perms |= mbRoleOverrides.Aggregate(def, (c, overs) => c | overs.Allow);
+            perms |= mbRoleOverrides.Aggregate(def, (c, overs) => c | overs.Allowed);
 
             // channel overrides for just this member
             var mbOverrides = this._permission_overwrites.FirstOrDefault(xo => xo.Id == mbr.Id);
             if (mbOverrides == null) return perms;
             
             // assign channel permission overwrites for just this member
-            perms &= ~mbOverrides.Deny;
-            perms |= mbOverrides.Allow;
+            perms &= ~mbOverrides.Denied;
+            perms |= mbOverrides.Allowed;
 
             return perms;
         }

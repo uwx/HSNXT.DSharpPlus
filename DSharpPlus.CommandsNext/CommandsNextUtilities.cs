@@ -6,8 +6,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Converters;
 using DSharpPlus.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -180,17 +182,18 @@ namespace DSharpPlus.CommandsNext
         internal static async Task<ArgumentBindingResult> BindArguments(CommandContext ctx, bool ignoreSurplus)
         {
             var cmd = ctx.Command;
+            var ovl = ctx.Overload;
 
-            var args = new object[cmd.Arguments.Count + 1];
-            args[0] = ctx;
-            var argr = new List<string>(cmd.Arguments.Count);
+            var args = new object[ovl.Arguments.Count + 2];
+            args[1] = ctx;
+            var argr = new List<string>(ovl.Arguments.Count);
 
             var argstr = ctx.RawArgumentString;
             var findpos = 0;
             var argv = "";
-            for (var i = 0; i < ctx.Command.Arguments.Count; i++)
+            for (var i = 0; i < ovl.Arguments.Count; i++)
             {
-                var arg = ctx.Command.Arguments[i];
+                var arg = ovl.Arguments[i];
                 if (arg.IsCatchAll)
                 {
                     if (arg._isArray)
@@ -226,33 +229,47 @@ namespace DSharpPlus.CommandsNext
                 }
 
                 if (argv == null && !arg.IsOptional && !arg.IsCatchAll)
-                    throw new ArgumentException("Not enough arguments supplied to the command.");
+                    return new ArgumentBindingResult(new ArgumentException("Not enough arguments supplied to the command."));
                 else if (argv == null)
                     argr.Add(null);
             }
 
             if (!ignoreSurplus && findpos < argstr.Length)
-                throw new ArgumentException("Too many arguments were supplied to this command.");
+                return new ArgumentBindingResult(new ArgumentException("Too many arguments were supplied to this command."));
 
-            for (var i = 0; i < ctx.Command.Arguments.Count; i++)
+            for (var i = 0; i < ovl.Arguments.Count; i++)
             {
-                var arg = ctx.Command.Arguments[i];
+                var arg = ovl.Arguments[i];
                 if (arg.IsCatchAll && arg._isArray)
                 {
                     var arr = Array.CreateInstance(arg.Type, argr.Count - i);
                     var start = i;
                     while (i < argr.Count)
                     {
-                        arr.SetValue(await ctx.CommandsNext.ConvertArgument(argr[i], ctx, arg.Type), i - start);
+                        try
+                        {
+                            arr.SetValue(await ctx.CommandsNext.ConvertArgument(argr[i], ctx, arg.Type).ConfigureAwait(false), i - start);
+                        }
+                        catch (Exception ex)
+                        {
+                            return new ArgumentBindingResult(ex);
+                        }
                         i++;
                     }
 
-                    args[start + 1] = arr;
+                    args[start + 2] = arr;
                     break;
                 }
                 else
                 {
-                    args[i + 1] = argr[i] != null ? await ctx.CommandsNext.ConvertArgument(argr[i], ctx, arg.Type) : arg.DefaultValue;
+                    try
+                    { 
+                        args[i + 2] = argr[i] != null ? await ctx.CommandsNext.ConvertArgument(argr[i], ctx, arg.Type).ConfigureAwait(false) : arg.DefaultValue;
+                    }
+                    catch (Exception ex)
+                    {
+                        return new ArgumentBindingResult(ex);
+                    }
                 }
             }
 
@@ -266,6 +283,12 @@ namespace DSharpPlus.CommandsNext
         {
             // check if compiler-generated
             if (ti.GetCustomAttribute<CompilerGeneratedAttribute>(false) != null)
+                return false;
+
+            // check if derives from the required base class
+            var tmodule = typeof(BaseCommandModule);
+            var timodule = tmodule.GetTypeInfo();
+            if (!timodule.IsAssignableFrom(ti))
                 return false;
 
             // check if anonymous
@@ -292,8 +315,8 @@ namespace DSharpPlus.CommandsNext
             if (method == null)
                 return false;
 
-            // check if static or non-public
-            if (method.IsStatic || !method.IsPublic)
+            // check if static, non-public, abstract, a constructor, or a special name
+            if (method.IsStatic || !method.IsPublic || method.IsAbstract || method.IsConstructor || method.IsSpecialName)
                 return false;
 
             // check if appropriate return and arguments
@@ -303,6 +326,61 @@ namespace DSharpPlus.CommandsNext
 
             // qualifies
             return true;
+        }
+
+        internal static object CreateInstance(this Type t, IServiceProvider services)
+        {
+            var ti = t.GetTypeInfo();
+            var cs = ti.DeclaredConstructors
+                .Where(xci => xci.IsPublic)
+                .ToArray();
+
+            if (cs.Length != 1)
+                throw new ArgumentException("Specified type does not contain a public constructor or contains more than one public constructor.");
+
+            var constr = cs[0];
+            var prms = constr.GetParameters();
+            var args = new object[prms.Length];
+
+            if (prms.Length != 0 && services == null)
+                throw new InvalidOperationException("Dependency collection needs to be specified for parametered constructors.");
+
+            // inject via constructor
+            if (prms.Length != 0)
+                for (var i = 0; i < args.Length; i++)
+                    args[i] = services.GetRequiredService(prms[i].ParameterType);
+
+            var module = Activator.CreateInstance(t, args);
+
+            // inject into properties
+            var props = ti.DeclaredProperties.Where(xp => xp.CanWrite && xp.SetMethod != null && !xp.SetMethod.IsStatic && xp.SetMethod.IsPublic);
+            foreach (var prop in props)
+            {
+                if (prop.GetCustomAttribute<DontInjectAttribute>() != null)
+                    continue;
+
+                var srv = services.GetService(prop.PropertyType);
+                if (srv == null)
+                    continue;
+
+                prop.SetValue(module, srv);
+            }
+
+            // inject into fields
+            var fields = ti.DeclaredFields.Where(xf => !xf.IsInitOnly && !xf.IsStatic && xf.IsPublic);
+            foreach (var field in fields)
+            {
+                if (field.GetCustomAttribute<DontInjectAttribute>() != null)
+                    continue;
+
+                var srv = services.GetService(field.FieldType);
+                if (srv == null)
+                    continue;
+
+                field.SetValue(module, srv);
+            }
+
+            return module;
         }
     }
 }

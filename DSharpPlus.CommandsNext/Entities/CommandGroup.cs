@@ -19,7 +19,7 @@ namespace DSharpPlus.CommandsNext
         /// <summary>
         /// Gets whether this command is executable without subcommands.
         /// </summary>
-        public bool IsExecutableWithoutSubcommands => this.Callable != null;
+        public bool IsExecutableWithoutSubcommands => this.Overloads?.Any() == true;
 
         internal CommandGroup() : base() { }
 
@@ -52,7 +52,8 @@ namespace DSharpPlus.CommandsNext
                         Config = ctx.Config,
                         RawArgumentString = ctx.RawArgumentString.Substring(findpos),
                         Prefix = ctx.Prefix,
-                        CommandsNext = ctx.CommandsNext
+                        CommandsNext = ctx.CommandsNext,
+                        Services = ctx.Services
                     };
 
                     var fchecks = await cmd.RunChecksAsync(xctx, false).ConfigureAwait(false);

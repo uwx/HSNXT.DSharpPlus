@@ -320,15 +320,19 @@ namespace DSharpPlus.Entities
             if (mdl.AfkChannel.HasValue && mdl.AfkChannel.Value.Type != ChannelType.Voice)
                 throw new ArgumentException("AFK channel needs to be a voice channel.");
 
-            Optional<string> iconb64 = default;
-            if (mdl.Icon.HasValue)
+            var iconb64 = Optional<string>.FromNoValue();
+            if (mdl.Icon.HasValue && mdl.Icon.Value != null)
                 using (var imgtool = new ImageTool(mdl.Icon.Value))
                     iconb64 = imgtool.GetBase64();
+            else if (mdl.Icon.HasValue)
+                iconb64 = null;
 
-            Optional<string> splashb64 = default;
-            if (mdl.Splash.HasValue)
+            var splashb64 = Optional<string>.FromNoValue();
+            if (mdl.Splash.HasValue && mdl.Splash.Value != null)
                 using (var imgtool = new ImageTool(mdl.Splash.Value))
                     splashb64 = imgtool.GetBase64();
+            else if (mdl.Splash.HasValue)
+                splashb64 = null;
 
             return await this.Discord.ApiClient.ModifyGuildAsync(this.Id, mdl.Name, mdl.Region.IfPresent(e => e.Id),
                 mdl.VerificationLevel, mdl.DefaultMessageNotifications, mdl.MfaLevel, mdl.ExplicitContentFilter,
@@ -397,7 +401,7 @@ namespace DSharpPlus.Entities
         /// <param name="nsfw">Whether the channel is to be flagged as not safe for work.</param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns>The newly-created channel.</returns>
-        public Task<DiscordChannel> CreateTextChannelAsync(string name, DiscordChannel parent = null, IEnumerable<DiscordOverwrite> overwrites = null, bool? nsfw = null, string reason = null)
+        public Task<DiscordChannel> CreateTextChannelAsync(string name, DiscordChannel parent = null, IEnumerable<DiscordOverwriteBuilder> overwrites = null, bool? nsfw = null, string reason = null)
         => this.CreateChannelAsync(name, ChannelType.Text, parent, null, null, overwrites, nsfw, reason);
         
         /// <summary>
@@ -407,7 +411,7 @@ namespace DSharpPlus.Entities
         /// <param name="overwrites">Permission overwrites for this category.</param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns>The newly-created channel category.</returns>
-        public Task<DiscordChannel> CreateChannelCategoryAsync(string name, IEnumerable<DiscordOverwrite> overwrites = null, string reason = null)
+        public Task<DiscordChannel> CreateChannelCategoryAsync(string name, IEnumerable<DiscordOverwriteBuilder> overwrites = null, string reason = null)
         => this.CreateChannelAsync(name, ChannelType.Category, null, null, null, overwrites, null, reason);
         
         /// <summary>
@@ -420,7 +424,7 @@ namespace DSharpPlus.Entities
         /// <param name="overwrites">Permission overwrites for this channel.</param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns>The newly-created channel.</returns>
-        public Task<DiscordChannel> CreateVoiceChannelAsync(string name, DiscordChannel parent = null, int? bitrate = null, int? user_limit = null, IEnumerable<DiscordOverwrite> overwrites = null, string reason = null)
+        public Task<DiscordChannel> CreateVoiceChannelAsync(string name, DiscordChannel parent = null, int? bitrate = null, int? user_limit = null, IEnumerable<DiscordOverwriteBuilder> overwrites = null, string reason = null)
         => this.CreateChannelAsync(name, ChannelType.Voice, parent, bitrate, user_limit, overwrites, null, reason);
         
         /// <summary>
@@ -435,7 +439,7 @@ namespace DSharpPlus.Entities
         /// <param name="nsfw">Whether the channel is to be flagged as not safe for work. Applies to text only.</param>
         /// <param name="reason">Reason for audit logs.</param>
         /// <returns>The newly-created channel.</returns>
-        public Task<DiscordChannel> CreateChannelAsync(string name, ChannelType type, DiscordChannel parent = null, int? bitrate = null, int? user_limit = null, IEnumerable<DiscordOverwrite> overwrites = null, bool? nsfw = null, string reason = null)
+        public Task<DiscordChannel> CreateChannelAsync(string name, ChannelType type, DiscordChannel parent = null, int? bitrate = null, int? user_limit = null, IEnumerable<DiscordOverwriteBuilder> overwrites = null, bool? nsfw = null, string reason = null)
         {
             if (type != ChannelType.Text && type != ChannelType.Voice && type != ChannelType.Category)
                 throw new ArgumentException("Channel type must be text, voice, or category.", nameof(type));

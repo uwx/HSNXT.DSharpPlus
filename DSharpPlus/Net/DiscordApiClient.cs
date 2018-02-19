@@ -89,9 +89,9 @@ namespace DSharpPlus.Net
                 }
             }
 
-            ret._mentioned_users = mentioned_users;
-            ret._mentioned_roles = mentioned_roles;
-            ret._mentioned_channels = mentioned_channels;
+            ret._mentionedUsers = mentioned_users;
+            ret._mentionedRoles = mentioned_roles;
+            ret._mentionedChannels = mentioned_channels;
 
             if (ret._reactions == null)
                 ret._reactions = new List<DiscordReaction>();
@@ -117,7 +117,7 @@ namespace DSharpPlus.Net
         }
 
         #region Guild
-        internal async Task<DiscordGuild> CreateGuildAsync(string name, string region_id, string iconb64, VerificationLevel? verification_level,
+        internal async Task<DiscordGuild> CreateGuildAsync(string name, string region_id, Optional<string> iconb64, VerificationLevel? verification_level,
             DefaultMessageNotifications? default_message_notifications)
         {
             var pld = new RestGuildCreatePayload
@@ -126,7 +126,8 @@ namespace DSharpPlus.Net
                 RegionId = region_id,
                 DefaultMessageNotifications = default_message_notifications,
                 VerificationLevel = verification_level,
-                IconBase64 = iconb64
+                IconBase64 = iconb64.HasValue ? iconb64.Value : null,
+                IconSet = iconb64.HasValue
             };
 
             var route = string.Concat(Endpoints.GUILDS);
@@ -395,8 +396,13 @@ namespace DSharpPlus.Net
         #endregion
 
         #region Channel
-        internal async Task<DiscordChannel> CreateGuildChannelAsync(ulong guild_id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, bool? nsfw, string reason)
+        internal async Task<DiscordChannel> CreateGuildChannelAsync(ulong guild_id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwriteBuilder> overwrites, bool? nsfw, string reason)
         {
+            List<DiscordRestOverwrite> restoverwrites = new List<DiscordRestOverwrite>();
+            if (overwrites != null)
+                foreach (var ow in overwrites)
+                    restoverwrites.Add(ow.Build());
+
             var pld = new RestChannelCreatePayload
             {
                 Name = name,
@@ -404,7 +410,7 @@ namespace DSharpPlus.Net
                 Parent = parent,
                 Bitrate = bitrate,
                 UserLimit = user_limit,
-                PermissionOverwrites = overwrites,
+                PermissionOverwrites = restoverwrites,
                 Nsfw = nsfw
             };
 
@@ -946,12 +952,13 @@ namespace DSharpPlus.Net
             return this.DoRequestAsync(this.Discord, bucket, url, RestRequestMethod.DELETE);
         }
 
-        internal async Task<TransportUser> ModifyCurrentUserAsync(string username, string base64_avatar)
+        internal async Task<TransportUser> ModifyCurrentUserAsync(string username, Optional<string> base64_avatar)
         {
             var pld = new RestUserUpdateCurrentPayload
             {
                 Username = username,
-                AvatarBase64 = base64_avatar
+                AvatarBase64 = base64_avatar.HasValue ? base64_avatar.Value : null,
+                AvatarSet = base64_avatar.HasValue
             };
 
             var route = string.Concat(Endpoints.USERS, Endpoints.ME);
@@ -1413,12 +1420,13 @@ namespace DSharpPlus.Net
         #endregion
 
         #region Webhooks
-        internal async Task<DiscordWebhook> CreateWebhookAsync(ulong channel_id, string name, string base64_avatar, string reason)
+        internal async Task<DiscordWebhook> CreateWebhookAsync(ulong channel_id, string name, Optional<string> base64_avatar, string reason)
         {
             var pld = new RestWebhookPayload
             {
                 Name = name,
-                AvatarBase64 = base64_avatar
+                AvatarBase64 = base64_avatar.HasValue ? base64_avatar.Value : null,
+                AvatarSet = base64_avatar.HasValue
             };
 
             var headers = new Dictionary<string, string>();
@@ -1497,12 +1505,13 @@ namespace DSharpPlus.Net
             return ret;
         }
 
-        internal async Task<DiscordWebhook> ModifyWebhookAsync(ulong webhook_id, string name, string base64_avatar, string reason)
+        internal async Task<DiscordWebhook> ModifyWebhookAsync(ulong webhook_id, string name, Optional<string> base64_avatar, string reason)
         {
             var pld = new RestWebhookPayload
             {
                 Name = name,
-                AvatarBase64 = base64_avatar
+                AvatarBase64 = base64_avatar.HasValue ? base64_avatar.Value : null,
+                AvatarSet = base64_avatar.HasValue
             };
 
             var headers = new Dictionary<string, string>();

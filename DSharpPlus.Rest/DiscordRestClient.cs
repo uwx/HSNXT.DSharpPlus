@@ -23,18 +23,21 @@ namespace DSharpPlus
         public DiscordRestClient(DiscordConfiguration config) : base(config)
         {
             disposed = false;
-
-            _guilds_lazy = new Lazy<IReadOnlyDictionary<ulong, DiscordGuild>>(() => new ReadOnlyDictionary<ulong, DiscordGuild>(_guilds));
-
-            var gs = ApiClient.GetCurrentUserGuildsAsync(100, null, null).ConfigureAwait(false).GetAwaiter().GetResult();
-            foreach (DiscordGuild g in gs)
-            {
-                _guilds[g.Id] = g;
-            }
         }
 
-        #region Guild
-        public Task<DiscordGuild> CreateGuildAsync(string name, string region_id, string iconb64, VerificationLevel? verification_level, DefaultMessageNotifications? default_message_notifications) 
+		public async Task InitializeCacheAsync()
+		{
+			await base.InitializeAsync().ConfigureAwait(false);
+			_guilds_lazy = new Lazy<IReadOnlyDictionary<ulong, DiscordGuild>>(() => new ReadOnlyDictionary<ulong, DiscordGuild>(_guilds));
+			var gs = ApiClient.GetCurrentUserGuildsAsync(100, null, null).ConfigureAwait(false).GetAwaiter().GetResult();
+			foreach (DiscordGuild g in gs)
+			{
+				_guilds[g.Id] = g;
+			}
+		}
+
+		#region Guild
+		public Task<DiscordGuild> CreateGuildAsync(string name, string region_id, string iconb64, VerificationLevel? verification_level, DefaultMessageNotifications? default_message_notifications) 
             => ApiClient.CreateGuildAsync(name, region_id, iconb64, verification_level, default_message_notifications);
 
         public Task DeleteGuildAsync(ulong id) 
@@ -126,7 +129,7 @@ namespace DSharpPlus
         #endregion
 
         #region Channel
-        public Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwrite> overwrites, bool? nsfw, string reason)
+        public Task<DiscordChannel> CreateGuildChannelAsync(ulong id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwriteBuilder> overwrites, bool? nsfw, string reason)
         {
             if (type != ChannelType.Category && type != ChannelType.Text && type != ChannelType.Voice)
                 throw new ArgumentException("Channel type must be text, voice, or category.", nameof(type));

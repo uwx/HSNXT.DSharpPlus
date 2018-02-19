@@ -65,8 +65,9 @@ namespace DSharpPlus.Test
             this.VoiceService = this.Discord.UseVoiceNext(vcfg);
 
             // build a dependency collection for commandsnext
-            var depco = new ServiceCollection();
-            depco.AddSingleton(new TestBotService());
+            var depco = new ServiceCollection()
+                .AddSingleton(new TestBotService())
+                .AddScoped<TestBotScopedService>();
 
             // commandsnext config and the commandsnext service itself
             var cncfg = new CommandsNextConfiguration
@@ -81,7 +82,7 @@ namespace DSharpPlus.Test
                 EnableDms = true,
                 EnableMentionPrefix = true,
                 CaseSensitive = false,
-                Services = depco.BuildServiceProvider(),
+                Services = depco.BuildServiceProvider(false),
                 Selfbot = this.Config.UseUserToken,
                 IgnoreExtraArguments = false
                 //DefaultHelpChecks = new List<CheckBaseAttribute>() { new RequireOwnerAttribute() }

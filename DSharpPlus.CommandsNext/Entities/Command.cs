@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.CommandsNext.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -19,7 +21,7 @@ namespace DSharpPlus.CommandsNext
         /// <summary>
         /// Gets this command's qualified name (i.e. one that includes all module names).
         /// </summary>
-        public string QualifiedName 
+        public string QualifiedName
             => this.Parent != null ? string.Concat(this.Parent.QualifiedName, " ", this.Name) : this.Name;
 
         /// <summary>
@@ -48,17 +50,22 @@ namespace DSharpPlus.CommandsNext
         public IReadOnlyList<CheckBaseAttribute> ExecutionChecks { get; internal set; }
 
         /// <summary>
-        /// Gets this command's arguments.
+        /// Gets a collection of this command's overloads.
         /// </summary>
-        public IReadOnlyList<CommandArgument> Arguments { get; internal set; }
+        public IReadOnlyList<CommandOverload> Overloads { get; internal set; }
 
         /// <summary>
-        /// Gets this command's callable.
+        /// Gets the module in which this command is defined.
         /// </summary>
-        internal Delegate Callable { get; set; }
+        public ICommandModule Module { get; internal set; }
+
+        /// <summary>
+        /// Gets the custom attributes defined on this command.
+        /// </summary>
+        public IReadOnlyList<Attribute> CustomAttributes { get; internal set; }
 
         internal Command() { }
-        
+
         /// <summary>
         /// Executes this command with specified context.
         /// </summary>
@@ -66,16 +73,52 @@ namespace DSharpPlus.CommandsNext
         /// <returns>Command's execution results.</returns>
         public virtual async Task<CommandResult> ExecuteAsync(CommandContext ctx)
         {
+            CommandResult res = default;
             try
             {
-                var args = await CommandsNextUtilities.BindArguments(ctx, ctx.Config.IgnoreExtraArguments);
-                ctx.RawArguments = args.Raw;
-                var ret = (Task)this.Callable.DynamicInvoke(args.Converted);
-                await ret.ConfigureAwait(false);
+                var executed = false;
+                foreach (var ovl in this.Overloads.OrderByDescending(x => x.Priority))
+                {
+                    ctx.Overload = ovl;
+                    var args = await CommandsNextUtilities.BindArguments(ctx, ctx.Config.IgnoreExtraArguments).ConfigureAwait(false);
+
+                    if (!args.IsSuccessful)
+                        continue;
+
+                    ctx.RawArguments = args.Raw;
+
+                    IServiceScope scope = null;
+                    if (this.Module is TransientCommandModule)
+                    {
+                        scope = ctx.Services.CreateScope();
+                        ctx.ServiceScopeContext = new CommandContext.ServiceContext(ctx.Services, scope);
+
+                        ctx.Services = scope.ServiceProvider;
+                    }
+
+                    var mdl = this.Module.GetInstance(ctx.Services);
+                    await mdl.BeforeExecutionAsync(ctx).ConfigureAwait(false);
+
+                    args.Converted[0] = mdl;
+                    var ret = (Task)ovl.Callable.DynamicInvoke(args.Converted);
+                    await ret.ConfigureAwait(false);
+                    executed = true;
+                    res = new CommandResult
+                    {
+                        IsSuccessful = true,
+                        Context = ctx
+                    };
+
+                    await mdl.AfterExecutionAsync(ctx).ConfigureAwait(false);
+                    break;
+                }
+
+                if (!executed)
+                    throw new ArgumentException("Could not find a suitable overload for the command.");
             }
             catch (Exception ex)
             {
-                return new CommandResult
+                res = new CommandResult
                 {
                     IsSuccessful = false,
                     Exception = ex,
@@ -83,11 +126,7 @@ namespace DSharpPlus.CommandsNext
                 };
             }
 
-            return new CommandResult
-            {
-                IsSuccessful = true,
-                Context = ctx
-            };
+            return res;
         }
 
         /// <summary>
@@ -134,7 +173,7 @@ namespace DSharpPlus.CommandsNext
         /// <param name="cmd1">Command to compare to.</param>
         /// <param name="cmd2">Command to compare.</param>
         /// <returns>Whether the two commands are not equal.</returns>
-        public static bool operator !=(Command cmd1, Command cmd2) 
+        public static bool operator !=(Command cmd1, Command cmd2)
             => !(cmd1 == cmd2);
 
         /// <summary>

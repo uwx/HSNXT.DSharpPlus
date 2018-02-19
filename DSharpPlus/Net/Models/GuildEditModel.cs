@@ -1,10 +1,5 @@
-﻿using DSharpPlus.Entities;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using DSharpPlus.Entities;
 
 namespace DSharpPlus.Net.Models
 {
@@ -22,7 +17,7 @@ namespace DSharpPlus.Net.Models
         public Optional<DiscordMember> Owner { internal get; set; }
         public Optional<Stream> Splash { internal get; set; }
         public Optional<DiscordChannel> SystemChannel { internal get; set; }
-        
+
         internal GuildEditModel()
         {
 
