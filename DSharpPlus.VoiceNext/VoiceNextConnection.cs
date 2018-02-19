@@ -293,7 +293,7 @@ namespace DSharpPlus.VoiceNext
             {
                 await Task.Delay(delay);
                 this.Discord.DebugLogger.LogMessage(LogLevel.Debug, "VoiceNext", 
-                    $"VNext datarate: {1000f / delay:#,##0}pps", DateTime.Now);
+                    $"VNext datarate: {1000f / (delay + blockSize):#,##0}pps", DateTime.Now);
             }
             
             this.PlaybackSemaphore.Release();
