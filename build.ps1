@@ -1,5 +1,3 @@
-git clone -q --depth=1 --branch=master https://github.com/NaamloosDT/DSharpPlus.git C:\projects\dsharpplus-6g6vr
-git checkout -qf 44506f5e47cc2ed84bc010ab189033875cc10d40
 # Version number
 $VERSION = [int]::Parse($Env:APPVEYOR_BUILD_NUMBER).ToString("00000")
 # Environment variables
