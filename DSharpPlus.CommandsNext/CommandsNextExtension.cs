@@ -283,10 +283,10 @@ namespace DSharpPlus.CommandsNext
         public void RegisterCommands(Type t)
         {
             if (t == null)
-                throw new ArgumentNullException("Type cannot be null.", nameof(t));
+                throw new ArgumentNullException(nameof(t), "Type cannot be null.");
 
             if (!t.IsModuleCandidateType())
-                throw new ArgumentNullException("Type must be a class, which cannot be abstract or static.", nameof(t));
+                throw new ArgumentNullException(nameof(t), "Type must be a class, which cannot be abstract or static.");
 
             this.RegisterCommands(t, null, out var tcmds);
 
@@ -679,7 +679,7 @@ namespace DSharpPlus.CommandsNext
         public void RegisterConverter<T>(IArgumentConverter<T> converter)
         {
             if (converter == null)
-                throw new ArgumentNullException("Converter cannot be null.", nameof(converter));
+                throw new ArgumentNullException(nameof(converter), "Converter cannot be null.");
 
             var t = typeof(T);
             var ti = t.GetTypeInfo();
@@ -728,11 +728,18 @@ namespace DSharpPlus.CommandsNext
         /// <typeparam name="T">Type to register the name for.</typeparam>
         /// <param name="value">Name to register.</param>
         public void RegisterUserFriendlyTypeName<T>(string value)
+            => RegisterUserFriendlyTypeName(typeof(T), value);
+
+        /// <summary>
+        /// Registers a user-friendly type name.
+        /// </summary>
+        /// <param name="type">Type to register the name for.</param>
+        /// <param name="value">Name to register.</param>
+        public void RegisterUserFriendlyTypeName(Type t, string value)
         {
             if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentNullException("Name cannot be null or empty.", nameof(value));
+                throw new ArgumentNullException(nameof(value), "Name cannot be null or empty.");
 
-            var t = typeof(T);
             var ti = t.GetTypeInfo();
             if (!this.ArgumentConverters.ContainsKey(t))
                 throw new InvalidOperationException("Cannot register a friendly name for a type which has no associated converter.");

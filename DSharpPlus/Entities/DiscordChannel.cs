@@ -139,7 +139,7 @@ namespace DSharpPlus.Entities
         {
             get
             {
-                if (this.Guild != null)
+                if (this.Guild == null)
                     throw new InvalidOperationException("Cannot query users outside of guild channels.");
 
                 if (this.Type == ChannelType.Voice)
@@ -171,7 +171,7 @@ namespace DSharpPlus.Entities
         public Task<DiscordMessage> SendMessageAsync(string content = null, bool tts = false, DiscordEmbed embed = null)
         {
             if (this.Type != ChannelType.Text && this.Type != ChannelType.Private && this.Type != ChannelType.Group)
-                throw new ArgumentException("Cannot send a file to a non-text channel");
+                throw new ArgumentException("Cannot send a text message to a non-text channel");
             if (string.IsNullOrWhiteSpace(content) && embed == null)
                 throw new ArgumentNullException("Must provide either content, embed or both, and content may not consist only of whitespace");
             if (content != null && content.Length > 2000)
