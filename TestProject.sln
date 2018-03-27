@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dickscord", "Dickscord\Dickscord.csproj", "{E51279F8-8601-4DE0-954E-25725AC0E387}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DRPCTest", "DRPCTest\DRPCTest.csproj", "{B22CA287-69E0-4F34-84E9-0E99EA07216E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.CNextNotifier", "DSharpPlus.CNextNotifier\DSharpPlus.CNextNotifier.csproj", "{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotTest", "BotTest\BotTest.csproj", "{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}"
@@ -35,6 +33,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Lite", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncLauncher", "SyncLauncher\SyncLauncher.csproj", "{87F2348A-6205-4E2C-971F-338BE4855FA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.Base", "HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj", "{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.NotepadPlusPlus", "HSNXT.DiscordRPC.NotepadPlusPlus\HSNXT.DiscordRPC.NotepadPlusPlus.csproj", "{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.VLC", "HSNXT.DiscordRPC.VLC\HSNXT.DiscordRPC.VLC.csproj", "{FAD5BB1E-167A-4015-842F-47BA1D214A55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +49,6 @@ Global
 		{E51279F8-8601-4DE0-954E-25725AC0E387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E51279F8-8601-4DE0-954E-25725AC0E387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E51279F8-8601-4DE0-954E-25725AC0E387}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B22CA287-69E0-4F34-84E9-0E99EA07216E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,6 +105,18 @@ Global
 		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
