@@ -37,34 +37,6 @@
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
       </e>
-      <e p="DRPCTest" t="IncludeRecursive">
-        <e p="app.config" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="discord-rpc.dll" t="Include" />
-        <e p="DRPCTest.csproj" t="IncludeRecursive" />
-        <e p="DRPCTest.csproj.DotSettings" t="Include" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="DRPCTest.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
-        <e p="unirest-net-master" t="Include">
-          <e p=".gitignore" t="Include" />
-          <e p="LICENSE" t="Include" />
-          <e p="README.md" t="Include" />
-          <e p="Unirest" t="Include">
-            <e p="HttpClientHelper.cs" t="Include" />
-            <e p="HttpRequest.cs" t="Include" />
-            <e p="HttpRequestUrl.cs" t="Include" />
-            <e p="HttpResponse.cs" t="Include" />
-            <e p="Unirest.cs" t="Include" />
-          </e>
-        </e>
-      </e>
       <e p="dsharpplus\dsharpplus" t="IncludeRecursive">
         <e p="AssemblyInfo.cs" t="Include" />
         <e p="AsyncEvent.cs" t="Include" />
@@ -110,6 +82,7 @@
           <e p="DiscordMember.cs" t="Include" />
           <e p="DiscordMessage.cs" t="Include" />
           <e p="DiscordOverwrite.cs" t="Include" />
+          <e p="DiscordOverwriteBuilder.cs" t="Include" />
           <e p="DiscordPresence.cs" t="Include" />
           <e p="DiscordReaction.cs" t="Include" />
           <e p="DiscordRole.cs" t="Include" />
@@ -274,6 +247,8 @@
           <e p="DontInjectAttribute.cs" t="Include" />
           <e p="GroupAttribute.cs" t="Include" />
           <e p="HiddenAttribute.cs" t="Include" />
+          <e p="ModuleLifespanAttribute.cs" t="Include" />
+          <e p="PriorityAttribute.cs" t="Include" />
           <e p="RemainingTextAttribute.cs" t="Include" />
           <e p="RequireBotPermissionsAttribute.cs" t="Include" />
           <e p="RequireNsfwAttribute.cs" t="Include" />
@@ -283,6 +258,7 @@
           <e p="RequireRolesAttribute.cs" t="Include" />
           <e p="RequireUserPermissionsAttribute.cs" t="Include" />
         </e>
+        <e p="BaseCommandModule.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="CommandsNextConfiguration.cs" t="Include" />
         <e p="CommandsNextExtension.cs" t="Include" />
@@ -302,10 +278,18 @@
         </e>
         <e p="DSharpPlus.CommandsNext.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="Builders" t="Include">
+            <e p="CommandBuilder.cs" t="Include" />
+            <e p="CommandGroupBuilder.cs" t="Include" />
+            <e p="CommandModuleBuilder.cs" t="Include" />
+            <e p="CommandOverloadBuilder.cs" t="Include" />
+          </e>
           <e p="Command.cs" t="Include" />
           <e p="CommandArgument.cs" t="Include" />
           <e p="CommandGroup.cs" t="Include" />
           <e p="CommandHelpMessage.cs" t="Include" />
+          <e p="CommandModule.cs" t="Include" />
+          <e p="CommandOverload.cs" t="Include" />
           <e p="CommandResult.cs" t="Include" />
         </e>
         <e p="EventArgs" t="Include">
@@ -411,6 +395,7 @@
         <e p="Color.cs" t="Include" />
         <e p="DSharpPlus.Extended.csproj" t="IncludeRecursive" />
         <e p="DspExtended.cs" t="Include" />
+        <e p="EmptyList.cs" t="Include" />
         <e p="EventArgs" t="Include">
           <e p="ExtensionErrorEventArgs.cs" t="Include" />
           <e p="MentionReceivedEventArgs.cs" t="Include" />
@@ -529,6 +514,60 @@
         </e>
         <e p="Program.cs" t="Include" />
       </e>
+      <e p="HSNXT.DiscordRPC.Base" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="HSNXT.DiscordRPC.Base.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.Base.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DiscordRPC.NotepadPlusPlus" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="discord-rpc.dll" t="Include" />
+        <e p="HSNXT.DiscordRPC.NotepadPlusPlus.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.NotepadPlusPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DiscordRPC.VLC" t="IncludeRecursive">
+        <e p="app.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="discord-rpc.dll" t="Include" />
+        <e p="HSNXT.DiscordRPC.VLC.csproj" t="IncludeRecursive" />
+        <e p="HSNXT.DiscordRPC.VLC.csproj.DotSettings" t="Include" />
+        <e p="JsonBits.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.VLC.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="unirest-net-master" t="Include">
+          <e p=".gitignore" t="Include" />
+          <e p="LICENSE" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="Unirest" t="Include">
+            <e p="HttpClientHelper.cs" t="Include" />
+            <e p="HttpRequest.cs" t="Include" />
+            <e p="HttpRequestUrl.cs" t="Include" />
+            <e p="HttpResponse.cs" t="Include" />
+            <e p="Unirest.cs" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="HSNXT.Promise" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Class1.cs" t="Include" />
@@ -549,6 +588,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="SyncLauncher.AssemblyInfo.cs" t="Include" />
+            </e>
             <e p="netcoreapp2.0" t="Include">
               <e p="SyncLauncher.AssemblyInfo.cs" t="Include" />
             </e>
