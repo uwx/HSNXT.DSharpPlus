@@ -733,7 +733,7 @@ namespace DSharpPlus.CommandsNext
         /// <summary>
         /// Registers a user-friendly type name.
         /// </summary>
-        /// <param name="type">Type to register the name for.</param>
+        /// <param name="t">Type to register the name for.</param>
         /// <param name="value">Name to register.</param>
         public void RegisterUserFriendlyTypeName(Type t, string value)
         {
