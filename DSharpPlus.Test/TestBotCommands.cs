@@ -31,6 +31,13 @@ namespace DSharpPlus.Test
 		//    await ctx.RespondAsync("naam check your shitcode");
 		//}
 
+		[Command("chekpin")]
+		public async Task ChekPins(CommandContext ctx)
+		{
+			await ctx.Channel.GetPinnedMessagesAsync();
+			await ctx.RespondAsync("u got mail!");
+		}
+
 		[Command("vsdb")]
 		public async Task VStateDebug(CommandContext ctx)
 		{
@@ -52,7 +59,7 @@ namespace DSharpPlus.Test
 			ems.Add(DiscordEmoji.FromUnicode(ctx.Client, "👍"));
 			ems.Add(DiscordEmoji.FromUnicode(ctx.Client, "👎"));
 			ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "added reactions", DateTime.Now);
-			var rcc = await intr.CreatePollAsync(m, ems, TimeSpan.FromSeconds(4));
+			var rcc = await intr.CreatePollAsync(m, ems, TimeSpan.FromSeconds(10));
 			ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "got results", DateTime.Now);
 			string results = "";
 			foreach (var smth in rcc.Reactions)

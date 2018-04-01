@@ -21,7 +21,7 @@ namespace DSharpPlus.Net.Abstractions
         public string RegionId { get; set; }
 
         [JsonProperty("icon", NullValueHandling = NullValueHandling.Include)]
-        public string IconBase64 { get; set; }
+        public Optional<string> IconBase64 { get; set; }
 
         [JsonProperty("verification_level", NullValueHandling = NullValueHandling.Ignore)]
         public VerificationLevel? VerificationLevel { get; set; }
@@ -34,12 +34,6 @@ namespace DSharpPlus.Net.Abstractions
 
         [JsonProperty("channels", NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<RestChannelCreatePayload> Channels { get; set; }
-
-        [JsonIgnore]
-        public bool IconSet { get; set; }
-
-        public bool ShouldSerializeIconBase64()
-            => this.IconSet;
     }
 
     internal sealed class RestGuildModifyPayload
