@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using DSharpPlus.Entities;
 
@@ -14,7 +14,7 @@ namespace DSharpPlus.Extended
         /// <param name="target">the member to check against</param>
         /// <returns>true if this member can interact with the target</returns>
         /// <exception cref="ArgumentNullException">if target is null</exception>
-        public static bool CanInteract(DiscordMember @this, DiscordMember target)
+        public static bool CanInteract(this DiscordMember @this, DiscordMember target)
         {
             if (target == null) throw new ArgumentNullException(nameof(target));
 
@@ -36,7 +36,7 @@ namespace DSharpPlus.Extended
         /// <summary>
         /// Gets this member's permissions in the guild they're part of.
         /// </summary>
-        public static Permissions GetPermissions(DiscordMember @this) =>
+        public static Permissions GetPermissions(this DiscordMember @this) =>
             @this.Roles.Select(e => e.Permissions).Aggregate((a, b) => a | b);
     }
 }
