@@ -60,7 +60,7 @@ namespace DSharpPlus.Net.Abstractions
         public Optional<string> SplashBase64 { get; set; }
 
         [JsonProperty("afk_channel_id")]
-        public Optional<ulong> AfkChannelId { get; set; }
+        public Optional<ulong?> AfkChannelId { get; set; }
 
         [JsonProperty("afk_timeout")]
         public Optional<int> AfkTimeout { get; set; }
