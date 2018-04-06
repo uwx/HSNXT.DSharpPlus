@@ -122,8 +122,7 @@ namespace DSharpPlus.CommandsNext.Attributes
     /// <summary>
     /// Defines how are command cooldowns applied.
     /// </summary>
-    [Flags]
-    public enum CooldownBucketType
+    public enum CooldownBucketType : int
     {
         /// <summary>
         /// Denotes that the command will have its cooldown applied per-user.

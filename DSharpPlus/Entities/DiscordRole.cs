@@ -124,7 +124,7 @@ namespace DSharpPlus.Entities
                 return PermissionLevel.Allowed;
             return PermissionLevel.Unset;
         }
-        
+
         /// <summary>
         /// Returns a string representation of this role.
         /// </summary>
