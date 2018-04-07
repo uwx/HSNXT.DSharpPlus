@@ -31,8 +31,31 @@ namespace DSharpPlus.Entities
             this.Discord = other.Discord;
 
             this._attachments = other._attachments; // the attachments cannot change, thus no need to copy and reallocate.
-            this._embeds = new List<DiscordEmbed>(other._embeds);
             
+            if (other._mentionedChannels == null || other._mentionedRoles == null || other._mentionedUsers == null ||
+                other._embeds == null || other._reactions == null)
+            {
+                Discord.DebugLogger.LogMessage(LogLevel.Error, 
+                    "MsgBld", "Null: " + (other._mentionedChannels == null ? "_mentionedChannels"
+                                  : other._mentionedRoles == null ? "_mentionedRoles"
+                                  : other._mentionedUsers == null ? "_mentionedUsers"
+                                  : other._embeds == null ? "_embeds"
+                                  : other._reactions == null ? "_reactions"
+                                  : "impossible"), DateTime.Now);
+                
+                Discord.DebugLogger.LogMessage(LogLevel.Error, "MsgBld",
+                    $"MSG#1 id:{this.Id},ct:{this.Content}", DateTime.Now);
+                
+                Discord.DebugLogger.LogMessage(LogLevel.Error, "MsgBld",
+                    $"MSG#2 id:{other.Id},ct:{other.Content}", DateTime.Now);
+                
+                Discord.DebugLogger.LogMessage(LogLevel.Error, "MsgBld",
+                    $@"CHAN: {(other.Channel?.Guild == null 
+                        ? "u:" + string.Join("\n", (other.Channel as DiscordDmChannel)?.Recipients?.Select(e => e?.Username))
+                        : "g:" + other.Channel?.Guild.Name)
+                    }#{other.Channel?.Name}", DateTime.Now);
+            }
+            this._embeds = new List<DiscordEmbed>(other._embeds);
             if (other._mentionedChannels != null) 
                 this._mentionedChannels = new List<DiscordChannel>(other._mentionedChannels);
             if (other._mentionedRoles != null)
