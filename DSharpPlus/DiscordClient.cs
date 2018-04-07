@@ -404,8 +404,8 @@ namespace DSharpPlus
                 }
                 catch (Exception ex)
                 {
-                    DebugLogger.LogMessage(LogLevel.Error, "WSS", $"Socket swallowed: {ex.GetType()}", DateTime.Now);
-                    DebugLogger.LogMessage(LogLevel.Error, "WSS", $"Data: {FormatJson(e.Message)}", DateTime.Now);
+                    DebugLogger.LogMessage(LogLevel.Error, "WSS", $"Socket swallowed: {ex}", DateTime.Now);
+                    DebugLogger.LogMessage(LogLevel.Error, "WSS", $"Data: {e.Message}", DateTime.Now);
                 }
             }
 
@@ -1668,7 +1668,6 @@ namespace DSharpPlus
                 message._embeds.AddRange(event_message._embeds);
                 message.Pinned = event_message.Pinned;
                 message.IsTTS = event_message.IsTTS;
-                message.Content = event_message.Content;
             }
 
             var mentioned_users = new List<DiscordUser>();
