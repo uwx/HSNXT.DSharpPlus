@@ -1602,11 +1602,8 @@ namespace DSharpPlus
             foreach (var xr in message._reactions)
                 xr.Emoji.Discord = this;
 
-            DebugLogger.LogMessage(LogLevel.Warning, "Bap", "Adding msg to cache maybe: " + message._mentionedUsers
-                              + "," + (guild != null) + "," + string.IsNullOrWhiteSpace(message.Content), DateTime.Now);
-            
             if (this.Configuration.MessageCacheSize > 0 && message.Channel != null)
-                this.MessageCache.Add(message, new Exception());
+                this.MessageCache.Add(message);
 
             MessageCreateEventArgs ea = new MessageCreateEventArgs(this)
             {
@@ -1627,11 +1624,9 @@ namespace DSharpPlus
             var event_message = message;
 
             DiscordMessage oldmsg = null;
-            TheValue<DiscordMessage> v = default;
-            if (this.Configuration.MessageCacheSize > 0 && !this.MessageCache.TryGet2(xm => xm.Id == event_message.Id && xm.ChannelId == event_message.ChannelId, out v))
+            if (this.Configuration.MessageCacheSize > 0 && !this.MessageCache.TryGet(xm => xm.Id == event_message.Id && xm.ChannelId == event_message.ChannelId, out message))
             {
-                // no need with tryget2
-                //message = event_message;
+                message = event_message;
                 guild = message.Channel?.Guild;
 
                 if (author != null)
@@ -1663,8 +1658,7 @@ namespace DSharpPlus
             }
             else
             {
-                message = v.Item1;
-                oldmsg = new DiscordMessage(message, v.Item2);
+                oldmsg = new DiscordMessage(message);
 
                 guild = message.Channel?.Guild;
                 message.EditedTimestampRaw = event_message.EditedTimestampRaw;

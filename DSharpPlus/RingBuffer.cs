@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DSharpPlus.Entities;
 
 namespace DSharpPlus
 {
@@ -38,8 +37,6 @@ namespace DSharpPlus
         /// Gets or sets the internal collection of items.
         /// </summary>
         protected T[] InternalBuffer { get; set; }
-        public Exception[] ExBuffer { get; set; }
-
         private bool _reached_end = false;
 
         /// <summary>
@@ -55,7 +52,6 @@ namespace DSharpPlus
             this.CurrentIndex = 0;
             this.Capacity = size;
             this.InternalBuffer = new T[this.Capacity];
-            this.ExBuffer = new Exception[this.Capacity];
         }
 
         /// <summary>
@@ -92,9 +88,8 @@ namespace DSharpPlus
         /// Inserts an item into this ring buffer.
         /// </summary>
         /// <param name="item">Item to insert.</param>
-        public void Add(T item, Exception e)
+        public void Add(T item)
         {
-            this.ExBuffer[this.CurrentIndex] = e;
             this.InternalBuffer[this.CurrentIndex++] = item;
 
             if (this.CurrentIndex == this.Capacity)
@@ -102,11 +97,6 @@ namespace DSharpPlus
                 this.CurrentIndex = 0;
                 this._reached_end = true;
             }
-        }
-
-        public void Add(T item)
-        {
-            Add(item, new Exception());
         }
 
         /// <summary>
@@ -135,29 +125,6 @@ namespace DSharpPlus
             }
 
             item = default(T);
-            return false;
-        }
-
-        public bool TryGet2(Func<T, bool> predicate, out TheValue item)
-        {
-            for (var i = this.CurrentIndex; i < this.InternalBuffer.Length; i++)
-            {
-                if (this.InternalBuffer[i] != null && predicate(this.InternalBuffer[i]))
-                {
-                    item = new TheValue(this.InternalBuffer[i], this.ExBuffer[i]);
-                    return true;
-                }
-            }
-            for (var i = 0; i < this.CurrentIndex; i++)
-            {
-                if (this.InternalBuffer[i] != null && predicate(this.InternalBuffer[i]))
-                {
-                    item = new TheValue(this.InternalBuffer[i], this.ExBuffer[i]);
-                    return true;
-                }
-            }
-
-            item = new TheValue(default, null);
             return false;
         }
 
@@ -260,18 +227,6 @@ namespace DSharpPlus
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
-        }
-    }
-
-    public class TheValue<T>
-    {
-        public T Item1;
-        public Exception Item2;
-
-        public TheValue(T item1, Exception item2)
-        {
-            Item1 = item1;
-            Item2 = item2;
         }
     }
 }
