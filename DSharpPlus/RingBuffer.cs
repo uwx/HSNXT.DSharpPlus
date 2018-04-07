@@ -138,13 +138,13 @@ namespace DSharpPlus
             return false;
         }
 
-        public bool TryGet2(Func<T, bool> predicate, out TheValue item)
+        public bool TryGet2(Func<T, bool> predicate, out TheValue<T> item)
         {
             for (var i = this.CurrentIndex; i < this.InternalBuffer.Length; i++)
             {
                 if (this.InternalBuffer[i] != null && predicate(this.InternalBuffer[i]))
                 {
-                    item = new TheValue(this.InternalBuffer[i], this.ExBuffer[i]);
+                    item = new TheValue<T>(this.InternalBuffer[i], this.ExBuffer[i]);
                     return true;
                 }
             }
@@ -152,12 +152,12 @@ namespace DSharpPlus
             {
                 if (this.InternalBuffer[i] != null && predicate(this.InternalBuffer[i]))
                 {
-                    item = new TheValue(this.InternalBuffer[i], this.ExBuffer[i]);
+                    item = new TheValue<T>(this.InternalBuffer[i], this.ExBuffer[i]);
                     return true;
                 }
             }
 
-            item = new TheValue(default, null);
+            item = new TheValue<T>(default, null);
             return false;
         }
 
