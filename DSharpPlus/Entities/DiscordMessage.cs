@@ -25,7 +25,7 @@ namespace DSharpPlus.Entities
             this._reactionsLazy = new Lazy<IReadOnlyList<DiscordReaction>>(() => new ReadOnlyCollection<DiscordReaction>(this._reactions));
         }
         
-        internal DiscordMessage(DiscordMessage other)
+        internal DiscordMessage(DiscordMessage other, Exception vItem2)
             : this()
         {
             this.Discord = other.Discord;
@@ -35,6 +35,8 @@ namespace DSharpPlus.Entities
             if (other._mentionedChannels == null || other._mentionedRoles == null || other._mentionedUsers == null ||
                 other._embeds == null || other._reactions == null)
             {
+                Discord.DebugLogger.LogMessage(LogLevel.Error,
+                    "MsgBld", "Created at " + vItem2, DateTime.Now);
                 Discord.DebugLogger.LogMessage(LogLevel.Error, 
                     "MsgBld", "Null: " + (other._mentionedChannels == null ? "_mentionedChannels," : "") +
                                   (other._mentionedRoles == null ? "_mentionedRoles," : "") +
