@@ -1261,8 +1261,6 @@ namespace DSharpPlus.Net
 
         internal Task DeleteGuildIntegrationAsync(ulong guild_id, DiscordIntegration integration)
         {
-            var pld = integration;
-
             var route = $"{Endpoints.GUILDS}/:guild_id{Endpoints.INTEGRATIONS}/:integration_id";
             var bucket = this.Rest.GetBucket(RestRequestMethod.DELETE, route, new { guild_id, integration_id = integration.Id }, out var path);
 
@@ -1294,8 +1292,6 @@ namespace DSharpPlus.Net
 
         internal async Task<DiscordGuildEmbed> ModifyGuildEmbedAsync(ulong guild_id, DiscordGuildEmbed embed)
         {
-            var pld = embed;
-
             var route = $"{Endpoints.GUILDS}/:guild_id{Endpoints.EMBED}";
             var bucket = this.Rest.GetBucket(RestRequestMethod.PATCH, route, new { guild_id }, out var path);
 
