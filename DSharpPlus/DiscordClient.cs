@@ -1534,7 +1534,7 @@ namespace DSharpPlus
             if (this.Configuration.MessageCacheSize > 0 && message.Channel != null)
                 this.MessageCache.Add(message);
 
-            MessageCreateEventArgs ea = new MessageCreateEventArgs(this)
+            var ea = new MessageCreateEventArgs(this)
             {
                 Message = message,
 

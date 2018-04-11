@@ -395,7 +395,7 @@ namespace DSharpPlus.Net
         #region Channel
         internal async Task<DiscordChannel> CreateGuildChannelAsync(ulong guild_id, string name, ChannelType type, ulong? parent, int? bitrate, int? user_limit, IEnumerable<DiscordOverwriteBuilder> overwrites, bool? nsfw, string reason)
         {
-            List<DiscordRestOverwrite> restoverwrites = new List<DiscordRestOverwrite>();
+            var restoverwrites = new List<DiscordRestOverwrite>();
             if (overwrites != null)
                 foreach (var ow in overwrites)
                     restoverwrites.Add(ow.Build());

@@ -31,7 +31,7 @@ namespace DSharpPlus.Exceptions
 
             try
             {
-                JObject j = JObject.Parse(response.Response);
+                var j = JObject.Parse(response.Response);
 
                 if (j["message"] != null)
                     JsonMessage = j["message"].ToString();

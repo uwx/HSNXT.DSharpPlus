@@ -53,7 +53,7 @@ namespace DSharpPlus
 
         internal static int CalculateIntegrity(int ping, DateTimeOffset timestamp, int heartbeat_interval)
         {
-            Random r = new Random();
+            var r = new Random();
             return r.Next(ping, int.MaxValue);
         }
 
@@ -98,36 +98,36 @@ namespace DSharpPlus
 
         internal static bool ContainsUserMentions(string message)
         {
-            string pattern = @"<@(\d+)>";
-            Regex regex = new Regex(pattern, RegexOptions.ECMAScript);
+            var pattern = @"<@(\d+)>";
+            var regex = new Regex(pattern, RegexOptions.ECMAScript);
             return regex.IsMatch(message);
         }
 
         internal static bool ContainsNicknameMentions(string message)
         {
-            string pattern = @"<@!(\d+)>";
-            Regex regex = new Regex(pattern, RegexOptions.ECMAScript);
+            var pattern = @"<@!(\d+)>";
+            var regex = new Regex(pattern, RegexOptions.ECMAScript);
             return regex.IsMatch(message);
         }
 
         internal static bool ContainsChannelMentions(string message)
         {
-            string pattern = @"<#(\d+)>";
-            Regex regex = new Regex(pattern, RegexOptions.ECMAScript);
+            var pattern = @"<#(\d+)>";
+            var regex = new Regex(pattern, RegexOptions.ECMAScript);
             return regex.IsMatch(message);
         }
 
         internal static bool ContainsRoleMentions(string message)
         {
-            string pattern = @"<@&(\d+)>";
-            Regex regex = new Regex(pattern, RegexOptions.ECMAScript);
+            var pattern = @"<@&(\d+)>";
+            var regex = new Regex(pattern, RegexOptions.ECMAScript);
             return regex.IsMatch(message);
         }
 
         internal static bool ContainsEmojis(string message)
         {
-            string pattern = @"<:(.*):(\d+)>";
-            Regex regex = new Regex(pattern, RegexOptions.ECMAScript);
+            var pattern = @"<:(.*):(\d+)>";
+            var regex = new Regex(pattern, RegexOptions.ECMAScript);
             return regex.IsMatch(message);
         }
 
