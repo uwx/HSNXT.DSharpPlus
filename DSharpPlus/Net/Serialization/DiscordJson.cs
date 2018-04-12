@@ -31,6 +31,13 @@ namespace DSharpPlus.Net.Serialization
             return JsonConvert.SerializeObject(value, JsonSerializerSettings);
         }
         
+        /// <summary>
+        /// Converts this token into an object, passing any properties through extra <see cref="JsonConverter"/>s if
+        /// needed.
+        /// </summary>
+        /// <param name="token">The token to convert</param>
+        /// <typeparam name="T">Type to convert to</typeparam>
+        /// <returns>The converted token</returns>
         public static T ToDiscordObject<T>(this JToken token)
         {
             return token.ToObject<T>(OptionalJsonSerializer);
