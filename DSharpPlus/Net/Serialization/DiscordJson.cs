@@ -113,20 +113,24 @@ namespace DSharpPlus.Net.Serialization
             JsonSerializer serializer)
         {
             //if (!reader.Read()) throw new ArgumentException("Something's wrong here.");
-            
-            #if NETSTANDARD2_0
-            Console.WriteLine($"Deserializing {objectType} from {existingValue} :: {reader} / str::{reader.Value}");
-            #endif
 
-            var genericType = objectType.GenericTypeArguments[0];
+#if NETSTANDARD2_0
+            Console.WriteLine($"Deserializing {objectType} from {existingValue} :: {reader} / str::{reader.Value}");
+#endif
             
-            // TODO will this crash with Single finding more than one if T happens to be object?
+            var genericType = objectType.GenericTypeArguments[0];
+
             var constructor = objectType.GetTypeInfo().DeclaredConstructors
-                .Single(e => e.GetParameters()[0].ParameterType == typeof(object));
+                .Single(e => e.GetParameters()[0].ParameterType == genericType);
             
             try
             {
-                return constructor.Invoke(new[] {reader.Value});
+                var result = constructor.Invoke(new[] { Convert.ChangeType(reader.Value, genericType)});
+
+#if NETSTANDARD2_0
+            Console.WriteLine($"OwO value is {result}");
+#endif
+                return result;
             }
             catch
             {
