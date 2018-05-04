@@ -32,10 +32,10 @@ build_script:
   - ps: dotnet build "TestProject.sln" -c Release
   - ps: dotnet publish "TestProject.sln" --configuration Release -f net47
   # publish projects 1
-  - ps: dotnet publish "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" --configuration Release -f netstandard2.0
-  - ps: dotnet publish "DSharpPlus.Extended/DSharpPlus.Extended.csproj" --configuration Release -f netstandard2.0
-  - ps: dotnet publish "DSharpPlus.Extended.Emoji/DSharpPlus.Extended.Emoji.csproj" --configuration Release -f netstandard2.0
-  - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder/DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "HSNXT.DSharpPlus.CNextNotifier/HSNXT.DSharpPlus.CNextNotifier.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "HSNXT.DSharpPlus.Extended/HSNXT.DSharpPlus.Extended.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "HSNXT.DSharpPlus.Extended.Emoji/HSNXT.DSharpPlus.Extended.Emoji.csproj" --configuration Release -f netstandard2.0
+  - ps: dotnet publish "HSNXT.DSharpPlus.ModernEmbedBuilder/HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
   # set <PackageId> for D#+  projects
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" HSNXT.DSharpPlus.WebSocket.WebSocket4NetCore
   - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus/DSharpPlus.csproj" HSNXT.DSharpPlus
@@ -78,10 +78,10 @@ build_script:
   - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard1.3 --version-suffix "$env:Appveyor_Build_Number"
   - ps: dotnet publish "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" --configuration Release -f netstandard2.0 --version-suffix "$env:Appveyor_Build_Number"
   # pack projects 1
-  - ps: dotnet pack "DSharpPlus.CNextNotifier/DSharpPlus.CNextNotifier.csproj" -c Release -o "Proj2" --no-build
-  - ps: dotnet pack "DSharpPlus.Extended/DSharpPlus.Extended.csproj" -c Release -o "Proj3" --no-build
-  - ps: dotnet pack "DSharpPlus.Extended.Lite/DSharpPlus.Extended.Lite.csproj" -c Release -o "Proj4" --no-build
-  - ps: dotnet pack "DSharpPlus.ModernEmbedBuilder/DSharpPlus.ModernEmbedBuilder.csproj" -c Release -o "Proj5" --no-build
+  - ps: dotnet pack "HSNXT.DSharpPlus.CNextNotifier/HSNXT.DSharpPlus.CNextNotifier.csproj" -c Release -o "Proj2" --no-build
+  - ps: dotnet pack "HSNXT.DSharpPlus.Extended/HSNXT.DSharpPlus.Extended.csproj" -c Release -o "Proj3" --no-build
+  - ps: dotnet pack "HSNXT.DSharpPlus.Extended.Lite/HSNXT.DSharpPlus.Extended.Lite.csproj" -c Release -o "Proj4" --no-build
+  - ps: dotnet pack "HSNXT.DSharpPlus.ModernEmbedBuilder/HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" -c Release -o "Proj5" --no-build
   # pack D#+ projects
   - ps: dotnet pack "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" -c Release -o "DSP1" --no-build --version-suffix "$env:Appveyor_Build_Number"
   - ps: dotnet pack "DSharpPlus/DSharpPlus/DSharpPlus.csproj" -c Release -o "DSP2" --no-build --version-suffix "$env:Appveyor_Build_Number"
@@ -98,16 +98,16 @@ artifacts:
   - path: "DSharpPlus\\DSharpPlus.Interactivity\\DSP4\\*.nupkg"
   - path: "DSharpPlus\\DSharpPlus.Rest\\DSP5\\*.nupkg"
   - path: "DSharpPlus\\DSharpPlus.VoiceNext\\DSP6\\*.nupkg"
-  - path: "DSharpPlus.CNextNotifier\\Proj2\\*.nupkg"
-  - path: "DSharpPlus.Extended\\Proj3\\*.nupkg"
-  - path: "DSharpPlus.Extended.Lite\\Proj4\\*.nupkg"
-  - path: "DSharpPlus.ModernEmbedBuilder\\Proj5\\*.nupkg"
+  - path: "HSNXT.DSharpPlus.CNextNotifier\\Proj2\\*.nupkg"
+  - path: "HSNXT.DSharpPlus.Extended\\Proj3\\*.nupkg"
+  - path: "HSNXT.DSharpPlus.Extended.Lite\\Proj4\\*.nupkg"
+  - path: "HSNXT.DSharpPlus.ModernEmbedBuilder\\Proj5\\*.nupkg"
   
-  - path: "DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
+  - path: "HSNXT.DSharpPlus.CNextNotifier\\bin\\Release\\netstandard2.0\\*.dll"
     name: DSharpPlus.CNextNotifier Release DLLs (.NET Standard 2.0)
     type: zip
-  - path: "Dickscord\\bin\\Release\\net47\\*.dll"
-    name: Dickscord Release DLLs (.NET 4.7)
+  - path: "HSNXT.DSPEmojiEscape\\bin\\Release\\net47\\*.dll"
+    name: HSNXT.DSPEmojiEscape Release DLLs (.NET 4.7)
     type: zip
   - path: "DRPCTest\\bin\\x64\\Release\\net47\\*.dll"
     name: DRPCTest Release DLLs (.NET 4.7)
@@ -130,17 +130,17 @@ artifacts:
   - path: "DSharpPlus\\DSharpPlus\\bin\\Release\\net45"
     name: DSharpPlus Release DLLs (.NET 4.5)
     type: zip
-  - path: "DSharpPlus.ModernEmbedBuilder\\bin\\Release\\net47"
-    name: DSharpPlus.ModernEmbedBuilder Release DLLs (.NET 4.7)
+  - path: "HSNXT.DSharpPlus.ModernEmbedBuilder\\bin\\Release\\net47"
+    name: HSNXT.DSharpPlus.ModernEmbedBuilder Release DLLs (.NET 4.7)
     type: zip
-  - path: "DSharpPlus.ModernEmbedBuilder\\bin\\Release\\netstandard2.0"
-    name: DSharpPlus.ModernEmbedBuilder Release DLLs (.NET Standard 2.0)
+  - path: "HSNXT.DSharpPlus.ModernEmbedBuilder\\bin\\Release\\netstandard2.0"
+    name: HSNXT.DSharpPlus.ModernEmbedBuilder Release DLLs (.NET Standard 2.0)
     type: zip
   - path: "BotTest\\bin\\Release"
     name: BotTest Release DLLs
     type: zip
-  - path: "DSharpPlus.Extended\\bin\\Release\\netstandard2.0"
-    name: DSharpPlus.Extended Release DLLs (.NET Standard 2.0)
+  - path: "HSNXTDSharpPlus.Extended\\bin\\Release\\netstandard2.0"
+    name: HSNXTDSharpPlus.Extended Release DLLs (.NET Standard 2.0)
     type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
