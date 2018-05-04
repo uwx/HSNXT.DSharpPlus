@@ -6,7 +6,7 @@
     <NoWarn>1591</NoWarn>
     <Optimize>True</Optimize>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <PackageId>DSharpPlus.ModernEmbedBuilder</PackageId>
+    <PackageId>HSNXT.DSharpPlus.ModernEmbedBuilder</PackageId>
     <Authors>uwx / fallk</Authors>
     <Company>uwx</Company>
     <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers.
