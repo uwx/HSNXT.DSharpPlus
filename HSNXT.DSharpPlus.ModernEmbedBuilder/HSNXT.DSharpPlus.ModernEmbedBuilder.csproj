@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -7,30 +6,36 @@
     <NoWarn>1591</NoWarn>
     <Optimize>True</Optimize>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <PackageId>DSharpPlus.ModernEmbedBuilder</PackageId>
+    <PackageId>HSNXT.DSharpPlus.ModernEmbedBuilder</PackageId>
     <Authors>uwx / fallk</Authors>
     <Company>uwx</Company>
-    <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers. Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support regarding this package in official DSharpPlus discussion boards.</Description>
+    <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers.
+      Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
+      regarding this package in official DSharpPlus discussion boards.</Description>
     <PackageLicenseUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#</PackageTags>
-    <Version>1.0.5</Version>
-    <AssemblyVersion>1.0.5</AssemblyVersion>
-    <FileVersion>1.0.5</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
+    <Version>1.0.$(Appveyor_Build_Number)</Version>
+    <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
+    <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <Optimize>False</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <!--<ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />-->
-    <PackageReference Include="DSharpPlus" Version="3.1.2" />
+    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
-  
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />
   </ItemGroup>
-
 </Project>
