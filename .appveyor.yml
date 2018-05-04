@@ -139,8 +139,8 @@ artifacts:
   - path: "BotTest\\bin\\Release"
     name: BotTest Release DLLs
     type: zip
-  - path: "HSNXTDSharpPlus.Extended\\bin\\Release\\netstandard2.0"
-    name: HSNXTDSharpPlus.Extended Release DLLs (.NET Standard 2.0)
+  - path: "HSNXT.DSharpPlus.Extended\\bin\\Release\\netstandard2.0"
+    name: HSNXT.DSharpPlus.Extended Release DLLs (.NET Standard 2.0)
     type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
