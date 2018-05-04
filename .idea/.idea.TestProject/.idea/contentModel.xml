@@ -340,22 +340,6 @@
         </e>
         <e p="WebSocket4NetClient.cs" t="Include" />
       </e>
-      <e p="DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs" t="Include" />
-      <e p="DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs" t="Include" />
-      <e p="DSharpPlus.Extended\AsyncListeners\EventTypes.cs" t="Include" />
-      <e p="DSharpPlus.Extended\Color.cs" t="Include" />
-      <e p="DSharpPlus.Extended\DspExtended.cs" t="Include" />
-      <e p="DSharpPlus.Extended\EmptyList.cs" t="Include" />
-      <e p="DSharpPlus.Extended\EventArgs\ExtensionErrorEventArgs.cs" t="Include" />
-      <e p="DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\ChannelExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildEmojiExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\MemberExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\WebhookExtensions.cs" t="Include" />
-      <e p="DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs" t="Include" />
       <e p="HSNXT.DiscordRPC.Base" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Class1.cs" t="Include" />

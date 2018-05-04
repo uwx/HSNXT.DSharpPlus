@@ -41,23 +41,23 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs" />
-    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs" />
-    <Compile Include="..\DSharpPlus.Extended\AsyncListeners\EventTypes.cs" />
-    <Compile Include="..\DSharpPlus.Extended\Color.cs" />
-    <Compile Include="..\DSharpPlus.Extended\DspExtended.cs" />
-    <Compile Include="..\DSharpPlus.Extended\EmptyList.cs">
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\EventTypes.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Color.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\DspExtended.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\EmptyList.cs">
       <Link>EmptyList.cs</Link>
     </Compile>
-    <Compile Include="..\DSharpPlus.Extended\EventArgs\ExtensionErrorEventArgs.cs" />
-    <Compile Include="..\DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\ChannelExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildEmojiExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\MemberExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\WebhookExtensions.cs" />
-    <Compile Include="..\DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\EventArgs\ExtensionErrorEventArgs.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\ChannelExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildEmojiExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\MemberExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\WebhookExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs" />
   </ItemGroup>
 </Project>
