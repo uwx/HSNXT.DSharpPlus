@@ -17,4 +17,4 @@ On NuGet: [HSNXT.DSharpPlus](https://www.nuget.org/packages/HSNXT.DSharpPlus/),
 Or get it on [GitHub Releases](https://github.com/uwx/DSharpPlus/releases) (yes, the version number is wrong)
 
 #### Note
-This repo only publishes MyGet builds. NuGet uploads are done from CI in [uwx/test](https://github.com/uwx/test).
+This repo only publishes MyGet builds. NuGet uploads are done from CI in [uwx/HSNXT.DSharpPlus](https://github.com/uwx/HSNXT.DSharpPlus).
