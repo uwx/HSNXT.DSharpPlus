@@ -3,35 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dickscord", "Dickscord\Dickscord.csproj", "{E51279F8-8601-4DE0-954E-25725AC0E387}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.CNextNotifier", "DSharpPlus.CNextNotifier\DSharpPlus.CNextNotifier.csproj", "{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.CNextNotifier", "HSNXT.DSharpPlus.CNextNotifier\HSNXT.DSharpPlus.CNextNotifier.csproj", "{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotTest", "BotTest\BotTest.csproj", "{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.ModernEmbedBuilder", "DSharpPlus.ModernEmbedBuilder\DSharpPlus.ModernEmbedBuilder.csproj", "{B9392BE3-75CA-42D2-8B8E-C6E1445B6483}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.ModernEmbedBuilder", "HSNXT.DSharpPlus.ModernEmbedBuilder\HSNXT.DSharpPlus.ModernEmbedBuilder.csproj", "{B9392BE3-75CA-42D2-8B8E-C6E1445B6483}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus", "DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{75E73C6B-79B8-4A80-957A-01F00BAFC06A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.WebSocket.WebSocket4Net", "DSharpPlus\DSharpPlus.WebSocket.WebSocket4Net\DSharpPlus.WebSocket.WebSocket4Net.csproj", "{F7C6F73E-BE5D-43D7-9972-639D6264A303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended", "DSharpPlus.Extended\DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended", "HSNXT.DSharpPlus.Extended\HSNXT.DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSPEmojiGenerator", "DSPEmojiGenerator\DSPEmojiGenerator.csproj", "{FA8B4CBB-ED95-4293-86F0-26C07299A50F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Emoji", "DSharpPlus.Extended.Emoji\DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Promise", "HSNXT.Promise\HSNXT.Promise.csproj", "{4270BE69-4B61-4423-8E30-A08F021053F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended.Emoji", "HSNXT.DSharpPlus.Extended.Emoji\HSNXT.DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.MSTest", "DSharpPlus\DSharpPlus.MSTest\DSharpPlus.MSTest.csproj", "{BB55C1CB-2478-428F-9FF9-9D36F1C27455}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CommandsNext", "DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj", "{566DA48D-B271-424A-A40E-6C46B75D1C0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSPEmojiGenerator2", "DSPEmojiGenerator2\DSPEmojiGenerator2.csproj", "{EBF17D41-68A8-48B6-AE66-E2FE55760859}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Extended.Lite", "DSharpPlus.Extended.Lite\DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncLauncher", "SyncLauncher\SyncLauncher.csproj", "{87F2348A-6205-4E2C-971F-338BE4855FA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended.Lite", "HSNXT.DSharpPlus.Extended.Lite\HSNXT.DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.Base", "HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj", "{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}"
 EndProject
@@ -39,16 +29,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.NotepadPlu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.VLC", "HSNXT.DiscordRPC.VLC\HSNXT.DiscordRPC.VLC.csproj", "{FAD5BB1E-167A-4015-842F-47BA1D214A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiEscape", "HSNXT.DSPEmojiEscape\HSNXT.DSPEmojiEscape.csproj", "{39738A4F-514D-42D5-A124-E39D81D975F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiGenerator", "HSNXT.DSPEmojiGenerator\HSNXT.DSPEmojiGenerator.csproj", "{A510F24A-DBE9-486B-AC60-88BAF87AA76C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiGenerator2", "HSNXT.DSPEmojiGenerator2\HSNXT.DSPEmojiGenerator2.csproj", "{0F5CFCC9-6BCA-4012-A768-42C9785D2064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.SyncLauncher", "HSNXT.SyncLauncher\HSNXT.SyncLauncher.csproj", "{26DD9AFD-B098-488C-BA97-8599E68ED3B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E51279F8-8601-4DE0-954E-25725AC0E387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E51279F8-8601-4DE0-954E-25725AC0E387}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E51279F8-8601-4DE0-954E-25725AC0E387}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E51279F8-8601-4DE0-954E-25725AC0E387}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,18 +67,10 @@ Global
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E01FA273-FC25-4208-80C6-AE493A923D82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA8B4CBB-ED95-4293-86F0-26C07299A50F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4270BE69-4B61-4423-8E30-A08F021053F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4270BE69-4B61-4423-8E30-A08F021053F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4270BE69-4B61-4423-8E30-A08F021053F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4270BE69-4B61-4423-8E30-A08F021053F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB55C1CB-2478-428F-9FF9-9D36F1C27455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB55C1CB-2478-428F-9FF9-9D36F1C27455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB55C1CB-2478-428F-9FF9-9D36F1C27455}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,18 +79,10 @@ Global
 		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBF17D41-68A8-48B6-AE66-E2FE55760859}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87F2348A-6205-4E2C-971F-338BE4855FA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -117,6 +95,22 @@ Global
 		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAD5BB1E-167A-4015-842F-47BA1D214A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39738A4F-514D-42D5-A124-E39D81D975F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39738A4F-514D-42D5-A124-E39D81D975F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39738A4F-514D-42D5-A124-E39D81D975F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39738A4F-514D-42D5-A124-E39D81D975F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A510F24A-DBE9-486B-AC60-88BAF87AA76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A510F24A-DBE9-486B-AC60-88BAF87AA76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A510F24A-DBE9-486B-AC60-88BAF87AA76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A510F24A-DBE9-486B-AC60-88BAF87AA76C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F5CFCC9-6BCA-4012-A768-42C9785D2064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F5CFCC9-6BCA-4012-A768-42C9785D2064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F5CFCC9-6BCA-4012-A768-42C9785D2064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F5CFCC9-6BCA-4012-A768-42C9785D2064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26DD9AFD-B098-488C-BA97-8599E68ED3B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26DD9AFD-B098-488C-BA97-8599E68ED3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26DD9AFD-B098-488C-BA97-8599E68ED3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26DD9AFD-B098-488C-BA97-8599E68ED3B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

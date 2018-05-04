@@ -6,7 +6,7 @@
     <NoWarn>1591</NoWarn>
     <Optimize>True</Optimize>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <PackageId>DSharpPlus.Extended</PackageId>
+    <PackageId>HSNXT.DSharpPlus.Extended</PackageId>
     <Authors>uwx / fallk</Authors>
     <Company>uwx</Company>
     <Description>Addon for DSharpPlus adding a variety of extension methods.
