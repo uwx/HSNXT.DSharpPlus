@@ -117,7 +117,7 @@ namespace DSharpPlus.Net.Serialization
 #if NETSTANDARD2_0
             Console.WriteLine($"Deserializing {objectType} from {existingValue} :: {reader} / str::{reader.Value}");
 #endif
-            
+
             var genericType = objectType.GenericTypeArguments[0];
 
             var constructor = objectType.GetTypeInfo().DeclaredConstructors
