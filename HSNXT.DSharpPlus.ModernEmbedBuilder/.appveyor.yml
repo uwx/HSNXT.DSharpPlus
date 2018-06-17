@@ -12,8 +12,8 @@ branches:
 
 environment:
   access_token:
-    secure: ZCGkDJawCLuRgzYTYraor3+u8xB5hjlMC2RhZZYWKkAVWbJ8DBI/ws7qqpZ2c2L1
-  
+    secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
+
 build: off
 
 build_script:
@@ -41,7 +41,7 @@ deploy:
   - provider: NuGet
     skip_symbols: true
     api_key:
-      secure: ZkuAOJwTjYBiEAHrTHkVDYaNRBaWDDmvpkUVN+9PnsHWQnfDDdDWWAMPltRlYNYn
+      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
     
     # Deploying to NuGet feed
   - provider: NuGet
@@ -49,7 +49,7 @@ deploy:
     #If server is not specified package will be pushed to NuGet.org.
     server: https://www.myget.org/F/hansen-dsp/api/v2/package
     api_key:
-      secure: yTsHQ3VLhxalxoRsOJvcg0J+ATpBEiKAZXArhQGHQyyTiwOXkFzAtbPBTQdIo8rS
+      secure: UgAJl6eK2vnLTns5CJda/+jILU/c2Xtsv4pZ9FILt4VaYl3N/orzvB8sv6cdrk7A
     skip_symbols: false
     #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
     #will be pushed to SymbolSource.org.
