@@ -92,7 +92,7 @@ deploy:
     #If server is not specified package will be pushed to NuGet.org.
     server: https://www.myget.org/F/hansen-dsp/api/v2/package
     api_key:
-      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
+      secure: UgAJl6eK2vnLTns5CJda/+jILU/c2Xtsv4pZ9FILt4VaYl3N/orzvB8sv6cdrk7A
     skip_symbols: false
     #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
     #will be pushed to SymbolSource.org.
@@ -101,3 +101,10 @@ deploy:
     #Artifact(s) (artifact) - artifact name or filename to push. If not specified all artifacts of type NuGet package
     #will be pushed. This can be a regexp, e.g. /.*\.nupkg/
     #artifact: DSharpPlus.nupkg
+
+notifications:
+  - provider: Slack
+    on_build_success: true
+    on_build_failure: true
+    incoming_webhook:
+      secure: +5y63VhkKwOZVK264xwgH8gp7vI2cJivXvseQeSoYYNyH3wjOtid8Qz+gyNOjCGpI/xqxxJNwqFrL75ZPHYOYEKs9WhBWznTsFpJUAs5hxn1kcczMv6WYuwUzXJNEdqX6m47PnS7xrzUZJIRWNQCHRJCtN5VX+hXfVV6BT+tKQevfSqQF/uISp/6etOGpEW1
