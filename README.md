@@ -1,6 +1,6 @@
 ![Logo](https://i.imgur.com/OFss364.png)_<sup>Logo used with permission</sup>_
 # DSharpPlus Extensions & HSNXT.DSharpPlus NuGet builds
-[![Build status](https://ci.appveyor.com/api/projects/status/4ojo057dskqxhc8f?svg=true)](https://ci.appveyor.com/project/Chris28898/hsnxt-dsharpplus)
+[![Build status](https://ci.appveyor.com/api/projects/status/ek7j9yov2grf5qu1/branch/master?svg=true)](https://ci.appveyor.com/project/uwx/hsnxt-dsharpplus/branch/master)
 
 [![HSNXT.DSharpPlus NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.svg?label=HSNXT.DSharpPlus)](https://nuget.org/packages/HSNXT.DSharpPlus)  
 [![HSNXT.DSharpPlus.CommandsNext NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.CommandsNext.svg?label=HSNXT.DSharpPlus.CommandsNext)](https://nuget.org/packages/HSNXT.DSharpPlus.CommandsNext)  
