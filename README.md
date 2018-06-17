@@ -1,7 +1,7 @@
 ![Logo](https://i.imgur.com/OFss364.png)_<sup>Logo used with permission</sup>_
 # uwx's personalized DSharpPlus build
 
-[![Build status](https://ci.appveyor.com/api/projects/status/u57r3kxrbx17gmi9?svg=true)](https://ci.appveyor.com/project/Chris28898/dsharpplus)
+[![Build status](https://ci.appveyor.com/api/projects/status/nh5afefutje8dlf4/branch/master?svg=true)](https://ci.appveyor.com/project/uwx/dsharpplus/branch/master)
 [![NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.svg)](https://nuget.org/packages/HSNXT.DSharpPlus)
 
 My custom build of DSharpPlus. Contains contributions that are not yet available in the main D#+ repo.
