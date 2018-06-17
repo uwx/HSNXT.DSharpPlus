@@ -16,7 +16,7 @@ branches:
 
 environment:
   access_token:
-    secure: ZCGkDJawCLuRgzYTYraor3+u8xB5hjlMC2RhZZYWKkAVWbJ8DBI/ws7qqpZ2c2L1
+    secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
   
 build: off
 
@@ -78,7 +78,7 @@ deploy:
       $(APPVEYOR_REPO_COMMIT_MESSAGE)
       ```
     auth_token:
-      secure: P6fLO7WZwzqHvmMFHtii8ToXcxF25nJnh/GThOE7hSb4TEs+h3ARPzKXVCcHSf/P # your encrypted token from GitHub
+      secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ # your encrypted token from GitHub
     artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
     draft: false
     prerelease: true
@@ -92,7 +92,7 @@ deploy:
     #If server is not specified package will be pushed to NuGet.org.
     server: https://www.myget.org/F/hansen-dsp/api/v2/package
     api_key:
-      secure: yTsHQ3VLhxalxoRsOJvcg0J+ATpBEiKAZXArhQGHQyyTiwOXkFzAtbPBTQdIo8rS
+      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
     skip_symbols: false
     #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
     #will be pushed to SymbolSource.org.
