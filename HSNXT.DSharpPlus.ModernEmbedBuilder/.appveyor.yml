@@ -40,12 +40,8 @@ nuget:
   project_feed: false
   disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
 
+# We don't push to nuget here; NuGet builds are authored in https://github.com/uwx/HSNXT.DSharpPlus
 deploy:
-  - provider: NuGet
-    skip_symbols: true
-    api_key:
-      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
-    
     # Deploying to NuGet feed
   - provider: NuGet
     #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
