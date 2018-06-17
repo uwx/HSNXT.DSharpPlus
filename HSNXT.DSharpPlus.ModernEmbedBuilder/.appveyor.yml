@@ -17,10 +17,10 @@ environment:
 build: off
 
 build_script:
- - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
- - ps: dotnet publish "DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
- - ps: dotnet build "DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release
- - ps: dotnet pack "DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release -o "MEB" --no-build
+ - ps: dotnet publish "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
+ - ps: dotnet publish "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
+ - ps: dotnet build "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release
+ - ps: dotnet pack "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release -o "MEB" --no-build
 
 artifacts:
  - path: "MEB\\*.nupkg"
