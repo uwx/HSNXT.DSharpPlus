@@ -6,6 +6,9 @@ image: Visual Studio 2017
 
 clone_folder: c:\projects\dsp
 
+install:
+  - cmd: git clone https://github.com/DSharpPlus/DSharpPlus C:\projects\DSharpPlus
+
 branches:
   only:
     - master
