@@ -98,7 +98,7 @@ function main() {
   rm -rf ".git/modules/${sub}"
 
   # Rewrite submodule history
-  local tmpdir="$(mktemp -d -t submodule-rewrite-XXXXXX)"
+  local tmpdir="$(C:/cygwin64/bin/mktemp -d -t submodule-rewrite-XXXXXX)"
   git clone -b "${branch}" "${url}" "${tmpdir}"
   pushd "${tmpdir}"
   local tab="$(printf '\t')"
