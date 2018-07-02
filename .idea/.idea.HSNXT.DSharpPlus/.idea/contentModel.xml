@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Rafael\.Rider2018.1\system\resharper-host\Local\Transient\ReSharperHost\v12\SolutionCaches\_HSNXT.DSharpPlus.409436851.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\Documents\GitHub\HSNXT.DSharpPlus" t="IncludeFlat">
+      <e p="BotTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BotTest.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="BotTest.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="DSharpPlus\DSharpPlus" t="IncludeRecursive">
+        <e p="AssemblyInfo.cs" t="Include" />
+        <e p="AsyncEvent.cs" t="Include" />
+        <e p="BaseDiscordClient.cs" t="Include" />
+        <e p="BaseExtension.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DebugLogger.cs" t="Include" />
+        <e p="DiscordClient.cs" t="Include" />
+        <e p="DiscordConfiguration.cs" t="Include" />
+        <e p="DiscordShardedClient.cs" t="Include" />
+        <e p="DiscordWebhookClient.cs" t="Include" />
+        <e p="DSharpPlus.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="DiscordActivity.cs" t="Include" />
+          <e p="DiscordApplication.cs" t="Include" />
+          <e p="DiscordAttachment.cs" t="Include" />
+          <e p="DiscordAuditLogObjects.cs" t="Include" />
+          <e p="DiscordBan.cs" t="Include" />
+          <e p="DiscordChannel.cs" t="Include" />
+          <e p="DiscordColor.Colors.cs" t="Include" />
+          <e p="DiscordColor.cs" t="Include" />
+          <e p="DiscordConnection.cs" t="Include" />
+          <e p="DiscordDmChannel.cs" t="Include" />
+          <e p="DiscordEmbed.cs" t="Include" />
+          <e p="DiscordEmbedAuthor.cs" t="Include" />
+          <e p="DiscordEmbedBuilder.cs" t="Include" />
+          <e p="DiscordEmbedField.cs" t="Include" />
+          <e p="DiscordEmbedFooter.cs" t="Include" />
+          <e p="DiscordEmbedImage.cs" t="Include" />
+          <e p="DiscordEmbedProvider.cs" t="Include" />
+          <e p="DiscordEmbedThumbnail.cs" t="Include" />
+          <e p="DiscordEmbedVideo.cs" t="Include" />
+          <e p="DiscordEmoji.cs" t="Include" />
+          <e p="DiscordEmoji.EmojiUtils.cs" t="Include" />
+          <e p="DiscordGuild.cs" t="Include" />
+          <e p="DiscordGuildEmbed.cs" t="Include" />
+          <e p="DiscordGuildEmoji.cs" t="Include" />
+          <e p="DiscordIntegration.cs" t="Include" />
+          <e p="DiscordIntegrationAccount.cs" t="Include" />
+          <e p="DiscordInvite.cs" t="Include" />
+          <e p="DiscordInviteChannel.cs" t="Include" />
+          <e p="DiscordInviteGuild.cs" t="Include" />
+          <e p="DiscordMember.cs" t="Include" />
+          <e p="DiscordMessage.cs" t="Include" />
+          <e p="DiscordOverwrite.cs" t="Include" />
+          <e p="DiscordOverwriteBuilder.cs" t="Include" />
+          <e p="DiscordPresence.cs" t="Include" />
+          <e p="DiscordReaction.cs" t="Include" />
+          <e p="DiscordRole.cs" t="Include" />
+          <e p="DiscordUser.cs" t="Include" />
+          <e p="DiscordVoiceRegion.cs" t="Include" />
+          <e p="DiscordVoiceState.cs" t="Include" />
+          <e p="DiscordWebhook.cs" t="Include" />
+          <e p="Optional.cs" t="Include" />
+          <e p="SnowflakeObject.cs" t="Include" />
+        </e>
+        <e p="Enums" t="Include">
+          <e p="ChannelType.cs" t="Include" />
+          <e p="GatewayCompressionLevel.cs" t="Include" />
+          <e p="LogLevel.cs" t="Include" />
+          <e p="MentionType.cs" t="Include" />
+          <e p="OverwriteType.cs" t="Include" />
+          <e p="Permission.cs" t="Include" />
+          <e p="TokenType.cs" t="Include" />
+        </e>
+        <e p="EventArgs" t="Include">
+          <e p="ChannelCreateEventArgs.cs" t="Include" />
+          <e p="ChannelDeleteEventArgs.cs" t="Include" />
+          <e p="ChannelPinsUpdateEventArgs.cs" t="Include" />
+          <e p="ChannelUpdateEventArgs.cs" t="Include" />
+          <e p="ClientErrorEventArgs.cs" t="Include" />
+          <e p="DiscordEventArgs.cs" t="Include" />
+          <e p="DMChannelCreateEventArgs.cs" t="Include" />
+          <e p="DMChannelDeleteEventArgs.cs" t="Include" />
+          <e p="GuildBanAddEventArgs.cs" t="Include" />
+          <e p="GuildBanRemoveEventArgs.cs" t="Include" />
+          <e p="GuildCreateEventArgs.cs" t="Include" />
+          <e p="GuildDeleteEventArgs.cs" t="Include" />
+          <e p="GuildEmojisUpdateEventArgs.cs" t="Include" />
+          <e p="GuildIntegrationsUpdateEventArgs.cs" t="Include" />
+          <e p="GuildMemberAddEventArgs.cs" t="Include" />
+          <e p="GuildMemberRemoveEventArgs.cs" t="Include" />
+          <e p="GuildMembersChunkEventArgs.cs" t="Include" />
+          <e p="GuildMemberUpdateEventArgs.cs" t="Include" />
+          <e p="GuildRoleCreateEventArgs.cs" t="Include" />
+          <e p="GuildRoleDeleteEventArgs.cs" t="Include" />
+          <e p="GuildRoleUpdateEventArgs.cs" t="Include" />
+          <e p="GuildUpdateEventArgs.cs" t="Include" />
+          <e p="HeartBeatEventArgs.cs" t="Include" />
+          <e p="MessageAcknowledgeEventArgs.cs" t="Include" />
+          <e p="MessageBulkDeleteEventArgs.cs" t="Include" />
+          <e p="MessageCreateEventArgs.cs" t="Include" />
+          <e p="MessageDeleteEventArgs.cs" t="Include" />
+          <e p="MessageReactionAddEventArgs.cs" t="Include" />
+          <e p="MessageReactionRemoveEventArgs.cs" t="Include" />
+          <e p="MessageReactionsClearEventArgs.cs" t="Include" />
+          <e p="MessageUpdateEventArgs.cs" t="Include" />
+          <e p="PresenceUpdateEventArgs.cs" t="Include" />
+          <e p="ReadyEventArgs.cs" t="Include" />
+          <e p="SocketDisconnectEventArgs.cs" t="Include" />
+          <e p="TypingStartEventArgs.cs" t="Include" />
+          <e p="UnknownEventArgs.cs" t="Include" />
+          <e p="UserSettingsUpdateEventArgs.cs" t="Include" />
+          <e p="UserSpeakingEventArgs.cs" t="Include" />
+          <e p="UserUpdateEventArgs.cs" t="Include" />
+          <e p="VoiceReceiveEventArgs.cs" t="Include" />
+          <e p="VoiceServerUpdateEventArgs.cs" t="Include" />
+          <e p="VoiceStateUpdateEventArgs.cs" t="Include" />
+          <e p="WebhooksUpdateEventArgs.cs" t="Include" />
+          <e p="WebSocketMessageEventArgs.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="BadRequestException.cs" t="Include" />
+          <e p="NotFoundException.cs" t="Include" />
+          <e p="RateLimitException.cs" t="Include" />
+          <e p="UnauthorizedException.cs" t="Include" />
+        </e>
+        <e p="Formatter.cs" t="Include" />
+        <e p="ImageTool.cs" t="Include" />
+        <e p="Net" t="Include">
+          <e p="Abstractions" t="Include">
+            <e p="AuditLogAbstractions.cs" t="Include" />
+            <e p="ClientProperties.cs" t="Include" />
+            <e p="GatewayHello.cs" t="Include" />
+            <e p="GatewayIdentifyResume.cs" t="Include" />
+            <e p="GatewayOpCode.cs" t="Include" />
+            <e p="GatewayPayload.cs" t="Include" />
+            <e p="IOAuth2Payload.cs" t="Include" />
+            <e p="ReadyPayload.cs" t="Include" />
+            <e p="RestChannelPayloads.cs" t="Include" />
+            <e p="RestEmojiPayloads.cs" t="Include" />
+            <e p="RestGuildPayloads.cs" t="Include" />
+            <e p="RestUserPayloads.cs" t="Include" />
+            <e p="RestWebhookPayloads.cs" t="Include" />
+            <e p="ShardInfo.cs" t="Include" />
+            <e p="StatusUpdate.cs" t="Include" />
+            <e p="TransportActivity.cs" t="Include" />
+            <e p="TransportMember.cs" t="Include" />
+            <e p="TransportUser.cs" t="Include" />
+            <e p="VoiceStateUpdate.cs" t="Include" />
+          </e>
+          <e p="BaseRestRequest.cs" t="Include" />
+          <e p="DiscordApiClient.cs" t="Include" />
+          <e p="Endpoints.cs" t="Include" />
+          <e p="Models" t="Include">
+            <e p="BaseEditModel.cs" t="Include" />
+            <e p="ChannelEditModel.cs" t="Include" />
+            <e p="GuildEditModel.cs" t="Include" />
+            <e p="MemberEditModel.cs" t="Include" />
+          </e>
+          <e p="MultipartWebRequest.cs" t="Include" />
+          <e p="RateLimitBucket.cs" t="Include" />
+          <e p="RestClient.cs" t="Include" />
+          <e p="RestRequest.cs" t="Include" />
+          <e p="RestRequestMethod.cs" t="Include" />
+          <e p="RestResponse.cs" t="Include" />
+          <e p="Serialization" t="Include">
+            <e p="DiscordJson.cs" t="Include" />
+          </e>
+          <e p="Udp" t="Include">
+            <e p="BaseUdpClient.cs" t="Include" />
+            <e p="ConnectionEndpoint.cs" t="Include" />
+            <e p="DspUdpClient.cs" t="Include" />
+            <e p="DspUdpClient2.cs" t="Include" />
+            <e p="IpEndpoint.cs" t="Include" />
+          </e>
+          <e p="WebSocket" t="Include">
+            <e p="BaseWebSocketClient.cs" t="Include" />
+            <e p="WebSocketClient.cs" t="Include" />
+            <e p="WebSocketClient2.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net45" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net46" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net47" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.1" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.3" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyProperties.cs" t="Include" />
+        </e>
+        <e p="RingBuffer.cs" t="Include" />
+        <e p="Utilities.cs" t="Include" />
+      </e>
+      <e p="DSharpPlus\DSharpPlus.CommandsNext" t="IncludeRecursive">
+        <e p="Attributes" t="Include">
+          <e p="AliasesAttribute.cs" t="Include" />
+          <e p="CheckBaseAttribute.cs" t="Include" />
+          <e p="CommandAttribute.cs" t="Include" />
+          <e p="CooldownAttribute.cs" t="Include" />
+          <e p="DescriptionAttribute.cs" t="Include" />
+          <e p="DontInjectAttribute.cs" t="Include" />
+          <e p="GroupAttribute.cs" t="Include" />
+          <e p="HiddenAttribute.cs" t="Include" />
+          <e p="ModuleLifespanAttribute.cs" t="Include" />
+          <e p="PriorityAttribute.cs" t="Include" />
+          <e p="RemainingTextAttribute.cs" t="Include" />
+          <e p="RequireBotPermissionsAttribute.cs" t="Include" />
+          <e p="RequireNsfwAttribute.cs" t="Include" />
+          <e p="RequireOwnerAttribute.cs" t="Include" />
+          <e p="RequirePermissionsAttribute.cs" t="Include" />
+          <e p="RequirePrefixesAttribute.cs" t="Include" />
+          <e p="RequireRolesAttribute.cs" t="Include" />
+          <e p="RequireUserPermissionsAttribute.cs" t="Include" />
+        </e>
+        <e p="BaseCommandModule.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CommandsNextConfiguration.cs" t="Include" />
+        <e p="CommandsNextExtension.cs" t="Include" />
+        <e p="CommandsNextUtilities.cs" t="Include" />
+        <e p="Converters" t="Include">
+          <e p="ArgumentBindingResult.cs" t="Include" />
+          <e p="BaseHelpFormatter.cs" t="Include" />
+          <e p="DefaultHelpFormatter.cs" t="Include" />
+          <e p="EntityConverters.cs" t="Include" />
+          <e p="EnumConverter.cs" t="Include" />
+          <e p="HelpFormatterFactory.cs" t="Include" />
+          <e p="IArgumentConverter.cs" t="Include" />
+          <e p="NullableConverter.cs" t="Include" />
+          <e p="NumericConverters.cs" t="Include" />
+          <e p="StringConverter.cs" t="Include" />
+          <e p="TimeConverters.cs" t="Include" />
+        </e>
+        <e p="DSharpPlus.CommandsNext.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Builders" t="Include">
+            <e p="CommandBuilder.cs" t="Include" />
+            <e p="CommandGroupBuilder.cs" t="Include" />
+            <e p="CommandModuleBuilder.cs" t="Include" />
+            <e p="CommandOverloadBuilder.cs" t="Include" />
+          </e>
+          <e p="Command.cs" t="Include" />
+          <e p="CommandArgument.cs" t="Include" />
+          <e p="CommandGroup.cs" t="Include" />
+          <e p="CommandHelpMessage.cs" t="Include" />
+          <e p="CommandModule.cs" t="Include" />
+          <e p="CommandOverload.cs" t="Include" />
+          <e p="CommandResult.cs" t="Include" />
+        </e>
+        <e p="EventArgs" t="Include">
+          <e p="CommandContext.cs" t="Include" />
+          <e p="CommandErrorEventArgs.cs" t="Include" />
+          <e p="CommandEventArgs.cs" t="Include" />
+          <e p="CommandExecutionEventArgs.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="ChecksFailedException.cs" t="Include" />
+          <e p="CommandNotFoundException.cs" t="Include" />
+          <e p="DuplicateCommandException.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net45" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net46" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="net47" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.1" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard1.3" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Polyfills.cs" t="Include" />
+      </e>
+      <e p="DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DSharpPlus.WebSocket.WebSocket4NetCore.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard1.3" t="Include">
+              <e p="DSharpPlus.WebSocket.WebSocket4NetCore.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="DSharpPlus.WebSocket.WebSocket4NetCore.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="WebSocket4NetCoreClient.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DiscordRPC.Base" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="HSNXT.DiscordRPC.Base.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.Base.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DiscordRPC.NotepadPlusPlus" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="discord-rpc.dll" t="Include" />
+        <e p="HSNXT.DiscordRPC.NotepadPlusPlus.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.NotepadPlusPlus.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DiscordRPC.VLC" t="IncludeRecursive">
+        <e p="app.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="discord-rpc.dll" t="Include" />
+        <e p="HSNXT.DiscordRPC.VLC.csproj" t="IncludeRecursive" />
+        <e p="HSNXT.DiscordRPC.VLC.csproj.DotSettings" t="Include" />
+        <e p="JsonBits.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DiscordRPC.VLC.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="unirest-net-master" t="Include">
+          <e p=".gitignore" t="Include" />
+          <e p="LICENSE" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="Unirest" t="Include">
+            <e p="HttpClientHelper.cs" t="Include" />
+            <e p="HttpRequest.cs" t="Include" />
+            <e p="HttpRequestUrl.cs" t="Include" />
+            <e p="HttpResponse.cs" t="Include" />
+            <e p="Unirest.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.CNextNotifier" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CNextNotifier.cs" t="Include" />
+        <e p="CustomDictionary.cs" t="Include" />
+        <e p="Example.cs" t="Include" />
+        <e p="HSNXT.DSharpPlus.CNextNotifier.csproj" t="IncludeRecursive" />
+        <e p="LICENSE" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.CNextNotifier.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.Extended" t="IncludeRecursive">
+        <e p="AsyncListeners" t="Include">
+          <e p="AsyncListenerAttribute.cs" t="Include" />
+          <e p="AsyncListenerHandler.cs" t="Include" />
+          <e p="EventTypes.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Color.cs" t="Include" />
+        <e p="DspExtended.cs" t="Include" />
+        <e p="EmptyList.cs" t="Include" />
+        <e p="EventArgs" t="Include">
+          <e p="ExtensionErrorEventArgs.cs" t="Include" />
+          <e p="MentionReceivedEventArgs.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods" t="Include">
+          <e p="ChannelExtensions.cs" t="Include" />
+          <e p="MemberExtensions.cs" t="Include" />
+          <e p="ModifyShortcuts" t="Include">
+            <e p="ChannelExtensions.cs" t="Include" />
+            <e p="GuildEmojiExtensions.cs" t="Include" />
+            <e p="GuildExtensions.cs" t="Include" />
+            <e p="MemberExtensions.cs" t="Include" />
+            <e p="WebhookExtensions.cs" t="Include" />
+          </e>
+          <e p="RoleExtensions.cs" t="Include" />
+        </e>
+        <e p="HSNXT.DSharpPlus.Extended.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.Extended.Emoji" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="E.cs" t="Include" />
+        <e p="Emoji.cs" t="Include" />
+        <e p="HSNXT.DSharpPlus.Extended.Emoji.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.Emoji.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.Emoji.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.Extended.Lite" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="HSNXT.DSharpPlus.Extended.Lite.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.Lite.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.Extended.Lite.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.ModernEmbedBuilder" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Color.cs" t="Include" />
+        <e p="DuckAuthor.cs" t="Include" />
+        <e p="DuckColor.cs" t="Include" />
+        <e p="DuckField.cs" t="Include" />
+        <e p="DuckFooter.cs" t="Include" />
+        <e p="DuckTimestamp.cs" t="Include" />
+        <e p="HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" t="IncludeRecursive" />
+        <e p="MEBTest.cs" t="Include" />
+        <e p="ModernEmbedBuilder.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSharpPlus.ModernEmbedBuilder.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.ModernEmbedBuilder.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.sln" t="IncludeFlat" />
+      <e p="HSNXT.DSPEmoji.Neo" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="emoji.txt" t="Include" />
+        <e p="HSNXT.DSPEmoji.Neo.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp1.0" t="Include">
+              <e p="HSNXT.DSPEmoji.Neo.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DSPEmojiEscape" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="emoji.txt" t="Include" />
+        <e p="HSNXT.DSPEmojiEscape.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSPEmojiEscape.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSPEmojiEscape.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DSPEmojiGenerator" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="HSNXT.DSPEmojiGenerator.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="out.txt" t="Include" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.DSPEmojiGenerator2" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="emoji.txt" t="Include" />
+        <e p="HSNXT.DSPEmojiGenerator2.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.DSPEmojiGenerator2.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netcoreapp2.0" t="Include">
+              <e p="HSNXT.DSPEmojiGenerator2.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="HSNXT.SyncLauncher" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="HSNXT.SyncLauncher.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net47" t="Include">
+              <e p="HSNXT.SyncLauncher.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netcoreapp2.0" t="Include">
+              <e p="HSNXT.SyncLauncher.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

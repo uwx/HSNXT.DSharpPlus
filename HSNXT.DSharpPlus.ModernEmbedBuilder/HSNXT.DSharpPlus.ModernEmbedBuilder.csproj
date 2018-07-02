@@ -12,10 +12,10 @@
     <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
-    <PackageLicenseUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/uwx/HSNXT.DSharpPlus/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/uwx/HSNXT.DSharpPlus</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/uwx/DSharpPlus.ModernEmbedBuilder</RepositoryUrl>
+    <RepositoryUrl>https://github.com/uwx/HSNXT.DSharpPlusr</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#</PackageTags>
   </PropertyGroup>

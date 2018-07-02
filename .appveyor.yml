@@ -29,8 +29,8 @@ before_build:
 build: off
 
 build_script:
-  - ps: dotnet build "TestProject.sln" -c Release
-  - ps: dotnet publish "TestProject.sln" --configuration Release -f net47
+  - ps: dotnet build "HSNXT.DSharpPlus.sln" -c Release
+  - ps: dotnet publish "HSNXT.DSharpPlus.sln" --configuration Release -f net47
   # publish projects 1
   - ps: dotnet publish "HSNXT.DSharpPlus.CNextNotifier/HSNXT.DSharpPlus.CNextNotifier.csproj" --configuration Release -f netstandard2.0
   - ps: dotnet publish "HSNXT.DSharpPlus.Extended/HSNXT.DSharpPlus.Extended.csproj" --configuration Release -f netstandard2.0
