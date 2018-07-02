@@ -16,7 +16,7 @@ branches:
 
 environment:
   access_token:
-    secure: ZCGkDJawCLuRgzYTYraor3+u8xB5hjlMC2RhZZYWKkAVWbJ8DBI/ws7qqpZ2c2L1
+    secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
 
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
@@ -153,11 +153,11 @@ deploy:
   - provider: NuGet
     skip_symbols: false
     api_key:
-      secure: ZkuAOJwTjYBiEAHrTHkVDYaNRBaWDDmvpkUVN+9PnsHWQnfDDdDWWAMPltRlYNYn
-      
+      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
+
 notifications:
   - provider: Slack
     on_build_success: true
     on_build_failure: true
     incoming_webhook:
-      secure: /tQzfO0uCSjCMZF2eqIdIGAxeA/Zyn2eKDJKfcnvwV7PsWf0sLZolUFnbnWva3KWtNuYgOXz30QpuRl/fcza4Kp7Ymg7COchmmFXpAPu+ZW/yuY4SiEEgTIRmpLZZFLVlFPOlb+9+JjNvk2Ck6LnWD799g3ErcK7arpJF7O0CrK3Bs/Ib3Qeyigdu7g71Lva
+      secure: +5y63VhkKwOZVK264xwgH8gp7vI2cJivXvseQeSoYYNyH3wjOtid8Qz+gyNOjCGpI/xqxxJNwqFrL75ZPHYOYEKs9WhBWznTsFpJUAs5hxn1kcczMv6WYuwUzXJNEdqX6m47PnS7xrzUZJIRWNQCHRJCtN5VX+hXfVV6BT+tKQevfSqQF/uISp/6etOGpEW1
