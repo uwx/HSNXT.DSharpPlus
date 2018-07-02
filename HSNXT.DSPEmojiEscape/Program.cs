@@ -33,7 +33,7 @@ namespace Dickscord
             var asAscii = new StringBuilder();
             for (var idx = 0; idx < bytes.Length; idx += 4)
             {
-                asAscii.Append(idx == 0 ? "emoji_u" : "_");
+                asAscii.Append(idx == 0 ? "emoji_u" : "_");// this is for my blob generator
                 var codepoint = BitConverter.ToUInt32(bytes, idx);
 #if ShortestPossibleName
                 if (codepoint <= sbyte.MaxValue)

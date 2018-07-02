@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Forms.DataVisualization.Charting;
 using DSharpPlus;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Net.WebSocket;
@@ -30,7 +28,7 @@ namespace BotTest
                 Token = File.ReadAllText("../token.txt").Trim(), // Your token
                 TokenType = TokenType.Bot, // Your token type. Most likely "Bot"
                 UseInternalLogHandler = true, // Whether you want to use the internal log handler
-                WebSocketClientFactory = WebSocket4NetClient.CreateNew
+                WebSocketClientFactory = WebSocket4NetCoreClient.CreateNew
             };
             var client = new DiscordClient(cfg);
 
@@ -51,40 +49,17 @@ namespace BotTest
 
         private static async Task MessageCreated(MessageCreateEventArgs e)
         {
-            if (e.Message.Content.StartsWith("bouphe2"))
+            try
             {
-                await e.Channel.SendFileAsync(new FileStream(@"C:\Users\Rafael\Pictures\1.jpg", FileMode.Open), "graph.jpg");
-            }
-            if (e.Message.Content.StartsWith("bouphe1"))
-            {
-                _ = Task.Run(async () =>
+                if (e.Message.Content.StartsWith("bouphe1"))
                 {
-                    await Task.Yield();
-
-                    var d = new List<DataPoint>();
-                    for (var i = 0; i < 10; i++)
-                        d.Add(new DataPoint(i, i));
-                    using (var s = new MemoryStream())
-                    {
-                        GeneratePlot(d, s);
-                        s.Position = 0;
-                        await e.Channel.SendFileAsync(s, "graph.jpg");
-                    }
-                    Console.WriteLine("ok");
-                });
+                    Console.WriteLine("Channels:" + e.Message.MentionedChannels);
+                    Console.WriteLine("Roles:" + e.Message.MentionedRoles);
+                }
             }
-        }
-
-        public static void GeneratePlot(IList<DataPoint> series, Stream outputStream)
-        {
-            using (var ch = new Chart())
+            catch (Exception ex)
             {
-                ch.ChartAreas.Add(new ChartArea());
-
-                var s = new Series {ChartType = SeriesChartType.FastLine};
-                foreach (var pnt in series) s.Points.Add(pnt);
-                ch.Series.Add(s);
-                ch.SaveImage(outputStream, ChartImageFormat.Jpeg);
+                Console.WriteLine(ex);
             }
         }
     }
