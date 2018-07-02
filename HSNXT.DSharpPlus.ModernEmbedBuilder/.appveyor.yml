@@ -1,0 +1,59 @@
+# version format
+version: uwx-nightly-{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_folder: c:\projects\dsp
+
+install:
+  - cmd: git clone https://github.com/DSharpPlus/DSharpPlus C:\projects\DSharpPlus
+
+branches:
+  only:
+    - master
+
+environment:
+  access_token:
+    secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
+
+build: off
+
+build_script:
+ - ps: dotnet publish "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f netstandard2.0
+ - ps: dotnet publish "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" --configuration Release -f net47
+ - ps: dotnet build "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release
+ - ps: dotnet pack "HSNXT.DSharpPlus.ModernEmbedBuilder.csproj" -v Minimal -c Release -o "MEB" --no-build
+
+artifacts:
+ - path: "MEB\\*.nupkg"
+ - path: "bin\\Release\\net47\\*.dll"
+   name: Release DLLs (.NET 4.7)
+   type: zip
+ - path: "bin\\Release\\netstandard2.0\\*.dll"
+   name: Release DLLs (.NET Standard 2.0)
+   type: zip
+
+# Automatically register private account and/or project AppVeyor NuGet feeds.
+nuget:
+  account_feed: false
+  project_feed: false
+  disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
+
+# We don't push to nuget here; NuGet builds are authored in https://github.com/uwx/HSNXT.DSharpPlus
+deploy:
+    # Deploying to NuGet feed
+  - provider: NuGet
+    #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
+    #If server is not specified package will be pushed to NuGet.org.
+    server: https://www.myget.org/F/hansen-dsp/api/v2/package
+    api_key:
+      secure: UgAJl6eK2vnLTns5CJda/+jILU/c2Xtsv4pZ9FILt4VaYl3N/orzvB8sv6cdrk7A
+    skip_symbols: false
+    #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
+    #will be pushed to SymbolSource.org.
+    #symbol_server: https://your.symbol.server/feed
+    
+    #Artifact(s) (artifact) - artifact name or filename to push. If not specified all artifacts of type NuGet package
+    #will be pushed. This can be a regexp, e.g. /.*\.nupkg/
+    #artifact: DSharpPlus.nupkg
