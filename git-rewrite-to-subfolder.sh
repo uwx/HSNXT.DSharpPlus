@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # We need the TAB character for SED (Mac OS X sed does not understand \t)
 TAB="$(printf '\t')"
 
@@ -61,3 +62,4 @@ CMD="git ls-files -s | sed \"s/${TAB}/${TAB}$TARGET_PATH\//\" | GIT_INDEX_FILE=\
 git filter-branch \
     --index-filter "$CMD" \
     HEAD
+
