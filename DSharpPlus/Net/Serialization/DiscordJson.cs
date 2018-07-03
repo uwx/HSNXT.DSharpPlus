@@ -72,9 +72,6 @@ namespace DSharpPlus.Net.Serialization
             
             property.ShouldSerialize = instance => // instance here is the declaring (parent) type
             {
-                #if NETSTANDARD2_0
-                Console.WriteLine($"Property: {type} {property.DeclaringType}#{property.UnderlyingName} :: {optionalProp}");
-                #endif
                 // this is the Optional<T> object
                 var optionalValue = propPresent ? optionalProp.GetValue(instance) : optionalField.GetValue(instance);
                 // get the HasValue property of the Optional<T> object and cast it to a bool, and only serialize it if
@@ -112,12 +109,6 @@ namespace DSharpPlus.Net.Serialization
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {
-            //if (!reader.Read()) throw new ArgumentException("Something's wrong here.");
-
-#if NETSTANDARD2_0
-            Console.WriteLine($"Deserializing {objectType} from {existingValue} :: {reader} / str::{reader.Value}");
-#endif
-
             var genericType = objectType.GenericTypeArguments[0];
 
             var constructor = objectType.GetTypeInfo().DeclaredConstructors
@@ -125,12 +116,7 @@ namespace DSharpPlus.Net.Serialization
             
             try
             {
-                var result = constructor.Invoke(new[] { Convert.ChangeType(reader.Value, genericType)});
-
-#if NETSTANDARD2_0
-            Console.WriteLine($"OwO value is {result}");
-#endif
-                return result;
+                return constructor.Invoke(new[] { Convert.ChangeType(reader.Value, genericType)});
             }
             catch
             {

@@ -85,7 +85,7 @@ namespace DSharpPlus.Net
             var id = RateLimitBucket.GenerateId(method, route, guild_id, channel_id, webhook_id);
             
             // using the GetOrAdd version with the factory has no advantages as it will allocate the delegate, closure object and bucket (if needed) instead of just the bucket 
-            var bucket = this.Buckets.GetOrAdd(id, new RateLimitBucket(method, route, guild_id, channel_id, webhook_id));
+            RateLimitBucket bucket = this.Buckets.GetOrAdd(id, new RateLimitBucket(method, route, guild_id, channel_id, webhook_id));
 
             url = RouteArgumentRegex.Replace(route, xm => rparams[xm.Groups[1].Value]);
             return bucket;
@@ -293,7 +293,7 @@ namespace DSharpPlus.Net
 
             if (request is MultipartWebRequest mprequest)
             {
-                var boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
+                string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
 
                 req.Headers.Add("Connection", "keep-alive");
                 req.Headers.Add("Keep-Alive", "600");

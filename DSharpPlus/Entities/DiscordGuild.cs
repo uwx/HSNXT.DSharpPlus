@@ -660,7 +660,7 @@ namespace DSharpPlus.Entities
             var recids = recmbr.Select(xm => xm.Id);
 
             // clear the cache of users who weren't received
-            for (var i = 0; i < this._members.Count; i++)
+            for (int i = 0; i < this._members.Count; i++)
                 if (!recids.Contains(this._members[i].Id))
                     this._members.RemoveAt(i--);
 

@@ -415,7 +415,7 @@ namespace DSharpPlus.Entities
         /// <returns>The hash code for this <see cref="DiscordMessage"/>.</returns>
         public override int GetHashCode()
         {
-            var hash = 13;
+            int hash = 13;
 
             hash = (hash * 7) + this.Id.GetHashCode();
             hash = (hash * 7) + this.ChannelId.GetHashCode();
