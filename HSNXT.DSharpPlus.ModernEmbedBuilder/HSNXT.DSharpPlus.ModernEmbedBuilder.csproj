@@ -1,39 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../HSNXT.DSharpPlus.targets" />
+
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <LangVersion>7.1</LangVersion>
-    <NoWarn>1591</NoWarn>
-    <Optimize>True</Optimize>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageId>HSNXT.DSharpPlus.ModernEmbedBuilder</PackageId>
-    <Authors>uwx / fallk</Authors>
-    <Company>uwx</Company>
     <Description>Addon for DSharpPlus adding a new Embed Builder designed around value tuples and object initializers.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
-    <PackageLicenseUrl>https://github.com/uwx/HSNXT.DSharpPlus/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/uwx/HSNXT.DSharpPlus</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/uwx/HSNXT.DSharpPlusr</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#</PackageTags>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <FileVersion>1.0.2</FileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
-    <Version>1.0.$(Appveyor_Build_Number)</Version>
-    <AssemblyVersion>1.0.$(Appveyor_Build_Number)</AssemblyVersion>
-    <FileVersion>1.0.$(Appveyor_Build_Number)</FileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <Optimize>False</Optimize>
-  </PropertyGroup>
+  
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
+    <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00405" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />
