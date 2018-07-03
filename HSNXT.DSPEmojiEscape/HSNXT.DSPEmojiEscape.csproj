@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../HSNXT.DSharpPlus.targets" />
+
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
-    <LangVersion>latest</LangVersion>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>

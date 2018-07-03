@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../HSNXT.DSharpPlus.targets" />
+
   <PropertyGroup>
     <TargetFramework>net47</TargetFramework>
   </PropertyGroup>

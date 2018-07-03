@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../HSNXT.DSharpPlus.targets" />
+
   <PropertyGroup>
     <TargetFramework>net47</TargetFramework>
-    <LangVersion>latest</LangVersion>
     <OutputType>Exe</OutputType>
     <AssemblyName>HSNXT.DiscordRPC.VLCa</AssemblyName>
     <RootNamespace>HSNXT.DiscordRPC.VLCa</RootNamespace>
