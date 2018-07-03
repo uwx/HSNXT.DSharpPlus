@@ -604,7 +604,7 @@
         <e p="HSNXT.DSPEmoji.Neo.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp1.0" t="Include">
+            <e p="netcoreapp2.1" t="Include">
               <e p="HSNXT.DSPEmoji.Neo.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
