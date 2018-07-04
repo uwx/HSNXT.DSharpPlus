@@ -30,13 +30,6 @@ before_build:
 build: off
 
 build_script:
-  # set <PackageId> for D#+  projects
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore/DSharpPlus.WebSocket.WebSocket4NetCore.csproj" HSNXT.DSharpPlus.WebSocket.WebSocket4NetCore
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus/DSharpPlus.csproj" HSNXT.DSharpPlus
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.CommandsNext/DSharpPlus.CommandsNext.csproj" HSNXT.DSharpPlus.CommandsNext
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Interactivity/DSharpPlus.Interactivity.csproj" HSNXT.DSharpPlus.Interactivity
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.Rest/DSharpPlus.Rest.csproj" HSNXT.DSharpPlus.Rest
-  - cmd: node .set-package-id.js "DSharpPlus/DSharpPlus.VoiceNext/DSharpPlus.VoiceNext.csproj" HSNXT.DSharpPlus.VoiceNext
   #- ps: dotnet build "HSNXT.DSharpPlus.sln" -c Release
   - ps: dotnet msbuild /t:PublishAll /p:Configuration=Release
   - ps: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build
