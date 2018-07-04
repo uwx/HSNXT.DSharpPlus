@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <Import Project="../DSharpPlus.targets" />
+  <Import Project="../HSNXT.DSharpPlus.targets" />
 
   <PropertyGroup>
-    <AssemblyName>DSharpPlus.CommandsNext</AssemblyName>
-    <RootNamespace>DSharpPlus.CommandsNext</RootNamespace>
+    <AssemblyName>HSNXT.DSharpPlus.CommandsNext.Extended</AssemblyName>
+    <RootNamespace>HSNXT.DSharpPlus.CommandsNext.Extended</RootNamespace>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net45;net46;net47;netstandard1.1;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>DSharpPlus.CommandsNext</PackageId>
-    <Description>Advanced command framework for DSharpPlus.</Description>
-    <PackageTags>discord discord-api bots discord-bots chat dsharp dsharpplus csharp dotnet vb-net fsharp commands commandsnext</PackageTags>
+    <PackageId>HSNXT.DSharpPlus.CommandsNext.Extended</PackageId>
+    <Description>Fork of Emzi0767's advanced command framework for DSharpPlus.
+      Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
+      regarding this package in official DSharpPlus discussion boards.</Description>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus.csproj" />
+    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
 
 </Project>
