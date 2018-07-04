@@ -64,6 +64,7 @@ deploy:
     skip_symbols: false
     api_key:
       secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
+    artifact: /^(?:(?!DSharpPlus)).*\.nupkg/ #push non-D#+ packages
 
 notifications:
   - provider: Slack
