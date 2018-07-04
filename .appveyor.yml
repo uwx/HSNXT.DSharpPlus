@@ -38,24 +38,6 @@ on_success:
 artifacts:
  - path: artifacts\dsharpplus-docs.tar.xz
  - path: artifacts\*.nupkg
- - path: "*\\bin\\Release\\net47\\*.dll"
-   name: Release DLLs (.NET 4.7)
-   type: zip
- - path: "*\\bin\\Release\\net46\\*.dll"
-   name: Release DLLs (.NET 4.6)
-   type: zip
- - path: "*\\bin\\Release\\net45\\*.dll"
-   name: Release DLLs (.NET 4.5)
-   type: zip
- - path: "*\\bin\\Release\\netstandard1.1\\*.dll"
-   name: Release DLLs (.NET Standard 1.1)
-   type: zip
- - path: "*\\bin\\Release\\netstandard1.3\\*.dll"
-   name: Release DLLs (.NET Standard 1.3)
-   type: zip
- - path: "*\\bin\\Release\\netstandard2.0\\*.dll"
-   name: Release DLLs (.NET Standard 2.0)
-   type: zip
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
 nuget:
