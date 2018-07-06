@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.CommandsNext;
 using DSharpPlus;
 
 namespace DSharpPlus.Extended.CNext
