@@ -35,9 +35,8 @@ namespace DSharpPlus.Extended.CNext
             if (targetPosition == null)
               return Task.FromResult(false);
             
-            var ourPosition = ctx.Member.Roles.OrderByDescending(e => e.Position).FirstOrDefault()?.Position;
-            if (ourPosition == null) // roles can never go this high
-              return Task.FromResult(false);
+            var ourPosition = ctx.Member.Roles.Max(e => e.Position);
+            // we don't need to check the default value because the default value is, well, the same as the @everyone role position
             
             return Task.FromResult(ourPosition >= targetPosition);
         }
