@@ -35,10 +35,8 @@ namespace DSharpPlus.Extended.CNext
             if (targetPosition == null)
               return Task.FromResult(false);
             
-            // avoid multiple enumeration
-            var ourPosition = ctx.Member.Roles.OrderByDescending(e => e.Position).DefaultIfEmpty(int.MaxValue).First();
-            
-            if (ourPosition == int.MaxValue) // roles can never go this high
+            var ourPosition = ctx.Member.Roles.OrderByDescending(e => e.Position).FirstOrDefault()?.Position;
+            if (ourPosition == null) // roles can never go this high
               return Task.FromResult(false);
             
             return Task.FromResult(ourPosition >= targetPosition);
