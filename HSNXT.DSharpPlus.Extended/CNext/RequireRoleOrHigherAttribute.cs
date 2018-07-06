@@ -28,7 +28,10 @@ namespace DSharpPlus.Extended.CNext
             if (ctx.Guild == null || ctx.Member == null)
                 return Task.FromResult(false);
 
-            var targetPosition = ctx.Guild.GetRole(RoleName).Position;
+            var targetPosition = ctx.Guild.Roles.FirstOrDefault(e => e.Name == RoleName)?.Position;
+            if (targetPosition == null)
+              return Task.FromResult(false);
+            
             // avoid multiple enumeration
             var ourPosition = ctx.Member.Roles.OrderByDescending(e => e.Position).DefaultIfEmpty(int.MaxValue).First();
             
