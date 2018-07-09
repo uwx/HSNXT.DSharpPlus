@@ -10,6 +10,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="DSharpPlus" #>
+<#@ import namespace="DSharpPlus.Entities" #>
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,18 +24,6 @@ namespace DSharpPlus.CommandsNext._Introspection
     {
 <# 
     foreach (var line in Exec(typeof(DiscordClient)))
-    {
-#>
-        <#= line #>
-<#
-    }
-#>
-    }
-	
-    public partial class ProxiedDiscordMessage : IDisposable
-    {
-<# 
-    foreach (var line in Exec(typeof(DiscordMessage)))
     {
 #>
         <#= line #>

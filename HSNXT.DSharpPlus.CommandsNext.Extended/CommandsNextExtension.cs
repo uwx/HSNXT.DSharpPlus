@@ -609,9 +609,9 @@ namespace DSharpPlus.CommandsNext
             {
                 if (msg.Channel.Guild != null)
                 {
-                    mentioned_users = Utilities.GetUserMentions(msg).Select(xid => msg.Channel.Guild._members.FirstOrDefault(xm => xm.Id == xid)).Cast<DiscordUser>().ToList();
-                    mentioned_roles = Utilities.GetRoleMentions(msg).Select(xid => msg.Channel.Guild._roles.FirstOrDefault(xr => xr.Id == xid)).ToList();
-                    mentioned_channels = Utilities.GetChannelMentions(msg).Select(xid => msg.Channel.Guild._channels.FirstOrDefault(xc => xc.Id == xid)).ToList();
+                    mentioned_users = Utilities.GetUserMentions(msg).Select(xid => msg.Channel.Guild.Members.FirstOrDefault(xm => xm.Id == xid)).Cast<DiscordUser>().ToList();
+                    mentioned_roles = Utilities.GetRoleMentions(msg).Select(xid => msg.Channel.Guild.Roles.FirstOrDefault(xr => xr.Id == xid)).ToList();
+                    mentioned_channels = Utilities.GetChannelMentions(msg).Select(xid => msg.Channel.Guild.Channels.FirstOrDefault(xc => xc.Id == xid)).ToList();
                 }
                 else
                 {
