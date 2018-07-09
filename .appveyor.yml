@@ -17,7 +17,6 @@ branches:
 environment:
   access_token:
     secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
-  VersionSuffix: $(Appveyor_Build_Number)
 
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
@@ -25,8 +24,7 @@ install:
 before_build:
   - cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
   - cmd: nuget restore
-  - ps: Install-Product node 8
-
+  - ps: [Environment]::SetEnvironmentVariable("VersionSuffix", [int]::Parse($Env:APPVEYOR_BUILD_NUMBER).ToString("00000"), "User")
 build: off
 
 build_script:
