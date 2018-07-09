@@ -17,7 +17,7 @@ branches:
 environment:
   access_token:
     secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
-  VersionSuffix: 1
+  VersionSuffix: 00001
 
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
