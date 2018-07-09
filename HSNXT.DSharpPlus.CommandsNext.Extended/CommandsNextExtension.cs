@@ -8,6 +8,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Builders;
 using DSharpPlus.CommandsNext.Converters;
 using DSharpPlus.CommandsNext.Exceptions;
+using DSharpPlus.CommandsNext._Introspection;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 
@@ -16,7 +17,7 @@ namespace DSharpPlus.CommandsNext
     /// <summary>
     /// This is the class which handles command registration, management, and execution. 
     /// </summary>
-    public class CommandsNextExtension : BaseExtension
+    public class CommandsNextExtension : BaseIntrospectiveExtension
     {
         private CommandsNextConfiguration Config { get; }
         private HelpFormatterFactory HelpFormatter { get; }
@@ -135,7 +136,7 @@ namespace DSharpPlus.CommandsNext
         /// </summary>
         /// <param name="client">DO NOT USE THIS MANUALLY.</param>
         /// <exception cref="InvalidOperationException"/>
-        protected internal override void Setup(DiscordClient client)
+        protected override void Setup(DiscordClient client)
         {
             if (this.Client != null)
                 throw new InvalidOperationException("What did I tell you?");
@@ -584,7 +585,7 @@ namespace DSharpPlus.CommandsNext
             var ts = (ulong)(dtn - eph).TotalMilliseconds;
 
             // create fake message
-            var msg = new DiscordMessage
+            var msg = new ProxiedDiscordMessage
             {
                 Discord = this.Client,
                 Author = user,

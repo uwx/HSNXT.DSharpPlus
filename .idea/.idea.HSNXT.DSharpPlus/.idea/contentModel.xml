@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Rafael\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_HSNXT.DSharpPlus.409436851.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2018.1\system\resharper-host\Local\Transient\ReSharperHost\v12\SolutionCaches\_HSNXT.DSharpPlus.409436851.00" t="ExcludeRecursive" />
     <e p="C:\Users\Rafael\Documents\GitHub\HSNXT.DSharpPlus" t="IncludeFlat">
       <e p="BotTest" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -510,6 +510,11 @@
         </e>
       </e>
       <e p="HSNXT.DSharpPlus.CommandsNext.Extended" t="IncludeRecursive">
+        <e p="_Introspection" t="Include">
+          <e p="BaseIntrospectiveExtension.cs" t="Include" />
+          <e p="CommandsNextUtilitiesFunctionality.cs" t="Include" />
+          <e p="ProxiedDiscordClient_Generated.cs.tt" t="Include" />
+        </e>
         <e p="Attributes" t="Include">
           <e p="AliasesAttribute.cs" t="Include" />
           <e p="CheckBaseAttribute.cs" t="Include" />
@@ -592,6 +597,9 @@
           <e p="EventTypes.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CNext" t="Include">
+          <e p="RequireRoleOrHigherAttribute.cs" t="Include" />
+        </e>
         <e p="Color.cs" t="Include" />
         <e p="DspExtended.cs" t="Include" />
         <e p="EmptyList.cs" t="Include" />
@@ -676,6 +684,18 @@
         </e>
       </e>
       <e p="HSNXT.DSharpPlus.sln" t="IncludeFlat" />
+      <e p="HSNXT.DSPCodegen" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="HSNXT.DSPCodegen.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="HSNXT.DSPCodegen.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
       <e p="HSNXT.DSPEmoji.Neo" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="emoji.txt" t="Include" />

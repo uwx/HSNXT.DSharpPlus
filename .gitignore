@@ -4,3 +4,9 @@
 _DSharpPlus
 packages
 /token.txt
+/.vs/HSNXT.DSharpPlus/v15/.suo
+/.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/db.lock
+/.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide
+/.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-shm
+/.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-wal
+/.vs/HSNXT.DSharpPlus/DesignTimeBuild/.dtbcache

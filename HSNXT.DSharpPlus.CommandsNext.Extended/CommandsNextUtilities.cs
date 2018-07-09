@@ -16,7 +16,7 @@ namespace DSharpPlus.CommandsNext
     /// <summary>
     /// Various CommandsNext-related utilities.
     /// </summary>
-    public static class CommandsNextUtilities
+    public static partial class CommandsNextUtilities
     {
         private static Regex UserRegex { get; } = new Regex(@"<@\!?(\d+?)> ", RegexOptions.ECMAScript);
 

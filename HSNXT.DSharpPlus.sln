@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.VoiceNext", "DSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.CommandsNext.Extended", "HSNXT.DSharpPlus.CommandsNext.Extended\HSNXT.DSharpPlus.CommandsNext.Extended.csproj", "{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPCodegen", "HSNXT.DSPCodegen\HSNXT.DSPCodegen.csproj", "{7FC4A3A5-93F5-44FC-842F-6038808404C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC4A3A5-93F5-44FC-842F-6038808404C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC4A3A5-93F5-44FC-842F-6038808404C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC4A3A5-93F5-44FC-842F-6038808404C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC4A3A5-93F5-44FC-842F-6038808404C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
