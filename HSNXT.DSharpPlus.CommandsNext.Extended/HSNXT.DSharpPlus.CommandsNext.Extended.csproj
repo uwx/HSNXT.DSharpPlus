@@ -10,10 +10,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>HSNXT.DSharpPlus.CommandsNext.Extended</PackageId>
+    <PackageId>DSharpPlus.CommandsNext.Extended</PackageId>
     <Description>Fork of Emzi0767's advanced command framework for DSharpPlus.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
@@ -31,5 +32,16 @@
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
+
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
+    <Version>99.0.0</Version>
+    <AssemblyVersion>99.0.0</AssemblyVersion>
+    <FileVersion>99.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
+    <Version>99.0.$(Appveyor_Build_Number)</Version>
+    <AssemblyVersion>99.0.$(Appveyor_Build_Number)</AssemblyVersion>
+    <FileVersion>99.0.$(Appveyor_Build_Number)</FileVersion>
+  </PropertyGroup>
 
 </Project>

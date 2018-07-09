@@ -5,45 +5,43 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.CNextNotifier", "HSNXT.DSharpPlus.CNextNotifier\HSNXT.DSharpPlus.CNextNotifier.csproj", "{7DBCB5DB-2BCC-4B9F-818D-B4FD7E72321C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotTest", "BotTest\BotTest.csproj", "{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotTest", "BotTest\BotTest.csproj", "{96BBC26A-9FBC-48B7-B7FF-CAB89631D76B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.ModernEmbedBuilder", "HSNXT.DSharpPlus.ModernEmbedBuilder\HSNXT.DSharpPlus.ModernEmbedBuilder.csproj", "{B9392BE3-75CA-42D2-8B8E-C6E1445B6483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.ModernEmbedBuilder", "HSNXT.DSharpPlus.ModernEmbedBuilder\HSNXT.DSharpPlus.ModernEmbedBuilder.csproj", "{B9392BE3-75CA-42D2-8B8E-C6E1445B6483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus", "DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{75E73C6B-79B8-4A80-957A-01F00BAFC06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus", "DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{75E73C6B-79B8-4A80-957A-01F00BAFC06A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended", "HSNXT.DSharpPlus.Extended\HSNXT.DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended", "HSNXT.DSharpPlus.Extended\HSNXT.DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended.Emoji", "HSNXT.DSharpPlus.Extended.Emoji\HSNXT.DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended.Emoji", "HSNXT.DSharpPlus.Extended.Emoji\HSNXT.DSharpPlus.Extended.Emoji.csproj", "{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CommandsNext", "DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj", "{566DA48D-B271-424A-A40E-6C46B75D1C0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended.Lite", "HSNXT.DSharpPlus.Extended.Lite\HSNXT.DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.Extended.Lite", "HSNXT.DSharpPlus.Extended.Lite\HSNXT.DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DiscordRPC.Base", "HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj", "{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.Base", "HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj", "{29E7E38C-0C25-4EC2-AF9B-735EA1408D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DiscordRPC.NotepadPlusPlus", "HSNXT.DiscordRPC.NotepadPlusPlus\HSNXT.DiscordRPC.NotepadPlusPlus.csproj", "{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.NotepadPlusPlus", "HSNXT.DiscordRPC.NotepadPlusPlus\HSNXT.DiscordRPC.NotepadPlusPlus.csproj", "{A1292264-075F-4B26-A1F1-1CBD3A99CDDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DiscordRPC.VLC", "HSNXT.DiscordRPC.VLC\HSNXT.DiscordRPC.VLC.csproj", "{FAD5BB1E-167A-4015-842F-47BA1D214A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DiscordRPC.VLC", "HSNXT.DiscordRPC.VLC\HSNXT.DiscordRPC.VLC.csproj", "{FAD5BB1E-167A-4015-842F-47BA1D214A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSPEmojiEscape", "HSNXT.DSPEmojiEscape\HSNXT.DSPEmojiEscape.csproj", "{39738A4F-514D-42D5-A124-E39D81D975F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiEscape", "HSNXT.DSPEmojiEscape\HSNXT.DSPEmojiEscape.csproj", "{39738A4F-514D-42D5-A124-E39D81D975F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSPEmojiGenerator", "HSNXT.DSPEmojiGenerator\HSNXT.DSPEmojiGenerator.csproj", "{A510F24A-DBE9-486B-AC60-88BAF87AA76C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiGenerator", "HSNXT.DSPEmojiGenerator\HSNXT.DSPEmojiGenerator.csproj", "{A510F24A-DBE9-486B-AC60-88BAF87AA76C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSPEmojiGenerator2", "HSNXT.DSPEmojiGenerator2\HSNXT.DSPEmojiGenerator2.csproj", "{0F5CFCC9-6BCA-4012-A768-42C9785D2064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmojiGenerator2", "HSNXT.DSPEmojiGenerator2\HSNXT.DSPEmojiGenerator2.csproj", "{0F5CFCC9-6BCA-4012-A768-42C9785D2064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.SyncLauncher", "HSNXT.SyncLauncher\HSNXT.SyncLauncher.csproj", "{26DD9AFD-B098-488C-BA97-8599E68ED3B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.SyncLauncher", "HSNXT.SyncLauncher\HSNXT.SyncLauncher.csproj", "{26DD9AFD-B098-488C-BA97-8599E68ED3B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSPEmoji.Neo", "HSNXT.DSPEmoji.Neo\HSNXT.DSPEmoji.Neo.csproj", "{97E43156-B13B-4FF9-8610-9E9CB2D17538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSPEmoji.Neo", "HSNXT.DSPEmoji.Neo\HSNXT.DSPEmoji.Neo.csproj", "{97E43156-B13B-4FF9-8610-9E9CB2D17538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Interactivity", "DSharpPlus\DSharpPlus.Interactivity\DSharpPlus.Interactivity.csproj", "{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Interactivity", "DSharpPlus\DSharpPlus.Interactivity\DSharpPlus.Interactivity.csproj", "{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Rest", "DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.Rest", "DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.VoiceNext", "DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.VoiceNext", "DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.CommandsNext.Extended", "HSNXT.DSharpPlus.CommandsNext.Extended\HSNXT.DSharpPlus.CommandsNext.Extended.csproj", "{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.CommandsNext.Extended", "HSNXT.DSharpPlus.CommandsNext.Extended\HSNXT.DSharpPlus.CommandsNext.Extended.csproj", "{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,10 +73,6 @@ Global
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D282BF-FA83-4B8B-9E17-BE0B377B4A75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{566DA48D-B271-424A-A40E-6C46B75D1C0F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
