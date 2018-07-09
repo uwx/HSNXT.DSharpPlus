@@ -3,14 +3,14 @@
   <Import Project="../HSNXT.DSharpPlus.targets" />
 
   <PropertyGroup>
-    <AssemblyName>HSNXT.DSharpPlus.CommandsNext.Extended</AssemblyName>
+    <AssemblyName>DSharpPlus.CommandsNext</AssemblyName>
     <RootNamespace>HSNXT.DSharpPlus.CommandsNext.Extended</RootNamespace>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>DSharpPlus.CommandsNext.Extended</PackageId>
+    <PackageId>HSNXT.DSharpPlus.CommandsNext.Extended</PackageId>
     <Description>Fork of Emzi0767's advanced command framework for DSharpPlus.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
@@ -32,16 +32,5 @@
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
-
-  <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
-    <Version>99.0.0</Version>
-    <AssemblyVersion>99.0.0</AssemblyVersion>
-    <FileVersion>99.0.0</FileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
-    <Version>99.0.$(Appveyor_Build_Number)</Version>
-    <AssemblyVersion>99.0.$(Appveyor_Build_Number)</AssemblyVersion>
-    <FileVersion>99.0.$(Appveyor_Build_Number)</FileVersion>
-  </PropertyGroup>
 
 </Project>
