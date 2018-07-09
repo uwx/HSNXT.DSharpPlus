@@ -43,8 +43,8 @@ namespace DSharpPlus.CommandsNext.Attributes
                 return false;
             var pbot = ctx.Channel.PermissionsFor(bot);
 
-            var usrok = ctx.Guild.OwnerId == usr.Id;
-            var botok = ctx.Guild.OwnerId == bot.Id;
+            var usrok = ctx.Guild.Owner.Id == usr.Id;
+            var botok = ctx.Guild.Owner.Id == bot.Id;
 
             if (!usrok)
                 usrok = (pusr & Permissions.Administrator) != 0 || (pusr & this.Permissions) == this.Permissions;

@@ -33,12 +33,12 @@ namespace DSharpPlus.CommandsNext.Attributes
             if (ctx.Guild == null)
                 return this.IgnoreDms;
 
+            if (ctx.Guild.IsOwner)
+                return true;
+            
             var bot = await ctx.Guild.GetMemberAsync(ctx.Client.CurrentUser.Id).ConfigureAwait(false);
             if (bot == null)
                 return false;
-
-            if (bot.Id == ctx.Guild.OwnerId)
-                return true;
 
             var pbot = ctx.Channel.PermissionsFor(bot);
 

@@ -609,13 +609,13 @@ namespace DSharpPlus.CommandsNext
             {
                 if (msg.Channel.Guild != null)
                 {
-                    mentioned_users = Utilities.GetUserMentions(msg).Select(xid => msg.Channel.Guild.Members.FirstOrDefault(xm => xm.Id == xid)).Cast<DiscordUser>().ToList();
-                    mentioned_roles = Utilities.GetRoleMentions(msg).Select(xid => msg.Channel.Guild.Roles.FirstOrDefault(xr => xr.Id == xid)).ToList();
-                    mentioned_channels = Utilities.GetChannelMentions(msg).Select(xid => msg.Channel.Guild.Channels.FirstOrDefault(xc => xc.Id == xid)).ToList();
+                    mentioned_users = HUtilities.GetUserMentions(msg).Select(xid => msg.Channel.Guild.Members.FirstOrDefault(xm => xm.Id == xid)).Cast<DiscordUser>().ToList();
+                    mentioned_roles = HUtilities.GetRoleMentions(msg).Select(xid => msg.Channel.Guild.Roles.FirstOrDefault(xr => xr.Id == xid)).ToList();
+                    mentioned_channels = HUtilities.GetChannelMentions(msg).Select(xid => msg.Channel.Guild.Channels.FirstOrDefault(xc => xc.Id == xid)).ToList();
                 }
                 else
                 {
-                    mentioned_users = Utilities.GetUserMentions(msg).Select(this.Client.InternalGetCachedUser).ToList();
+                    mentioned_users = HUtilities.GetUserMentions(msg).Select(this.Client.InternalGetCachedUser).ToList();
                 }
             }
 
@@ -623,7 +623,7 @@ namespace DSharpPlus.CommandsNext
             msg._mentionedRoles = mentioned_roles;
             msg._mentionedChannels = mentioned_channels;
 
-            await this.HandleCommandsAsync(new MessageCreateEventArgs(this.Client) { Message = msg }).ConfigureAwait(false);
+            await this.HandleCommandsAsync(new ProxiedMessageCreateEventArgs(this.Client) { Message = msg }).ConfigureAwait(false);
         }
         #endregion
 
