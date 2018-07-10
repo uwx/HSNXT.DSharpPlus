@@ -305,7 +305,7 @@ namespace DSharpPlus.CommandsNext
                 return false;
 
             // qualifies if any method or type qualifies
-            return ti.DeclaredMethods.Any(xmi => xmi.IsCommandCandidate(out _)) || ti.DeclaredNestedTypes.Any(xti => xti.IsModuleCandidateType());
+            return GetAllMethods(ti).Any(xmi => xmi.IsCommandCandidate(out _)) || ti.DeclaredNestedTypes.Any(xti => xti.IsModuleCandidateType());
         }
 
         internal static bool IsCommandCandidate(this MethodInfo method, out ParameterInfo[] parameters)
@@ -384,8 +384,9 @@ namespace DSharpPlus.CommandsNext
         }
 
         // GetMethods workaround for .NET Standard 1.1
-        internal static IEnumerable<MethodInfo> GetAllMethods(TypeInfo ti)
+        internal static IEnumerable<MethodInfo> GetAllMethods(TypeInfo ti) // TODO do the same for DeclaredNestedTypes
         {
+            // return ti.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             var baseDefs = new HashSet<string>();
             while (true)
             {

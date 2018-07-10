@@ -260,7 +260,7 @@ namespace DSharpPlus.CommandsNext
                 if (!xti.IsModuleCandidateType() || xti.IsNested)
                     return false;
 
-                return xti.DeclaredMethods.Any(xmi => xmi.IsCommandCandidate(out _));
+                return CommandsNextUtilities.GetAllMethods(xti).Any(xmi => xmi.IsCommandCandidate(out _));
             });
             foreach (var xt in types)
                 this.RegisterCommands(xt);
