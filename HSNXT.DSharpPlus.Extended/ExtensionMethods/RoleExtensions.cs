@@ -1,5 +1,6 @@
 ﻿using System;
 using DSharpPlus.Entities;
+using System.Collections.Generic;
 
 namespace DSharpPlus.Extended
 {
