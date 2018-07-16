@@ -19,6 +19,13 @@ namespace DSharpPlus.Extended
             
             return target.Position < @this.Position;
         }
-
+        
+        /// <summary>
+        /// Gets all members in the guild with this role.
+        /// </summary>
+        /// <param name="this">this object</param>
+        /// <returns>an enumerable containing the members in the guild that have the role <c>this</c>.</returns>
+        public static IEnumerable<DiscordMember> GetMembers(this DiscordRole @this)
+            => @this.Guild.Members.Where(e => e.Roles.Any(r => r.Id == @this.Id))
     }
 }
