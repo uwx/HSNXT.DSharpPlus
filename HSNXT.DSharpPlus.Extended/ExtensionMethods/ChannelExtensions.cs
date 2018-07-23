@@ -45,65 +45,26 @@ namespace DSharpPlus.Extended
             }
         }
 
-        public static async Task<IReadOnlyList<DiscordMessage>> GetManyMessagesBeforeAsync(this DiscordChannel chan,
+        [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesBeforeAsync instead")]
+        public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesBeforeAsync(this DiscordChannel chan,
             DiscordMessage msg, int amount)
         {
-            return await GetManyMessages(msg, amount, chan.GetMessagesBeforeAsync);
+            return chan.GetMessagesBeforeAsync(msg.Id, amount);
         }
 
-
-        public static async Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAfterAsync(this DiscordChannel chan,
+        [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesAfterAsync instead")]
+        public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAfterAsync(this DiscordChannel chan,
             DiscordMessage msg, int amount)
         {
-            return await GetManyMessages(msg, amount, chan.GetMessagesAfterAsync);
+            return chan.GetMessagesAfterAsync(msg.Id, amount);
         }
 
-#pragma warning disable 618
-        public static async Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAsync(this DiscordChannel chan, int amount)
+        [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesAsync instead")]
+        public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAsync(this DiscordChannel chan, int amount)
         {
-            if (amount <= 100)
-            {
-                return await chan.GetMessagesAsync(amount);
-            }
-            var lastMessage = await chan.GetMessagesAsync(1);
-            if (lastMessage.Count == 0)
-            {
-                return new EmptyList<DiscordMessage>();
-            }
-            return await GetManyMessages(lastMessage[0], amount, chan.GetMessagesBeforeAsync);
+            return chan.GetMessagesBeforeAsync(msg.Id, amount);
         }
-#pragma warning restore 618
         
-        // ReSharper disable once SuggestBaseTypeForParameter
-        private static async Task<IReadOnlyList<DiscordMessage>> GetManyMessages(DiscordMessage msg, int amount,
-            Func<ulong, int, Task<IReadOnlyList<DiscordMessage>>> messageGetFunction)
-        {
-            if (amount <= 100)
-            {
-                return await messageGetFunction(msg.Id, amount);
-            }
-
-            var list = new List<DiscordMessage>(await messageGetFunction(msg.Id, 100));
-            // we're out of messages
-            if (list.Count < 100)
-            {
-                return list;
-            }
-            for (var i = 100; i < amount; i += 100)
-            {
-                var take = Math.Min(100, amount - i);
-                var curList = await messageGetFunction(list[list.Count - 1].Id, take);
-                list.AddRange(curList);
-                // we're out of messages
-                if (curList.Count < take)
-                {
-                    break;
-                }
-            }
-
-            return list;
-        }
-
         private static IEnumerable<List<T>> SplitList<T>(List<T> locations, int nSize)
         {
             for (var i = 0; i < locations.Count; i += nSize)
