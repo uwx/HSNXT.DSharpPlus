@@ -48,22 +48,16 @@ namespace DSharpPlus.Extended
         [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesBeforeAsync instead")]
         public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesBeforeAsync(this DiscordChannel chan,
             DiscordMessage msg, int amount)
-        {
-            return chan.GetMessagesBeforeAsync(msg.Id, amount);
-        }
+            => chan.GetMessagesBeforeAsync(msg.Id, amount);
 
         [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesAfterAsync instead")]
         public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAfterAsync(this DiscordChannel chan,
             DiscordMessage msg, int amount)
-        {
-            return chan.GetMessagesAfterAsync(msg.Id, amount);
-        }
+            => chan.GetMessagesAfterAsync(msg.Id, amount);
 
         [Obsolete("Update to 4.0.0-beta-481 and use GetMessagesAsync instead")]
         public static Task<IReadOnlyList<DiscordMessage>> GetManyMessagesAsync(this DiscordChannel chan, int amount)
-        {
-            return chan.GetMessagesBeforeAsync(msg.Id, amount);
-        }
+            => chan.GetMessagesAsync(amount);
         
         private static IEnumerable<List<T>> SplitList<T>(List<T> locations, int nSize)
         {
