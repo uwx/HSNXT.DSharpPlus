@@ -3,9 +3,9 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.Interactivity
 {
-    public class MessageContext
+    public class MessageContext : InteractivityContext
     {
-        public DiscordMessage Message { get; internal set; }
+        public DiscordMessage Message { get; }
 
         public DiscordUser User 
             => Message.Author;
@@ -16,11 +16,6 @@ namespace DSharpPlus.Interactivity
         public DiscordGuild Guild 
             => Channel.Guild;
 
-        public InteractivityExtension Interactivity { get; internal set; }
-
-        public DiscordClient Client 
-            => Interactivity.Client;
-
         public IReadOnlyList<DiscordChannel> MentionedChannels 
             => Message.MentionedChannels;
 
@@ -29,5 +24,10 @@ namespace DSharpPlus.Interactivity
 
         public IReadOnlyList<DiscordUser> MentionedUsers 
             => Message.MentionedUsers;
+
+        public MessageContext(InteractivityExtension interactivity, DiscordMessage message) : base(interactivity)
+        {
+            Message = message;
+        }
     }
 }
