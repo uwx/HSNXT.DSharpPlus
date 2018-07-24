@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
-    internal class VerifyEventCollection<T, TEventArgs> : ISubscribable<T> where T : IAsyncVerifyMachine<TEventArgs>
+    internal class DiscordAwaiterHolder<TMachine, TEventArgs> : ISubscribable<TMachine> 
+        where TMachine : IAsyncVerifyMachine<TEventArgs>
+        where TEventArgs : DiscordEventArgs // not necessary, but is here for consistency
     {
-        private readonly Action<VerifyEventCollection<T, TEventArgs>> _subscribe;
-        private readonly Action<VerifyEventCollection<T, TEventArgs>> _unsubscribe;
-        private readonly IList<T> _eventHandlers = new List<T>();
+        private readonly Action<DiscordAwaiterHolder<TMachine, TEventArgs>> _subscribe;
+        private readonly Action<DiscordAwaiterHolder<TMachine, TEventArgs>> _unsubscribe;
+        private readonly IList<TMachine> _eventHandlers = new List<TMachine>();
         private bool _isSubscribed = false;
 
-        public VerifyEventCollection(
-            Action<VerifyEventCollection<T, TEventArgs>> subscribe, 
-            Action<VerifyEventCollection<T, TEventArgs>> unsubscribe
+        public DiscordAwaiterHolder(
+            Action<DiscordAwaiterHolder<TMachine, TEventArgs>> subscribe, 
+            Action<DiscordAwaiterHolder<TMachine, TEventArgs>> unsubscribe
         )
         {
             _subscribe = subscribe;
@@ -47,7 +50,7 @@ namespace DSharpPlus.Interactivity
             }
         }
 
-        public void Subscribe(T handler)
+        public void Subscribe(TMachine handler)
         {
             _eventHandlers.Add(handler);
 			
@@ -59,7 +62,7 @@ namespace DSharpPlus.Interactivity
             }
         }
 
-        public void Unsubscribe(T handler)
+        public void Unsubscribe(TMachine handler)
         {
             if (!_isSubscribed)
             {

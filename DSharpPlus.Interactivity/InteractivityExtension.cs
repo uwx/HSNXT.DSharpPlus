@@ -17,70 +17,35 @@ namespace DSharpPlus.Interactivity
 	{
 		private InteractivityConfiguration Config { get; }
 		
-		private readonly VerifyEventCollection<MessageVerifier, MessageCreateEventArgs> messageCreatedVerifiers;
+		private DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs> messageCreatedVerifiers;
 
 		internal InteractivityExtension(InteractivityConfiguration cfg)
 		{
-			this.Config = new InteractivityConfiguration(cfg);
-			
-			messageCreatedVerifiers = new VerifyEventCollection<MessageVerifier, MessageCreateEventArgs>(
-				ev => Client.MessageCreated += ev.Trigger,
-				ev => Client.MessageCreated -= ev.Trigger
-			);
-
-			messageCreatedVerifiers.Subscribe(new MessageVerifier(this, msg => msg == null));
+			Config = new InteractivityConfiguration(cfg);
 		}
 
 		protected internal override void Setup(DiscordClient client)
 		{
-			this.Client = client;
+			Client = client;
+			
+			messageCreatedVerifiers = new DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs>(
+				ev => Client.MessageCreated += ev.Trigger,
+				ev => Client.MessageCreated -= ev.Trigger
+			);
 		}
 
 		#region Message
-		public async Task<MessageContext> WaitForMessageAsync(Func<DiscordMessage, bool> predicate, TimeSpan? timeoutoverride = null)
+		public async Task<MessageContext> WaitForMessageAsync(Func<DiscordMessage, bool> predicate/*, TimeSpan? timeoutoverride = null*/)
 		{
 			if (predicate == null)
 				throw new ArgumentNullException(nameof(predicate));
 
-			TimeSpan timeout = Config.Timeout;
+			/*TimeSpan timeout = Config.Timeout;
 			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
+				timeout = (TimeSpan)timeoutoverride;*/
 
-			var tsc = new TaskCompletionSource<MessageContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageCreated += Handler;
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageCreated -= Handler;
-			}
-
-			#region Handler
-			async Task Handler(MessageCreateEventArgs e)
-			{
-				await Task.Yield();
-				if (predicate(e.Message))
-				{
-					var mc = new MessageContext()
-					{
-						Interactivity = this,
-						Message = e.Message
-					};
-					tsc.TrySetResult(mc);
-					return;
-				}
-			}
-			#endregion
+			var verifier = new MessageVerifier(this, predicate);
+			var result = await verifier.ExecuteAsync(messageCreatedVerifiers);
 		}
 		#endregion
 
