@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+
+#if !NETSTANDARD1_1 && !NETSTANDARD1_3
+using System.ComponentModel.Design;
+#endif
 
 namespace DSharpPlus.Interactivity
 {
@@ -48,6 +51,7 @@ namespace DSharpPlus.Interactivity
 			var verifier = new MessageVerifier(this, predicate);
 			//var result = await verifier.ExecuteAsync<MessageVerifier, MessageCreateEventArgs, MessageContext>(messageCreatedVerifiers);
 			var result = await messageCreatedVerifiers.HandleAsync(verifier);
+			return result;
 		}
 		#endregion
 
