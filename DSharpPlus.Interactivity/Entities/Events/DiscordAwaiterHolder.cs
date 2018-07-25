@@ -6,22 +6,41 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
-    internal class DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult> : ISubscribable<TMachine> 
+    internal class DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult>
         where TMachine : DiscordEventAwaiter<TEventArgs, TContextResult>
         where TEventArgs : DiscordEventArgs // not necessary, but is here for consistency
         where TContextResult : InteractivityContext
     {
-        public delegate void ChangeSubscription(DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult> self);
+        /// <summary>
+        /// <p>
+        ///     To be triggered with a <see cref="DiscordAwaiterHolder{TMachine,TEventArgs,TContextResult}"/> when the
+        ///     event handler for the event representing that instance is to be registered or unregistered.
+        /// </p>
+        /// <p>
+        ///     Implementations should add or remove an event handler pointing to
+        ///     <see cref="DiscordAwaiterHolder{TMachine,TEventArgs,TContextResult}"/>.<see cref="DiscordAwaiterHolder{TMachine,TEventArgs,TContextResult}.HandleAsync"/>
+        /// </p>
+        /// </summary>
+        /// <param name="self">The instance.</param>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// new DiscordAwaiterHolder<Machine, EventArgs, ContextResult>(
+        ///     ev => obj.Event += ev.Trigger,
+        ///     ev => obj.Event -= ev.Trigger
+        /// );
+        /// ]]>
+        /// </code>
+        /// </example>
+        public delegate void SubscribeAction(DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult> self);
 
-        private readonly ChangeSubscription _subscribe;
-        private readonly ChangeSubscription _unsubscribe;
+        private readonly SubscribeAction _subscribe;
+        private readonly SubscribeAction _unsubscribe;
         private readonly IList<TMachine> _eventHandlers = new List<TMachine>();
-        private bool _isSubscribed = false;
+        
+        private bool _isSubscribed;
 
-        public DiscordAwaiterHolder(
-            ChangeSubscription subscribe, 
-            ChangeSubscription unsubscribe
-        )
+        public DiscordAwaiterHolder(SubscribeAction subscribe, SubscribeAction unsubscribe)
         {
             _subscribe = subscribe;
             _unsubscribe = unsubscribe;

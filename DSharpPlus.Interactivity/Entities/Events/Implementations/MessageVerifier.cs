@@ -7,9 +7,9 @@ namespace DSharpPlus.Interactivity
 {
     internal class MessageVerifier : DiscordEventAwaiter<MessageCreateEventArgs, MessageContext>
     {
-        private readonly Predicate<DiscordMessage> _predicate;
+        private readonly Func<DiscordMessage, bool> _predicate;
 
-        public MessageVerifier(InteractivityExtension interactivity, Predicate<DiscordMessage> predicate)
+        public MessageVerifier(InteractivityExtension interactivity, Func<DiscordMessage, bool> predicate)
             : base(interactivity)
         {
             _predicate = predicate;

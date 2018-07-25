@@ -38,7 +38,7 @@ namespace DSharpPlus.Interactivity
     /// ]]>
     /// </code>
     /// </example>
-    internal abstract class DiscordEventAwaiter<TEventArgs, TContextResult> : IAsyncVerifyMachine<TEventArgs>
+    internal abstract class DiscordEventAwaiter<TEventArgs, TContextResult>
         where TEventArgs : DiscordEventArgs
         where TContextResult : InteractivityContext
     {

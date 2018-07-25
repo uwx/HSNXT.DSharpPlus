@@ -40,6 +40,7 @@ namespace DSharpPlus.Interactivity
 			if (predicate == null)
 				throw new ArgumentNullException(nameof(predicate));
 
+			//TODO
 			/*TimeSpan timeout = Config.Timeout;
 			if (timeoutoverride != null)
 				timeout = (TimeSpan)timeoutoverride;*/
