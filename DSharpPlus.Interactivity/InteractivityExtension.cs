@@ -17,7 +17,7 @@ namespace DSharpPlus.Interactivity
 	{
 		private InteractivityConfiguration Config { get; }
 		
-		private DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs> messageCreatedVerifiers;
+		private DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext> messageCreatedVerifiers;
 
 		internal InteractivityExtension(InteractivityConfiguration cfg)
 		{
@@ -28,7 +28,7 @@ namespace DSharpPlus.Interactivity
 		{
 			Client = client;
 			
-			messageCreatedVerifiers = new DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs>(
+			messageCreatedVerifiers = new DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
 				ev => Client.MessageCreated += ev.Trigger,
 				ev => Client.MessageCreated -= ev.Trigger
 			);
@@ -45,7 +45,8 @@ namespace DSharpPlus.Interactivity
 				timeout = (TimeSpan)timeoutoverride;*/
 
 			var verifier = new MessageVerifier(this, predicate);
-			var result = await verifier.ExecuteAsync(messageCreatedVerifiers);
+			//var result = await verifier.ExecuteAsync<MessageVerifier, MessageCreateEventArgs, MessageContext>(messageCreatedVerifiers);
+			var result = await messageCreatedVerifiers.HandleAsync(verifier);
 		}
 		#endregion
 

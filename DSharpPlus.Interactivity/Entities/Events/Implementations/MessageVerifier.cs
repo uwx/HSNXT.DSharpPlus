@@ -5,7 +5,7 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
-    internal class MessageVerifier : DiscordEventAwaiter<MessageVerifier, MessageCreateEventArgs, MessageContext>
+    internal class MessageVerifier : DiscordEventAwaiter<MessageCreateEventArgs, MessageContext>
     {
         private readonly Predicate<DiscordMessage> _predicate;
 

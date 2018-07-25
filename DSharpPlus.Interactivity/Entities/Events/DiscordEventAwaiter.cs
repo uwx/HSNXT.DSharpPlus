@@ -38,8 +38,7 @@ namespace DSharpPlus.Interactivity
     /// ]]>
     /// </code>
     /// </example>
-    internal abstract class DiscordEventAwaiter<TMachine, TEventArgs, TContextResult> : IAsyncVerifyMachine<TEventArgs>
-        where TMachine : class, IAsyncVerifyMachine<TEventArgs>
+    internal abstract class DiscordEventAwaiter<TEventArgs, TContextResult> : IAsyncVerifyMachine<TEventArgs>
         where TEventArgs : DiscordEventArgs
         where TContextResult : InteractivityContext
     {
@@ -63,12 +62,8 @@ namespace DSharpPlus.Interactivity
             return true;
         }
 
-        public Task<TContextResult> ExecuteAsync(ISubscribable<TMachine> master)
-        {
-            master.Subscribe(this as TMachine);
-            return _result.Task;
-        }
-        
+        internal Task<TContextResult> Resolve() => _result.Task;
+
         // TODO a subclass of this that uses Task.WhenAll and Unsubscribe and Task.Delay to time out
     }
 }

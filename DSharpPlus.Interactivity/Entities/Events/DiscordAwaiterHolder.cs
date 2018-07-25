@@ -6,18 +6,21 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
-    internal class DiscordAwaiterHolder<TMachine, TEventArgs> : ISubscribable<TMachine> 
-        where TMachine : IAsyncVerifyMachine<TEventArgs>
+    internal class DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult> : ISubscribable<TMachine> 
+        where TMachine : DiscordEventAwaiter<TEventArgs, TContextResult>
         where TEventArgs : DiscordEventArgs // not necessary, but is here for consistency
+        where TContextResult : InteractivityContext
     {
-        private readonly Action<DiscordAwaiterHolder<TMachine, TEventArgs>> _subscribe;
-        private readonly Action<DiscordAwaiterHolder<TMachine, TEventArgs>> _unsubscribe;
+        public delegate void ChangeSubscription(DiscordAwaiterHolder<TMachine, TEventArgs, TContextResult> self);
+
+        private readonly ChangeSubscription _subscribe;
+        private readonly ChangeSubscription _unsubscribe;
         private readonly IList<TMachine> _eventHandlers = new List<TMachine>();
         private bool _isSubscribed = false;
 
         public DiscordAwaiterHolder(
-            Action<DiscordAwaiterHolder<TMachine, TEventArgs>> subscribe, 
-            Action<DiscordAwaiterHolder<TMachine, TEventArgs>> unsubscribe
+            ChangeSubscription subscribe, 
+            ChangeSubscription unsubscribe
         )
         {
             _subscribe = subscribe;
@@ -80,6 +83,12 @@ namespace DSharpPlus.Interactivity
                 _unsubscribe(this);
                 _isSubscribed = false;
             }
+        }
+
+        public Task<TContextResult> HandleAsync(TMachine handler)
+        {
+            Subscribe(handler);
+            return handler.Resolve();
         }
     }
 }
