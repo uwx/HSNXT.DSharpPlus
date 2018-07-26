@@ -10,3 +10,4 @@ packages
 /.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide
 /.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-shm
 /.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-wal
+/HSNXT.DSharpPlus.ModernEmbedBuilder/_local_HSNXT.DSharpPlus.ModernEmbedBuilder.csproj
