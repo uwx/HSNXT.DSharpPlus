@@ -138,6 +138,10 @@ namespace DSharpPlus.CommandsNext
         public async Task<IEnumerable<CheckBaseAttribute>> RunChecksAsync(CommandContext ctx, bool help)
         {
             var fchecks = new List<CheckBaseAttribute>();
+            if (ctx.Config.GlobalPreconditions != null && ctx.Config.GlobalPreconditions.Count != 0)
+                foreach (var ec in ctx.Config.GlobalPreconditions)
+                    if (!(await ec.ExecuteCheckAsync(ctx, help).ConfigureAwait(false)))
+                        fchecks.Add(ec);
             if (this.ExecutionChecks != null && this.ExecutionChecks.Any())
                 foreach (var ec in this.ExecutionChecks)
                     if (!(await ec.ExecuteCheckAsync(ctx, help).ConfigureAwait(false)))
