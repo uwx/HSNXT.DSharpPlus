@@ -92,6 +92,12 @@ namespace DSharpPlus.CommandsNext
         public bool IgnoreExtraArguments { internal get; set; } = false;
 
         /// <summary>
+        /// <para>Sets any global checks to be executed before a command call, before any other check.</para>
+        /// <para>Setting to null or an empty list will have no effect.</para>
+        /// </summary>
+        public IReadOnlyList<CheckBaseAttribute> GlobalPreconditions { internal get; set; } = null;
+
+        /// <summary>
         /// Creates a new instance of <see cref="CommandsNextConfiguration"/>.
         /// </summary>
         public CommandsNextConfiguration() { }
@@ -112,6 +118,7 @@ namespace DSharpPlus.CommandsNext
             this.Selfbot = other.Selfbot;
             this.Services = other.Services;
             this.StringPrefixes = other.StringPrefixes?.ToArray();
+            this.GlobalPreconditions = other.GlobalPreconditions?.ToArray();
         }
     }
 }
