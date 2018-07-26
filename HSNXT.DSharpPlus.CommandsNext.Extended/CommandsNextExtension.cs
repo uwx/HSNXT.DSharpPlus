@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Builders;
 using DSharpPlus.CommandsNext.Converters;
+using DSharpPlus.CommandsNext.Entities;
 using DSharpPlus.CommandsNext.Exceptions;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -57,6 +59,7 @@ namespace DSharpPlus.CommandsNext
                 [typeof(DateTime)] = new DateTimeConverter(),
                 [typeof(DateTimeOffset)] = new DateTimeOffsetConverter(),
                 [typeof(TimeSpan)] = new TimeSpanConverter(),
+                [typeof(Uri)] = new UriConverter(),
                 [typeof(DiscordUser)] = new DiscordUserConverter(),
                 [typeof(DiscordMember)] = new DiscordMemberConverter(),
                 [typeof(DiscordRole)] = new DiscordRoleConverter(),
@@ -85,6 +88,7 @@ namespace DSharpPlus.CommandsNext
                 [typeof(DateTime)] = "date and time",
                 [typeof(DateTimeOffset)] = "date and time",
                 [typeof(TimeSpan)] = "time span",
+                [typeof(Uri)] = "URL",
                 [typeof(DiscordUser)] = "user",
                 [typeof(DiscordMember)] = "member",
                 [typeof(DiscordRole)] = "role",
@@ -148,7 +152,22 @@ namespace DSharpPlus.CommandsNext
             this.Client.MessageCreated += this.HandleCommandsAsync;
 
             if (this.Config.EnableDefaultHelp)
-                this.RegisterCommands<DefaultHelpModule>();
+            {
+                this.RegisterCommands(typeof(DefaultHelpModule), null, out var tcmds);
+
+                if (this.Config.DefaultHelpChecks != null)
+                {
+                    var checks = this.Config.DefaultHelpChecks.ToArray();
+
+                    for (int i = 0; i < tcmds.Count; i++)
+                        tcmds[i].WithExecutionChecks(checks);
+                }
+
+                if (tcmds != null)
+                    foreach (var xc in tcmds)
+                        this.AddToCommandDictionary(xc.Build(null));
+            }
+
         }
         #endregion
 
@@ -214,6 +233,15 @@ namespace DSharpPlus.CommandsNext
             {
                 try
                 {
+                    IServiceScope scope = null;
+                    if (cmd.Module is TransientCommandModule)
+                    {
+                        scope = ctx.Services.CreateScope();
+                        ctx.ServiceScopeContext = new CommandContext.ServiceContext(ctx.Services, scope);
+
+                        ctx.Services = scope.ServiceProvider;
+                    }
+
                     var fchecks = await cmd.RunChecksAsync(ctx, false).ConfigureAwait(false);
                     if (fchecks.Any())
                         throw new ChecksFailedException(cmd, ctx, fchecks);
@@ -346,6 +374,7 @@ namespace DSharpPlus.CommandsNext
 
                     case HiddenAttribute h:
                         cgbldr.WithHiddenStatus(true);
+                        mdl_hidden = true;
                         break;
 
                     case DescriptionAttribute d:
@@ -376,8 +405,7 @@ namespace DSharpPlus.CommandsNext
                     continue;
 
                 var attrs = m.GetCustomAttributes();
-                var cattr = attrs.FirstOrDefault(xa => xa is CommandAttribute) as CommandAttribute;
-                if (cattr == null)
+                if (!(attrs.FirstOrDefault(xa => xa is CommandAttribute) is CommandAttribute cattr))
                     continue;
 
                 var cname = cattr.Name;
@@ -478,6 +506,7 @@ namespace DSharpPlus.CommandsNext
         #endregion
 
         #region Default Help
+        [ModuleLifespan(ModuleLifespan.Transient)]
         public class DefaultHelpModule : BaseCommandModule
         {
             [Command("help"), Description("Displays command help.")]
@@ -564,7 +593,11 @@ namespace DSharpPlus.CommandsNext
                 }
 
                 var hmsg = helpbuilder.Build();
-                await ctx.RespondAsync(hmsg.Content, embed: hmsg.Embed).ConfigureAwait(false);
+
+                if (!ctx.Config.DmHelp || ctx.Channel is DiscordDmChannel || ctx.Guild == null)
+                    await ctx.RespondAsync(hmsg.Content, embed: hmsg.Embed).ConfigureAwait(false);
+                else
+                    await ctx.Member.SendMessageAsync(hmsg.Content, embed: hmsg.Embed).ConfigureAwait(false);
             }
         }
         #endregion

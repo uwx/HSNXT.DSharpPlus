@@ -87,15 +87,6 @@ namespace DSharpPlus.CommandsNext
 
                     ctx.RawArguments = args.Raw;
 
-                    IServiceScope scope = null;
-                    if (this.Module is TransientCommandModule)
-                    {
-                        scope = ctx.Services.CreateScope();
-                        ctx.ServiceScopeContext = new CommandContext.ServiceContext(ctx.Services, scope);
-
-                        ctx.Services = scope.ServiceProvider;
-                    }
-
                     var mdl = this.Module.GetInstance(ctx.Services);
                     await mdl.BeforeExecutionAsync(ctx).ConfigureAwait(false);
 
