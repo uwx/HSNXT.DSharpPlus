@@ -1,0 +1,1 @@
+git-merge-subpath dsp-upstream/master DSharpPlus.CommandsNext HSNXT.DSharpPlus.CommandsNext.Extended
