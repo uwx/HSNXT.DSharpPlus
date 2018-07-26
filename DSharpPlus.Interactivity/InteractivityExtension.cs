@@ -52,6 +52,10 @@ namespace DSharpPlus.Interactivity
 			//var result = await verifier.ExecuteAsync<MessageVerifier, MessageCreateEventArgs, MessageContext>(messageCreatedVerifiers);
 			var result = await _messageCreatedVerifiers.HandleAsync(verifier);
 			return result;
+			// TODO optional arguments/overloads
+			// - author (DiscordUser/ulong)
+			// - channel (DiscordChannel/DiscordUser/ulong)
+			// - context (CommandContext/DiscordMessage - implicitly does the same thing as the two above)
 		}
 		#endregion
 
