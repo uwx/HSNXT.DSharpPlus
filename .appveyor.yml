@@ -32,6 +32,19 @@ build_script:
   - ps: dotnet msbuild /t:PublishAll /p:Configuration=Release
   - ps: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build
 
+after_build:
+  # this cant do d#+ packages
+  - cmd: >
+    delete-packages
+      HSNXT.DiscordRPC.NotepadPlusPlus
+      HSNXT.TestProject.BotTest
+      HSNXT.DSPEmojiGenerator2
+      HSNXT.DSPEmojiGenerator
+      HSNXT.DiscordRPC.VLCa
+      HSNXT.DiscordRPC.Base
+      HSNXT.DSPEmojiEscape
+      HSNXT.DSPEmoji.Neo
+  
 artifacts:
   - path: '**\Packaged\*.nupkg'
   
@@ -46,20 +59,8 @@ deploy:
     skip_symbols: false
     api_key:
       secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
-    # don't push D#+ packages, also don't push test packages
-    # source regex:
-    #   /^(?:(?!
-    #   HSNXT\.DiscordRPC\.NotepadPlusPlus|
-    #   HSNXT\.TestProject\.BotTest|
-    #   HSNXT\.DSPEmojiGenerator2|
-    #   HSNXT\.DSPEmojiGenerator|
-    #   HSNXT\.DiscordRPC\.VLCa|
-    #   HSNXT\.DiscordRPC\.Base|
-    #   HSNXT\.DSPEmojiEscape|
-    #   HSNXT\.DSPEmoji\.Neo|
-    #   DSharpPlus
-    #   )).*\.nupkg/
-    artifact: /^(?:(?!HSNXT\.DiscordRPC\.NotepadPlusPlus|HSNXT\.TestProject\.BotTest|HSNXT\.DSPEmojiGenerator2|HSNXT\.DSPEmojiGenerator|HSNXT\.DiscordRPC\.VLCa|HSNXT\.DiscordRPC\.Base|HSNXT\.DSPEmojiEscape|HSNXT\.DSPEmoji\.Neo|DSharpPlus)).*\.nupkg/
+    # don't push D#+ packages, also don't push test packages (see after_build, it cant go here)
+    artifact: /^(?:(?!DSharpPlus)).*\.nupkg/
 
     # Deploying to NuGet feed
   - provider: NuGet
