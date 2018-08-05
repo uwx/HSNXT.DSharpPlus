@@ -47,18 +47,30 @@ deploy:
     api_key:
       secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
     # don't push D#+ packages, also don't push test packages
-    artifact: >
-      /^(?:(?!
-      DSharpPlus|
-      HSNXT\.TestProject\.BotTest|
-      HSNXT\.DSPEmojiGenerator|
-      HSNXT\.DSPEmojiGenerator2|
-      HSNXT\.DSPEmojiEscape|
-      HSNXT\.DSPEmoji\.Neo|
-      HSNXT\.DiscordRPC\.VLCa|
-      HSNXT\.DiscordRPC\.NotepadPlusPlus|
-      HSNXT\.DiscordRPC\.Base
-      )).*\.nupkg/
+    # source regex:
+    #   /^(?:(?!
+    #   DSharpPlus|
+    #   HSNXT\.TestProject\.BotTest|
+    #   HSNXT\.DSPEmojiGenerator|
+    #   HSNXT\.DSPEmojiGenerator2|
+    #   HSNXT\.DSPEmojiEscape|
+    #   HSNXT\.DSPEmoji\.Neo|
+    #   HSNXT\.DiscordRPC\.VLCa|
+    #   HSNXT\.DiscordRPC\.NotepadPlusPlus|
+    #   HSNXT\.DiscordRPC\.Base
+    #   )).*\.nupkg/
+    artifact: "\
+      /^(?:(?!\
+      DSharpPlus|\
+      HSNXT\\.TestProject\\.BotTest|\
+      HSNXT\\.DSPEmojiGenerator|\
+      HSNXT\\.DSPEmojiGenerator2|\
+      HSNXT\\.DSPEmojiEscape|\
+      HSNXT\\.DSPEmoji\\.Neo|\
+      HSNXT\\.DiscordRPC\\.VLCa|\
+      HSNXT\\.DiscordRPC\\.NotepadPlusPlus|\
+      HSNXT\\.DiscordRPC\\.Base\
+      )).*\\.nupkg/"
 
     # Deploying to NuGet feed
   - provider: NuGet
