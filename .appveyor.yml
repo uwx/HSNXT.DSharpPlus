@@ -54,12 +54,12 @@ deploy:
     #   HSNXT\.DSPEmojiGenerator2|
     #   HSNXT\.DSPEmojiGenerator|
     #   HSNXT\.DiscordRPC\.VLCa|
-    #   HSNXT\.DiscordRPC\.Base
+    #   HSNXT\.DiscordRPC\.Base|
     #   HSNXT\.DSPEmojiEscape|
     #   HSNXT\.DSPEmoji\.Neo|
     #   DSharpPlus
     #   )).*\.nupkg/
-    artifact: /^(?:(?!HSNXT\.DiscordRPC\.NotepadPlusPlus|HSNXT\.TestProject\.BotTest|HSNXT\.DSPEmojiGenerator2|HSNXT\.DSPEmojiGenerator|HSNXT\.DiscordRPC\.VLCa|HSNXT\.DiscordRPC\.BaseHSNXT\.DSPEmojiEscape|HSNXT\.DSPEmoji\.Neo|DSharpPlus)).*\.nupkg/
+    artifact: /^(?:(?!HSNXT\.DiscordRPC\.NotepadPlusPlus|HSNXT\.TestProject\.BotTest|HSNXT\.DSPEmojiGenerator2|HSNXT\.DSPEmojiGenerator|HSNXT\.DiscordRPC\.VLCa|HSNXT\.DiscordRPC\.Base|HSNXT\.DSPEmojiEscape|HSNXT\.DSPEmoji\.Neo|DSharpPlus)).*\.nupkg/
 
     # Deploying to NuGet feed
   - provider: NuGet
