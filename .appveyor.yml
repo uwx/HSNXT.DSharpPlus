@@ -49,17 +49,17 @@ deploy:
     # don't push D#+ packages, also don't push test packages
     # source regex:
     #   /^(?:(?!
-    #   DSharpPlus|
+    #   HSNXT\.DiscordRPC\.NotepadPlusPlus|
     #   HSNXT\.TestProject\.BotTest|
-    #   HSNXT\.DSPEmojiGenerator|
     #   HSNXT\.DSPEmojiGenerator2|
+    #   HSNXT\.DSPEmojiGenerator|
+    #   HSNXT\.DiscordRPC\.VLCa|
+    #   HSNXT\.DiscordRPC\.Base
     #   HSNXT\.DSPEmojiEscape|
     #   HSNXT\.DSPEmoji\.Neo|
-    #   HSNXT\.DiscordRPC\.VLCa|
-    #   HSNXT\.DiscordRPC\.NotepadPlusPlus|
-    #   HSNXT\.DiscordRPC\.Base
+    #   DSharpPlus
     #   )).*\.nupkg/
-    artifact: /^(?:(?!DSharpPlus|HSNXT\.TestProject\.BotTest|HSNXT\.DSPEmojiGenerator|HSNXT\.DSPEmojiGenerator2|HSNXT\.DSPEmojiEscape|HSNXT\.DSPEmoji\.Neo|HSNXT\.DiscordRPC\.VLCa|HSNXT\.DiscordRPC\.NotepadPlusPlus|HSNXT\.DiscordRPC\.Base)).*\.nupkg/
+    artifact: /^(?:(?!HSNXT\.DiscordRPC\.NotepadPlusPlus|HSNXT\.TestProject\.BotTest|HSNXT\.DSPEmojiGenerator2|HSNXT\.DSPEmojiGenerator|HSNXT\.DiscordRPC\.VLCa|HSNXT\.DiscordRPC\.BaseHSNXT\.DSPEmojiEscape|HSNXT\.DSPEmoji\.Neo|DSharpPlus)).*\.nupkg/
 
     # Deploying to NuGet feed
   - provider: NuGet
