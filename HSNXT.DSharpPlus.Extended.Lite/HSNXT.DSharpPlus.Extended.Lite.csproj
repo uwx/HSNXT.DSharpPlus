@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../HSNXT.DSharpPlus.targets" />
-
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
     <PackageId>HSNXT.DSharpPlus.Extended.Lite</PackageId>
@@ -9,7 +8,6 @@
       regarding this package in official DSharpPlus discussion boards. The "lite" version of the package
       removes some contested content.</Description>
   </PropertyGroup>
-  
   <ItemGroup>
     <PackageReference Include="DSharpPlus" Version="4.0.0-beta-00405" />
     <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-beta-00405" />
@@ -21,20 +19,23 @@
     <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs" />
     <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs" />
     <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\EventTypes.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\Color.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\DspExtended.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\CNext\RequireRoleOrHigherAttribute.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\DspExtended.cs">
+      <Link>DspExtended.cs</Link>
+    </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\EmptyList.cs">
       <Link>EmptyList.cs</Link>
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\EventArgs\ExtensionErrorEventArgs.cs" />
     <Compile Include="..\HSNXT.DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\ChannelExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildEmojiExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\GuildExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\MemberExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ModifyShortcuts\WebhookExtensions.cs" />
-    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs" />
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs">
+      <Link>ChannelExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs">
+      <Link>MemberExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs">
+      <Link>RoleExtensions.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>
