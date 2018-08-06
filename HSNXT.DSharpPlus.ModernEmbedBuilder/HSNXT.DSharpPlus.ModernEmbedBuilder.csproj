@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../HSNXT.DSharpPlus.targets" />
-
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0</TargetFrameworks>
     <PackageId>HSNXT.DSharpPlus.ModernEmbedBuilder</PackageId>
@@ -8,7 +7,6 @@
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
   </PropertyGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
