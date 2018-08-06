@@ -1,7 +1,7 @@
 ﻿using System;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.ModernEmbedBuilder
+namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 {
     public struct DuckColor
     {

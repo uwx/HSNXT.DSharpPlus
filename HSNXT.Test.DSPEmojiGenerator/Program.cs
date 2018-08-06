@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
-namespace DSPEmojiGenerator
+namespace HSNXT.Test.DSPEmojiGenerator
 {
     public class EmojiJson
     {
@@ -29,7 +29,7 @@ namespace DSPEmojiGenerator
 
             var arr = big1.Select(e =>
             {
-                e.Char = Dickscord.Program.Cv(e.Char);
+                e.Char = DSPEmojiEscape.Program.Cv(e.Char);
                 return e;
             }).Select(e => $@"public const string {
                     Clean(Regex.Replace(Regex.Replace(e.Name, "[^a-zA-Z0-9]", "_"), "_(.)",

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Extended.Module
+namespace HSNXT.DSharpPlus.Extended.EventArgs
 {
     public class MentionReceivedEventArgs : DiscordEventArgs
     {

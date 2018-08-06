@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Net.Http;
-using Fallk.Unirest.Net.Unirest;
-using unirest_net.request;
 
-namespace unirest_net.http
+namespace HSNXT.Test.DiscordRPC.VLCa.Unirest
 {
     public class Unirest
     {

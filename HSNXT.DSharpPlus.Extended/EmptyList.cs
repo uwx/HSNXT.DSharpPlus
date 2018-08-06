@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended
+namespace HSNXT.DSharpPlus.Extended
 {
     internal class EmptyList<T> : IReadOnlyList<DiscordMessage>
     {

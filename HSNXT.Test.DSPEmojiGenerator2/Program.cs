@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using DSharpPlus.Entities;
 
-namespace DSPEmojiGenerator2
+namespace HSNXT.Test.DSPEmojiGenerator2
 {
     internal class Program
     {

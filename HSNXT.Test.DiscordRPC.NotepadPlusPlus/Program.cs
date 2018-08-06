@@ -5,10 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Xml;
-using HSNXT.DiscordRPC.Base;
+using HSNXT.Test.DiscordRPC.Base;
 
-namespace HSNXT.DiscordRPC.NotepadPlusPlus
+namespace HSNXT.Test.DiscordRPC.NotepadPlusPlus
 {
     class Program
     {

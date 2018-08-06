@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DSharpPlus.ModernEmbedBuilder
+namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 {
     public class DuckField
     {

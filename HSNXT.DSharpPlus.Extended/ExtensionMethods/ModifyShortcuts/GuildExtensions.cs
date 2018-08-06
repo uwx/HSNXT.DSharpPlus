@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended.ModifyShortcuts
+namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
     public static class GuildExtensions
     {

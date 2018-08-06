@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 
-namespace DSharpPlus.Extended.AsyncListeners
+namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {
     /// <inheritdoc />
     /// <summary>

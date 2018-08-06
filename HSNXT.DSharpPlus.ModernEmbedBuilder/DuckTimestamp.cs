@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace DSharpPlus.ModernEmbedBuilder
+namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 {
     // TODO is this even right
     public struct DuckTimestamp

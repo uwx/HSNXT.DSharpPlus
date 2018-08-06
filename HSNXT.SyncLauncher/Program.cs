@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace SyncLauncher
+namespace HSNXT.SyncLauncher
 {
     internal class Program
     {

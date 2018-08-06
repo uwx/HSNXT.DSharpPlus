@@ -1,4 +1,4 @@
-﻿namespace DSharpPlus.ModernEmbedBuilder
+﻿namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 {
     public class DuckAuthor
     {

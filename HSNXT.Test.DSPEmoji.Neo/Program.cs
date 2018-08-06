@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
@@ -7,9 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using DSharpPlus.Entities;
 
-namespace HSNXT.DSPEmoji.Neo
+namespace HSNXT.Test.DSPEmoji.Neo
 {
     internal class Program
     {
@@ -45,14 +43,11 @@ namespace HSNXT.DSPEmoji.Neo
             return asAscii.ToString();
         }
     }
-}
 
-public class SnowflakeObject
-{
-}
+    public class SnowflakeObject
+    {
+    }
 
-namespace DSharpPlus.Entities
-{
     public partial class DiscordEmoji : SnowflakeObject
     {
         private static IImmutableDictionary<string, string> UnicodeEmojis { get; set; }

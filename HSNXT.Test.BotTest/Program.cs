@@ -5,7 +5,7 @@ using DSharpPlus;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Net.WebSocket;
 
-namespace BotTest
+namespace HSNXT.Test.BotTest
 {
     internal class Program
     {

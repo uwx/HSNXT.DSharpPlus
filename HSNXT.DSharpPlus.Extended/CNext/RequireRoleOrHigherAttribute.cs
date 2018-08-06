@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext;
-using DSharpPlus;
+using DSharpPlus.CommandsNext.Attributes;
 
-namespace DSharpPlus.Extended.CNext
+namespace HSNXT.DSharpPlus.Extended.CNext
 {
     /// <summary>
     /// Defines that usage of this command is restricted to members with specified role, or higher.

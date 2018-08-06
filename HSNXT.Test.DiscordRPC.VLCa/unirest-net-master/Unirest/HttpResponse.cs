@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace unirest_net.http
+namespace HSNXT.Test.DiscordRPC.VLCa.Unirest
 {
     public class HttpResponse<T>
     {

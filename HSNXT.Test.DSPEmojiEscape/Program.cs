@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using DSharpPlus.Entities;
 
-namespace Dickscord
+namespace HSNXT.Test.DSPEmojiEscape
 {
     public class Program
     {

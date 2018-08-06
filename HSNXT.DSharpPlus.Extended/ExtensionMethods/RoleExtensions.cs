@@ -1,8 +1,7 @@
 ﻿using System;
 using DSharpPlus.Entities;
-using System.Collections.Generic;
 
-namespace DSharpPlus.Extended
+namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 {
     public static class RoleExtensions
     {

@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace DSharpPlus.Extended.Emoji
+namespace HSNXT.DSharpPlus.Extended.Emoji
 {
     public class Emoji
     {

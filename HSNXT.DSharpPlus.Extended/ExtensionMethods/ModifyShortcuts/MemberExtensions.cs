@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended.ModifyShortcuts
+namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
     public static class MemberExtensions
     {
