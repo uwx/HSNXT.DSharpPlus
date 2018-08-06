@@ -34,16 +34,16 @@ build_script:
 
 after_build:
   # this cant do d#+ packages
-  - cmd: >
+  - cmd: >-
       delete-packages
-        HSNXT.DiscordRPC.NotepadPlusPlus
-        HSNXT.TestProject.BotTest
-        HSNXT.DSPEmojiGenerator2
-        HSNXT.DSPEmojiGenerator
-        HSNXT.DiscordRPC.VLCa
-        HSNXT.DiscordRPC.Base
-        HSNXT.DSPEmojiEscape
-        HSNXT.DSPEmoji.Neo
+      HSNXT.DiscordRPC.NotepadPlusPlus
+      HSNXT.TestProject.BotTest
+      HSNXT.DSPEmojiGenerator2
+      HSNXT.DSPEmojiGenerator
+      HSNXT.DiscordRPC.VLCa
+      HSNXT.DiscordRPC.Base
+      HSNXT.DSPEmojiEscape
+      HSNXT.DSPEmoji.Neo
   
 artifacts:
   - path: '**\Packaged\*.nupkg'
