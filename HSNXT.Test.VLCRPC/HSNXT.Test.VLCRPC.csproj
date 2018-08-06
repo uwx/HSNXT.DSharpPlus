@@ -4,9 +4,8 @@
   <PropertyGroup>
     <TargetFramework>net47</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AssemblyName>HSNXT.DiscordRPC.VLCa</AssemblyName>
-    <RootNamespace>HSNXT.DiscordRPC.VLCa</RootNamespace>
   </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +20,6 @@
     <PackageReference Include="System.Net.Http" Version="4.3.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj" />
+    <ProjectReference Include="..\HSNXT.Test.DiscordRPC.Base\HSNXT.Test.DiscordRPC.Base.csproj" />
   </ItemGroup>
 </Project>

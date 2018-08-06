@@ -5,7 +5,6 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputType>Exe</OutputType>
-    <PackageId>HSNXT.TestProject.BotTest</PackageId>
   </PropertyGroup>
   
   <ItemGroup>
