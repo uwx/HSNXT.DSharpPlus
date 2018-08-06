@@ -20,9 +20,4 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\HSNXT.DSharpPlus.ModernEmbedBuilder\Color.cs">
-      <Link>Color.cs</Link>
-    </Compile>
-  </ItemGroup>
 </Project>

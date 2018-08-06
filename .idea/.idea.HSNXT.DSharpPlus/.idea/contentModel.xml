@@ -441,7 +441,6 @@
         <e p="CNext" t="Include">
           <e p="RequireRoleOrHigherAttribute.cs" t="Include" />
         </e>
-        <e p="Color.cs" t="Include" />
         <e p="DspExtended.cs" t="Include" />
         <e p="EmptyList.cs" t="Include" />
         <e p="EventArgs" t="Include">
@@ -504,7 +503,6 @@
       </e>
       <e p="HSNXT.DSharpPlus.ModernEmbedBuilder" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Color.cs" t="Include" />
         <e p="DuckAuthor.cs" t="Include" />
         <e p="DuckColor.cs" t="Include" />
         <e p="DuckField.cs" t="Include" />
