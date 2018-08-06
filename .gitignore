@@ -11,5 +11,6 @@ packages
 /.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-shm
 /.vs/HSNXT.DSharpPlus/v15/Server/sqlite3/storage.ide-wal
 /HSNXT.DSharpPlus.ModernEmbedBuilder/_local_HSNXT.DSharpPlus.ModernEmbedBuilder.csproj
-/HSNXT.VLCRPC/discord-rpc.dll
-/HSNXT.DiscordRPC.VLCa/discord-rpc.dll
+/HSNXT.Test.DiscordRPC.NotepadPlusPlus/discord-rpc.dll
+/HSNXT.Test.DiscordRPC.VLCa/discord-rpc.dll
+/HSNXT.Test.VLCRPC/discord-rpc.dll

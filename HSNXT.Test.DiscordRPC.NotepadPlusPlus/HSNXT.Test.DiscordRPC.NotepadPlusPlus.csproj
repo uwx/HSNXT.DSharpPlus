@@ -9,6 +9,6 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HSNXT.DiscordRPC.Base\HSNXT.DiscordRPC.Base.csproj" />
+    <ProjectReference Include="..\HSNXT.Test.DiscordRPC.Base\HSNXT.Test.DiscordRPC.Base.csproj" />
   </ItemGroup>
 </Project>
