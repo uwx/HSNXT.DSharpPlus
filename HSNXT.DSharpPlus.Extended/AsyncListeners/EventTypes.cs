@@ -1,4 +1,4 @@
-﻿namespace DSharpPlus.Extended.AsyncListeners
+﻿namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {
     // CNext doesn't need all the fiddling, so we dont need those events.
     public enum EventTypes

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Exceptions;
@@ -12,7 +13,7 @@ using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using Newtonsoft.Json;
 
-namespace DSharpPlus.CNextNotifier
+namespace HSNXT.DSharpPlus.CNextNotifier
 {
     public class ExampleUngrouppedCommands
     {

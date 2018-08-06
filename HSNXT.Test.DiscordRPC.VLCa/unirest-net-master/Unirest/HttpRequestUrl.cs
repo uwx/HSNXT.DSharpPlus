@@ -1,13 +1,11 @@
 ﻿using System;
-using unirest_net.request;
 using System.Net.Http;
 using Mono.Web;
-using SW=System.Web;
 
 // ReSharper disable UnusedMethodReturnValue.Global
 // ReSharper disable MemberCanBeProtected.Global
 
-namespace Fallk.Unirest.Net.Unirest
+namespace HSNXT.Test.DiscordRPC.VLCa.Unirest
 {
     public class HttpRequestUrl : HttpRequest
     {

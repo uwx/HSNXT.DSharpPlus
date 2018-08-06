@@ -5,11 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using MapReduce.NET.Collections;
 
-namespace DSharpPlus.CNextNotifier
+namespace HSNXT.DSharpPlus.CNextNotifier
 {
     internal struct CmdSuppressPair
     {

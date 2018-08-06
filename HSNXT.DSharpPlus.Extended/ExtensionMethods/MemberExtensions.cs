@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
+using DSharpPlus;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended
+namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 {
     public static class MemberExtensions
     {

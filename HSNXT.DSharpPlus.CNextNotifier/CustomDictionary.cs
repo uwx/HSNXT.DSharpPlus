@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 // ReSharper disable ForCanBeConvertedToForeach
 
-namespace MapReduce.NET.Collections
+namespace HSNXT.DSharpPlus.CNextNotifier
 {
     public class CustomDictionary<TK, TV> : IDictionary<TK, TV>, IDictionary
     {

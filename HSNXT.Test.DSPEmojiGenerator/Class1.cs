@@ -1,4 +1,4 @@
-﻿namespace DSPEmojiGenerator
+﻿namespace HSNXT.Test.DSPEmojiGenerator
 {
     public class Class1
     {

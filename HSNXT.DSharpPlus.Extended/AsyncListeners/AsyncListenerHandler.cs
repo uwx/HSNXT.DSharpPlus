@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 
-namespace DSharpPlus.Extended.AsyncListeners
+namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {
     internal static class AsyncListenerHandler
     {

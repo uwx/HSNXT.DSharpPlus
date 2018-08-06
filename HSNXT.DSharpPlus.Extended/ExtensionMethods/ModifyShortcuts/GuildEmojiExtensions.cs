@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Extended.ModifyShortcuts
+namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
     public static class GuildEmojiExtensions
     {

@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace HSNXT.DiscordRPC.Base
+namespace HSNXT.Test.DiscordRPC.Base
 {
     public class DiscordRpc
     {

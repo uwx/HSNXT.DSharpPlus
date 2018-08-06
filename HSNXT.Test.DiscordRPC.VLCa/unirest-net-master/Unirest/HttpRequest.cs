@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using unirest_net.http;
+
 // ReSharper disable UnusedMethodReturnValue.Global
 
-namespace unirest_net.request
+namespace HSNXT.Test.DiscordRPC.VLCa.Unirest
 {
     public class HttpRequest
     {

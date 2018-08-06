@@ -355,11 +355,11 @@ using DSharpPlus.Entities;
 #endregion
 
 #if DSPExtended
-namespace DSharpPlus.Extended
+namespace HSNXT.DSharpPlus.Extended
 {
     public class Colors
 #else
-namespace DSharpPlus.ModernEmbedBuilder
+namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 {
     internal static class Colors
 #endif

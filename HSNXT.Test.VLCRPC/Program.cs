@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using HSNXT.DiscordRPC.Base;
-using Newtonsoft.Json;
-using unirest_net.http;
+using HSNXT.Test.DiscordRPC.Base;
+using HSNXT.Test.VLCRPC.Unirest;
 
-namespace DRPCTest
+namespace HSNXT.Test.VLCRPC
 {
     internal class Program
     {

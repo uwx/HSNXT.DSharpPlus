@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DRPCTest
+namespace HSNXT.Test.VLCRPC
 {
     public class VLCStatus
     {

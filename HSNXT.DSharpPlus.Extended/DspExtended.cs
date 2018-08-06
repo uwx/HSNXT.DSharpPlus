@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
-using DSharpPlus.Extended.AsyncListeners;
+using HSNXT.DSharpPlus.Extended.AsyncListeners;
+using HSNXT.DSharpPlus.Extended.EventArgs;
 
-namespace DSharpPlus.Extended.Module
+namespace HSNXT.DSharpPlus.Extended
 {
     public static class DspExtendedModuleLoader
     {
