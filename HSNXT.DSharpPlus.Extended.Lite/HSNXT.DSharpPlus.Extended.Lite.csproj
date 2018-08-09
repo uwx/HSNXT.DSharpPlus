@@ -7,6 +7,7 @@
       The "lite" version of the package removes some contested content, and does not depend on CommandsNext.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
@@ -35,6 +36,9 @@
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs">
       <Link>ChannelExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ColorExtensions.cs">
+      <Link>ColorExtensions.cs</Link>
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs">
       <Link>MemberExtensions.cs</Link>
