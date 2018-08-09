@@ -3,10 +3,13 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
-using HSNXT.DSharpPlus.Extended.AsyncListeners;
 using HSNXT.DSharpPlus.Extended.EventArgs;
+
+#if !IS_LITE_VERSION
+using DSharpPlus.CommandsNext;
+using HSNXT.DSharpPlus.Extended.AsyncListeners;
+#endif
 
 namespace HSNXT.DSharpPlus.Extended
 {
@@ -21,17 +24,24 @@ namespace HSNXT.DSharpPlus.Extended
     public class DspExtended
     {
         internal DiscordClient Client { get; set; }
+        
+#if !IS_LITE_VERSION
         internal CommandsNextExtension CNext { get; set; }
+#endif
         
         internal DspExtended(DiscordClient client)
         {
             Client = client;
+            
+#if !IS_LITE_VERSION
             CNext = client.GetCommandsNext(); 
+#endif
             
             _extensionErrored = new AsyncEvent<ExtensionErrorEventArgs>(EventErrorHandler, "ExtensionErrored");
             _mentionReceived = new AsyncEvent<MentionReceivedEventArgs>(EventErrorHandler, "MentionReceived");
         }
 
+#if !IS_LITE_VERSION
         /// <summary>
         /// Registers async listeners for an assembly
         /// </summary>
@@ -41,6 +51,7 @@ namespace HSNXT.DSharpPlus.Extended
             if (assembly == null) assembly = Assembly.GetEntryAssembly();
             AsyncListenerHandler.InstallListeners(Client, CNext, assembly.GetTypes());
         }
+#endif
         
         internal void EventErrorHandler(string evname, Exception ex)
         {
