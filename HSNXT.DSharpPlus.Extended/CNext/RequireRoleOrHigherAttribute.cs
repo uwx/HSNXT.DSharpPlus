@@ -9,7 +9,7 @@ namespace HSNXT.DSharpPlus.Extended.CNext
     /// <summary>
     /// Defines that usage of this command is restricted to members with specified role, or higher.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = false)]
     public sealed class RequireRoleOrHigherAttribute : CheckBaseAttribute
     {
         /// <summary>
