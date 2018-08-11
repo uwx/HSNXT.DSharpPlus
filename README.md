@@ -5,6 +5,8 @@
 Home of CNextNotifier, DSharpPlus.Extended, ModernEmbedBuilder, CommandsNext.Extended and maybe more...
 
 [![HSNXT.DSharpPlus.CNextNotifier NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.CNextNotifier.svg?label=HSNXT.DSharpPlus.CNextNotifier)](https://nuget.org/packages/HSNXT.DSharpPlus.CNextNotifier)  
+[![HSNXT.DSharpPlus.CommandsNext.Extended NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.CommandsNext.Extended.svg?label=HSNXT.DSharpPlus.CommandsNext.Extended)](https://nuget.org/packages/HSNXT.DSharpPlus.CommandsNext.Extended)  
 [![HSNXT.DSharpPlus.Extended NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.Extended.svg?label=HSNXT.DSharpPlus.Extended)](https://nuget.org/packages/HSNXT.DSharpPlus.Extended)  
+[![HSNXT.DSharpPlus.Extended.Emoji NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.Extended.Emoji.svg?label=HSNXT.DSharpPlus.Extended.Emoji)](https://nuget.org/packages/HSNXT.DSharpPlus.Extended.Emoji)  
 [![HSNXT.DSharpPlus.Extended.Lite NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.Extended.Lite.svg?label=HSNXT.DSharpPlus.Extended.Lite)](https://nuget.org/packages/HSNXT.DSharpPlus.Extended.Lite)  
 [![HSNXT.DSharpPlus.ModernEmbedBuilder NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.ModernEmbedBuilder.svg?label=HSNXT.DSharpPlus.ModernEmbedBuilder)](https://nuget.org/packages/HSNXT.DSharpPlus.ModernEmbedBuilder)  
