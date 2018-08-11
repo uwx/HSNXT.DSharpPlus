@@ -48,14 +48,6 @@ deploy:
       secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
     # don't push D#+ packages, also don't push test packages
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
-
-    # Deploying to NuGet feed
-  - provider: NuGet
-    server: https://www.myget.org/F/hansen-jurassic/api/v3/index.json
-    skip_symbols: false
-    api_key:
-      secure: UgAJl6eK2vnLTns5CJda/+jILU/c2Xtsv4pZ9FILt4VaYl3N/orzvB8sv6cdrk7A
-    artifact: DSharpPlus.CommandsNext.nupkg
     
 notifications:
   - provider: Slack
