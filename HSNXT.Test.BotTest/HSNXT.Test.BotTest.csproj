@@ -19,8 +19,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj" />
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj">
+    <ProjectReference Include="..\..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj" />
+    <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj">
       <Project>{75e73c6b-79b8-4a80-957a-01f00bafc06a}</Project>
       <Name>DSharpPlus</Name>
     </ProjectReference>
