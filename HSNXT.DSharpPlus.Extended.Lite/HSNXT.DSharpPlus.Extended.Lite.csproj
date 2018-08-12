@@ -16,7 +16,7 @@
     <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
+    <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
     <Reference Include="System" />

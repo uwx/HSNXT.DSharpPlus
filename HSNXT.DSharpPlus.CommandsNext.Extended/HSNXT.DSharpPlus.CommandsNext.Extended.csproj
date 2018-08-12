@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
+    <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
 
 </Project>

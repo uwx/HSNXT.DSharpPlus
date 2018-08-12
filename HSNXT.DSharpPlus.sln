@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.CNextNotif
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.ModernEmbedBuilder", "HSNXT.DSharpPlus.ModernEmbedBuilder\HSNXT.DSharpPlus.ModernEmbedBuilder.csproj", "{B9392BE3-75CA-42D2-8B8E-C6E1445B6483}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus", "DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{75E73C6B-79B8-4A80-957A-01F00BAFC06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus", "..\DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{75E73C6B-79B8-4A80-957A-01F00BAFC06A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended", "HSNXT.DSharpPlus.Extended\HSNXT.DSharpPlus.Extended.csproj", "{E01FA273-FC25-4208-80C6-AE493A923D82}"
 EndProject
@@ -17,13 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended.L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.SyncLauncher", "HSNXT.SyncLauncher\HSNXT.SyncLauncher.csproj", "{26DD9AFD-B098-488C-BA97-8599E68ED3B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Interactivity", "DSharpPlus\DSharpPlus.Interactivity\DSharpPlus.Interactivity.csproj", "{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Interactivity", "..\DSharpPlus\DSharpPlus.Interactivity\DSharpPlus.Interactivity.csproj", "{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Rest", "DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Rest", "..\DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.VoiceNext", "DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.VoiceNext", "..\DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.CommandsNext.Extended", "HSNXT.DSharpPlus.CommandsNext.Extended\HSNXT.DSharpPlus.CommandsNext.Extended.csproj", "{4ABEF396-525A-4C09-9EC6-347A98FD4FC5}"
 EndProject

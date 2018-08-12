@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus" />
+    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.Interactivity" />
+    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.Rest" />
+    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.VoiceNext" />
+    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore" />
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
