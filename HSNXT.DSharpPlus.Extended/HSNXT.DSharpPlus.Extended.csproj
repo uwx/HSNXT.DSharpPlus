@@ -6,6 +6,7 @@
     <Description>Addon for DSharpPlus adding a variety of extension methods.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>TRACE;DSPExtended</DefineConstants>
