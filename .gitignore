@@ -15,3 +15,4 @@ packages
 /HSNXT.Test.DiscordRPC.VLCa/discord-rpc.dll
 /HSNXT.Test.VLCRPC/discord-rpc.dll
 doxygen_out
+sharpdox_out

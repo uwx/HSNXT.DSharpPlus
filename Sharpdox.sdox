@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SDConfig>
+  <section guid="feacbce2-8290-4d90-bb05-373b9d7dbbfc">
+    <item key="ConfigFileName" value="Sharpdox" />
+    <item key="ProjectName" value="HSNXT.DSharpPlus" />
+    <item key="ProjectUrl" value="https://github.com/uwx/HSNXT.DSharpPlus" />
+    <item key="Author" value="uwx" />
+    <item key="AuthorUrl" value="https://github.com/uwx" />
+    <InputFile>
+      <Relative>hsnxt.dsharpplus.sln</Relative>
+      <Full></Full>
+    </InputFile>
+    <OutputPath>
+      <Relative>sharpdox_out</Relative>
+      <Full></Full>
+    </OutputPath>
+    <item key="DocLanguage" value="en" />
+    <item key="ExcludePrivate" value="False" />
+    <item key="ExcludeProtected" value="False" />
+    <item key="ExcludeInternal" value="False" />
+    <item key="ExcludedIdentifiers" value="" />
+    <item key="ActivatedExporters" value="Html" />
+  </section>
+  <section guid="9e8e8bc4-bfdd-11e3-a297-170828518c08">
+    <item key="Theme" value="sharpDox" />
+    <item key="ShowCode" value="False" />
+    <item key="PrimaryColor" value="#F5F4F0" />
+    <item key="SecondaryColor" value="#F58026" />
+    <item key="DisableSequenceDiagrams" value="False" />
+  </section>
+</SDConfig>
