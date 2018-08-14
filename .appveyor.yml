@@ -24,6 +24,7 @@ environment:
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
   - cinst docfx
+  - choco install doxygen.portable
 
 before_build:
   - cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
@@ -53,16 +54,21 @@ deploy:
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
    
 after_deploy:
+# setup auth
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "appveyor@ci.org"
   - git config --global user.name "Appveyor Automated Build"
-#
+# build and copy docfx
   - docfx ./docfx_project/docfx.json
-  - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages *.* /is /it /e /np
+  - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /np
+# build and copy doxygen
+  - doxygen Doxyfile
+  - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /np
+# add and commit
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
   - git add .
-  - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated filter list [skip ci]"'
+  - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated docs [skip ci]"'
   - git push origin gh-pages
 
 notifications:
