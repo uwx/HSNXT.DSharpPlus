@@ -8,6 +8,7 @@ clone_folder: c:\projects\dsp
 
 clone_script:
 - cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/uwx/HSNXT.DSharpPlus.git %APPVEYOR_BUILD_FOLDER%
+- cmd: git clone -q --recursive --branch=gh-pages https://github.com/uwx/HSNXT.DSharpPlus.git %APPVEYOR_BUILD_FOLDER%/../gh-pages
 - cmd: git clone -q --recursive https://github.com/uwx/DSharpPlus.git %APPVEYOR_BUILD_FOLDER%/../DSharpPlus
 - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
 
@@ -22,6 +23,7 @@ environment:
 
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
+  - cinst docfx
 
 before_build:
   - cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
@@ -50,6 +52,10 @@ deploy:
     # don't push D#+ packages, also don't push test packages
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
     
+deploy_script:
+  - docfx ./docfx_project/docfx.json
+  - cmd: robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages *.* /is /it /e
+
 notifications:
   - provider: Slack
     on_build_success: true
