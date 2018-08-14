@@ -65,10 +65,6 @@ after_deploy:
   - choco install doxygen.portable
   - doxygen Doxyfile
   - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /nfl /ndl /np
-# build and copy sharpDox
-  - ps: ./download-sharpDox.ps1
-  - 'C:\sharpDox\SharpDox.Console.exe -config "%cd%\Sharpdox.sdox"'
-  - try robocopy sharpdox_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/sharpdox *.* /is /it /e /nfl /ndl /np
 # add and commit
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
   - git add .
