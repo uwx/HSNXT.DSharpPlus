@@ -10,6 +10,7 @@
           "exclude": [
             "**/obj/**",
             "**/bin/**",
+            "**/doxygen_out/**",
             "_site/**"
           ]
         },
