@@ -1,0 +1,26 @@
+var class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection =
+[
+    [ "StopAsync", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a9e22b580faffa678d7400fe623e09edf", null ],
+    [ "ConnectAsync", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#adac4505534e42719a5a8958f47a2ce37", null ],
+    [ "GetConnection", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a2cf0a26e82d1b211a781e9438909a6a5", null ],
+    [ "GetTracksAsync", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a9303f81b4ae0ed7f8145b9438bddc937", null ],
+    [ "GetTracksAsync", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ac6b426994d88fbc2e75a538cff6e9303", null ],
+    [ "GetTracksAsync", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#af76007ccc37573885e73d53a2042b8dd", null ],
+    [ "NodeEndpoint", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a57b9f6f2211de96bcb8be7497ecd5373", null ],
+    [ "IsConnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a4ca48064ba42b49d1316c216c2741d04", null ],
+    [ "LavalinkSocketErrored", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#abc3de23bfd4cc31aeba4bb7d5315b905", null ],
+    [ "Disconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ae22374cb141364925899f6661404f6bc", null ],
+    [ "PlayerUpdated", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#aa2012e88f9d2ff1cf7d1581044e866d1", null ],
+    [ "PlaybackFinished", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ac8e8517918dd393731adf5adbc2d7d8d", null ],
+    [ "TrackStuck", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a6e3df14ad2b8fa59e0f38b6b08c53ad4", null ],
+    [ "TrackException", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ac5a4ceb9595230bfb173fd1be68c24b8", null ],
+    [ "Statistics", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#afa7c89f80871bc5061b648681643c7a3", null ],
+    [ "Discord", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a846fb56a422429a0839ee21e81bd6103", null ],
+    [ "Configuration", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#af24cab04dcb98a36b5bb94e74e7978fa", null ],
+    [ "ConnectedGuilds", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a37ef9fc4b55e173619eda34b2fcbd07d", null ],
+    [ "WebSocket", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#aae5c0d615985de05bf8d9b6cd88070e0", null ],
+    [ "Rest", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a11c3c45f9a7ad5b66d920cd54a4dc833", null ],
+    [ "VoiceStateUpdates", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a7f5e0800c7e0cce728a2bd9e4b88cc4d", null ],
+    [ "VoiceServerUpdates", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a982f4eab6281b020c4dc97f78327346d", null ],
+    [ "NodeDisconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a389839cdf1091ada1b534395b6634616", null ]
+];

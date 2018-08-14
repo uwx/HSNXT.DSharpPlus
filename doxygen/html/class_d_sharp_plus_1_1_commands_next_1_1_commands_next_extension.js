@@ -1,0 +1,26 @@
+var class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension =
+[
+    [ "DefaultHelpModule", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module.html", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module" ],
+    [ "SetHelpFormatter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a41f6a0dc530ef132f591bf354e6abcf4", null ],
+    [ "RegisterCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a4a21959a30ca5d6ec18c3e12c82d06a1", null ],
+    [ "RegisterCommands< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a20edbea3ba80160cf90d6dbdc46bf021", null ],
+    [ "RegisterCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a92ae4b966c85930f58fbaf9aaaac1b87", null ],
+    [ "SudoAsync", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a484d7d5d7cac5799bc9a410c846f6964", null ],
+    [ "ConvertArgument< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#aac8bf5d01c8f75cfa8d7ae79fe87af88", null ],
+    [ "ConvertArgument", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#aa10977ee29122cdf7238972889612e98", null ],
+    [ "RegisterConverter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#acdb4ecd37dba17c8c43175c8b92586ae", null ],
+    [ "UnregisterConverter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a20d464ffac4e836a26814f2501cfc798", null ],
+    [ "RegisterUserFriendlyTypeName< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#aac5cb4b51ec3b434b45c4bdbb3d3d5f5", null ],
+    [ "RegisterUserFriendlyTypeName", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#aa955e056c736d3332996f4dee3643613", null ],
+    [ "GetUserFriendlyTypeName", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a9bb624ccea313b9a970ea0e23b9d425f", null ],
+    [ "Services", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a4b966496b3c61a034544f73da2566fb1", null ],
+    [ "RegisteredCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#af4efc322ae5a5d370d5e8fc0c25befa0", null ],
+    [ "Config", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ae72c0336597e5a6c2a6225bb800cc82a", null ],
+    [ "HelpFormatter", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ac27bb034ba5056bd2086a437864c38ac", null ],
+    [ "ConvertGeneric", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a2f00b87977c9ee9d5a04be1fa9dd804f", null ],
+    [ "UserFriendlyTypeNames", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a6da96731cb9c4a742b5840f3a11a9c68", null ],
+    [ "ArgumentConverters", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ac9286bc78f672bcf21516bf080c6532a", null ],
+    [ "TopLevelCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a9a591ce42a0580932c300f850ac3fc67", null ],
+    [ "CommandExecuted", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ae3b374e2b0e2abd91f6cf9ac6ad01217", null ],
+    [ "CommandErrored", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a15ab229680c81c28b0a6717a928b1b18", null ]
+];

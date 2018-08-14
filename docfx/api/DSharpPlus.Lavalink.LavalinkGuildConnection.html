@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class LavalinkGuildConnection
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class LavalinkGuildConnection
+   ">
+    <meta name="generator" content="docfx 2.38.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection">
+  
+  
+  <h1 id="DSharpPlus_Lavalink_LavalinkGuildConnection" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection" class="text-break">Class LavalinkGuildConnection
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a Lavalink connection to a channel.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">LavalinkGuildConnection</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Lavalink.html">DSharpPlus.Lavalink</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="DSharpPlus_Lavalink_LavalinkGuildConnection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LavalinkGuildConnection</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Channel_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Channel*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Channel" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Channel">Channel</h4>
+  <div class="markdown level1 summary"><p>Gets the voice channel associated with this connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordChannel Channel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_CurrentState_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.CurrentState*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_CurrentState" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.CurrentState">CurrentState</h4>
+  <div class="markdown level1 summary"><p>Gets the current player state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LavalinkPlayerState CurrentState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LavalinkPlayerState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Guild_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Guild*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Guild" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Guild">Guild</h4>
+  <div class="markdown level1 summary"><p>Gets the guild associated with this connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordGuild Guild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordGuild</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_IsConnected_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.IsConnected*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_IsConnected" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.IsConnected">IsConnected</h4>
+  <div class="markdown level1 summary"><p>Gets whether this channel is still connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnected { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Disconnect_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Disconnect*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Disconnect" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Disconnect">Disconnect()</h4>
+  <div class="markdown level1 summary"><p>Disconnect from this voice channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Disconnect()</code></pre>
+  </div>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Pause_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Pause*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Pause" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Pause">Pause()</h4>
+  <div class="markdown level1 summary"><p>Pauses the player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pause()</code></pre>
+  </div>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Play_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Play*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Play_DSharpPlus_Lavalink_LavalinkTrack_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Play(DSharpPlus.Lavalink.LavalinkTrack)">Play(LavalinkTrack)</h4>
+  <div class="markdown level1 summary"><p>Queues the specified track for playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Play(LavalinkTrack track)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Lavalink.LavalinkTrack.html">LavalinkTrack</a></td>
+        <td><span class="parametername">track</span></td>
+        <td><p>Track to play.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_PlayPartial_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.PlayPartial*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_PlayPartial_DSharpPlus_Lavalink_LavalinkTrack_System_TimeSpan_System_TimeSpan_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.PlayPartial(DSharpPlus.Lavalink.LavalinkTrack,System.TimeSpan,System.TimeSpan)">PlayPartial(LavalinkTrack, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Queues the specified track for playback. The track will be played from specified start timestamp to specified end timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayPartial(LavalinkTrack track, TimeSpan start, TimeSpan end)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Lavalink.LavalinkTrack.html">LavalinkTrack</a></td>
+        <td><span class="parametername">track</span></td>
+        <td><p>Track to play.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Timestamp to start playback at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>Timestamp to stop playback at.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Resume_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Resume*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Resume" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Resume">Resume()</h4>
+  <div class="markdown level1 summary"><p>Resumes playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resume()</code></pre>
+  </div>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Seek_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Seek*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Seek_System_TimeSpan_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Seek(System.TimeSpan)">Seek(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Seeks the current track to specified position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Seek(TimeSpan position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">position</span></td>
+        <td><p>Position to seek to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_SetVolume_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.SetVolume*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_SetVolume_System_Int32_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.SetVolume(System.Int32)">SetVolume(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets the playback volume. This might incur a lot of CPU usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVolume(int volume)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">volume</span></td>
+        <td><p>Volume to set. Needs to be greater or equal to 0, and less than or equal to 150. 100 means 100% and is the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Stop_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Stop*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Stop" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Stop">Stop()</h4>
+  <div class="markdown level1 summary"><p>Stops the player completely.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_PlaybackFinished" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.PlaybackFinished">PlaybackFinished</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever playback of a track finishes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;TrackFinishEventArgs&gt; PlaybackFinished</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<span class="xref">TrackFinishEventArgs</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_PlayerUpdated" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.PlayerUpdated">PlayerUpdated</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever Lavalink updates player status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;PlayerUpdateEventArgs&gt; PlayerUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<span class="xref">PlayerUpdateEventArgs</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_TrackException" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.TrackException">TrackException</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever playback of a track encounters an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;TrackExceptionEventArgs&gt; TrackException</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<span class="xref">TrackExceptionEventArgs</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_TrackStuck" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.TrackStuck">TrackStuck</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever playback of a track gets stuck.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;TrackStuckEventArgs&gt; TrackStuck</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<span class="xref">TrackStuckEventArgs</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

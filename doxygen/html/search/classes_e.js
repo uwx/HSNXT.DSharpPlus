@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['ratelimitexception',['RateLimitException',['../class_d_sharp_plus_1_1_exceptions_1_1_rate_limit_exception.html',1,'DSharpPlus::Exceptions']]],
+  ['reactioncollectioncontext',['ReactionCollectionContext',['../class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html',1,'DSharpPlus::Interactivity']]],
+  ['reactioncontext',['ReactionContext',['../class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html',1,'DSharpPlus::Interactivity']]],
+  ['readonlyset',['ReadOnlySet',['../class_d_sharp_plus_1_1_read_only_set.html',1,'DSharpPlus']]],
+  ['readyeventargs',['ReadyEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_ready_event_args.html',1,'DSharpPlus::EventArgs']]],
+  ['remainingtextattribute',['RemainingTextAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_remaining_text_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requirebotpermissionsattribute',['RequireBotPermissionsAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_bot_permissions_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requiredirectmessageattribute',['RequireDirectMessageAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_direct_message_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requireguildattribute',['RequireGuildAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_guild_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requirensfwattribute',['RequireNsfwAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_nsfw_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requireownerattribute',['RequireOwnerAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_owner_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requirepermissionsattribute',['RequirePermissionsAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_permissions_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requireprefixesattribute',['RequirePrefixesAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_prefixes_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requireroleorhigherattribute',['RequireRoleOrHigherAttribute',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html',1,'HSNXT::DSharpPlus::Extended::CNext']]],
+  ['requirerolesattribute',['RequireRolesAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_roles_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['requireuserpermissionsattribute',['RequireUserPermissionsAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_user_permissions_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
+  ['restrequest',['RestRequest',['../class_d_sharp_plus_1_1_net_1_1_rest_request.html',1,'DSharpPlus::Net']]],
+  ['restresponse',['RestResponse',['../class_d_sharp_plus_1_1_net_1_1_rest_response.html',1,'DSharpPlus::Net']]],
+  ['ringbuffer',['RingBuffer',['../class_d_sharp_plus_1_1_ring_buffer.html',1,'DSharpPlus']]],
+  ['roleeditmodel',['RoleEditModel',['../class_d_sharp_plus_1_1_net_1_1_models_1_1_role_edit_model.html',1,'DSharpPlus::Net::Models']]]
+];

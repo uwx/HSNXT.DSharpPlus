@@ -1,0 +1,5 @@
+var namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args =
+[
+    [ "ExtensionErrorEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_extension_error_event_args.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_extension_error_event_args" ],
+    [ "MentionReceivedEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args" ]
+];

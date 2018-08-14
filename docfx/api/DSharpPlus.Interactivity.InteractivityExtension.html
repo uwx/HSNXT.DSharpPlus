@@ -1,0 +1,870 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class InteractivityExtension
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class InteractivityExtension
+   ">
+    <meta name="generator" content="docfx 2.38.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Interactivity.InteractivityExtension">
+  
+  
+  <h1 id="DSharpPlus_Interactivity_InteractivityExtension" data-uid="DSharpPlus.Interactivity.InteractivityExtension" class="text-break">Class InteractivityExtension
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="DSharpPlus.BaseExtension.html">BaseExtension</a></div>
+    <div class="level2"><span class="xref">InteractivityExtension</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="DSharpPlus.BaseExtension.html#DSharpPlus_BaseExtension_Client">BaseExtension.Client</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Interactivity.html">DSharpPlus.Interactivity</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="DSharpPlus_Interactivity_InteractivityExtension_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class InteractivityExtension : BaseExtension</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_DiscordMessage_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DiscordMessage,System.Nullable{System.TimeSpan})">CollectReactionsAsync(DiscordMessage, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CollectReactionsAsync(DiscordMessage message, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_DiscordMessage_System_Collections_Generic_IEnumerable_DiscordEmoji__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync(DiscordMessage,System.Collections.Generic.IEnumerable{DiscordEmoji},System.Nullable{System.TimeSpan})">CreatePollAsync(DiscordMessage, IEnumerable&lt;DiscordEmoji&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CreatePollAsync(DiscordMessage message, IEnumerable&lt;DiscordEmoji&gt; emojis, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">DiscordEmoji</span>&gt;</td>
+        <td><span class="parametername">emojis</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_DoPagination_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.DoPagination*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_DoPagination_DiscordEmoji_DiscordMessage_DSharpPlus_Interactivity_PaginatedMessage_System_Threading_CancellationTokenSource_DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.DoPagination(DiscordEmoji,DiscordMessage,DSharpPlus.Interactivity.PaginatedMessage,System.Threading.CancellationTokenSource,DSharpPlus.Interactivity.PaginationEmojis)">DoPagination(DiscordEmoji, DiscordMessage, PaginatedMessage, CancellationTokenSource, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PaginatedMessage paginatedmessage, CancellationTokenSource canceltoken, PaginationEmojis emojis)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginatedMessage.html">PaginatedMessage</a></td>
+        <td><span class="parametername">paginatedmessage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtokensource">CancellationTokenSource</a></td>
+        <td><span class="parametername">canceltoken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds(System.String)">GeneratePagesInEmbeds(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Page&gt; GeneratePagesInEmbeds(string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings(System.String)">GeneratePagesInStrings(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Page&gt; GeneratePagesInStrings(string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_DiscordMessage_DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions(DiscordMessage,DSharpPlus.Interactivity.PaginationEmojis)">GeneratePaginationReactions(DiscordMessage, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task GeneratePaginationReactions(DiscordMessage message, PaginationEmojis emojis)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_DiscordChannel_DiscordUser_System_Collections_Generic_IEnumerable_DSharpPlus_Interactivity_Page__System_Nullable_System_TimeSpan__System_Nullable_DSharpPlus_Interactivity_TimeoutBehaviour__DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage(DiscordChannel,DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour},DSharpPlus.Interactivity.PaginationEmojis)">SendPaginatedMessage(DiscordChannel, DiscordUser, IEnumerable&lt;Page&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;TimeoutBehaviour&gt;, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user, IEnumerable&lt;Page&gt; message_pages, TimeSpan? timeoutoverride = default(TimeSpan? ), TimeoutBehaviour? timeoutbehaviouroverride = default(TimeoutBehaviour? ), PaginationEmojis emojis = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td><span class="parametername">message_pages</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour.html">TimeoutBehaviour</a>&gt;</td>
+        <td><span class="parametername">timeoutbehaviouroverride</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_Setup_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.Setup*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_Setup_DSharpPlus_DiscordClient_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.Setup(DSharpPlus.DiscordClient)">Setup(DiscordClient)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Setup(DiscordClient client)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.DiscordClient.html">DiscordClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="DSharpPlus.BaseExtension.html#DSharpPlus_BaseExtension_Setup_DSharpPlus_DiscordClient_">BaseExtension.Setup(DiscordClient)</a></div>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(Func&lt;DiscordMessage, bool&gt; predicate, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_DiscordMessage_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(DiscordMessage,DiscordUser,System.Nullable{System.TimeSpan})">WaitForMessageReactionAsync(DiscordMessage, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForMessageReactionAsync(DiscordMessage message, DiscordUser user = null, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordMessage_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordMessage,DiscordUser,System.Nullable{System.TimeSpan})">WaitForMessageReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordMessage, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForMessageReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordMessage message, DiscordUser user = null, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordUser,System.Nullable{System.TimeSpan})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordUser user, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},System.Nullable{System.TimeSpan})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingChannelAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingChannelAsync_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync(DiscordUser,System.Nullable{System.TimeSpan})">WaitForTypingChannelAsync(DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TypingContext&gt; WaitForTypingChannelAsync(DiscordUser user, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TypingContext.html">TypingContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingUserAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingUserAsync_DiscordChannel_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync(DiscordChannel,System.Nullable{System.TimeSpan})">WaitForTypingUserAsync(DiscordChannel, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TypingContext&gt; WaitForTypingUserAsync(DiscordChannel channel, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TypingContext.html">TypingContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

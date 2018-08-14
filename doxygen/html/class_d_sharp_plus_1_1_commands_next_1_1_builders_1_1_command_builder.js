@@ -1,0 +1,28 @@
+var class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder =
+[
+    [ "CommandBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a1df55705b4a648d743ca1e3f7b315f41", null ],
+    [ "WithName", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#ac30d39afc45ea062bd8e31b0130dfc59", null ],
+    [ "WithAliases", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#aa2cc1ec7bb418160117cc4ad1a414b6f", null ],
+    [ "WithAlias", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#ab80be158dcb0a58198a6a49b578cc180", null ],
+    [ "WithDescription", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#afd8852d7ec007baae5939748e22c31ed", null ],
+    [ "WithHiddenStatus", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a22d1aee65c1b3737d982062f42b92c3f", null ],
+    [ "WithExecutionChecks", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a0fb389770d0249580c555c3d5690c216", null ],
+    [ "WithExecutionCheck", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#ad65eb5a7c867d3489b34b7e4f1fd1abb", null ],
+    [ "WithOverloads", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a45fee6041688d72c82a95b8665253e8a", null ],
+    [ "WithOverload", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a8138a9a1fbe8048db95d1c77a99b79e4", null ],
+    [ "WithCustomAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a887a52eaeeb822fd1549ecc822b2a6c0", null ],
+    [ "WithCustomAttributes", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a658a7be02c1d88ab361744527714e0cb", null ],
+    [ "Name", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a7630d8256c89c015a2d742f617f2e98c", null ],
+    [ "Aliases", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a674968a77f46ccb1655336f3be388bc4", null ],
+    [ "AliasList", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#aa4059f801d8bbc74ffbe8b82d646afe0", null ],
+    [ "Description", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a382df02d2e12de7266baaa0a04970b80", null ],
+    [ "IsHidden", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#afffb36c2226706eb562c3759aae933c2", null ],
+    [ "ExecutionChecks", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a19e35601348a6f034ca499588f54aeaa", null ],
+    [ "ExecutionCheckList", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a703bae940a8d7a117b89a41b20bf07a4", null ],
+    [ "Overloads", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a9da2d84e517c997f55750f5914e79312", null ],
+    [ "OverloadList", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a91ed2bce430c0cfc9a96791f18b310f3", null ],
+    [ "OverloadArgumentSets", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#aa68a8335e9b02d86af6f2a0367ee40ac", null ],
+    [ "Module", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a572aab2220f19c236c06afcc3b6af699", null ],
+    [ "CustomAttributes", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a88020edec7109aa2406470a51bec13fe", null ],
+    [ "CustomAttributeList", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#afef9f25620aeac7c53e18a724504324b", null ]
+];

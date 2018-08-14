@@ -1,0 +1,864 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CommandBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CommandBuilder
+   ">
+    <meta name="generator" content="docfx 2.38.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder">
+  
+  
+  <h1 id="DSharpPlus_CommandsNext_Builders_CommandBuilder" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder" class="text-break">Class CommandBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an interface to build a command.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">CommandBuilder</span></div>
+      <div class="level2"><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandGroupBuilder.html">CommandGroupBuilder</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.CommandsNext.Builders.html">DSharpPlus.CommandsNext.Builders</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CommandBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder__ctor_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.#ctor*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder__ctor_ICommandModule_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.#ctor(ICommandModule)">CommandBuilder(ICommandModule)</h4>
+  <div class="markdown level1 summary"><p>Creates a new command builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder(ICommandModule module)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ICommandModule</span></td>
+        <td><span class="parametername">module</span></td>
+        <td><p>Module on which this command is to be defined.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Aliases_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Aliases*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Aliases" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Aliases">Aliases</h4>
+  <div class="markdown level1 summary"><p>Gets the aliases set for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Aliases { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_CustomAttributes_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.CustomAttributes*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_CustomAttributes" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.CustomAttributes">CustomAttributes</h4>
+  <div class="markdown level1 summary"><p>Gets custom attributes defined on this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Attribute&gt; CustomAttributes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute">Attribute</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Description_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Description*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Description" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Description">Description</h4>
+  <div class="markdown level1 summary"><p>Gets the description set for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_ExecutionChecks_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.ExecutionChecks*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_ExecutionChecks" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.ExecutionChecks">ExecutionChecks</h4>
+  <div class="markdown level1 summary"><p>Gets the execution checks defined for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;CheckBaseAttribute&gt; ExecutionChecks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute.html">CheckBaseAttribute</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_IsHidden_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.IsHidden*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_IsHidden" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.IsHidden">IsHidden</h4>
+  <div class="markdown level1 summary"><p>Gets whether this command will be hidden or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsHidden { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Module_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Module*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Module" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Module">Module</h4>
+  <div class="markdown level1 summary"><p>Gets the module on which this command is to be defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandModule Module { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ICommandModule</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Name_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Name*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Name" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name set for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Overloads_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Overloads*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_Overloads" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.Overloads">Overloads</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of this command's overloads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;CommandOverloadBuilder&gt; Overloads { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder.html">CommandOverloadBuilder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithAlias_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithAlias*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithAlias_System_String_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithAlias(System.String)">WithAlias(String)</h4>
+  <div class="markdown level1 summary"><p>Adds an alias to this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithAlias(string alias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">alias</span></td>
+        <td><p>Alias to add to the command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithAliases_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithAliases*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithAliases_System_String___" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithAliases(System.String[])">WithAliases(String[])</h4>
+  <div class="markdown level1 summary"><p>Adds aliases to this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithAliases(params string[] aliases)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>[]</td>
+        <td><span class="parametername">aliases</span></td>
+        <td><p>Aliases to add to the command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithCustomAttribute_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithCustomAttribute*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithCustomAttribute_System_Attribute_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithCustomAttribute(System.Attribute)">WithCustomAttribute(Attribute)</h4>
+  <div class="markdown level1 summary"><p>Adds a custom attribute to this command. This can be used to indicate various custom information about a command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithCustomAttribute(Attribute attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute">Attribute</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td><p>Attribute to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithCustomAttributes_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithCustomAttributes*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithCustomAttributes_System_Attribute___" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithCustomAttributes(System.Attribute[])">WithCustomAttributes(Attribute[])</h4>
+  <div class="markdown level1 summary"><p>Adds multiple custom attributes to this command. This can be used to indicate various custom information about a command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithCustomAttributes(params Attribute[] attributes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute">Attribute</a>[]</td>
+        <td><span class="parametername">attributes</span></td>
+        <td><p>Attributes to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithDescription_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithDescription*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithDescription_System_String_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithDescription(System.String)">WithDescription(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the description for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithDescription(string description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>Description to use for this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithExecutionCheck_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithExecutionCheck*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithExecutionCheck_DSharpPlus_CommandsNext_Attributes_CheckBaseAttribute_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithExecutionCheck(DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute)">WithExecutionCheck(CheckBaseAttribute)</h4>
+  <div class="markdown level1 summary"><p>Adds a pre-execution check to this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithExecutionCheck(CheckBaseAttribute check)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute.html">CheckBaseAttribute</a></td>
+        <td><span class="parametername">check</span></td>
+        <td><p>Pre-execution check to add to this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithExecutionChecks_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithExecutionChecks*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithExecutionChecks_DSharpPlus_CommandsNext_Attributes_CheckBaseAttribute___" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithExecutionChecks(DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute[])">WithExecutionChecks(CheckBaseAttribute[])</h4>
+  <div class="markdown level1 summary"><p>Adds pre-execution checks to this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithExecutionChecks(params CheckBaseAttribute[] checks)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute.html">CheckBaseAttribute</a>[]</td>
+        <td><span class="parametername">checks</span></td>
+        <td><p>Pre-execution checks to add to this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithHiddenStatus_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithHiddenStatus*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithHiddenStatus_System_Boolean_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithHiddenStatus(System.Boolean)">WithHiddenStatus(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets whether this command is to be hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithHiddenStatus(bool hidden)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">hidden</span></td>
+        <td><p>Whether the command is to be hidden.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithName_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithName*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithName_System_String_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithName(System.String)">WithName(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the name for this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name for this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithOverload_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithOverload*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithOverload_DSharpPlus_CommandsNext_Builders_CommandOverloadBuilder_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithOverload(DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder)">WithOverload(CommandOverloadBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds an overload to this command. An executable command needs to have at least one overload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithOverload(CommandOverloadBuilder overload)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder.html">CommandOverloadBuilder</a></td>
+        <td><span class="parametername">overload</span></td>
+        <td><p>Overload to add to this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithOverloads_" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithOverloads*"></a>
+  <h4 id="DSharpPlus_CommandsNext_Builders_CommandBuilder_WithOverloads_DSharpPlus_CommandsNext_Builders_CommandOverloadBuilder___" data-uid="DSharpPlus.CommandsNext.Builders.CommandBuilder.WithOverloads(DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder[])">WithOverloads(CommandOverloadBuilder[])</h4>
+  <div class="markdown level1 summary"><p>Adds overloads to this command. An executable command needs to have at least one overload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuilder WithOverloads(params CommandOverloadBuilder[] overloads)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder.html">CommandOverloadBuilder</a>[]</td>
+        <td><span class="parametername">overloads</span></td>
+        <td><p>Overloads to add to this command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Builders.CommandBuilder.html">CommandBuilder</a></td>
+        <td><p>This builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

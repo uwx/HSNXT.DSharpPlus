@@ -1,0 +1,4 @@
+var namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next =
+[
+    [ "RequireRoleOrHigherAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute" ]
+];

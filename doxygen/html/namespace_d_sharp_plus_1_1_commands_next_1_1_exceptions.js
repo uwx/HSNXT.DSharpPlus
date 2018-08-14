@@ -1,0 +1,6 @@
+var namespace_d_sharp_plus_1_1_commands_next_1_1_exceptions =
+[
+    [ "ChecksFailedException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_checks_failed_exception.html", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_checks_failed_exception" ],
+    [ "CommandNotFoundException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_command_not_found_exception.html", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_command_not_found_exception" ],
+    [ "DuplicateCommandException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_command_exception.html", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_command_exception" ]
+];

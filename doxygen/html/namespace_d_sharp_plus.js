@@ -1,0 +1,26 @@
+var namespace_d_sharp_plus =
+[
+    [ "CommandsNext", "namespace_d_sharp_plus_1_1_commands_next.html", "namespace_d_sharp_plus_1_1_commands_next" ],
+    [ "Entities", "namespace_d_sharp_plus_1_1_entities.html", "namespace_d_sharp_plus_1_1_entities" ],
+    [ "EventArgs", "namespace_d_sharp_plus_1_1_event_args.html", "namespace_d_sharp_plus_1_1_event_args" ],
+    [ "Exceptions", "namespace_d_sharp_plus_1_1_exceptions.html", "namespace_d_sharp_plus_1_1_exceptions" ],
+    [ "Interactivity", "namespace_d_sharp_plus_1_1_interactivity.html", "namespace_d_sharp_plus_1_1_interactivity" ],
+    [ "Lavalink", "namespace_d_sharp_plus_1_1_lavalink.html", "namespace_d_sharp_plus_1_1_lavalink" ],
+    [ "Net", "namespace_d_sharp_plus_1_1_net.html", "namespace_d_sharp_plus_1_1_net" ],
+    [ "Test", "namespace_d_sharp_plus_1_1_test.html", "namespace_d_sharp_plus_1_1_test" ],
+    [ "VoiceNext", "namespace_d_sharp_plus_1_1_voice_next.html", "namespace_d_sharp_plus_1_1_voice_next" ],
+    [ "AsyncEvent", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "AsyncEventArgs", "class_d_sharp_plus_1_1_async_event_args.html", "class_d_sharp_plus_1_1_async_event_args" ],
+    [ "BaseDiscordClient", "class_d_sharp_plus_1_1_base_discord_client.html", "class_d_sharp_plus_1_1_base_discord_client" ],
+    [ "BaseExtension", "class_d_sharp_plus_1_1_base_extension.html", "class_d_sharp_plus_1_1_base_extension" ],
+    [ "DebugLogger", "class_d_sharp_plus_1_1_debug_logger.html", "class_d_sharp_plus_1_1_debug_logger" ],
+    [ "DiscordClient", "class_d_sharp_plus_1_1_discord_client.html", "class_d_sharp_plus_1_1_discord_client" ],
+    [ "DiscordConfiguration", "class_d_sharp_plus_1_1_discord_configuration.html", "class_d_sharp_plus_1_1_discord_configuration" ],
+    [ "DiscordRestClient", "class_d_sharp_plus_1_1_discord_rest_client.html", "class_d_sharp_plus_1_1_discord_rest_client" ],
+    [ "DiscordShardedClient", "class_d_sharp_plus_1_1_discord_sharded_client.html", "class_d_sharp_plus_1_1_discord_sharded_client" ],
+    [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html", "class_d_sharp_plus_1_1_discord_webhook_client" ],
+    [ "ImageTool", "class_d_sharp_plus_1_1_image_tool.html", "class_d_sharp_plus_1_1_image_tool" ],
+    [ "PermissionStringAttribute", "class_d_sharp_plus_1_1_permission_string_attribute.html", "class_d_sharp_plus_1_1_permission_string_attribute" ],
+    [ "ReadOnlySet", "class_d_sharp_plus_1_1_read_only_set.html", "class_d_sharp_plus_1_1_read_only_set" ],
+    [ "RingBuffer", "class_d_sharp_plus_1_1_ring_buffer.html", "class_d_sharp_plus_1_1_ring_buffer" ]
+];
