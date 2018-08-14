@@ -23,8 +23,6 @@ environment:
 
 install:
   - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
-  - cinst docfx
-  - choco install doxygen.portable
 
 before_build:
   - cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
@@ -60,11 +58,17 @@ after_deploy:
   - git config --global user.email "appveyor@ci.org"
   - git config --global user.name "Appveyor Automated Build"
 # build and copy docfx
+  - cinst docfx
   - docfx ./docfx_project/docfx.json
   - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /nfl /ndl /np
 # build and copy doxygen
+  - choco install doxygen.portable
   - doxygen Doxyfile
   - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /nfl /ndl /np
+# build and copy sharpDox
+  - ps: ./download-sharpDox.ps1
+  - 'C:\sharpDox\SharpDox.Console.exe -config "%cd%\Sharpdox.sdox"'
+  - try robocopy sharpdox_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/sharpdox *.* /is /it /e /nfl /ndl /np
 # add and commit
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
   - git add . --quiet
