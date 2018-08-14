@@ -213,6 +213,19 @@
       <e p="DSharpPlus.Interactivity.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
         <e p="MessageContext.cs" t="Include" />
+        <e p="obj" t="Include">
+          <e p="xdoc" t="Include">
+            <e p="cache" t="Include">
+              <e p="final" t="Include">
+                <e p="-1121131833" t="Include" />
+              </e>
+              <e p="obj" t="Include">
+                <e p=".inter" t="Include" />
+                <e p="0b1eba1r.gnk" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="PaginationEmojis.cs" t="Include" />
         <e p="ReactionCollectionContext.cs" t="Include" />
         <e p="ReactionContext.cs" t="Include" />
@@ -597,6 +610,23 @@
         <e p="unirest-net-master" t="Include">
           <e p=".gitignore" t="Include" />
           <e p="LICENSE" t="Include" />
+          <e p="obj" t="Include">
+            <e p="Release" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Fallk.Unirest.Net.AssemblyInfo.cs" t="Include" />
+                <e p="Fallk.Unirest.Net.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Fallk.Unirest.Net.csproj.CoreCompileInputs.cache" t="Include" />
+              </e>
+            </e>
+            <e p="xdoc" t="Include">
+              <e p="cache" t="Include">
+                <e p="obj" t="Include">
+                  <e p=".inter" t="Include" />
+                  <e p="mu0wz5ba.lex" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="README.md" t="Include" />
           <e p="Unirest" t="Include">
             <e p="HttpClientHelper.cs" t="Include" />
@@ -689,6 +719,23 @@
         <e p="unirest-net-master" t="Include">
           <e p=".gitignore" t="Include" />
           <e p="LICENSE" t="Include" />
+          <e p="obj" t="Include">
+            <e p="Release" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Fallk.Unirest.Net.AssemblyInfo.cs" t="Include" />
+                <e p="Fallk.Unirest.Net.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Fallk.Unirest.Net.csproj.CoreCompileInputs.cache" t="Include" />
+              </e>
+            </e>
+            <e p="xdoc" t="Include">
+              <e p="cache" t="Include">
+                <e p="obj" t="Include">
+                  <e p=".inter" t="Include" />
+                  <e p="qqdxabzx.lpt" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="README.md" t="Include" />
           <e p="Unirest" t="Include">
             <e p="HttpClientHelper.cs" t="Include" />
