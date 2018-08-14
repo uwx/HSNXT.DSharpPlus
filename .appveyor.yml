@@ -61,14 +61,14 @@ after_deploy:
   - git config --global user.name "Appveyor Automated Build"
 # build and copy docfx
   - docfx ./docfx_project/docfx.json
-  - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /np
+  - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /nfl /ndl /np
 # build and copy doxygen
   - doxygen Doxyfile
-  - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /np
+  - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /nfl /ndl /np
 # add and commit
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
-  - git add .
-  - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated docs [skip ci]"'
+  - git add . --quiet
+  - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated docs [skip ci]" --quiet'
   - git push origin gh-pages
 
 notifications:
