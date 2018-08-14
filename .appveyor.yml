@@ -34,7 +34,7 @@ build_script:
   #- ps: dotnet build "HSNXT.DSharpPlus.sln" -c Release
   - ps: dotnet msbuild /t:PublishAll /p:Configuration=Release
   - ps: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build
-
+ 
 artifacts:
   - path: '**\Packaged\*.nupkg'
   
@@ -51,8 +51,8 @@ deploy:
       secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
     # don't push D#+ packages, also don't push test packages
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
-    
-deploy_script:
+   
+after_deploy:
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "appveyor@ci.org"
