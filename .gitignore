@@ -14,3 +14,4 @@ packages
 /HSNXT.Test.DiscordRPC.NotepadPlusPlus/discord-rpc.dll
 /HSNXT.Test.DiscordRPC.VLCa/discord-rpc.dll
 /HSNXT.Test.VLCRPC/discord-rpc.dll
+doxygen_out
