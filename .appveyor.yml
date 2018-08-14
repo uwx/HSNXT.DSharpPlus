@@ -71,7 +71,7 @@ after_deploy:
   - try robocopy sharpdox_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/sharpdox *.* /is /it /e /nfl /ndl /np
 # add and commit
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
-  - git add . --quiet
+  - git add .
   - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated docs [skip ci]" --quiet'
   - git push origin gh-pages
 
