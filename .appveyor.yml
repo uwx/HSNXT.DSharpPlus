@@ -55,9 +55,9 @@ deploy:
 deploy_script:
   - docfx ./docfx_project/docfx.json
   - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages *.* /is /it /e /np
-  - cd $(APPVEYOR_BUILD_FOLDER)/../gh-pages
+  - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
   - git add .
-  - $(APPVEYOR_BUILD_FOLDER)\try git commit -m "Generated filter list [skip ci]"
+  - '%APPVEYOR_BUILD_FOLDER%\try git commit -m "Generated filter list [skip ci]"'
   - git push origin gh-pages
 
 notifications:
