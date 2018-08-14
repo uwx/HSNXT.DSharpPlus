@@ -53,6 +53,11 @@ deploy:
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
     
 deploy_script:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "appveyor@ci.org"
+  - git config --global user.name "Appveyor Automated Build"
+#
   - docfx ./docfx_project/docfx.json
   - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages *.* /is /it /e /np
   - cd %APPVEYOR_BUILD_FOLDER%/../gh-pages
