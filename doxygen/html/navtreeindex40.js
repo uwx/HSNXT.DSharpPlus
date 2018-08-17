@@ -1,5 +1,12 @@
 var NAVTREEINDEX40 =
 {
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html":[1,0,1,0,1],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html":[2,0,1,0,1],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners.html":[1,0,1,0,1,0],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners.html":[2,0,1,0,1,0],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next.html":[2,0,1,0,1,1],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next.html":[1,0,1,0,1,1],
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji.html":[2,0,1,0,1,2],
 "namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji.html":[1,0,1,0,1,2],
 "namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args.html":[2,0,1,0,1,3],
 "namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args.html":[1,0,1,0,1,3],

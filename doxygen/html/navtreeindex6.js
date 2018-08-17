@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html#a63dc0978022b08649f1269a8ca57da4a":[2,0,0,5,0,0,2],
 "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html#a66988b6f5498a5269661353be797fc1f":[2,0,0,5,0,0,0],
 "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html#ac91f394c16ab8945ab79757d10f6a5fb":[2,0,0,5,0,0,1],
 "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html":[2,0,0,5,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "class_d_sharp_plus_1_1_ring_buffer.html#a1693f3318e354c22ad05533130433cf1":[2,0,0,22,15],
 "class_d_sharp_plus_1_1_ring_buffer.html#a170fdef17fc705602d0cf39602914f4a":[2,0,0,22,11],
 "class_d_sharp_plus_1_1_ring_buffer.html#a26b9a122eddd962d6ee98a4f4759012c":[2,0,0,22,4],
-"class_d_sharp_plus_1_1_ring_buffer.html#a287d3fedd1217e8b8c47307e0a655396":[2,0,0,22,12],
-"class_d_sharp_plus_1_1_ring_buffer.html#a3c30f49b047fe02ef13ddd8f20c656ff":[2,0,0,22,16]
+"class_d_sharp_plus_1_1_ring_buffer.html#a287d3fedd1217e8b8c47307e0a655396":[2,0,0,22,12]
 };

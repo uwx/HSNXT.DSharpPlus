@@ -3,6 +3,7 @@ var searchData=
   ['testattribute',['TestAttribute',['../class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_test_attribute.html',1,'DSharpPlus::Test::TestBotCommands']]],
   ['testbotcheckattribute',['TestBotCheckAttribute',['../class_d_sharp_plus_1_1_test_1_1_test_bot_check_attribute.html',1,'DSharpPlus::Test']]],
   ['testbotcommands',['TestBotCommands',['../class_d_sharp_plus_1_1_test_1_1_test_bot_commands.html',1,'DSharpPlus::Test']]],
+  ['testbotdynamiccommands',['TestBotDynamicCommands',['../class_d_sharp_plus_1_1_test_1_1_test_bot_dynamic_commands.html',1,'DSharpPlus::Test']]],
   ['testbotevalcommands',['TestBotEvalCommands',['../class_d_sharp_plus_1_1_test_1_1_test_bot_eval_commands.html',1,'DSharpPlus::Test']]],
   ['testbothelpformatter',['TestBotHelpFormatter',['../class_d_sharp_plus_1_1_test_1_1_test_bot_help_formatter.html',1,'DSharpPlus::Test']]],
   ['testbotlavacommands',['TestBotLavaCommands',['../class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html',1,'DSharpPlus::Test']]],

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ModernEmbedBuilder
    ">
-    <meta name="generator" content="docfx 2.38.0.0">
+    <meta name="generator" content="docfx 2.38.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -534,6 +534,63 @@
   </h3>
   
   
+  <a id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_AddField_" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.AddField*"></a>
+  <h4 id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_AddField_System_String_System_String_System_Boolean_" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.AddField(System.String,System.String,System.Boolean)">AddField(String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds a field to this embed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModernEmbedBuilder AddField(string name, string value, bool inline = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the field to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value of the field to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">inline</span></td>
+        <td><p>Whether the field is to be inline or not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.html">ModernEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_Build_" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.Build*"></a>
   <h4 id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_Build" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.Build">Build()</h4>
   <div class="markdown level1 summary"><p>Builds this embed</p>
@@ -562,7 +619,8 @@
   
   <a id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_Send_" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.Send*"></a>
   <h4 id="HSNXT_DSharpPlus_ModernEmbedBuilder_ModernEmbedBuilder_Send_DiscordChannel_System_Boolean_" data-uid="HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.Send(DiscordChannel,System.Boolean)">Send(DiscordChannel, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends this embed directly to a channel.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -581,12 +639,14 @@
       <tr>
         <td><span class="xref">DiscordChannel</span></td>
         <td><span class="parametername">channel</span></td>
-        <td></td>
+        <td><p>The channel to send to</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">tts</span></td>
-        <td></td>
+        <td><p>Whether or not to enable text-to-speech</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -601,7 +661,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
+        <td><p>Task that resolves once the message containing the embed is sent</p>
+</td>
       </tr>
     </tbody>
   </table>

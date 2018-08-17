@@ -92,6 +92,7 @@ var class_d_sharp_plus_1_1_discord_rest_client =
     [ "DeleteOwnReactionAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a137aa2b482d6d98e2bbc73c2dd43aca4", null ],
     [ "DeleteUserReactionAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a70f052e8bf3f0caa423480ebca4f5ddc", null ],
     [ "GetReactionsAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a7c51714f2abd56d6d81f87b23c83a724", null ],
+    [ "GetReactionsAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a5a929d0f0342a99a1c2fae952c71a3b9", null ],
     [ "DeleteAllReactionsAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a35b82663ecbeec8787147f484c06b149", null ],
     [ "GetApplicationInfoAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#a92b5183b30be0e340d1c3d492333e3e0", null ],
     [ "GetApplicationAssetsAsync", "class_d_sharp_plus_1_1_discord_rest_client.html#aa6d934a27fa8f578f4ec778cfb487376", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#ad55ebeb2306321e2cf248b4917ecc7f8":[2,0,0,2,3,0],
 "class_d_sharp_plus_1_1_event_args_1_1_client_error_event_args.html":[2,0,0,2,4],
 "class_d_sharp_plus_1_1_event_args_1_1_client_error_event_args.html#a82d914b68d8c8217a64f613179b3313d":[2,0,0,2,4,1],
 "class_d_sharp_plus_1_1_event_args_1_1_client_error_event_args.html#aa7c6b1df5940f1a9c1e46943d9b35a6a":[2,0,0,2,4,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#a6e41ac8a0c6b87cb57c776ebc873234d":[2,0,0,4,8,0],
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#a8dbaca4951e4efd45f5593c9aa7e4254":[2,0,0,4,8,5],
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#aab942b0f69cb4678620215442ff977ba":[2,0,0,4,8,2],
-"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html":[2,0,0,5,0,0],
-"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html#a63dc0978022b08649f1269a8ca57da4a":[2,0,0,5,0,0,2]
+"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html":[2,0,0,5,0,0]
 };

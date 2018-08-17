@@ -5,6 +5,7 @@ var namespace_d_sharp_plus_1_1_test =
     [ "NetStandard1_1Shims", "class_d_sharp_plus_1_1_test_1_1_net_standard1__1_shims.html", "class_d_sharp_plus_1_1_test_1_1_net_standard1__1_shims" ],
     [ "TestBotCheckAttribute", "class_d_sharp_plus_1_1_test_1_1_test_bot_check_attribute.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_check_attribute" ],
     [ "TestBotCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands" ],
+    [ "TestBotDynamicCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_dynamic_commands.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_dynamic_commands" ],
     [ "TestBotEvalCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_eval_commands.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_eval_commands" ],
     [ "TestBotHelpFormatter", "class_d_sharp_plus_1_1_test_1_1_test_bot_help_formatter.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_help_formatter" ],
     [ "TestBotLavaCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands" ],

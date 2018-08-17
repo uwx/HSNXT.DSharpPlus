@@ -3,7 +3,7 @@ var class_d_sharp_plus_1_1_discord_client =
     [ "DiscordClient", "class_d_sharp_plus_1_1_discord_client.html#a1d81e15a7f63fed80db435aa1ffae709", null ],
     [ "AddExtension", "class_d_sharp_plus_1_1_discord_client.html#ae8d9e185b9b52a452f39a411f46a55db", null ],
     [ "GetExtension< T >", "class_d_sharp_plus_1_1_discord_client.html#a56c50791d40a97932d79ef60c375eaf7", null ],
-    [ "ConnectAsync", "class_d_sharp_plus_1_1_discord_client.html#ae49a62b99187c33088621f923ba63982", null ],
+    [ "ConnectAsync", "class_d_sharp_plus_1_1_discord_client.html#a4801832dce3827e14fb5575a7e72e0bb", null ],
     [ "ReconnectAsync", "class_d_sharp_plus_1_1_discord_client.html#a9948943c43f84e0d146db0cbaa78ac64", null ],
     [ "DisconnectAsync", "class_d_sharp_plus_1_1_discord_client.html#ad4c6d163ac89b0f305c50ed500dc1c6d", null ],
     [ "GetUserAsync", "class_d_sharp_plus_1_1_discord_client.html#ac9acf77d3172a15ea27c9d98d18bd770", null ],

@@ -104,6 +104,7 @@ var hierarchy =
       [ "DSharpPlus.Test.TestBotCommands.Scoped", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_scoped.html", null ],
       [ "DSharpPlus.Test.TestBotCommands.Singleton", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_singleton.html", null ],
       [ "DSharpPlus.Test.TestBotCommands.Transient", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_transient.html", null ],
+      [ "DSharpPlus.Test.TestBotDynamicCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_dynamic_commands.html", null ],
       [ "DSharpPlus.Test.TestBotEvalCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_eval_commands.html", null ],
       [ "DSharpPlus.Test.TestBotLavaCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html", null ],
       [ "DSharpPlus.Test.TestBotVoiceCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html", null ]
@@ -447,7 +448,6 @@ var hierarchy =
       ] ],
       [ "DSharpPlus.Entities.DiscordChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html", null ],
       [ "DSharpPlus.Entities.DiscordConnection", "class_d_sharp_plus_1_1_entities_1_1_discord_connection.html", null ],
-      [ "DSharpPlus.Entities.DiscordEmoji", "class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html", null ],
       [ "DSharpPlus.Entities.DiscordEmoji", "class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html", null ],
       [ "DSharpPlus.Entities.DiscordGuild", "class_d_sharp_plus_1_1_entities_1_1_discord_guild.html", null ],
       [ "DSharpPlus.Entities.DiscordIntegration", "class_d_sharp_plus_1_1_entities_1_1_discord_integration.html", null ],

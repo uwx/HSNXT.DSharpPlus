@@ -1,7 +1,7 @@
 var searchData=
 [
   ['readme',['README',['../md_README.html',1,'']]],
-  ['r',['R',['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_color.html#a33e714542f70dd581bb9bc65766b5dae',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.DuckColor.R()'],['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a582aab1d8cec04ff26708a7fee1b8b55',1,'DSharpPlus.Entities.DiscordColor.R()'],['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a41b524bae4063cab77123285fbaf60c5',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.r()']]],
+  ['r',['r',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a41b524bae4063cab77123285fbaf60c5',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.r()'],['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_color.html#a33e714542f70dd581bb9bc65766b5dae',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.DuckColor.R()'],['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a582aab1d8cec04ff26708a7fee1b8b55',1,'DSharpPlus.Entities.DiscordColor.R()']]],
   ['ramallocated',['RamAllocated',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#ada4d23e428d7a9c5952a759c69abceb2',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],
   ['ramfree',['RamFree',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#af5a83734efb3374286b2fd70005d7985',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],
   ['ramreservable',['RamReservable',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#a13d159cfd4b9560b5fa54b92e62b59ee',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],

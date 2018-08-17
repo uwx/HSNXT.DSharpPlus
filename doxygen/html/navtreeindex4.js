@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a265ad7e72ead72ac6992de5fa04f6515":[2,0,0,1,38,11],
 "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a2ebcde14833effd88e812d0930bbab01":[2,0,0,1,38,3],
 "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a37c2b2227c0ec157e60a1fd641cb3a2a":[2,0,0,1,38,10],
 "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a537c3cb28611c4523612a98e38eecfc4":[2,0,0,1,38,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "class_d_sharp_plus_1_1_event_args_1_1_channel_pins_update_event_args.html#a65453bdd234783e6ad6c51256d812df4":[2,0,0,2,2,1],
 "class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html":[2,0,0,2,3],
 "class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#a02fa7851726c901582744eb7847e49aa":[2,0,0,2,3,1],
-"class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#a4fdaeaa2e1798d2342d5dc0d48f99cb6":[2,0,0,2,3,2],
-"class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#ad55ebeb2306321e2cf248b4917ecc7f8":[2,0,0,2,3,0]
+"class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#a4fdaeaa2e1798d2342d5dc0d48f99cb6":[2,0,0,2,3,2]
 };
