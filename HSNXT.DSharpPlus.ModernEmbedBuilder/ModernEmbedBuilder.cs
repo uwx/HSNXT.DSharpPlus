@@ -182,7 +182,19 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// Gets or sets the embed's fields.
         /// </summary>
         // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
-        public List<DuckField> Fields { get; set; } = new List<DuckField>();
+        public List<DuckField> Fields
+        {
+            get => _fields;
+            set
+            {
+                if (_fields.Count > 25)
+                    throw new InvalidOperationException("Cannot add more than 25 fields.");
+                
+                _fields = value;
+            }
+        }
+
+        private List<DuckField> _fields = new List<DuckField>();
 
         internal static string CheckLength(string type, string value, int limit)
         {
@@ -220,9 +232,47 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
             return b;
         }
 
-        public async Task Send(DiscordChannel channel, bool tts = false)
+        /// <summary>
+        /// Sends this embed directly to a channel.
+        /// </summary>
+        /// <param name="channel">The channel to send to</param>
+        /// <param name="tts">Whether or not to enable text-to-speech</param>
+        /// <returns>Task that resolves once the message containing the embed is sent</returns>
+        public Task Send(DiscordChannel channel, bool tts = false) 
+            => channel.SendMessageAsync(Content, tts, Build());
+
+        /// <summary>
+        /// Adds a field to this embed.
+        /// </summary>
+        /// <param name="name">Name of the field to add.</param>
+        /// <param name="value">Value of the field to add.</param>
+        /// <param name="inline">Whether the field is to be inline or not.</param>
+        /// <returns>This embed builder.</returns>
+        public ModernEmbedBuilder AddField(string name, string value, bool inline = false)
         {
-            await channel.SendMessageAsync(Content, tts, Build());
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                if (name == null)
+                    throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException("Field name cannot be empty or whitespace.");
+            }
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                if (value == null)
+                    throw new ArgumentNullException(nameof(value));
+                throw new ArgumentException("Field value cannot be empty or whitespace.");
+            }
+
+            if (Fields.Count >= 25)
+                throw new InvalidOperationException("Cannot add more than 25 fields.");
+
+            Fields.Add(new DuckField
+            {
+                Name = CheckLength("Field name", name, 256),
+                Value = CheckLength("Field value", value, 1024),
+                Inline = inline,
+            });
+            return this;
         }
 
         /// <summary>
