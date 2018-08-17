@@ -13,7 +13,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         public string Content
         {
             get => _content;
-            set => _content = CheckLength("Title", value, 256);
+            set => _content = CheckLength("Message content", value, 2000);
         }
         private string _content;
 
@@ -184,7 +184,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public List<DuckField> Fields { get; set; } = new List<DuckField>();
 
-        private static string CheckLength(string type, string value, int limit)
+        internal static string CheckLength(string type, string value, int limit)
         {
             return value != null && value.Length > limit
                 ? throw new ArgumentException($"${type} length cannot exceed {limit} characters.", nameof(value))
@@ -197,17 +197,19 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// <returns></returns>
         public DiscordEmbed Build()
         {
-            var b = new DiscordEmbedBuilder();
+            var b = new DiscordEmbedBuilder
+            {
+                Title = _title,
+                Description = _description,
+                Url = Url,
+                Color = _color,
+                Timestamp = _timestamp,
+                ThumbnailUrl = ThumbnailUrl,
+                ImageUrl = ImageUrl,
+            };
 
             // dont care about nulls
-            b.WithTitle(_title);
-            b.WithDescription(_description);
-            b.WithUrl(Url);
-            b.WithColor(_color);
-            b.WithTimestamp(_timestamp);
             b.WithFooter(Footer?.Text, Footer?.IconUrl);
-            b.WithThumbnailUrl(ThumbnailUrl);
-            b.WithImageUrl(ImageUrl);
             b.WithAuthor(Author?.Name, Author?.Url, Author?.IconUrl);
             
             foreach (var f in Fields)
