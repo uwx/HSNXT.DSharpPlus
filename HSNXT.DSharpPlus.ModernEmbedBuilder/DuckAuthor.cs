@@ -28,19 +28,24 @@
             Url = args.url,
             IconUrl = args.iconUrl,
         };
-        
-        /// <summary>
-        /// Gets the footer's text.
-        /// </summary>
-        public string Name { get; set; }
 
         /// <summary>
-        /// Gets the url of the footer's icon.
+        /// Gets the author's name.
+        /// </summary>
+        public string Name
+        {
+            get => _name;
+            set => _name = ModernEmbedBuilder.CheckLength("Author name", value, 256);
+        }
+        private string _name;
+
+        /// <summary>
+        /// Gets the url of the author.
         /// </summary>
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets the proxied url of the footer's icon.
+        /// Gets the url of the author's icon.
         /// </summary>
         public string IconUrl { get; set; }
     }
