@@ -5,7 +5,7 @@ namespace DSharpPlus.Interactivity
 {
     /// <summary>
     /// <p>
-    ///     Represents a generic pseudo-event listener for <see cref="DiscordAwaiterHolder{TMachine,TEventArgs}"/>.
+    ///     Represents a generic pseudo-event listener for <see cref="AwaiterHolder{TMachine,TEventArgs,TContextResult}"/>.
     /// </p>
     /// <p>
     ///     It registers itself to the awaiter holder on execution, then is automatically unregistered on completion or
@@ -16,8 +16,8 @@ namespace DSharpPlus.Interactivity
     ///     "completed" state, and the awaiter is considered to have finished execution.
     /// </p>
     /// </summary>
-    /// <typeparam name="TEventArgs"></typeparam>
-    /// <typeparam name="TContextResult"></typeparam>
+    /// <typeparam name="TEventArgs">Type of the event's arguments</typeparam>
+    /// <typeparam name="TContextResult">Element that is returned by <see cref="CheckResult"/></typeparam>
     /// <example>
     /// <code>
     /// <![CDATA[
@@ -44,7 +44,7 @@ namespace DSharpPlus.Interactivity
     {
         protected InteractivityExtension Interactivity { get; }
 		
-        private readonly TaskCompletionSource<TContextResult> _result = new TaskCompletionSource<TContextResult>();
+        internal TaskCompletionSource<TContextResult> Result { get; } = new TaskCompletionSource<TContextResult>();
 
         protected DiscordEventAwaiter(InteractivityExtension interactivity)
         {
@@ -58,12 +58,8 @@ namespace DSharpPlus.Interactivity
             var result = await CheckResult(args);
             if (result == null) return false;
 			
-            _result.SetResult(result);
+            Result.TrySetResult(result);
             return true;
         }
-
-        internal Task<TContextResult> Resolve() => _result.Task;
-
-        // TODO a subclass of this that uses Task.WhenAll and Unsubscribe and Task.Delay to time out
     }
 }

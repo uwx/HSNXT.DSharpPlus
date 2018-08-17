@@ -4,8 +4,7 @@
     {
         public InteractivityExtension Interactivity { get; }
 
-        public DiscordClient Client 
-            => Interactivity.Client;
+        public DiscordClient Client => Interactivity.Client;
 
         protected InteractivityContext(InteractivityExtension interactivity)
         {
