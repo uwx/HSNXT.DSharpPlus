@@ -16,11 +16,12 @@ namespace DSharpPlus.Interactivity
 
 	#endregion
 
-	public class InteractivityExtension : BaseExtension
+	public partial class InteractivityExtension : BaseExtension
 	{
 		private InteractivityConfiguration Config { get; }
 		
-		private DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext> _messageCreatedVerifiers;
+		private AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext> _messageCreatedVerifiers;
+		private AwaiterHolder<ReactionVerifier, MessageReactionAddEventArgs, ReactionContext> _reactionAddedVerifiers;
 
 		internal InteractivityExtension(InteractivityConfiguration cfg)
 		{
@@ -31,33 +32,16 @@ namespace DSharpPlus.Interactivity
 		{
 			Client = client;
 			
-			_messageCreatedVerifiers = new DiscordAwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
+			_messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
 				ev => Client.MessageCreated += ev.Trigger,
 				ev => Client.MessageCreated -= ev.Trigger
 			);
+			
+			_reactionAddedVerifiers = new AwaiterHolder<ReactionVerifier, MessageReactionAddEventArgs, ReactionContext>(
+				ev => Client.MessageReactionAdded += ev.Trigger,
+				ev => Client.MessageReactionAdded -= ev.Trigger
+			);
 		}
-
-		#region Message
-		public async Task<MessageContext> WaitForMessageAsync(Func<DiscordMessage, bool> predicate/*, TimeSpan? timeoutoverride = null*/)
-		{
-			if (predicate == null)
-				throw new ArgumentNullException(nameof(predicate));
-
-			//TODO
-			/*TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;*/
-
-			var verifier = new MessageVerifier(this, predicate);
-			//var result = await verifier.ExecuteAsync<MessageVerifier, MessageCreateEventArgs, MessageContext>(messageCreatedVerifiers);
-			var result = await _messageCreatedVerifiers.HandleAsync(verifier);
-			return result;
-			// TODO optional arguments/overloads
-			// - author (DiscordUser/ulong)
-			// - channel (DiscordChannel/DiscordUser/ulong)
-			// - context (CommandContext/DiscordMessage - implicitly does the same thing as the two above)
-		}
-		#endregion
 
 		#region Reaction
 		public async Task<ReactionContext> WaitForReactionAsync(Func<DiscordEmoji, bool> predicate, TimeSpan? timeoutoverride = null)
