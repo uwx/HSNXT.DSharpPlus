@@ -1,4 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Sharpbott")]
-[assembly: InternalsVisibleTo("Sharpbott.MSTest")]
+[assembly: InternalsVisibleTo("RayBotSharp")]
+[assembly: InternalsVisibleTo("RayBotSharp.MSTest")]

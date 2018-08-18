@@ -76,18 +76,18 @@ namespace DSharpPlus.Test
             var cncfg = new CommandsNextConfiguration
             {
                 StringPrefixes = this.Config.CommandPrefix != null ? new[] { this.Config.CommandPrefix } : this.Config.CommandPrefixes,
-                PrefixResolver = msg =>
-                {
-                    if (TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
-                        return Task.FromResult(msg.GetStringPrefixLength(pfix));
-                    return Task.FromResult(-1);
-                },
+                //PrefixResolver = msg =>
+                //{
+                //    if (TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
+                //        return Task.FromResult(msg.GetStringPrefixLength(pfix));
+                //    return Task.FromResult(-1);
+                //},
                 EnableDms = true,
                 EnableMentionPrefix = true,
                 CaseSensitive = false,
                 Services = depco.BuildServiceProvider(true),
-                Selfbot = this.Config.UseUserToken,
-                IgnoreExtraArguments = false
+                IgnoreExtraArguments = false,
+                UseDefaultCommandHandler = false,
                 //DefaultHelpChecks = new List<CheckBaseAttribute>() { new RequireOwnerAttribute() }
             };
             this.CommandsNextService = Discord.UseCommandsNext(cncfg);
@@ -95,6 +95,9 @@ namespace DSharpPlus.Test
             this.CommandsNextService.CommandExecuted += this.CommandsNextService_CommandExecuted;
             this.CommandsNextService.RegisterCommands(typeof(TestBot).GetTypeInfo().Assembly);
             this.CommandsNextService.SetHelpFormatter<TestBotHelpFormatter>();
+
+            // hook command handler
+            this.Discord.MessageCreated += this.Discord_MessageCreated;
 
             // interactivity service
             var icfg = new InteractivityConfiguration()
@@ -110,7 +113,8 @@ namespace DSharpPlus.Test
 
         public async Task RunAsync()
         {
-            await Discord.ConnectAsync().ConfigureAwait(false);
+			var act = new DiscordActivity("the screams of your ancestors", ActivityType.ListeningTo);
+            await Discord.ConnectAsync(act, UserStatus.DoNotDisturb).ConfigureAwait(false);
             await Task.Delay(-1).ConfigureAwait(false);
         }
 
@@ -160,8 +164,6 @@ namespace DSharpPlus.Test
 
         private Task Discord_Ready(ReadyEventArgs e)
         {
-            if (!this.Config.UseUserToken)
-                this.GameGuard = new Timer(TimerCallback, null, TimeSpan.FromMinutes(0), TimeSpan.FromMinutes(15));
             return Task.CompletedTask;
         }
 
@@ -251,13 +253,44 @@ namespace DSharpPlus.Test
             return Task.CompletedTask;
         }
 
-        private void TimerCallback(object _)
+        private Task Discord_MessageCreated(MessageCreateEventArgs e)
         {
-            try
+            if (e.Author.IsBot) // bad bot
+                return Task.CompletedTask;
+
+            if (e.Channel.IsPrivate)
+                return Task.CompletedTask;
+
+            var msg = e.Message;
+            var mpos = msg.GetMentionPrefixLength(e.Client.CurrentUser);
+            if (mpos == -1)
             {
-                this.Discord.UpdateStatusAsync(new DiscordActivity("the screams of your ancestors", ActivityType.ListeningTo)).ConfigureAwait(false).GetAwaiter().GetResult();
+                foreach (var x in this.Config.CommandPrefixes)
+                {
+                    if (!string.IsNullOrWhiteSpace(x))
+                    {
+                        mpos = msg.GetStringPrefixLength(x);
+                        break;
+                    }
+                }
             }
-            catch (Exception) { }
+
+            if (mpos == -1 && TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
+                mpos = msg.GetStringPrefixLength(pfix);
+
+            if (mpos == -1)
+                return Task.CompletedTask;
+
+            var pfx = msg.Content.Substring(0, mpos);
+            var cnt = msg.Content.Substring(mpos);
+
+            var cmd = this.CommandsNextService.FindCommand(cnt, out var args);
+            var ctx = this.CommandsNextService.CreateContext(msg, pfx, cmd, args);
+            if (cmd == null) // command was not found
+                return Task.CompletedTask;
+
+            _ = Task.Run(async () => await this.CommandsNextService.ExecuteCommandAsync(ctx));
+            return Task.CompletedTask;
         }
     }
 }
