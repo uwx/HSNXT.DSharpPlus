@@ -120,24 +120,30 @@ namespace DSharpPlus.Interactivity
         }
 
         public async Task<TContextResult> HandleCancellableAsync(
-            TMachine handler, CancellationTokenSource cts, TimeSpan timeout)
+            TMachine handler, CancellationToken? ct, TimeSpan timeout)
         {
             Subscribe(handler);
             try
             {
-                // append timeout to the cancellation token
-                cts.CancelAfter(timeout);
-
-                // this callback will be executed when token is cancelled
-                void OnCancel()
+                using (var cts = ct.HasValue 
+                    ? CancellationTokenSource.CreateLinkedTokenSource(ct.Value)
+                    : new CancellationTokenSource()) // if no cancellation token provider just do an empty CTS
                 {
-                    handler.Result.TrySetResult(null);
-                }
+                    // append timeout to the cancellation token source
+                    cts.CancelAfter(timeout);
 
-                // `using` block means the registration handle is disposed when we return
-                using (cts.Token.Register(OnCancel))
-                {
-                    return await handler.Result.Task;
+                    // this callback will be executed when token is cancelled
+                    void OnCancel()
+                    {
+                        handler.Result.TrySetResult(null);
+                    }
+
+                    // `using` block means the registration handle is disposed when we return
+                    using (cts.Token.Register(OnCancel))
+                    {
+                        // return await so it doesn't dispose before the task completes
+                        return await handler.Result.Task;
+                    }
                 }
             }
             finally

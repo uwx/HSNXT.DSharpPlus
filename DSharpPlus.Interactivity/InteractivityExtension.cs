@@ -197,7 +197,7 @@ namespace DSharpPlus.Interactivity
 			}
 			#endregion
 		}
-		#endregion
+		//#endregion
 
 		#region Typing
 		// I don't really know anymore why I added this.. -Naam
@@ -359,6 +359,17 @@ namespace DSharpPlus.Interactivity
 
 				await tsc.Task.ConfigureAwait(false);
 
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+			finally
+			{
+				this.Client.MessageReactionsCleared -= ReactionClearHandler;
+				this.Client.MessageReactionAdded -= ReactionAddHandler;
+				this.Client.MessageReactionRemoved -= ReactionRemoveHandler;
+				
 				switch (timeout_behaviour)
 				{
 					case TimeoutBehaviour.Ignore:
@@ -373,16 +384,6 @@ namespace DSharpPlus.Interactivity
 						await m.DeleteAllReactionsAsync().ConfigureAwait(false);
 						break;
 				}
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionsCleared -= ReactionClearHandler;
-				this.Client.MessageReactionAdded -= ReactionAddHandler;
-				this.Client.MessageReactionRemoved -= ReactionRemoveHandler;
 			}
 
 			#region Handlers

@@ -23,8 +23,8 @@ namespace DSharpPlus.Interactivity
             if (Channel != null && e.Channel != Channel) return null;
             if (Author != null && e.Author != Author) return null;
             
-            if (!_predicate(e.Message)) return null;
-            
+            if (_predicate != null && !_predicate(e.Message)) return null;
+
             return Task.FromResult(new MessageContext(Interactivity, e.Message));
         }
     }

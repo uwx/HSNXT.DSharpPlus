@@ -11,6 +11,7 @@ namespace DSharpPlus.Interactivity
         
         internal DiscordChannel Channel { get; set; }
         internal DiscordUser User { get; set; }
+        internal DiscordEmoji Emoji { get; set; }
 
         public ReactionVerifier(InteractivityExtension interactivity, Func<DiscordEmoji, bool> predicate)
             : base(interactivity)
@@ -22,8 +23,9 @@ namespace DSharpPlus.Interactivity
         {
             if (Channel != null && e.Channel != Channel) return null;
             if (User != null && e.User != User) return null;
+            if (Emoji != null && e.Emoji != Emoji) return null;
             
-            if (!_predicate(e.Emoji)) return null;
+            if (_predicate != null && !_predicate(e.Emoji)) return null;
 
             return Task.FromResult(new ReactionContext(Interactivity, e.Emoji, e.Message));
         }
