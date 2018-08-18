@@ -241,10 +241,10 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction in channel <paramref name="channel"/>
-        /// matching a predicate <paramref name="predicate"/>, or <c>null</c> if the cancellation token
-        /// <paramref name="ct"/> is canceled or the waiting period times out as specified by
-        /// <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> in channel <paramref name="channel"/> matching a predicate
+        /// <paramref name="predicate"/>, or <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or
+        /// the waiting period times out as specified by <paramref name="timeout"/>.
         /// </summary>
         /// <param name="predicate">Function that takes in a received reaction and returns whether or not that is the
         /// reaction to resolve the task with.</param>
@@ -274,14 +274,15 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction sent by <paramref name="author"/>
-        /// matching a predicate <paramref name="predicate"/>, or <c>null</c> if the cancellation token
-        /// <paramref name="ct"/> is canceled or the waiting period times out as specified by
-        /// <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> sent by <paramref name="author"/> matching a predicate
+        /// <paramref name="predicate"/>, or <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or
+        /// the waiting period times out as specified by <paramref name="timeout"/>.
         /// </summary>
         /// <param name="predicate">Function that takes in a received reaction and returns whether or not that is the
         /// reaction to resolve the task with.</param>
         /// <param name="author">User that must have sent the reaction for it to be evaluated.</param>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
@@ -306,15 +307,16 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction sent by <paramref name="author"/>
-        /// in channel <paramref name="channel"/> matching a predicate <paramref name="predicate"/>, or <c>null</c> if
-        /// the cancellation token <paramref name="ct"/> is canceled or the waiting period times out as specified by
-        /// <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> sent by <paramref name="author"/> in channel <paramref name="channel"/> matching a
+        /// predicate <paramref name="predicate"/>, or <c>null</c> if the cancellation token <paramref name="ct"/> is
+        /// canceled or the waiting period times out as specified by <paramref name="timeout"/>.
         /// </summary>
         /// <param name="predicate">Function that takes in a received reaction and returns whether or not that is the
         /// reaction to resolve the task with.</param>
         /// <param name="channel">Channel that the reaction must be sent in for it to be evaluated.</param>
         /// <param name="author">User that must have sent the reaction for it to be evaluated.</param>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
@@ -344,10 +346,11 @@ namespace DSharpPlus.Interactivity
         #region Emoji (no predicate)
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing the first new reaction the client receives,
-        /// or <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or the waiting period times out
-        /// as specified by <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/>, or <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or the
+        /// waiting period times out as specified by <paramref name="timeout"/>.
         /// </summary>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
@@ -364,12 +367,13 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction in channel
-        /// <paramref name="channel"/>, or <c>null</c> if the cancellation token
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> in channel <paramref name="channel"/>, or <c>null</c> if the cancellation token
         /// <paramref name="ct"/> is canceled or the waiting period times out as specified by
         /// <paramref name="timeout"/>.
         /// </summary>
         /// <param name="channel">Channel that the reaction must be sent in for it to be evaluated.</param>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
@@ -390,11 +394,13 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction sent by <paramref name="author"/>,
-        /// or <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or the waiting period times out
-        /// as specified by <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> sent by <paramref name="author"/>, or <c>null</c> if the cancellation token
+        /// <paramref name="ct"/> is canceled or the waiting period times out as specified by
+        /// <paramref name="timeout"/>.
         /// </summary>
         /// <param name="author">User that must have sent the reaction for it to be evaluated.</param>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
@@ -415,12 +421,14 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction sent by <paramref name="author"/>
-        /// in channel <paramref name="channel"/>, or <c>null</c> if the cancellation token <paramref name="ct"/> is
-        /// canceled or the waiting period times out as specified by <paramref name="timeout"/>.
+        /// Returns a task that resolves to a reaction context containing a reaction with an emoji
+        /// <paramref name="emoji"/> sent by <paramref name="author"/> in channel <paramref name="channel"/>, or
+        /// <c>null</c> if the cancellation token <paramref name="ct"/> is canceled or the waiting period times out as
+        /// specified by <paramref name="timeout"/>.
         /// </summary>
         /// <param name="channel">Channel that the reaction must be sent in for it to be evaluated.</param>
         /// <param name="author">User that must have sent the reaction for it to be evaluated.</param>
+        /// <param name="emoji">The reaction emoji to look for.</param>
         /// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
         /// <see cref="InteractivityConfiguration.Timeout"/>.</param>
         /// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
