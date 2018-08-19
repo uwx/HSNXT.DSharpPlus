@@ -1,6 +1,6 @@
 ﻿namespace DSharpPlus.Interactivity
 {
-    public enum TimeoutBehaviour
+    public enum TimeoutBehaviour : byte
     {
         // is this actually needed?
         //Default, // ignore
