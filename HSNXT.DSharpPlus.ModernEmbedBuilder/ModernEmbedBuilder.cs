@@ -238,7 +238,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// <param name="channel">The channel to send to</param>
         /// <param name="tts">Whether or not to enable text-to-speech</param>
         /// <returns>Task that resolves once the message containing the embed is sent</returns>
-        public Task Send(DiscordChannel channel, bool tts = false) 
+        public Task<DiscordMessage> Send(DiscordChannel channel, bool tts = false) 
             => channel.SendMessageAsync(Content, tts, Build());
 
         /// <summary>
