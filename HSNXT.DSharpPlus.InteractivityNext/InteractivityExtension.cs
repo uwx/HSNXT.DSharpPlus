@@ -18,41 +18,8 @@ namespace DSharpPlus.Interactivity
 		
 		private ReactionCancellationAwaiterHolder _reactionCollectionHandler;
 
-		/// <summary>
-		/// Default emotes to use as reactions for polling
-		/// </summary>
-		public IEnumerable<DiscordEmoji> DefaultPollOptions
-		{
-			get => _defaultPollOptions;
-			set => _defaultPollOptions = value as DiscordEmoji[] ?? value.ToArray();
-		}
 		private DiscordEmoji[] _defaultPollOptions;
 
-		/// <summary>
-		/// Format string for the page header when using <see cref="GeneratePagesInEmbeds"/>
-		/// </summary>
-		public string DefaultPageHeader
-		{
-			get => _defaultPageHeader;
-			set => _defaultPageHeader = value ?? throw new ArgumentNullException(nameof(value));
-		}
-		private string _defaultPageHeader = "Page {0}";
-
-		/// <summary>
-		/// Format string for the page header when using <see cref="GeneratePagesInStrings"/>
-		/// </summary>
-		public string DefaultStringPageHeader
-		{
-			get => _defaultStringPageHeader;
-			set => _defaultStringPageHeader = value ?? throw new ArgumentNullException(nameof(value));
-		}
-		private string _defaultStringPageHeader = "**Page {0}:**\n\n{1}";
-
-		public PaginationEmojis DefaultPaginationEmojis
-		{
-			get => _defaultPaginationEmojis;
-			set => _defaultPaginationEmojis = value ?? throw new ArgumentNullException(nameof(value));
-		}
 		private PaginationEmojis _defaultPaginationEmojis;
 
 		internal InteractivityExtension(InteractivityConfiguration cfg)
@@ -63,13 +30,22 @@ namespace DSharpPlus.Interactivity
 		protected internal override void Setup(DiscordClient client)
 		{
 			Client = client;
-			
-			_defaultPollOptions = new[]
+
+			if (Config.DefaultPollOptions != null)
 			{
-				DiscordEmoji.FromName(client, ":thumbsdown:"),
-				DiscordEmoji.FromName(client, ":thumbsup:"),
-			};
-			_defaultPaginationEmojis = new PaginationEmojis(Client);
+				_defaultPollOptions = Config.DefaultPollOptions as DiscordEmoji[] 
+				                      ?? Config.DefaultPollOptions.ToArray();
+			}
+			else
+			{
+				_defaultPollOptions = new[]
+				{
+					DiscordEmoji.FromName(client, ":thumbsdown:"),
+					DiscordEmoji.FromName(client, ":thumbsup:"),
+				};
+			}
+
+			_defaultPaginationEmojis = Config.DefaultPaginationEmojis ?? new PaginationEmojis(Client);
 			
 			_messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
 				ev => Client.MessageCreated += ev.Trigger,
@@ -212,10 +188,13 @@ namespace DSharpPlus.Interactivity
 		/// </summary>
 		/// <param name="channel">The channel to send the paginated message in</param>
 		/// <param name="user">The user that can interact with the pages</param>
-		/// <param name="messagePages">Any amount of <see cref="Page"/> to use</param>
-		/// <param name="ct">Cancellation token</param>
-		/// <param name="timeout"></param>
-		/// <param name="timeoutBehaviourOverride"></param>
+		/// <param name="messagePages">Any amount of <see cref="Page"/>s to use</param>
+		/// <param name="ct">Cancellation token to skip the timeout and instantly stop the pagination</param>
+		/// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
+		/// <see cref="InteractivityConfiguration.Timeout"/>. The timeout is reset whenever an action is taken (e.g
+		/// clicking a button)</param>
+		/// <param name="timeoutBehaviourOverride">Behavior for when the pagination finishes (e.g timeout is hit).
+		/// Defaults to <see cref="InteractivityConfiguration.PaginationBehavior"/>.</param>
 		/// <param name="emojis"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
@@ -316,7 +295,7 @@ namespace DSharpPlus.Interactivity
 			if (string.IsNullOrEmpty(input))
 				throw new ArgumentException("Input string may not be null or empty", nameof(input));
 			
-			var split = input.Split(2000);
+			var split = input.Split(2000).ToArray();
 			var page = 1;
 			foreach (var s in split)
 			{
@@ -324,7 +303,7 @@ namespace DSharpPlus.Interactivity
 				{
 					Embed = new DiscordEmbed
 					{
-						Title = string.Format(DefaultPageHeader, page),
+						Title = string.Format(Config.DefaultPageHeader, page, split.Length),
 						Description = s
 					}
 				};
@@ -337,13 +316,13 @@ namespace DSharpPlus.Interactivity
 			if (string.IsNullOrEmpty(input))
 				throw new ArgumentException("Input string may not be null or empty", nameof(input));
 
-			var split = input.Split(1900);
+			var split = input.Split(1900).ToArray();
 			var page = 1;
 			foreach (var s in split)
 			{
 				yield return new Page
 				{
-					Content = string.Format(DefaultStringPageHeader, page, s)
+					Content = string.Format(Config.DefaultStringPageHeader, page, split.Length, s)
 				};
 				page++;
 			}
@@ -353,6 +332,9 @@ namespace DSharpPlus.Interactivity
 			CancellationToken? ct = null, TimeSpan? timeout = null, 
 			TimeoutBehaviour? timeoutBehaviourOverride = null, PaginationEmojis emojis = null)
 		{
+			if (string.IsNullOrEmpty(input))
+				throw new ArgumentException("Input string may not be null or empty", nameof(input));
+
 			if (input.Length < 2000)
 			{
 				return channel.SendMessageAsync(input);
