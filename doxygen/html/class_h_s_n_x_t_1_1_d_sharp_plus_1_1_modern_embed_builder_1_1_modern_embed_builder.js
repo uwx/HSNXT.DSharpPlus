@@ -1,7 +1,7 @@
 var class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder =
 [
     [ "Build", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a75be27bd97b24f02c0603876be619f27", null ],
-    [ "Send", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a4de064f2effdb8334cf8142f8713a297", null ],
+    [ "Send", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a67171c67e034934c8e5d943fa45dbb2a", null ],
     [ "AddField", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a31d87b355c42c6f55ff7b60c7cb2129f", null ],
     [ "r", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a41b524bae4063cab77123285fbaf60c5", null ],
     [ "Content", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a90c3de7d0e16297ed7e5564f86b52144", null ],
