@@ -33,9 +33,9 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Returns a task that resolves to a reaction context containing a reaction in channel <paramref name="channel"/>
-        /// matching a predicate <paramref name="predicate"/>, or <c>null</c> if the cancellation token
-        /// <paramref name="ct"/> is canceled or the waiting period times out as specified by
+        /// Returns a task that resolves to a reaction context containing a reaction in channel
+        /// <paramref name="channel"/> matching a predicate <paramref name="predicate"/>, or <c>null</c> if the
+        /// cancellation token <paramref name="ct"/> is canceled or the waiting period times out as specified by
         /// <paramref name="timeout"/>.
         /// </summary>
         /// <param name="predicate">Function that takes in a received reaction and returns whether or not that is the

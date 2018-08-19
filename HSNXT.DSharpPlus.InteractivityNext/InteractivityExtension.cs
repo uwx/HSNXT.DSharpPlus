@@ -164,11 +164,12 @@ namespace DSharpPlus.Interactivity
 		/// <summary>
 		/// Collects all new reactions to a message until a timer expires or the task is canceled.
 		/// </summary>
-		/// <param name="message"></param>
-		/// <param name="timeout"></param>
-		/// <param name="ct"></param>
+		/// <param name="message">The message to collect reactions in</param>
+		/// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
+		/// <see cref="InteractivityConfiguration.Timeout"/>.</param>
+		/// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
 		/// <returns>Task resolving to a <see cref="ReactionCollectionContext"/> containing the reactions.</returns>
-		/// <exception cref="ArgumentNullException"></exception>
+		/// <exception cref="ArgumentNullException">If <paramref name="message"/> is null</exception>
 		public async Task<ReactionCollectionContext> CollectReactionsAsync(DiscordMessage message, 
 			TimeSpan? timeout = null, CancellationToken? ct = null)
 		{
@@ -204,6 +205,20 @@ namespace DSharpPlus.Interactivity
 		}
 		
 		#region Pagination
+		/// <summary>
+		/// Sends a message with a "page", with reactions to move between pages. Task resolves when
+		/// <paramref name="ct"/> is cancelled, <paramref name="timeout"/> is hit, or
+		/// <see cref="PaginationEmojis.Stop"/> is clicked.
+		/// </summary>
+		/// <param name="channel">The channel to send the paginated message in</param>
+		/// <param name="user">The user that can interact with the pages</param>
+		/// <param name="messagePages">Any amount of <see cref="Page"/> to use</param>
+		/// <param name="ct">Cancellation token</param>
+		/// <param name="timeout"></param>
+		/// <param name="timeoutBehaviourOverride"></param>
+		/// <param name="emojis"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
 		[SuppressMessage("ReSharper", "AccessToDisposedClosure")] // i'm confident that my code starts and ends properly
 		public async Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user,
 			IEnumerable<Page> messagePages, CancellationToken? ct = null, TimeSpan? timeout = null, 
@@ -232,7 +247,7 @@ namespace DSharpPlus.Interactivity
 			var timeoutBehaviour = timeoutBehaviourOverride ?? Config.PaginationBehavior;
 
 			var msg = await channel.SendMessageAsync(initialContent, embed: initialEmbed);
-			var paginatedMessage = new PaginatedMessage
+			var pageContext = new PageContext
 			{
 				CurrentIndex = 0,
 				Pages = pages,
@@ -258,7 +273,6 @@ namespace DSharpPlus.Interactivity
 				switch (timeoutBehaviour)
 				{
 					case TimeoutBehaviour.Ignore:
-						await msg.DeleteAllReactionsAsync();
 						break;
 					case TimeoutBehaviour.DeleteMessage:
 						await msg.DeleteAsync();
@@ -274,7 +288,7 @@ namespace DSharpPlus.Interactivity
 						return;
 
 					timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
-					await DoPagination(e.Emoji, msg, paginatedMessage, cts, emojis);
+					await DoPagination(e.Emoji, msg, pageContext, cts, emojis);
 				}
 
 				async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
@@ -283,7 +297,7 @@ namespace DSharpPlus.Interactivity
 						return;
 
 					timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
-					await DoPagination(e.Emoji, msg, paginatedMessage, cts, emojis);
+					await DoPagination(e.Emoji, msg, pageContext, cts, emojis);
 				}
 
 				async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
@@ -360,12 +374,12 @@ namespace DSharpPlus.Interactivity
 			}
 		}
 
-		public async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PaginatedMessage messagePage, CancellationTokenSource cts, PaginationEmojis emojis)
+		public async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PageContext pageContext, CancellationTokenSource cts, PaginationEmojis emojis)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
-			if (messagePage == null)
-				throw new ArgumentNullException(nameof(messagePage));
+			if (pageContext == null)
+				throw new ArgumentNullException(nameof(pageContext));
 			if (emoji == null)
 				throw new ArgumentNullException(nameof(emoji));
 			if (cts == null)
@@ -373,12 +387,12 @@ namespace DSharpPlus.Interactivity
 
 			if (emoji == emojis.SkipLeft)
 			{
-				messagePage.CurrentIndex = 0;
+				pageContext.CurrentIndex = 0;
 			}
 			else if (emoji == emojis.Left)
 			{
-				if (messagePage.CurrentIndex != 0)
-					messagePage.CurrentIndex--;
+				if (pageContext.CurrentIndex != 0)
+					pageContext.CurrentIndex--;
 			}
 			else if (emoji == emojis.Stop)
 			{
@@ -386,20 +400,19 @@ namespace DSharpPlus.Interactivity
 			}
 			else if (emoji == emojis.Right)
 			{
-				if (messagePage.CurrentIndex != messagePage.Pages.Count() - 1)
-					messagePage.CurrentIndex++;
+				if (pageContext.CurrentIndex != pageContext.Pages.Count - 1)
+					pageContext.CurrentIndex++;
 			}
 			else if (emoji == emojis.SkipRight)
 			{
-				messagePage.CurrentIndex = messagePage.Pages.Count() - 1;
+				pageContext.CurrentIndex = pageContext.Pages.Count - 1;
 			}
 			else
 			{
 				return;
 			}
 
-			var pagesArr = messagePage.Pages as Page[] ?? messagePage.Pages.ToArray();
-			var currentPage = pagesArr[messagePage.CurrentIndex];
+			var currentPage = pageContext.Pages[pageContext.CurrentIndex];
 			await message.ModifyAsync(currentPage.Content ?? "", currentPage.Embed);
 		}
 		#endregion

@@ -18,9 +18,9 @@ namespace DSharpPlus.Interactivity
 
         /// <summary>
         /// <para>Sets the default pagination timeout behaviour.</para>
-        /// <para>Defaults to <see cref="TimeoutBehaviour.Ignore"/>.</para>
+        /// <para>Defaults to <see cref="TimeoutBehaviour.DeleteReactions"/>.</para>
         /// </summary>
-        public TimeoutBehaviour PaginationBehavior { internal get; set; } = TimeoutBehaviour.Ignore;
+        public TimeoutBehaviour PaginationBehavior { internal get; set; } = TimeoutBehaviour.DeleteReactions;
 
         /// <summary>
         /// Creates a new instance of <see cref="InteractivityConfiguration"/>.
