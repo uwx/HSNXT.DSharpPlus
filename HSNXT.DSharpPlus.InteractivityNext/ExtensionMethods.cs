@@ -49,7 +49,7 @@ namespace DSharpPlus.Interactivity
             return new ReadOnlyDictionary<int, InteractivityExtension>(modules);
         }
 
-        public static IEnumerable<string> Split(this string str, int chunkSize)
+        internal static IEnumerable<string> Split(this string str, int chunkSize)
         {
             var len = str.Length;
             var i = 0;
