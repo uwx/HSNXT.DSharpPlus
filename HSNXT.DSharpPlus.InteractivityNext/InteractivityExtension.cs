@@ -45,7 +45,7 @@ namespace DSharpPlus.Interactivity
 				};
 			}
 
-			_defaultPaginationEmojis = Config.DefaultPaginationEmojis ?? new PaginationEmojis(Client);
+			_defaultPaginationEmojis = Config.DefaultPaginationEmojis ?? PaginationEmojis.CreateDefault(Client);
 			
 			_messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
 				ev => Client.MessageCreated += ev.Trigger,
@@ -195,9 +195,12 @@ namespace DSharpPlus.Interactivity
 		/// clicking a button)</param>
 		/// <param name="timeoutBehaviourOverride">Behavior for when the pagination finishes (e.g timeout is hit).
 		/// Defaults to <see cref="InteractivityConfiguration.PaginationBehavior"/>.</param>
-		/// <param name="emojis"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentNullException"></exception>
+		/// <param name="emojis">Set of <see cref="PaginationEmojis"/> to use for controlling the pages. Defaults to
+		/// <see cref="InteractivityConfiguration.DefaultPaginationEmojis"/>.</param>
+		/// <returns>Task that resolves when pagination ends</returns>
+		/// <exception cref="ArgumentNullException">If <paramref name="channel"/>, <paramref name="user"/> or
+		/// <paramref name="messagePages"/> is null</exception>
+		/// <exception cref="ArgumentException">If there are no pages to send</exception>
 		[SuppressMessage("ReSharper", "AccessToDisposedClosure")] // i'm confident that my code starts and ends properly
 		public async Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user,
 			IEnumerable<Page> messagePages, CancellationToken? ct = null, TimeSpan? timeout = null, 
@@ -213,8 +216,10 @@ namespace DSharpPlus.Interactivity
 			
 			var pages = messagePages as List<Page> ?? messagePages.ToList();
 
-			var startingPage = pages.FirstOrDefault() 
-			                   ?? throw new ArgumentException("Must have at least one page", nameof(messagePages));
+			if (pages.Count == 0)
+				throw new ArgumentException("Must have at least one page", nameof(messagePages));
+			
+			var startingPage = pages[0];
 			var initialContent = startingPage.Content ?? "";
 			var initialEmbed = startingPage.Embed;
 			if (pages.Count == 1)
@@ -229,8 +234,7 @@ namespace DSharpPlus.Interactivity
 			var pageContext = new PageContext
 			{
 				CurrentIndex = 0,
-				Pages = pages,
-				Timeout = timeout ?? Config.Timeout
+				Pages = pages
 			};
 
 			emojis = emojis ?? _defaultPaginationEmojis;
@@ -245,20 +249,27 @@ namespace DSharpPlus.Interactivity
 			using (var timer = new Timer(_ => cts.Cancel()))
 			{
 				timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
-				
+
 				await _reactionCollectionHandler.HandleCancellableVoidAsync(
 					ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, timeout ?? Config.Timeout);
 
-				switch (timeoutBehaviour)
+				if (pageContext.IsClosing)
 				{
-					case TimeoutBehaviour.Ignore:
-						break;
-					case TimeoutBehaviour.DeleteMessage:
-						await msg.DeleteAsync();
-						break;
-					case TimeoutBehaviour.DeleteReactions:
-						await msg.DeleteAllReactionsAsync();
-						break;
+					await msg.DeleteAsync();
+				}
+				else
+				{
+					switch (timeoutBehaviour)
+					{
+						case TimeoutBehaviour.Ignore:
+							break;
+						case TimeoutBehaviour.DeleteMessage:
+							await msg.DeleteAsync();
+							break;
+						case TimeoutBehaviour.DeleteReactions:
+							await msg.DeleteAllReactionsAsync();
+							break;
+					}
 				}
 
 				async Task ReactionAddHandler(MessageReactionAddEventArgs e)
@@ -290,6 +301,14 @@ namespace DSharpPlus.Interactivity
 			}
 		}
 
+		/// <summary>
+		/// Splits a string by length into pages containing embeds.
+		/// </summary>
+		/// <param name="input">The string to split</param>
+		/// <returns>An enumerable that contains pages, each with an embed with an automatically generated title based
+		/// on <see cref="InteractivityConfiguration.DefaultPageHeader"/>, and description set to that part of the
+		/// input.</returns>
+		/// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
 		public IEnumerable<Page> GeneratePagesInEmbeds(string input)
 		{
 			if (string.IsNullOrEmpty(input))
@@ -299,18 +318,23 @@ namespace DSharpPlus.Interactivity
 			var page = 1;
 			foreach (var s in split)
 			{
-				yield return new Page
+				yield return new Page(new DiscordEmbedBuilder
 				{
-					Embed = new DiscordEmbed
-					{
-						Title = string.Format(Config.DefaultPageHeader, page, split.Length),
-						Description = s
-					}
-				};
+					Title = string.Format(Config.DefaultPageHeader, page, split.Length),
+					Description = s
+				});
 				page++;
 			}
 		}
 
+		/// <summary>
+		/// Splits a string by length into pages containing text messages.
+		/// </summary>
+		/// <param name="input">The string to split</param>
+		/// <returns>An enumerable that contains pages, each with a text message with an automatically generated header
+		/// based on <see cref="InteractivityConfiguration.DefaultStringPageHeader"/>, and description set to that part
+		/// of the input.</returns>
+		/// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
 		public IEnumerable<Page> GeneratePagesInStrings(string input)
 		{
 			if (string.IsNullOrEmpty(input))
@@ -320,14 +344,31 @@ namespace DSharpPlus.Interactivity
 			var page = 1;
 			foreach (var s in split)
 			{
-				yield return new Page
-				{
-					Content = string.Format(Config.DefaultStringPageHeader, page, split.Length, s)
-				};
+				yield return new Page(string.Format(Config.DefaultStringPageHeader, page, split.Length, s));
 				page++;
 			}
 		}
 
+		/// <summary>
+		/// Sends a string message automatically split into pages by length using pagination. Task resolves when
+		/// <paramref name="ct"/> is cancelled, <paramref name="timeout"/> is hit, or
+		/// <see cref="PaginationEmojis.Stop"/> is clicked.
+		/// </summary>
+		/// <param name="channel">The channel to send the paginated message in</param>
+		/// <param name="user">The user that can interact with the pages</param>
+		/// <param name="input">The message content to send</param>
+		/// <param name="ct">Cancellation token to skip the timeout and instantly stop the pagination</param>
+		/// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
+		/// <see cref="InteractivityConfiguration.Timeout"/>. The timeout is reset whenever an action is taken (e.g
+		/// clicking a button)</param>
+		/// <param name="timeoutBehaviourOverride">Behavior for when the pagination finishes (e.g timeout is hit).
+		/// Defaults to <see cref="InteractivityConfiguration.PaginationBehavior"/>.</param>
+		/// <param name="emojis">Set of <see cref="PaginationEmojis"/> to use for controlling the pages. Defaults to
+		/// <see cref="InteractivityConfiguration.DefaultPaginationEmojis"/>.</param>
+		/// <returns>Task that resolves when pagination ends</returns>
+		/// <exception cref="ArgumentNullException">If <paramref name="channel"/> or <paramref name="user"/> is null
+		/// </exception>
+		/// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
 		public Task SendSplitMessage(DiscordChannel channel, DiscordUser user, string input,
 			CancellationToken? ct = null, TimeSpan? timeout = null, 
 			TimeoutBehaviour? timeoutBehaviourOverride = null, PaginationEmojis emojis = null)
@@ -344,19 +385,28 @@ namespace DSharpPlus.Interactivity
 				timeoutBehaviourOverride, emojis);
 		}
 
+		/// <summary>
+		/// Appends pagination emojis to a message.
+		/// </summary>
+		/// <param name="message">The message to append emojis to</param>
+		/// <param name="emojis">The pagination emojis to append to the message</param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		/// <remarks>Really, there's no reason for this method to be public, but it is, so here you go.</remarks>
 		public async Task GeneratePaginationReactions(DiscordMessage message, PaginationEmojis emojis)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
 
-			foreach (var paginationEmoji in emojis)
+			foreach (var paginationEmoji in emojis.Enumerate())
 			{
 				if (paginationEmoji != null)
 					await message.CreateReactionAsync(paginationEmoji);
 			}
 		}
 
-		public async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PageContext pageContext, CancellationTokenSource cts, PaginationEmojis emojis)
+		private async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PageContext pageContext,
+			CancellationTokenSource cts, PaginationEmojis emojis)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
@@ -373,7 +423,7 @@ namespace DSharpPlus.Interactivity
 			}
 			else if (emoji == emojis.Left)
 			{
-				if (pageContext.CurrentIndex != 0)
+				if (pageContext.CurrentIndex > 0)
 					pageContext.CurrentIndex--;
 			}
 			else if (emoji == emojis.Stop)
@@ -382,12 +432,17 @@ namespace DSharpPlus.Interactivity
 			}
 			else if (emoji == emojis.Right)
 			{
-				if (pageContext.CurrentIndex != pageContext.Pages.Count - 1)
+				if (pageContext.CurrentIndex < pageContext.Pages.Count - 1)
 					pageContext.CurrentIndex++;
 			}
 			else if (emoji == emojis.SkipRight)
 			{
 				pageContext.CurrentIndex = pageContext.Pages.Count - 1;
+			}
+			else if (emoji == emojis.Close)
+			{
+				pageContext.IsClosing = true;
+				cts.Cancel();
 			}
 			else
 			{
