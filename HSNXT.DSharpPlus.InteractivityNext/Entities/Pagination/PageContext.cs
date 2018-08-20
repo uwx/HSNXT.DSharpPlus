@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace DSharpPlus.Interactivity
 {
-    public class PageContext
+    internal class PageContext
     {
-        public IList<Page> Pages { get; internal set; }
-        public int CurrentIndex { get; internal set; }
-        public TimeSpan Timeout { get; internal set; }
+        public IList<Page> Pages { get; set; }
+        public int CurrentIndex { get; set; }
+        public bool IsClosing { get; set; }
     }
 }
