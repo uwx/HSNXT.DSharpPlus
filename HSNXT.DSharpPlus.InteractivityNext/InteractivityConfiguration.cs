@@ -5,23 +5,26 @@ using DSharpPlus.Entities;
 
 namespace DSharpPlus.Interactivity
 {
+    /// <summary>
+    /// Configuration options for <see cref="InteractivityExtension"/>.
+    /// </summary>
     public sealed class InteractivityConfiguration
     {
         /// <summary>
-        /// <para>Sets the default interactivity action timeout.</para>
-        /// <para>Defaults to 1 minute.</para>
+        /// <p>Sets the default interactivity action timeout.</p>
+        /// <p>Defaults to 1 minute.</p>
         /// </summary>
         public TimeSpan Timeout { internal get; set; } = TimeSpan.FromMinutes(1);
 
         /// <summary>
-        /// <para>Sets the default pagination timeout.</para>
-        /// <para>Defaults to 2 minutes.</para>
+        /// <p>Sets the default pagination timeout.</p>
+        /// <p>Defaults to 2 minutes.</p>
         /// </summary>
         public TimeSpan PaginationTimeout { internal get; set; } = TimeSpan.FromMinutes(2);
 
         /// <summary>
-        /// <para>Sets the default pagination timeout behaviour.</para>
-        /// <para>Defaults to <see cref="TimeoutBehaviour.DeleteReactions"/>.</para>
+        /// <p>Sets the default pagination timeout behaviour.</p>
+        /// <p>Defaults to <see cref="TimeoutBehaviour.DeleteReactions"/>.</p>
         /// </summary>
         public TimeoutBehaviour PaginationBehavior { internal get; set; } = TimeoutBehaviour.DeleteReactions;
 
@@ -31,7 +34,9 @@ namespace DSharpPlus.Interactivity
         public IEnumerable<DiscordEmoji> DefaultPollOptions { internal get; set; }
 
         /// <summary>
-        /// Format string for the page header when using <see cref="InteractivityExtension.GeneratePagesInEmbeds"/>
+        /// Format string for the page header when using <see cref="InteractivityExtension.GeneratePagesInEmbeds"/>.
+        /// <p></p>
+        /// <p>The parameters provided to the format string are as follows:</p>
         /// <list type="bullet">
         ///     <item><description>
         ///         0: The page number
@@ -50,7 +55,9 @@ namespace DSharpPlus.Interactivity
         private string _defaultPageHeader = "Page {0} of {1}";
 
         /// <summary>
-        /// Format string for the page header when using <see cref="InteractivityExtension.GeneratePagesInStrings"/>
+        /// Format string for the page header when using <see cref="InteractivityExtension.GeneratePagesInStrings"/>.
+        /// <p></p>
+        /// <p>The parameters provided to the format string are as follows:</p>
         /// <list type="bullet">
         ///     <item><description>
         ///         0: The page number
@@ -87,7 +94,8 @@ namespace DSharpPlus.Interactivity
         }
 
         /// <summary>
-        /// Creates a new instance of <see cref="InteractivityConfiguration"/>, copying the properties of another configuration.
+        /// Creates a new instance of <see cref="InteractivityConfiguration"/>, copying the properties of another
+        /// configuration.
         /// </summary>
         /// <param name="other">Configuration the properties of which are to be copied.</param>
         public InteractivityConfiguration(InteractivityConfiguration other)
