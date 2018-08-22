@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DSharpPlus.Interactivity
@@ -59,6 +60,35 @@ namespace DSharpPlus.Interactivity
                 var size = Math.Min(len - i, chunkSize);
                 yield return str.Substring(i, size);
                 i += size;
+            }
+        }
+
+        internal static IEnumerable<string> SplitWords(this string str, int chunkSize)
+        {
+            var words = str.Split(' ');
+            var part = new StringBuilder();
+            foreach (var word in words)
+            {
+                if (word.Length >= chunkSize)
+                {
+                    foreach (var chunk in Split(word, chunkSize))
+                    {
+                        yield return chunk;
+                    }
+                }
+                else if (part.Length + word.Length < chunkSize)
+                {
+                    if (part.Length != 0)
+                        part.Append(' ');
+
+                    part.Append(word);
+                }
+                else
+                {
+                    yield return part.ToString();
+                    part.Clear();
+                    part.Append(word);
+                }
             }
         }
     }
