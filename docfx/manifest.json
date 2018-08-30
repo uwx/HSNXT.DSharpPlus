@@ -1641,7 +1641,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DSharpPlus.Entities.DiscordEmbedBuilder.html",
-          "hash": "RRDiIJflMANSWaxUtemb6A=="
+          "hash": "HKwqauakd7cFhR22E44Ntw=="
         }
       },
       "is_incremental": false,
@@ -1905,7 +1905,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DSharpPlus.Entities.DiscordRichPresence.html",
-          "hash": "7A3z2Q5DrRfr/fapsiN+2g=="
+          "hash": "jZIdJHzN7ABImj/Pq+hu4Q=="
         }
       },
       "is_incremental": false,
@@ -2373,7 +2373,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DSharpPlus.EventArgs.GuildUpdateEventArgs.html",
-          "hash": "vgL6GlsFqI/AHal7EsUHFQ=="
+          "hash": "JGp4Ng2Ve4Lfzmmg7POCtQ=="
         }
       },
       "is_incremental": false,

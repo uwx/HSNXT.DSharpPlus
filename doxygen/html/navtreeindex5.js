@@ -63,7 +63,8 @@ var NAVTREEINDEX5 =
 "class_d_sharp_plus_1_1_event_args_1_1_guild_role_update_event_args.html#abcacb8915b61b7460da2036bc1586a80":[2,0,0,2,22,1],
 "class_d_sharp_plus_1_1_event_args_1_1_guild_role_update_event_args.html#abf05a3a6c1622ff9780cef4614b400a2":[2,0,0,2,22,0],
 "class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html":[2,0,0,2,23],
-"class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html#a1537fd59ef47d4abf4ddf6f32717a243":[2,0,0,2,23,0],
+"class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html#a3f4eaa6262793b06d2ef4a908f663644":[2,0,0,2,23,0],
+"class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html#a6a70046a987609c435d0d0e6b0475a4b":[2,0,0,2,23,1],
 "class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html":[2,0,0,2,24],
 "class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html#a2dc9f1407a8f6aab1fc98ef3fc3d632b":[2,0,0,2,24,0],
 "class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html#a92bc98b679f5ded2be0b222871847bd5":[2,0,0,2,24,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#a670c3df17cf83c9e6f683220a2774019":[2,0,0,4,8,4],
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#a6e41ac8a0c6b87cb57c776ebc873234d":[2,0,0,4,8,0],
 "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#a8dbaca4951e4efd45f5593c9aa7e4254":[2,0,0,4,8,5],
-"class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#aab942b0f69cb4678620215442ff977ba":[2,0,0,4,8,2],
-"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html":[2,0,0,5,0,0]
+"class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html#aab942b0f69cb4678620215442ff977ba":[2,0,0,4,8,2]
 };

@@ -151,6 +151,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a982dd74c929c822233483c8dd4e52d7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a982dd74c929c822233483c8dd4e52d7c">IsConnected</a> =&gt; !Volatile.Read(ref this._isDisposed)</td></tr>
 <tr class="memdesc:a982dd74c929c822233483c8dd4e52d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether this channel is still connected.  <a href="#a982dd74c929c822233483c8dd4e52d7c">More...</a><br /></td></tr>
 <tr class="separator:a982dd74c929c822233483c8dd4e52d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8744ef756bb7941c161705ab027e5a7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a8744ef756bb7941c161705ab027e5a7b">Channel</a> =&gt; this.VoiceStateUpdate.Channel</td></tr>
+<tr class="memdesc:a8744ef756bb7941c161705ab027e5a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the voice channel associated with this connection.  <a href="#a8744ef756bb7941c161705ab027e5a7b">More...</a><br /></td></tr>
+<tr class="separator:a8744ef756bb7941c161705ab027e5a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdbb3e0c36ea523fdaa5278cede51652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#afdbb3e0c36ea523fdaa5278cede51652">Guild</a> =&gt; this.Channel.Guild</td></tr>
 <tr class="memdesc:afdbb3e0c36ea523fdaa5278cede51652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the guild associated with this connection.  <a href="#afdbb3e0c36ea523fdaa5278cede51652">More...</a><br /></td></tr>
 <tr class="separator:afdbb3e0c36ea523fdaa5278cede51652"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +175,6 @@ Properties</h2></td></tr>
 <tr class="memitem:a6bb50b057b56a0bfbb30003a93552359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html">LavalinkPlayerState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a6bb50b057b56a0bfbb30003a93552359">CurrentState</a><code> [get]</code></td></tr>
 <tr class="memdesc:a6bb50b057b56a0bfbb30003a93552359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current player state.  <a href="#a6bb50b057b56a0bfbb30003a93552359">More...</a><br /></td></tr>
 <tr class="separator:a6bb50b057b56a0bfbb30003a93552359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8744ef756bb7941c161705ab027e5a7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a8744ef756bb7941c161705ab027e5a7b">Channel</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a8744ef756bb7941c161705ab027e5a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the voice channel associated with this connection.  <a href="#a8744ef756bb7941c161705ab027e5a7b">More...</a><br /></td></tr>
-<tr class="separator:a8744ef756bb7941c161705ab027e5a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection to a channel. </p>
@@ -448,6 +448,20 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8744ef756bb7941c161705ab027e5a7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> DSharpPlus.Lavalink.LavalinkGuildConnection.Channel =&gt; this.VoiceStateUpdate.Channel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the voice channel associated with this connection. </p>
+
+</div>
+</div>
 <a class="anchor" id="afdbb3e0c36ea523fdaa5278cede51652"></a>
 <div class="memitem">
 <div class="memproto">
@@ -570,28 +584,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the current player state. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8744ef756bb7941c161705ab027e5a7b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> DSharpPlus.Lavalink.LavalinkGuildConnection.Channel</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the voice channel associated with this connection. </p>
 
 </div>
 </div>

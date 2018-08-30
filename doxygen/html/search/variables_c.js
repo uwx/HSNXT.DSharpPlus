@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['owner',['Owner',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a106ea75ccb950840ff5c204e72213afb',1,'DSharpPlus::Entities::DiscordGuild']]]
+  ['nodeendpoint',['NodeEndpoint',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a57b9f6f2211de96bcb8be7497ecd5373',1,'DSharpPlus::Lavalink::LavalinkNodeConnection']]]
 ];

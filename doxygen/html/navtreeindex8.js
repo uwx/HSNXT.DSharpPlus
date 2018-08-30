@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html#adf0fa98396079f78a50f2c6b9add3492":[2,0,1,0,0,1,3],
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html#ae28a175768fa6abe5121e88c79f5c118":[2,0,1,0,0,1,6],
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html#ae4821de782f4184e7669352afbf9b8c2":[2,0,1,0,0,1,27],
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html#af30785a2737591a8dde545d842d3f3c2":[2,0,1,0,0,1,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f610f111832342cc3977bd24c474b27":[2,0,1,0,1,2,0,860],
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f6db6d8c6dbec4fd620fe2094625755":[2,0,1,0,1,2,0,3073],
 "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f705471bab84bd3b9ae7e0e5d616e08":[2,0,1,0,1,2,0,3382],
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f7a4b61e660cdb34fddd39340a07df8":[2,0,1,0,1,2,0,2180],
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f86d4261fec43981f6d3a032b10dffd":[2,0,1,0,1,2,0,3145]
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f7a4b61e660cdb34fddd39340a07df8":[2,0,1,0,1,2,0,2180]
 };

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['length',['Length',['../struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#a64a077b7754c40a2babb3cf9b37b2d7a',1,'DSharpPlus::Lavalink::LavalinkTrack']]]
+  ['jumplink',['JumpLink',['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ae85937a826c3313a75fd13e16359dd65',1,'DSharpPlus::Entities::DiscordMessage']]]
 ];
