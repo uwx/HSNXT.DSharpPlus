@@ -50,7 +50,7 @@ namespace DSharpPlus.Lavalink
         /// <summary>
         /// Triggered whenever playback of a track encounters an error.
         /// </summary>
-        public event AsyncEventHandler<TrackExceptionEventArgs> TrackException 
+        public event AsyncEventHandler<TrackExceptionEventArgs> TrackException
         {
             add { this._trackException.Register(value); }
             remove { this._trackException.Unregister(value); }
@@ -240,7 +240,8 @@ namespace DSharpPlus.Lavalink
 
         internal Task InternalPlaybackFinishedAsync(TrackFinishData e)
         {
-            this.CurrentState.CurrentTrack = default;
+            if (e.Reason != TrackEndReason.Replaced)
+                this.CurrentState.CurrentTrack = default;
 
             var ea = new TrackFinishEventArgs(this, LavalinkUtilities.DecodeTrack(e.Track), e.Reason);
             return this._playbackFinished.InvokeAsync(ea);
