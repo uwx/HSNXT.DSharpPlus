@@ -63,8 +63,8 @@ after_deploy:
   - docfx ./docfx_project/docfx.json
   - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /nfl /ndl /np
 # build and copy doxygen
-  - ps: Invoke-WebRequest https://static.emzi0767.com/misc/doxygen-1.8.15.windows.x64.bin.zip
-  - ps: Expand-Archive -Path doxygen-1.8.15.windows.x64.bin.zip -DestinationPath C:\doxygen_build
+  - ps: Invoke-WebRequest https://static.emzi0767.com/misc/doxygen-1.8.15.windows.x64.bin.zip -OutFile doxygen.zip
+  - ps: Expand-Archive -Path doxygen.zip -DestinationPath C:\doxygen_build
   - cmd: set PATH=%PATH%;C:\doxygen_build
   - doxygen Doxyfile
   - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /nfl /ndl /np
