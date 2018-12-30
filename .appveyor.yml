@@ -22,18 +22,18 @@ environment:
   VersionSuffix: nightly
   BuildNumber: 00001
 
-install:
-  - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
+#install:
+#  - cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
 
 before_build:
-  - cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
-  - cmd: nuget restore
+  #- cmd: nuget sources add -Name dsp-myget -Source https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
+  - cmd: dotnet restore -s https://api.nuget.org/v3/index.json -s https://www.myget.org/F/dsharpplus-nightly/api/v3/index.json
 build: off
 
 build_script:
-  #- ps: dotnet build "HSNXT.DSharpPlus.sln" -c Release
-  - ps: dotnet msbuild /t:PublishAll /p:Configuration=Release
-  - ps: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build
+  #- cmd: dotnet build "HSNXT.DSharpPlus.sln" -c Release
+  - cmd: dotnet msbuild /t:PublishAll /p:Configuration=Release
+  - cmd: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build
  
 artifacts:
   - path: '**\Packaged\*.nupkg'
