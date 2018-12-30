@@ -18,6 +18,7 @@ var namespace_d_sharp_plus_1_1_commands_next_1_1_converters =
     [ "Float128Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float128_converter.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float128_converter" ],
     [ "Float32Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float32_converter.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float32_converter" ],
     [ "Float64Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float64_converter.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float64_converter" ],
+    [ "HelpFormatterFactory", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_help_formatter_factory.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_help_formatter_factory" ],
     [ "IArgumentConverter", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", null ],
     [ "Int16Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int16_converter.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int16_converter" ],
     [ "Int32Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int32_converter.html", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int32_converter" ],

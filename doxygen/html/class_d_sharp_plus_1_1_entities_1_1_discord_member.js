@@ -37,6 +37,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_member =
     [ "AvatarHash", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#ac910836ff706e3dc7c717a3077193f68", null ],
     [ "IsBot", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a747fa25c8ced07caa3c3bf581095122a", null ],
     [ "Email", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a52b4aed71f6c149d11561cdad45c1915", null ],
-    [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#ad053f00c36770970d859db9617081698", null ],
-    [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#ab4f47cdf091a23948efbd4af3e8d22bf", null ]
+    [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#aeba1139d5433f8ec802436bd84d647c8", null ],
+    [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#acef61806d3a201278836a2a74a97403d", null ]
 ];

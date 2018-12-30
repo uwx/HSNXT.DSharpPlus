@@ -1,4 +1,5 @@
 var namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners =
 [
-    [ "AsyncListenerAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute" ]
+    [ "AsyncListenerAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute" ],
+    [ "ListenerMethod", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_listener_method.html", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_listener_method" ]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['readonlyset',['ReadOnlySet',['../class_d_sharp_plus_1_1_read_only_set.html#af37c9492b513e369cb0abeee34816540',1,'DSharpPlus::ReadOnlySet']]],
-  ['receiveasync',['ReceiveAsync',['../class_d_sharp_plus_1_1_net_1_1_udp_1_1_base_udp_client.html#afb2a7bcf8638be6cea902ea1ab298397',1,'DSharpPlus::Net::Udp::BaseUdpClient']]],
+  ['receiveasync',['ReceiveAsync',['../class_d_sharp_plus_1_1_net_1_1_udp_1_1_base_udp_client.html#afb2a7bcf8638be6cea902ea1ab298397',1,'DSharpPlus.Net.Udp.BaseUdpClient.ReceiveAsync()'],['../class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#ae04e8775d0a691395f2e22f057b559b8',1,'DSharpPlus.Net.Udp.DspUdpClient.ReceiveAsync()'],['../class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#a531339434c98d2eb9b2cfe30701a14d3',1,'DSharpPlus.Net.Udp.DspUdpClient.ReceiveAsync()']]],
   ['registerassembly',['RegisterAssembly',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a72bea699e2200ca139e17fb582799399',1,'HSNXT::DSharpPlus::Extended::DspExtended']]],
   ['registercommands',['RegisterCommands',['../class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a4a21959a30ca5d6ec18c3e12c82d06a1',1,'DSharpPlus.CommandsNext.CommandsNextExtension.RegisterCommands(Assembly assembly)'],['../class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a92ae4b966c85930f58fbaf9aaaac1b87',1,'DSharpPlus.CommandsNext.CommandsNextExtension.RegisterCommands(Type t)']]],
   ['registercommands_3c_20t_20_3e',['RegisterCommands&lt; T &gt;',['../class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a20edbea3ba80160cf90d6dbdc46bf021',1,'DSharpPlus::CommandsNext::CommandsNextExtension']]],

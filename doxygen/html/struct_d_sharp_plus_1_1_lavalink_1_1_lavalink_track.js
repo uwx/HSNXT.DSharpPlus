@@ -1,7 +1,9 @@
 var struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track =
 [
     [ "Length", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#a64a077b7754c40a2babb3cf9b37b2d7a", null ],
+    [ "_length", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#adaa8afc5cfa774d8467652d7c9cabf1c", null ],
     [ "Position", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#a93fcd90de977fd867efc505685d273df", null ],
+    [ "_position", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#abf50507aa4ad530b0f81c99b9fa4bbaa", null ],
     [ "TrackString", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#a4a0137c1066caea30b3a4e322b2c15a8", null ],
     [ "Identifier", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#aa2895b7c00cd7a62708cdd77c171d363", null ],
     [ "IsSeekable", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html#aaac249f46bbc470bae7b417dc597b0c0", null ],

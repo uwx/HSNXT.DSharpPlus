@@ -21,7 +21,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_message =
     [ "GetHashCode", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a3437a4511bea458b9c49c27440c29362", null ],
     [ "Channel", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a376bda29e0e92a5fabf57f058e0b8529", null ],
     [ "Timestamp", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#acfb347a57490fa2b280b4e95309b6961", null ],
-    [ "EditedTimestamp", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#af9f18fff1d32fd833135063a0ce3fe2c", null ],
+    [ "EditedTimestamp", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a2acba02bf787c8d54d55ea2b5376782e", null ],
     [ "IsEdited", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a75fff4817e56206a55ce03140ecc402d", null ],
     [ "MentionedUsers", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a71cfe65d73068e3680ff454f481430e6", null ],
     [ "MentionedRoles", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ab230e0e9ed98034f45e3697b43f7c010", null ],
@@ -34,11 +34,11 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_message =
     [ "ChannelId", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a5b8471e0fb66c295bd5a3613a594a79a", null ],
     [ "Author", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a7fc4c54726f178965b98ba055cff7e64", null ],
     [ "Content", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a376e1b7d609278c81185cd8b37ff69fc", null ],
-    [ "TimestampRaw", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a777f5390ab0e9fd2662f14979345d6ea", null ],
-    [ "EditedTimestampRaw", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#aaeeee5ac9109897bd8eacfc9ef8f714d", null ],
+    [ "TimestampRaw", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a1a14ff32f288edd6be4f342c832231df", null ],
+    [ "EditedTimestampRaw", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a17719eb95dd4c44ab61d2ecb50a700da", null ],
     [ "IsTTS", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a63a80c09571946e3755144343680aed0", null ],
     [ "MentionEveryone", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a09c3f361f2cdde1503831b5ac7445447", null ],
     [ "Pinned", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a56e195745ffd5994c7cec30b93ae8525", null ],
-    [ "WebhookId", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a25be4425db85b9cb94aab48392636c95", null ],
-    [ "MessageType", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#acd0a8a8fc6ce9d1949e21d449601e2ad", null ]
+    [ "WebhookId", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a66751ae2473d50d36b1e81e863deaf15", null ],
+    [ "MessageType", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a926fdf4a7aca07ff6553abc555a0705e", null ]
 ];

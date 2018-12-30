@@ -1,7 +1,7 @@
 var class_d_sharp_plus_1_1_entities_1_1_discord_role =
 [
     [ "ModifyPositionAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#a6aa490df1e36dd4d2476a036ece80d62", null ],
-    [ "ModifyAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#aa9a975587f5d892529f229190fcdff8a", null ],
+    [ "ModifyAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#a6effd0004a595eb6d07bd7e3db088363", null ],
     [ "ModifyAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#a4bf60e45acb1a9ee882cecf97b8cb38f", null ],
     [ "DeleteAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#a0c451f000fed0e5e4b3480ba30b43eeb", null ],
     [ "CheckPermission", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html#a360643af6b967c7222f9b359cc100602", null ],

@@ -2,7 +2,7 @@ var class_d_sharp_plus_1_1_discord_sharded_client =
 [
     [ "DiscordShardedClient", "class_d_sharp_plus_1_1_discord_sharded_client.html#a0479c028964e9e31dcf7738c4a2a9ba1", null ],
     [ "StartAsync", "class_d_sharp_plus_1_1_discord_sharded_client.html#a01d0469abd1ad7857ea909c2e1bd5130", null ],
-    [ "UpdateStatusAsync", "class_d_sharp_plus_1_1_discord_sharded_client.html#a79a41f228a3943a5762d0e04a8c81b06", null ],
+    [ "UpdateStatusAsync", "class_d_sharp_plus_1_1_discord_sharded_client.html#a46f731b5e87e8c7b263c388820219b42", null ],
     [ "ShardClients", "class_d_sharp_plus_1_1_discord_sharded_client.html#a267b2ded6e271b2db08bf4474e7f84f8", null ],
     [ "CurrentUser", "class_d_sharp_plus_1_1_discord_sharded_client.html#a16c410ab789c9cc9de26b0178eecf3f5", null ],
     [ "CurrentApplication", "class_d_sharp_plus_1_1_discord_sharded_client.html#a6089f66266de96ab997c9e32db77be27", null ],

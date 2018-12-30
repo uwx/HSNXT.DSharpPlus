@@ -1,9 +1,32 @@
+/*
+@ @licstart  The following is the entire license notice for the
+JavaScript code in this file.
+
+Copyright (C) 1997-2017 by Dimitri van Heesch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this file
+*/
 var NAVTREE =
 [
   [ "HSNXT.DSharpPlus", "index.html", [
-    [ "README", "md_README.html", null ],
-    [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.html", "namespaces" ],
+    [ "README", "md__r_e_a_d_m_e.html", null ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
@@ -28,46 +51,48 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module.html",
-"class_d_sharp_plus_1_1_discord_rest_client.html#a8b2924802ade3b7252c0bfcc9db69483",
-"class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a2d01955aef0cce5b3f1c65ac96eb7dfe",
-"class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a265ad7e72ead72ac6992de5fa04f6515",
-"class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html#ad55ebeb2306321e2cf248b4917ecc7f8",
-"class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html",
-"class_d_sharp_plus_1_1_ring_buffer.html#a287d3fedd1217e8b8c47307e0a655396",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html#adf0fa98396079f78a50f2c6b9add3492",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a0f86d4261fec43981f6d3a032b10dffd",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a207c01f15012957d2b9255a44e69d2d6",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a325674fe3f235e8a90ea2f375a4866c8",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a423d641ff6a8959f1b8c9ea4cfafe088",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a53552aa56114980e5499932aed605a55",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a62aff4465fc95b074051937bc943b12c",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a720a810b48f31992f9b6de56c2801f9a",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a813851669846bb9448abce101516a20a",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a932e3d33b79e7582d6a63b1d1209a998",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#aa1ba6eab853f9ef0241036c06aa52fcf",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ab268cfe65dcce0b6a99f0761a789c791",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ac3f84db990cead28e49d83cef1e9daaa",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ad1386b6e9dcb4311fe921adc54bc4218",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ae1405ea8e812e74d1d1e67a49dbb203e",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#af217b16551ebc11f9bdd0f2e13be1992",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a04c19e9b3e7ead79cc46d7487cecb53e",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a1588e57df038a12b8d00d41cb4c1ad98",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a24b2fccc72fb54e6cbf42db7aa5654fa",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a33a870c3b3e5bc6d4cc021c5b049eab6",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a441c29540dc5e6e1ed145f11526e2a1d",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a559e6bb38bb07bd8760b7d5d62923799",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a664e8b81f0fc12365a9af7971e18c05d",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a77bcbc5e6ec69be81bb38bfa05bab6de",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a8a1d9195af8d75f5d1686d1b07638217",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a9c98540b7c44e115a72ebccd82545fcf",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#aacb2e77d83acdf5fae912668909caf01",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#abcba0da7ce4ace5b29615a57e063538e",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#acc571ec20bc3a0492184b1f06200e6db",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#adb8dadb349695bf6ae7cbd1c5b009294",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#aeb1a1c64688d1f25c0e71cccced5baa8",
-"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#afb1333ad9ce2f40cf0b94726ec346005",
-"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier.html"
+"class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#aa955e056c736d3332996f4dee3643613",
+"class_d_sharp_plus_1_1_discord_rest_client.html#a7a30c83207118801d9512d6b291a4c67",
+"class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_webhook_entry.html#ad8ebd1c2cb4d32e9b3a71f7a2064ad2c",
+"class_d_sharp_plus_1_1_entities_1_1_discord_integration.html#a2fc291a68ece7c30751d3e20c35aec3e",
+"class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#aacd4172afa2f486ee52df6678a4badc1",
+"class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html#ae3f06b6f6f4e318ba23b8e5437a5bedd",
+"class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_create_payload.html#a7820db00a022a8e7d9f087e930ca7120",
+"class_d_sharp_plus_1_1_net_1_1_models_1_1_role_edit_model.html#a285766f78055a49d956b3aec2b697d35",
+"class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_test_attribute.html#a9ccc947ada190fd45981c366ab4802ad",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html#a21d4ccfcfd876a520d84743126896c03",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a1065f44af4d01a04557e83ec7fd86106",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a21cb054932a5e548e5535fb598df464e",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a3377cf4205bc84612e74f19057dc1104",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a430605d7b51095f285a9945991ba3201",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a53e7eeb417165a59576f2bc26479a267",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a636ae47d1a86767dd34ed0290feb352b",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a731a8a90468c384bfc69786aee7d87a0",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a8257de3f9d7750975d1807339d86cc2b",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#a93f630c666a9d6cb22d5f2646415fb3a",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#aa27fd0d102aa3cd9b71ae463c17ec836",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ab36fd4159f8b7a345882e6b9dae57713",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ac4bcb922914aef0282277402c43b1a3b",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ad26f62c7fbda4234a6d67a07b47f40bd",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#ae1f91a4729aac1eec292720e539b8e55",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html#af30c69c9d89c52360614465dc03222bb",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a0567786f4f6a2e747937878e8c89a1d6",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a165b9d20501e753c1ff9decd4dfcae77",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a258e82837ead0641bf5a803ea4cbf20e",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a34db1ba1cc9c13d6a1ab6a873257a2bc",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a4506caef0a6676c6987322b2f944951f",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a565679604001c0a25d8534ae8298237d",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a6749fdcd7c3c55bc8d75ecda3e787942",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a787ef95445b3c39e06dc569d6aab51fa",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a8ba06feaa5a78400ff0bc72f9dbecadc",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#a9dbfd89282ff74a87cf3da3f36d40ee8",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#aad7bc1f1717d430eff1e6cb46d6908ec",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#abd878d10bfa3a65b0ee57c8800d3fe31",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#acd10af799e4abf65fc3150c8b098c457",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#adc70fec3fe061a3551ee210da7e2fb2c",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#aec4b68c1aa4e1a39a4efc23a33598520",
+"class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html#afc4e153b4ca3ed831207cd756299647f",
+"namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

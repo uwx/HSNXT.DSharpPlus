@@ -18,5 +18,5 @@ var class_d_sharp_plus_1_1_discord_configuration =
     [ "HttpTimeout", "class_d_sharp_plus_1_1_discord_configuration.html#a5efbedc13d67f7bccaa617d35e073e95", null ],
     [ "ReconnectIndefinitely", "class_d_sharp_plus_1_1_discord_configuration.html#aa0a814fe16d6fc3e8d4536c66fe80bde", null ],
     [ "WebSocketClientFactory", "class_d_sharp_plus_1_1_discord_configuration.html#a7007dceda831ab9c9973489fcd66963d", null ],
-    [ "UdpClientFactory", "class_d_sharp_plus_1_1_discord_configuration.html#ad160a80e8f4060e71f8e691f2d81cf08", null ]
+    [ "UdpClientFactory", "class_d_sharp_plus_1_1_discord_configuration.html#af4ce8cbe1edf9410da3c93fad10de5f0", null ]
 ];

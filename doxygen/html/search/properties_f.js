@@ -4,7 +4,7 @@ var searchData=
   ['ramfree',['RamFree',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#af5a83734efb3374286b2fd70005d7985',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],
   ['ramreservable',['RamReservable',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#a13d159cfd4b9560b5fa54b92e62b59ee',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],
   ['ramused',['RamUsed',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html#a02d2b867c79cc07c6f06a4d85145a184',1,'DSharpPlus::Lavalink::Entities::LavalinkStatistics']]],
-  ['ratelimitwaitoverride',['RateLimitWaitOverride',['../class_d_sharp_plus_1_1_net_1_1_base_rest_request.html#a29673ab66d4f2e0d65b18911782ce9c4',1,'DSharpPlus::Net::BaseRestRequest']]],
+  ['ratelimitwaitoverride',['RateLimitWaitOverride',['../class_d_sharp_plus_1_1_net_1_1_base_rest_request.html#a826082b38e6cb3859b859d0381ba0706',1,'DSharpPlus::Net::BaseRestRequest']]],
   ['rawarguments',['RawArguments',['../class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#afb68cc5826f4912b50e0b8b81a10dad6',1,'DSharpPlus::CommandsNext::CommandContext']]],
   ['rawargumentstring',['RawArgumentString',['../class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#a83d93e840bbb7cf8a0bd9112649227a7',1,'DSharpPlus::CommandsNext::CommandContext']]],
   ['ready',['Ready',['../class_d_sharp_plus_1_1_discord_client.html#ab6f59b5e828d7eb2c57b2d97499d53f4',1,'DSharpPlus.DiscordClient.Ready()'],['../class_d_sharp_plus_1_1_discord_sharded_client.html#a4ebba1b791ea9f1fef0126ca664c9e40',1,'DSharpPlus.DiscordShardedClient.Ready()']]],
@@ -12,9 +12,9 @@ var searchData=
   ['reconnectindefinitely',['ReconnectIndefinitely',['../class_d_sharp_plus_1_1_discord_configuration.html#aa0a814fe16d6fc3e8d4536c66fe80bde',1,'DSharpPlus::DiscordConfiguration']]],
   ['red',['Red',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#ad53e15196f4f537858225386652d05d8',1,'DSharpPlus::Entities::DiscordColor']]],
   ['removedroles',['RemovedRoles',['../class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_member_update_entry.html#a68631d280b8a9a6e3c48e70de5c3afab',1,'DSharpPlus::Entities::DiscordAuditLogMemberUpdateEntry']]],
-  ['requirescodegrant',['RequiresCodeGrant',['../class_d_sharp_plus_1_1_entities_1_1_discord_application.html#ad6f63741c48105de2b1e72f487795a20',1,'DSharpPlus::Entities::DiscordApplication']]],
+  ['requirescodegrant',['RequiresCodeGrant',['../class_d_sharp_plus_1_1_entities_1_1_discord_application.html#a1fac51fa3584093fac38070299577f6c',1,'DSharpPlus::Entities::DiscordApplication']]],
   ['requirescolons',['RequiresColons',['../class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html#a5aae39712d6c69436c7aaef563909783',1,'DSharpPlus::Entities::DiscordEmoji']]],
-  ['reset',['Reset',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_cooldown_attribute.html#ab5f9646753b415ad0e4027e493cec5c1',1,'DSharpPlus.CommandsNext.Attributes.CooldownAttribute.Reset()'],['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_cooldown_bucket.html#ae4c4f0aef10e64315077a465ec3a2a53',1,'DSharpPlus.CommandsNext.Attributes.CommandCooldownBucket.Reset()']]],
+  ['reset',['Reset',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_cooldown_attribute.html#ab5f9646753b415ad0e4027e493cec5c1',1,'DSharpPlus.CommandsNext.Attributes.CooldownAttribute.Reset()'],['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_cooldown_bucket.html#ae4c4f0aef10e64315077a465ec3a2a53',1,'DSharpPlus.CommandsNext.Attributes.CommandCooldownBucket.Reset()'],['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a331521dea888bf1dc770a71d29be22ac',1,'DSharpPlus.Net.RateLimitBucket.Reset()']]],
   ['resetsat',['ResetsAt',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_cooldown_bucket.html#ac9320e7ee3957a2ed34192c87827d1bd',1,'DSharpPlus::CommandsNext::Attributes::CommandCooldownBucket']]],
   ['response',['Response',['../class_d_sharp_plus_1_1_net_1_1_rest_response.html#a5d4bf223840052b26f92fed9e757ca20',1,'DSharpPlus::Net::RestResponse']]],
   ['responsecode',['ResponseCode',['../class_d_sharp_plus_1_1_net_1_1_rest_response.html#a59357e6a9c46b5471836256ef8472237',1,'DSharpPlus::Net::RestResponse']]],
@@ -30,5 +30,6 @@ var searchData=
   ['rolesafter',['RolesAfter',['../class_d_sharp_plus_1_1_event_args_1_1_guild_member_update_event_args.html#a59026bcc30c60d1098c7fa1d05b699fb',1,'DSharpPlus::EventArgs::GuildMemberUpdateEventArgs']]],
   ['rolesbefore',['RolesBefore',['../class_d_sharp_plus_1_1_event_args_1_1_guild_member_update_event_args.html#a9a762cf72a5316e7d4ce7e3fbd2f4897',1,'DSharpPlus::EventArgs::GuildMemberUpdateEventArgs']]],
   ['rose',['Rose',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a9649b8575001adc4b1e1983fffa3cc59',1,'DSharpPlus::Entities::DiscordColor']]],
+  ['route',['Route',['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a04fcba9e0e495ead66c5276b97f289b5',1,'DSharpPlus::Net::RateLimitBucket']]],
   ['rpcorigins',['RpcOrigins',['../class_d_sharp_plus_1_1_entities_1_1_discord_application.html#ac3c38b8b5fdbd71df44a1241dd8c4eb2',1,'DSharpPlus::Entities::DiscordApplication']]]
 ];

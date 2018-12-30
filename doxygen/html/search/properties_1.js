@@ -7,6 +7,7 @@ var searchData=
   ['blue',['Blue',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a6554864356455edf0aad8bf6088ea51d',1,'DSharpPlus::Entities::DiscordColor']]],
   ['blurple',['Blurple',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a9be72c04caaeda0fc76e463a89e33ee7',1,'DSharpPlus::Entities::DiscordColor']]],
   ['brown',['Brown',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a865e362d47f1bcb06c09cfae2cc8c9a5',1,'DSharpPlus::Entities::DiscordColor']]],
+  ['browser',['Browser',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html#aa79a53b00197430b2898a53b6d9f14af',1,'DSharpPlus::Net::Abstractions::ClientProperties']]],
   ['bucketid',['BucketId',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_cooldown_bucket.html#a144eb433d8b7274e82b52edb1e93a631',1,'DSharpPlus::CommandsNext::Attributes::CommandCooldownBucket']]],
   ['buckettype',['BucketType',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_cooldown_attribute.html#a09c11a0fe48b2ae340fb0c926c946244',1,'DSharpPlus::CommandsNext::Attributes::CooldownAttribute']]]
 ];

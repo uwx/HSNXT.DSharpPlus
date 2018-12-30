@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['acknowledgepayload',['AcknowledgePayload',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_acknowledge_payload.html',1,'DSharpPlus::Net::Abstractions']]],
   ['aliasesattribute',['AliasesAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_aliases_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
   ['argumentbindingresult',['ArgumentBindingResult',['../struct_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_argument_binding_result.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['asyncevent',['AsyncEvent',['../class_d_sharp_plus_1_1_async_event.html',1,'DSharpPlus.AsyncEvent'],['../class_d_sharp_plus_1_1_async_event.html',1,'DSharpPlus.AsyncEvent&lt; T &gt;']]],
@@ -59,5 +60,12 @@ var searchData=
   ['asyncevent_3c_20voiceuserleaveeventargs_20_3e',['AsyncEvent&lt; VoiceUserLeaveEventArgs &gt;',['../class_d_sharp_plus_1_1_async_event.html',1,'DSharpPlus']]],
   ['asyncevent_3c_20webhooksupdateeventargs_20_3e',['AsyncEvent&lt; WebhooksUpdateEventArgs &gt;',['../class_d_sharp_plus_1_1_async_event.html',1,'DSharpPlus']]],
   ['asynceventargs',['AsyncEventArgs',['../class_d_sharp_plus_1_1_async_event_args.html',1,'DSharpPlus']]],
-  ['asynclistenerattribute',['AsyncListenerAttribute',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html',1,'HSNXT::DSharpPlus::Extended::AsyncListeners']]]
+  ['asynclistenerattribute',['AsyncListenerAttribute',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html',1,'HSNXT::DSharpPlus::Extended::AsyncListeners']]],
+  ['asyncmanualresetevent',['AsyncManualResetEvent',['../class_d_sharp_plus_1_1_async_manual_reset_event.html',1,'DSharpPlus']]],
+  ['auditlog',['AuditLog',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['auditlogaction',['AuditLogAction',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_action.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['auditlogactionchange',['AuditLogActionChange',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_action_change.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['auditlogactionoptions',['AuditLogActionOptions',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_action_options.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['auditloguser',['AuditLogUser',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_user.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['auditlogwebhook',['AuditLogWebhook',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_webhook.html',1,'DSharpPlus::Net::Abstractions']]]
 ];

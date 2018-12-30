@@ -2,7 +2,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_invite =
 [
     [ "DeleteAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#ab33a2ae114f7d0f9096c8a370055f9af", null ],
     [ "ToString", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a9fbfed2cc97f682ed0d5406e5a8fcda6", null ],
-    [ "Discord", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#ab5994c3b8c5e791e945141134dc2f5d9", null ],
+    [ "Discord", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a700a572fb33ac30442d9d824065a15b3", null ],
     [ "Code", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a2ebcde14833effd88e812d0930bbab01", null ],
     [ "Guild", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a57b27ebc2696d783e9dc1d46af5d9324", null ],
     [ "Channel", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html#a180cacfa4eef7fdb90dd5cdd354e19ea", null ],

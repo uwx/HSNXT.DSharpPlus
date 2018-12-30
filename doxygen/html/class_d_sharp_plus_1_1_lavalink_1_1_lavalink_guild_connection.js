@@ -17,6 +17,6 @@ var class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection =
     [ "TrackException", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a49ba076c35070313cb9e2b12ca71057a", null ],
     [ "CurrentState", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a6bb50b057b56a0bfbb30003a93552359", null ],
     [ "Node", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a858a1c342f83460c12740789c8fa3ece", null ],
-    [ "VoiceStateUpdate", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#a465eccab9329fd1be713fbb667d12fcb", null ],
-    [ "ChannelDisconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#ad7c3d454ed5b86d02ca9b32b37d51b53", null ]
+    [ "VoiceStateUpdate", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#ab21425024a0b1231ab412e001c760607", null ],
+    [ "ChannelDisconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html#ac12be159b8720e8cf2051314484cf4ef", null ]
 ];

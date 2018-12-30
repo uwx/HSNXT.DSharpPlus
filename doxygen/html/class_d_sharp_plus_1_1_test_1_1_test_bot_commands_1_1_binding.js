@@ -8,5 +8,5 @@ var class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding =
     [ "EmoteAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html#afc9daca814683a5a7092c572fd09cec0", null ],
     [ "StringAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html#a99ef78dc0dbf05875c33221becfbbba2", null ],
     [ "BoolAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html#a280d452f41c980239a21c84afbf5016c", null ],
-    [ "NullableAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html#ae456c99e9c1ddc1bceef45ae76ab2e76", null ]
+    [ "NullableAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html#a56609c16fed0338623577b6e80854cb8", null ]
 ];

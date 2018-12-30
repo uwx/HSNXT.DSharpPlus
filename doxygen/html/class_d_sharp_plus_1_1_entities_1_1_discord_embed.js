@@ -5,7 +5,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_embed =
     [ "Type", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#abe13416c1c50a3becf71dc25b9a7ae6c", null ],
     [ "Description", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a5fcebb118a564d1e4d31d82c7ffad72d", null ],
     [ "Url", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a5baefc5fef292785e1cb05fd1cf51d61", null ],
-    [ "Timestamp", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#aebef7b4b2edc0f337e4f703b44ab7b8c", null ],
+    [ "Timestamp", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a5ec20d5629769966e2de0dbe29c79ac5", null ],
     [ "Footer", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a047ba0867561a9563ed504fb909b0ed9", null ],
     [ "Image", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a3447facae477dac69bd3456d82c8224d", null ],
     [ "Thumbnail", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a105eb90df957d86b0fba205a69257178", null ],

@@ -11,6 +11,7 @@ var namespace_d_sharp_plus =
     [ "VoiceNext", "namespace_d_sharp_plus_1_1_voice_next.html", "namespace_d_sharp_plus_1_1_voice_next" ],
     [ "AsyncEvent", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "AsyncEventArgs", "class_d_sharp_plus_1_1_async_event_args.html", "class_d_sharp_plus_1_1_async_event_args" ],
+    [ "AsyncManualResetEvent", "class_d_sharp_plus_1_1_async_manual_reset_event.html", "class_d_sharp_plus_1_1_async_manual_reset_event" ],
     [ "BaseDiscordClient", "class_d_sharp_plus_1_1_base_discord_client.html", "class_d_sharp_plus_1_1_base_discord_client" ],
     [ "BaseExtension", "class_d_sharp_plus_1_1_base_extension.html", "class_d_sharp_plus_1_1_base_extension" ],
     [ "DebugLogger", "class_d_sharp_plus_1_1_debug_logger.html", "class_d_sharp_plus_1_1_debug_logger" ],

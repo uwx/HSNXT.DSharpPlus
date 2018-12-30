@@ -37,7 +37,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_channel =
     [ "PermissionOverwrites", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a82793c305b4e33d0097adcd70b3e3e1b", null ],
     [ "Mention", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#afa92317a7f4323453909da41b645a359", null ],
     [ "GuildId", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a691dc9ba33afccbb311aa63dbebd1b5e", null ],
-    [ "ParentId", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a1e5bf6b5c064fc23e315466871cf1e9f", null ],
+    [ "ParentId", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#ad832503fa7b517020e72742a35987a8a", null ],
     [ "Name", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a7332301d164a5f0e9641630dc6feea3e", null ],
     [ "Type", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aeea728c9dd59904b45e531fc7f2b315e", null ],
     [ "Position", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a988b78929fa9b68cedbb5fe31b5476cd", null ],
@@ -46,6 +46,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_channel =
     [ "Bitrate", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aea7478c144e0459d9d19bba8956707b7", null ],
     [ "UserLimit", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aadbe19638f265f043871e8baefdbfad9", null ],
     [ "Children", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aa61c98c88633504d6bd7eb17ce85fab0", null ],
-    [ "Users", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aa969a84267f3c9bd9dc9d81ae78e85b3", null ],
+    [ "Users", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a27cde6c6a75d71c91c856c8e8c7e4c2c", null ],
     [ "IsNSFW", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a55cfd9a23421df20ad8da1c6616a4e34", null ]
 ];

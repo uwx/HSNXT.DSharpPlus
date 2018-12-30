@@ -1,5 +1,6 @@
 var class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension =
 [
+    [ "Setup", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html#adcda180c569afa52e634ffc1df8a84a5", null ],
     [ "ConnectAsync", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html#ad9f0c9c8a9ad804886cbf9e4411f93c9", null ],
     [ "GetConnection", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html#a2fc61c7c08a7572615c880d093d6b084", null ],
     [ "Configuration", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html#a762df10dff44f38f55db7ef9acf500ef", null ],

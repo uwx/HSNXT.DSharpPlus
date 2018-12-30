@@ -4,7 +4,7 @@ var searchData=
   ['values',['Values',['../class_d_sharp_plus_1_1_net_1_1_multipart_web_request.html#a7430421bde7d4f773a86b707fbc7594e',1,'DSharpPlus::Net::MultipartWebRequest']]],
   ['verificationlevel',['VerificationLevel',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#ab2cf6d199a158f020c3d7925ce6b37dc',1,'DSharpPlus::Entities::DiscordGuild']]],
   ['verificationlevelchange',['VerificationLevelChange',['../class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#a16dfff81404bdff720f15f739a2768f4',1,'DSharpPlus::Entities::DiscordAuditLogGuildEntry']]],
-  ['verified',['Verified',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#ab4f47cdf091a23948efbd4af3e8d22bf',1,'DSharpPlus.Entities.DiscordMember.Verified()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a4afd413661194e93a6b4a3bf1327d895',1,'DSharpPlus.Entities.DiscordUser.Verified()']]],
+  ['verified',['Verified',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#acef61806d3a201278836a2a74a97403d',1,'DSharpPlus.Entities.DiscordMember.Verified()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae1cf2e4e18e6420ece01aa2942303ca5',1,'DSharpPlus.Entities.DiscordUser.Verified()']]],
   ['verydarkgray',['VeryDarkGray',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a2cea17aaab5eca9a17b3d9f92f59bac5',1,'DSharpPlus::Entities::DiscordColor']]],
   ['video',['Video',['../class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a64170c85c749b3cf884e4a3a8a6dd0eb',1,'DSharpPlus::Entities::DiscordEmbed']]],
   ['violet',['Violet',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a130501f46167bc4d0b78794fb12e86cf',1,'DSharpPlus::Entities::DiscordColor']]],

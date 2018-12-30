@@ -19,6 +19,6 @@ var class_d_sharp_plus_1_1_commands_next_1_1_command_context =
     [ "RawArguments", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#afb68cc5826f4912b50e0b8b81a10dad6", null ],
     [ "RawArgumentString", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#a83d93e840bbb7cf8a0bd9112649227a7", null ],
     [ "Prefix", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#a1f65b33b44c7a9bcead57b03abe4d4e8", null ],
-    [ "Config", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#a46bb058dd65b78f4874190762c176e8c", null ],
-    [ "ServiceScopeContext", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#ad08074500b25753c5e77cdb7614d92bb", null ]
+    [ "Config", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#ac3219a160e0a46f606fc385b5bc4607d", null ],
+    [ "ServiceScopeContext", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#ad0a12f11ab89816ad277c95445d1ec3e", null ]
 ];

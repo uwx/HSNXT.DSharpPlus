@@ -14,8 +14,8 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_user =
     [ "Discriminator", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#aa97069eeb26a0c10d326db4e29ea6012", null ],
     [ "AvatarHash", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984", null ],
     [ "IsBot", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#aa46d2156e1fff7c4e22e5492ed38fcc0", null ],
-    [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a2b75419b0434b9fc045459a28e2f2416", null ],
-    [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a4afd413661194e93a6b4a3bf1327d895", null ],
+    [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#af03bfd6e4438fe9f452a2287cff587d2", null ],
+    [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae1cf2e4e18e6420ece01aa2942303ca5", null ],
     [ "Email", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#abf41448e19ae920609ef5c4612ac9006", null ],
-    [ "Presence", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a33e5993ee684645bd5e32476fd9b3679", null ]
+    [ "Presence", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3", null ]
 ];

@@ -15,12 +15,12 @@ var class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection =
     [ "TrackStuck", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a6e3df14ad2b8fa59e0f38b6b08c53ad4", null ],
     [ "TrackException", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ac5a4ceb9595230bfb173fd1be68c24b8", null ],
     [ "Statistics", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#afa7c89f80871bc5061b648681643c7a3", null ],
-    [ "Discord", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a846fb56a422429a0839ee21e81bd6103", null ],
+    [ "Discord", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a37126c1594457de575e449a749f5f7ca", null ],
     [ "Configuration", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#af24cab04dcb98a36b5bb94e74e7978fa", null ],
     [ "ConnectedGuilds", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a37ef9fc4b55e173619eda34b2fcbd07d", null ],
     [ "WebSocket", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#aae5c0d615985de05bf8d9b6cd88070e0", null ],
     [ "Rest", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a11c3c45f9a7ad5b66d920cd54a4dc833", null ],
     [ "VoiceStateUpdates", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a7f5e0800c7e0cce728a2bd9e4b88cc4d", null ],
     [ "VoiceServerUpdates", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a982f4eab6281b020c4dc97f78327346d", null ],
-    [ "NodeDisconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a389839cdf1091ada1b534395b6634616", null ]
+    [ "NodeDisconnected", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a297e518f9a50fa0e6a5ae0370b1d54c6", null ]
 ];

@@ -9,6 +9,8 @@ var searchData=
   ['checksfailedexception',['ChecksFailedException',['../class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_checks_failed_exception.html',1,'DSharpPlus::CommandsNext::Exceptions']]],
   ['checktestmodule',['CheckTestModule',['../class_d_sharp_plus_1_1_test_1_1_check_test_module.html',1,'DSharpPlus::Test']]],
   ['clienterroreventargs',['ClientErrorEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_client_error_event_args.html',1,'DSharpPlus::EventArgs']]],
+  ['clientproperties',['ClientProperties',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['cmdsuppresspair',['CmdSuppressPair',['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_cmd_suppress_pair.html',1,'HSNXT::DSharpPlus::CNextNotifier']]],
   ['cnextnotifier',['CNextNotifier',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_c_next_notifier.html',1,'HSNXT::DSharpPlus::CNextNotifier']]],
   ['command',['Command',['../class_d_sharp_plus_1_1_commands_next_1_1_command.html',1,'DSharpPlus::CommandsNext']]],
   ['commandargument',['CommandArgument',['../class_d_sharp_plus_1_1_commands_next_1_1_command_argument.html',1,'DSharpPlus::CommandsNext']]],
@@ -34,5 +36,5 @@ var searchData=
   ['cooldownattribute',['CooldownAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_cooldown_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
   ['customattributes',['CustomAttributes',['../class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_custom_attributes.html',1,'DSharpPlus::Test::TestBotCommands']]],
   ['customdictionary',['CustomDictionary',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html',1,'HSNXT::DSharpPlus::CNextNotifier']]],
-  ['customdictionary_3c_20command_2c_20cmdsuppresspair_20_3e',['CustomDictionary&lt; Command, CmdSuppressPair &gt;',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html',1,'HSNXT::DSharpPlus::CNextNotifier']]]
+  ['customdictionary_3c_20command_2c_20hsnxt_3a_3adsharpplus_3a_3acnextnotifier_3a_3acmdsuppresspair_20_3e',['CustomDictionary&lt; Command, HSNXT::DSharpPlus::CNextNotifier::CmdSuppressPair &gt;',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html',1,'HSNXT::DSharpPlus::CNextNotifier']]]
 ];

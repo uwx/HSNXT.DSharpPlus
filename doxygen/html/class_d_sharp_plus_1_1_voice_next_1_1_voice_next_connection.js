@@ -20,9 +20,9 @@ var class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection =
     [ "HeartbeatInterval", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#aaafbfde25ee94ea07e154ddd42794077", null ],
     [ "LastHeartbeat", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a2fcfe963709b3d60efc4f5d8b7560048", null ],
     [ "TokenSource", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a9b5167c6a33fb2208629ee038b533ee6", null ],
-    [ "ServerData", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#aac1ce06b971a58a86756d221e6c00dde", null ],
-    [ "StateData", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a8ef41f6f991ada986348c4fac0fe5f0f", null ],
-    [ "Resume", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a7b0783b78f253475059b1750b9c17dbf", null ],
+    [ "ServerData", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a684fec3eade648048bd5b947856a6c3d", null ],
+    [ "StateData", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a7041b9973e2cd00116ffc44aa583ecf2", null ],
+    [ "Resume", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ac889abcd5cac87bfacc2d2ce7dcbc54e", null ],
     [ "Configuration", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a5b23e885e372f31846d5b6ccbe7064fa", null ],
     [ "Opus", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#af7fd25cd041ff4cfec8c93c101c6bdae", null ],
     [ "Sodium", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a094a95fbb01eafd2b0a38304619cf1cc", null ],
@@ -35,7 +35,7 @@ var class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection =
     [ "SSRC", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#af80a8407ddcf174bb72025944dc01547", null ],
     [ "Key", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ad898c5e4c46659773a45896f1659d395", null ],
     [ "DiscoveredEndpoint", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a498727b5a4ac58beb0243a89eead6795", null ],
-    [ "ConnectionEndpoint", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a342d105ac8089a557643712ba4b43a16", null ],
+    [ "ConnectionEndpoint", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#af1f2fea83962dfcebb63507528fdd691", null ],
     [ "ReadyWait", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ab49bff9b38f663a3cd486158f3fc8321", null ],
     [ "IsInitialized", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae0992a2a68470c28c59c53d7f62ec418", null ],
     [ "IsDisposed", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a0a58d196e47f48db6d1975ffc6ed6b60", null ],
@@ -44,5 +44,5 @@ var class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection =
     [ "ReceiverTask", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ad8c4ac5c5b46340b955a0bbfc9ae0a5f", null ],
     [ "ReceiverTokenSource", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a953e86b80821c40e2c835a981a0d2a30", null ],
     [ "Channel", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a41819d061c2b24428a5328bd4fdbac14", null ],
-    [ "VoiceDisconnected", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae98a9a17e4dda4012de9f6c69038782c", null ]
+    [ "VoiceDisconnected", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a8136236bcedb4cccd69b91132f95e142", null ]
 ];

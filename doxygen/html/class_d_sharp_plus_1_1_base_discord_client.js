@@ -7,12 +7,12 @@ var class_d_sharp_plus_1_1_base_discord_client =
     [ "Dispose", "class_d_sharp_plus_1_1_base_discord_client.html#a9c277787bbe283a58cff91b1d073eac0", null ],
     [ "VersionString", "class_d_sharp_plus_1_1_base_discord_client.html#ad7b787f4a2e333dab466ca1684351a57", null ],
     [ "VoiceRegions", "class_d_sharp_plus_1_1_base_discord_client.html#a130b8c7e342d9a200eb75ab27b7c7745", null ],
-    [ "ApiClient", "class_d_sharp_plus_1_1_base_discord_client.html#a43791e3c19b266b5526450da4259c5a2", null ],
-    [ "Configuration", "class_d_sharp_plus_1_1_base_discord_client.html#ac738572cae03285363fa42b1f0cbcd55", null ],
+    [ "ApiClient", "class_d_sharp_plus_1_1_base_discord_client.html#afec33a3dbadc9175892a9a96bc722304", null ],
+    [ "Configuration", "class_d_sharp_plus_1_1_base_discord_client.html#adab52844bbe2bf053d0100c0295ce3e5", null ],
     [ "DebugLogger", "class_d_sharp_plus_1_1_base_discord_client.html#a5bc140c8907aed2678016357befd041e", null ],
     [ "CurrentUser", "class_d_sharp_plus_1_1_base_discord_client.html#ae30619210fbd1aa1cb9ef952e223a4d7", null ],
     [ "CurrentApplication", "class_d_sharp_plus_1_1_base_discord_client.html#a79bae438afddb0e087a11afcfd59979d", null ],
     [ "Guilds", "class_d_sharp_plus_1_1_base_discord_client.html#a19ccb7b57ec74376423736c26d17ad2e", null ],
-    [ "UserCache", "class_d_sharp_plus_1_1_base_discord_client.html#aea90882d3f33ad924945d956187ec7a6", null ],
-    [ "InternalVoiceRegions", "class_d_sharp_plus_1_1_base_discord_client.html#ac98a2c38fb95045c3748a9b87776ef44", null ]
+    [ "UserCache", "class_d_sharp_plus_1_1_base_discord_client.html#a1843f16e7bb7b1901a1c0f4bcaccf3ae", null ],
+    [ "InternalVoiceRegions", "class_d_sharp_plus_1_1_base_discord_client.html#acd6004bd37f9e6a5c9f1ec3040d669c3", null ]
 ];

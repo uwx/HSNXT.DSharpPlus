@@ -47,6 +47,7 @@ var namespace_d_sharp_plus_1_1_entities =
     [ "DiscordOverwriteBuilder", "class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder.html", "class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder" ],
     [ "DiscordPresence", "class_d_sharp_plus_1_1_entities_1_1_discord_presence.html", "class_d_sharp_plus_1_1_entities_1_1_discord_presence" ],
     [ "DiscordReaction", "class_d_sharp_plus_1_1_entities_1_1_discord_reaction.html", "class_d_sharp_plus_1_1_entities_1_1_discord_reaction" ],
+    [ "DiscordRestOverwrite", "struct_d_sharp_plus_1_1_entities_1_1_discord_rest_overwrite.html", "struct_d_sharp_plus_1_1_entities_1_1_discord_rest_overwrite" ],
     [ "DiscordRichPresence", "class_d_sharp_plus_1_1_entities_1_1_discord_rich_presence.html", "class_d_sharp_plus_1_1_entities_1_1_discord_rich_presence" ],
     [ "DiscordRole", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html", "class_d_sharp_plus_1_1_entities_1_1_discord_role" ],
     [ "DiscordSpotifyAsset", "class_d_sharp_plus_1_1_entities_1_1_discord_spotify_asset.html", "class_d_sharp_plus_1_1_entities_1_1_discord_spotify_asset" ],

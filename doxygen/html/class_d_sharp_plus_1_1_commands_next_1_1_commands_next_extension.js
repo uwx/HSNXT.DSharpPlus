@@ -2,6 +2,7 @@ var class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension =
 [
     [ "DefaultHelpModule", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module.html", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module" ],
     [ "SetHelpFormatter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a41f6a0dc530ef132f591bf354e6abcf4", null ],
+    [ "Setup", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#af66c85946c4d36b811c21b68974ccbbe", null ],
     [ "RegisterCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a4a21959a30ca5d6ec18c3e12c82d06a1", null ],
     [ "RegisterCommands< T >", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a20edbea3ba80160cf90d6dbdc46bf021", null ],
     [ "RegisterCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a92ae4b966c85930f58fbaf9aaaac1b87", null ],
@@ -19,7 +20,7 @@ var class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension =
     [ "HelpFormatter", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ac27bb034ba5056bd2086a437864c38ac", null ],
     [ "ConvertGeneric", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a2f00b87977c9ee9d5a04be1fa9dd804f", null ],
     [ "UserFriendlyTypeNames", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a6da96731cb9c4a742b5840f3a11a9c68", null ],
-    [ "ArgumentConverters", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ac9286bc78f672bcf21516bf080c6532a", null ],
+    [ "ArgumentConverters", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a49d85b42f138bfb0b803e4b3a1734c0f", null ],
     [ "TopLevelCommands", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a9a591ce42a0580932c300f850ac3fc67", null ],
     [ "CommandExecuted", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#ae3b374e2b0e2abd91f6cf9ac6ad01217", null ],
     [ "CommandErrored", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#a15ab229680c81c28b0a6717a928b1b18", null ]
