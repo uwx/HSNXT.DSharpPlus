@@ -63,7 +63,7 @@ after_deploy:
   - docfx ./docfx_project/docfx.json
   - try robocopy docfx_project\_site %APPVEYOR_BUILD_FOLDER%/../gh-pages/docfx *.* /is /it /e /nfl /ndl /np
 # build and copy doxygen
-  - choco install doxygen.portable
+  - choco install doxygen.install
   - doxygen Doxyfile
   - try robocopy doxygen_out %APPVEYOR_BUILD_FOLDER%/../gh-pages/doxygen *.* /is /it /e /nfl /ndl /np
 # add and commit
