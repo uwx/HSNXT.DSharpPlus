@@ -14,15 +14,15 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// <summary>
         /// The type of this URI.
         /// </summary>
-        public DiscordUriType Type { get; }
+        public MebUriType Type { get; }
 
-        internal DiscordUri(Uri value)
+        internal MebUri(Uri value)
         {
             this._value = value ?? throw new ArgumentNullException(nameof(value));
             this.Type = MebUriType.Standard;
         }
 
-        internal DiscordUri(string value)
+        internal MebUri(string value)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
