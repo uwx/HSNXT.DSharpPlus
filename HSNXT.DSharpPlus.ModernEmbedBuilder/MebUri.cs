@@ -19,7 +19,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         internal DiscordUri(Uri value)
         {
             this._value = value ?? throw new ArgumentNullException(nameof(value));
-            this.Type = DiscordUriType.Standard;
+            this.Type = MebUriType.Standard;
         }
 
         internal DiscordUri(string value)
@@ -30,12 +30,12 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
             if (IsStandard(value))
             {
                 this._value = new Uri(value);
-                this.Type = DiscordUriType.Standard;
+                this.Type = MebUriType.Standard;
             }
             else
             {
                 this._value = value;
-                this.Type = DiscordUriType.NonStandard;
+                this.Type = MebUriType.NonStandard;
             }
         }
 
@@ -57,10 +57,10 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// <exception cref="UriFormatException">If <see cref="Type"/> is not <see cref="DiscordUriType.Standard"/>, as
         /// that would mean creating an invalid Uri, which would result in loss of data.</exception>
         public Uri ToUri()
-            => this.Type == DiscordUriType.Standard
+            => this.Type == MebUriType.Standard
                 ? this._value as Uri
                 : throw new UriFormatException(
-                    $@"DiscordUri ""{this._value}"" would be invalid as a regular URI, please the {nameof(this.Type)} property first.");
+                    $@"MebUri ""{this._value}"" would be invalid as a regular URI, please the {nameof(this.Type)} property first.");
     }
 
     internal enum MebUriType : byte
