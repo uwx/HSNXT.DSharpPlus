@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using System.Runtime.CompilerServices;
 
 namespace HSNXT.DSharpPlus.ModernEmbedBuilder
@@ -18,8 +17,8 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 
         internal MebUri(Uri value)
         {
-            this._value = value ?? throw new ArgumentNullException(nameof(value));
-            this.Type = MebUriType.Standard;
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+            Type = MebUriType.Standard;
         }
 
         internal MebUri(string value)
@@ -29,13 +28,13 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
 
             if (IsStandard(value))
             {
-                this._value = new Uri(value);
-                this.Type = MebUriType.Standard;
+                _value = new Uri(value);
+                Type = MebUriType.Standard;
             }
             else
             {
-                this._value = value;
-                this.Type = MebUriType.NonStandard;
+                _value = value;
+                Type = MebUriType.NonStandard;
             }
         }
 
@@ -47,20 +46,20 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// Returns a string representation of this DiscordUri.
         /// </summary>
         /// <returns>This DiscordUri, as a string.</returns>
-        public override string ToString() => this._value.ToString();
+        public override string ToString() => _value.ToString();
 
         /// <summary>
         /// Converts this DiscordUri into a canonical representation of a <see cref="Uri"/> if it can be represented as
         /// such, throwing an exception otherwise.
         /// </summary>
         /// <returns>A canonical representation of this DiscordUri.</returns>
-        /// <exception cref="UriFormatException">If <see cref="Type"/> is not <see cref="DiscordUriType.Standard"/>, as
-        /// that would mean creating an invalid Uri, which would result in loss of data.</exception>
+        /// <exception cref="UriFormatException">If <see cref="Type"/> is not <see cref="MebUriType.Standard"/>, as that
+        /// would mean creating an invalid Uri, which would result in loss of data.</exception>
         public Uri ToUri()
-            => this.Type == MebUriType.Standard
-                ? this._value as Uri
+            => Type == MebUriType.Standard
+                ? _value as Uri
                 : throw new UriFormatException(
-                    $@"MebUri ""{this._value}"" would be invalid as a regular URI, please the {nameof(this.Type)} property first.");
+                    $@"MebUri ""{_value}"" would be invalid as a regular URI, please the {nameof(Type)} property first.");
     }
 
     internal enum MebUriType : byte

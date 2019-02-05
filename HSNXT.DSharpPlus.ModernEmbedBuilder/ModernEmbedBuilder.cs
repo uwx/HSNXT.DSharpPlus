@@ -77,7 +77,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         public string ImageUrl
         {
             get => _imageUri?.ToString();
-            set => _imageUri = string.IsNullOrEmpty(value) ? null : new MebUri(value);
+            set => _imageUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
         }
         private MebUri? _imageUri;
 
@@ -87,7 +87,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         public string ThumbnailUrl
         {
             get => _thumbnailUri?.ToString();
-            set => _thumbnailUri = string.IsNullOrEmpty(value) ? null : new MebUri(value);
+            set => _thumbnailUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
         }
         private MebUri? _thumbnailUri;
 
