@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['meburi',['MebUri',['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_meb_uri.html',1,'HSNXT::DSharpPlus::ModernEmbedBuilder']]],
   ['membereditmodel',['MemberEditModel',['../class_d_sharp_plus_1_1_net_1_1_models_1_1_member_edit_model.html',1,'DSharpPlus::Net::Models']]],
   ['mentionreceivedeventargs',['MentionReceivedEventArgs',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args.html',1,'HSNXT::DSharpPlus::Extended::EventArgs']]],
   ['messageacknowledgeeventargs',['MessageAcknowledgeEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_message_acknowledge_event_args.html',1,'DSharpPlus::EventArgs']]],

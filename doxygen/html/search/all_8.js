@@ -42,7 +42,7 @@ var searchData=
   ['image',['Image',['../class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#a3447facae477dac69bd3456d82c8224d',1,'DSharpPlus::Entities::DiscordEmbed']]],
   ['imageformat',['ImageFormat',['../namespace_d_sharp_plus.html#a9b4e2d625137089bd078939d3bc857d8',1,'DSharpPlus']]],
   ['imagetool',['ImageTool',['../class_d_sharp_plus_1_1_image_tool.html',1,'DSharpPlus.ImageTool'],['../class_d_sharp_plus_1_1_image_tool.html#ae8093d402e90c36dcf0c31bbf0f71d2b',1,'DSharpPlus.ImageTool.ImageTool()']]],
-  ['imageurl',['ImageUrl',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a8a7985e3e2df1fd3290bb877d9d98af4',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.ImageUrl()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a35715b59213bde3c71f5313eccd81d88',1,'DSharpPlus.Entities.DiscordEmbedBuilder.ImageUrl()']]],
+  ['imageurl',['ImageUrl',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#acf9a79b3fb8f340e30e086a7fd4e9f72',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.ImageUrl()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a35715b59213bde3c71f5313eccd81d88',1,'DSharpPlus.Entities.DiscordEmbedBuilder.ImageUrl()']]],
   ['implicitgroup',['ImplicitGroup',['../class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_implicit_group.html',1,'DSharpPlus::Test::TestBotCommands']]],
   ['indianred',['IndianRed',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#abcad197d0523691aad4a8f3728ba843d',1,'DSharpPlus::Entities::DiscordColor']]],
   ['info',['Info',['../namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70a4059b0251f66a18cb56f544728796875',1,'DSharpPlus']]],

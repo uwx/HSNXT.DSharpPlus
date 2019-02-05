@@ -463,6 +463,7 @@ var hierarchy =
     [ "DSharpPlus.Lavalink.LavalinkTrack", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkVoiceServerUpdate", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_voice_server_update.html", null ],
     [ "HSNXT.DSharpPlus.Extended.AsyncListeners.ListenerMethod", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_listener_method.html", null ],
+    [ "HSNXT.DSharpPlus.ModernEmbedBuilder.MebUri", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_meb_uri.html", null ],
     [ "DSharpPlus.Interactivity.MessageContext", "class_d_sharp_plus_1_1_interactivity_1_1_message_context.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html", null ],
     [ "DSharpPlus.Test.TestBotCommands.Nesting1.Nesting2", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_nesting1_1_1_nesting2.html", null ],
