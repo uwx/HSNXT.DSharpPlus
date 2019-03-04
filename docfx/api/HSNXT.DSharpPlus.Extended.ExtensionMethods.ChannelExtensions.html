@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ChannelExtensions
    ">
-    <meta name="generator" content="docfx 2.40.10.0">
+    <meta name="generator" content="docfx 2.40.11.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -295,6 +295,64 @@ public static Task&lt;IReadOnlyList&lt;DiscordMessage&gt;&gt; GetManyMessagesBef
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="HSNXT_DSharpPlus_Extended_ExtensionMethods_ChannelExtensions_SyncPermissionsWithParent_" data-uid="HSNXT.DSharpPlus.Extended.ExtensionMethods.ChannelExtensions.SyncPermissionsWithParent*"></a>
+  <h4 id="HSNXT_DSharpPlus_Extended_ExtensionMethods_ChannelExtensions_SyncPermissionsWithParent_DiscordChannel_DiscordChannel_" data-uid="HSNXT.DSharpPlus.Extended.ExtensionMethods.ChannelExtensions.SyncPermissionsWithParent(DiscordChannel,DiscordChannel)">SyncPermissionsWithParent(DiscordChannel, DiscordChannel)</h4>
+  <div class="markdown level1 summary"><p>Synchronizes the current channel's permissions to match the parent category's. This operation is analogous
+to the equivalent permission setting in the user client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task SyncPermissionsWithParent(this DiscordChannel channel, DiscordChannel parent = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The current channel</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p>Optional, the channel which the current channel's permissions will be synchronized to.
+By default, this is the current channel's parent channel category.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A task that completes when the operation has finished.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="HSNXT_DSharpPlus_Extended_ExtensionMethods_ChannelExtensions_SyncPermissionsWithParent_DiscordChannel_DiscordChannel__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You must provide either a channel that has a parent category or the <code data-dev-comment-type="paramref" class="paramref">parent</code> argument.
+Depending on the amount of overwrites of the parent channel, this operation may take a very long time.
+This method was contributed by Glockness.</p>
+</div>
 </article>
           </div>
           
