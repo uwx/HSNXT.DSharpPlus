@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Test.DSPEmojiGenerato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Test.VLCRPC", "HSNXT.Test.VLCRPC\HSNXT.Test.VLCRPC.csproj", "{0E2AD21D-C85A-4297-BAE8-823883AFDE00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CommandsNext", "..\DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj", "{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{0E2AD21D-C85A-4297-BAE8-823883AFDE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E2AD21D-C85A-4297-BAE8-823883AFDE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E2AD21D-C85A-4297-BAE8-823883AFDE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
