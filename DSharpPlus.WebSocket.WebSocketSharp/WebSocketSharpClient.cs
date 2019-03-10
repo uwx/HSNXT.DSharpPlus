@@ -47,18 +47,18 @@ namespace DSharpPlus.Net.WebSocket
             this.CompressedStream = new MemoryStream();
             this.StreamDecompressor = new DeflateStream(this.CompressedStream, CompressionMode.Decompress);
 
-            _socket = new wss.WebSocket(uri.ToString());
+            this._socket = new wss.WebSocket(uri.ToString());
             if (this.Proxy != null) // fuck this, I ain't working with that shit
                 throw new NotImplementedException("Proxies are not supported on non-Microsoft WebSocket client implementations.");
 
             if (customHeaders != null && customHeaders.Count > 0) // not implemented in the library
                 throw new NotSupportedException("WS# client does not support specifying custom headers.");
 
-            _socket.OnOpen += HandlerOpen;
-            _socket.OnClose += HandlerClose;
-            _socket.OnMessage += HandlerMessage;
+            this._socket.OnOpen += HandlerOpen;
+            this._socket.OnClose += HandlerClose;
+            this._socket.OnMessage += HandlerMessage;
 
-            _socket.Connect();
+            this._socket.Connect();
             return Task.FromResult<BaseWebSocketClient>(this);
 
             void HandlerOpen(object sender, s.EventArgs e)
@@ -157,7 +157,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <summary>
         /// Triggered when the client connects successfully.
         /// </summary>
-        public override event AsyncEventHandler OnConnect
+        public override event AsyncEventHandler Connected
         {
             add { this._connect.Register(value); }
             remove { this._connect.Unregister(value); }
@@ -167,7 +167,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <summary>
         /// Triggered when the client is disconnected.
         /// </summary>
-        public override event AsyncEventHandler<SocketCloseEventArgs> OnDisconnect
+        public override event AsyncEventHandler<SocketCloseEventArgs> Disconnected
         {
             add { this._disconnect.Register(value); }
             remove { this._disconnect.Unregister(value);  }
@@ -177,7 +177,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <summary>
         /// Triggered when the client receives a message from the remote party.
         /// </summary>
-        public override event AsyncEventHandler<SocketMessageEventArgs> OnMessage
+        public override event AsyncEventHandler<SocketMessageEventArgs> MessageReceived
         {
             add { this._message.Register(value); }
             remove { this._message.Unregister(value); }
@@ -187,7 +187,7 @@ namespace DSharpPlus.Net.WebSocket
         /// <summary>
         /// Triggered when an error occurs in the client.
         /// </summary>
-        public override event AsyncEventHandler<SocketErrorEventArgs> OnError
+        public override event AsyncEventHandler<SocketErrorEventArgs> Errored
         {
             add { this._error.Register(value); }
             remove { this._error.Unregister(value); }

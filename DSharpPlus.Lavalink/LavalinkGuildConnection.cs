@@ -50,7 +50,7 @@ namespace DSharpPlus.Lavalink
         /// <summary>
         /// Triggered whenever playback of a track encounters an error.
         /// </summary>
-        public event AsyncEventHandler<TrackExceptionEventArgs> TrackException 
+        public event AsyncEventHandler<TrackExceptionEventArgs> TrackException
         {
             add { this._trackException.Register(value); }
             remove { this._trackException.Unregister(value); }
@@ -71,7 +71,7 @@ namespace DSharpPlus.Lavalink
         /// <summary>
         /// Gets the voice channel associated with this connection.
         /// </summary>
-        public DiscordChannel Channel { get; internal set; }
+        public DiscordChannel Channel => this.VoiceStateUpdate.Channel;
 
         /// <summary>
         /// Gets the guild associated with this connection.
@@ -81,12 +81,11 @@ namespace DSharpPlus.Lavalink
         private LavalinkNodeConnection Node { get; }
         internal string GuildIdString => this.GuildId.ToString(CultureInfo.InvariantCulture);
         internal ulong GuildId => this.Channel.Guild.Id;
-        internal VoiceStateUpdateEventArgs VoiceStateUpdate { get; }
+        internal VoiceStateUpdateEventArgs VoiceStateUpdate { get; set; }
 
         internal LavalinkGuildConnection(LavalinkNodeConnection node, DiscordChannel channel, VoiceStateUpdateEventArgs vstu)
         {
             this.Node = node;
-            this.Channel = channel;
             this.VoiceStateUpdate = vstu;
             this.CurrentState = new LavalinkPlayerState();
 
@@ -241,7 +240,8 @@ namespace DSharpPlus.Lavalink
 
         internal Task InternalPlaybackFinishedAsync(TrackFinishData e)
         {
-            this.CurrentState.CurrentTrack = default;
+            if (e.Reason != TrackEndReason.Replaced)
+                this.CurrentState.CurrentTrack = default;
 
             var ea = new TrackFinishEventArgs(this, LavalinkUtilities.DecodeTrack(e.Track), e.Reason);
             return this._playbackFinished.InvokeAsync(ea);

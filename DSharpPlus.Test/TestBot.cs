@@ -1,7 +1,9 @@
 ﻿#pragma warning disable CS0618
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
@@ -58,6 +60,8 @@ namespace DSharpPlus.Test
             Discord.GuildCreated += this.Discord_GuildCreated;
             Discord.VoiceStateUpdated += this.Discord_VoiceStateUpdated;
             Discord.GuildDownloadCompleted += this.Discord_GuildDownloadCompleted;
+            Discord.GuildUpdated += this.Discord_GuildUpdated;
+            Discord.ChannelDeleted += this.Discord_ChannelDeleted;
 
             // voice config and the voice service itself
             var vcfg = new VoiceNextConfiguration
@@ -75,7 +79,7 @@ namespace DSharpPlus.Test
             // commandsnext config and the commandsnext service itself
             var cncfg = new CommandsNextConfiguration
             {
-                StringPrefixes = this.Config.CommandPrefix != null ? new[] { this.Config.CommandPrefix } : this.Config.CommandPrefixes,
+                StringPrefixes = this.Config.CommandPrefixes,
                 //PrefixResolver = msg =>
                 //{
                 //    if (TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
@@ -87,7 +91,7 @@ namespace DSharpPlus.Test
                 CaseSensitive = false,
                 Services = depco.BuildServiceProvider(true),
                 IgnoreExtraArguments = false,
-                UseDefaultCommandHandler = false,
+                UseDefaultCommandHandler = true,
                 //DefaultHelpChecks = new List<CheckBaseAttribute>() { new RequireOwnerAttribute() }
             };
             this.CommandsNextService = Discord.UseCommandsNext(cncfg);
@@ -97,7 +101,7 @@ namespace DSharpPlus.Test
             this.CommandsNextService.SetHelpFormatter<TestBotHelpFormatter>();
 
             // hook command handler
-            this.Discord.MessageCreated += this.Discord_MessageCreated;
+            //this.Discord.MessageCreated += this.Discord_MessageCreated;
 
             // interactivity service
             var icfg = new InteractivityConfiguration()
@@ -253,44 +257,101 @@ namespace DSharpPlus.Test
             return Task.CompletedTask;
         }
 
-        private Task Discord_MessageCreated(MessageCreateEventArgs e)
+        //private Task Discord_MessageCreated(MessageCreateEventArgs e)
+        //{
+        //    if (e.Author.IsBot) // bad bot
+        //        return Task.CompletedTask;
+
+        //    if (e.Channel.IsPrivate)
+        //        return Task.CompletedTask;
+
+        //    var msg = e.Message;
+        //    var mpos = msg.GetMentionPrefixLength(e.Client.CurrentUser);
+        //    if (mpos == -1)
+        //    {
+        //        foreach (var x in this.Config.CommandPrefixes)
+        //        {
+        //            if (!string.IsNullOrWhiteSpace(x))
+        //            {
+        //                mpos = msg.GetStringPrefixLength(x);
+        //                break;
+        //            }
+        //        }
+        //    }
+
+        //    if (mpos == -1 && TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
+        //        mpos = msg.GetStringPrefixLength(pfix);
+
+        //    if (mpos == -1)
+        //        return Task.CompletedTask;
+
+        //    var pfx = msg.Content.Substring(0, mpos);
+        //    var cnt = msg.Content.Substring(mpos);
+
+        //    var cmd = this.CommandsNextService.FindCommand(cnt, out var args);
+        //    var ctx = this.CommandsNextService.CreateContext(msg, pfx, cmd, args);
+        //    if (cmd == null) // command was not found
+        //        return Task.CompletedTask;
+
+        //    _ = Task.Run(async () => await this.CommandsNextService.ExecuteCommandAsync(ctx));
+        //    return Task.CompletedTask;
+        //}
+
+        private Task Discord_GuildUpdated(GuildUpdateEventArgs e)
         {
-            if (e.Author.IsBot) // bad bot
-                return Task.CompletedTask;
+            var str = new StringBuilder();
 
-            if (e.Channel.IsPrivate)
-                return Task.CompletedTask;
+            str.AppendLine($"The guild {e.GuildBefore.Name} has been updated.");
 
-            var msg = e.Message;
-            var mpos = msg.GetMentionPrefixLength(e.Client.CurrentUser);
-            if (mpos == -1)
+            foreach (var prop in typeof(DiscordGuild).GetProperties())
             {
-                foreach (var x in this.Config.CommandPrefixes)
+                try
                 {
-                    if (!string.IsNullOrWhiteSpace(x))
+                    var bfr = prop.GetValue(e.GuildBefore);
+                    var aft = prop.GetValue(e.GuildAfter);
+
+                    if (bfr is null)
                     {
-                        mpos = msg.GetStringPrefixLength(x);
-                        break;
+                        Discord.DebugLogger.LogMessage(LogLevel.Debug, "GuildUpdated", $"Property {prop.Name} in before was null.", DateTime.Now);
                     }
+
+                    if (aft is null)
+                    {
+                        Discord.DebugLogger.LogMessage(LogLevel.Debug, "GuildUpdated", $"Property {prop.Name} in after was null.", DateTime.Now);
+                    }
+
+                    if (bfr is null || aft is null)
+                    {
+                        continue;
+                    }
+
+                    if (bfr.ToString() == aft.ToString())
+                    {
+                        continue;
+                    }
+
+                    str.AppendLine($" - {prop.Name}: `{bfr}` to `{aft}`");
+                }
+                catch (Exception ex)
+                {
+                    Discord.DebugLogger.LogMessage(LogLevel.Debug, "GuildUpdated", $"{ex.GetType()}: {ex.Message}", DateTime.Now);
                 }
             }
 
-            if (mpos == -1 && TestBotCommands.PrefixSettings.ContainsKey(msg.Channel.Id) && TestBotCommands.PrefixSettings.TryGetValue(msg.Channel.Id, out var pfix))
-                mpos = msg.GetStringPrefixLength(pfix);
+            str.AppendLine($" - VoiceRegion: `{e.GuildBefore.VoiceRegion?.Name}` to `{e.GuildAfter.VoiceRegion?.Name}`");
 
-            if (mpos == -1)
-                return Task.CompletedTask;
+            Console.WriteLine(str);
 
-            var pfx = msg.Content.Substring(0, mpos);
-            var cnt = msg.Content.Substring(mpos);
-
-            var cmd = this.CommandsNextService.FindCommand(cnt, out var args);
-            var ctx = this.CommandsNextService.CreateContext(msg, pfx, cmd, args);
-            if (cmd == null) // command was not found
-                return Task.CompletedTask;
-
-            _ = Task.Run(async () => await this.CommandsNextService.ExecuteCommandAsync(ctx));
             return Task.CompletedTask;
+        }
+
+        private async Task Discord_ChannelDeleted(ChannelDeleteEventArgs e)
+        {
+            var logs = (await e.Guild.GetAuditLogsAsync(5, null, AuditLogActionType.ChannelDelete).ConfigureAwait(false)).Cast<DiscordAuditLogChannelEntry>();
+            foreach (var entry in logs)
+            {
+                Console.WriteLine("TargetId: " + entry.Target.Id);
+            }
         }
     }
 }

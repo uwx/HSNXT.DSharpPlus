@@ -328,10 +328,10 @@ namespace DSharpPlus
             _cancelTokenSource = new CancellationTokenSource();
             _cancelToken = _cancelTokenSource.Token;
 
-            _webSocketClient.OnConnect += SocketOnConnect;
-            _webSocketClient.OnDisconnect += SocketOnDisconnect;
-            _webSocketClient.OnMessage += SocketOnMessage;
-            _webSocketClient.OnError += SocketOnError;
+            _webSocketClient.Connected += SocketOnConnect;
+            _webSocketClient.Disconnected += SocketOnDisconnect;
+            _webSocketClient.MessageReceived += SocketOnMessage;
+            _webSocketClient.Errored += SocketOnError;
 
             var gwuri = new UriBuilder(this._gatewayUri)
             {
@@ -866,7 +866,7 @@ namespace DSharpPlus
                     {
                         xc.GuildId = xg.Id;
                         xc.Discord = this;
-                        foreach (var xo in xc._permission_overwrites)
+                        foreach (var xo in xc._permissionOverwrites)
                         {
                             xo.Discord = this;
                             xo._channel_id = xc.Id;
@@ -953,7 +953,7 @@ namespace DSharpPlus
             else
             {
                 channel.Discord = this;
-                foreach (var xo in channel._permission_overwrites)
+                foreach (var xo in channel._permissionOverwrites)
                 {
                     xo.Discord = this;
                     xo._channel_id = channel.Id;
@@ -988,13 +988,14 @@ namespace DSharpPlus
                     //IsPrivate = channel_new.IsPrivate,
                     LastMessageId = channel_new.LastMessageId,
                     Name = channel_new.Name,
-                    _permission_overwrites = new List<DiscordOverwrite>(channel_new._permission_overwrites),
+                    _permissionOverwrites = new List<DiscordOverwrite>(channel_new._permissionOverwrites),
                     Position = channel_new.Position,
                     Topic = channel_new.Topic,
                     Type = channel_new.Type,
                     UserLimit = channel_new.UserLimit,
                     ParentId = channel_new.ParentId,
-                    IsNSFW = channel_new.IsNSFW
+                    IsNSFW = channel_new.IsNSFW,
+                    PerUserRateLimit = channel_new.PerUserRateLimit
                 };
             }
             else
@@ -1009,16 +1010,17 @@ namespace DSharpPlus
             channel_new.UserLimit = channel.UserLimit;
             channel_new.ParentId = channel.ParentId;
             channel_new.IsNSFW = channel.IsNSFW;
+            channel_new.PerUserRateLimit = channel.PerUserRateLimit;
 
-            channel_new._permission_overwrites.Clear();
+            channel_new._permissionOverwrites.Clear();
 
-            foreach (var po in channel._permission_overwrites)
+            foreach (var po in channel._permissionOverwrites)
             {
                 po.Discord = this;
                 po._channel_id = channel.Id;
             }
 
-            channel_new._permission_overwrites.AddRange(channel._permission_overwrites);
+            channel_new._permissionOverwrites.AddRange(channel._permissionOverwrites);
 
             await this._channelUpdated.InvokeAsync(new ChannelUpdateEventArgs(this) { ChannelAfter = channel_new, Guild = gld, ChannelBefore = channel_old }).ConfigureAwait(false);
         }
@@ -1108,7 +1110,7 @@ namespace DSharpPlus
             {
                 xc.GuildId = guild.Id;
                 xc.Discord = this;
-                foreach (var xo in xc._permission_overwrites)
+                foreach (var xo in xc._permissionOverwrites)
                 {
                     xo.Discord = this;
                     xo._channel_id = xc.Id;
@@ -1139,8 +1141,54 @@ namespace DSharpPlus
 
         internal async Task OnGuildUpdateEventAsync(DiscordGuild guild, JArray rawMembers)
         {
+            DiscordGuild guild_old;
+
             if (!this._guilds.ContainsKey(guild.Id))
+            {
                 this._guilds[guild.Id] = guild;
+                guild_old = null;
+            }
+            else
+            {
+                var gld = this._guilds[guild.Id];
+
+                guild_old = new DiscordGuild
+                {
+                    Discord = gld.Discord,
+                    Name = gld.Name,
+                    AfkChannelId = gld.AfkChannelId,
+                    AfkTimeout = gld.AfkTimeout,
+                    DefaultMessageNotifications = gld.DefaultMessageNotifications,
+                    EmbedChannelId = gld.EmbedChannelId,
+                    EmbedEnabled = gld.EmbedEnabled,
+                    ExplicitContentFilter = gld.ExplicitContentFilter,
+                    Features = gld.Features,
+                    IconHash = gld.IconHash,
+                    Id = gld.Id,
+                    IsLarge = gld.IsLarge,
+                    IsSynced = gld.IsSynced,
+                    IsUnavailable = gld.IsUnavailable,
+                    JoinedAt = gld.JoinedAt,
+                    MemberCount = gld.MemberCount,
+                    MfaLevel = gld.MfaLevel,
+                    OwnerId = gld.OwnerId,
+                    SplashHash = gld.SplashHash,
+                    SystemChannelId = gld.SystemChannelId,
+                    VerificationLevel = gld.VerificationLevel,
+                    VoiceRegionId = gld.VoiceRegionId,
+                    _channels = new List<DiscordChannel>(),
+                    _emojis = new List<DiscordEmoji>(),
+                    _members = new HashSet<DiscordMember>(),
+                    _roles = new List<DiscordRole>(),
+                    _voice_states = new List<DiscordVoiceState>()
+                };
+
+                guild_old._channels.AddRange(gld._channels);
+                guild_old._emojis.AddRange(gld._emojis);
+                guild_old._members.UnionWith(gld._members);
+                guild_old._roles.AddRange(gld._roles);
+                guild_old._voice_states.AddRange(gld._voice_states);
+            }
 
             guild.Discord = this;
             guild.IsUnavailable = false;
@@ -1164,7 +1212,7 @@ namespace DSharpPlus
             {
                 xc.GuildId = guild.Id;
                 xc.Discord = this;
-                foreach (var xo in xc._permission_overwrites)
+                foreach (var xo in xc._permissionOverwrites)
                 {
                     xo.Discord = this;
                     xo._channel_id = xc.Id;
@@ -1180,7 +1228,7 @@ namespace DSharpPlus
                 xr._guild_id = guild.Id;
             }
 
-            await this._guildUpdated.InvokeAsync(new GuildUpdateEventArgs(this) { Guild = guild }).ConfigureAwait(false);
+            await this._guildUpdated.InvokeAsync(new GuildUpdateEventArgs(this) { GuildBefore = guild_old, GuildAfter = guild }).ConfigureAwait(false);
         }
 
         internal async Task OnGuildDeleteEventAsync(DiscordGuild guild, JArray rawMembers)
@@ -2221,7 +2269,7 @@ namespace DSharpPlus
             {
                 var _c = newGuild._channels.Where(xc => !guild._channels.Any(xxc => xxc.Id == xc.Id));
                 foreach (var xc in _c)
-                    foreach (var xo in xc._permission_overwrites)
+                    foreach (var xo in xc._permissionOverwrites)
                     {
                         xo.Discord = this;
                         xo._channel_id = xc.Id;
