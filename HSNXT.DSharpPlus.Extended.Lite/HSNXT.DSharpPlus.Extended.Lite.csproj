@@ -46,5 +46,14 @@
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs">
       <Link>RoleExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ReflectionUtils.cs">
+      <Link>ReflectionUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\SnowflakeEqualityComparer.cs">
+      <Link>SnowflakeEqualityComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Utils.cs">
+      <Link>Utils.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>
