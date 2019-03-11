@@ -61,12 +61,12 @@ namespace HSNXT.DSharpPlus.Extended
     /// customize the fucntionality. If you're using any of the CommandsNext-related extensions, always register
     /// D#+ Extended <i>after</i> CommandsNext, or you will encounter crashes.
     /// </example>
-    public class DspExtended : ClientModule
+    public class DspExtended : ClientModule, IDisposable
     {
         internal CommandsNextWrapper CNext { get; set; }
         
         private int _messageEvents;
-        //private Watchdog _watchdog;
+        private Watchdog _watchdog;
 
         internal DspExtended(DiscordClient client) : base(client)
         {
@@ -93,14 +93,14 @@ namespace HSNXT.DSharpPlus.Extended
             Client.DebugLogger.LogMessage(LogLevel.Error, "DspExtended", $"An {ex.GetType()} occured in {evname}.", DateTime.Now);
             try
             {
-//                using (_watchdog.AcquireHandle())
-//                {
+                using (_watchdog.AcquireHandle())
+                {
                     ExtensionErrored(new ExtensionErrorEventArgs(Client, this)
                     {
                         EventName = evname,
                         Exception = ex
                     }).NoCapt().GetAwaiter().GetResult();
-//                }
+                }
             }
             catch (Exception e)
             {
@@ -217,6 +217,11 @@ namespace HSNXT.DSharpPlus.Extended
             {
                 return $"[{Timestamp:yyyy-MM-dd HH:mm:ss zzz}] [{EventName}] {Message}:\n{Exception}";
             }
+        }
+
+        public void Dispose()
+        {
+            _watchdog?.Dispose();
         }
     }
 }
