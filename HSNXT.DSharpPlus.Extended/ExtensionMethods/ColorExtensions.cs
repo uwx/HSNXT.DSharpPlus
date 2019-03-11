@@ -5,6 +5,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 {
+    /// <summary>
+    /// Extensions for <see cref="DiscordColor"/>
+    /// </summary>
     public static class ColorExtensions
     {
         /// <summary>

@@ -30,7 +30,7 @@ namespace HSNXT.DSharpPlus.Extended.CNext
 
             var targetPosition = ctx.Guild.Roles.FirstOrDefault(e => e.Name == RoleName)?.Position;
             if (targetPosition == null)
-              return Task.FromResult(false);
+                return Task.FromResult(false);
             
             var ourPosition = ctx.Member.Roles.Max(e => e.Position);
             // we don't need to check the default value because the default value is, well, the same as the @everyone role position

@@ -22,6 +22,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\CommandsNextWrapper.cs">
+      <Link>CommandsNextWrapper.cs</Link>
+    </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\DspExtended.cs">
       <Link>DspExtended.cs</Link>
     </Compile>
@@ -34,8 +37,14 @@
     <Compile Include="..\HSNXT.DSharpPlus.Extended\EventArgs\MentionReceivedEventArgs.cs">
       <Link>MentionReceivedEventArgs.cs</Link>
     </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Expressions.cs">
+      <Link>Expressions.cs</Link>
+    </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ChannelExtensions.cs">
       <Link>ChannelExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ClientExtensions.cs">
+      <Link>ClientExtensions.cs</Link>
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\ColorExtensions.cs">
       <Link>ColorExtensions.cs</Link>
@@ -45,6 +54,15 @@
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs">
       <Link>RoleExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Modules\ClientModule.cs">
+      <Link>ClientModule.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Modules\ModuleLoader.cs">
+      <Link>ModuleLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Modules\SampleClientModule.cs">
+      <Link>SampleClientModule.cs</Link>
     </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ReflectionUtils.cs">
       <Link>ReflectionUtils.cs</Link>

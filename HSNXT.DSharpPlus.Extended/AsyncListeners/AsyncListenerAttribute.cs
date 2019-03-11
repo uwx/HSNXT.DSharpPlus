@@ -21,6 +21,7 @@ namespace HSNXT.DSharpPlus.Extended.AsyncListeners
             Target = targetType;
         }
 
+        // TODO linq expressions
         public void Register(CommandsNextExtension cnext, DiscordClient client, MethodInfo listener)
         {
             // nope, there's no cleaner way to do this. sorry
@@ -196,11 +197,9 @@ namespace HSNXT.DSharpPlus.Extended.AsyncListeners
                     client.Heartbeated += OnEventWithArgs;
                     break;
                 case EventTypes.CommandExecuted:
-                    if (cnext == null) throw new ArgumentException("CNext must be installed before DspExtended!");
                     cnext.CommandErrored += OnEventWithArgs;
                     break;
                 case EventTypes.CommandErrored:
-                    if (cnext == null) throw new ArgumentException("CNext must be installed before DspExtended!");
                     cnext.CommandErrored += OnEventWithArgs;
                     break;
             }

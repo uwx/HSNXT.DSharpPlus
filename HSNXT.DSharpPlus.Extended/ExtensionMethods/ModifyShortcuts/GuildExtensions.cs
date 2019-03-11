@@ -6,6 +6,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
+    /// <summary>
+    /// Shortcuts for <see cref="DiscordGuild.ModifyAsync"/> in <see cref="DiscordGuild"/>.
+    /// </summary>
     public static class GuildExtensions
     {
         /// <summary>

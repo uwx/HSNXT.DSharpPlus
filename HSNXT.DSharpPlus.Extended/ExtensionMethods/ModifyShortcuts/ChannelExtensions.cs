@@ -5,6 +5,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
+    /// <summary>
+    /// Shortcuts for <see cref="DiscordChannel.ModifyAsync"/> in <see cref="DiscordChannel"/>.
+    /// </summary>
     public static class ChannelExtensions
     {
         /// <summary>

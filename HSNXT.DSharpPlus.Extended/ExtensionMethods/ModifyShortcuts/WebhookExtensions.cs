@@ -4,6 +4,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
+    /// <summary>
+    /// Shortcuts for <see cref="DiscordWebhook.ModifyAsync"/> in <see cref="DiscordWebhook"/>.
+    /// </summary>
     public static class WebhookExtensions
     {
         /// <summary>

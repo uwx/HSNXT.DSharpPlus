@@ -7,6 +7,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 {
+    /// <summary>
+    /// Extensions for <see cref="DiscordChannel"/>
+    /// </summary>
     public static class ChannelExtensions
     {
         [Obsolete("Update to 4.0.0-beta-484 and use DeleteMessagesAsync instead")]
