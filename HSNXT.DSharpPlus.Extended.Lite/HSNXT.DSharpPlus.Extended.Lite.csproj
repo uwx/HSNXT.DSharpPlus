@@ -73,5 +73,8 @@
     <Compile Include="..\HSNXT.DSharpPlus.Extended\Utils.cs">
       <Link>Utils.cs</Link>
     </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\Watchdog.cs">
+      <Link>Watchdog.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>
