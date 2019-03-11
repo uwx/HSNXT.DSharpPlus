@@ -6,10 +6,13 @@ using DSharpPlus;
 namespace HSNXT.DSharpPlus.Extended
 {
     /// <summary>
-    /// 
+    /// TODO
     /// </summary>
     public static class ModuleLoader
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static TModule UseModule<TModule>(
             DiscordClient client
         ) where TModule : ClientModule
@@ -22,6 +25,9 @@ namespace HSNXT.DSharpPlus.Extended
             return extension;
         }
         
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static async Task<IReadOnlyDictionary<int, TModule>> UseModuleAsync<TModule>(
             DiscordShardedClient client
         ) where TModule : ClientModule

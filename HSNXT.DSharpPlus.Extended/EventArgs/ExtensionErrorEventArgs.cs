@@ -15,19 +15,33 @@ namespace HSNXT.DSharpPlus.Extended.EventArgs
         public Exception Exception { get; internal set; }
 
         /// <summary>
+        /// Gets the message of the exception thrown by the client, if available.
+        /// </summary>
+        public string Message => Exception.Message;
+
+        /// <summary>
         /// Gets the name of the event that threw the exception.
         /// </summary>
         public string EventName { get; internal set; }
 
         /// <summary>
-        /// Gets the DspExtended object that fucked up
+        /// Gets the DspExtended instance which the event belongs to.
         /// </summary>
         public DspExtended Extension { get; set; }
         
-        internal ExtensionErrorEventArgs(DiscordClient client, DspExtended dspExtended)
-            : base(client)
+        /// <summary>
+        /// Gets the timestamp of the exception being caught.
+        /// </summary>
+        public DateTimeOffset Timestamp { get; } = DateTimeOffset.Now;
+
+        internal ExtensionErrorEventArgs(DiscordClient client, DspExtended dspExtended) : base(client)
         {
             Extension = dspExtended;
+        }
+        
+        public override string ToString()
+        {
+            return $"[{Timestamp:yyyy-MM-dd HH:mm:ss zzz}] [{EventName}] {Message}:\n{Exception}";
         }
     }
 }

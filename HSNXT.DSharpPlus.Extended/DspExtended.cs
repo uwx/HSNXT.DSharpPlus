@@ -21,9 +21,15 @@ namespace HSNXT.DSharpPlus.Extended
     /// </summary>
     public static class DspExtendedLoader
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static DspExtended UseDspExtended(this DiscordClient client) 
             => ModuleLoader.UseModule<DspExtended>(client);
         
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static Task<IReadOnlyDictionary<int, DspExtended>> UseDspExtendedAsync(this DiscordShardedClient client) 
             => ModuleLoader.UseModuleAsync<DspExtended>(client);
     }
@@ -65,12 +71,20 @@ namespace HSNXT.DSharpPlus.Extended
     {
         internal CommandsNextWrapper CNext { get; set; }
         
+        private readonly Watchdog _watchdog;
         private int _messageEvents;
-        private Watchdog _watchdog;
 
         internal DspExtended(DiscordClient client) : base(client)
         {
             CNext = new CommandsNextWrapper(client);
+
+            _watchdog = new Watchdog((handleSrc, reason, thread, time) =>
+            {
+                reason = reason ?? $"The thread at {thread.Name ?? "<no name>"} with ID {thread.ManagedThreadId}";
+                
+                Client.DebugLogger.LogMessage(LogLevel.Warning, "DspEx Watchdog",
+                    $"{reason} has taken at least {time} to complete its current operation. This may be a deadlock", DateTime.Now);
+            });
         }
 
 #if !IS_LITE_VERSION
@@ -88,12 +102,11 @@ namespace HSNXT.DSharpPlus.Extended
         internal void EventErrorHandler(string evname, Exception ex, params object[] args)
         {
             if (evname.StartsWith("Invoke")) evname = evname.Substring("Invoke".Length);
-            
-            ExtensionMessageReceived?.Invoke(this, new EventErrorArgs(evname, ex));
-            Client.DebugLogger.LogMessage(LogLevel.Error, "DspExtended", $"An {ex.GetType()} occured in {evname}.", DateTime.Now);
-            try
+
+            using (_watchdog.AcquireHandle(this, evname + " event error handler"))
             {
-                using (_watchdog.AcquireHandle())
+                Client.DebugLogger.LogMessage(LogLevel.Error, "DspExtended", $"An {ex.GetType()} occured in {evname}.", DateTime.Now);
+                try
                 {
                     ExtensionErrored(new ExtensionErrorEventArgs(Client, this)
                     {
@@ -101,10 +114,10 @@ namespace HSNXT.DSharpPlus.Extended
                         Exception = ex
                     }).NoCapt().GetAwaiter().GetResult();
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"(Critical) An {e} occurred in the D#+ Extended error handling.");
+                catch (Exception e)
+                {
+                    Console.WriteLine($"(Critical) An {e} occurred in the D#+ Extended error handling.");
+                }
             }
         }
         
@@ -132,15 +145,6 @@ namespace HSNXT.DSharpPlus.Extended
         /// infinite error loops.
         /// </remarks>
         public event AsyncEventHandler<ExtensionErrorEventArgs> ExtensionErrored;
-        
-        /// <summary>
-        /// Fired whenever a message is logged by D#+ Extended.
-        /// </summary>
-        /// <remarks>
-        /// <b>Hooking this event is optional, and should only be done if logging is disabled, either on the D#+ side or
-        /// the extension side, otherwise you will get duplicate messages!</b>
-        /// </remarks>
-        public event Action<DspExtended, EventErrorArgs> ExtensionMessageReceived;
         
         /// <summary>
         /// Fired when the client's user gets mentioned.
@@ -190,32 +194,6 @@ namespace HSNXT.DSharpPlus.Extended
             catch (Exception e)
             {
                 EventErrorHandler(callerName, e, arg);
-            }
-        }
-        
-        /// <summary>
-        /// Represents arguments for the <see cref="DspExtended.ExtensionMessageReceived"/> event.
-        /// </summary>
-        public readonly struct EventErrorArgs
-        {
-            public string EventName { get; }
-
-            public string Message => Exception.Message;
-
-            public DateTimeOffset Timestamp { get; }
-            
-            public Exception Exception { get; }
-
-            internal EventErrorArgs(string eventName, Exception exception)
-            {
-                EventName = eventName;
-                Exception = exception;
-                Timestamp = DateTimeOffset.Now;
-            }
-
-            public override string ToString()
-            {
-                return $"[{Timestamp:yyyy-MM-dd HH:mm:ss zzz}] [{EventName}] {Message}:\n{Exception}";
             }
         }
 

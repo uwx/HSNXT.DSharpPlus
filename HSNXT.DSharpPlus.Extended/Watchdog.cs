@@ -1,31 +1,75 @@
 using System;
+using System.Collections.Concurrent;
 using System.Threading;
 
 namespace HSNXT.DSharpPlus.Extended
 {
+    /// <summary>
+    /// A watchdog timer to detect deadlocks in threads.
+    /// </summary>
     public class Watchdog : IDisposable
     {
+        public delegate void DeadlockHandler(object handleSrc, string reason, Thread source, TimeSpan timeSinceStart);
+
+        private readonly struct WatchdogHandleData
+        {
+            public readonly long StartTime;
+            public readonly object HandleSource;
+            public readonly string Reason;
+
+            public WatchdogHandleData(long startTime, object handleSource, string reason)
+            {
+                HandleSource = handleSource;
+                Reason = reason;
+                StartTime = startTime;
+            }
+
+            public void Deconstruct(out long startTime, out object handleSource, out string reason)
+            {
+                startTime = StartTime;
+                handleSource = HandleSource;
+                reason = Reason;
+            }
+        }
+        
         private readonly struct WatchdogHandle : IDisposable
         {
-            private readonly Watchdog _watchdog;
+            // we reference the dictionary here and not our parent Watchdog to avoid a cyclical reference
+            private readonly ConcurrentDictionary<Thread, WatchdogHandleData> _valuesByThread;
 
-            public WatchdogHandle(Watchdog watchdog) => _watchdog = watchdog;
+            public WatchdogHandle(ConcurrentDictionary<Thread, WatchdogHandleData> valuesByThread) 
+                => _valuesByThread = valuesByThread;
 
-            public void Dispose() => _watchdog._hasFinishedOperation.Value.StartTime = 0;
+            public void Dispose() 
+                => _valuesByThread.TryRemove(Thread.CurrentThread, out _);
         }
         
-        private class RefOpStart
-        {
-            public long StartTime;
-        }
-        
-        private readonly ThreadLocal<RefOpStart> _hasFinishedOperation 
-            = new ThreadLocal<RefOpStart>(() => new RefOpStart(), true);
-        private readonly Action<TimeSpan> _deadlockHandler;
+        private readonly ConcurrentDictionary<Thread, WatchdogHandleData> _valuesByThread 
+            = new ConcurrentDictionary<Thread, WatchdogHandleData>();
+
+        private readonly DeadlockHandler _deadlockHandler;
         private readonly Thread _watchdogThread;
         private readonly int _watchdogTimeout;
+        private bool _disposed;
 
-        public Watchdog(Action<TimeSpan> deadlockHandler, TimeSpan? watchdogTimeout = null)
+        /// <summary>
+        /// Creates a watchdog and begins its thread. The watchdog will periodically scan for handles to it that have
+        /// taken too long to be disposed, and invokes the handler for any that are found. You can usually assume that
+        /// there is either a deadlock in that thread or a long-running operation that perhaps should be moved to a new
+        /// thread.
+        /// </summary>
+        /// <param name="deadlockHandler">
+        /// Delegate to be called when a thread spends longer than <paramref name="watchdogTimeout"/> while holding a
+        /// handle acquired with <see cref="AcquireHandle"/>
+        /// </param>
+        /// <param name="watchdogTimeout">
+        /// Timeout until a thread is considered to be stuck. Note that the actual time until the watchdog thread
+        /// catches up may be up to twice the length of time set in this parameter. Defaults to 10 seconds.
+        /// </param>
+        /// <remarks>
+        /// To help diagnose a deadlock, try using the "break all" feature in your debugger.
+        /// </remarks>
+        public Watchdog(DeadlockHandler deadlockHandler, TimeSpan? watchdogTimeout = null)
         {
             _deadlockHandler = deadlockHandler;
 
@@ -35,10 +79,34 @@ namespace HSNXT.DSharpPlus.Extended
             _watchdogTimeout = watchdogTimeout.HasValue ? (int) watchdogTimeout.Value.TotalMilliseconds : 10_000;
         }
 
-        public IDisposable AcquireHandle()
+        /// <summary>
+        /// Gives the current thread a handle to this watchdog. No more than a single handle may be kept per thread.
+        /// </summary>
+        /// <param name="handleSrc">
+        /// An object to attach to the handle that can be retrieved in case of a deadlock.
+        /// </param>
+        /// <param name="reason">
+        /// A short reason string to attach to the handle that can be retrieved in case of a deadlock. It should by
+        /// convention describe the application that is requesting the handle, but any string can be used. 
+        /// </param>
+        /// <returns>A disposable object that releases the handle when disposed</returns>
+        /// <example>
+        /// <code>
+        /// using (watchdog.AcquireHandle())
+        /// {
+        ///     // perform operations
+        /// }
+        /// </code>
+        /// </example>
+        public IDisposable AcquireHandle(object handleSrc, string reason)
         {
-            _hasFinishedOperation.Value.StartTime = UnixTime();
-            return new WatchdogHandle(this);
+            var thread = Thread.CurrentThread;
+            
+            if (_valuesByThread.ContainsKey(thread))
+                throw new InvalidOperationException("The current thread already has a handle in use.");
+
+            _valuesByThread[thread] = new WatchdogHandleData(UnixTime(), handleSrc, reason);
+            return new WatchdogHandle(_valuesByThread);
         }
 
         public void WatchdogDaemon()
@@ -46,14 +114,20 @@ namespace HSNXT.DSharpPlus.Extended
             while (true)
             {
                 var now = UnixTime();
-                foreach (var status in _hasFinishedOperation.Values)
+                foreach (var (thread, (startTime, handleSource, reason)) in _valuesByThread)
                 {
-                    if (status.StartTime == 0) continue;
-                    if (now <= status.StartTime + _watchdogTimeout) continue;
+                    if (startTime == 0) continue;
+                    if (now <= startTime + _watchdogTimeout) continue;
 
                     try
                     {
-                        _deadlockHandler(TimeSpan.FromMilliseconds(now - (status.StartTime + _watchdogTimeout)));
+                        _valuesByThread.TryRemove(thread, out _);
+                        _deadlockHandler(
+                            handleSource,
+                            reason,
+                            thread,
+                            TimeSpan.FromMilliseconds(now - (startTime + _watchdogTimeout))
+                        );
                     }
                     catch (Exception e)
                     {
@@ -78,9 +152,11 @@ namespace HSNXT.DSharpPlus.Extended
 
         public void Dispose()
         {
+            if (_disposed) return;
+            _disposed = true;
+            
             _watchdogThread.Interrupt();
             _watchdogThread.Abort();
-            _hasFinishedOperation?.Dispose();
         }
         
         private static long UnixTime() => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
