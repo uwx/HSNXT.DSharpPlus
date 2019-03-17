@@ -1,79 +1,65 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using ConcurrentCollections;
 using DSharpPlus.Entities;
 
 namespace DSharpPlus.Interactivity
 {
-    /// <summary>
-    /// Reactions that were collected
-    /// </summary>
     public class ReactionCollectionContext
     {
-        /// <summary>
-        /// Received reactions
-        /// </summary>
-        public ConcurrentDictionary<DiscordEmoji, int> Reactions { get; internal set; } = new ConcurrentDictionary<DiscordEmoji, int>();
+        public ConcurrentDictionary<DiscordEmoji, int> Reactions { get; } = new ConcurrentDictionary<DiscordEmoji, int>();
 
-        internal List<ulong> _membersvoted = new List<ulong>();
+        internal readonly ConcurrentHashSet<ulong> VotingMembers = new ConcurrentHashSet<ulong>();
 
-        /// <summary>
-        /// Interactivity extension responsible
-        /// </summary>
-        public InteractivityExtension Interactivity { get; internal set; }
+        public InteractivityExtension Interactivity { get; }
 
-        /// <summary>
-        /// Client that was listened to
-        /// </summary>
-        public DiscordClient Client 
-            => Interactivity.Client;
+        public DiscordClient Client => Interactivity.Client;
 
-        internal void AddReaction(DiscordEmoji dr)
+        public ReactionCollectionContext(InteractivityExtension interactivity)
         {
-            if (Reactions.ContainsKey(dr))
-                Reactions[dr]++;
+            Interactivity = interactivity;
+        }
+
+        internal void AddReaction(DiscordEmoji reaction)
+        {
+            if (Reactions.ContainsKey(reaction))
+                Reactions[reaction]++;
             else
-                Reactions.TryAdd(dr, 1);
+                Reactions.TryAdd(reaction, 1);
         }
 
-        internal void AddReaction(DiscordEmoji dr, ulong m)
+        internal void AddReaction(DiscordEmoji reaction, ulong member)
         {
-            if (!_membersvoted.Contains(m))
-            {
-                if (Reactions.ContainsKey(dr))
-                    Reactions[dr]++;
-                else
-                    Reactions.TryAdd(dr, 1);
-                _membersvoted.Add(m);
-            }
+            if (VotingMembers.Contains(member)) return;
+            
+            if (Reactions.ContainsKey(reaction))
+                Reactions[reaction]++;
+            else
+                Reactions.TryAdd(reaction, 1);
+            VotingMembers.Add(member);
         }
 
-        internal void RemoveReaction(DiscordEmoji dr)
+        internal void RemoveReaction(DiscordEmoji reaction)
         {
-            if (Reactions.ContainsKey(dr))
-            {
-                Reactions[dr]--;
-                if (Reactions[dr] == 0)
-                    Reactions.TryRemove(dr, out int something);
-            }
+            if (!Reactions.ContainsKey(reaction)) return;
+            
+            if (--Reactions[reaction] <= 0)
+                Reactions.TryRemove(reaction, out _);
         }
 
-        internal void RemoveReaction(DiscordEmoji dr, ulong m)
+        internal void RemoveReaction(DiscordEmoji reaction, ulong member)
         {
-            if (Reactions.ContainsKey(dr) && _membersvoted.Contains(m))
-            {
-                Reactions[dr]--;
-                if (Reactions[dr] == 0)
-                    Reactions.TryRemove(dr, out int something);
-                // Just making sure no double member slipped in :^)
-                _membersvoted.RemoveAll(x => x == m);
-                // Though that should be impossible?
-            }
+            if (!Reactions.ContainsKey(reaction) || !VotingMembers.Contains(member)) return;
+            
+            if (--Reactions[reaction] <= 0)
+                Reactions.TryRemove(reaction, out _);
+            VotingMembers.TryRemove(member);
         }
 
         internal void ClearReactions()
         {
-            Reactions = new ConcurrentDictionary<DiscordEmoji, int>();
-            _membersvoted = new List<ulong>();
+            Reactions.Clear();
+            VotingMembers.Clear();
         }
     }
 }

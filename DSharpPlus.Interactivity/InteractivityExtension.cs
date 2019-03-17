@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,442 +9,113 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
-    #region Extensions
-    public static partial class InteractivityExtensionMethods
-    {
-        public static InteractivityExtension UseInteractivity(this DiscordClient c, InteractivityConfiguration cfg)
-        {
-            if (c.GetExtension<InteractivityExtension>() != null)
-                throw new Exception("Interactivity module is already enabled for this client!");
-
-            var m = new InteractivityExtension(cfg);
-            c.AddExtension(m);
-            return m;
-        }
-
-        public static async Task<IReadOnlyDictionary<int, InteractivityExtension>> UseInteractivityAsync(this DiscordShardedClient c, InteractivityConfiguration cfg)
-        {
-            var modules = new Dictionary<int, InteractivityExtension>();
-            await c.InitializeShardsAsync().ConfigureAwait(false);
-
-            foreach (var shard in c.ShardClients.Select(xkvp => xkvp.Value))
-            {
-                var m = shard.GetExtension<InteractivityExtension>();
-                if (m == null)
-                    m = shard.UseInteractivity(cfg);
-
-                modules[shard.ShardId] = m;
-            }
-
-            return new ReadOnlyDictionary<int, InteractivityExtension>(modules);
-        }
-
-        public static InteractivityExtension GetInteractivity(this DiscordClient c)
-        {
-            return c.GetExtension<InteractivityExtension>();
-        }
-
-        public static IReadOnlyDictionary<int, InteractivityExtension> GetInteractivity(this DiscordShardedClient c)
-        {
-            var modules = new Dictionary<int, InteractivityExtension>();
-
-            c.InitializeShardsAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-
-            foreach (var shard in c.ShardClients.Select(xkvp => xkvp.Value))
-                modules.Add(shard.ShardId, shard.GetExtension<InteractivityExtension>());
-
-            return new ReadOnlyDictionary<int, InteractivityExtension>(modules);
-        }
-
-        public static IEnumerable<string> Split(this string str, int chunkSize)
-        {
-            var len = str.Length;
-            var i = 0;
-
-            while (i < len)
-            {
-                var size = Math.Min(len - i, chunkSize);
-                yield return str.Substring(i, size);
-                i += size;
-            }
-        }
-    }
-    #endregion
-
-    public class InteractivityExtension : BaseExtension
+	public partial class InteractivityExtension : BaseExtension
 	{
 		private InteractivityConfiguration Config { get; }
+		
+		private AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext> _messageCreatedVerifiers;
+		private AwaiterHolder<ReactionVerifier, MessageReactionAddEventArgs, ReactionContext> _reactionAddedVerifiers;
+		
+		private ReactionCancellationAwaiterHolder _reactionCollectionHandler;
+
+		/// <summary>
+		/// Default emotes to use as reactions for polling
+		/// </summary>
+		public IEnumerable<DiscordEmoji> DefaultPollOptions
+		{
+			get => _defaultPollOptions;
+			set => _defaultPollOptions = value as DiscordEmoji[] ?? value.ToArray();
+		}
+		private DiscordEmoji[] _defaultPollOptions;
+
+		/// <summary>
+		/// Format string for the page header when using <see cref="GeneratePagesInEmbeds"/>
+		/// </summary>
+		public string DefaultPageHeader
+		{
+			get => _defaultPageHeader;
+			set => _defaultPageHeader = value ?? throw new ArgumentNullException(nameof(value));
+		}
+		private string _defaultPageHeader = "Page {0}";
+
+		/// <summary>
+		/// Format string for the page header when using <see cref="GeneratePagesInStrings"/>
+		/// </summary>
+		public string DefaultStringPageHeader
+		{
+			get => _defaultStringPageHeader;
+			set => _defaultStringPageHeader = value ?? throw new ArgumentNullException(nameof(value));
+		}
+		private string _defaultStringPageHeader = "**Page {0}:**\n\n{1}";
+
+		public PaginationEmojis DefaultPaginationEmojis
+		{
+			get => _defaultPaginationEmojis;
+			set => _defaultPaginationEmojis = value ?? throw new ArgumentNullException(nameof(value));
+		}
+		private PaginationEmojis _defaultPaginationEmojis;
 
 		internal InteractivityExtension(InteractivityConfiguration cfg)
 		{
-			this.Config = new InteractivityConfiguration(cfg);
+			Config = new InteractivityConfiguration(cfg);
 		}
 
 		protected internal override void Setup(DiscordClient client)
 		{
-			this.Client = client;
+			Client = client;
+			
+			_defaultPollOptions = new[]
+			{
+				DiscordEmoji.FromName(client, ":thumbsdown:"),
+				DiscordEmoji.FromName(client, ":thumbsup:"),
+			};
+			_defaultPaginationEmojis = new PaginationEmojis(Client);
+			
+			_messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
+				ev => Client.MessageCreated += ev.Trigger,
+				ev => Client.MessageCreated -= ev.Trigger
+			);
+			
+			_reactionAddedVerifiers = new AwaiterHolder<ReactionVerifier, MessageReactionAddEventArgs, ReactionContext>(
+				ev => Client.MessageReactionAdded += ev.Trigger,
+				ev => Client.MessageReactionAdded -= ev.Trigger
+			);
+			
+			_reactionCollectionHandler = new ReactionCancellationAwaiterHolder(this);
 		}
 
-		#region Message
-        /// <summary>
-        /// Waits for a message to be received
-        /// </summary>
-        /// <param name="predicate">Expected predicate</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<MessageContext> WaitForMessageAsync(Func<DiscordMessage, bool> predicate, TimeSpan? timeoutoverride = null)
-		{
-			if (predicate == null)
-				throw new ArgumentNullException(nameof(predicate));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var tsc = new TaskCompletionSource<MessageContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageCreated += Handler;
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageCreated -= Handler;
-                ct.Dispose();
-			}
-
-			#region Handler
-			async Task Handler(MessageCreateEventArgs e)
-			{
-				await Task.Yield();
-				if (predicate(e.Message))
-				{
-					var mc = new MessageContext()
-					{
-						Interactivity = this,
-						Message = e.Message
-					};
-					tsc.TrySetResult(mc);
-					return;
-				}
-			}
-			#endregion
-		}
-		#endregion
-
-		#region Reaction
-        /// <summary>
-        /// Waits for a reaction to be received
-        /// </summary>
-        /// <param name="predicate">Expected predicate</param>
-        /// <param name="timeoutoverride">TImeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionContext> WaitForReactionAsync(Func<DiscordEmoji, bool> predicate, TimeSpan? timeoutoverride = null)
-		{
-			if (predicate == null)
-				throw new ArgumentNullException(nameof(predicate));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var tsc = new TaskCompletionSource<ReactionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageReactionAdded += Handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= Handler;
-                ct.Dispose();
-            }
-
-			#region Handler
-			async Task Handler(MessageReactionAddEventArgs e)
-			{
-				await Task.Yield();
-				if (predicate(e.Emoji))
-				{
-					var rc = new ReactionContext()
-					{
-						Channel = e.Channel,
-						Emoji = e.Emoji,
-						Message = e.Message,
-						User = e.User,
-						Interactivity = this
-					};
-					tsc.TrySetResult(rc);
-					return;
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Wait for a reaction by a specific user to be received
-        /// </summary>
-        /// <param name="predicate">Expected predicate</param>
-        /// <param name="user">User that sends the reaction</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionContext> WaitForReactionAsync(Func<DiscordEmoji, bool> predicate, DiscordUser user, TimeSpan? timeoutoverride = null)
-		{
-			if (predicate == null)
-				throw new ArgumentNullException(nameof(predicate));
-			if (user == null)
-				throw new ArgumentNullException(nameof(user));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var user_id = user.Id;
-			var tsc = new TaskCompletionSource<ReactionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageReactionAdded += Handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= Handler;
-                ct.Dispose();
-            }
-
-			#region Handler
-			async Task Handler(MessageReactionAddEventArgs e)
-			{
-				await Task.Yield();
-				if (predicate(e.Emoji))
-				{
-					if (e.User.Id == user_id)
-					{
-						var rc = new ReactionContext()
-						{
-							Channel = e.Channel,
-							Emoji = e.Emoji,
-							Message = e.Message,
-							User = e.User,
-							Interactivity = this
-						};
-						tsc.TrySetResult(rc);
-						return;
-					}
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Wait for a reaction on a specific message by a specific user
-        /// </summary>
-        /// <param name="predicate">Expected predicate</param>
-        /// <param name="message">Message reaction has to be placed on</param>
-        /// <param name="user">User reaction was sent by</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionContext> WaitForMessageReactionAsync(Func<DiscordEmoji, bool> predicate, DiscordMessage message, DiscordUser user = null, TimeSpan? timeoutoverride = null)
-		{
-			if (predicate == null)
-				throw new ArgumentNullException(nameof(predicate));
-			if (message == null)
-				throw new ArgumentNullException(nameof(message));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var message_id = message.Id;
-			var tsc = new TaskCompletionSource<ReactionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageReactionAdded += Handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= Handler;
-                ct.Dispose();
-            }
-
-			#region Handler
-			async Task Handler(MessageReactionAddEventArgs e)
-			{
-				await Task.Yield();
-				if (predicate(e.Emoji))
-				{
-					if (e.Message.Id == message_id)
-					{
-						if (user == null || e.User.Id == user?.Id)
-						{
-							var rc = new ReactionContext()
-							{
-								Channel = e.Channel,
-								Emoji = e.Emoji,
-								Message = e.Message,
-								User = e.User,
-								Interactivity = this
-							};
-							tsc.TrySetResult(rc);
-							return;
-						}
-					}
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Wait for any reaction on a specific message
-        /// </summary>
-        /// <param name="message">Message to check</param>
-        /// <param name="user">(optional) User override</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionContext> WaitForMessageReactionAsync(DiscordMessage message, DiscordUser user = null, TimeSpan? timeoutoverride = null)
+		/// <summary>
+		/// Creates a reaction-based poll. Resolves to a <see cref="ReactionCollectionContext"/> containing the relevant
+		/// emote reactions.
+		/// </summary>
+		/// <param name="message">The message to run the poll on</param>
+		/// <param name="emojiSource">The poll selection options. Each emote will be added to the message as a reaction.
+		/// Default are thumbs up and thumbs down emojis.</param>
+		/// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
+		/// <see cref="InteractivityConfiguration.Timeout"/>.</param>
+		/// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
+		/// <returns>Task that resolves to a <see cref="ReactionCollectionContext"/>.</returns>
+		/// <exception cref="ArgumentNullException">If <paramref name="message"/> is null</exception>
+		/// <exception cref="InvalidOperationException">If <paramref name="emojiSource"/> is empty</exception>
+		public async Task<ReactionCollectionContext> CreatePollAsync(DiscordMessage message,
+			IEnumerable<DiscordEmoji> emojiSource = null, TimeSpan? timeout = null, CancellationToken? ct = null)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var message_id = message.Id;
-			var tsc = new TaskCompletionSource<ReactionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.MessageReactionAdded += Handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= Handler;
-                ct.Dispose();
-            }
-
-			#region Handler
-			async Task Handler(MessageReactionAddEventArgs e)
-			{
-				await Task.Yield();
-				if (e.Message.Id == message_id)
-				{
-					if (user == null || e.User.Id == user?.Id)
-					{
-						var rc = new ReactionContext()
-						{
-							Channel = e.Channel,
-							Emoji = e.Emoji,
-							Message = e.Message,
-							User = e.User,
-							Interactivity = this
-						};
-						tsc.TrySetResult(rc);
-						return;
-					}
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Creates a poll
-        /// </summary>
-        /// <param name="message">Message poll belongs to</param>
-        /// <param name="emojis">Emojis to poll</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionCollectionContext> CreatePollAsync(DiscordMessage message, IEnumerable<DiscordEmoji> emojis, TimeSpan? timeoutoverride = null)
-		{
-			if (message == null)
-				throw new ArgumentNullException(nameof(message));
-			if (emojis == null)
-				throw new ArgumentNullException(nameof(emojis));
-			if (emojis.Count() < 1)
+			
+			var emojis = emojiSource as DiscordEmoji[] ?? emojiSource?.ToArray() ?? _defaultPollOptions;
+			if (emojis.Length == 0)
 				throw new InvalidOperationException("A minimum of one emoji is required to execute this method!");
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
 
 			foreach (var em in emojis)
 			{
-				await message.CreateReactionAsync(em).ConfigureAwait(false);
+				await message.CreateReactionAsync(em);
 			}
 
-			var rcc = new ReactionCollectionContext();
-			var tsc = new TaskCompletionSource<ReactionCollectionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(rcc));
-
-			try
-			{
-				this.Client.MessageReactionAdded += ReactionAddHandler;
-				this.Client.MessageReactionRemoved += ReactionRemoveHandler;
-				this.Client.MessageReactionsCleared += ReactionClearHandler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= ReactionAddHandler;
-				this.Client.MessageReactionRemoved -= ReactionRemoveHandler;
-				this.Client.MessageReactionsCleared -= ReactionClearHandler;
-                ct.Dispose();
-            }
-
-			#region Handlers
-			async Task ReactionAddHandler(MessageReactionAddEventArgs e)
+			return await _reactionCollectionHandler.HandleCancellableAsync(
+				ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, ct, timeout ?? Config.Timeout);
+			
+			async Task ReactionAddHandler(ReactionCollectionContext rcc, MessageReactionAddEventArgs e)
 			{
 				if (e.Message.Id != message.Id || e.Client.CurrentUser.Id == e.User.Id)
 					return;
@@ -452,7 +123,7 @@ namespace DSharpPlus.Interactivity
 				await Task.Yield();
 				if (emojis.Count(x => x == e.Emoji) > 0)
 				{
-					if (rcc._membersvoted.Contains(e.User.Id)) // don't allow to vote twice
+					if (rcc.VotingMembers.Contains(e.User.Id)) // don't allow to vote twice
 						await e.Message.DeleteReactionAsync(e.Emoji, e.User);
 					else
 						rcc.AddReaction(e.Emoji, e.User.Id);
@@ -464,544 +135,273 @@ namespace DSharpPlus.Interactivity
 				}
 			}
 
-			async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
+			async Task ReactionRemoveHandler(ReactionCollectionContext rcc, MessageReactionRemoveEventArgs e)
 			{
-				if (e.Client.CurrentUser.Id != e.User.Id)
-				{
-					await Task.Yield();
-					if (e.Message.Id == message.Id && emojis.Count(x => x == e.Emoji) > 0)
-					{
-						rcc.RemoveReaction(e.Emoji, e.User.Id);
-					}
-				}
-			}
+				if (e.Client.CurrentUser.Id == e.User.Id)
+					return;
 
-			async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
-			{
 				await Task.Yield();
-				if (e.Message.Id == message.Id)
-				{
-					rcc.ClearReactions();
-					foreach (var em in emojis)
-					{
-						await message.CreateReactionAsync(em).ConfigureAwait(false);
-					}
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Collects all reactions on a message
-        /// </summary>
-        /// <param name="message">Message to check</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<ReactionCollectionContext> CollectReactionsAsync(DiscordMessage message, TimeSpan? timeoutoverride = null)
-		{
-			if (message == null)
-				throw new ArgumentNullException(nameof(message));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var rcc = new ReactionCollectionContext();
-			var tsc = new TaskCompletionSource<ReactionCollectionContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(rcc));
-
-			try
-			{
-				this.Client.MessageReactionAdded += ReactionAddHandler;
-				this.Client.MessageReactionRemoved += ReactionRemoveHandler;
-				this.Client.MessageReactionsCleared += ReactionClearHandler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionAdded -= ReactionAddHandler;
-				this.Client.MessageReactionRemoved -= ReactionRemoveHandler;
-				this.Client.MessageReactionsCleared -= ReactionClearHandler;
-                ct.Dispose();
-            }
-
-			#region Handlers
-			async Task ReactionAddHandler(MessageReactionAddEventArgs e)
-			{
-				await Task.Yield();
-				if (e.Message.Id == message.Id)
-				{
-					rcc.AddReaction(e.Emoji);
-				}
-			}
-
-			async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
-			{
-				await Task.Yield();
-				if (e.Message.Id == message.Id)
+				if (e.Message.Id == message.Id && emojis.Count(x => x == e.Emoji) > 0)
 				{
 					rcc.RemoveReaction(e.Emoji, e.User.Id);
 				}
 			}
 
-			async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
+			async Task ReactionClearHandler(ReactionCollectionContext rcc, MessageReactionsClearEventArgs e)
 			{
 				await Task.Yield();
+				if (e.Message.Id != message.Id)
+					return;
+
+				rcc.ClearReactions();
+				foreach (var em in emojis)
+				{
+					await message.CreateReactionAsync(em);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Collects all new reactions to a message until a timer expires or the task is canceled.
+		/// </summary>
+		/// <param name="message"></param>
+		/// <param name="timeout"></param>
+		/// <param name="ct"></param>
+		/// <returns>Task resolving to a <see cref="ReactionCollectionContext"/> containing the reactions.</returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public async Task<ReactionCollectionContext> CollectReactionsAsync(DiscordMessage message, 
+			TimeSpan? timeout = null, CancellationToken? ct = null)
+		{
+			if (message == null)
+				throw new ArgumentNullException(nameof(message));
+
+			return await _reactionCollectionHandler.HandleCancellableAsync(
+				ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, ct, timeout ?? Config.Timeout);
+
+			Task ReactionAddHandler(ReactionCollectionContext rcc, MessageReactionAddEventArgs e)
+			{
 				if (e.Message.Id == message.Id)
-				{
+					rcc.AddReaction(e.Emoji);
+
+				return Task.FromResult(false);
+			}
+
+			Task ReactionRemoveHandler(ReactionCollectionContext rcc, MessageReactionRemoveEventArgs e)
+			{
+				if (e.Message.Id == message.Id)
+					rcc.RemoveReaction(e.Emoji, e.User.Id);
+
+				return Task.FromResult(false);
+			}
+
+			Task ReactionClearHandler(ReactionCollectionContext rcc, MessageReactionsClearEventArgs e)
+			{
+				if (e.Message.Id == message.Id)
 					rcc.ClearReactions();
-				}
+
+				return Task.FromResult(false);
 			}
-			#endregion
 		}
-		#endregion
-
-		#region Typing
-		// I don't really know anymore why I added this.. -Naam
-		// I think I told you it might be useful, but tbh I have no idea myself -Emzi
-		// Did you? I don't remember either. Nice it's there anyway I guess.. -Naam
-        /// <summary>
-        /// Waits for any user to start typing
-        /// </summary>
-        /// <param name="channel">Channel to check</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<TypingContext> WaitForTypingUserAsync(DiscordChannel channel, TimeSpan? timeoutoverride = null)
-		{
-			if (channel == null)
-				throw new ArgumentNullException(nameof(channel));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var channel_id = channel.Id;
-			var tsc = new TaskCompletionSource<TypingContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			try
-			{
-				this.Client.TypingStarted += Handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.TypingStarted -= Handler;
-                ct.Dispose();
-            }
-
-			#region Handler
-			async Task Handler(TypingStartEventArgs e)
-			{
-				await Task.Yield();
-				if (e.Channel.Id == channel_id)
-				{
-					var tc = new TypingContext()
-					{
-						Channel = e.Channel,
-						Interactivity = this,
-						StartedAt = e.StartedAt,
-						User = e.User
-					};
-					tsc.TrySetResult(tc);
-					return;
-				}
-			}
-			#endregion
-		}
-
-        /// <summary>
-        /// Waits for a user to type in any channel
-        /// </summary>
-        /// <param name="user">User to check</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <returns></returns>
-		public async Task<TypingContext> WaitForTypingChannelAsync(DiscordUser user, TimeSpan? timeoutoverride = null)
-		{
-			if (user == null)
-				throw new ArgumentNullException(nameof(user));
-
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			var user_id = user.Id;
-			var tsc = new TaskCompletionSource<TypingContext>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			AsyncEventHandler<TypingStartEventArgs> handler = async (e) =>
-			{
-				await Task.Yield();
-				if (e.User.Id == user_id)
-				{
-					var tc = new TypingContext()
-					{
-						Channel = e.Channel,
-						Interactivity = this,
-						StartedAt = e.StartedAt,
-						User = e.User
-					};
-					tsc.TrySetResult(tc);
-					return;
-				}
-			};
-
-			try
-			{
-				this.Client.TypingStarted += handler;
-
-				var result = await tsc.Task.ConfigureAwait(false);
-				return result;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.TypingStarted -= handler;
-                ct.Dispose();
-            }
-		}
-		#endregion
-
+		
 		#region Pagination
-        /// <summary>
-        /// Sends a paginated message
-        /// </summary>
-        /// <param name="channel">Channel to send message to</param>
-        /// <param name="user">User that may interact with this paginated message</param>
-        /// <param name="message_pages">Pages for this message</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
-        /// <param name="emojis">Pagination emoji override</param>
-        /// <returns></returns>
-		public async Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user, IEnumerable<Page> message_pages, TimeSpan? timeoutoverride = null,
-			TimeoutBehaviour? timeoutbehaviouroverride = null, PaginationEmojis emojis = null)
+		[SuppressMessage("ReSharper", "AccessToDisposedClosure")] // i'm confident that my code starts and ends properly
+		public async Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user,
+			IEnumerable<Page> messagePages, CancellationToken? ct = null, TimeSpan? timeout = null, 
+			TimeoutBehaviour? timeoutBehaviourOverride = null, PaginationEmojis emojis = null)
 		{
 
 			if (channel == null)
 				throw new ArgumentNullException(nameof(channel));
 			if (user == null)
 				throw new ArgumentNullException(nameof(user));
-			if (message_pages == null)
-				throw new ArgumentNullException(nameof(message_pages));
-			if (message_pages.Count() < 1)
-				throw new InvalidOperationException("This method can only be executed with a minimum of one page!");
+			if (messagePages == null)
+				throw new ArgumentNullException(nameof(messagePages));
+			
+			var pages = messagePages as List<Page> ?? messagePages.ToList();
 
-			if (message_pages.Count() == 1)
+			var startingPage = pages.FirstOrDefault() 
+			                   ?? throw new ArgumentException("Must have at least one page", nameof(messagePages));
+			var initialContent = startingPage.Content ?? "";
+			var initialEmbed = startingPage.Embed;
+			if (pages.Count == 1)
 			{
-				await this.Client.SendMessageAsync(channel, string.IsNullOrEmpty(message_pages.First().Content) ? "" : message_pages.First().Content, embed: message_pages.First().Embed).ConfigureAwait(false);
+				await channel.SendMessageAsync(initialContent, embed: initialEmbed);
 				return;
 			}
+			
+			var timeoutBehaviour = timeoutBehaviourOverride ?? Config.PaginationBehavior;
 
-			TimeSpan timeout = Config.Timeout;
-			if (timeoutoverride != null)
-				timeout = (TimeSpan)timeoutoverride;
-
-			TimeoutBehaviour timeout_behaviour = Config.PaginationBehavior;
-			if (timeoutbehaviouroverride != null)
-				timeout_behaviour = (TimeoutBehaviour)timeoutbehaviouroverride;
-
-			List<Page> pages = message_pages.ToList();
-
-			if (pages.Count() == 0)
-				throw new ArgumentException("You need to provide at least 1 page!");
-
-			var tsc = new TaskCompletionSource<string>();
-			var ct = new CancellationTokenSource(timeout);
-			ct.Token.Register(() => tsc.TrySetResult(null));
-
-			DiscordMessage m = await this.Client.SendMessageAsync(channel, string.IsNullOrEmpty(pages.First().Content) ? "" : pages.First().Content, embed: pages.First().Embed).ConfigureAwait(false);
-			PaginatedMessage pm = new PaginatedMessage()
+			var msg = await channel.SendMessageAsync(initialContent, embed: initialEmbed);
+			var paginatedMessage = new PaginatedMessage
 			{
 				CurrentIndex = 0,
 				Pages = pages,
-				Timeout = timeout
+				Timeout = timeout ?? Config.Timeout
 			};
+
+			emojis = emojis ?? _defaultPaginationEmojis;
+
+			await GeneratePaginationReactions(msg, emojis);
 			
-			emojis = emojis ?? new PaginationEmojis(this.Client);
-
-			await this.GeneratePaginationReactions(m, emojis).ConfigureAwait(false);
-
-			try
+			// wrap around existing cancellation token, and make a timer that can be reset that cancels our new token
+			// source
+			using (var cts = ct.HasValue
+				? CancellationTokenSource.CreateLinkedTokenSource(ct.Value)
+				: new CancellationTokenSource())
+			using (var timer = new Timer(_ => cts.Cancel()))
 			{
-				this.Client.MessageReactionsCleared += ReactionClearHandler;
-				this.Client.MessageReactionAdded += ReactionAddHandler;
-				this.Client.MessageReactionRemoved += ReactionRemoveHandler;
+				timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+				
+				await _reactionCollectionHandler.HandleCancellableVoidAsync(
+					ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, timeout ?? Config.Timeout);
 
-				await tsc.Task.ConfigureAwait(false);
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally
-			{
-				this.Client.MessageReactionsCleared -= ReactionClearHandler;
-				this.Client.MessageReactionAdded -= ReactionAddHandler;
-				this.Client.MessageReactionRemoved -= ReactionRemoveHandler;
-
-                ct.Dispose();
-
-                switch (timeout_behaviour)
+				switch (timeoutBehaviour)
 				{
 					case TimeoutBehaviour.Ignore:
+						await msg.DeleteAllReactionsAsync();
 						break;
 					case TimeoutBehaviour.DeleteMessage:
-						// deleting a message deletes all reactions anyway
-						//await m.DeleteAllReactionsAsync().ConfigureAwait(false);
-						await m.DeleteAsync().ConfigureAwait(false);
+						await msg.DeleteAsync();
 						break;
 					case TimeoutBehaviour.DeleteReactions:
-						await m.DeleteAllReactionsAsync().ConfigureAwait(false);
+						await msg.DeleteAllReactionsAsync();
 						break;
 				}
-			}
 
-			#region Handlers
-			async Task ReactionAddHandler(MessageReactionAddEventArgs e)
-			{
-				if (e.Message.Id == m.Id && e.User.Id != this.Client.CurrentUser.Id && e.User.Id == user.Id)
+				async Task ReactionAddHandler(MessageReactionAddEventArgs e)
 				{
-					ct.Dispose();
-					ct = new CancellationTokenSource(timeout);
-					ct.Token.Register(() => tsc.TrySetResult(null));
-					await this.DoPagination(e.Emoji, m, pm, ct, emojis).ConfigureAwait(false);
+					if (e.Message.Id != msg.Id || e.User.Id != user.Id)
+						return;
+
+					timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+					await DoPagination(e.Emoji, msg, paginatedMessage, cts, emojis);
+				}
+
+				async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
+				{
+					if (e.Message.Id != msg.Id || e.User.Id != user.Id)
+						return;
+
+					timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+					await DoPagination(e.Emoji, msg, paginatedMessage, cts, emojis);
+				}
+
+				async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
+				{
+					if (e.Message.Id != msg.Id)
+						return;
+
+					timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+					await GeneratePaginationReactions(msg, emojis);
 				}
 			}
-
-			async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
-			{
-				if (e.Message.Id == m.Id && e.User.Id != this.Client.CurrentUser.Id && e.User.Id == user.Id)
-				{
-					ct.Dispose();
-					ct = new CancellationTokenSource(timeout);
-					ct.Token.Register(() => tsc.TrySetResult(null));
-					await this.DoPagination(e.Emoji, m, pm, ct, emojis).ConfigureAwait(false);
-				}
-			}
-
-			async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
-			{
-				await this.GeneratePaginationReactions(m, emojis).ConfigureAwait(false);
-			}
-			#endregion
 		}
 
-        /// <summary>
-        /// Generates pages in embeds from a long input string
-        /// </summary>
-        /// <param name="input">Input string</param>
-        /// <returns></returns>
 		public IEnumerable<Page> GeneratePagesInEmbeds(string input)
 		{
-			if (String.IsNullOrEmpty(input))
-				throw new InvalidOperationException("You must provide a string that is not null or empty!");
-
-			List<Page> result = new List<Page>();
-			List<string> split = input.Split(2000).ToList();
-			int page = 1;
-			foreach (string s in split)
+			if (string.IsNullOrEmpty(input))
+				throw new ArgumentException("Input string may not be null or empty", nameof(input));
+			
+			var split = input.Split(2000);
+			var page = 1;
+			foreach (var s in split)
 			{
-				result.Add(new Page()
+				yield return new Page
 				{
-					Embed = new DiscordEmbed()
+					Embed = new DiscordEmbed
 					{
-						Title = $"Page {page}",
+						Title = string.Format(DefaultPageHeader, page),
 						Description = s
 					}
-				});
+				};
 				page++;
 			}
-			return result;
 		}
 
-        /// <summary>
-        /// Generates pages in strings from a long input string
-        /// </summary>
-        /// <param name="input">Input string</param>
-        /// <returns></returns>
 		public IEnumerable<Page> GeneratePagesInStrings(string input)
 		{
-			if (String.IsNullOrEmpty(input))
-				throw new InvalidOperationException("You must provide a string that is not null or empty!");
+			if (string.IsNullOrEmpty(input))
+				throw new ArgumentException("Input string may not be null or empty", nameof(input));
 
-			List<Page> result = new List<Page>();
-			List<string> split = input.Split(1900).ToList();
-			int page = 1;
-			foreach (string s in split)
+			var split = input.Split(1900);
+			var page = 1;
+			foreach (var s in split)
 			{
-				result.Add(new Page()
+				yield return new Page
 				{
-					Content = $"**Page {page}:**\n\n" + s
-				});
+					Content = string.Format(DefaultStringPageHeader, page, s)
+				};
 				page++;
 			}
-			return result;
 		}
 
-        /// <summary>
-        /// Generates pagination reactions
-        /// </summary>
-        /// <param name="message">Message to attach reactions to</param>
-        /// <param name="emojis">Emojis to attach</param>
-        /// <returns></returns>
+		public Task SendSplitMessage(DiscordChannel channel, DiscordUser user, string input,
+			CancellationToken? ct = null, TimeSpan? timeout = null, 
+			TimeoutBehaviour? timeoutBehaviourOverride = null, PaginationEmojis emojis = null)
+		{
+			if (input.Length < 2000)
+			{
+				return channel.SendMessageAsync(input);
+			}
+
+			return SendPaginatedMessage(channel, user, GeneratePagesInStrings(input), ct, timeout,
+				timeoutBehaviourOverride, emojis);
+		}
+
 		public async Task GeneratePaginationReactions(DiscordMessage message, PaginationEmojis emojis)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
 
-			await message.CreateReactionAsync(emojis.SkipLeft).ConfigureAwait(false);
-			await message.CreateReactionAsync(emojis.Left).ConfigureAwait(false);
-			await message.CreateReactionAsync(emojis.Stop).ConfigureAwait(false);
-			await message.CreateReactionAsync(emojis.Right).ConfigureAwait(false);
-			await message.CreateReactionAsync(emojis.SkipRight).ConfigureAwait(false);
+			foreach (var paginationEmoji in emojis)
+			{
+				if (paginationEmoji != null)
+					await message.CreateReactionAsync(paginationEmoji);
+			}
 		}
 
-        /// <summary>
-        /// Does pagination (for custom handling)
-        /// </summary>
-        /// <param name="emoji">Emoji that was received</param>
-        /// <param name="message">Message reaction belongs to</param>
-        /// <param name="paginatedmessage">Paginated message</param>
-        /// <param name="canceltoken">Cancellation token source</param>
-        /// <param name="emojis">Pagination emoji collection</param>
-        /// <returns></returns>
-		public async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PaginatedMessage paginatedmessage, CancellationTokenSource canceltoken, PaginationEmojis emojis)
+		public async Task DoPagination(DiscordEmoji emoji, DiscordMessage message, PaginatedMessage messagePage, CancellationTokenSource cts, PaginationEmojis emojis)
 		{
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
-			if (paginatedmessage == null)
-				throw new ArgumentNullException(nameof(paginatedmessage));
+			if (messagePage == null)
+				throw new ArgumentNullException(nameof(messagePage));
 			if (emoji == null)
 				throw new ArgumentNullException(nameof(emoji));
-			if (canceltoken == null)
-				throw new ArgumentNullException(nameof(canceltoken));
+			if (cts == null)
+				throw new ArgumentNullException(nameof(cts));
 
-			#region The "good" shit
-			// used brackets everywhere for the sake of consistency
 			if (emoji == emojis.SkipLeft)
 			{
-				paginatedmessage.CurrentIndex = 0;
+				messagePage.CurrentIndex = 0;
 			}
 			else if (emoji == emojis.Left)
 			{
-				if (paginatedmessage.CurrentIndex != 0)
-					paginatedmessage.CurrentIndex--;
+				if (messagePage.CurrentIndex != 0)
+					messagePage.CurrentIndex--;
 			}
 			else if (emoji == emojis.Stop)
 			{
-				canceltoken.Cancel();
+				cts.Cancel();
 			}
 			else if (emoji == emojis.Right)
 			{
-				if (paginatedmessage.CurrentIndex != paginatedmessage.Pages.Count() - 1)
-					paginatedmessage.CurrentIndex++;
+				if (messagePage.CurrentIndex != messagePage.Pages.Count() - 1)
+					messagePage.CurrentIndex++;
 			}
 			else if (emoji == emojis.SkipRight)
 			{
-				paginatedmessage.CurrentIndex = paginatedmessage.Pages.Count() - 1;
+				messagePage.CurrentIndex = messagePage.Pages.Count() - 1;
 			}
 			else
 			{
 				return;
 			}
 
-			await message.ModifyAsync((string.IsNullOrEmpty(paginatedmessage.Pages.ToArray()[paginatedmessage.CurrentIndex].Content)) ? "" : paginatedmessage.Pages.ToArray()[paginatedmessage.CurrentIndex].Content,
-				embed: paginatedmessage.Pages.ToArray()[paginatedmessage.CurrentIndex].Embed ?? null).ConfigureAwait(false);
-			#endregion
+			var pagesArr = messagePage.Pages as Page[] ?? messagePage.Pages.ToArray();
+			var currentPage = pagesArr[messagePage.CurrentIndex];
+			await message.ModifyAsync(currentPage.Content ?? "", currentPage.Embed);
 		}
 		#endregion
 	}
-
-    /// <summary>
-    /// Different kinds of behaviour on pagination timeout
-    /// </summary>
-	public enum TimeoutBehaviour
-	{
-		// is this actually needed?
-		//Default, // ignore
-
-        /// <summary>
-        /// Interactivity ignores message after timeout. No actions are performed
-        /// </summary>
-		Ignore,
-
-        /// <summary>
-        /// Interactivity removes all reactions after timeout
-        /// </summary>
-		DeleteReactions,
-
-        /// <summary>
-        /// Interactivity deletes the message after timeout
-        /// </summary>
-		DeleteMessage
-	}
-
-    /// <summary>
-    /// Information about the paginated message
-    /// </summary>
-	public class PaginatedMessage
-	{
-        /// <summary>
-        /// Pages that belong to this message
-        /// </summary>
-		public IEnumerable<Page> Pages { get; internal set; }
-
-        /// <summary>
-        /// Messages current index
-        /// </summary>
-		public int CurrentIndex { get; internal set; }
-
-        /// <summary>
-        /// Messages timeout
-        /// </summary>
-		public TimeSpan Timeout { get; internal set; }
-	}
-
-    /// <summary>
-    /// One page. This is essentially the "unpaginated" message. Usually you have multiple of these.
-    /// </summary>
-	public class Page
-	{
-        /// <summary>
-        /// Regular text content
-        /// </summary>
-		public string Content { get; set; }
-
-        /// <summary>
-        /// Embed content
-        /// </summary>
-		public DiscordEmbed Embed { get; set; }
-	}
-
 }
-// send nudes
-
-// wait don't im not 18 yet
-
-// I mean I don't mind..
-
-// comeon send those nudes man
-
-// 2 months and its legal
-
-// send nudes
-
-// nvm let's not

@@ -1,0 +1,92 @@
+# DO NOT USE THIS REPO, USE https://github.com/uwx/test INSTEAD!!!!!!
+
+# version format
+version: uwx-nightly-{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_folder: c:\projects\dsp
+
+skip_tags: true
+
+branches:
+  only:
+    - master
+
+environment:
+  access_token:
+    secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ
+  
+build: off
+
+build_script:
+ - ps: .\build.ps1
+ 
+on_success:
+ - git config --global credential.helper store
+ - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+ - git config --global user.email "me@m.es"
+ - git config --global user.name "Appveyor Build"
+ - cd C:\
+ - git clone https://github.com/uwx/DSharpPlus.git --branch=master
+ - cd DSharpPlus
+ - git remote add -f naam https://github.com/NaamloosDT/DSharpPlus.git
+ - git merge naam/master
+ - git push origin master
+
+artifacts:
+ - path: artifacts\dsharpplus-docs.tar.xz
+ - path: artifacts\*.nupkg
+
+# Automatically register private account and/or project AppVeyor NuGet feeds.
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
+
+deploy:
+    # deploying to GitHub releases
+  - provider: GitHub
+    tag: uwx-nightly-$(APPVEYOR_BUILD_NUMBER)
+    release: "uwx's personalized DSharpPlus build r$(APPVEYOR_BUILD_NUMBER)"
+    description: |
+      Build project $(APPVEYOR_PROJECT_ID)
+      Cloned repo to $(APPVEYOR_BUILD_FOLDER)
+      Revision $(APPVEYOR_BUILD_NUMBER) ($(APPVEYOR_REPO_SCM) commit $(APPVEYOR_REPO_COMMIT) from $(APPVEYOR_REPO_NAME)/$(APPVEYOR_REPO_BRANCH))
+      Commit info:
+      ```
+      $(APPVEYOR_REPO_COMMIT_TIMESTAMP) $(APPVEYOR_REPO_COMMIT_AUTHOR):
+      $(APPVEYOR_REPO_COMMIT_MESSAGE)
+      ```
+    auth_token:
+      secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ # your encrypted token from GitHub
+    artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+    draft: false
+    prerelease: true
+    on:
+      branch: master                 # release from master branch only
+      appveyor_repo_tag: false       # no deploy on tag push
+      
+    # Deploying to NuGet feed
+  - provider: NuGet
+    #NuGet server URL (server) - NuGet feed URL, e.g. https://nugetserver.com/nuget/feed.
+    #If server is not specified package will be pushed to NuGet.org.
+    server: https://www.myget.org/F/hansen-dsp/api/v2/package
+    api_key:
+      secure: UgAJl6eK2vnLTns5CJda/+jILU/c2Xtsv4pZ9FILt4VaYl3N/orzvB8sv6cdrk7A
+    skip_symbols: false
+    #Symbol server URL (symbol_server) - Publishing URL for symbol server, If server is not specified symbol package
+    #will be pushed to SymbolSource.org.
+    #symbol_server: https://your.symbol.server/feed
+    
+    #Artifact(s) (artifact) - artifact name or filename to push. If not specified all artifacts of type NuGet package
+    #will be pushed. This can be a regexp, e.g. /.*\.nupkg/
+    #artifact: DSharpPlus.nupkg
+
+notifications:
+  - provider: Slack
+    on_build_success: true
+    on_build_failure: true
+    incoming_webhook:
+      secure: +5y63VhkKwOZVK264xwgH8gp7vI2cJivXvseQeSoYYNyH3wjOtid8Qz+gyNOjCGpI/xqxxJNwqFrL75ZPHYOYEKs9WhBWznTsFpJUAs5hxn1kcczMv6WYuwUzXJNEdqX6m47PnS7xrzUZJIRWNQCHRJCtN5VX+hXfVV6BT+tKQdRDeRr/LANhRLr2pAbIOGP

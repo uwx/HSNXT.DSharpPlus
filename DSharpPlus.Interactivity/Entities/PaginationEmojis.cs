@@ -1,5 +1,6 @@
 ﻿using DSharpPlus.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,39 +8,35 @@ using System.Threading.Tasks;
 
 namespace DSharpPlus.Interactivity
 {
-    /// <summary>
-    /// Emojis to use for pagination
-    /// </summary>
-    public class PaginationEmojis
+    public class PaginationEmojis : IEnumerable<DiscordEmoji>
     {
-        /// <summary>
-        /// Emoji for going back 1 page in the message
-        /// </summary>
 		public DiscordEmoji Left { get; set; }
-        /// <summary>
-        /// Emoji for going forward 1 page in the message
-        /// </summary>
 		public DiscordEmoji Right { get; set; }
-        /// <summary>
-        /// Emoji to stop pagination
-        /// </summary>
 		public DiscordEmoji Stop { get; set; }
-        /// <summary>
-        /// Emoji to skip all the way to the first page
-        /// </summary>
-		public DiscordEmoji SkipLeft { get; internal set; }
-        /// <summary>
-        /// Emoji to skip all the way to the last page
-        /// </summary>
-        public DiscordEmoji SkipRight { get; internal set; }
+		public DiscordEmoji SkipLeft { get; set; }
+		public DiscordEmoji SkipRight { get; set; }
+	    
+	    public DiscordEmoji Close { get; set; }
 
-		public PaginationEmojis(DiscordClient client)
+		public PaginationEmojis(BaseDiscordClient client)
 		{
-			Left = DiscordEmoji.FromUnicode(client, "◀");
-			Right = DiscordEmoji.FromUnicode(client, "▶");
-			SkipLeft = DiscordEmoji.FromUnicode(client, "⏮");
-			SkipRight = DiscordEmoji.FromUnicode(client, "⏭");
-			Stop = DiscordEmoji.FromUnicode(client, "⏹");
+			Left = DiscordEmoji.FromUnicode(client, "\u25C0"); // ◀
+			Right = DiscordEmoji.FromUnicode(client, "\u25B6"); // ▶
+			SkipLeft = DiscordEmoji.FromUnicode(client, "\u23EE"); // ⏮
+			SkipRight = DiscordEmoji.FromUnicode(client, "\u23ED"); // ⏭
+			Stop = DiscordEmoji.FromUnicode(client, "\u23F9"); // ⏹
 		}
-	}
+
+	    public IEnumerator<DiscordEmoji> GetEnumerator()
+	    {
+		    yield return Left;
+		    yield return Right;
+		    yield return Stop;
+		    yield return SkipLeft;
+		    yield return SkipRight;
+		    yield return Close;
+	    }
+
+	    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
 }

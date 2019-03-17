@@ -1,0 +1,71 @@
+language: csharp
+mono: none
+solution: DSharpPlus.sln
+
+# don't build on tags
+if: tag IS blank
+
+git:
+  depth: 6
+  submodules: false
+
+#matrix: 
+#  - DOTNETVER=1.0.0
+#  - DOTNETVER=1.0.1
+#  - DOTNETVER=2.0.0
+
+dotnet: 2.0.0
+
+env: 
+  matrix:
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.CommandsNext -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Interactivity -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Rest -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.Test -f netcoreapp2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.VoiceNext -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard1.1"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus -f netstandard2.0"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard1.3"
+   - COREBTYP=BuildAlt CORESC="DSharpPlus.WebSocket.WebSocket4NetCore -f netstandard2.0"
+  
+   - COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - COREBTYP=Debug COREAPPTYP=netstandard2.0
+   
+   - COREBTYP=Release COREAPPTYP=netstandard1.1
+   - COREBTYP=Release COREAPPTYP=netstandard1.3
+   - COREBTYP=Release COREAPPTYP=netstandard2.0
+   
+   - CORESC="-r linux-x64" COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - CORESC="-r linux-x64" COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - CORESC="-r linux-x64" COREBTYP=Debug COREAPPTYP=netstandard2.0
+   
+   - CORESC="-r linux-x64" COREBTYP=Release COREAPPTYP=netstandard1.1
+   - CORESC="-r linux-x64" COREBTYP=Release COREAPPTYP=netstandard1.3
+   - CORESC="-r linux-x64" COREBTYP=Release COREAPPTYP=netstandard2.0
+   
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Debug COREAPPTYP=netstandard1.1
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Debug COREAPPTYP=netstandard1.3
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Debug COREAPPTYP=netstandard2.0
+   
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Release COREAPPTYP=netstandard1.1
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Release COREAPPTYP=netstandard1.3
+   - CORESC="-r ubuntu.14.04-x64" COREBTYP=Release COREAPPTYP=netstandard2.0
+
+before_install:
+  - export DOTNET_CLI_TELEMETRY_OPTOUT=1
+  - cp .nuget/NuGet.config ./NuGet.config
+script:
+  - dotnet restore
+  #- dotnet publish **/*.csproj
+  
+  - bash ./.travis.sh
