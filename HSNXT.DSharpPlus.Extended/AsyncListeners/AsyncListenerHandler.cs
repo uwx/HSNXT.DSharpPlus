@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using DSharpPlus;
-using DSharpPlus.CommandsNext;
 using HSNXT.DSharpPlus.Extended.EventArgs;
 
 namespace HSNXT.DSharpPlus.Extended.AsyncListeners
@@ -38,7 +35,7 @@ namespace HSNXT.DSharpPlus.Extended.AsyncListeners
             Attribute = attribute;
         }
 
-        // TODO linq expressions
+        // TODO linq expressions, reflection magic to replace the big fat switch block and the two handler methods
         public void Register(DspExtended dspExtended)
         {
             var client = dspExtended.Client;
@@ -234,12 +231,14 @@ namespace HSNXT.DSharpPlus.Extended.AsyncListeners
                 case EventTypes.Heartbeated:
                     client.Heartbeated += OnEventWithArgs;
                     break;
+#if !IS_LITE_VERSION
                 case EventTypes.CommandExecuted:
                     cnext.Value.CommandErrored += OnEventWithArgs;
                     break;
                 case EventTypes.CommandErrored:
                     cnext.Value.CommandErrored += OnEventWithArgs;
                     break;
+#endif
             }
         }
     }

@@ -22,6 +22,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerAttribute.cs">
+      <Link>AsyncListenerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\AsyncListenerHandler.cs">
+      <Link>AsyncListenerHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\AsyncListeners\EventTypes.cs">
+      <Link>EventTypes.cs</Link>
+    </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\CommandsNextWrapper.cs">
       <Link>CommandsNextWrapper.cs</Link>
     </Compile>

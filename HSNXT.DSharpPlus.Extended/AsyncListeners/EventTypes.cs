@@ -48,7 +48,9 @@
         MessageReactionsCleared, // AsyncEventHandler<MessageReactionsClearEventArgs>
         WebhooksUpdated, // AsyncEventHandler<WebhooksUpdateEventArgs>
         Heartbeated, // AsyncEventHandler<HeartbeatEventArgs>
+#if !IS_LITE_VERSION
         CommandExecuted,
         CommandErrored,
+#endif
     }
 }

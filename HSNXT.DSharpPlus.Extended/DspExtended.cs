@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using HSNXT.DSharpPlus.Extended.EventArgs;
-
-#if !IS_LITE_VERSION
 using HSNXT.DSharpPlus.Extended.AsyncListeners;
-#endif
 
 namespace HSNXT.DSharpPlus.Extended
 {
