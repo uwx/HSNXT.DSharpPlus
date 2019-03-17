@@ -34,7 +34,7 @@ namespace HSNXT.DSharpPlus.Extended.EventArgs
         /// </summary>
         public DateTimeOffset Timestamp { get; } = DateTimeOffset.Now;
 
-        internal ExtensionErrorEventArgs(DiscordClient client, DspExtended dspExtended) : base(client)
+        internal ExtensionErrorEventArgs(DspExtended dspExtended) : base(dspExtended.Client)
         {
             Extension = dspExtended;
         }

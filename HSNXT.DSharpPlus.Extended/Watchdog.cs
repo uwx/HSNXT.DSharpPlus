@@ -7,7 +7,7 @@ namespace HSNXT.DSharpPlus.Extended
     /// <summary>
     /// A watchdog timer to detect deadlocks in threads.
     /// </summary>
-    public class Watchdog : IDisposable
+    public class Watchdog : IDisposable // TODO testing
     {
         public delegate void DeadlockHandler(object handleSrc, string reason, Thread source, TimeSpan timeSinceStart);
 
@@ -48,6 +48,7 @@ namespace HSNXT.DSharpPlus.Extended
             = new ConcurrentDictionary<Thread, WatchdogHandleData>();
 
         private readonly DeadlockHandler _deadlockHandler;
+        private readonly Action<string> _log;
         private readonly Thread _watchdogThread;
         private readonly int _watchdogTimeout;
         private bool _disposed;
@@ -66,12 +67,17 @@ namespace HSNXT.DSharpPlus.Extended
         /// Timeout until a thread is considered to be stuck. Note that the actual time until the watchdog thread
         /// catches up may be up to twice the length of time set in this parameter. Defaults to 10 seconds.
         /// </param>
+        /// <param name="log">
+        /// An optional function to be called whenever the watchdog emits debug information. This usually does not need
+        /// to be specified unless you are testing the watchdog itself.
+        /// </param>
         /// <remarks>
         /// To help diagnose a deadlock, try using the "break all" feature in your debugger.
         /// </remarks>
-        public Watchdog(DeadlockHandler deadlockHandler, TimeSpan? watchdogTimeout = null)
+        public Watchdog(DeadlockHandler deadlockHandler, TimeSpan? watchdogTimeout = null, Action<string> log = null)
         {
             _deadlockHandler = deadlockHandler;
+            _log = log;
 
             _watchdogThread = new Thread(WatchdogDaemon) {IsBackground = true};
             _watchdogThread.Start();
@@ -109,10 +115,12 @@ namespace HSNXT.DSharpPlus.Extended
             return new WatchdogHandle(_valuesByThread);
         }
 
-        public void WatchdogDaemon()
+        private void WatchdogDaemon()
         {
+            _log?.Invoke("Begin process");
             while (true)
             {
+                _log?.Invoke("Begin check");
                 var now = UnixTime();
                 foreach (var (thread, (startTime, handleSource, reason)) in _valuesByThread)
                 {
@@ -121,6 +129,7 @@ namespace HSNXT.DSharpPlus.Extended
 
                     try
                     {
+                        _log?.Invoke($"Deadlocked thread {thread.Name}#{thread.ManagedThreadId} (timed out after at least {_watchdogTimeout}ms)");
                         _valuesByThread.TryRemove(thread, out _);
                         _deadlockHandler(
                             handleSource,
@@ -137,14 +146,17 @@ namespace HSNXT.DSharpPlus.Extended
 
                 try
                 {
+                    _log?.Invoke($"Waiting for {_watchdogTimeout * 2}ms");
                     Thread.Sleep(_watchdogTimeout * 2);
                 }
                 catch (ThreadInterruptedException)
                 {
+                    _log?.Invoke("Thread was interrupted (goodbye)");
                     return;
                 }
                 catch (ThreadAbortException)
                 {
+                    _log?.Invoke("Thread was aborted (goodbye)");
                     return;
                 }
             }
