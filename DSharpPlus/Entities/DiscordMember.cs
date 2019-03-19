@@ -132,11 +132,11 @@ namespace DSharpPlus.Entities
             => this.Id == this.Guild.OwnerId;
 
         /// <summary>
-        /// Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns <see cref="int.MaxValue"/> for guild's owner.
+        /// Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns <see cref="int.MaxValue"/> for the guild's owner.
         /// </summary>
         [JsonIgnore]
         public int Hierarchy
-            => this.IsOwner ? int.MaxValue : this.Roles.FirstOrDefault()?.Position ?? 0;
+            => this.IsOwner ? int.MaxValue : this.RoleIds.Count == 0 ? 0 : this.Roles.Max(x => x.Position);
 
         #region Overriden user properties
         [JsonIgnore]
@@ -205,6 +205,15 @@ namespace DSharpPlus.Entities
             get { return this.User.Verified; }
             internal set { this.User.Verified = value; }
         }
+
+        /// <summary>
+        /// Gets the user's chosen language
+        /// </summary>
+        public override string Locale
+        {
+            get { return this.User.Locale; }
+            internal set { this.User.Locale = value; }
+        }
         #endregion
 
         /// <summary>
@@ -259,6 +268,9 @@ namespace DSharpPlus.Entities
         /// <returns>The sent message.</returns>
         public async Task<DiscordMessage> SendFileAsync(FileStream fileData, string content = null, bool is_tts = false, DiscordEmbed embed = null)
         {
+            if (this.IsBot && this.Discord.CurrentUser.IsBot)
+                throw new ArgumentException("Bots cannot DM each other");
+
             var chn = await this.CreateDmChannelAsync().ConfigureAwait(false);
             return await chn.SendFileAsync(fileData, content, is_tts, embed).ConfigureAwait(false);
         }
@@ -273,6 +285,9 @@ namespace DSharpPlus.Entities
         /// <returns>The sent message.</returns>
         public async Task<DiscordMessage> SendFileAsync(string filePath, string content = null, bool is_tts = false, DiscordEmbed embed = null)
         {
+            if (this.IsBot && this.Discord.CurrentUser.IsBot)
+                throw new ArgumentException("Bots cannot DM each other");
+
             var chn = await this.CreateDmChannelAsync().ConfigureAwait(false);
             return await chn.SendFileAsync(filePath, content, is_tts, embed).ConfigureAwait(false);
         }
@@ -288,6 +303,9 @@ namespace DSharpPlus.Entities
         /// <returns>The sent message.</returns>
         public async Task<DiscordMessage> SendMultipleFilesAsync(Dictionary<string, Stream> files, string content = null, bool is_tts = false, DiscordEmbed embed = null)
         {
+            if (this.IsBot && this.Discord.CurrentUser.IsBot)
+                throw new ArgumentException("Bots cannot DM each other");
+
             var chn = await this.CreateDmChannelAsync().ConfigureAwait(false);
             return await chn.SendMultipleFilesAsync(files, content, is_tts, embed).ConfigureAwait(false);
         }
