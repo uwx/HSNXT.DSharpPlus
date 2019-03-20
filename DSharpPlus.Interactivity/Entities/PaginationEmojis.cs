@@ -38,5 +38,7 @@ namespace DSharpPlus.Interactivity
 	    }
 
 	    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+	    internal PaginationEmojis Clone() => (PaginationEmojis) MemberwiseClone();
     }
 }
