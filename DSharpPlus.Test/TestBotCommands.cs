@@ -99,7 +99,7 @@ namespace DSharpPlus.Test
 			if (ctx.Member.VoiceState == null)
 				await ctx.RespondAsync("voice state is null");
 			else if (ctx.Member.VoiceState.Channel == null)
-				await ctx.RespondAsync($"voice state is not null, channel is null");
+				await ctx.RespondAsync("voice state is not null, channel is null");
 			else
 				await ctx.RespondAsync($"connected to channel {ctx.Member.VoiceState.Channel.Name}");
 		}
@@ -110,10 +110,12 @@ namespace DSharpPlus.Test
 			var intr = ctx.Client.GetInteractivity();
 			var m = await ctx.RespondAsync(question);
 			ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "sent message & got interactivity ext", DateTime.Now);
-			List<DiscordEmoji> ems = new List<DiscordEmoji>();
-			ems.Add(DiscordEmoji.FromUnicode(ctx.Client, "👍"));
-			ems.Add(DiscordEmoji.FromUnicode(ctx.Client, "👎"));
-			ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "added reactions", DateTime.Now);
+            var ems = new List<DiscordEmoji>
+            {
+                DiscordEmoji.FromUnicode(ctx.Client, "👍"),
+                DiscordEmoji.FromUnicode(ctx.Client, "👎")
+            };
+            ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "added reactions", DateTime.Now);
 			var rcc = await intr.CreatePollAsync(m, ems, TimeSpan.FromSeconds(10));
 			ctx.Client.DebugLogger.LogMessage(LogLevel.Debug, "interactivity-test", "got results", DateTime.Now);
 			string results = "";
@@ -179,6 +181,10 @@ namespace DSharpPlus.Test
         [Command("whoami"), Description("Displays information about the user running this command.")]
         public Task WhoAmIAsync(CommandContext ctx)
             => ctx.RespondAsync($"{ctx.User.Id} / {ctx.User.Username} / {ctx.User.Discriminator} / {ctx.User.GetAvatarUrl(ImageFormat.WebP, 1024)}");
+
+        [Command("instafail"), Description("Tests command creation constraints.")]
+        public Task InstaFailAsync(CommandContext ctx, string arr, params string[] args)
+            => ctx.RespondAsync("If this works then god does not exist.");
 
 		[Group("bind"), Description("Various argument binder testing commands.")]
 		public class Binding : BaseCommandModule
@@ -380,7 +386,7 @@ namespace DSharpPlus.Test
 		public Task OverloadTestAsync(CommandContext ctx, [Description("An integer.")] int arg)
 			=> ctx.RespondAsync($"Overload with int: {arg}");
 
-		[Command]
+        [Command]
 		public Task EmojiTest(CommandContext ctx, params DiscordEmoji[] args)
 		{
 			var sb = new StringBuilder();

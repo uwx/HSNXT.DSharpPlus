@@ -22,6 +22,8 @@ namespace DSharpPlus.Entities
             this.MfaEnabled = transport.MfaEnabled;
             this.Verified = transport.Verified;
             this.Email = transport.Email;
+            this.PremiumType = transport.PremiumType;
+            this.Locale = transport.Locale;
         }
 
         /// <summary>
@@ -84,6 +86,18 @@ namespace DSharpPlus.Entities
         [JsonProperty("email", NullValueHandling = NullValueHandling.Ignore)]
         public virtual string Email { get; internal set; }
 
+        /// <summary>
+        /// Gets the user's premium type.
+        /// </summary>
+        [JsonProperty("premium_type", NullValueHandling = NullValueHandling.Ignore)]
+        public virtual PremiumType? PremiumType { get; internal set; }
+
+        /// <summary>
+        /// Gets the user's chosen language
+        /// </summary>
+        [JsonProperty("locale", NullValueHandling = NullValueHandling.Ignore)]
+        public virtual string Locale { get; internal set; }
+        
         /// <summary>
         /// Gets the user's mention string.
         /// </summary>
