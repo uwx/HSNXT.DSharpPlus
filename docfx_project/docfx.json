@@ -35,6 +35,9 @@
     }
   ],
   "build": {
+    "xref": [
+      "https://raw.githubusercontent.com/DSharpPlus/dsharpplus.github.io/master/xrefmap.yml"
+    ],
     "content": [
       {
         "files": [
