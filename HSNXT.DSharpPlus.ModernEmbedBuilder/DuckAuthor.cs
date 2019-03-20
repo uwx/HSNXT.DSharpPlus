@@ -47,6 +47,11 @@
         /// <summary>
         /// Gets the url of the author's icon.
         /// </summary>
-        public string IconUrl { get; set; }
+        public string IconUrl
+        {
+            get => _iconUri?.ToString();
+            set => _iconUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
+        }
+        private MebUri? _iconUri;
     }
 }

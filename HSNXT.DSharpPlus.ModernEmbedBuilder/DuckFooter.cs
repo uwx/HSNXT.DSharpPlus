@@ -9,7 +9,7 @@
         {
             Text = text,
         };
-        
+
         /// <summary>
         /// Implicitly create a DuckFooter from a text string and icon url.
         /// </summary>
@@ -18,7 +18,7 @@
             Text = args.text,
             IconUrl = args.iconUrl,
         };
-        
+
         /// <summary>
         /// Gets the footer's text.
         /// </summary>
@@ -27,6 +27,11 @@
         /// <summary>
         /// Gets the url of the footer's icon.
         /// </summary>
-        public string IconUrl { get; set; }
+        public string IconUrl
+        {
+            get => _iconUri?.ToString();
+            set => _iconUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
+        }
+        private MebUri? _iconUri;
     }
 }
