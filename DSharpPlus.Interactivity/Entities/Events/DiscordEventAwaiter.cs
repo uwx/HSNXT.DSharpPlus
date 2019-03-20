@@ -43,7 +43,7 @@ namespace DSharpPlus.Interactivity
         where TContextResult : InteractivityContext
     {
         protected InteractivityExtension Interactivity { get; }
-		
+        
         internal TaskCompletionSource<TContextResult> Result { get; } = new TaskCompletionSource<TContextResult>();
 
         protected DiscordEventAwaiter(InteractivityExtension interactivity)
@@ -57,7 +57,7 @@ namespace DSharpPlus.Interactivity
         {
             var result = await CheckResult(args);
             if (result == null) return false;
-			
+            
             Result.TrySetResult(result);
             return true;
         }
