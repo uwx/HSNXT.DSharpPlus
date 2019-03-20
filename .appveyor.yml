@@ -36,7 +36,7 @@ on_success:
  - git push origin master
 
 artifacts:
- - path: artifacts\*.tar.xz
+ - path: artifacts\dsharpplus-docs.tar.xz
  - path: artifacts\*.nupkg
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
@@ -61,7 +61,7 @@ deploy:
       ```
     auth_token:
       secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ # your encrypted token from GitHub
-    artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+    artifact: /.*\.(nupkg|tar\.xz)/  # upload all NuGet packages and docs to release assets
     draft: false
     prerelease: true
     on:
