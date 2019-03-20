@@ -165,13 +165,15 @@ namespace DSharpPlus.Interactivity
         
         #region Pagination
         /// <summary>
-        /// Sends a paginated message
+        /// Sends a paginated message. A paginated message is a message that can be controlled and updated dynamically
+        /// by clicking on certain reactions.
         /// </summary>
-        /// <param name="channel">Channel to send message to</param>
-        /// <param name="user">User that may interact with this paginated message</param>
-        /// <param name="message_pages">Pages for this message</param>
-        /// <param name="timeoutoverride">Timeout override</param>
-        /// <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
+        /// <param name="channel">Channel to send the paginated message to</param>
+        /// <param name="user">The user that is allowed to interact with the paginated message</param>
+        /// <param name="messagePages">Pages for this message</param>
+        /// <param name="ct">Cancellation token that can be used to end the pagination.</param>
+        /// <param name="timeout">Timeout override</param>
+        /// <param name="timeoutBehaviourOverride">Timeout behaviour override</param>
         /// <param name="emojis">Pagination emoji override</param>
         /// <returns></returns>
         [SuppressMessage("ReSharper", "AccessToDisposedClosure")] // i'm confident that my code starts and ends properly
