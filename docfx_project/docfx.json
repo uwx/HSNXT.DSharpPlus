@@ -75,11 +75,16 @@
       }
     ],
     "dest": "_site",
+    "globalMetadata": {
+      "_appFooter": "© 2017-2019 uwx",
+      "_enableSearch": "true"
+    },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "dsplus_template"
     ],
+    "postProcessors": ["ExtractSearchIndex", "CustomMemberIndexer"],
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
