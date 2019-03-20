@@ -18,9 +18,9 @@ namespace DSharpPlus.Interactivity
         public TimeSpan PaginationTimeout { internal get; set; } = TimeSpan.FromMinutes(2);
 
         /// <summary>
-        /// Sets the default pagination timeout behaviour. Defaults to <see cref="TimeoutBehaviour.Ignore"/>.
+        /// Sets the default pagination finish behaviour. Defaults to <see cref="FinishBehaviour.Ignore"/>.
         /// </summary>
-        public TimeoutBehaviour PaginationBehavior { internal get; set; } = TimeoutBehaviour.Ignore;
+        public FinishBehaviour PaginationBehavior { internal get; set; } = FinishBehaviour.Ignore;
 
         /// <summary>
         /// Sets the default emotes to use as reactions for polling.
