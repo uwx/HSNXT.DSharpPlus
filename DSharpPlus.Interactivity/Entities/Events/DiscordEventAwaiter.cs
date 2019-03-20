@@ -31,7 +31,7 @@ namespace DSharpPlus.Interactivity
     ///     {
     ///         if (!condition) return null; // no result, continue execution
     ///
-    ///         // success, will complete Task and remove self from the DiscordAwaiterHolder
+    ///         // success, will complete Task and remove self from the AwaiterHolder
     ///         return new MessageContext(Interactivity, e.Message);  
     ///     }
     /// }

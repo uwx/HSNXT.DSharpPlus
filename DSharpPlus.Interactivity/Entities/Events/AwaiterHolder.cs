@@ -9,6 +9,68 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
+    /// <summary>
+    /// Represents a wrapper class for hooking a state machine that contains an event listener, and then waiting for
+    /// that state machine to error, finish or cancel execution, and then transparently unhooking that event listener.
+    /// The wrapper takes care of ensuring the events are always hooked on the event target when necessary and unhooked
+    /// in case there are no pending handlers, granting maximum performance and flexibility.
+    /// </summary>
+    /// <typeparam name="TMachine">
+    /// The type of the state machine used for identifying when <see cref="HandleCancellableAsync"/> should return a
+    /// value and unhook the event, or when it should continue working. See
+    /// <see cref="DiscordEventAwaiter{TEventArgs,TContextResult}"/> for a complete implementation guide.
+    /// </typeparam>
+    /// <typeparam name="TEventArgs">
+    /// The arguments of the event being hooked. This one is pretty self-explanatory. Events without parameters are not
+    /// supported by AwaiterHolder since they have no way to discern one event from another.
+    /// </typeparam>
+    /// <typeparam name="TContextResult">
+    /// The value that <see cref="HandleCancellableAsync"/> will return in case the <see cref="TMachine"/> finishes
+    /// successfully.
+    /// </typeparam>
+    /// <example>
+    /// There is a detailed explanation of how to initially hook the wrapper class at
+    /// <see cref="AwaiterHolder{TMachine,TEventArgs,TContextResult}.SubscribeAction"/>, and how to write a state
+    /// machine at <see cref="DiscordEventAwaiter{TEventArgs,TContextResult}"/>, but it mostly boils down to this:
+    /// <code>
+    /// <![CDATA[
+    /// private class MyVerifier : DiscordEventAwaiter<MyEventArgs, MyContext>
+    /// {
+    ///     private readonly Func<MyEventArgs, Task<bool>> _handler;
+    ///
+    ///     // the use of a predicate here is completely optional
+    ///     public CancelVerifier(InteractivityExtension interactivity, Func<MyEventArgs, Task<bool>> handler)
+    ///         : base(interactivity)
+    ///     {
+    ///         _handler = handler;
+    ///     }
+    ///
+    ///     protected override async Task<MyContext> CheckResult(MyEventArgs args)
+    ///     {
+    ///         if (await _handler(args))
+    ///         {
+    ///             return new MyContext
+    ///             {
+    ///                 // some information here...
+    ///                 MyCoolArgs = args
+    ///             }
+    ///         }
+    ///         return null; // event matching failed - don't unsubscribe the event handler
+    ///     }
+    /// }
+    /// 
+    /// var verifierHolder = new AwaiterHolder<MyVerifier, MyEventArgs, MyContext>(
+    ///     ev => obj.Event += ev.Trigger,
+    ///     ev => obj.Event -= ev.Trigger
+    /// );
+    /// 
+    /// var verifier = new MyVerifier(this, () => true);
+    /// var result = await verifierHolder.HandleCancellableAsync(verifier, cancellationToken, myTimeout);
+    /// // result is null if timed out or cancellationToken was triggered, otherwise it's the MyContext instance we
+    /// // returned.
+    /// ]]>
+    /// </code>
+    /// </example>
     internal class AwaiterHolder<TMachine, TEventArgs, TContextResult>
         where TMachine : DiscordEventAwaiter<TEventArgs, TContextResult>
         where TEventArgs : DiscordEventArgs // not necessary, but is here for consistency
@@ -28,7 +90,7 @@ namespace DSharpPlus.Interactivity
         /// <example>
         /// <code>
         /// <![CDATA[
-        /// new DiscordAwaiterHolder<Machine, EventArgs, ContextResult>(
+        /// new AwaiterHolder<Machine, EventArgs, ContextResult>(
         ///     ev => obj.Event += ev.Trigger,
         ///     ev => obj.Event -= ev.Trigger
         /// );
