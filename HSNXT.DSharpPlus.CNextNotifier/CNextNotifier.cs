@@ -90,9 +90,9 @@ namespace HSNXT.DSharpPlus.CNextNotifier
                 .SelectMany(t => t.GetMethods())
                 .Select(m =>
                     (
-                    m,
-                    cmd: m.GetCustomAttribute<CommandAttribute>(),
-                    attr: m.GetCustomAttribute<SuppressErrorAttribute>()
+                        m,
+                        cmd: m.GetCustomAttribute<CommandAttribute>(),
+                        attr: m.GetCustomAttribute<SuppressErrorAttribute>()
                     )
                 ).Where(e => e.cmd != null && e.attr != null)
                 .Select(e =>
@@ -116,7 +116,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             var cnext = client.GetExtension<CommandsNextExtension>();
             if (cnext == null)
             {
-                throw new ArgumentException(nameof(client), "Please initialize CommandsNext before CNextNotifier!");
+                throw new ArgumentException("Please initialize CommandsNext before CNextNotifier!", nameof(client));
             }
             cnext.CommandErrored += OnCommandErrored;
         }
