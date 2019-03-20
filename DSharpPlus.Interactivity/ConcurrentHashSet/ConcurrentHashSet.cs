@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
-namespace ConcurrentCollections
+namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
 {
     /// <summary>
     /// Represents a thread-safe hash-based unique collection.
     /// </summary>
     /// <typeparam name="T">The type of the items in the collection.</typeparam>
     /// <remarks>
-    /// All public members of <see cref="T:ConcurrentCollections.ConcurrentHashSet`1" /> are thread-safe and may be used
+    /// All public members of <see cref="T:HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections.ConcurrentHashSet`1" /> are thread-safe and may be used
     /// concurrently from multiple threads.
     /// </remarks>
     [DebuggerDisplay("Count = {" + nameof(Count) + "}")]

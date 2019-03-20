@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConcurrentCollections
+namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
 {
     internal static class PlatformHelper
     {

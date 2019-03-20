@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
-using ConcurrentCollections;
+using HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections;
 using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
