@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.SyncLauncher", "HSNXT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Interactivity", "..\DSharpPlus\DSharpPlus.Interactivity\DSharpPlus.Interactivity.csproj", "{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Rest", "..\DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.VoiceNext", "..\DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
@@ -46,6 +44,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.Test.VLCRPC", "HSNXT.Test.VLCRPC\HSNXT.Test.VLCRPC.csproj", "{0E2AD21D-C85A-4297-BAE8-823883AFDE00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSharpPlus.CommandsNext", "..\DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj", "{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.InteractivityNext", "HSNXT.DSharpPlus.InteractivityNext\HSNXT.DSharpPlus.InteractivityNext.csproj", "{8FE4FDC6-AB92-42EC-A36E-B90282BE73D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,10 +85,6 @@ Global
 		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF210EAD-1ADB-449C-B901-4CE1270FE0C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -141,6 +137,10 @@ Global
 		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ABC0375-C9FE-4278-8E82-6FFD3BF2D403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE4FDC6-AB92-42EC-A36E-B90282BE73D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE4FDC6-AB92-42EC-A36E-B90282BE73D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE4FDC6-AB92-42EC-A36E-B90282BE73D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE4FDC6-AB92-42EC-A36E-B90282BE73D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@
   <Import Project="../DSharpPlus.targets" />
   <PropertyGroup>
     <AssemblyName>DSharpPlus.Interactivity</AssemblyName>
-    <RootNamespace>DSharpPlus.Interactivity</RootNamespace>
+    <RootNamespace>HSNXT.DSharpPlus.InteractivityNext</RootNamespace>
     <OutputType>Library</OutputType>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>

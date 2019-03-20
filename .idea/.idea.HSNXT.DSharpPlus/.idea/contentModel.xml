@@ -331,54 +331,6 @@
       </e>
       <e p="Polyfills.cs" t="Include" />
     </e>
-    <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Interactivity" t="IncludeRecursive">
-      <e p="bin" t="ExcludeRecursive" />
-      <e p="Compat.cs" t="Include" />
-      <e p="ConcurrentHashSet" t="Include">
-        <e p="ConcurrentHashSet.cs" t="Include" />
-        <e p="PlatformHelper.cs" t="Include" />
-      </e>
-      <e p="DSharpPlus.Interactivity.csproj" t="IncludeRecursive" />
-      <e p="Entities" t="Include">
-        <e p="Context" t="Include">
-          <e p="InteractivityContext.cs" t="Include" />
-          <e p="MessageContext.cs" t="Include" />
-          <e p="ReactionContext.cs" t="Include" />
-          <e p="TypingContext.cs" t="Include" />
-        </e>
-        <e p="Events" t="Include">
-          <e p="AwaiterHolder.cs" t="Include" />
-          <e p="DiscordEventAwaiter.cs" t="Include" />
-          <e p="Implementations" t="Include">
-            <e p="MessageVerifier.cs" t="Include" />
-            <e p="ReactionVerifier.cs" t="Include" />
-          </e>
-        </e>
-        <e p="FinishBehaviour.cs" t="Include" />
-        <e p="Pagination" t="Include">
-          <e p="Page.cs" t="Include" />
-          <e p="PaginatedMessage.cs" t="Include" />
-        </e>
-        <e p="PaginationEmojis.cs" t="Include" />
-        <e p="ReactionCancellationAwaiterHolder.cs" t="Include" />
-        <e p="ReactionCollectionContext.cs" t="Include" />
-        <e p="StringSplittingLogic.cs" t="Include" />
-      </e>
-      <e p="ExtensionMethods.cs" t="Include" />
-      <e p="InteractivityConfiguration.cs" t="Include" />
-      <e p="InteractivityExtension.cs" t="Include" />
-      <e p="InteractivityExtension.Message.cs" t="Include" />
-      <e p="InteractivityExtension.Reaction.cs" t="Include" />
-      <e p="LICENSE.ConcurrentHashSet.txt" t="Include" />
-      <e p="obj" t="ExcludeRecursive">
-        <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-        </e>
-      </e>
-      <e p="What works, what's not done and what's not coming.txt" t="Include" />
-    </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Rest" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="DiscordRestClient.cs" t="Include" />
@@ -661,6 +613,54 @@
             </e>
           </e>
         </e>
+      </e>
+      <e p="HSNXT.DSharpPlus.InteractivityNext" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Compat.cs" t="Include" />
+        <e p="ConcurrentHashSet" t="Include">
+          <e p="ConcurrentHashSet.cs" t="Include" />
+          <e p="PlatformHelper.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Context" t="Include">
+            <e p="InteractivityContext.cs" t="Include" />
+            <e p="MessageContext.cs" t="Include" />
+            <e p="ReactionContext.cs" t="Include" />
+            <e p="TypingContext.cs" t="Include" />
+          </e>
+          <e p="Events" t="Include">
+            <e p="AwaiterHolder.cs" t="Include" />
+            <e p="DiscordEventAwaiter.cs" t="Include" />
+            <e p="Implementations" t="Include">
+              <e p="MessageVerifier.cs" t="Include" />
+              <e p="ReactionVerifier.cs" t="Include" />
+            </e>
+          </e>
+          <e p="FinishBehaviour.cs" t="Include" />
+          <e p="Pagination" t="Include">
+            <e p="Page.cs" t="Include" />
+            <e p="PaginatedMessage.cs" t="Include" />
+          </e>
+          <e p="PaginationEmojis.cs" t="Include" />
+          <e p="ReactionCancellationAwaiterHolder.cs" t="Include" />
+          <e p="ReactionCollectionContext.cs" t="Include" />
+          <e p="StringSplittingLogic.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods.cs" t="Include" />
+        <e p="HSNXT.DSharpPlus.InteractivityNext.csproj" t="IncludeRecursive" />
+        <e p="InteractivityConfiguration.cs" t="Include" />
+        <e p="InteractivityExtension.cs" t="Include" />
+        <e p="InteractivityExtension.Message.cs" t="Include" />
+        <e p="InteractivityExtension.Reaction.cs" t="Include" />
+        <e p="LICENSE.ConcurrentHashSet.txt" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.InteractivityNext.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="What works, what's not done and what's not coming.txt" t="Include" />
       </e>
       <e p="HSNXT.DSharpPlus.ModernEmbedBuilder" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
