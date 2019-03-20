@@ -36,7 +36,7 @@ on_success:
  - git push origin master
 
 artifacts:
- - path: artifacts\dsharpplus-docs.tar.xz
+ - path: artifacts\*.tar.xz
  - path: artifacts\*.nupkg
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
