@@ -25,8 +25,8 @@ namespace HSNXT.DSharpPlus.InteractivityNext
     /// supported by AwaiterHolder since they have no way to discern one event from another.
     /// </typeparam>
     /// <typeparam name="TContextResult">
-    /// The value that <see cref="HandleCancellableAsync"/> will return in case the <see cref="TMachine"/> finishes
-    /// successfully.
+    /// The value that <see cref="HandleCancellableAsync"/> will return in case the <typeparamref name="TMachine"/>
+    /// finishes successfully.
     /// </typeparam>
     /// <example>
     /// There is a detailed explanation of how to initially hook the wrapper class at
