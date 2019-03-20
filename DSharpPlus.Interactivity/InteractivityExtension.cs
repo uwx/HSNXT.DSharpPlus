@@ -18,58 +18,14 @@ namespace DSharpPlus.Interactivity
 		
 		private ReactionCancellationAwaiterHolder _reactionCollectionHandler;
 
-		/// <summary>
-		/// Default emotes to use as reactions for polling
-		/// </summary>
-		public IEnumerable<DiscordEmoji> DefaultPollOptions
-		{
-			get => _defaultPollOptions;
-			set => _defaultPollOptions = value as DiscordEmoji[] ?? value.ToArray();
-		}
-		private DiscordEmoji[] _defaultPollOptions;
-
-		/// <summary>
-		/// Format string for the page header when using <see cref="GeneratePagesInEmbeds"/>
-		/// </summary>
-		public string DefaultPageHeader
-		{
-			get => _defaultPageHeader;
-			set => _defaultPageHeader = value ?? throw new ArgumentNullException(nameof(value));
-		}
-		private string _defaultPageHeader = "Page {0}";
-
-		/// <summary>
-		/// Format string for the page header when using <see cref="GeneratePagesInStrings"/>
-		/// </summary>
-		public string DefaultStringPageHeader
-		{
-			get => _defaultStringPageHeader;
-			set => _defaultStringPageHeader = value ?? throw new ArgumentNullException(nameof(value));
-		}
-		private string _defaultStringPageHeader = "**Page {0}:**\n\n{1}";
-
-		public PaginationEmojis DefaultPaginationEmojis
-		{
-			get => _defaultPaginationEmojis;
-			set => _defaultPaginationEmojis = value ?? throw new ArgumentNullException(nameof(value));
-		}
-		private PaginationEmojis _defaultPaginationEmojis;
-
 		internal InteractivityExtension(InteractivityConfiguration cfg)
 		{
-			Config = new InteractivityConfiguration(cfg);
+			Config = cfg.Clone();
 		}
 
 		protected internal override void Setup(DiscordClient client)
 		{
-			Client = client;
-			
-			_defaultPollOptions = new[]
-			{
-				DiscordEmoji.FromName(client, ":thumbsdown:"),
-				DiscordEmoji.FromName(client, ":thumbsup:"),
-			};
-			_defaultPaginationEmojis = new PaginationEmojis(Client);
+			Config.SetDefaults(client);
 			
 			_messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
 				ev => Client.MessageCreated += ev.Trigger,
@@ -103,7 +59,7 @@ namespace DSharpPlus.Interactivity
 			if (message == null)
 				throw new ArgumentNullException(nameof(message));
 			
-			var emojis = emojiSource as DiscordEmoji[] ?? emojiSource?.ToArray() ?? _defaultPollOptions;
+			var emojis = emojiSource as DiscordEmoji[] ?? emojiSource?.ToArray() ?? Config.DefaultPollOptionsArray;
 			if (emojis.Length == 0)
 				throw new InvalidOperationException("A minimum of one emoji is required to execute this method!");
 
@@ -239,7 +195,7 @@ namespace DSharpPlus.Interactivity
 				Timeout = timeout ?? Config.Timeout
 			};
 
-			emojis = emojis ?? _defaultPaginationEmojis;
+			emojis = emojis ?? Config.DefaultPaginationEmojis;
 
 			await GeneratePaginationReactions(msg, emojis);
 			
@@ -310,7 +266,7 @@ namespace DSharpPlus.Interactivity
 				{
 					Embed = new DiscordEmbed
 					{
-						Title = string.Format(DefaultPageHeader, page),
+						Title = string.Format(Config.DefaultPageHeader, page),
 						Description = s
 					}
 				};
@@ -329,7 +285,7 @@ namespace DSharpPlus.Interactivity
 			{
 				yield return new Page
 				{
-					Content = string.Format(DefaultStringPageHeader, page, s)
+					Content = string.Format(Config.DefaultStringPageHeader, page, s)
 				};
 				page++;
 			}

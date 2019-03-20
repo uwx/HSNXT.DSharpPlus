@@ -1,41 +1,82 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DSharpPlus.Entities;
 
 namespace DSharpPlus.Interactivity
 {
     public sealed class InteractivityConfiguration
     {
         /// <summary>
-        /// <para>Sets the default interactivity action timeout.</para>
-        /// <para>Defaults to 1 minute.</para>
+        /// Sets the default interactivity action timeout. Defaults to 1 minute.
         /// </summary>
         public TimeSpan Timeout { internal get; set; } = TimeSpan.FromMinutes(1);
 
         /// <summary>
-        /// <para>Sets the default pagination timeout.</para>
-        /// <para>Defaults to 2 minutes.</para>
+        /// Sets the default pagination timeout. Defaults to 2 minutes.
         /// </summary>
         public TimeSpan PaginationTimeout { internal get; set; } = TimeSpan.FromMinutes(2);
 
         /// <summary>
-        /// <para>Sets the default pagination timeout behaviour.</para>
-        /// <para>Defaults to <see cref="TimeoutBehaviour.Ignore"/>.</para>
+        /// Sets the default pagination timeout behaviour. Defaults to <see cref="TimeoutBehaviour.Ignore"/>.
         /// </summary>
         public TimeoutBehaviour PaginationBehavior { internal get; set; } = TimeoutBehaviour.Ignore;
 
         /// <summary>
-        /// Creates a new instance of <see cref="InteractivityConfiguration"/>.
+        /// Sets the default emotes to use as reactions for polling.
         /// </summary>
-        public InteractivityConfiguration() { }
+        public IEnumerable<DiscordEmoji> DefaultPollOptions
+        {
+            set => DefaultPollOptionsArray = value.ToArray();
+        }
+        internal DiscordEmoji[] DefaultPollOptionsArray;
 
         /// <summary>
-        /// Creates a new instance of <see cref="InteractivityConfiguration"/>, copying the properties of another configuration.
+        /// Sets the format string for the page header when using
+        /// <see cref="InteractivityExtension.GeneratePagesInEmbeds"/>.
         /// </summary>
-        /// <param name="other">Configuration the properties of which are to be copied.</param>
-        public InteractivityConfiguration(InteractivityConfiguration other)
+        public string DefaultPageHeader
         {
-            this.PaginationBehavior = other.PaginationBehavior;
-            this.PaginationTimeout = other.PaginationTimeout;
-            this.Timeout = other.Timeout;
+            internal get => _defaultPageHeader;
+            set => _defaultPageHeader = value ?? throw new ArgumentNullException(nameof(value));
+        }
+        private string _defaultPageHeader = "Page {0}";
+
+        /// <summary>
+        /// Sets the format string for the page header when using
+        /// <see cref="InteractivityExtension.GeneratePagesInStrings"/>.
+        /// </summary>
+        public string DefaultStringPageHeader
+        {
+            internal get => _defaultStringPageHeader;
+            set => _defaultStringPageHeader = value ?? throw new ArgumentNullException(nameof(value));
+        }
+        private string _defaultStringPageHeader = "**Page {0}:**\n\n{1}";
+
+        /// <summary>
+        /// Sets the default emojis to use for the page controls for pagination.
+        /// </summary>
+        public PaginationEmojis DefaultPaginationEmojis
+        {
+            internal get => _defaultPaginationEmojis;
+            // clone and discard old value so it cannot be modified further
+            set => _defaultPaginationEmojis = value?.Clone() ?? throw new ArgumentNullException(nameof(value));
+        }
+        private PaginationEmojis _defaultPaginationEmojis;
+
+        internal InteractivityConfiguration Clone()
+        {
+            return (InteractivityConfiguration) MemberwiseClone();
+        }
+        
+        internal void SetDefaults(DiscordClient client)
+        {
+            DefaultPollOptionsArray = DefaultPollOptionsArray ?? new[]
+            {
+                DiscordEmoji.FromName(client, ":thumbsdown:"),
+                DiscordEmoji.FromName(client, ":thumbsup:"),
+            };
+            _defaultPaginationEmojis = _defaultPaginationEmojis ?? new PaginationEmojis(client);
         }
     }
 }
