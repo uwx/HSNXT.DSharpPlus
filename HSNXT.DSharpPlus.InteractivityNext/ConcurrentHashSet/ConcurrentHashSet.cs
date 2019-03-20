@@ -287,8 +287,14 @@ namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
         /// </summary>
         /// <param name="item">The item to locate in the <see cref="ConcurrentHashSet{T}"/>.</param>
         /// <returns>true if the <see cref="ConcurrentHashSet{T}"/> contains the item; otherwise, false.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// If <paramref name="item"/> is a reference type and is null.
+        /// </exception>
         public bool Contains(T item)
         {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+            
             var hashcode = _comparer.GetHashCode(item);
 
             // We must capture the _buckets field in a local variable. It is set to a new table on each table resize.
@@ -324,7 +330,7 @@ namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
             {
                 var tables = _tables;
 
-                GetBucketAndLockNo(hashcode, out int bucketNo, out int lockNo, tables.Buckets.Length, tables.Locks.Length);
+                GetBucketAndLockNo(hashcode, out var bucketNo, out var lockNo, tables.Buckets.Length, tables.Locks.Length);
 
                 lock (tables.Locks[lockNo])
                 {
@@ -445,7 +451,7 @@ namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
             {
                 var tables = _tables;
 
-                GetBucketAndLockNo(hashcode, out int bucketNo, out int lockNo, tables.Buckets.Length, tables.Locks.Length);
+                GetBucketAndLockNo(hashcode, out var bucketNo, out var lockNo, tables.Buckets.Length, tables.Locks.Length);
 
                 var resizeDesired = false;
                 var lockTaken = false;
@@ -636,7 +642,7 @@ namespace HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections
                     while (current != null)
                     {
                         var next = current.Next;
-                        GetBucketAndLockNo(current.Hashcode, out int newBucketNo, out int newLockNo, newBuckets.Length, newLocks.Length);
+                        GetBucketAndLockNo(current.Hashcode, out var newBucketNo, out var newLockNo, newBuckets.Length, newLocks.Length);
 
                         newBuckets[newBucketNo] = new Node(current.Item, current.Hashcode, newBuckets[newBucketNo]);
 
