@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// <p>An extension of <see cref="AwaiterHolder{TMachine,TEventArgs,TContextResult}"/> that, instead of hooking a

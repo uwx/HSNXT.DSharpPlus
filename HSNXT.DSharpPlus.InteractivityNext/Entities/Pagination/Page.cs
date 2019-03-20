@@ -1,6 +1,6 @@
 ﻿using DSharpPlus.Entities;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// Represents a single "unpaginated" message. One or more of these can be used for pagination, although it will

@@ -1,4 +1,4 @@
-﻿namespace DSharpPlus.Interactivity
+﻿namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// Behaviour for the pagination message after pagination ends

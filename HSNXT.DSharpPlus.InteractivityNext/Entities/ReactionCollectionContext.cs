@@ -1,9 +1,10 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using DSharpPlus;
 using HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     public class ReactionCollectionContext
     {

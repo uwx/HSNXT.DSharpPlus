@@ -1,7 +1,8 @@
 ﻿using System;
+using DSharpPlus;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// Context about a typing user

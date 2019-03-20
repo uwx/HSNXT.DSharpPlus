@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// Represents a wrapper class for hooking a state machine that contains an event listener, and then waiting for

@@ -1,4 +1,4 @@
-﻿namespace DSharpPlus.Interactivity
+﻿namespace HSNXT.DSharpPlus.InteractivityNext
 {
     public enum StringSplittingLogic : byte
     {

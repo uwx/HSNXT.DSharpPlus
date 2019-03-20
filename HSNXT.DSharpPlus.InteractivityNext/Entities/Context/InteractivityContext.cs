@@ -1,4 +1,6 @@
-﻿namespace DSharpPlus.Interactivity
+﻿using DSharpPlus;
+
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     public class InteractivityContext
     {
