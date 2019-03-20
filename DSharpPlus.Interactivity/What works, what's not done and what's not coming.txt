@@ -1,0 +1,22 @@
+What works
+==========
+
+You tell me
+
+
+What's not done
+===============
+
+Typing hooks
+Tests for AwaiterHolder race conditions
+Tests for Reaction collector race conditions
+WaitForNextMessage
+Cancelable stream of messages thing
+
+
+What's not coming
+=================
+
+Any decency
+CNext integration (very likely will not happen)
+Extension methods for everything (possibly, if I have the patience for it...)
