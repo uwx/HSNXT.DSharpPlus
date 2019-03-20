@@ -93,11 +93,11 @@ namespace DSharpPlus.Interactivity
 
 			async Task ReactionRemoveHandler(ReactionCollectionContext rcc, MessageReactionRemoveEventArgs e)
 			{
-				if (e.Client.CurrentUser.Id == e.User.Id)
+				if (e.Message.Id != message.Id || e.Client.CurrentUser.Id == e.User.Id)
 					return;
 
 				await Task.Yield();
-				if (e.Message.Id == message.Id && emojis.Count(x => x == e.Emoji) > 0)
+				if (emojis.Count(x => x == e.Emoji) > 0)
 				{
 					rcc.RemoveReaction(e.Emoji, e.User.Id);
 				}
@@ -105,10 +105,10 @@ namespace DSharpPlus.Interactivity
 
 			async Task ReactionClearHandler(ReactionCollectionContext rcc, MessageReactionsClearEventArgs e)
 			{
-				await Task.Yield();
 				if (e.Message.Id != message.Id)
 					return;
 
+				await Task.Yield();
 				rcc.ClearReactions();
 				foreach (var em in emojis)
 				{
@@ -253,6 +253,12 @@ namespace DSharpPlus.Interactivity
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentException"></exception>
 		public IEnumerable<Page> GeneratePagesInEmbeds(string input)
 		{
 			if (string.IsNullOrEmpty(input))
