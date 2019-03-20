@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using DSharpPlus;
-using DSharpPlus.CommandsNext;
 
 namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {
