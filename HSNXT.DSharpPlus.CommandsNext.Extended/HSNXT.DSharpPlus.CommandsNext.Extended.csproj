@@ -3,18 +3,14 @@
   <Import Project="../HSNXT.DSharpPlus.targets" />
 
   <PropertyGroup>
+    <PackageId>HSNXT.DSharpPlus.CommandsNext.Extended</PackageId>
     <AssemblyName>DSharpPlus.CommandsNext</AssemblyName>
     <RootNamespace>HSNXT.DSharpPlus.CommandsNext.Extended</RootNamespace>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <PackageId>HSNXT.DSharpPlus.CommandsNext.Extended</PackageId>
     <Description>Fork of Emzi0767's advanced command framework for DSharpPlus.
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net47'">
