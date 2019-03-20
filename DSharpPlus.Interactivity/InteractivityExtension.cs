@@ -9,6 +9,9 @@ using DSharpPlus.EventArgs;
 
 namespace DSharpPlus.Interactivity
 {
+	/// <summary>
+	/// The main interactivity extension class.
+	/// </summary>
 	public partial class InteractivityExtension : BaseExtension
 	{
 		private InteractivityConfiguration Config { get; }
@@ -120,11 +123,12 @@ namespace DSharpPlus.Interactivity
 		/// <summary>
 		/// Collects all new reactions to a message until a timer expires or the task is canceled.
 		/// </summary>
-		/// <param name="message"></param>
-		/// <param name="timeout"></param>
-		/// <param name="ct"></param>
+		/// <param name="message">The message to collect reactions for</param>
+		/// <param name="timeout">Timeout for the waiting period. If not specified, defaults to
+		/// <see cref="InteractivityConfiguration.Timeout"/>.</param>
+		/// <param name="ct">Cancellation token that can be used to end the waiting period early.</param>
 		/// <returns>Task resolving to a <see cref="ReactionCollectionContext"/> containing the reactions.</returns>
-		/// <exception cref="ArgumentNullException"></exception>
+		/// <exception cref="ArgumentNullException">If <paramref name="message"/> is null</exception>
 		public async Task<ReactionCollectionContext> CollectReactionsAsync(DiscordMessage message, 
 			TimeSpan? timeout = null, CancellationToken? ct = null)
 		{
@@ -160,6 +164,16 @@ namespace DSharpPlus.Interactivity
 		}
 		
 		#region Pagination
+		/// <summary>
+		/// Sends a paginated message
+		/// </summary>
+		/// <param name="channel">Channel to send message to</param>
+		/// <param name="user">User that may interact with this paginated message</param>
+		/// <param name="message_pages">Pages for this message</param>
+		/// <param name="timeoutoverride">Timeout override</param>
+		/// <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
+		/// <param name="emojis">Pagination emoji override</param>
+		/// <returns></returns>
 		[SuppressMessage("ReSharper", "AccessToDisposedClosure")] // i'm confident that my code starts and ends properly
 		public async Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user,
 			IEnumerable<Page> messagePages, CancellationToken? ct = null, TimeSpan? timeout = null, 
