@@ -27,7 +27,11 @@
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/AutoDetectedNamingRules/=Property/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb" /&gt;</s:String>
 	
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/AutoDetectedNamingRules/=TypesAndNamespaces/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb" /&gt;</s:String>
-	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/PredefinedNamingRules/=LocalFunctions/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb"&gt;&lt;ExtraRule Prefix="Reaction" Suffix="" Style="AaBb" /&gt;&lt;/Policy&gt;</s:String>
+	
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\Rafael\.nuget\packages\microsoft.docascode.plugins\2.40.12\lib\netstandard2.0\Microsoft.DocAsCode.Plugins.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.collections.immutable\1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	
 	
 	

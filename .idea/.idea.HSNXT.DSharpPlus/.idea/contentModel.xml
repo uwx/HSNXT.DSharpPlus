@@ -7,6 +7,7 @@
     <e p="C:\Users\Rafael\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Rafael\.Rider2018.3\system\resharper-host\Local\Transient\ReSharperHost\v183\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus" t="IncludeRecursive">
+      <e p="AssemblyInfo.cs" t="Include" />
       <e p="AsyncEvent.cs" t="Include" />
       <e p="AsyncManualResetEvent.cs" t="Include" />
       <e p="BaseDiscordClient.cs" t="Include" />
@@ -70,6 +71,7 @@
         <e p="MentionType.cs" t="Include" />
         <e p="OverwriteType.cs" t="Include" />
         <e p="Permission.cs" t="Include" />
+        <e p="PremiumType.cs" t="Include" />
         <e p="TokenType.cs" t="Include" />
       </e>
       <e p="EventArgs" t="Include">
@@ -113,7 +115,6 @@
         <e p="UserSettingsUpdateEventArgs.cs" t="Include" />
         <e p="UserSpeakingEventArgs.cs" t="Include" />
         <e p="UserUpdateEventArgs.cs" t="Include" />
-        <e p="VoiceReceiveEventArgs.cs" t="Include" />
         <e p="VoiceServerUpdateEventArgs.cs" t="Include" />
         <e p="VoiceStateUpdateEventArgs.cs" t="Include" />
         <e p="WebhooksUpdateEventArgs.cs" t="Include" />
@@ -139,6 +140,7 @@
           <e p="IOAuth2Payload.cs" t="Include" />
           <e p="ReadyPayload.cs" t="Include" />
           <e p="RestChannelPayloads.cs" t="Include" />
+          <e p="RestEmojiPayloads.cs" t="Include" />
           <e p="RestGuildPayloads.cs" t="Include" />
           <e p="RestUserPayloads.cs" t="Include" />
           <e p="RestWebhookPayloads.cs" t="Include" />
@@ -150,8 +152,10 @@
           <e p="VoiceStateUpdate.cs" t="Include" />
         </e>
         <e p="BaseRestRequest.cs" t="Include" />
+        <e p="ConnectionEndpoint.cs" t="Include" />
         <e p="DiscordApiClient.cs" t="Include" />
         <e p="Endpoints.cs" t="Include" />
+        <e p="IpEndpoint.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="BaseEditModel.cs" t="Include" />
           <e p="ChannelEditModel.cs" t="Include" />
@@ -170,10 +174,8 @@
         </e>
         <e p="Udp" t="Include">
           <e p="BaseUdpClient.cs" t="Include" />
-          <e p="ConnectionEndpoint.cs" t="Include" />
           <e p="DspUdpClient.cs" t="Include" />
           <e p="DspUdpClient2.cs" t="Include" />
-          <e p="IpEndpoint.cs" t="Include" />
         </e>
         <e p="WebSocket" t="Include">
           <e p="BaseWebSocketClient.cs" t="Include" />
@@ -225,11 +227,22 @@
           <e p="xdoc" t="Include">
             <e p="cache" t="Include">
               <e p="final" t="Include">
+                <e p="-1035121980" t="Include" />
+                <e p="-49265491" t="Include" />
                 <e p="-667192032" t="Include" />
               </e>
               <e p="obj" t="Include">
                 <e p=".inter" t="Include" />
                 <e p="1mzmislf.vmb" t="Include" />
+                <e p="22azxwct.kgj" t="Include" />
+                <e p="2krqidd2.4c1" t="Include" />
+                <e p="2uahgvbs.mbp" t="Include" />
+                <e p="atap4kdu.eil" t="Include" />
+                <e p="e5gwjzyi.yss" t="Include" />
+                <e p="ehzkyivh.whz" t="Include" />
+                <e p="erzykzmr.j3f" t="Include" />
+                <e p="i1ykelpv.lib" t="Include" />
+                <e p="ikiybqth.row" t="Include" />
               </e>
             </e>
           </e>
@@ -290,6 +303,8 @@
         <e p="ChecksFailedException.cs" t="Include" />
         <e p="CommandNotFoundException.cs" t="Include" />
         <e p="DuplicateCommandException.cs" t="Include" />
+        <e p="DuplicateOverloadException.cs" t="Include" />
+        <e p="InvalidOverloadException.cs" t="Include" />
       </e>
       <e p="ExtensionMethods.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
@@ -318,54 +333,51 @@
     </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Interactivity" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Compat.cs" t="Include" />
+      <e p="ConcurrentHashSet" t="Include">
+        <e p="ConcurrentHashSet.cs" t="Include" />
+        <e p="PlatformHelper.cs" t="Include" />
+      </e>
       <e p="DSharpPlus.Interactivity.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
-        <e p="MessageContext.cs" t="Include" />
-        <e p="obj" t="Include">
-          <e p="xdoc" t="Include">
-            <e p="cache" t="Include">
-              <e p="final" t="Include">
-                <e p="-1121131833" t="Include" />
-                <e p="914219698" t="Include" />
-              </e>
-              <e p="obj" t="Include">
-                <e p=".inter" t="Include" />
-                <e p="0b1eba1r.gnk" t="Include" />
-                <e p="yrxahwsa.g0o" t="Include" />
-              </e>
-            </e>
+        <e p="Context" t="Include">
+          <e p="InteractivityContext.cs" t="Include" />
+          <e p="MessageContext.cs" t="Include" />
+          <e p="ReactionContext.cs" t="Include" />
+          <e p="TypingContext.cs" t="Include" />
+        </e>
+        <e p="Events" t="Include">
+          <e p="AwaiterHolder.cs" t="Include" />
+          <e p="DiscordEventAwaiter.cs" t="Include" />
+          <e p="Implementations" t="Include">
+            <e p="MessageVerifier.cs" t="Include" />
+            <e p="ReactionVerifier.cs" t="Include" />
           </e>
         </e>
+        <e p="FinishBehaviour.cs" t="Include" />
+        <e p="Pagination" t="Include">
+          <e p="Page.cs" t="Include" />
+          <e p="PaginatedMessage.cs" t="Include" />
+        </e>
         <e p="PaginationEmojis.cs" t="Include" />
+        <e p="ReactionCancellationAwaiterHolder.cs" t="Include" />
         <e p="ReactionCollectionContext.cs" t="Include" />
-        <e p="ReactionContext.cs" t="Include" />
-        <e p="TypingContext.cs" t="Include" />
+        <e p="StringSplittingLogic.cs" t="Include" />
       </e>
+      <e p="ExtensionMethods.cs" t="Include" />
       <e p="InteractivityConfiguration.cs" t="Include" />
       <e p="InteractivityExtension.cs" t="Include" />
-      <e p="InteractivityExtensionMethods.cs" t="Include" />
+      <e p="InteractivityExtension.Message.cs" t="Include" />
+      <e p="InteractivityExtension.Reaction.cs" t="Include" />
+      <e p="LICENSE.ConcurrentHashSet.txt" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="net45" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="netstandard1.1" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="netstandard1.3" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
           <e p="netstandard2.0" t="Include">
             <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
+      <e p="What works, what's not done and what's not coming.txt" t="Include" />
     </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Rest" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
@@ -395,17 +407,22 @@
       </e>
     </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.VoiceNext" t="IncludeRecursive">
+      <e p="AudioFormat.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Codec" t="Include">
-        <e p="OpusCodec.cs" t="Include" />
-        <e p="RtpCodec.cs" t="Include" />
-        <e p="SodiumCodec.cs" t="Include" />
+        <e p="Helpers.cs" t="Include" />
+        <e p="Interop.cs" t="Include" />
+        <e p="Opus.cs" t="Include" />
+        <e p="Rtp.cs" t="Include" />
+        <e p="Sodium.cs" t="Include" />
       </e>
       <e p="DiscordClientExtensions.cs" t="Include" />
       <e p="DSharpPlus.VoiceNext.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
+        <e p="AudioSender.cs" t="Include" />
         <e p="VoiceDispatch.cs" t="Include" />
         <e p="VoiceIdentifyPayload.cs" t="Include" />
+        <e p="VoicePacket.cs" t="Include" />
         <e p="VoiceReadyPayload.cs" t="Include" />
         <e p="VoiceSelectProtocolPayload.cs" t="Include" />
         <e p="VoiceSelectProtocolPayloadData.cs" t="Include" />
@@ -413,11 +430,15 @@
         <e p="VoiceSessionDescriptionPayload.cs" t="Include" />
         <e p="VoiceSpeakingPayload.cs" t="Include" />
         <e p="VoiceStateUpdatePayload.cs" t="Include" />
+        <e p="VoiceUserJoinPayload.cs" t="Include" />
         <e p="VoiceUserLeavePayload.cs" t="Include" />
       </e>
       <e p="EventArgs" t="Include">
+        <e p="VoiceReceiveEventArgs.cs" t="Include" />
+        <e p="VoiceUserJoinEventArgs.cs" t="Include" />
         <e p="VoiceUserLeaveEventArgs.cs" t="Include" />
       </e>
+      <e p="IVoiceFilter.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
@@ -440,9 +461,11 @@
           </e>
         </e>
       </e>
+      <e p="VoiceApplication.cs" t="Include" />
       <e p="VoiceNextConfiguration.cs" t="Include" />
       <e p="VoiceNextConnection.cs" t="Include" />
       <e p="VoiceNextExtension.cs" t="Include" />
+      <e p="VoiceTransmitStream.cs" t="Include" />
     </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
