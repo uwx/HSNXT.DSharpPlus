@@ -48,7 +48,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
         /// This method was contributed by Glockness.
         /// </remarks>
         public static async Task SyncPermissionsWithParent(
-            this DiscordChannel channel, DiscordChannel parent = null, string reason = null)
+            this DiscordChannel channel, DiscordChannel parent = null, string reason = null) // TODO test
         {
             parent = parent
                      ?? (channel.ParentId != null ? channel.Parent : null)
