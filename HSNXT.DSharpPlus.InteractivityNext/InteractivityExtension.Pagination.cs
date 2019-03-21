@@ -185,10 +185,12 @@ namespace HSNXT.DSharpPlus.InteractivityNext
         /// <param name="input">The string to paginate</param>
         /// <returns>An enumerable of pages</returns>
         /// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
-        public IEnumerable<Page> GeneratePagesInEmbeds(string input)
+        public IEnumerable<Page> GeneratePagesInEmbeds(string input, DiscordEmbed source = null)
         {
             if (string.IsNullOrEmpty(input))
                 throw new ArgumentException("Input string may not be null or empty", nameof(input));
+
+            source = source ?? new DiscordEmbed();
             
             var split = input.Split(2000);
             var page = 1;
@@ -196,7 +198,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
             {
                 yield return new Page
                 {
-                    Embed = new DiscordEmbed
+                    Embed = new DiscordEmbedBuilder(source)
                     {
                         Title = string.Format(Config.DefaultPageHeader, page),
                         Description = s
