@@ -1,5 +1,6 @@
 ﻿namespace HSNXT.DSharpPlus.InteractivityNext
 {
+    // TODO this never got off the planning board
     public enum StringSplittingLogic : byte
     {
         /// <summary>
