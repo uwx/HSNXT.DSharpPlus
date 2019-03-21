@@ -183,7 +183,13 @@ namespace HSNXT.DSharpPlus.InteractivityNext
         /// the Discord length limit, placed in embeds.
         /// </summary>
         /// <param name="input">The string to paginate</param>
-        /// <returns>An enumerable of pages</returns>
+        /// <param name="source">
+        /// An optional embed to use as the base for forming each page embed. By default, an empty embed is used.
+        /// Usually, if provided, the embed's title and description will be replaced by the page header and contents,
+        /// respectively, but which components get replaced is implementation-defined and may change in future
+        /// (breaking) updates.
+        /// </param>
+        /// <returns>An enumerable of pages, can be passed to <see cref="SendPaginatedMessage"/></returns>
         /// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
         public IEnumerable<Page> GeneratePagesInEmbeds(string input, DiscordEmbed source = null)
         {
@@ -213,7 +219,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
         /// the Discord length limit, <b>not</b> placed in embeds.
         /// </summary>
         /// <param name="input">The string to paginate</param>
-        /// <returns>An enumerable of pages</returns>
+        /// <returns>An enumerable of pages, can be passed to <see cref="SendPaginatedMessage"/></returns>
         /// <exception cref="ArgumentException">If <paramref name="input"/> is null or empty</exception>
         public IEnumerable<Page> GeneratePagesInStrings(string input)
         {
