@@ -454,6 +454,95 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                 await message.ModifyAsync(currentPage.Content, currentPage.Embed);
             }
         }
+
+        // TODO WIP
+        public abstract class BaseControlContext : IDisposable
+        {
+            public DiscordMessage Message { get; internal set; }
+
+            protected internal BaseControlContext()
+            {
+            }
+
+            public virtual void Dispose()
+            {
+            }
+        }
+        
+        // perform reactions initialization (called first time and whenever reactions are cleared)
+        public delegate Task DoControlReactFunc<in TCtx>(TCtx ctx)
+            where TCtx : BaseControlContext;
+        // single update of control instance
+        public delegate Task DoControlUpdateFunc<in TCtx>(DiscordEmoji emoji, TCtx ctx, CancellationTokenSource exitTrigger)
+            where TCtx : BaseControlContext;
+        // called once control is done (you can also use Dispose on your context but this is async and provides the last
+        // reaction)
+        public delegate Task DoControlCleanupFunc<in TCtx>(DiscordEmoji lastReaction, TCtx ctx)
+            where TCtx : BaseControlContext;
+        
+        [SuppressMessage("ReSharper", "AccessToDisposedClosure")]
+        public async Task ControlMessageAsync<TCtx>(
+            DiscordMessage msg, TCtx context, DoControlReactFunc<TCtx> reactFunc, DoControlUpdateFunc<TCtx> updateFunc,
+            DoControlCleanupFunc<TCtx> cleanupFunc, DiscordUser controller = null, CancellationToken? ct = null,
+            TimeSpan? timeout = null)
+            where TCtx : BaseControlContext
+        {
+                
+            if (msg == null)
+                throw new ArgumentNullException(nameof(msg));
+            if (controller == null)
+                controller = msg.Author;
+            
+            context.Message = msg;
+            await reactFunc(context);
+            
+            DiscordEmoji lastReaction = null;
+            
+            // wrap around existing cancellation token, and make a timer that can be reset that cancels our new token
+            // source
+            using (context)
+            using (var cts = ct.HasValue
+                ? CancellationTokenSource.CreateLinkedTokenSource(ct.Value)
+                : new CancellationTokenSource())
+            using (var timer = new Timer(_ => cts.Cancel()))
+            {
+                timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+                
+                await _reactionCollectionHandler.HandleCancellableVoidAsync(
+                    ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, timeout ?? Config.Timeout);
+
+                await cleanupFunc(lastReaction, context);
+
+                async Task ReactionAddHandler(MessageReactionAddEventArgs e)
+                {
+                    if (e.Message.Id != msg.Id || e.User.Id != controller.Id)
+                        return;
+
+                    timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+                    lastReaction = e.Emoji;
+                    await updateFunc(e.Emoji, context, cts);
+                }
+
+                async Task ReactionRemoveHandler(MessageReactionRemoveEventArgs e)
+                {
+                    if (e.Message.Id != msg.Id || e.User.Id != controller.Id)
+                        return;
+
+                    timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+                    lastReaction = e.Emoji;
+                    await updateFunc(e.Emoji, context, cts);
+                }
+
+                async Task ReactionClearHandler(MessageReactionsClearEventArgs e)
+                {
+                    if (e.Message.Id != msg.Id)
+                        return;
+
+                    timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
+                    await reactFunc(context);
+                }
+            }
+        }
         #endregion
     }
 }
