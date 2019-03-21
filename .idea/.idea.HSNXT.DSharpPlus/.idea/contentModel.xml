@@ -637,8 +637,9 @@
           </e>
           <e p="FinishBehaviour.cs" t="Include" />
           <e p="Pagination" t="Include">
+            <e p="BaseControlState.cs" t="Include" />
             <e p="Page.cs" t="Include" />
-            <e p="PaginatedMessage.cs" t="Include" />
+            <e p="PaginationState.cs" t="Include" />
           </e>
           <e p="PaginationEmojis.cs" t="Include" />
           <e p="ReactionCancellationAwaiterHolder.cs" t="Include" />
@@ -650,6 +651,7 @@
         <e p="InteractivityConfiguration.cs" t="Include" />
         <e p="InteractivityExtension.cs" t="Include" />
         <e p="InteractivityExtension.Message.cs" t="Include" />
+        <e p="InteractivityExtension.Pagination.cs" t="Include" />
         <e p="InteractivityExtension.Reaction.cs" t="Include" />
         <e p="LICENSE.ConcurrentHashSet.txt" t="Include" />
         <e p="obj" t="ExcludeRecursive">
