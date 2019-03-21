@@ -76,7 +76,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                     case MessageReactionsClearEventArgs clearArgs:
                         return clearHandler(clearArgs);
                     default:
-                        return Task.FromResult<InteractivityContext>(null);
+                        return Task.CompletedTask;
                 }
             }), ct, timeout);
         }
@@ -100,7 +100,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                     case MessageReactionsClearEventArgs clearArgs:
                         return clearHandler(collection, clearArgs);
                     default:
-                        return Task.FromResult<InteractivityContext>(null);
+                        return Task.CompletedTask;
                 }
             }), ct, timeout);
 
