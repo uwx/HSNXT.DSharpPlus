@@ -240,7 +240,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                 timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
                 
                 await _reactionCollectionHandler.HandleCancellableVoidAsync(
-                    ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, timeout ?? Config.Timeout);
+                    ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, Timeout.InfiniteTimeSpan);
 
                 switch (timeoutBehaviour)
                 {
@@ -509,7 +509,7 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                 timer.Change(timeout ?? Config.Timeout, Timeout.InfiniteTimeSpan);
                 
                 await _reactionCollectionHandler.HandleCancellableVoidAsync(
-                    ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, timeout ?? Config.Timeout);
+                    ReactionAddHandler, ReactionRemoveHandler, ReactionClearHandler, cts.Token, Timeout.InfiniteTimeSpan);
 
                 await cleanupFunc(lastReaction, context);
 
