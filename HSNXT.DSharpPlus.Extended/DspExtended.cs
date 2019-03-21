@@ -93,7 +93,7 @@ namespace HSNXT.DSharpPlus.Extended
                 reason = reason ?? $"The thread at {thread.Name ?? "<no name>"} with ID {thread.ManagedThreadId}";
                 
                 Log[LogSource.TimeoutExceeded]($"{reason} has taken at least {time} to complete its current operation. This may be a deadlock");
-            }, log: Log[LogSource.WatchdogFine]);
+            }, log: Log[LogSource.WatchdogDebug]);
         }
 
         /// <summary>
@@ -244,7 +244,9 @@ namespace HSNXT.DSharpPlus.Extended
 
         public void Dispose()
         {
+            Log[LogSource.ExtensionDebug]("Disposing");
             _watchdog?.Dispose();
+            Log[LogSource.ExtensionDebug]("Disposed");
         }
     }
 
@@ -341,7 +343,11 @@ namespace HSNXT.DSharpPlus.Extended
         /// Used for fine debug logging for the <see cref="Watchdog"/>. This usually does not need to be enabled unless
         /// you are testing the watchdog.
         /// </summary>
-        [Severity(LogLevel.Debug)] WatchdogFine = 1 << 5,
+        [Severity(LogLevel.Debug)] WatchdogDebug = 1 << 5,
+        /// <summary>
+        /// Used for fine debug logging for the extension. Usually only needed for testing the extension itself.
+        /// </summary>
+        [Severity(LogLevel.Debug)] ExtensionDebug = 1 << 5,
     }
 
     /// <summary>
