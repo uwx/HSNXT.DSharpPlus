@@ -29,7 +29,8 @@ namespace HSNXT.DSharpPlus.InteractivityNext
 
         protected internal override void Setup(DiscordClient client)
         {
-            Config.SetDefaults(client);
+            Client = client;
+            Config.SetDefaults(Client);
             
             _messageCreatedVerifiers = new AwaiterHolder<MessageVerifier, MessageCreateEventArgs, MessageContext>(
                 ev => Client.MessageCreated += ev.Trigger,
