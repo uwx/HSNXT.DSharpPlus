@@ -417,6 +417,8 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                 throw new ArgumentNullException(nameof(emoji));
             if (cts == null)
                 throw new ArgumentNullException(nameof(cts));
+            if (emojis == null)
+                throw new ArgumentNullException(nameof(emojis));
 
             var lastIndex = messagePage.CurrentIndex;
             
@@ -487,9 +489,16 @@ namespace HSNXT.DSharpPlus.InteractivityNext
             TimeSpan? timeout = null)
             where TCtx : BaseControlContext
         {
-                
             if (msg == null)
                 throw new ArgumentNullException(nameof(msg));
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+            if (reactFunc == null)
+                throw new ArgumentNullException(nameof(reactFunc));
+            if (updateFunc == null)
+                throw new ArgumentNullException(nameof(updateFunc));
+            if (cleanupFunc == null)
+                throw new ArgumentNullException(nameof(cleanupFunc));
             if (controller == null)
                 controller = msg.Author;
             
