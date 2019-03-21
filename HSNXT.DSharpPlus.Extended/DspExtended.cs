@@ -347,7 +347,7 @@ namespace HSNXT.DSharpPlus.Extended
         /// <summary>
         /// Used for fine debug logging for the extension. Usually only needed for testing the extension itself.
         /// </summary>
-        [Severity(LogLevel.Debug)] ExtensionDebug = 1 << 5,
+        [Severity(LogLevel.Debug)] ExtensionDebug = 1 << 6,
     }
 
     /// <summary>
