@@ -7,7 +7,6 @@
     <e p="C:\Users\Rafael\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Rafael\.Rider2018.3\system\resharper-host\Local\Transient\ReSharperHost\v183\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus" t="IncludeRecursive">
-      <e p="AssemblyInfo.cs" t="Include" />
       <e p="AsyncEvent.cs" t="Include" />
       <e p="AsyncManualResetEvent.cs" t="Include" />
       <e p="BaseDiscordClient.cs" t="Include" />
@@ -140,7 +139,6 @@
           <e p="IOAuth2Payload.cs" t="Include" />
           <e p="ReadyPayload.cs" t="Include" />
           <e p="RestChannelPayloads.cs" t="Include" />
-          <e p="RestEmojiPayloads.cs" t="Include" />
           <e p="RestGuildPayloads.cs" t="Include" />
           <e p="RestUserPayloads.cs" t="Include" />
           <e p="RestWebhookPayloads.cs" t="Include" />
