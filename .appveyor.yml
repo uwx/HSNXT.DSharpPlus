@@ -41,8 +41,8 @@ artifacts:
 
 # Automatically register private account and/or project AppVeyor NuGet feeds.
 nuget:
-  account_feed: true
-  project_feed: true
+  account_feed: false # these break really really often
+  project_feed: false # these break really really often
   disable_publish_on_pr: true     # disable publishing of .nupkg artifacts to account/project feeds for pull request builds
 
 deploy:
@@ -61,7 +61,7 @@ deploy:
       ```
     auth_token:
       secure: qNMRA5boyCslJ9JgiqjpLdHd0NvhQVWcjJx3ZMrcgrDz6DNFJnDsV7w9IZuhqwYZ # your encrypted token from GitHub
-    artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+    artifact: /.*\.(nupkg|tar\.xz)/  # upload all NuGet packages and docs to release assets
     draft: false
     prerelease: true
     on:
