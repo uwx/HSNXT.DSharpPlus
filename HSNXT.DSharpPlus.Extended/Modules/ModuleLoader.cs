@@ -80,7 +80,7 @@ namespace HSNXT.DSharpPlus.Extended
             if (client.GetExtension<TModule>() != null)
                 throw new InvalidOperationException($"{typeof(TModule)} is already enabled for this client.");
 
-            var extension = Activator.CreateInstance<TModule>();
+            var extension = (TModule)Activator.CreateInstance(typeof(TModule), client);
             client.AddExtension(extension);
             return extension;
         }
@@ -118,7 +118,7 @@ namespace HSNXT.DSharpPlus.Extended
             if (client.GetExtension<TModule>() != null)
                 throw new InvalidOperationException($"{typeof(TModule)} is already enabled for this client.");
 
-            var extension = (TModule)Activator.CreateInstance(typeof(TModule), config);
+            var extension = (TModule)Activator.CreateInstance(typeof(TModule), client, config);
             client.AddExtension(extension);
             return extension;
         }
