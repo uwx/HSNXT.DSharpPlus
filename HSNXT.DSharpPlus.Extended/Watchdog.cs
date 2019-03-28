@@ -168,7 +168,6 @@ namespace HSNXT.DSharpPlus.Extended
             _disposed = true;
             
             _watchdogThread.Interrupt();
-            _watchdogThread.Abort();
         }
         
         private static long UnixTime() => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
