@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using DSharpPlus;
 
@@ -80,7 +81,12 @@ namespace HSNXT.DSharpPlus.Extended
             if (client.GetExtension<TModule>() != null)
                 throw new InvalidOperationException($"{typeof(TModule)} is already enabled for this client.");
 
-            var extension = (TModule)Activator.CreateInstance(typeof(TModule), client);
+            var extension = (TModule) typeof(TModule).GetConstructor(
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                new[] { typeof(DiscordClient) },
+                null
+            ).Invoke(new object[] { client });
             client.AddExtension(extension);
             return extension;
         }
@@ -118,7 +124,12 @@ namespace HSNXT.DSharpPlus.Extended
             if (client.GetExtension<TModule>() != null)
                 throw new InvalidOperationException($"{typeof(TModule)} is already enabled for this client.");
 
-            var extension = (TModule)Activator.CreateInstance(typeof(TModule), client, config);
+            var extension = (TModule) typeof(TModule).GetConstructor(
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                new[] { typeof(DiscordClient), typeof(TConfiguration) },
+                null
+            ).Invoke(new object[] { client, config });
             client.AddExtension(extension);
             return extension;
         }
