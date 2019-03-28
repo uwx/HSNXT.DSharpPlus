@@ -38,7 +38,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 
             return ReflectionUtils.GetClient(@this).Guilds[
                 ReflectionUtils.GetGuildId(@this)
-            ].Members.Where(e => e.Roles.Any(IsSame));
+            ].Members.Values.Where(e => e.Roles.Any(IsSame));
         }
     }
 }

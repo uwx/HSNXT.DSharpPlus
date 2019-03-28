@@ -33,7 +33,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
             var compare = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
             
             return client.Guilds.Values
-                .SelectMany(e => e.Members)
+                .SelectMany(e => e.Members.Values)
                 .FirstOrDefault(member => name.Equals(member.Username, compare)
                                           && discriminator.Equals(member.Discriminator, compare));
         }
@@ -61,7 +61,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
             
             return client.ShardClients.Values
                 .SelectMany(e => e.Guilds.Values)
-                .SelectMany(e => e.Members)
+                .SelectMany(e => e.Members.Values)
                 .FirstOrDefault(member => name.Equals(member.Username, compare)
                                           && discriminator.Equals(member.Discriminator, compare));
         }
@@ -88,7 +88,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
             ulong? idCached = default;
             
             return client.Guilds.Values
-                .SelectMany(e => e.Members)
+                .SelectMany(e => e.Members.Values)
                 .Where(member =>
                 {
                     if (idCached.HasValue)
@@ -127,7 +127,7 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
             
             return client.ShardClients.Values
                 .SelectMany(e => e.Guilds.Values)
-                .SelectMany(e => e.Members)
+                .SelectMany(e => e.Members.Values)
                 .Where(member =>
                 {
                     if (idCached.HasValue)
