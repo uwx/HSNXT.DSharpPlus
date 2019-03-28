@@ -31,7 +31,7 @@ on_success:
  - cd C:\
  - git clone https://github.com/uwx/DSharpPlus.git --branch=master
  - cd DSharpPlus
- - git remote add -f naam https://github.com/NaamloosDT/DSharpPlus.git
+ - git remote add -f naam https://github.com/DSharpPlus/DSharpPlus.git
  - git merge naam/master
  - git push origin master
 
