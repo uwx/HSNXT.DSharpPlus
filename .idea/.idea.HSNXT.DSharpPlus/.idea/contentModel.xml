@@ -521,6 +521,8 @@
           <e p="ChecksFailedException.cs" t="Include" />
           <e p="CommandNotFoundException.cs" t="Include" />
           <e p="DuplicateCommandException.cs" t="Include" />
+          <e p="DuplicateOverloadException.cs" t="Include" />
+          <e p="InvalidOverloadException.cs" t="Include" />
         </e>
         <e p="ExtensionMethods.cs" t="Include" />
         <e p="HSNXT.DSharpPlus.CommandsNext.Extended.csproj" t="IncludeRecursive" />
