@@ -140,7 +140,6 @@
           <e p="IOAuth2Payload.cs" t="Include" />
           <e p="ReadyPayload.cs" t="Include" />
           <e p="RestChannelPayloads.cs" t="Include" />
-          <e p="RestEmojiPayloads.cs" t="Include" />
           <e p="RestGuildPayloads.cs" t="Include" />
           <e p="RestUserPayloads.cs" t="Include" />
           <e p="RestWebhookPayloads.cs" t="Include" />
@@ -209,10 +208,10 @@
       <e p="Properties" t="Include">
         <e p="AssemblyProperties.cs" t="Include" />
       </e>
-      <e p="ReadOnlyHashSet.cs" t="Include" />
+      <e p="ReadOnlyConcurrentDictionary.cs" t="Include" />
+      <e p="ReadOnlySet.cs" t="Include" />
       <e p="RingBuffer.cs" t="Include" />
       <e p="Utilities.cs" t="Include" />
-      <e p="Utilities.ReadOnly.cs" t="Include" />
     </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.CommandsNext" t="IncludeRecursive">
       <e p="Attributes" t="Include">

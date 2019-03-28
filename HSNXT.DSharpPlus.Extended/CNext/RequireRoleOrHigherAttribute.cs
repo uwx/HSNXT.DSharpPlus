@@ -28,7 +28,7 @@ namespace HSNXT.DSharpPlus.Extended.CNext
             if (ctx.Guild == null || ctx.Member == null)
                 return Task.FromResult(false);
 
-            var targetPosition = ctx.Guild.Roles.FirstOrDefault(e => e.Name == RoleName)?.Position;
+            var targetPosition = ctx.Guild.Roles.Values.FirstOrDefault(e => e.Name == RoleName)?.Position;
             if (targetPosition == null)
                 return Task.FromResult(false);
             
