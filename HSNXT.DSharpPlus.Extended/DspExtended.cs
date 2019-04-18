@@ -141,7 +141,7 @@ namespace HSNXT.DSharpPlus.Extended
         {
             if (evname.StartsWith("Invoke")) evname = evname.Substring("Invoke".Length);
 
-            using (_watchdog.AcquireHandle(this, evname + " event error handler"))
+            using (_watchdog.AcquireHandle(this, $"{evname} event error handler"))
             {
                 Log[LogSource.EventError]($"An {ex.GetType()} occured in {evname}.");
                 try
