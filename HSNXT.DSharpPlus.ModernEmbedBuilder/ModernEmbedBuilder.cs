@@ -77,9 +77,9 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         public string ImageUrl
         {
             get => _imageUri?.ToString();
-            set => _imageUri = string.IsNullOrEmpty(value) ? null : new Uri(value);
+            set => _imageUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
         }
-        private Uri _imageUri;
+        private MebUri? _imageUri;
 
         /// <summary>
         /// Gets or sets the thumbnail's image url.
@@ -87,9 +87,9 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         public string ThumbnailUrl
         {
             get => _thumbnailUri?.ToString();
-            set => _thumbnailUri = string.IsNullOrEmpty(value) ? null : new Uri(value);
+            set => _thumbnailUri = string.IsNullOrEmpty(value) ? new MebUri?() : new MebUri(value);
         }
-        private Uri _thumbnailUri;
+        private MebUri? _thumbnailUri;
 
         /// <summary>
         /// Gets or sets the footer.
