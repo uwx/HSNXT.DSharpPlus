@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DSharpPlus.CommandsNext
 {
@@ -13,7 +14,11 @@ namespace DSharpPlus.CommandsNext
         /// Gets this argument's type.
         /// </summary>
         public Type Type { get; internal set; }
-        internal bool _isArray = false;
+
+        /// <summary>
+        /// Gets or sets whether this argument is an array argument.
+        /// </summary>
+        internal bool IsArray { get; set; } = false;
 
         /// <summary>
         /// Gets whether this argument is optional.
@@ -34,5 +39,10 @@ namespace DSharpPlus.CommandsNext
         /// Gets this argument's description.
         /// </summary>
         public string Description { get; internal set; }
+
+        /// <summary>
+        /// Gets the custom attributes attached to this argument.
+        /// </summary>
+        public IReadOnlyCollection<Attribute> CustomAttributes { get; internal set; }
     }
 }

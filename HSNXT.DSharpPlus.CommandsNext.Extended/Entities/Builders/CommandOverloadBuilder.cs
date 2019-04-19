@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.CommandsNext.Exceptions;
 
 namespace DSharpPlus.CommandsNext.Builders
 {
@@ -34,34 +35,34 @@ namespace DSharpPlus.CommandsNext.Builders
         /// </summary>
         public Delegate Callable { get; set; }
 
+        private object InvocationTarget { get; }
+
         /// <summary>
         /// Creates a new command overload builder from specified method.
         /// </summary>
         /// <param name="method">Method to use for this overload.</param>
         public CommandOverloadBuilder(MethodInfo method)
-        {
+            : this(method, null)
+        { }
+
+        /// <summary>
+        /// Creates a new command overload builder from specified delegate.
+        /// </summary>
+        /// <param name="method">Delegate to use for this overload.</param>
+        public CommandOverloadBuilder(Delegate method)
+            : this(method.GetMethodInfo(), method.Target)
+        { }
+
+        private CommandOverloadBuilder(MethodInfo method, object target)
+        { 
             if (!method.IsCommandCandidate(out var prms))
                 throw new ArgumentException("Specified method is not suitable for a command.", nameof(method));
 
-            //// create a method which will instantiate the module
-            //var tcm = typeof(ICommandModule);
-            //var tcmi = tcm.GetTypeInfo();
-            //var tmi = tcmi.GetDeclaredMethod("GetInstance");
-
-            //var iep = Expression.Parameter(typeof(ICommandModule), "module");
-            //var ies = Expression.Parameter(typeof(IServiceProvider), "services");
-            //var iec = Expression.Call(iep, tmi, ies);
-            //var iev = Expression.Convert(iec, method.DeclaringType);
-
-            //// create the argument array
-            //var ea = new ParameterExpression[prms.Length + 2];
-            //ea[0] = iep;
-            //ea[1] = ies;
-            //ea[2] = Expression.Parameter(typeof(CommandContext), "ctx");
+            this.InvocationTarget = target;
 
             // create the argument array
             var ea = new ParameterExpression[prms.Length + 1];
-            var iep = Expression.Parameter(method.DeclaringType, "instance");
+            var iep = Expression.Parameter(target?.GetType() ?? method.DeclaringType, "instance");
             ea[0] = iep;
             ea[1] = Expression.Parameter(typeof(CommandContext), "ctx");
 
@@ -83,7 +84,9 @@ namespace DSharpPlus.CommandsNext.Builders
                     DefaultValue = arg.IsOptional ? arg.DefaultValue : null
                 };
 
+                var attrsCustom = new List<Attribute>();
                 var attrs = arg.GetCustomAttributes();
+                var isParams = false;
                 foreach (var xa in attrs)
                 {
                     switch (xa)
@@ -99,14 +102,23 @@ namespace DSharpPlus.CommandsNext.Builders
                         case ParamArrayAttribute p:
                             ca.IsCatchAll = true;
                             ca.Type = arg.ParameterType.GetElementType();
-                            ca._isArray = true;
+                            ca.IsArray = true;
+                            isParams = true;
+                            break;
+
+                        default:
+                            attrsCustom.Add(xa);
                             break;
                     }
                 }
-
+                
                 if (i > 2 && !ca.IsOptional && !ca.IsCatchAll && args[i - 3].IsOptional)
-                    throw new InvalidOperationException("Non-optional argument cannot appear after an optional one");
+                    throw new InvalidOverloadException("Non-optional argument cannot appear after an optional one", method, arg);
 
+                if (arg.ParameterType.IsArray && !isParams)
+                    throw new InvalidOverloadException("Cannot use array arguments without params modifier.", method, arg);
+
+                ca.CustomAttributes = new ReadOnlyCollection<Attribute>(attrsCustom);
                 args.Add(ca);
                 ea[i++] = Expression.Parameter(arg.ParameterType, arg.Name);
             }
@@ -120,13 +132,26 @@ namespace DSharpPlus.CommandsNext.Builders
             this.Callable = el.Compile();
         }
 
+        /// <summary>
+        /// Sets the priority for this command overload.
+        /// </summary>
+        /// <param name="priority">Priority for this command overload.</param>
+        /// <returns>This builder.</returns>
+        public CommandOverloadBuilder WithPriority(int priority)
+        {
+            this.Priority = priority;
+
+            return this;
+        }
+
         internal CommandOverload Build()
         {
             var ovl = new CommandOverload()
             {
                 Arguments = this.Arguments,
                 Priority = this.Priority,
-                Callable = this.Callable
+                Callable = this.Callable,
+                InvocationTarget = this.InvocationTarget
             };
 
             return ovl;

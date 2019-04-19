@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Entities;
+using DSharpPlus.CommandsNext.Exceptions;
 
 namespace DSharpPlus.CommandsNext.Builders
 {
@@ -56,6 +57,13 @@ namespace DSharpPlus.CommandsNext.Builders
         /// </summary>
         public IReadOnlyList<Attribute> CustomAttributes { get; }
         private List<Attribute> CustomAttributeList { get; }
+
+        /// <summary>
+        /// Creates a new module-less command builder.
+        /// </summary>
+        public CommandBuilder()
+            : this(null)
+        { }
 
         /// <summary>
         /// Creates a new command builder.
@@ -198,7 +206,7 @@ namespace DSharpPlus.CommandsNext.Builders
         public CommandBuilder WithOverload(CommandOverloadBuilder overload)
         {
             if (this.OverloadArgumentSets.Contains(overload.ArgumentSet))
-                throw new ArgumentException("An overload with specified argument sets already exists.");
+                throw new DuplicateOverloadException(this.Name, overload.Arguments.Select(x => x.Type).ToList(), overload.ArgumentSet);
 
             this.OverloadArgumentSets.Add(overload.ArgumentSet);
             this.OverloadList.Add(overload);
