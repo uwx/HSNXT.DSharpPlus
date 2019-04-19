@@ -6,8 +6,8 @@ var class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client =
     [ "SendMessage", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a51861eb940e7905a095c125366622410", null ],
     [ "OnConnectedAsync", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a0b65dd0e64160484071e0d8ffca946f0", null ],
     [ "OnDisconnectedAsync", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#aabe4f0024389beceb12e05409d7da00f", null ],
-    [ "OnConnect", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a964d5d442ab740a0198c61b2a994d10e", null ],
-    [ "OnDisconnect", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a363474e6e8362027ea6f7c9572e840b6", null ],
-    [ "OnMessage", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#af23eec7c5d016e56891b68da547817aa", null ],
-    [ "OnError", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a1be5e0e9d3147c19bb64e32f23bca08c", null ]
+    [ "Connected", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#ac653a7c2fb43920fb00ded28bf84a8c2", null ],
+    [ "Disconnected", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#a1f17f88e52cce1d549e378dfd7ad5e9a", null ],
+    [ "MessageReceived", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#add9a191049972b1813d39d8f2ca16b2a", null ],
+    [ "Errored", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html#ab147cc648fbf31f7120b9235b5d0dc84", null ]
 ];

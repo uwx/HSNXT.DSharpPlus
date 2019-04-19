@@ -1,6 +1,7 @@
 var namespace_d_sharp_plus_1_1_lavalink_1_1_entities =
 [
     [ "LavalinkDestroy", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy" ],
+    [ "LavalinkEqualizer", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_equalizer.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_equalizer" ],
     [ "LavalinkPause", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause" ],
     [ "LavalinkPayload", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload" ],
     [ "LavalinkPlay", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play" ],

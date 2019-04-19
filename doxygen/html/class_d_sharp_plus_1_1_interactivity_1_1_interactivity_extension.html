@@ -101,56 +101,153 @@ Inheritance diagram for DSharpPlus.Interactivity.InteractivityExtension:</div>
   <img src="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.png" usemap="#DSharpPlus.Interactivity.InteractivityExtension_map" alt=""/>
   <map id="DSharpPlus.Interactivity.InteractivityExtension_map" name="DSharpPlus.Interactivity.InteractivityExtension_map">
 <area href="class_d_sharp_plus_1_1_base_extension.html" title="Represents base for all DSharpPlus extensions. To implement your own extension, extend this class,..." alt="DSharpPlus.BaseExtension" shape="rect" coords="0,0,271,24"/>
+<area href="class_d_sharp_plus_1_1_base_extension.html" title="Represents base for all DSharpPlus extensions. To implement your own extension, extend this class,..." alt="DSharpPlus.BaseExtension" shape="rect" coords="281,0,552,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a12076eb7280cfe375a1ef91addb05a82"><td class="memItemLeft" align="right" valign="top"><a id="a12076eb7280cfe375a1ef91addb05a82"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForMessageAsync</b> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:a12076eb7280cfe375a1ef91addb05a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5b95a40df1710db4e15aa83ee3f0cb0"><td class="memItemLeft" align="right" valign="top"><a id="ac5b95a40df1710db4e15aa83ee3f0cb0"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForReactionAsync</b> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:ac5b95a40df1710db4e15aa83ee3f0cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad34f85c10ae554a43466b4d3a6351900"><td class="memItemLeft" align="right" valign="top"><a id="ad34f85c10ae554a43466b4d3a6351900"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForReactionAsync</b> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:ad34f85c10ae554a43466b4d3a6351900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5bba9334e0337988fce0183f332430"><td class="memItemLeft" align="right" valign="top"><a id="acd5bba9334e0337988fce0183f332430"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForMessageReactionAsync</b> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user=null, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:acd5bba9334e0337988fce0183f332430"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac828006972021f9919b3142bc9a3cb74"><td class="memItemLeft" align="right" valign="top"><a id="ac828006972021f9919b3142bc9a3cb74"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForMessageReactionAsync</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user=null, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:ac828006972021f9919b3142bc9a3cb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad58ba81e4d19bfd1efc028425ef9272b"><td class="memItemLeft" align="right" valign="top"><a id="ad58ba81e4d19bfd1efc028425ef9272b"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CreatePollAsync</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> &gt; emojis, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:ad58ba81e4d19bfd1efc028425ef9272b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa59978fa20f638a71feea42bd0ba4014"><td class="memItemLeft" align="right" valign="top"><a id="aa59978fa20f638a71feea42bd0ba4014"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CollectReactionsAsync</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:aa59978fa20f638a71feea42bd0ba4014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01e0d2d808ed8bbe886dcdee6f62592c"><td class="memItemLeft" align="right" valign="top"><a id="a01e0d2d808ed8bbe886dcdee6f62592c"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForTypingUserAsync</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:a01e0d2d808ed8bbe886dcdee6f62592c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bacde4694f5d34f32c0e9ec900dcf1b"><td class="memItemLeft" align="right" valign="top"><a id="a9bacde4694f5d34f32c0e9ec900dcf1b"></a>
-async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForTypingChannelAsync</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, TimeSpan? timeoutoverride=null)</td></tr>
-<tr class="separator:a9bacde4694f5d34f32c0e9ec900dcf1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55e54d4039e6943b8b24612b89a682eb"><td class="memItemLeft" align="right" valign="top"><a id="a55e54d4039e6943b8b24612b89a682eb"></a>
-async Task&#160;</td><td class="memItemRight" valign="bottom"><b>SendPaginatedMessage</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt; message_pages, TimeSpan? timeoutoverride=null, TimeoutBehaviour? timeoutbehaviouroverride=null, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis=null)</td></tr>
-<tr class="separator:a55e54d4039e6943b8b24612b89a682eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae8593b8499d68273b4802573ac49665"><td class="memItemLeft" align="right" valign="top"><a id="aae8593b8499d68273b4802573ac49665"></a>
-IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GeneratePagesInEmbeds</b> (string input)</td></tr>
+<tr class="memitem:a932b7f8586fa50e995cf8ea8dc77a6c4"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a932b7f8586fa50e995cf8ea8dc77a6c4">CreatePollAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> &gt; emojiSource=null, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a932b7f8586fa50e995cf8ea8dc77a6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a reaction-based poll. Resolves to a <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html" title="Reactions that were collected">ReactionCollectionContext</a> containing the relevant emote reactions.  <a href="#a932b7f8586fa50e995cf8ea8dc77a6c4">More...</a><br /></td></tr>
+<tr class="separator:a932b7f8586fa50e995cf8ea8dc77a6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58116a6bb64a8f600bd7bb48cdf608e"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ac58116a6bb64a8f600bd7bb48cdf608e">CollectReactionsAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:ac58116a6bb64a8f600bd7bb48cdf608e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all new reactions to a message until a timer expires or the task is canceled.  <a href="#ac58116a6bb64a8f600bd7bb48cdf608e">More...</a><br /></td></tr>
+<tr class="separator:ac58116a6bb64a8f600bd7bb48cdf608e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3d229531a18b94fe1ff63ebec37bb5"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#add3d229531a18b94fe1ff63ebec37bb5">SendPaginatedMessage</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt; messagePages, CancellationToken? ct=null, TimeSpan? timeout=null, <a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>? timeoutBehaviourOverride=null, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis=null)</td></tr>
+<tr class="memdesc:add3d229531a18b94fe1ff63ebec37bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message with a "page", with reactions to move between pages. Task resolves when <em>ct</em>  is cancelled, <em>timeout</em>  is hit, or <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">PaginationEmojis.Stop</a> is clicked.  <a href="#add3d229531a18b94fe1ff63ebec37bb5">More...</a><br /></td></tr>
+<tr class="separator:add3d229531a18b94fe1ff63ebec37bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8593b8499d68273b4802573ac49665"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#aae8593b8499d68273b4802573ac49665">GeneratePagesInEmbeds</a> (string input)</td></tr>
+<tr class="memdesc:aae8593b8499d68273b4802573ac49665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string by length into pages containing embeds.  <a href="#aae8593b8499d68273b4802573ac49665">More...</a><br /></td></tr>
 <tr class="separator:aae8593b8499d68273b4802573ac49665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaaa94d69eeec5070a92c153803e7c93"><td class="memItemLeft" align="right" valign="top"><a id="abaaa94d69eeec5070a92c153803e7c93"></a>
-IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GeneratePagesInStrings</b> (string input)</td></tr>
+<tr class="memitem:abaaa94d69eeec5070a92c153803e7c93"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#abaaa94d69eeec5070a92c153803e7c93">GeneratePagesInStrings</a> (string input)</td></tr>
+<tr class="memdesc:abaaa94d69eeec5070a92c153803e7c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string by length into pages containing text messages.  <a href="#abaaa94d69eeec5070a92c153803e7c93">More...</a><br /></td></tr>
 <tr class="separator:abaaa94d69eeec5070a92c153803e7c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab967027ac45e69fa2b50e73eb3902efa"><td class="memItemLeft" align="right" valign="top"><a id="ab967027ac45e69fa2b50e73eb3902efa"></a>
-async Task&#160;</td><td class="memItemRight" valign="bottom"><b>GeneratePaginationReactions</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis)</td></tr>
+<tr class="memitem:a520f957501481498166174a2c8447312"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a520f957501481498166174a2c8447312">SendSplitMessage</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, string input, CancellationToken? ct=null, TimeSpan? timeout=null, <a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>? timeoutBehaviourOverride=null, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis=null)</td></tr>
+<tr class="memdesc:a520f957501481498166174a2c8447312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string message automatically split into pages by length using pagination. Task resolves when <em>ct</em>  is cancelled, <em>timeout</em>  is hit, or <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">PaginationEmojis.Stop</a> is clicked.  <a href="#a520f957501481498166174a2c8447312">More...</a><br /></td></tr>
+<tr class="separator:a520f957501481498166174a2c8447312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab967027ac45e69fa2b50e73eb3902efa"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ab967027ac45e69fa2b50e73eb3902efa">GeneratePaginationReactions</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis)</td></tr>
+<tr class="memdesc:ab967027ac45e69fa2b50e73eb3902efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends pagination emojis to a message.  <a href="#ab967027ac45e69fa2b50e73eb3902efa">More...</a><br /></td></tr>
 <tr class="separator:ab967027ac45e69fa2b50e73eb3902efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8faa2ea482bf0e31fdfcdd6843c8b6f8"><td class="memItemLeft" align="right" valign="top"><a id="a8faa2ea482bf0e31fdfcdd6843c8b6f8"></a>
-async Task&#160;</td><td class="memItemRight" valign="bottom"><b>DoPagination</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_paginated_message.html">PaginatedMessage</a> paginatedmessage, CancellationTokenSource canceltoken, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis)</td></tr>
+<tr class="memitem:a64f3e3b824d504235f6f518f11427bf6"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a64f3e3b824d504235f6f518f11427bf6">WaitForMessageAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a64f3e3b824d504235f6f518f11427bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a64f3e3b824d504235f6f518f11427bf6">More...</a><br /></td></tr>
+<tr class="separator:a64f3e3b824d504235f6f518f11427bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91054760e81d83570c41bb5a0c13f069"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a91054760e81d83570c41bb5a0c13f069">WaitForMessageAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a91054760e81d83570c41bb5a0c13f069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a91054760e81d83570c41bb5a0c13f069">More...</a><br /></td></tr>
+<tr class="separator:a91054760e81d83570c41bb5a0c13f069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa747ccefe67da49d6813c983c698691"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#afa747ccefe67da49d6813c983c698691">WaitForMessageAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:afa747ccefe67da49d6813c983c698691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#afa747ccefe67da49d6813c983c698691">More...</a><br /></td></tr>
+<tr class="separator:afa747ccefe67da49d6813c983c698691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a86a35d53bb576342082f5bd4b52aaf"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a6a86a35d53bb576342082f5bd4b52aaf">WaitForMessageAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a6a86a35d53bb576342082f5bd4b52aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a6a86a35d53bb576342082f5bd4b52aaf">More...</a><br /></td></tr>
+<tr class="separator:a6a86a35d53bb576342082f5bd4b52aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24b8693aff7719dcf2311980fbda8239"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a24b8693aff7719dcf2311980fbda8239">WaitForMessageAsync</a> (TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a24b8693aff7719dcf2311980fbda8239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing the first new message the client receives, or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a24b8693aff7719dcf2311980fbda8239">More...</a><br /></td></tr>
+<tr class="separator:a24b8693aff7719dcf2311980fbda8239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e4a2c06833def51e6e50c8ce4b009b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a98e4a2c06833def51e6e50c8ce4b009b">WaitForMessageAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a98e4a2c06833def51e6e50c8ce4b009b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a98e4a2c06833def51e6e50c8ce4b009b">More...</a><br /></td></tr>
+<tr class="separator:a98e4a2c06833def51e6e50c8ce4b009b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4653853b5c53539ea931fe92a21ed198"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a4653853b5c53539ea931fe92a21ed198">WaitForMessageAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a4653853b5c53539ea931fe92a21ed198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a4653853b5c53539ea931fe92a21ed198">More...</a><br /></td></tr>
+<tr class="separator:a4653853b5c53539ea931fe92a21ed198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae315999e813c67ba7f7c5f104dca0df4"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ae315999e813c67ba7f7c5f104dca0df4">WaitForMessageAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:ae315999e813c67ba7f7c5f104dca0df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a message context containing a message sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#ae315999e813c67ba7f7c5f104dca0df4">More...</a><br /></td></tr>
+<tr class="separator:ae315999e813c67ba7f7c5f104dca0df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd80e390e56298c69d7ec14c776946c"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a7dd80e390e56298c69d7ec14c776946c">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a7dd80e390e56298c69d7ec14c776946c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a7dd80e390e56298c69d7ec14c776946c">More...</a><br /></td></tr>
+<tr class="separator:a7dd80e390e56298c69d7ec14c776946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8eb0a946f73e71550a0f44e63adcdd"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a3d8eb0a946f73e71550a0f44e63adcdd">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a3d8eb0a946f73e71550a0f44e63adcdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a3d8eb0a946f73e71550a0f44e63adcdd">More...</a><br /></td></tr>
+<tr class="separator:a3d8eb0a946f73e71550a0f44e63adcdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf08b7143569ec01951ac0f180021510"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#abf08b7143569ec01951ac0f180021510">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:abf08b7143569ec01951ac0f180021510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#abf08b7143569ec01951ac0f180021510">More...</a><br /></td></tr>
+<tr class="separator:abf08b7143569ec01951ac0f180021510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1401d0222a402c763649e9ab36889e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a4b1401d0222a402c763649e9ab36889e">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a4b1401d0222a402c763649e9ab36889e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a4b1401d0222a402c763649e9ab36889e">More...</a><br /></td></tr>
+<tr class="separator:a4b1401d0222a402c763649e9ab36889e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c38f17c6dc3eb2be69c1f1e3fad6a75"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a1c38f17c6dc3eb2be69c1f1e3fad6a75">WaitForReactionAsync</a> (TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a1c38f17c6dc3eb2be69c1f1e3fad6a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing the first new reaction the client receives, or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a1c38f17c6dc3eb2be69c1f1e3fad6a75">More...</a><br /></td></tr>
+<tr class="separator:a1c38f17c6dc3eb2be69c1f1e3fad6a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e87f7db0c0c1c1e582f14a192620fae"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a1e87f7db0c0c1c1e582f14a192620fae">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a1e87f7db0c0c1c1e582f14a192620fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a1e87f7db0c0c1c1e582f14a192620fae">More...</a><br /></td></tr>
+<tr class="separator:a1e87f7db0c0c1c1e582f14a192620fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a88188e6db4db20e397c81e2bd26c4e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a1a88188e6db4db20e397c81e2bd26c4e">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a1a88188e6db4db20e397c81e2bd26c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a1a88188e6db4db20e397c81e2bd26c4e">More...</a><br /></td></tr>
+<tr class="separator:a1a88188e6db4db20e397c81e2bd26c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d95b2c5dccf36020ef5cd5e00496a96"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a1d95b2c5dccf36020ef5cd5e00496a96">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a1d95b2c5dccf36020ef5cd5e00496a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a1d95b2c5dccf36020ef5cd5e00496a96">More...</a><br /></td></tr>
+<tr class="separator:a1d95b2c5dccf36020ef5cd5e00496a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460495bf208524094cd09d7f07c4a9a2"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a460495bf208524094cd09d7f07c4a9a2">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a460495bf208524094cd09d7f07c4a9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a460495bf208524094cd09d7f07c4a9a2">More...</a><br /></td></tr>
+<tr class="separator:a460495bf208524094cd09d7f07c4a9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18af62940b81cff058ff11497dbc386"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ad18af62940b81cff058ff11497dbc386">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:ad18af62940b81cff058ff11497dbc386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#ad18af62940b81cff058ff11497dbc386">More...</a><br /></td></tr>
+<tr class="separator:ad18af62940b81cff058ff11497dbc386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a07ce91e63f4a2f00f6fafc9a7a508"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a21a07ce91e63f4a2f00f6fafc9a7a508">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a21a07ce91e63f4a2f00f6fafc9a7a508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a21a07ce91e63f4a2f00f6fafc9a7a508">More...</a><br /></td></tr>
+<tr class="separator:a21a07ce91e63f4a2f00f6fafc9a7a508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8560700aafda11d6fe2bc91000964064"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a8560700aafda11d6fe2bc91000964064">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a8560700aafda11d6fe2bc91000964064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a8560700aafda11d6fe2bc91000964064">More...</a><br /></td></tr>
+<tr class="separator:a8560700aafda11d6fe2bc91000964064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df3528180ac0bedd7984b72bd0d0e2c"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a1df3528180ac0bedd7984b72bd0d0e2c">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a1df3528180ac0bedd7984b72bd0d0e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a1df3528180ac0bedd7984b72bd0d0e2c">More...</a><br /></td></tr>
+<tr class="separator:a1df3528180ac0bedd7984b72bd0d0e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34bc5c8c9b41ab0b821de983dfd308d6"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a34bc5c8c9b41ab0b821de983dfd308d6">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a34bc5c8c9b41ab0b821de983dfd308d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a34bc5c8c9b41ab0b821de983dfd308d6">More...</a><br /></td></tr>
+<tr class="separator:a34bc5c8c9b41ab0b821de983dfd308d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d11d77ec761baa852804fa53cd1f17b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a5d11d77ec761baa852804fa53cd1f17b">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:a5d11d77ec761baa852804fa53cd1f17b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#a5d11d77ec761baa852804fa53cd1f17b">More...</a><br /></td></tr>
+<tr class="separator:a5d11d77ec761baa852804fa53cd1f17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0b770a0d9575a5b1bfe5aff2d5cf640"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#af0b770a0d9575a5b1bfe5aff2d5cf640">WaitForReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> author, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, TimeSpan? timeout=null, CancellationToken? ct=null)</td></tr>
+<tr class="memdesc:af0b770a0d9575a5b1bfe5aff2d5cf640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> .  <a href="#af0b770a0d9575a5b1bfe5aff2d5cf640">More...</a><br /></td></tr>
+<tr class="separator:af0b770a0d9575a5b1bfe5aff2d5cf640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12076eb7280cfe375a1ef91addb05a82"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a12076eb7280cfe375a1ef91addb05a82">WaitForMessageAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt; predicate, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:a12076eb7280cfe375a1ef91addb05a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a message to be received  <a href="#a12076eb7280cfe375a1ef91addb05a82">More...</a><br /></td></tr>
+<tr class="separator:a12076eb7280cfe375a1ef91addb05a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b95a40df1710db4e15aa83ee3f0cb0"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ac5b95a40df1710db4e15aa83ee3f0cb0">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:ac5b95a40df1710db4e15aa83ee3f0cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a reaction to be received  <a href="#ac5b95a40df1710db4e15aa83ee3f0cb0">More...</a><br /></td></tr>
+<tr class="separator:ac5b95a40df1710db4e15aa83ee3f0cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34f85c10ae554a43466b4d3a6351900"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ad34f85c10ae554a43466b4d3a6351900">WaitForReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:ad34f85c10ae554a43466b4d3a6351900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for a reaction by a specific user to be received  <a href="#ad34f85c10ae554a43466b4d3a6351900">More...</a><br /></td></tr>
+<tr class="separator:ad34f85c10ae554a43466b4d3a6351900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5bba9334e0337988fce0183f332430"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#acd5bba9334e0337988fce0183f332430">WaitForMessageReactionAsync</a> (Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt; predicate, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user=null, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:acd5bba9334e0337988fce0183f332430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for a reaction on a specific message by a specific user  <a href="#acd5bba9334e0337988fce0183f332430">More...</a><br /></td></tr>
+<tr class="separator:acd5bba9334e0337988fce0183f332430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac828006972021f9919b3142bc9a3cb74"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ac828006972021f9919b3142bc9a3cb74">WaitForMessageReactionAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user=null, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:ac828006972021f9919b3142bc9a3cb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for any reaction on a specific message  <a href="#ac828006972021f9919b3142bc9a3cb74">More...</a><br /></td></tr>
+<tr class="separator:ac828006972021f9919b3142bc9a3cb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58ba81e4d19bfd1efc028425ef9272b"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ad58ba81e4d19bfd1efc028425ef9272b">CreatePollAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> &gt; emojis, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:ad58ba81e4d19bfd1efc028425ef9272b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a poll  <a href="#ad58ba81e4d19bfd1efc028425ef9272b">More...</a><br /></td></tr>
+<tr class="separator:ad58ba81e4d19bfd1efc028425ef9272b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59978fa20f638a71feea42bd0ba4014"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#aa59978fa20f638a71feea42bd0ba4014">CollectReactionsAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:aa59978fa20f638a71feea42bd0ba4014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all reactions on a message  <a href="#aa59978fa20f638a71feea42bd0ba4014">More...</a><br /></td></tr>
+<tr class="separator:aa59978fa20f638a71feea42bd0ba4014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e0d2d808ed8bbe886dcdee6f62592c"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a01e0d2d808ed8bbe886dcdee6f62592c">WaitForTypingUserAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:a01e0d2d808ed8bbe886dcdee6f62592c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for any user to start typing  <a href="#a01e0d2d808ed8bbe886dcdee6f62592c">More...</a><br /></td></tr>
+<tr class="separator:a01e0d2d808ed8bbe886dcdee6f62592c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bacde4694f5d34f32c0e9ec900dcf1b"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a9bacde4694f5d34f32c0e9ec900dcf1b">WaitForTypingChannelAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, TimeSpan? timeoutoverride=null)</td></tr>
+<tr class="memdesc:a9bacde4694f5d34f32c0e9ec900dcf1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a user to type in any channel  <a href="#a9bacde4694f5d34f32c0e9ec900dcf1b">More...</a><br /></td></tr>
+<tr class="separator:a9bacde4694f5d34f32c0e9ec900dcf1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55e54d4039e6943b8b24612b89a682eb"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a55e54d4039e6943b8b24612b89a682eb">SendPaginatedMessage</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> channel, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a> user, IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt; message_pages, TimeSpan? timeoutoverride=null, <a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>? timeoutbehaviouroverride=null, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis=null)</td></tr>
+<tr class="memdesc:a55e54d4039e6943b8b24612b89a682eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a paginated message  <a href="#a55e54d4039e6943b8b24612b89a682eb">More...</a><br /></td></tr>
+<tr class="separator:a55e54d4039e6943b8b24612b89a682eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8593b8499d68273b4802573ac49665"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#aae8593b8499d68273b4802573ac49665">GeneratePagesInEmbeds</a> (string input)</td></tr>
+<tr class="memdesc:aae8593b8499d68273b4802573ac49665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates pages in embeds from a long input string  <a href="#aae8593b8499d68273b4802573ac49665">More...</a><br /></td></tr>
+<tr class="separator:aae8593b8499d68273b4802573ac49665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaaa94d69eeec5070a92c153803e7c93"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#abaaa94d69eeec5070a92c153803e7c93">GeneratePagesInStrings</a> (string input)</td></tr>
+<tr class="memdesc:abaaa94d69eeec5070a92c153803e7c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates pages in strings from a long input string  <a href="#abaaa94d69eeec5070a92c153803e7c93">More...</a><br /></td></tr>
+<tr class="separator:abaaa94d69eeec5070a92c153803e7c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab967027ac45e69fa2b50e73eb3902efa"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#ab967027ac45e69fa2b50e73eb3902efa">GeneratePaginationReactions</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis)</td></tr>
+<tr class="memdesc:ab967027ac45e69fa2b50e73eb3902efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates pagination reactions  <a href="#ab967027ac45e69fa2b50e73eb3902efa">More...</a><br /></td></tr>
+<tr class="separator:ab967027ac45e69fa2b50e73eb3902efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8faa2ea482bf0e31fdfcdd6843c8b6f8"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#a8faa2ea482bf0e31fdfcdd6843c8b6f8">DoPagination</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> emoji, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> message, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_paginated_message.html">PaginatedMessage</a> paginatedmessage, CancellationTokenSource canceltoken, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> emojis)</td></tr>
+<tr class="memdesc:a8faa2ea482bf0e31fdfcdd6843c8b6f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does pagination (for custom handling)  <a href="#a8faa2ea482bf0e31fdfcdd6843c8b6f8">More...</a><br /></td></tr>
 <tr class="separator:a8faa2ea482bf0e31fdfcdd6843c8b6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:af05f313eae9dd655377bef18b27507ba"><td class="memItemLeft" align="right" valign="top">internal override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#af05f313eae9dd655377bef18b27507ba">Setup</a> (<a class="el" href="class_d_sharp_plus_1_1_discord_client.html">DiscordClient</a> client)</td></tr>
+<tr class="memdesc:af05f313eae9dd655377bef18b27507ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes this extension for given <a class="el" href="class_d_sharp_plus_1_1_discord_client.html" title="A Discord api wrapper">DiscordClient</a> instance.  <a href="#af05f313eae9dd655377bef18b27507ba">More...</a><br /></td></tr>
+<tr class="separator:af05f313eae9dd655377bef18b27507ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05f313eae9dd655377bef18b27507ba"><td class="memItemLeft" align="right" valign="top">internal override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html#af05f313eae9dd655377bef18b27507ba">Setup</a> (<a class="el" href="class_d_sharp_plus_1_1_discord_client.html">DiscordClient</a> client)</td></tr>
 <tr class="memdesc:af05f313eae9dd655377bef18b27507ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes this extension for given <a class="el" href="class_d_sharp_plus_1_1_discord_client.html" title="A Discord api wrapper">DiscordClient</a> instance.  <a href="#af05f313eae9dd655377bef18b27507ba">More...</a><br /></td></tr>
 <tr class="separator:af05f313eae9dd655377bef18b27507ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +261,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af05f313eae9dd655377bef18b27507ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af05f313eae9dd655377bef18b27507ba">&#9670;&nbsp;</a></span>Setup()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af05f313eae9dd655377bef18b27507ba">&#9670;&nbsp;</a></span>Setup() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,8 +296,2673 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/projects/DSharpPlus/DSharpPlus.Interactivity/InteractivityExtension.cs</li>
+<a id="a932b7f8586fa50e995cf8ea8dc77a6c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932b7f8586fa50e995cf8ea8dc77a6c4">&#9670;&nbsp;</a></span>CreatePollAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> &gt;&#160;</td>
+          <td class="paramname"><em>emojiSource</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a reaction-based poll. Resolves to a <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html" title="Reactions that were collected">ReactionCollectionContext</a> containing the relevant emote reactions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to run the poll on</td></tr>
+    <tr><td class="paramname">emojiSource</td><td>The poll selection options. Each emote will be added to the message as a reaction. Default are thumbs up and thumbs down emojis.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html" title="Reactions that were collected">ReactionCollectionContext</a>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>message</em>  is null</td></tr>
+    <tr><td class="paramname">InvalidOperationException</td><td>If <em>emojiSource</em>  is empty</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac58116a6bb64a8f600bd7bb48cdf608e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58116a6bb64a8f600bd7bb48cdf608e">&#9670;&nbsp;</a></span>CollectReactionsAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects all new reactions to a message until a timer expires or the task is canceled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to collect reactions in</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task resolving to a <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html" title="Reactions that were collected">ReactionCollectionContext</a> containing the reactions.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>message</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add3d229531a18b94fe1ff63ebec37bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add3d229531a18b94fe1ff63ebec37bb5">&#9670;&nbsp;</a></span>SendPaginatedMessage() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td>
+          <td class="paramname"><em>messagePages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>?&#160;</td>
+          <td class="paramname"><em>timeoutBehaviourOverride</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a message with a "page", with reactions to move between pages. Task resolves when <em>ct</em>  is cancelled, <em>timeout</em>  is hit, or <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">PaginationEmojis.Stop</a> is clicked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel to send the paginated message in</td></tr>
+    <tr><td class="paramname">user</td><td>The user that can interact with the pages</td></tr>
+    <tr><td class="paramname">messagePages</td><td>Any amount of <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html" title="Represents an individual page for InteractivityExtension.SendPaginatedMessage.">Page</a>s to use</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token to skip the timeout and instantly stop the pagination</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>. The timeout is reset whenever an action is taken (e.g clicking a button)</td></tr>
+    <tr><td class="paramname">timeoutBehaviourOverride</td><td>Behavior for when the pagination finishes (e.g timeout is hit). Defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a9092990df59943cc4999afbdac2c3d5d">InteractivityConfiguration.PaginationBehavior</a>.</td></tr>
+    <tr><td class="paramname">emojis</td><td>Set of <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html" title="Holds a set of emojis for pagination reactions. Every emoji can be null to be ignored,...">PaginationEmojis</a> to use for controlling the pages. Defaults to InteractivityConfiguration.DefaultPaginationEmojis.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves when pagination ends</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>channel</em> , <em>user</em>  or <em>messagePages</em>  is null</td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If there are no pages to send</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae8593b8499d68273b4802573ac49665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8593b8499d68273b4802573ac49665">&#9670;&nbsp;</a></span>GeneratePagesInEmbeds() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt;<a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Splits a string by length into pages containing embeds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The string to split</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An enumerable that contains pages, each with an embed with an automatically generated title based on <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#acf6f52ad6f2dd3d3b04b31c212de995e" title="Format string for the page header when using InteractivityExtension.GeneratePagesInEmbeds.">InteractivityConfiguration.DefaultPageHeader</a>, and description set to that part of the input.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>If <em>input</em>  is null or empty</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abaaa94d69eeec5070a92c153803e7c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaaa94d69eeec5070a92c153803e7c93">&#9670;&nbsp;</a></span>GeneratePagesInStrings() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt;<a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Splits a string by length into pages containing text messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The string to split</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An enumerable that contains pages, each with a text message with an automatically generated header based on <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a0b000fa854accb15790c71c9c130d00c" title="Format string for the page header when using InteractivityExtension.GeneratePagesInStrings.">InteractivityConfiguration.DefaultStringPageHeader</a>, and description set to that part of the input.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>If <em>input</em>  is null or empty</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a520f957501481498166174a2c8447312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520f957501481498166174a2c8447312">&#9670;&nbsp;</a></span>SendSplitMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task DSharpPlus.Interactivity.InteractivityExtension.SendSplitMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>?&#160;</td>
+          <td class="paramname"><em>timeoutBehaviourOverride</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a string message automatically split into pages by length using pagination. Task resolves when <em>ct</em>  is cancelled, <em>timeout</em>  is hit, or <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">PaginationEmojis.Stop</a> is clicked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel to send the paginated message in</td></tr>
+    <tr><td class="paramname">user</td><td>The user that can interact with the pages</td></tr>
+    <tr><td class="paramname">input</td><td>The message content to send</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token to skip the timeout and instantly stop the pagination</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>. The timeout is reset whenever an action is taken (e.g clicking a button)</td></tr>
+    <tr><td class="paramname">timeoutBehaviourOverride</td><td>Behavior for when the pagination finishes (e.g timeout is hit). Defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a9092990df59943cc4999afbdac2c3d5d">InteractivityConfiguration.PaginationBehavior</a>.</td></tr>
+    <tr><td class="paramname">emojis</td><td>Set of <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html" title="Holds a set of emojis for pagination reactions. Every emoji can be null to be ignored,...">PaginationEmojis</a> to use for controlling the pages. Defaults to InteractivityConfiguration.DefaultPaginationEmojis.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves when pagination ends</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>channel</em>  or <em>user</em>  is null </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If <em>input</em>  is null or empty</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab967027ac45e69fa2b50e73eb3902efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab967027ac45e69fa2b50e73eb3902efa">&#9670;&nbsp;</a></span>GeneratePaginationReactions() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appends pagination emojis to a message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to append emojis to</td></tr>
+    <tr><td class="paramname">emojis</td><td>The pagination emojis to append to the message</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Really, there's no reason for this method to be public, but it is, so here you go.</p>
+
+</div>
+</div>
+<a id="a64f3e3b824d504235f6f518f11427bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64f3e3b824d504235f6f518f11427bf6">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received message and returns whether or not that is the message to resolve the task with.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a91054760e81d83570c41bb5a0c13f069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91054760e81d83570c41bb5a0c13f069">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received message and returns whether or not that is the message to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the message must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afa747ccefe67da49d6813c983c698691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa747ccefe67da49d6813c983c698691">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received message and returns whether or not that is the message to resolve the task with.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the message for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a86a35d53bb576342082f5bd4b52aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a86a35d53bb576342082f5bd4b52aaf">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received message and returns whether or not that is the message to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the message must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the message for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24b8693aff7719dcf2311980fbda8239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24b8693aff7719dcf2311980fbda8239">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing the first new message the client receives, or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a98e4a2c06833def51e6e50c8ce4b009b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e4a2c06833def51e6e50c8ce4b009b">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the message must be sent in for it to be returned.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a4653853b5c53539ea931fe92a21ed198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4653853b5c53539ea931fe92a21ed198">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">author</td><td>User that must have sent the message for it to be returned.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ae315999e813c67ba7f7c5f104dca0df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae315999e813c67ba7f7c5f104dca0df4">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a message context containing a message sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the message must be sent in for it to be returned.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the message for it to be returned.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a> containing the message, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a7dd80e390e56298c69d7ec14c776946c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd80e390e56298c69d7ec14c776946c">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[1/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d8eb0a946f73e71550a0f44e63adcdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8eb0a946f73e71550a0f44e63adcdd">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[2/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf08b7143569ec01951ac0f180021510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf08b7143569ec01951ac0f180021510">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[3/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b1401d0222a402c763649e9ab36889e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b1401d0222a402c763649e9ab36889e">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[4/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c38f17c6dc3eb2be69c1f1e3fad6a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c38f17c6dc3eb2be69c1f1e3fad6a75">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[5/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing the first new reaction the client receives, or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a1e87f7db0c0c1c1e582f14a192620fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e87f7db0c0c1c1e582f14a192620fae">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[6/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a1a88188e6db4db20e397c81e2bd26c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a88188e6db4db20e397c81e2bd26c4e">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[7/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a1d95b2c5dccf36020ef5cd5e00496a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d95b2c5dccf36020ef5cd5e00496a96">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[8/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a460495bf208524094cd09d7f07c4a9a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460495bf208524094cd09d7f07c4a9a2">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[9/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad18af62940b81cff058ff11497dbc386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad18af62940b81cff058ff11497dbc386">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[10/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21a07ce91e63f4a2f00f6fafc9a7a508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a07ce91e63f4a2f00f6fafc9a7a508">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[11/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8560700aafda11d6fe2bc91000964064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8560700aafda11d6fe2bc91000964064">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[12/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  in channel <em>channel</em>  matching a predicate <em>predicate</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Function that takes in a received reaction and returns whether or not that is the reaction to resolve the task with.</td></tr>
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>If <em>predicate</em>  is null</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1df3528180ac0bedd7984b72bd0d0e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df3528180ac0bedd7984b72bd0d0e2c">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[13/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a34bc5c8c9b41ab0b821de983dfd308d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34bc5c8c9b41ab0b821de983dfd308d6">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[14/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a5d11d77ec761baa852804fa53cd1f17b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d11d77ec761baa852804fa53cd1f17b">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[15/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="af0b770a0d9575a5b1bfe5aff2d5cf640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b770a0d9575a5b1bfe5aff2d5cf640">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[16/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken?&#160;</td>
+          <td class="paramname"><em>ct</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a task that resolves to a reaction context containing a reaction with an emoji <em>emoji</em>  sent by <em>author</em>  in channel <em>channel</em> , or <code>null</code> if the cancellation token <em>ct</em>  is canceled or the waiting period times out as specified by <em>timeout</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel that the reaction must be sent in for it to be evaluated.</td></tr>
+    <tr><td class="paramname">author</td><td>User that must have sent the reaction for it to be evaluated.</td></tr>
+    <tr><td class="paramname">emoji</td><td>The reaction emoji to look for.</td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the waiting period. If not specified, defaults to <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746">InteractivityConfiguration.Timeout</a>.</td></tr>
+    <tr><td class="paramname">ct</td><td>Cancellation token that can be used to end the waiting period early.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task that resolves to a new <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html" title="Context of a reaction">ReactionContext</a> containing the reaction, or <code>null</code>. </dd></dl>
+
+</div>
+</div>
+<a id="af05f313eae9dd655377bef18b27507ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05f313eae9dd655377bef18b27507ba">&#9670;&nbsp;</a></span>Setup() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">internal override void DSharpPlus.Interactivity.InteractivityExtension.Setup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html">DiscordClient</a>&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes this extension for given <a class="el" href="class_d_sharp_plus_1_1_discord_client.html" title="A Discord api wrapper">DiscordClient</a> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>Discord client to initialize for.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_d_sharp_plus_1_1_base_extension.html#a9ebc325ed8b38b1804ce2b09e9d5555b">DSharpPlus.BaseExtension</a>.</p>
+
+</div>
+</div>
+<a id="a12076eb7280cfe375a1ef91addb05a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12076eb7280cfe375a1ef91addb05a82">&#9670;&nbsp;</a></span>WaitForMessageAsync() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_message_context.html">MessageContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a message to be received </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Expected predicate</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ac5b95a40df1710db4e15aa83ee3f0cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b95a40df1710db4e15aa83ee3f0cb0">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[17/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a reaction to be received </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Expected predicate</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>TImeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ad34f85c10ae554a43466b4d3a6351900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34f85c10ae554a43466b4d3a6351900">&#9670;&nbsp;</a></span>WaitForReactionAsync() <span class="overload">[18/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wait for a reaction by a specific user to be received </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Expected predicate</td></tr>
+    <tr><td class="paramname">user</td><td>User that sends the reaction</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="acd5bba9334e0337988fce0183f332430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd5bba9334e0337988fce0183f332430">&#9670;&nbsp;</a></span>WaitForMessageReactionAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>, bool &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wait for a reaction on a specific message by a specific user </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>Expected predicate</td></tr>
+    <tr><td class="paramname">message</td><td>Message reaction has to be placed on</td></tr>
+    <tr><td class="paramname">user</td><td>User reaction was sent by</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ac828006972021f9919b3142bc9a3cb74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac828006972021f9919b3142bc9a3cb74">&#9670;&nbsp;</a></span>WaitForMessageReactionAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html">ReactionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wait for any reaction on a specific message </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Message to check</td></tr>
+    <tr><td class="paramname">user</td><td>(optional) User override</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ad58ba81e4d19bfd1efc028425ef9272b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad58ba81e4d19bfd1efc028425ef9272b">&#9670;&nbsp;</a></span>CreatePollAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> &gt;&#160;</td>
+          <td class="paramname"><em>emojis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a poll </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Message poll belongs to</td></tr>
+    <tr><td class="paramname">emojis</td><td>Emojis to poll</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aa59978fa20f638a71feea42bd0ba4014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa59978fa20f638a71feea42bd0ba4014">&#9670;&nbsp;</a></span>CollectReactionsAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html">ReactionCollectionContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects all reactions on a message </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Message to check</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a01e0d2d808ed8bbe886dcdee6f62592c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e0d2d808ed8bbe886dcdee6f62592c">&#9670;&nbsp;</a></span>WaitForTypingUserAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for any user to start typing </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel to check</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a9bacde4694f5d34f32c0e9ec900dcf1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bacde4694f5d34f32c0e9ec900dcf1b">&#9670;&nbsp;</a></span>WaitForTypingChannelAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html">TypingContext</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a user to type in any channel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>User to check</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a55e54d4039e6943b8b24612b89a682eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55e54d4039e6943b8b24612b89a682eb">&#9670;&nbsp;</a></span>SendPaginatedMessage() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DiscordUser</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a> &gt;&#160;</td>
+          <td class="paramname"><em>message_pages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan?&#160;</td>
+          <td class="paramname"><em>timeoutoverride</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_d_sharp_plus_1_1_interactivity.html#a71ae70f12eb0aa9204d1ac5faab3845a">TimeoutBehaviour</a>?&#160;</td>
+          <td class="paramname"><em>timeoutbehaviouroverride</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a paginated message </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel to send message to</td></tr>
+    <tr><td class="paramname">user</td><td>User that may interact with this paginated message</td></tr>
+    <tr><td class="paramname">message_pages</td><td>Pages for this message</td></tr>
+    <tr><td class="paramname">timeoutoverride</td><td>Timeout override</td></tr>
+    <tr><td class="paramname">timeoutbehaviouroverride</td><td>Timeout behaviour override</td></tr>
+    <tr><td class="paramname">emojis</td><td>Pagination emoji override</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aae8593b8499d68273b4802573ac49665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8593b8499d68273b4802573ac49665">&#9670;&nbsp;</a></span>GeneratePagesInEmbeds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt;<a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates pages in embeds from a long input string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input string</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="abaaa94d69eeec5070a92c153803e7c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaaa94d69eeec5070a92c153803e7c93">&#9670;&nbsp;</a></span>GeneratePagesInStrings() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt;<a class="el" href="struct_d_sharp_plus_1_1_interactivity_1_1_page.html">Page</a>&gt; DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates pages in strings from a long input string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input string</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab967027ac45e69fa2b50e73eb3902efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab967027ac45e69fa2b50e73eb3902efa">&#9670;&nbsp;</a></span>GeneratePaginationReactions() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates pagination reactions </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Message to attach reactions to</td></tr>
+    <tr><td class="paramname">emojis</td><td>Emojis to attach</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a8faa2ea482bf0e31fdfcdd6843c8b6f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8faa2ea482bf0e31fdfcdd6843c8b6f8">&#9670;&nbsp;</a></span>DoPagination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.Interactivity.InteractivityExtension.DoPagination </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td>
+          <td class="paramname"><em>emoji</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_paginated_message.html">PaginatedMessage</a>&#160;</td>
+          <td class="paramname"><em>paginatedmessage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationTokenSource&#160;</td>
+          <td class="paramname"><em>canceltoken</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td>
+          <td class="paramname"><em>emojis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does pagination (for custom handling) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">emoji</td><td>Emoji that was received</td></tr>
+    <tr><td class="paramname">message</td><td>Message reaction belongs to</td></tr>
+    <tr><td class="paramname">paginatedmessage</td><td>Paginated message</td></tr>
+    <tr><td class="paramname">canceltoken</td><td>Cancellation token source</td></tr>
+    <tr><td class="paramname">emojis</td><td>Pagination emoji collection</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>HSNXT.DSharpPlus.InteractivityNext/InteractivityExtension.cs</li>
+<li>HSNXT.DSharpPlus.InteractivityNext/InteractivityExtension.Message.cs</li>
+<li>HSNXT.DSharpPlus.InteractivityNext/InteractivityExtension.Reaction.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

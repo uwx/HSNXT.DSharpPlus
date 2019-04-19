@@ -88,12 +88,16 @@ $(document).ready(function(){initNavTree('class_d_sharp_plus_1_1_interactivity_1
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DSharpPlus.Interactivity.PaginationEmojis Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Holds a set of emojis for pagination reactions. Every emoji can be null to be ignored, but you likely want to keep at least <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#af4e7fa8c8fd391129a858ffc6119f550" title="Emoji for going left (back) one page.">Left</a>, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ab248de7fe330915f9fd8031a1b779eef" title="Emoji for going right (forward) one page.">Right</a> and <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">Stop</a>.  
+ <a href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -101,26 +105,281 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PaginationEmojis</b> (<a class="el" href="class_d_sharp_plus_1_1_discord_client.html">DiscordClient</a> client)</td></tr>
 <tr class="separator:ad5cf2b4cac6d6c3fc7c9e8e0a0fb30b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ab376ac567bc9bbbb37a0b3d21acf6d6d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ab376ac567bc9bbbb37a0b3d21acf6d6d">CreateEmpty</a> ()</td></tr>
+<tr class="memdesc:ab376ac567bc9bbbb37a0b3d21acf6d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty set of pagination emojis to be filled in later.  <a href="#ab376ac567bc9bbbb37a0b3d21acf6d6d">More...</a><br /></td></tr>
+<tr class="separator:ab376ac567bc9bbbb37a0b3d21acf6d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b72dd8d4a09b1adb27c472f786ef05"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a00b72dd8d4a09b1adb27c472f786ef05">CreateDefault</a> (<a class="el" href="class_d_sharp_plus_1_1_base_discord_client.html">BaseDiscordClient</a> client)</td></tr>
+<tr class="memdesc:a00b72dd8d4a09b1adb27c472f786ef05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the default set of pagination emojis: left arrow, right arrow, skip left, skip right and stop.  <a href="#a00b72dd8d4a09b1adb27c472f786ef05">More...</a><br /></td></tr>
+<tr class="separator:a00b72dd8d4a09b1adb27c472f786ef05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad74d119a0417bd8e586990ca0512da65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ad74d119a0417bd8e586990ca0512da65">CreateComplete</a> (<a class="el" href="class_d_sharp_plus_1_1_base_discord_client.html">BaseDiscordClient</a> client)</td></tr>
+<tr class="memdesc:ad74d119a0417bd8e586990ca0512da65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the complete set of pagination emojis: left arrow, right arrow, skip left, skip right, stop and close.  <a href="#ad74d119a0417bd8e586990ca0512da65">More...</a><br /></td></tr>
+<tr class="separator:ad74d119a0417bd8e586990ca0512da65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a846e3e6ad75ca439bbd795a4a260355f"><td class="memItemLeft" align="right" valign="top"><a id="a846e3e6ad75ca439bbd795a4a260355f"></a>
-<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Left</b><code> [get, set]</code></td></tr>
-<tr class="separator:a846e3e6ad75ca439bbd795a4a260355f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb78b7699342a46f7f7678d4e0ab38b"><td class="memItemLeft" align="right" valign="top"><a id="aecb78b7699342a46f7f7678d4e0ab38b"></a>
-<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Right</b><code> [get, set]</code></td></tr>
-<tr class="separator:aecb78b7699342a46f7f7678d4e0ab38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf34a6b56ab4592c0980c18036c2e448"><td class="memItemLeft" align="right" valign="top"><a id="aaf34a6b56ab4592c0980c18036c2e448"></a>
-<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Stop</b><code> [get, set]</code></td></tr>
-<tr class="separator:aaf34a6b56ab4592c0980c18036c2e448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c807076f55d64c9610b0961f6fcf3a5"><td class="memItemLeft" align="right" valign="top"><a id="a9c807076f55d64c9610b0961f6fcf3a5"></a>
-<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SkipLeft</b><code> [get, set]</code></td></tr>
-<tr class="separator:a9c807076f55d64c9610b0961f6fcf3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad19e0a0f8c98bbeabbbf3800be77bbcb"><td class="memItemLeft" align="right" valign="top"><a id="ad19e0a0f8c98bbeabbbf3800be77bbcb"></a>
-<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SkipRight</b><code> [get, set]</code></td></tr>
-<tr class="separator:ad19e0a0f8c98bbeabbbf3800be77bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e7fa8c8fd391129a858ffc6119f550"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#af4e7fa8c8fd391129a858ffc6119f550">Left</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:af4e7fa8c8fd391129a858ffc6119f550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji for going left (back) one page.  <a href="#af4e7fa8c8fd391129a858ffc6119f550">More...</a><br /></td></tr>
+<tr class="separator:af4e7fa8c8fd391129a858ffc6119f550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab248de7fe330915f9fd8031a1b779eef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ab248de7fe330915f9fd8031a1b779eef">Right</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ab248de7fe330915f9fd8031a1b779eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji for going right (forward) one page.  <a href="#ab248de7fe330915f9fd8031a1b779eef">More...</a><br /></td></tr>
+<tr class="separator:ab248de7fe330915f9fd8031a1b779eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65bf0e069f51f632477abcfca58754a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6">Stop</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a65bf0e069f51f632477abcfca58754a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji to end pagination.  <a href="#a65bf0e069f51f632477abcfca58754a6">More...</a><br /></td></tr>
+<tr class="separator:a65bf0e069f51f632477abcfca58754a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebde8a411c9191445551f9a207c42289"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#aebde8a411c9191445551f9a207c42289">SkipLeft</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aebde8a411c9191445551f9a207c42289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji for going back to the first page.  <a href="#aebde8a411c9191445551f9a207c42289">More...</a><br /></td></tr>
+<tr class="separator:aebde8a411c9191445551f9a207c42289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5643b58224c913bf8983b391a5f2113"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ab5643b58224c913bf8983b391a5f2113">SkipRight</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ab5643b58224c913bf8983b391a5f2113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji for going all the way to the last page.  <a href="#ab5643b58224c913bf8983b391a5f2113">More...</a><br /></td></tr>
+<tr class="separator:ab5643b58224c913bf8983b391a5f2113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91227d133a23f264641199afdc572b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#aa91227d133a23f264641199afdc572b4">Close</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa91227d133a23f264641199afdc572b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emoji for ending pagination and deleting the message.  <a href="#aa91227d133a23f264641199afdc572b4">More...</a><br /></td></tr>
+<tr class="separator:aa91227d133a23f264641199afdc572b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Holds a set of emojis for pagination reactions. Every emoji can be null to be ignored, but you likely want to keep at least <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#af4e7fa8c8fd391129a858ffc6119f550" title="Emoji for going left (back) one page.">Left</a>, <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#ab248de7fe330915f9fd8031a1b779eef" title="Emoji for going right (forward) one page.">Right</a> and <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#a65bf0e069f51f632477abcfca58754a6" title="Emoji to end pagination.">Stop</a>. </p>
+<p>Emojis to use for pagination</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab376ac567bc9bbbb37a0b3d21acf6d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab376ac567bc9bbbb37a0b3d21acf6d6d">&#9670;&nbsp;</a></span>CreateEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> DSharpPlus.Interactivity.PaginationEmojis.CreateEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an empty set of pagination emojis to be filled in later. </p>
+<dl class="section return"><dt>Returns</dt><dd>An empty set of pagination emojis</dd></dl>
+
+</div>
+</div>
+<a id="a00b72dd8d4a09b1adb27c472f786ef05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b72dd8d4a09b1adb27c472f786ef05">&#9670;&nbsp;</a></span>CreateDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> DSharpPlus.Interactivity.PaginationEmojis.CreateDefault </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_base_discord_client.html">BaseDiscordClient</a>&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the default set of pagination emojis: left arrow, right arrow, skip left, skip right and stop. </p>
+<dl class="section return"><dt>Returns</dt><dd>The default set of pagination emojis</dd></dl>
+
+</div>
+</div>
+<a id="ad74d119a0417bd8e586990ca0512da65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74d119a0417bd8e586990ca0512da65">&#9670;&nbsp;</a></span>CreateComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html">PaginationEmojis</a> DSharpPlus.Interactivity.PaginationEmojis.CreateComplete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_base_discord_client.html">BaseDiscordClient</a>&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the complete set of pagination emojis: left arrow, right arrow, skip left, skip right, stop and close. </p>
+<dl class="section return"><dt>Returns</dt><dd>The complete set of pagination emojis</dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="af4e7fa8c8fd391129a858ffc6119f550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e7fa8c8fd391129a858ffc6119f550">&#9670;&nbsp;</a></span>Left</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.Left</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji for going left (back) one page. </p>
+<p>Emoji for going back 1 page in the message</p>
+
+</div>
+</div>
+<a id="ab248de7fe330915f9fd8031a1b779eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab248de7fe330915f9fd8031a1b779eef">&#9670;&nbsp;</a></span>Right</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.Right</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji for going right (forward) one page. </p>
+<p>Emoji for going forward 1 page in the message</p>
+
+</div>
+</div>
+<a id="a65bf0e069f51f632477abcfca58754a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65bf0e069f51f632477abcfca58754a6">&#9670;&nbsp;</a></span>Stop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.Stop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji to end pagination. </p>
+<p>Emoji to stop pagination</p>
+
+</div>
+</div>
+<a id="aebde8a411c9191445551f9a207c42289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebde8a411c9191445551f9a207c42289">&#9670;&nbsp;</a></span>SkipLeft</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.SkipLeft</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji for going back to the first page. </p>
+<p>Emoji to skip all the way to the first page</p>
+
+</div>
+</div>
+<a id="ab5643b58224c913bf8983b391a5f2113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5643b58224c913bf8983b391a5f2113">&#9670;&nbsp;</a></span>SkipRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.SkipRight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji for going all the way to the last page. </p>
+<p>Emoji to skip all the way to the last page</p>
+
+</div>
+</div>
+<a id="aa91227d133a23f264641199afdc572b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91227d133a23f264641199afdc572b4">&#9670;&nbsp;</a></span>Close</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html">DiscordEmoji</a> DSharpPlus.Interactivity.PaginationEmojis.Close</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emoji for ending pagination and deleting the message. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/projects/DSharpPlus/DSharpPlus.Interactivity/Entities/PaginationEmojis.cs</li>
+<li>HSNXT.DSharpPlus.InteractivityNext/Entities/PaginationEmojis.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

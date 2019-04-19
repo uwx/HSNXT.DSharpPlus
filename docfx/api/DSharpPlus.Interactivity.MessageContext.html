@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MessageContext
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,21 +78,83 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">MessageContext</span></div>
+    <div class="level1"><a class="xref" href="DSharpPlus.Interactivity.InteractivityContext.html">InteractivityContext</a></div>
+    <div class="level2"><span class="xref">MessageContext</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Interactivity.html">DSharpPlus.Interactivity</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="DSharpPlus_Interactivity_MessageContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MessageContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class MessageContext : InteractivityContext</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext__ctor_" data-uid="DSharpPlus.Interactivity.MessageContext.#ctor*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext__ctor_DSharpPlus_Interactivity_InteractivityExtension_DiscordMessage_" data-uid="DSharpPlus.Interactivity.MessageContext.#ctor(DSharpPlus.Interactivity.InteractivityExtension,DiscordMessage)">MessageContext(InteractivityExtension, DiscordMessage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageContext(InteractivityExtension interactivity, DiscordMessage message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.InteractivityExtension.html">InteractivityExtension</a></td>
+        <td><span class="parametername">interactivity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
   
   <a id="DSharpPlus_Interactivity_MessageContext_Channel_" data-uid="DSharpPlus.Interactivity.MessageContext.Channel*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_Channel" data-uid="DSharpPlus.Interactivity.MessageContext.Channel">Channel</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Channel that was found</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordChannel Channel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_Channel_" data-uid="DSharpPlus.Interactivity.MessageContext.Channel*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_Channel" data-uid="DSharpPlus.Interactivity.MessageContext.Channel">Channel</h4>
+  <div class="markdown level1 summary"><p>Channel that was found</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -117,7 +179,8 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_Client_" data-uid="DSharpPlus.Interactivity.MessageContext.Client*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_Client" data-uid="DSharpPlus.Interactivity.MessageContext.Client">Client</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Discordclient this context belongs to</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -142,7 +205,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_Guild_" data-uid="DSharpPlus.Interactivity.MessageContext.Guild*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_Guild" data-uid="DSharpPlus.Interactivity.MessageContext.Guild">Guild</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Guild that was found</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordGuild Guild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordGuild</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_Guild_" data-uid="DSharpPlus.Interactivity.MessageContext.Guild*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_Guild" data-uid="DSharpPlus.Interactivity.MessageContext.Guild">Guild</h4>
+  <div class="markdown level1 summary"><p>Guild that was found</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -167,7 +257,8 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_Interactivity_" data-uid="DSharpPlus.Interactivity.MessageContext.Interactivity*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_Interactivity" data-uid="DSharpPlus.Interactivity.MessageContext.Interactivity">Interactivity</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Interactivity extension that found this context</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -192,7 +283,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_MentionedChannels_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedChannels*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedChannels" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedChannels">MentionedChannels</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Channels that were mentioned</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DiscordChannel&gt; MentionedChannels { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<span class="xref">DiscordChannel</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_MentionedChannels_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedChannels*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedChannels" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedChannels">MentionedChannels</h4>
+  <div class="markdown level1 summary"><p>Channels that were mentioned</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -217,7 +335,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_MentionedRoles_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedRoles*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedRoles" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedRoles">MentionedRoles</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Roles that were mentioned</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DiscordRole&gt; MentionedRoles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<span class="xref">DiscordRole</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_MentionedRoles_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedRoles*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedRoles" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedRoles">MentionedRoles</h4>
+  <div class="markdown level1 summary"><p>Roles that were mentioned</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -242,7 +387,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_MentionedUsers_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedUsers*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedUsers" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedUsers">MentionedUsers</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Users that were mentioned</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DiscordUser&gt; MentionedUsers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<span class="xref">DiscordUser</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_MentionedUsers_" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedUsers*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_MentionedUsers" data-uid="DSharpPlus.Interactivity.MessageContext.MentionedUsers">MentionedUsers</h4>
+  <div class="markdown level1 summary"><p>Users that were mentioned</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -267,7 +439,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_Message_" data-uid="DSharpPlus.Interactivity.MessageContext.Message*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_Message" data-uid="DSharpPlus.Interactivity.MessageContext.Message">Message</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Message that was found</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordMessage Message { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_Message_" data-uid="DSharpPlus.Interactivity.MessageContext.Message*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_Message" data-uid="DSharpPlus.Interactivity.MessageContext.Message">Message</h4>
+  <div class="markdown level1 summary"><p>Message that was found</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -292,7 +491,34 @@
   
   <a id="DSharpPlus_Interactivity_MessageContext_User_" data-uid="DSharpPlus.Interactivity.MessageContext.User*"></a>
   <h4 id="DSharpPlus_Interactivity_MessageContext_User" data-uid="DSharpPlus.Interactivity.MessageContext.User">User</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>User that was found</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordUser User { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_MessageContext_User_" data-uid="DSharpPlus.Interactivity.MessageContext.User*"></a>
+  <h4 id="DSharpPlus_Interactivity_MessageContext_User" data-uid="DSharpPlus.Interactivity.MessageContext.User">User</h4>
+  <div class="markdown level1 summary"><p>User that was found</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

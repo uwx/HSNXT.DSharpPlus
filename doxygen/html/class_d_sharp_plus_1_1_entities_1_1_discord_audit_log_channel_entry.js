@@ -6,5 +6,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry =
     [ "NsfwChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#af0baa5ae78e20599d5681313651239ef", null ],
     [ "BitrateChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#ac448626653a6fc24d4e8d47921a9c6eb", null ],
     [ "OverwriteChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#a641d853d651f9964e8529a14bb8badf3", null ],
-    [ "TopicChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#a52e3892da7344d97749456e387947757", null ]
+    [ "TopicChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#a52e3892da7344d97749456e387947757", null ],
+    [ "PerUserRateLimitChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#a21cd906301616d2ec8f553b738f37967", null ]
 ];

@@ -97,11 +97,11 @@ $(document).ready(function(){initNavTree('class_d_sharp_plus_1_1_debug_logger.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4b528e1f11c5d9f7da8eef175bea5006"><td class="memItemLeft" align="right" valign="top"><a id="a4b528e1f11c5d9f7da8eef175bea5006"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LogMessage</b> (<a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a> level, string application, string message, DateTime timestamp)</td></tr>
-<tr class="separator:a4b528e1f11c5d9f7da8eef175bea5006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0103dde5c7504fc979ee9498503e3efe"><td class="memItemLeft" align="right" valign="top"><a id="a0103dde5c7504fc979ee9498503e3efe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LogTaskFault</b> (Task task, <a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a> level, string application, string message)</td></tr>
+<tr class="memitem:a2337bc5a0f3cefdadf0084bfd40a814e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_debug_logger.html#a2337bc5a0f3cefdadf0084bfd40a814e">LogMessage</a> (<a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a> level, string application, string message, DateTime timestamp, Exception exception=null)</td></tr>
+<tr class="memdesc:a2337bc5a0f3cefdadf0084bfd40a814e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a message to this <a class="el" href="class_d_sharp_plus_1_1_debug_logger.html">DebugLogger</a>  <a href="#a2337bc5a0f3cefdadf0084bfd40a814e">More...</a><br /></td></tr>
+<tr class="separator:a2337bc5a0f3cefdadf0084bfd40a814e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0103dde5c7504fc979ee9498503e3efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_debug_logger.html#a0103dde5c7504fc979ee9498503e3efe">LogTaskFault</a> (Task task, <a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a> level, string application, string message)</td></tr>
+<tr class="memdesc:a0103dde5c7504fc979ee9498503e3efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a task fault  <a href="#a0103dde5c7504fc979ee9498503e3efe">More...</a><br /></td></tr>
 <tr class="separator:a0103dde5c7504fc979ee9498503e3efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
@@ -110,6 +110,132 @@ Events</h2></td></tr>
 EventHandler&lt; <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_debug_log_message_event_args.html">DebugLogMessageEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>LogMessageReceived</b></td></tr>
 <tr class="separator:a1a19e9ad0339433217a0c257b30b28e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2337bc5a0f3cefdadf0084bfd40a814e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2337bc5a0f3cefdadf0084bfd40a814e">&#9670;&nbsp;</a></span>LogMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DSharpPlus.DebugLogger.LogMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>application</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DateTime&#160;</td>
+          <td class="paramname"><em>timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Exception&#160;</td>
+          <td class="paramname"><em>exception</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs a message to this <a class="el" href="class_d_sharp_plus_1_1_debug_logger.html">DebugLogger</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Log level (severity of this message)</td></tr>
+    <tr><td class="paramname">application</td><td>What this message applies to</td></tr>
+    <tr><td class="paramname">message</td><td>Message to log</td></tr>
+    <tr><td class="paramname">timestamp</td><td>When this message was sent</td></tr>
+    <tr><td class="paramname">exception</td><td>The exception that occurred</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0103dde5c7504fc979ee9498503e3efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0103dde5c7504fc979ee9498503e3efe">&#9670;&nbsp;</a></span>LogTaskFault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DSharpPlus.DebugLogger.LogTaskFault </td>
+          <td>(</td>
+          <td class="paramtype">Task&#160;</td>
+          <td class="paramname"><em>task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70">LogLevel</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>application</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs a task fault </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Task that borked</td></tr>
+    <tr><td class="paramname">level</td><td>Log level (severity of this failure)</td></tr>
+    <tr><td class="paramname">application</td><td>What this failure applies to</td></tr>
+    <tr><td class="paramname">message</td><td>Message to attach</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/projects/DSharpPlus/DSharpPlus/DebugLogger.cs</li>
 </ul>

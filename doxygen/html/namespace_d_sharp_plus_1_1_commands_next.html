@@ -163,7 +163,7 @@ Functions</h2></td></tr>
 
 <p></p>
 <p>Represents a delegate for a function that takes a message, and returns the position of the start of command invocation in the message. It has to return -1 if prefix is not present.</p>
-<p>It is recommended that helper methods CommandsNextUtilities.GetStringPrefixLength(DiscordMessage, string) and CommandsNextUtilities.GetMentionPrefixLength(DiscordMessage, DiscordUser) be used internally for checking. Their output can be passed through. </p>
+<p>It is recommended that helper methods CommandsNextUtilities.GetStringPrefixLength(DiscordMessage, string, StringComparison) and CommandsNextUtilities.GetMentionPrefixLength(DiscordMessage, DiscordUser) be used internally for checking. Their output can be passed through. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">msg</td><td>Message to check for prefix.</td></tr>

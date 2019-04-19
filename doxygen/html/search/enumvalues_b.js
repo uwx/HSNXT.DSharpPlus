@@ -16,5 +16,6 @@ var searchData=
   ['mentionsonly',['MentionsOnly',['../namespace_d_sharp_plus_1_1_entities.html#ad4de7ad6f9fd21ddfa13d6c8682c0702a7317ef99f6dd5234aa452e9a2b9367b1',1,'DSharpPlus::Entities']]],
   ['messagedelete',['MessageDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18aadcd087fda3e232e1fab4f93336b00b5',1,'DSharpPlus::Entities']]],
   ['movemembers',['MoveMembers',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa61c6dfdf2a1fde43bb267ba8e6b34958',1,'DSharpPlus']]],
+  ['music',['Music',['../namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412a47dcbd834e669233d7eb8a51456ed217',1,'DSharpPlus::VoiceNext']]],
   ['mutemembers',['MuteMembers',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae8969937b064a21923f33c75d1d17da7',1,'DSharpPlus']]]
 ];

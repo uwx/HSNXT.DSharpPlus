@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ReactionContext
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,26 +73,94 @@
   
   <h1 id="DSharpPlus_Interactivity_ReactionContext" data-uid="DSharpPlus.Interactivity.ReactionContext" class="text-break">Class ReactionContext
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Context of a reaction</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">ReactionContext</span></div>
+    <div class="level1"><a class="xref" href="DSharpPlus.Interactivity.InteractivityContext.html">InteractivityContext</a></div>
+    <div class="level2"><span class="xref">ReactionContext</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Interactivity.html">DSharpPlus.Interactivity</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="DSharpPlus_Interactivity_ReactionContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ReactionContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class ReactionContext : InteractivityContext</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext__ctor_" data-uid="DSharpPlus.Interactivity.ReactionContext.#ctor*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext__ctor_DSharpPlus_Interactivity_InteractivityExtension_DiscordEmoji_DiscordMessage_" data-uid="DSharpPlus.Interactivity.ReactionContext.#ctor(DSharpPlus.Interactivity.InteractivityExtension,DiscordEmoji,DiscordMessage)">ReactionContext(InteractivityExtension, DiscordEmoji, DiscordMessage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReactionContext(InteractivityExtension interactivity, DiscordEmoji emoji, DiscordMessage message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.InteractivityExtension.html">InteractivityExtension</a></td>
+        <td><span class="parametername">interactivity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Channel_" data-uid="DSharpPlus.Interactivity.ReactionContext.Channel*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Channel" data-uid="DSharpPlus.Interactivity.ReactionContext.Channel">Channel</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Channel reaction was sent in</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordChannel Channel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext_Channel_" data-uid="DSharpPlus.Interactivity.ReactionContext.Channel*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext_Channel" data-uid="DSharpPlus.Interactivity.ReactionContext.Channel">Channel</h4>
+  <div class="markdown level1 summary"><p>Channel reaction was sent in</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -117,7 +185,8 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Client_" data-uid="DSharpPlus.Interactivity.ReactionContext.Client*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Client" data-uid="DSharpPlus.Interactivity.ReactionContext.Client">Client</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Client that was listened to</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -142,7 +211,34 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Emoji_" data-uid="DSharpPlus.Interactivity.ReactionContext.Emoji*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Emoji" data-uid="DSharpPlus.Interactivity.ReactionContext.Emoji">Emoji</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Emoji that was sent</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmoji Emoji { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext_Emoji_" data-uid="DSharpPlus.Interactivity.ReactionContext.Emoji*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext_Emoji" data-uid="DSharpPlus.Interactivity.ReactionContext.Emoji">Emoji</h4>
+  <div class="markdown level1 summary"><p>Emoji that was sent</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -167,7 +263,34 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Guild_" data-uid="DSharpPlus.Interactivity.ReactionContext.Guild*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Guild" data-uid="DSharpPlus.Interactivity.ReactionContext.Guild">Guild</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Guild this all found place in</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordGuild Guild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordGuild</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext_Guild_" data-uid="DSharpPlus.Interactivity.ReactionContext.Guild*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext_Guild" data-uid="DSharpPlus.Interactivity.ReactionContext.Guild">Guild</h4>
+  <div class="markdown level1 summary"><p>Guild this all found place in</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -192,7 +315,8 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Interactivity_" data-uid="DSharpPlus.Interactivity.ReactionContext.Interactivity*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Interactivity" data-uid="DSharpPlus.Interactivity.ReactionContext.Interactivity">Interactivity</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Responsible interactivity extension</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -217,7 +341,34 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_Message_" data-uid="DSharpPlus.Interactivity.ReactionContext.Message*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_Message" data-uid="DSharpPlus.Interactivity.ReactionContext.Message">Message</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Message that was sent</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordMessage Message { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext_Message_" data-uid="DSharpPlus.Interactivity.ReactionContext.Message*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext_Message" data-uid="DSharpPlus.Interactivity.ReactionContext.Message">Message</h4>
+  <div class="markdown level1 summary"><p>Message that was sent</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -242,7 +393,34 @@
   
   <a id="DSharpPlus_Interactivity_ReactionContext_User_" data-uid="DSharpPlus.Interactivity.ReactionContext.User*"></a>
   <h4 id="DSharpPlus_Interactivity_ReactionContext_User" data-uid="DSharpPlus.Interactivity.ReactionContext.User">User</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>User that sent a reaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordUser User { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_ReactionContext_User_" data-uid="DSharpPlus.Interactivity.ReactionContext.User*"></a>
+  <h4 id="DSharpPlus_Interactivity_ReactionContext_User" data-uid="DSharpPlus.Interactivity.ReactionContext.User">User</h4>
+  <div class="markdown level1 summary"><p>User that sent a reaction</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

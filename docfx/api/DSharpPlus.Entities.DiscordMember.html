@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DiscordMember
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -90,6 +90,9 @@
     </div>
     <div>
       <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_DefaultAvatarUrl">DiscordUser.DefaultAvatarUrl</a>
+    </div>
+    <div>
+      <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_PremiumType">DiscordUser.PremiumType</a>
     </div>
     <div>
       <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Mention">DiscordUser.Mention</a>
@@ -290,7 +293,7 @@
   
   <a id="DSharpPlus_Entities_DiscordMember_Hierarchy_" data-uid="DSharpPlus.Entities.DiscordMember.Hierarchy*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Hierarchy" data-uid="DSharpPlus.Entities.DiscordMember.Hierarchy">Hierarchy</h4>
-  <div class="markdown level1 summary"><p>Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> for guild's owner.</p>
+  <div class="markdown level1 summary"><p>Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> for the guild's owner.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -444,6 +447,34 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="DSharpPlus_Entities_DiscordMember_Locale_" data-uid="DSharpPlus.Entities.DiscordMember.Locale*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordMember_Locale" data-uid="DSharpPlus.Entities.DiscordMember.Locale">Locale</h4>
+  <div class="markdown level1 summary"><p>Gets the user's chosen language</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Locale { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Locale">DiscordUser.Locale</a></div>
   
   
   <a id="DSharpPlus_Entities_DiscordMember_MfaEnabled_" data-uid="DSharpPlus.Entities.DiscordMember.MfaEnabled*"></a>
@@ -1032,6 +1063,9 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="DSharpPlus_Entities_DiscordMember_RemoveAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>[alias=&quot;KickAsync&quot;]</p>
+</div>
   
   
   <a id="DSharpPlus_Entities_DiscordMember_ReplaceRolesAsync_" data-uid="DSharpPlus.Entities.DiscordMember.ReplaceRolesAsync*"></a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DebugLogger
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -91,12 +91,13 @@
   
   
   <a id="DSharpPlus_DebugLogger_LogMessage_" data-uid="DSharpPlus.DebugLogger.LogMessage*"></a>
-  <h4 id="DSharpPlus_DebugLogger_LogMessage_DSharpPlus_LogLevel_System_String_System_String_System_DateTime_" data-uid="DSharpPlus.DebugLogger.LogMessage(DSharpPlus.LogLevel,System.String,System.String,System.DateTime)">LogMessage(LogLevel, String, String, DateTime)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DSharpPlus_DebugLogger_LogMessage_DSharpPlus_LogLevel_System_String_System_String_System_DateTime_System_Exception_" data-uid="DSharpPlus.DebugLogger.LogMessage(DSharpPlus.LogLevel,System.String,System.String,System.DateTime,System.Exception)">LogMessage(LogLevel, String, String, DateTime, Exception)</h4>
+  <div class="markdown level1 summary"><p>Logs a message to this DebugLogger</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void LogMessage(LogLevel level, string application, string message, DateTime timestamp)</code></pre>
+    <pre><code class="lang-csharp hljs">public void LogMessage(LogLevel level, string application, string message, DateTime timestamp, Exception exception = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -111,22 +112,32 @@
       <tr>
         <td><a class="xref" href="DSharpPlus.LogLevel.html">LogLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td></td>
+        <td><p>Log level (severity of this message)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">application</span></td>
-        <td></td>
+        <td><p>What this message applies to</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to log</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
         <td><span class="parametername">timestamp</span></td>
-        <td></td>
+        <td><p>When this message was sent</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception that occurred</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -134,7 +145,8 @@
   
   <a id="DSharpPlus_DebugLogger_LogTaskFault_" data-uid="DSharpPlus.DebugLogger.LogTaskFault*"></a>
   <h4 id="DSharpPlus_DebugLogger_LogTaskFault_System_Threading_Tasks_Task_DSharpPlus_LogLevel_System_String_System_String_" data-uid="DSharpPlus.DebugLogger.LogTaskFault(System.Threading.Tasks.Task,DSharpPlus.LogLevel,System.String,System.String)">LogTaskFault(Task, LogLevel, String, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Logs a task fault</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,22 +165,26 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td><span class="parametername">task</span></td>
-        <td></td>
+        <td><p>Task that borked</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DSharpPlus.LogLevel.html">LogLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td></td>
+        <td><p>Log level (severity of this failure)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">application</span></td>
-        <td></td>
+        <td><p>What this failure applies to</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to attach</p>
+</td>
       </tr>
     </tbody>
   </table>

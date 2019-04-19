@@ -1,23 +1,4 @@
 var searchData=
 [
-  ['lavalinkconfiguration',['LavalinkConfiguration',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html',1,'DSharpPlus::Lavalink']]],
-  ['lavalinkdestroy',['LavalinkDestroy',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkextension',['LavalinkExtension',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_extension.html',1,'DSharpPlus::Lavalink']]],
-  ['lavalinkguildconnection',['LavalinkGuildConnection',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html',1,'DSharpPlus::Lavalink']]],
-  ['lavalinknodeconnection',['LavalinkNodeConnection',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html',1,'DSharpPlus::Lavalink']]],
-  ['lavalinkpause',['LavalinkPause',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkpayload',['LavalinkPayload',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkplay',['LavalinkPlay',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkplayerstate',['LavalinkPlayerState',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkplaypartial',['LavalinkPlayPartial',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play_partial.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkseek',['LavalinkSeek',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_seek.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkstate',['LavalinkState',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_state.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkstatistics',['LavalinkStatistics',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkstats',['LavalinkStats',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_stats.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkstop',['LavalinkStop',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_stop.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinktrack',['LavalinkTrack',['../struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html',1,'DSharpPlus::Lavalink']]],
-  ['lavalinkvoiceserverupdate',['LavalinkVoiceServerUpdate',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_voice_server_update.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkvoiceupdate',['LavalinkVoiceUpdate',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_voice_update.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['lavalinkvolume',['LavalinkVolume',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_volume.html',1,'DSharpPlus::Lavalink::Entities']]],
-  ['listenermethod',['ListenerMethod',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_listener_method.html',1,'HSNXT::DSharpPlus::Extended::AsyncListeners']]]
+  ['javabinaryreader',['JavaBinaryReader',['../class_d_sharp_plus_1_1_lavalink_1_1_java_binary_reader.html',1,'DSharpPlus::Lavalink']]]
 ];

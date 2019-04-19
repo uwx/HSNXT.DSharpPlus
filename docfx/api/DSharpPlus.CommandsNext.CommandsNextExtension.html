@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CommandsNextExtension
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -276,6 +276,239 @@
   </table>
   
   
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_CreateContext_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.CreateContext*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_CreateContext_DiscordMessage_System_String_DSharpPlus_CommandsNext_Command_System_String_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.CreateContext(DiscordMessage,System.String,DSharpPlus.CommandsNext.Command,System.String)">CreateContext(DiscordMessage, String, Command, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a command execution context from specified arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandContext CreateContext(DiscordMessage msg, string prefix, Command cmd, string rawArguments = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>Message to use for context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">prefix</span></td>
+        <td><p>Command prefix, used to execute commands.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Command.html">Command</a></td>
+        <td><span class="parametername">cmd</span></td>
+        <td><p>Command to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">rawArguments</span></td>
+        <td><p>Raw arguments to pass to command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.CommandContext.html">CommandContext</a></td>
+        <td><p>Created command execution context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_CreateFakeContext_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.CreateFakeContext*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_CreateFakeContext_DiscordUser_DiscordChannel_System_String_System_String_DSharpPlus_CommandsNext_Command_System_String_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.CreateFakeContext(DiscordUser,DiscordChannel,System.String,System.String,DSharpPlus.CommandsNext.Command,System.String)">CreateFakeContext(DiscordUser, DiscordChannel, String, String, Command, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a fake command context to execute commands with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandContext CreateFakeContext(DiscordUser actor, DiscordChannel channel, string messageContents, string prefix, Command cmd, string rawArguments = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">actor</span></td>
+        <td><p>The user or member to use as message author.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel the message is supposed to appear from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">messageContents</span></td>
+        <td><p>Contents of the message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">prefix</span></td>
+        <td><p>Command prefix, used to execute commands.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Command.html">Command</a></td>
+        <td><span class="parametername">cmd</span></td>
+        <td><p>Command to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">rawArguments</span></td>
+        <td><p>Raw arguments to pass to command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.CommandContext.html">CommandContext</a></td>
+        <td><p>Created fake context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_ExecuteCommandAsync_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.ExecuteCommandAsync*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_ExecuteCommandAsync_DSharpPlus_CommandsNext_CommandContext_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.ExecuteCommandAsync(DSharpPlus.CommandsNext.CommandContext)">ExecuteCommandAsync(CommandContext)</h4>
+  <div class="markdown level1 summary"><p>Executes specified command from given context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ExecuteCommandAsync(CommandContext ctx)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.CommandContext.html">CommandContext</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td><p>Context to execute command from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_FindCommand_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.FindCommand*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_FindCommand_System_String_System_String__" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.FindCommand(System.String,System.String@)">FindCommand(String, out String)</h4>
+  <div class="markdown level1 summary"><p>Finds a specified command by its qualified name, then separates arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Command FindCommand(string commandString, out string rawArguments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">commandString</span></td>
+        <td><p>Qualified name of the command, optionally with arguments.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">rawArguments</span></td>
+        <td><p>Separated arguments.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Command.html">Command</a></td>
+        <td><p>Found command or null if none was found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DSharpPlus_CommandsNext_CommandsNextExtension_GetUserFriendlyTypeName_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.GetUserFriendlyTypeName*"></a>
   <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_GetUserFriendlyTypeName_System_Type_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.GetUserFriendlyTypeName(System.Type)">GetUserFriendlyTypeName(Type)</h4>
   <div class="markdown level1 summary"><p>Converts a type into user-friendly type name.</p>
@@ -315,6 +548,35 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><p>User-friendly type name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_RegisterCommands_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.RegisterCommands*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_RegisterCommands_CommandBuilder___" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.RegisterCommands(CommandBuilder[])">RegisterCommands(CommandBuilder[])</h4>
+  <div class="markdown level1 summary"><p>Builds and registers all supplied commands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterCommands(params CommandBuilder[] cmds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CommandBuilder</span>[]</td>
+        <td><span class="parametername">cmds</span></td>
+        <td><p>Commands to build and register.</p>
 </td>
       </tr>
     </tbody>
@@ -606,14 +868,14 @@
   </table>
   
   
-  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_SudoAsync_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.SudoAsync*"></a>
-  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_SudoAsync_DiscordUser_DiscordChannel_System_String_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.SudoAsync(DiscordUser,DiscordChannel,System.String)">SudoAsync(DiscordUser, DiscordChannel, String)</h4>
-  <div class="markdown level1 summary"><p>Creates a fake message and executes a command using said message as context. Note that any command that looks the message up might throw.</p>
+  <a id="DSharpPlus_CommandsNext_CommandsNextExtension_UnregisterCommands_" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.UnregisterCommands*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextExtension_UnregisterCommands_DSharpPlus_CommandsNext_Command___" data-uid="DSharpPlus.CommandsNext.CommandsNextExtension.UnregisterCommands(DSharpPlus.CommandsNext.Command[])">UnregisterCommands(Command[])</h4>
+  <div class="markdown level1 summary"><p>Unregisters specified commands from CommandsNext.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task SudoAsync(DiscordUser user, DiscordChannel channel, string message)</code></pre>
+    <pre><code class="lang-csharp hljs">public void UnregisterCommands(params Command[] cmds)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -626,37 +888,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">DiscordUser</span></td>
-        <td><span class="parametername">user</span></td>
-        <td><p>User to execute as.</p>
+        <td><a class="xref" href="DSharpPlus.CommandsNext.Command.html">Command</a>[]</td>
+        <td><span class="parametername">cmds</span></td>
+        <td><p>Commands to unregister.</p>
 </td>
-      </tr>
-      <tr>
-        <td><span class="xref">DiscordChannel</span></td>
-        <td><span class="parametername">channel</span></td>
-        <td><p>Channel to execute in.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>Contents of the fake message.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
       </tr>
     </tbody>
   </table>

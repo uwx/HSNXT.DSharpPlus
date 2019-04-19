@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LavalinkGuildConnection
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -197,6 +197,35 @@
   </h3>
   
   
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_AdjustEqualizer_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.AdjustEqualizer*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_AdjustEqualizer_DSharpPlus_Lavalink_LavalinkBandAdjustment___" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.AdjustEqualizer(DSharpPlus.Lavalink.LavalinkBandAdjustment[])">AdjustEqualizer(LavalinkBandAdjustment[])</h4>
+  <div class="markdown level1 summary"><p>Adjusts the specified bands in the audio equalizer. This will alter the sound output, and might incur a lot of CPU usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AdjustEqualizer(params LavalinkBandAdjustment[] bands)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Lavalink.LavalinkBandAdjustment.html">LavalinkBandAdjustment</a>[]</td>
+        <td><span class="parametername">bands</span></td>
+        <td><p>Bands adjustments to make. You must specify one adjustment per band at most.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Disconnect_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Disconnect*"></a>
   <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Disconnect" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Disconnect">Disconnect()</h4>
   <div class="markdown level1 summary"><p>Disconnect from this voice channel.</p>
@@ -289,6 +318,17 @@
   </table>
   
   
+  <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_ResetEqualizer_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.ResetEqualizer*"></a>
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_ResetEqualizer" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.ResetEqualizer">ResetEqualizer()</h4>
+  <div class="markdown level1 summary"><p>Resets the audio equalizer to default values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetEqualizer()</code></pre>
+  </div>
+  
+  
   <a id="DSharpPlus_Lavalink_LavalinkGuildConnection_Resume_" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Resume*"></a>
   <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_Resume" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.Resume">Resume()</h4>
   <div class="markdown level1 summary"><p>Resumes playback.</p>
@@ -351,7 +391,7 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">volume</span></td>
-        <td><p>Volume to set. Needs to be greater or equal to 0, and less than or equal to 150. 100 means 100% and is the default value.</p>
+        <td><p>Volume to set. Needs to be greater or equal to 0, and less than or equal to 100. 100 means 100% and is the default value.</p>
 </td>
       </tr>
     </tbody>
@@ -369,6 +409,31 @@
   </div>
   <h3 id="events">Events
   </h3>
+  
+  
+  <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_DiscordWebSocketClosed" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.DiscordWebSocketClosed">DiscordWebSocketClosed</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever Discord Voice WebSocket connection is terminated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;WebSocketCloseEventArgs&gt; DiscordWebSocketClosed</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<span class="xref">WebSocketCloseEventArgs</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <h4 id="DSharpPlus_Lavalink_LavalinkGuildConnection_PlaybackFinished" data-uid="DSharpPlus.Lavalink.LavalinkGuildConnection.PlaybackFinished">PlaybackFinished</h4>

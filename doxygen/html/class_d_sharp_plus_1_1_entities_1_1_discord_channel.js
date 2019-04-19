@@ -45,6 +45,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_channel =
     [ "LastMessageId", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a3413d045892856d58d4e4a8e2466f596", null ],
     [ "Bitrate", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aea7478c144e0459d9d19bba8956707b7", null ],
     [ "UserLimit", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aadbe19638f265f043871e8baefdbfad9", null ],
+    [ "PerUserRateLimit", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a290208e5beb0ae8603c070c5acd252ac", null ],
     [ "Children", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aa61c98c88633504d6bd7eb17ce85fab0", null ],
     [ "Users", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a27cde6c6a75d71c91c856c8e8c7e4c2c", null ],
     [ "IsNSFW", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a55cfd9a23421df20ad8da1c6616a4e34", null ]

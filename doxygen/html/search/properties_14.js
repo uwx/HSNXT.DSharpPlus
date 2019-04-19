@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['web',['Web',['../class_d_sharp_plus_1_1_entities_1_1_discord_client_status.html#ae850bbffb4d5d3b2d0009afd86ae0852',1,'DSharpPlus::Entities::DiscordClientStatus']]],
   ['webhookid',['WebhookId',['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a66751ae2473d50d36b1e81e863deaf15',1,'DSharpPlus.Entities.DiscordMessage.WebhookId()'],['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#aa13f15f469c96b8482f521e40fcc657f',1,'DSharpPlus.Net.RateLimitBucket.WebhookId()']]],
   ['webhooks',['Webhooks',['../class_d_sharp_plus_1_1_discord_webhook_client.html#a8337902640129ca61be02084febc647b',1,'DSharpPlus::DiscordWebhookClient']]],
   ['webhooksupdated',['WebhooksUpdated',['../class_d_sharp_plus_1_1_discord_client.html#a553819e2700dcc511183977854446dd8',1,'DSharpPlus.DiscordClient.WebhooksUpdated()'],['../class_d_sharp_plus_1_1_discord_sharded_client.html#a49338c9e50ed4b4da1c721cc4fa55d88',1,'DSharpPlus.DiscordShardedClient.WebhooksUpdated()']]],

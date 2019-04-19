@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Optional&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,14 +73,14 @@
   
   <h1 id="DSharpPlus_Entities_Optional_1" data-uid="DSharpPlus.Entities.Optional`1" class="text-break">Struct Optional&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Represents a value which may or may not have a value.</p>
+  <div class="markdown level0 summary"><p>Represents a wrapper which may or may not have a value.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Entities.html">DSharpPlus.Entities</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="DSharpPlus_Entities_Optional_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Optional&lt;T&gt; : IEquatable&lt;Optional&lt;T&gt;&gt;, IEquatable&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct Optional&lt;T&gt; : IEquatable&lt;Optional&lt;T&gt;&gt;, IEquatable&lt;T&gt;, IOptional</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -180,6 +180,22 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>If this <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> has no value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -324,78 +340,6 @@
   <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.equals#System_ValueType_Equals_System_Object_">ValueType.Equals(Object)</a></div>
   
   
-  <a id="DSharpPlus_Entities_Optional_1_FromNoValue_" data-uid="DSharpPlus.Entities.Optional`1.FromNoValue*"></a>
-  <h4 id="DSharpPlus_Entities_Optional_1_FromNoValue" data-uid="DSharpPlus.Entities.Optional`1.FromNoValue">FromNoValue()</h4>
-  <div class="markdown level1 summary"><p>Creates a new empty <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> with no value and invalid state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Optional&lt;T&gt; FromNoValue()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;T&gt;</td>
-        <td><p>Created optional.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="DSharpPlus_Entities_Optional_1_FromValue_" data-uid="DSharpPlus.Entities.Optional`1.FromValue*"></a>
-  <h4 id="DSharpPlus_Entities_Optional_1_FromValue__0_" data-uid="DSharpPlus.Entities.Optional`1.FromValue(`0)">FromValue(T)</h4>
-  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> with specified value and valid state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Optional&lt;T&gt; FromValue(T value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to populate the optional with.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;T&gt;</td>
-        <td><p>Created optional.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="DSharpPlus_Entities_Optional_1_GetHashCode_" data-uid="DSharpPlus.Entities.Optional`1.GetHashCode*"></a>
   <h4 id="DSharpPlus_Entities_Optional_1_GetHashCode" data-uid="DSharpPlus.Entities.Optional`1.GetHashCode">GetHashCode()</h4>
   <div class="markdown level1 summary"><p>Gets the hash code for this <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a>.</p>
@@ -427,7 +371,10 @@
   
   <a id="DSharpPlus_Entities_Optional_1_IfPresent_" data-uid="DSharpPlus.Entities.Optional`1.IfPresent*"></a>
   <h4 id="DSharpPlus_Entities_Optional_1_IfPresent__1_System_Func__0___0__" data-uid="DSharpPlus.Entities.Optional`1.IfPresent``1(System.Func{`0,``0})">IfPresent&lt;TTarget&gt;(Func&lt;T, TTarget&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs a mapping operation on the current <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a>, turning it into an Optional holding a
+<code data-dev-comment-type="typeparamref" class="typeparamref">TTarget</code> instance if the source optional contains a value; otherwise, returns an
+<a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> of that same type with no value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -446,7 +393,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TTarget&gt;</td>
         <td><span class="parametername">mapper</span></td>
-        <td></td>
+        <td><p>The mapping function to apply on the current value if it exists</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -461,7 +409,10 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;TTarget&gt;</td>
-        <td></td>
+        <td><p>An <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> containing a value denoted by calling <code data-dev-comment-type="paramref" class="paramref">mapper</code> if the current
+<a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> contains a value; otherwise, an empty <a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional&lt;T&gt;</a> of the target
+type.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -476,7 +427,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">TTarget</span></td>
-        <td></td>
+        <td><p>The type of the target value returned by <code data-dev-comment-type="paramref" class="paramref">mapper</code></p>
+</td>
       </tr>
     </tbody>
   </table>

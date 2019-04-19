@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class InteractivityConfiguration
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,8 @@
   
   <h1 id="DSharpPlus_Interactivity_InteractivityConfiguration" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration" class="text-break">Class InteractivityConfiguration
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Configuration options for <a class="xref" href="DSharpPlus.Interactivity.InteractivityExtension.html">InteractivityExtension</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -88,6 +89,17 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration__ctor_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.#ctor*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration__ctor" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.#ctor">InteractivityConfiguration()</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html">InteractivityConfiguration</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InteractivityConfiguration()</code></pre>
+  </div>
   
   
   <a id="DSharpPlus_Interactivity_InteractivityConfiguration__ctor_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.#ctor*"></a>
@@ -128,14 +140,162 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration__ctor_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.#ctor*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration__ctor_DSharpPlus_Interactivity_InteractivityConfiguration_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.#ctor(DSharpPlus.Interactivity.InteractivityConfiguration)">InteractivityConfiguration(InteractivityConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html">InteractivityConfiguration</a>, copying the properties of another configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InteractivityConfiguration(InteractivityConfiguration other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html">InteractivityConfiguration</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Configuration the properties of which are to be copied.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPageHeader_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPageHeader*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPageHeader" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPageHeader">DefaultPageHeader</h4>
+  <div class="markdown level1 summary"><p>Format string for the page header when using <a class="xref" href="DSharpPlus.Interactivity.InteractivityExtension.html#DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_System_String_">GeneratePagesInEmbeds(String)</a>.</p>
+<p>
+<p>The parameters provided to the format string are as follows:</p>
+<ul><li>
+        0: The page number
+</li><li>
+    1: The amount of pages
+</li></ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DefaultPageHeader { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPaginationEmojis*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPaginationEmojis" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPaginationEmojis">DefaultPaginationEmojis</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PaginationEmojis DefaultPaginationEmojis { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPollOptions_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPollOptions*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPollOptions" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultPollOptions">DefaultPollOptions</h4>
+  <div class="markdown level1 summary"><p>Default emotes to use as reactions for polling</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;DiscordEmoji&gt; DefaultPollOptions { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">DiscordEmoji</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultStringPageHeader_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultStringPageHeader*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_DefaultStringPageHeader" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.DefaultStringPageHeader">DefaultStringPageHeader</h4>
+  <div class="markdown level1 summary"><p>Format string for the page header when using <a class="xref" href="DSharpPlus.Interactivity.InteractivityExtension.html#DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_System_String_">GeneratePagesInStrings(String)</a>.</p>
+<p>
+<p>The parameters provided to the format string are as follows:</p>
+<ul><li>
+        0: The page number
+</li><li>
+    1: The amount of pages
+</li><li>
+    2: The page content
+</li></ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DefaultStringPageHeader { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehavior*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehavior">PaginationBehavior</h4>
   <div class="markdown level1 summary"><p>Sets the default pagination timeout behaviour.</p>
-<p>Defaults to <a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour.html#DSharpPlus_Interactivity_TimeoutBehaviour_Ignore">Ignore</a>.</p>
+<p>Defaults to <see cref="!:TimeoutBehaviour.Ignore"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -152,7 +312,34 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour.html">TimeoutBehaviour</a></td>
+        <td><a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour_1.html">TimeoutBehaviour</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehavior*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehavior">PaginationBehavior</h4>
+  <div class="markdown level1 summary"><p>Sets the default pagination timeout behaviour.</p>
+<p>Defaults to <see cref="!:TimeoutBehaviour.Ignore"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeoutBehaviour PaginationBehavior { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour_1.html">TimeoutBehaviour</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -168,6 +355,60 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan PaginationTimeout { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationTimeout_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationTimeout*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_PaginationTimeout" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.PaginationTimeout">PaginationTimeout</h4>
+  <div class="markdown level1 summary"><p>Sets the default pagination timeout.</p>
+<p>Defaults to 2 minutes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan PaginationTimeout { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityConfiguration_Timeout_" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.Timeout*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityConfiguration_Timeout" data-uid="DSharpPlus.Interactivity.InteractivityConfiguration.Timeout">Timeout</h4>
+  <div class="markdown level1 summary"><p>Sets the default interactivity action timeout.</p>
+<p>Defaults to 1 minute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Timeout { set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -31,6 +31,7 @@ var searchData=
   ['discordchannel',['DiscordChannel',['../class_d_sharp_plus_1_1_entities_1_1_discord_channel.html',1,'DSharpPlus::Entities']]],
   ['discordchannelconverter',['DiscordChannelConverter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_channel_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['discordclient',['DiscordClient',['../class_d_sharp_plus_1_1_discord_client.html',1,'DSharpPlus']]],
+  ['discordclientstatus',['DiscordClientStatus',['../class_d_sharp_plus_1_1_entities_1_1_discord_client_status.html',1,'DSharpPlus::Entities']]],
   ['discordcolor',['DiscordColor',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html',1,'DSharpPlus::Entities']]],
   ['discordcolorconverter',['DiscordColorConverter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_color_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['discordconfiguration',['DiscordConfiguration',['../class_d_sharp_plus_1_1_discord_configuration.html',1,'DSharpPlus']]],
@@ -48,6 +49,10 @@ var searchData=
   ['discordemoji',['DiscordEmoji',['../class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html',1,'DSharpPlus::Entities']]],
   ['discordemojiconverter',['DiscordEmojiConverter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_emoji_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['discordeventargs',['DiscordEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_discord_event_args.html',1,'DSharpPlus::EventArgs']]],
+  ['discordeventawaiter',['DiscordEventAwaiter',['../class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html',1,'DSharpPlus::Interactivity']]],
+  ['discordeventawaiter_3c_20discordeventargs_2c_20interactivitycontext_20_3e',['DiscordEventAwaiter&lt; DiscordEventArgs, InteractivityContext &gt;',['../class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html',1,'DSharpPlus::Interactivity']]],
+  ['discordeventawaiter_3c_20messagecreateeventargs_2c_20messagecontext_20_3e',['DiscordEventAwaiter&lt; MessageCreateEventArgs, MessageContext &gt;',['../class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html',1,'DSharpPlus::Interactivity']]],
+  ['discordeventawaiter_3c_20messagereactionaddeventargs_2c_20reactioncontext_20_3e',['DiscordEventAwaiter&lt; MessageReactionAddEventArgs, ReactionContext &gt;',['../class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html',1,'DSharpPlus::Interactivity']]],
   ['discordguild',['DiscordGuild',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html',1,'DSharpPlus::Entities']]],
   ['discordguildconverter',['DiscordGuildConverter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_guild_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['discordguildembed',['DiscordGuildEmbed',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild_embed.html',1,'DSharpPlus::Entities']]],
@@ -89,5 +94,6 @@ var searchData=
   ['duckfield',['DuckField',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_field.html',1,'HSNXT::DSharpPlus::ModernEmbedBuilder']]],
   ['duckfooter',['DuckFooter',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_footer.html',1,'HSNXT::DSharpPlus::ModernEmbedBuilder']]],
   ['ducktimestamp',['DuckTimestamp',['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_timestamp.html',1,'HSNXT::DSharpPlus::ModernEmbedBuilder']]],
-  ['duplicatecommandexception',['DuplicateCommandException',['../class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_command_exception.html',1,'DSharpPlus::CommandsNext::Exceptions']]]
+  ['duplicatecommandexception',['DuplicateCommandException',['../class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_command_exception.html',1,'DSharpPlus::CommandsNext::Exceptions']]],
+  ['duplicateoverloadexception',['DuplicateOverloadException',['../class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_overload_exception.html',1,'DSharpPlus::CommandsNext::Exceptions']]]
 ];

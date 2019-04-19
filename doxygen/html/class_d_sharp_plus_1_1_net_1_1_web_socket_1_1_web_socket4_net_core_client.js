@@ -6,8 +6,9 @@ var class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client =
     [ "SendMessage", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a94922b9ad33ef447b7c9a8f832c1c283", null ],
     [ "OnConnectedAsync", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#aa905eeff7c0664df618070d4588ab56b", null ],
     [ "OnDisconnectedAsync", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a9e5c4027d93716aee8e5b246045d7f75", null ],
-    [ "OnConnect", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a10059814abf16b1a6da11e0fbd4dd193", null ],
-    [ "OnDisconnect", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a96bd0195eb14b769691bef888bf2c816", null ],
-    [ "OnMessage", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a94c9ec5d3009f536ea14dab4437a5eb8", null ],
-    [ "OnError", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a1e002a905f2b6cd82a0dcd108493a125", null ]
+    [ "Dispose", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#ada5def5c6495f912a1f61714a75d885d", null ],
+    [ "Connected", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#acf971d9dda12bd3e3e6413988559a065", null ],
+    [ "Disconnected", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a15a620faf9a56afcd9f649aeb0ef9316", null ],
+    [ "MessageReceived", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a9f229a52c368df903e7ca9a4e666bf07", null ],
+    [ "Errored", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html#a7495cc70ce62c92dae1b510c4fad277e", null ]
 ];

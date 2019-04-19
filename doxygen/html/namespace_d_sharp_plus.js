@@ -22,6 +22,7 @@ var namespace_d_sharp_plus =
     [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html", "class_d_sharp_plus_1_1_discord_webhook_client" ],
     [ "ImageTool", "class_d_sharp_plus_1_1_image_tool.html", "class_d_sharp_plus_1_1_image_tool" ],
     [ "PermissionStringAttribute", "class_d_sharp_plus_1_1_permission_string_attribute.html", "class_d_sharp_plus_1_1_permission_string_attribute" ],
-    [ "ReadOnlySet", "class_d_sharp_plus_1_1_read_only_set.html", "class_d_sharp_plus_1_1_read_only_set" ],
+    [ "ReadOnlyConcurrentDictionary", "struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html", "struct_d_sharp_plus_1_1_read_only_concurrent_dictionary" ],
+    [ "ReadOnlySet", "struct_d_sharp_plus_1_1_read_only_set.html", "struct_d_sharp_plus_1_1_read_only_set" ],
     [ "RingBuffer", "class_d_sharp_plus_1_1_ring_buffer.html", "class_d_sharp_plus_1_1_ring_buffer" ]
 ];

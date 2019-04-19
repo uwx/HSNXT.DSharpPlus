@@ -21,7 +21,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder =
     [ "AddField", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#ace0230d83652d94fabb183f2b634f71a", null ],
     [ "ClearFields", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a3a5e0293b9f8917a94be4dfa96a06d15", null ],
     [ "Build", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a76abfea654f06db50fc498c4e28845fd", null ],
-    [ "Fields", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a40751e1dfc846607580771c244381267", null ],
     [ "Title", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#abce56ddacd620a7b42acf8f334b87960", null ],
     [ "Description", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a482764a841ca14ab70ece991a61a23c4", null ],
     [ "Url", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a507eb8ae9db49b00d2c5e7dbc9d7fee2", null ],
@@ -30,5 +29,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder =
     [ "ImageUrl", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a35715b59213bde3c71f5313eccd81d88", null ],
     [ "ThumbnailUrl", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a82892b0281234a1544568ef3a4df51e4", null ],
     [ "Author", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#aa6a9632d578e68c97bc968dd7d61f6b9", null ],
-    [ "Footer", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#ae1d472e8d322f2bbe3fddcb537e89422", null ]
+    [ "Footer", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#ae1d472e8d322f2bbe3fddcb537e89422", null ],
+    [ "Fields", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a40751e1dfc846607580771c244381267", null ]
 ];

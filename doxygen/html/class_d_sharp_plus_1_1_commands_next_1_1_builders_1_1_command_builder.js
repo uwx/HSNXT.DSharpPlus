@@ -1,5 +1,6 @@
 var class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder =
 [
+    [ "CommandBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#acbeaf0998cb6c8ef04dbc43fb983e476", null ],
     [ "CommandBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#a1df55705b4a648d743ca1e3f7b315f41", null ],
     [ "WithName", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#ac30d39afc45ea062bd8e31b0130dfc59", null ],
     [ "WithAliases", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html#aa2cc1ec7bb418160117cc4ad1a414b6f", null ],

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BaseWebSocketClient
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -463,13 +463,13 @@
   </h3>
   
   
-  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_OnConnect" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.OnConnect">OnConnect</h4>
+  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_Connected" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.Connected">Connected</h4>
   <div class="markdown level1 summary"><p>Triggered when the client connects successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler OnConnect</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler Connected</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -488,13 +488,13 @@
   </table>
   
   
-  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_OnDisconnect" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.OnDisconnect">OnDisconnect</h4>
+  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_Disconnected" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.Disconnected">Disconnected</h4>
   <div class="markdown level1 summary"><p>Triggered when the client is disconnected.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketCloseEventArgs&gt; OnDisconnect</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketCloseEventArgs&gt; Disconnected</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -513,13 +513,13 @@
   </table>
   
   
-  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_OnError" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.OnError">OnError</h4>
+  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_Errored" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.Errored">Errored</h4>
   <div class="markdown level1 summary"><p>Triggered when an error occurs in the client.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketErrorEventArgs&gt; OnError</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketErrorEventArgs&gt; Errored</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -538,13 +538,13 @@
   </table>
   
   
-  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_OnMessage" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.OnMessage">OnMessage</h4>
+  <h4 id="DSharpPlus_Net_WebSocket_BaseWebSocketClient_MessageReceived" data-uid="DSharpPlus.Net.WebSocket.BaseWebSocketClient.MessageReceived">MessageReceived</h4>
   <div class="markdown level1 summary"><p>Triggered when the client receives a message from the remote party.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketMessageEventArgs&gt; OnMessage</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract event AsyncEventHandler&lt;SocketMessageEventArgs&gt; MessageReceived</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">

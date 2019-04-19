@@ -20,6 +20,7 @@ var namespace_d_sharp_plus_1_1_entities =
     [ "DiscordAuditLogWebhookEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_webhook_entry.html", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_webhook_entry" ],
     [ "DiscordBan", "class_d_sharp_plus_1_1_entities_1_1_discord_ban.html", "class_d_sharp_plus_1_1_entities_1_1_discord_ban" ],
     [ "DiscordChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html", "class_d_sharp_plus_1_1_entities_1_1_discord_channel" ],
+    [ "DiscordClientStatus", "class_d_sharp_plus_1_1_entities_1_1_discord_client_status.html", "class_d_sharp_plus_1_1_entities_1_1_discord_client_status" ],
     [ "DiscordColor", "struct_d_sharp_plus_1_1_entities_1_1_discord_color.html", "struct_d_sharp_plus_1_1_entities_1_1_discord_color" ],
     [ "DiscordConnection", "class_d_sharp_plus_1_1_entities_1_1_discord_connection.html", "class_d_sharp_plus_1_1_entities_1_1_discord_connection" ],
     [ "DiscordDmChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_dm_channel.html", "class_d_sharp_plus_1_1_entities_1_1_discord_dm_channel" ],
@@ -55,7 +56,10 @@ var namespace_d_sharp_plus_1_1_entities =
     [ "DiscordVoiceRegion", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_region.html", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_region" ],
     [ "DiscordVoiceState", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state" ],
     [ "DiscordWebhook", "class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html", "class_d_sharp_plus_1_1_entities_1_1_discord_webhook" ],
-    [ "Optional", "struct_d_sharp_plus_1_1_entities_1_1_optional.html", "struct_d_sharp_plus_1_1_entities_1_1_optional" ],
+    [ "IOptional", "interface_d_sharp_plus_1_1_entities_1_1_i_optional.html", "interface_d_sharp_plus_1_1_entities_1_1_i_optional" ],
+    [ "OptionalJsonContractResolver", "class_d_sharp_plus_1_1_entities_1_1_optional_json_contract_resolver.html", "class_d_sharp_plus_1_1_entities_1_1_optional_json_contract_resolver" ],
+    [ "OptionalJsonConverter", "class_d_sharp_plus_1_1_entities_1_1_optional_json_converter.html", "class_d_sharp_plus_1_1_entities_1_1_optional_json_converter" ],
     [ "PropertyChange", "class_d_sharp_plus_1_1_entities_1_1_property_change.html", "class_d_sharp_plus_1_1_entities_1_1_property_change" ],
-    [ "SnowflakeObject", "class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html", "class_d_sharp_plus_1_1_entities_1_1_snowflake_object" ]
+    [ "SnowflakeObject", "class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html", "class_d_sharp_plus_1_1_entities_1_1_snowflake_object" ],
+    [ "UserStatusConverter", "class_d_sharp_plus_1_1_entities_1_1_user_status_converter.html", "class_d_sharp_plus_1_1_entities_1_1_user_status_converter" ]
 ];

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CommandsNextConfiguration
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -135,7 +135,8 @@
   
   <a id="DSharpPlus_CommandsNext_CommandsNextConfiguration_CaseSensitive_" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.CaseSensitive*"></a>
   <h4 id="DSharpPlus_CommandsNext_CommandsNextConfiguration_CaseSensitive" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.CaseSensitive">CaseSensitive</h4>
-  <div class="markdown level1 summary"><p>Sets whether the commands should be case-sensitive.</p>
+  <div class="markdown level1 summary"><p>Sets whether strings should be matched in a case-sensitive manner.</p>
+<p>This switch affects the behaviour of default prefix resolver, command searching, and argument conversion.</p>
 <p>Defaults to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -383,33 +384,6 @@ It is recommended to use help formatter instead of disabling help.
   </table>
   
   
-  <a id="DSharpPlus_CommandsNext_CommandsNextConfiguration_Selfbot_" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.Selfbot*"></a>
-  <h4 id="DSharpPlus_CommandsNext_CommandsNextConfiguration_Selfbot" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.Selfbot">Selfbot</h4>
-  <div class="markdown level1 summary"><p>Sets whether the bot should only respond to messages from its own account. This is useful for selfbots.</p>
-<p>Defaults to false.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Selfbot { set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="DSharpPlus_CommandsNext_CommandsNextConfiguration_Services_" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.Services*"></a>
   <h4 id="DSharpPlus_CommandsNext_CommandsNextConfiguration_Services" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.Services">Services</h4>
   <div class="markdown level1 summary"><p>Sets the service provider for this CommandsNext instance.</p>
@@ -459,6 +433,31 @@ It is recommended to use help formatter instead of disabling help.
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_CommandsNext_CommandsNextConfiguration_UseDefaultCommandHandler_" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.UseDefaultCommandHandler*"></a>
+  <h4 id="DSharpPlus_CommandsNext_CommandsNextConfiguration_UseDefaultCommandHandler" data-uid="DSharpPlus.CommandsNext.CommandsNextConfiguration.UseDefaultCommandHandler">UseDefaultCommandHandler</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseDefaultCommandHandler { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>

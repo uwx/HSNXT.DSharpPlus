@@ -13,6 +13,8 @@ var class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands =
     [ "SeekAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a10141f2fe65d1d7321bb234c8e421421", null ],
     [ "VolumeAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#ae34cba8d38a93d1e595ce071d8b6ed77", null ],
     [ "NowPlayingAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a1f4f53fe5f83d4d1aa53a423b0f7af47", null ],
+    [ "EqualizerAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a5f205db16a8bfa44c02a40327c296d33", null ],
+    [ "EqualizerAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a503340576fb5b417b789b22b14c0ce2b", null ],
     [ "StatsAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a27dcc8142a68c30f4d70363a24162e5b", null ],
     [ "Lavalink", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#ac397062b42eca4338d3b36a1314a61bf", null ],
     [ "LavalinkVoice", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a28b1d9bc4e4b3c7ead34f4565d804deb", null ],

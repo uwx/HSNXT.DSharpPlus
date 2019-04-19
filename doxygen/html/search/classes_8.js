@@ -35,8 +35,12 @@ var searchData=
   ['int64converter',['Int64Converter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int64_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['int8converter',['Int8Converter',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int8_converter.html',1,'DSharpPlus::CommandsNext::Converters']]],
   ['interactivityconfiguration',['InteractivityConfiguration',['../class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html',1,'DSharpPlus::Interactivity']]],
+  ['interactivitycontext',['InteractivityContext',['../class_d_sharp_plus_1_1_interactivity_1_1_interactivity_context.html',1,'DSharpPlus::Interactivity']]],
   ['interactivityextension',['InteractivityExtension',['../class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html',1,'DSharpPlus::Interactivity']]],
+  ['invalidoverloadexception',['InvalidOverloadException',['../class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_invalid_overload_exception.html',1,'DSharpPlus::CommandsNext::Exceptions']]],
   ['ioauth2payload',['IOAuth2Payload',['../interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_o_auth2_payload.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['ipendpoint',['IpEndpoint',['../struct_d_sharp_plus_1_1_net_1_1_udp_1_1_ip_endpoint.html',1,'DSharpPlus::Net::Udp']]],
-  ['ireasonaction',['IReasonAction',['../interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_reason_action.html',1,'DSharpPlus::Net::Abstractions']]]
+  ['ioptional',['IOptional',['../interface_d_sharp_plus_1_1_entities_1_1_i_optional.html',1,'DSharpPlus::Entities']]],
+  ['ipendpoint',['IpEndpoint',['../struct_d_sharp_plus_1_1_net_1_1_ip_endpoint.html',1,'DSharpPlus::Net']]],
+  ['ireasonaction',['IReasonAction',['../interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_reason_action.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['ivoicefilter',['IVoiceFilter',['../interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html',1,'DSharpPlus::VoiceNext']]]
 ];

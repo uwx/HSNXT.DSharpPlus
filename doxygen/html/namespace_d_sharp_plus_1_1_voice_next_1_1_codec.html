@@ -96,11 +96,19 @@ $(document).ready(function(){initNavTree('namespace_d_sharp_plus_1_1_voice_next_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus_codec.html">OpusCodec</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Helpers</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_rtp_codec.html">RtpCodec</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Interop</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an interop class. It contains wrapper methods for <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus.html">Opus</a> and <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_sodium.html">Sodium</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_sodium_codec.html">SodiumCodec</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus.html">Opus</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus_decoder.html">OpusDecoder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus.html">Opus</a> decoder.  <a href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus_decoder.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_rtp.html">Rtp</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_sodium.html">Sodium</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -125,7 +133,8 @@ Enumerations</h2></td></tr>
 <b>SetPacketLossPercent</b> = 4014, 
 <br />
 &#160;&#160;<b>SetSignal</b> = 4024, 
-<b>ResetState</b> = 4028
+<b>ResetState</b> = 4028, 
+<b>GetLastPacketDuration</b> = 4039
 <br />
  }</td></tr>
 <tr class="separator:a15614d72cf4ca3b4a94ba512e65f815a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,12 +143,46 @@ Enumerations</h2></td></tr>
 <b>Music</b> = 3002
  }</td></tr>
 <tr class="separator:afa5e427857421397d0621b06326f4ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad78899e658efa9f0935d061b2113048"><td class="memItemLeft" align="right" valign="top"><a id="aad78899e658efa9f0935d061b2113048"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>VoiceApplication</b> : int { <b>Voice</b> = 2048, 
-<b>Music</b> = 2049, 
-<b>LowLatency</b> = 2051
+<tr class="memitem:a5d48e0924963da833a4af34c70f94526"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526">EncryptionMode</a> { <a class="el" href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526adbfb4f0261abcc841e616e90e4613982">EncryptionMode.XSalsa20_Poly1305_Lite</a>, 
+<a class="el" href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526aa3728f79c59bb0b5cacb7d3a6c42c001">EncryptionMode.XSalsa20_Poly1305_Suffix</a>, 
+<a class="el" href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526a28075bf348f169729ce235a43253a6bf">EncryptionMode.XSalsa20_Poly1305</a>
  }</td></tr>
-<tr class="separator:aad78899e658efa9f0935d061b2113048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a5d48e0924963da833a4af34c70f94526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies an encryption mode to use with Sodium.  <a href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526">More...</a><br /></td></tr>
+<tr class="separator:a5d48e0924963da833a4af34c70f94526"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a5d48e0924963da833a4af34c70f94526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d48e0924963da833a4af34c70f94526">&#9670;&nbsp;</a></span>EncryptionMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html#a5d48e0924963da833a4af34c70f94526">DSharpPlus.VoiceNext.Codec.EncryptionMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies an encryption mode to use with <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_sodium.html">Sodium</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5d48e0924963da833a4af34c70f94526adbfb4f0261abcc841e616e90e4613982"></a>XSalsa20_Poly1305_Lite&#160;</td><td class="fielddoc"><p>The nonce is an incrementing uint32 value. It is encoded as big endian value at the beginning of the nonce buffer. The 4 bytes are also appended at the end of the packet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5d48e0924963da833a4af34c70f94526aa3728f79c59bb0b5cacb7d3a6c42c001"></a>XSalsa20_Poly1305_Suffix&#160;</td><td class="fielddoc"><p>The nonce consists of random bytes. It is appended at the end of a packet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5d48e0924963da833a4af34c70f94526a28075bf348f169729ce235a43253a6bf"></a>XSalsa20_Poly1305&#160;</td><td class="fielddoc"><p>The nonce consists of the RTP header. Nothing is appended to the packet. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

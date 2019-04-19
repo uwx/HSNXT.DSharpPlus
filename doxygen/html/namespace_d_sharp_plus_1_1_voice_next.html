@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('namespace_d_sharp_plus_1_1_voice_next.
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">DSharpPlus.VoiceNext Namespace Reference</div>  </div>
@@ -97,7 +98,13 @@ $(document).ready(function(){initNavTree('namespace_d_sharp_plus_1_1_voice_next.
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_sharp_plus_1_1_voice_next_1_1_audio_format.html">AudioFormat</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the format of PCM data consumed or produced by Opus.  <a href="struct_d_sharp_plus_1_1_voice_next_1_1_audio_format.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>DiscordClientExtensions</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html">IVoiceFilter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a filter for PCM data. PCM data submitted through a <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html" title="Stream used to transmit audio data via VoiceNextConnection.">VoiceTransmitStream</a> will be sent through all installed instances of <a class="el" href="interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html" title="Represents a filter for PCM data. PCM data submitted through a VoiceTransmitStream will be sent throu...">IVoiceFilter</a> first.  <a href="interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_configuration.html">VoiceNextConfiguration</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> client configuration.  <a href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_configuration.html#details">More...</a><br /></td></tr>
@@ -108,6 +115,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html">VoiceNextExtension</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents <a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> extension, which acts as Discord voice client.  <a href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html">VoiceTransmitStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream used to transmit audio data via <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html" title="VoiceNext connection to a voice channel.">VoiceNextConnection</a>.  <a href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a6eda0ecac285723a2e52838156163412"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412">VoiceApplication</a> : int { <a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412ad7a3fdf1351b72249a47454751549deb">VoiceApplication.Voice</a> = 2048, 
+<a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412a47dcbd834e669233d7eb8a51456ed217">VoiceApplication.Music</a> = 2049, 
+<a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412a611907b5ab1865515c35357efa41a9b9">VoiceApplication.LowLatency</a> = 2051
+ }</td></tr>
+<tr class="memdesc:a6eda0ecac285723a2e52838156163412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents encoder settings preset for Opus.  <a href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412">More...</a><br /></td></tr>
+<tr class="separator:a6eda0ecac285723a2e52838156163412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -115,6 +134,39 @@ Functions</h2></td></tr>
 internal delegate void&#160;</td><td class="memItemRight" valign="bottom"><b>VoiceDisconnectedEventHandler</b> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> guild)</td></tr>
 <tr class="separator:ae0e629f93d2cbad964c6e61cd8875d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a6eda0ecac285723a2e52838156163412"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eda0ecac285723a2e52838156163412">&#9670;&nbsp;</a></span>VoiceApplication</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412">DSharpPlus.VoiceNext.VoiceApplication</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents encoder settings preset for Opus. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6eda0ecac285723a2e52838156163412ad7a3fdf1351b72249a47454751549deb"></a>Voice&#160;</td><td class="fielddoc"><p>Defines that the encoder must optimize settings for voice data. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6eda0ecac285723a2e52838156163412a47dcbd834e669233d7eb8a51456ed217"></a>Music&#160;</td><td class="fielddoc"><p>Defines that the encoder must optimize settings for music data. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6eda0ecac285723a2e52838156163412a611907b5ab1865515c35357efa41a9b9"></a>LowLatency&#160;</td><td class="fielddoc"><p>Defines that the encoder must optimize settings for low latency applications. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

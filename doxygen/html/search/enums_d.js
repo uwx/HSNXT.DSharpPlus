@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verificationlevel',['VerificationLevel',['../namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4a',1,'DSharpPlus::Entities']]]
+  ['userstatus',['UserStatus',['../namespace_d_sharp_plus_1_1_entities.html#a175e42118988472cb7ff15b7ee613b50',1,'DSharpPlus::Entities']]]
 ];

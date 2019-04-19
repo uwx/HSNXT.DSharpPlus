@@ -7,7 +7,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_voice_state =
     [ "GuildId", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#adcbfee2e0937bf1c57539ef058e7e9d1", null ],
     [ "ChannelId", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#af1c658f330cec5691784862ca398a58c", null ],
     [ "UserId", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#accd19e47b78998b748f2f613d29b56b8", null ],
-    [ "User", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#a9f28e49217aa209ef012c8270e6a9b86", null ],
+    [ "User", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#a17c6a3886637e28a07a4e0bd9ce9dcd8", null ],
     [ "SessionId", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#a419f62a2f1cfbf3dd78b40b07e86833c", null ],
     [ "IsServerDeafened", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#a4a4a827e97256f0413db1ff5c6882b5d", null ],
     [ "IsServerMuted", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html#aef804ea3a3e5274b21cce9ec0791afdf", null ],

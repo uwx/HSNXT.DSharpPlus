@@ -96,23 +96,17 @@ $(document).ready(function(){initNavTree('class_d_sharp_plus_1_1_entities_1_1_di
 
 <p>Gets a Discord connection to a 3rd party service.  
  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for DSharpPlus.Entities.DiscordConnection:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_d_sharp_plus_1_1_entities_1_1_discord_connection.png" usemap="#DSharpPlus.Entities.DiscordConnection_map" alt=""/>
-  <map id="DSharpPlus.Entities.DiscordConnection_map" name="DSharpPlus.Entities.DiscordConnection_map">
-<area href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html" title="Represents an object in Discord API." alt="DSharpPlus.Entities.SnowflakeObject" shape="rect" coords="0,0,235,24"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
+<tr class="memitem:a77f863313a3e4ed98eeae172e2e69d77"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#a77f863313a3e4ed98eeae172e2e69d77">Id</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a77f863313a3e4ed98eeae172e2e69d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the connection account  <a href="#a77f863313a3e4ed98eeae172e2e69d77">More...</a><br /></td></tr>
+<tr class="separator:a77f863313a3e4ed98eeae172e2e69d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe6d693788495c01683dceb2d5651316"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#afe6d693788495c01683dceb2d5651316">Name</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:afe6d693788495c01683dceb2d5651316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the username of the connected account.  <a href="#afe6d693788495c01683dceb2d5651316">More...</a><br /></td></tr>
+<tr class="memdesc:afe6d693788495c01683dceb2d5651316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the username of the connection account.  <a href="#afe6d693788495c01683dceb2d5651316">More...</a><br /></td></tr>
 <tr class="separator:afe6d693788495c01683dceb2d5651316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c1cc26a52fc76faf1dfc2e5dcdc6a32"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#a6c1cc26a52fc76faf1dfc2e5dcdc6a32">Type</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a6c1cc26a52fc76faf1dfc2e5dcdc6a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of the connection service.  <a href="#a6c1cc26a52fc76faf1dfc2e5dcdc6a32">More...</a><br /></td></tr>
+<tr class="memdesc:a6c1cc26a52fc76faf1dfc2e5dcdc6a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the service of the connection (twitch, youtube, steam, twitter, facebook, spotify, leagueoflegends, reddit)  <a href="#a6c1cc26a52fc76faf1dfc2e5dcdc6a32">More...</a><br /></td></tr>
 <tr class="separator:a6c1cc26a52fc76faf1dfc2e5dcdc6a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae165d227f472ad64555ab15c39ca72c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#ae165d227f472ad64555ab15c39ca72c9">IsRevoked</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ae165d227f472ad64555ab15c39ca72c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the connection is revoked.  <a href="#ae165d227f472ad64555ab15c39ca72c9">More...</a><br /></td></tr>
@@ -120,21 +114,46 @@ Properties</h2></td></tr>
 <tr class="memitem:a3addd704e1bd2d9c39174db2fd12dada"><td class="memItemLeft" align="right" valign="top">IReadOnlyList&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_integration.html">DiscordIntegration</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#a3addd704e1bd2d9c39174db2fd12dada">Integrations</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a3addd704e1bd2d9c39174db2fd12dada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a collection of partial server integrations.  <a href="#a3addd704e1bd2d9c39174db2fd12dada">More...</a><br /></td></tr>
 <tr class="separator:a3addd704e1bd2d9c39174db2fd12dada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td colspan="2" onclick="javascript:toggleInherit('properties_class_d_sharp_plus_1_1_entities_1_1_snowflake_object')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html">DSharpPlus.Entities.SnowflakeObject</a></td></tr>
-<tr class="memitem:a7f07f895e314c5c3ff4e2ec56dc57492 inherit properties_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="memItemLeft" align="right" valign="top">ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a7f07f895e314c5c3ff4e2ec56dc57492 inherit properties_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ID of this object.  <a href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">More...</a><br /></td></tr>
-<tr class="separator:a7f07f895e314c5c3ff4e2ec56dc57492 inherit properties_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_attribs_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_d_sharp_plus_1_1_entities_1_1_snowflake_object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html">DSharpPlus.Entities.SnowflakeObject</a></td></tr>
-<tr class="memitem:ab50e9a92744a6663dd4538b0bc6c3016 inherit pub_attribs_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="memItemLeft" align="right" valign="top">DateTimeOffset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#ab50e9a92744a6663dd4538b0bc6c3016">CreationTimestamp</a> =&gt; new DateTimeOffset(2015, 1, 1, 0, 0, 0, TimeSpan.Zero).AddMilliseconds(<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a> &gt;&gt; 22)</td></tr>
-<tr class="memdesc:ab50e9a92744a6663dd4538b0bc6c3016 inherit pub_attribs_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the date and time this object was created.  <a href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#ab50e9a92744a6663dd4538b0bc6c3016">More...</a><br /></td></tr>
-<tr class="separator:ab50e9a92744a6663dd4538b0bc6c3016 inherit pub_attribs_class_d_sharp_plus_1_1_entities_1_1_snowflake_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da878fdc07e61bd1429c9f41997a0fe"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#a0da878fdc07e61bd1429c9f41997a0fe">Verified</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a0da878fdc07e61bd1429c9f41997a0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the connection is verified or not.  <a href="#a0da878fdc07e61bd1429c9f41997a0fe">More...</a><br /></td></tr>
+<tr class="separator:a0da878fdc07e61bd1429c9f41997a0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2daf6b9852e571bf2f38bccecf0f8b1"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#ae2daf6b9852e571bf2f38bccecf0f8b1">ShowActivity</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae2daf6b9852e571bf2f38bccecf0f8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the connection will show activity or not.  <a href="#ae2daf6b9852e571bf2f38bccecf0f8b1">More...</a><br /></td></tr>
+<tr class="separator:ae2daf6b9852e571bf2f38bccecf0f8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2bc667ae70647c159f291afdc944ce5"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#ae2bc667ae70647c159f291afdc944ce5">FriendSync</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae2bc667ae70647c159f291afdc944ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the connection will sync friends or not.  <a href="#ae2bc667ae70647c159f291afdc944ce5">More...</a><br /></td></tr>
+<tr class="separator:ae2bc667ae70647c159f291afdc944ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d877dc3a0b097aaefe86346791c9137"><td class="memItemLeft" align="right" valign="top">long?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_connection.html#a2d877dc3a0b097aaefe86346791c9137">Visibility</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a2d877dc3a0b097aaefe86346791c9137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the visibility of the connection.  <a href="#a2d877dc3a0b097aaefe86346791c9137">More...</a><br /></td></tr>
+<tr class="separator:a2d877dc3a0b097aaefe86346791c9137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Gets a Discord connection to a 3rd party service. </p>
 </div><h2 class="groupheader">Property Documentation</h2>
+<a id="a77f863313a3e4ed98eeae172e2e69d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f863313a3e4ed98eeae172e2e69d77">&#9670;&nbsp;</a></span>Id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DSharpPlus.Entities.DiscordConnection.Id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the id of the connection account </p>
+
+</div>
+</div>
 <a id="afe6d693788495c01683dceb2d5651316"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe6d693788495c01683dceb2d5651316">&#9670;&nbsp;</a></span>Name</h2>
 
@@ -155,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the username of the connected account. </p>
+<p>Gets the username of the connection account. </p>
 
 </div>
 </div>
@@ -179,7 +198,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the name of the connection service. </p>
+<p>Gets the service of the connection (twitch, youtube, steam, twitter, facebook, spotify, leagueoflegends, reddit) </p>
 
 </div>
 </div>
@@ -228,6 +247,102 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets a collection of partial server integrations. </p>
+
+</div>
+</div>
+<a id="a0da878fdc07e61bd1429c9f41997a0fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da878fdc07e61bd1429c9f41997a0fe">&#9670;&nbsp;</a></span>Verified</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool? DSharpPlus.Entities.DiscordConnection.Verified</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the connection is verified or not. </p>
+
+</div>
+</div>
+<a id="ae2daf6b9852e571bf2f38bccecf0f8b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2daf6b9852e571bf2f38bccecf0f8b1">&#9670;&nbsp;</a></span>ShowActivity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool? DSharpPlus.Entities.DiscordConnection.ShowActivity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the connection will show activity or not. </p>
+
+</div>
+</div>
+<a id="ae2bc667ae70647c159f291afdc944ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2bc667ae70647c159f291afdc944ce5">&#9670;&nbsp;</a></span>FriendSync</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool? DSharpPlus.Entities.DiscordConnection.FriendSync</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the connection will sync friends or not. </p>
+
+</div>
+</div>
+<a id="a2d877dc3a0b097aaefe86346791c9137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d877dc3a0b097aaefe86346791c9137">&#9670;&nbsp;</a></span>Visibility</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long? DSharpPlus.Entities.DiscordConnection.Visibility</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the visibility of the connection. </p>
 
 </div>
 </div>

@@ -139,8 +139,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_permission_string_attribute.html">PermissionStringAttribute</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a readable name for this permission.  <a href="class_d_sharp_plus_1_1_permission_string_attribute.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_read_only_set.html">ReadOnlySet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-only view of a given ISet&lt;T&gt;.  <a href="class_d_sharp_plus_1_1_read_only_set.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html">ReadOnlyConcurrentDictionary</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-only view of a given ConcurrentDictionary&lt;TKey,TValue&gt;.  <a href="struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_sharp_plus_1_1_read_only_set.html">ReadOnlySet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-only view of a given ISet&lt;T&gt;.  <a href="struct_d_sharp_plus_1_1_read_only_set.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_ring_buffer.html">RingBuffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A circular buffer collection.  <a href="class_d_sharp_plus_1_1_ring_buffer.html#details">More...</a><br /></td></tr>
@@ -214,35 +217,41 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa3a4bcfae3a07e0ec170274b8fc07c278">Permissions.AddReactions</a> = 0x0000000000000040, 
 <br />
 &#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa803bd176de17d7417518ff5461d4b9f0">Permissions.ViewAuditLog</a> = 0x0000000000000080, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaff4418a037120cace5cdc60136dea5a9">Permissions.PrioritySpeaker</a> = 0x0000000000000100, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa9e7f4936bd65c2c6440809cd4c2a76e6">Permissions.AccessChannels</a> = 0x0000000000000400, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aac1a6cc628d22efbf4e40b3efbb92289b">Permissions.SendMessages</a> = 0x0000000000000800, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa64a9c179bafc97f30f44a80d67576459">Permissions.SendTtsMessages</a> = 0x0000000000001000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aacb97527e6d04b844f0c95526b4d3da8d">Permissions.ManageMessages</a> = 0x0000000000002000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa64a9c179bafc97f30f44a80d67576459">Permissions.SendTtsMessages</a> = 0x0000000000001000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aacb97527e6d04b844f0c95526b4d3da8d">Permissions.ManageMessages</a> = 0x0000000000002000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa253c8824554ccc88f1e5fd0101bee8ba">Permissions.EmbedLinks</a> = 0x0000000000004000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae9895260ddab5211122555ec6855dae2">Permissions.AttachFiles</a> = 0x0000000000008000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa72cf090118be1e100438712db50ab464">Permissions.ReadMessageHistory</a> = 0x0000000000010000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8f102b2db5cb702082310c131c2d5fdd">Permissions.MentionEveryone</a> = 0x0000000000020000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa72cf090118be1e100438712db50ab464">Permissions.ReadMessageHistory</a> = 0x0000000000010000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8f102b2db5cb702082310c131c2d5fdd">Permissions.MentionEveryone</a> = 0x0000000000020000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aafee2dce22dab5a47214411422ee2c508">Permissions.UseExternalEmojis</a> = 0x0000000000040000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa0acf90199d6d1799bb4feb82c3b262fa">Permissions.UseVoice</a> = 0x0000000000100000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8b1e2b9b342dd37344c6343dc23a6733">Permissions.Speak</a> = 0x0000000000200000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae8969937b064a21923f33c75d1d17da7">Permissions.MuteMembers</a> = 0x0000000000400000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8b1e2b9b342dd37344c6343dc23a6733">Permissions.Speak</a> = 0x0000000000200000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae8969937b064a21923f33c75d1d17da7">Permissions.MuteMembers</a> = 0x0000000000400000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa084e4e202a8a87bcefbd4969fdf4b256">Permissions.DeafenMembers</a> = 0x0000000000800000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa61c6dfdf2a1fde43bb267ba8e6b34958">Permissions.MoveMembers</a> = 0x0000000001000000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaf6156446d4edb2a29a8b2ba5f7979a84">Permissions.UseVoiceDetection</a> = 0x0000000002000000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa532f4457fd081750c15206f3b693b448">Permissions.ChangeNickname</a> = 0x0000000004000000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaf6156446d4edb2a29a8b2ba5f7979a84">Permissions.UseVoiceDetection</a> = 0x0000000002000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa532f4457fd081750c15206f3b693b448">Permissions.ChangeNickname</a> = 0x0000000004000000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa379458bef233b7eb9b90db608a759f57">Permissions.ManageNicknames</a> = 0x0000000008000000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaec11b4c7b749646a56ace84ff0f81aa3">Permissions.ManageRoles</a> = 0x0000000010000000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3">Permissions.ManageWebhooks</a> = 0x0000000020000000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3">Permissions.ManageEmojis</a> = 0x0000000040000000
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3">Permissions.ManageWebhooks</a> = 0x0000000020000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3">Permissions.ManageEmojis</a> = 0x0000000040000000
 <br />
  }</td></tr>
 <tr class="memdesc:a532ecbcdb525a4d74d53dfee6119d98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise permission flags.  <a href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98a">More...</a><br /></td></tr>
 <tr class="separator:a532ecbcdb525a4d74d53dfee6119d98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">PremiumType</a> { <a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11a4fb6d4423e30fbdcb90a8c6def5a47ba">PremiumType.NitroClassic</a> = 1, 
+<a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11ae3f89d86f9f0d7cadc270dbfb54fc423">PremiumType.Nitro</a> = 2
+ }</td></tr>
+<tr class="memdesc:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of Nitro subscription on a user's account.  <a href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">More...</a><br /></td></tr>
+<tr class="separator:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d246da95984f616102a949c9d471f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1">TokenType</a> { <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a8f9bfe9d1345237cb3b2b205864da075">TokenType.User</a> = 0, 
 <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a1448e86d90e0feb307c2894c24e87767">TokenType.Bot</a> = 1, 
 <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030">TokenType.Bearer</a> = 2
@@ -515,6 +524,8 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aa803bd176de17d7417518ff5461d4b9f0"></a>ViewAuditLog&#160;</td><td class="fielddoc"><p>Allows viewing audit log entries. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aaff4418a037120cace5cdc60136dea5a9"></a>PrioritySpeaker&#160;</td><td class="fielddoc"><p>Allows the use of priority speaker. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aa9e7f4936bd65c2c6440809cd4c2a76e6"></a>AccessChannels&#160;</td><td class="fielddoc"><p>Allows accessing text and voice channels. Disabling this permission hides channels. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aac1a6cc628d22efbf4e40b3efbb92289b"></a>SendMessages&#160;</td><td class="fielddoc"><p>Allows sending messages. </p>
@@ -559,6 +570,36 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5ae3650ee7ed6ac07a2e85be1f2fdb11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae3650ee7ed6ac07a2e85be1f2fdb11">&#9670;&nbsp;</a></span>PremiumType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">DSharpPlus.PremiumType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of Nitro subscription on a user's account. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5ae3650ee7ed6ac07a2e85be1f2fdb11a4fb6d4423e30fbdcb90a8c6def5a47ba"></a>NitroClassic&#160;</td><td class="fielddoc"><p>Includes app perks like animated emojis and avatars, but not games. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5ae3650ee7ed6ac07a2e85be1f2fdb11ae3f89d86f9f0d7cadc270dbfb54fc423"></a>Nitro&#160;</td><td class="fielddoc"><p>Includes app perks as well as the games subscription service. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ae6d246da95984f616102a949c9d471f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6d246da95984f616102a949c9d471f1">&#9670;&nbsp;</a></span>TokenType</h2>
 
@@ -585,7 +626,7 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ae6d246da95984f616102a949c9d471f1a1448e86d90e0feb307c2894c24e87767"></a>Bot&#160;</td><td class="fielddoc"><p>Bot token type </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030"></a>Bearer&#160;</td><td class="fielddoc"><p>Bearer token type </p>
+<tr><td class="fieldname"><a id="ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030"></a>Bearer&#160;</td><td class="fielddoc"><p>Bearer token type (used for oAuth) </p>
 </td></tr>
 </table>
 

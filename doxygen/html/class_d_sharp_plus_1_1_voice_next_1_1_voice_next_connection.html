@@ -107,12 +107,12 @@ Inheritance diagram for DSharpPlus.VoiceNext.VoiceNextConnection:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac59365b5bd69c198858854ae11a78e54"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ac59365b5bd69c198858854ae11a78e54">SendAsync</a> (byte[] pcmData, int blockSize, int bitRate=16)</td></tr>
-<tr class="memdesc:ac59365b5bd69c198858854ae11a78e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes, encrypts, and sends the provided PCM data to the connected voice channel.  <a href="#ac59365b5bd69c198858854ae11a78e54">More...</a><br /></td></tr>
-<tr class="separator:ac59365b5bd69c198858854ae11a78e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf72ab834a7fba73ee465517234aa68a"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#adf72ab834a7fba73ee465517234aa68a">SendSpeakingAsync</a> (bool speaking=true)</td></tr>
-<tr class="memdesc:adf72ab834a7fba73ee465517234aa68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a speaking status to the connected voice channel.  <a href="#adf72ab834a7fba73ee465517234aa68a">More...</a><br /></td></tr>
-<tr class="separator:adf72ab834a7fba73ee465517234aa68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a5c5b30a81e07ea72dea18f7b7b0ffb25">SendSpeaking</a> (bool speaking=true)</td></tr>
+<tr class="memdesc:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a speaking status to the connected voice channel.  <a href="#a5c5b30a81e07ea72dea18f7b7b0ffb25">More...</a><br /></td></tr>
+<tr class="separator:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6182878c9786017cb760a1780e8da7b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html">VoiceTransmitStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a6182878c9786017cb760a1780e8da7b5">GetTransmitStream</a> (int sampleDuration=20)</td></tr>
+<tr class="memdesc:a6182878c9786017cb760a1780e8da7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a transmit stream for this connection, optionally specifying a packet size to use with the stream. If a stream is already configured, it will return the existing one.  <a href="#a6182878c9786017cb760a1780e8da7b5">More...</a><br /></td></tr>
+<tr class="separator:a6182878c9786017cb760a1780e8da7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3ad20295c0acfb88672c29d4b66e73b"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae3ad20295c0acfb88672c29d4b66e73b">WaitForPlaybackFinishAsync</a> ()</td></tr>
 <tr class="memdesc:ae3ad20295c0acfb88672c29d4b66e73b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously waits for playback to be finished. Playback is finished when speaking = false is signalled.  <a href="#ae3ad20295c0acfb88672c29d4b66e73b">More...</a><br /></td></tr>
 <tr class="separator:ae3ad20295c0acfb88672c29d4b66e73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,22 +125,31 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:afd122735d837ffa34c91f0f2255f6ef3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#afd122735d837ffa34c91f0f2255f6ef3">IsPlaying</a> =&gt; this.PlaybackSemaphore.CurrentCount == 0 || (this.PlayingWait != null &amp;&amp; !this.PlayingWait.Task.IsCompleted)</td></tr>
+<tr class="memitem:a01624cc0ad25ac9be66f9007986d3f2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_sharp_plus_1_1_voice_next_1_1_audio_format.html">AudioFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a01624cc0ad25ac9be66f9007986d3f2d">AudioFormat</a> =&gt; this.Configuration.AudioFormat</td></tr>
+<tr class="memdesc:a01624cc0ad25ac9be66f9007986d3f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the audio format used by the Opus encoder.  <a href="#a01624cc0ad25ac9be66f9007986d3f2d">More...</a><br /></td></tr>
+<tr class="separator:a01624cc0ad25ac9be66f9007986d3f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd122735d837ffa34c91f0f2255f6ef3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#afd122735d837ffa34c91f0f2255f6ef3">IsPlaying</a> =&gt; this.PlayingWait != null &amp;&amp; !this.PlayingWait.Task.IsCompleted</td></tr>
 <tr class="memdesc:afd122735d837ffa34c91f0f2255f6ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether this connection is still playing audio.  <a href="#afd122735d837ffa34c91f0f2255f6ef3">More...</a><br /></td></tr>
 <tr class="separator:afd122735d837ffa34c91f0f2255f6ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addd28c8519d8c650f5f27f6582c96828"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#addd28c8519d8c650f5f27f6582c96828">Ping</a> =&gt; Volatile.Read(ref this._ping)</td></tr>
-<tr class="memdesc:addd28c8519d8c650f5f27f6582c96828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the websocket round-trip time in ms.  <a href="#addd28c8519d8c650f5f27f6582c96828">More...</a><br /></td></tr>
-<tr class="separator:addd28c8519d8c650f5f27f6582c96828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266a7eb8c79875dfea2e482b147b580c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a266a7eb8c79875dfea2e482b147b580c">WebSocketPing</a> =&gt; Volatile.Read(ref this._wsPing)</td></tr>
+<tr class="memdesc:a266a7eb8c79875dfea2e482b147b580c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the websocket round-trip time in ms.  <a href="#a266a7eb8c79875dfea2e482b147b580c">More...</a><br /></td></tr>
+<tr class="separator:a266a7eb8c79875dfea2e482b147b580c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acadad2af429ca081f2dca15385a08dda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#acadad2af429ca081f2dca15385a08dda">UdpPing</a> =&gt; Volatile.Read(ref this._udpPing)</td></tr>
+<tr class="memdesc:acadad2af429ca081f2dca15385a08dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the UDP round-trip time in ms.  <a href="#acadad2af429ca081f2dca15385a08dda">More...</a><br /></td></tr>
+<tr class="separator:acadad2af429ca081f2dca15385a08dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:aef2d69d1738cba28be5df98e992798c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_user_speaking_event_args.html">UserSpeakingEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#aef2d69d1738cba28be5df98e992798c9">UserSpeaking</a></td></tr>
 <tr class="memdesc:aef2d69d1738cba28be5df98e992798c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever a user speaks in the connected voice channel.  <a href="#aef2d69d1738cba28be5df98e992798c9">More...</a><br /></td></tr>
 <tr class="separator:aef2d69d1738cba28be5df98e992798c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e021dd12b0cdab32f43626878a6469"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_join_event_args.html">VoiceUserJoinEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a44e021dd12b0cdab32f43626878a6469">UserJoined</a></td></tr>
+<tr class="memdesc:a44e021dd12b0cdab32f43626878a6469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever a user joins voice in the connected guild.  <a href="#a44e021dd12b0cdab32f43626878a6469">More...</a><br /></td></tr>
+<tr class="separator:a44e021dd12b0cdab32f43626878a6469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f833df5b446d02bb66446f4398b326"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_leave_event_args.html">VoiceUserLeaveEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a57f833df5b446d02bb66446f4398b326">UserLeft</a></td></tr>
 <tr class="memdesc:a57f833df5b446d02bb66446f4398b326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever a user leaves voice in the connected guild.  <a href="#a57f833df5b446d02bb66446f4398b326">More...</a><br /></td></tr>
 <tr class="separator:a57f833df5b446d02bb66446f4398b326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78b0ca24e9955cc9421e0dc0a7966ec4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_voice_receive_event_args.html">VoiceReceiveEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a78b0ca24e9955cc9421e0dc0a7966ec4">VoiceReceived</a></td></tr>
+<tr class="memitem:a78b0ca24e9955cc9421e0dc0a7966ec4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_receive_event_args.html">VoiceReceiveEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a78b0ca24e9955cc9421e0dc0a7966ec4">VoiceReceived</a></td></tr>
 <tr class="memdesc:a78b0ca24e9955cc9421e0dc0a7966ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever voice data is received from the connected voice channel.  <a href="#a78b0ca24e9955cc9421e0dc0a7966ec4">More...</a><br /></td></tr>
 <tr class="separator:a78b0ca24e9955cc9421e0dc0a7966ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7d479dadc73b2a1c63ed3abd8580d1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_socket_error_event_args.html">SocketErrorEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae7d479dadc73b2a1c63ed3abd8580d1c">VoiceSocketErrored</a></td></tr>
@@ -153,8 +162,8 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> connection to a voice channel. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac59365b5bd69c198858854ae11a78e54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac59365b5bd69c198858854ae11a78e54">&#9670;&nbsp;</a></span>SendAsync()</h2>
+<a id="a5c5b30a81e07ea72dea18f7b7b0ffb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c5b30a81e07ea72dea18f7b7b0ffb25">&#9670;&nbsp;</a></span>SendSpeaking()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,60 +172,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task DSharpPlus.VoiceNext.VoiceNextConnection.SendAsync </td>
-          <td>(</td>
-          <td class="paramtype">byte []&#160;</td>
-          <td class="paramname"><em>pcmData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>blockSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>bitRate</em> = <code>16</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Encodes, encrypts, and sends the provided PCM data to the connected voice channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcmData</td><td>PCM data to encode, encrypt, and send.</td></tr>
-    <tr><td class="paramname">blockSize</td><td>Millisecond length of the PCM data.</td></tr>
-    <tr><td class="paramname">bitRate</td><td>Bitrate of the PCM data.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Task representing the sending operation.</dd></dl>
-
-</div>
-</div>
-<a id="adf72ab834a7fba73ee465517234aa68a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf72ab834a7fba73ee465517234aa68a">&#9670;&nbsp;</a></span>SendSpeakingAsync()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">async Task DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync </td>
+          <td class="memname">void DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeaking </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>speaking</em> = <code>true</code></td><td>)</td>
@@ -238,6 +194,41 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the sending operation.</dd></dl>
+
+</div>
+</div>
+<a id="a6182878c9786017cb760a1780e8da7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6182878c9786017cb760a1780e8da7b5">&#9670;&nbsp;</a></span>GetTransmitStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html">VoiceTransmitStream</a> DSharpPlus.VoiceNext.VoiceNextConnection.GetTransmitStream </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sampleDuration</em> = <code>20</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a transmit stream for this connection, optionally specifying a packet size to use with the stream. If a stream is already configured, it will return the existing one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleDuration</td><td>Duration, in ms, to use for audio packets.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Transmit stream.</dd></dl>
 
 </div>
 </div>
@@ -316,6 +307,22 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a01624cc0ad25ac9be66f9007986d3f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01624cc0ad25ac9be66f9007986d3f2d">&#9670;&nbsp;</a></span>AudioFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_d_sharp_plus_1_1_voice_next_1_1_audio_format.html">AudioFormat</a> DSharpPlus.VoiceNext.VoiceNextConnection.AudioFormat =&gt; this.Configuration.AudioFormat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the audio format used by the Opus encoder. </p>
+
+</div>
+</div>
 <a id="afd122735d837ffa34c91f0f2255f6ef3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd122735d837ffa34c91f0f2255f6ef3">&#9670;&nbsp;</a></span>IsPlaying</h2>
 
@@ -323,7 +330,7 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying =&gt; this.PlaybackSemaphore.CurrentCount == 0 || (this.PlayingWait != null &amp;&amp; !this.PlayingWait.Task.IsCompleted)</td>
+          <td class="memname">bool DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying =&gt; this.PlayingWait != null &amp;&amp; !this.PlayingWait.Task.IsCompleted</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -332,19 +339,35 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="addd28c8519d8c650f5f27f6582c96828"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addd28c8519d8c650f5f27f6582c96828">&#9670;&nbsp;</a></span>Ping</h2>
+<a id="a266a7eb8c79875dfea2e482b147b580c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a266a7eb8c79875dfea2e482b147b580c">&#9670;&nbsp;</a></span>WebSocketPing</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int DSharpPlus.VoiceNext.VoiceNextConnection.Ping =&gt; Volatile.Read(ref this._ping)</td>
+          <td class="memname">int DSharpPlus.VoiceNext.VoiceNextConnection.WebSocketPing =&gt; Volatile.Read(ref this._wsPing)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Gets the websocket round-trip time in ms. </p>
+
+</div>
+</div>
+<a id="acadad2af429ca081f2dca15385a08dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acadad2af429ca081f2dca15385a08dda">&#9670;&nbsp;</a></span>UdpPing</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DSharpPlus.VoiceNext.VoiceNextConnection.UdpPing =&gt; Volatile.Read(ref this._udpPing)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the UDP round-trip time in ms. </p>
 
 </div>
 </div>
@@ -370,6 +393,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Triggered whenever a user speaks in the connected voice channel. </p>
+
+</div>
+</div>
+<a id="a44e021dd12b0cdab32f43626878a6469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44e021dd12b0cdab32f43626878a6469">&#9670;&nbsp;</a></span>UserJoined</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt;<a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_join_event_args.html">VoiceUserJoinEventArgs</a>&gt; DSharpPlus.VoiceNext.VoiceNextConnection.UserJoined</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">add</span><span class="mlabel">remove</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Triggered whenever a user joins voice in the connected guild. </p>
 
 </div>
 </div>
@@ -407,7 +454,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt;<a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_voice_receive_event_args.html">VoiceReceiveEventArgs</a>&gt; DSharpPlus.VoiceNext.VoiceNextConnection.VoiceReceived</td>
+          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt;<a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_receive_event_args.html">VoiceReceiveEventArgs</a>&gt; DSharpPlus.VoiceNext.VoiceNextConnection.VoiceReceived</td>
         </tr>
       </table>
   </td>

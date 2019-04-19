@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum TimeoutBehaviour
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -79,7 +79,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="DSharpPlus_Interactivity_TimeoutBehaviour_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum TimeoutBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public enum TimeoutBehaviour : byte</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -93,15 +93,18 @@
     <tbody>
       <tr>
         <td id="DSharpPlus_Interactivity_TimeoutBehaviour_DeleteMessage">DeleteMessage</td>
-        <td></td>
+        <td><p>Deletes the entire message when the time runs out (does not include the caller message)</p>
+</td>
       </tr>
       <tr>
         <td id="DSharpPlus_Interactivity_TimeoutBehaviour_DeleteReactions">DeleteReactions</td>
-        <td></td>
+        <td><p>Deletes the reactions on the message when the time runs out (this includes non-pagination reactions)</p>
+</td>
       </tr>
       <tr>
         <td id="DSharpPlus_Interactivity_TimeoutBehaviour_Ignore">Ignore</td>
-        <td></td>
+        <td><p>Doesn't do anything when the time runs out.</p>
+</td>
       </tr>
     </tbody>
   </thead></thead></table>

@@ -216,10 +216,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac00906976cbf3ef26fce432b85c62d86"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#ac00906976cbf3ef26fce432b85c62d86">DisplayName</a> =&gt; <a class="el" href="namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5fa1771b8284280660537e3e533f88af3b2">this.Nickname</a> ?? <a class="el" href="namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5faf6039d44b29456b20f8f373155ae4973">this.Username</a></td></tr>
 <tr class="memdesc:ac00906976cbf3ef26fce432b85c62d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this member's display name.  <a href="#ac00906976cbf3ef26fce432b85c62d86">More...</a><br /></td></tr>
 <tr class="separator:ac00906976cbf3ef26fce432b85c62d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06167d64a7198b0598895bd5b9322263"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a06167d64a7198b0598895bd5b9322263">Roles</a> =&gt; this.RoleIds.Select(xid =&gt; this.Guild.Roles.FirstOrDefault(xr =&gt; xr.Id == xid))</td></tr>
+<tr class="memitem:a06167d64a7198b0598895bd5b9322263"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a06167d64a7198b0598895bd5b9322263">Roles</a> =&gt; this.RoleIds.Select(id =&gt; this.Guild.GetRole(id))</td></tr>
 <tr class="memdesc:a06167d64a7198b0598895bd5b9322263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of roles associated with this member.  <a href="#a06167d64a7198b0598895bd5b9322263">More...</a><br /></td></tr>
 <tr class="separator:a06167d64a7198b0598895bd5b9322263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c13fe06a9681d35527de7e378fa8fbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html">DiscordVoiceState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a5c13fe06a9681d35527de7e378fa8fbe">VoiceState</a> =&gt; this.Discord.Guilds[this._guild_id].VoiceStates.FirstOrDefault(xvs =&gt; xvs.UserId == this.Id)</td></tr>
+<tr class="memitem:a5c13fe06a9681d35527de7e378fa8fbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html">DiscordVoiceState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a5c13fe06a9681d35527de7e378fa8fbe">VoiceState</a> =&gt; this.Discord.Guilds[this._guild_id].VoiceStates.TryGetValue(this.Id, out var voiceState) ? voiceState : null</td></tr>
 <tr class="memdesc:a5c13fe06a9681d35527de7e378fa8fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this member's voice state.  <a href="#a5c13fe06a9681d35527de7e378fa8fbe">More...</a><br /></td></tr>
 <tr class="separator:a5c13fe06a9681d35527de7e378fa8fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76737c0754551f0a3ef68be5ba0df93d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a76737c0754551f0a3ef68be5ba0df93d">Guild</a> =&gt; this.Discord.Guilds[_guild_id]</td></tr>
@@ -228,8 +228,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9f3fef35bdaa223e0a78fcdf3c9f9ab5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a9f3fef35bdaa223e0a78fcdf3c9f9ab5">IsOwner</a> =&gt; this.Id == this.Guild.OwnerId</td></tr>
 <tr class="memdesc:a9f3fef35bdaa223e0a78fcdf3c9f9ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether this member is the Guild owner.  <a href="#a9f3fef35bdaa223e0a78fcdf3c9f9ab5">More...</a><br /></td></tr>
 <tr class="separator:a9f3fef35bdaa223e0a78fcdf3c9f9ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a461a1d0f0b696a3f0c0cb2d4eeb20e46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a461a1d0f0b696a3f0c0cb2d4eeb20e46">Hierarchy</a> =&gt; this.IsOwner ? int.MaxValue : this.Roles.FirstOrDefault()?.Position ?? 0</td></tr>
-<tr class="memdesc:a461a1d0f0b696a3f0c0cb2d4eeb20e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns int.MaxValue for guild's owner.  <a href="#a461a1d0f0b696a3f0c0cb2d4eeb20e46">More...</a><br /></td></tr>
+<tr class="memitem:a461a1d0f0b696a3f0c0cb2d4eeb20e46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a461a1d0f0b696a3f0c0cb2d4eeb20e46">Hierarchy</a> =&gt; this.IsOwner ? int.MaxValue : this.RoleIds.Count == 0 ? 0 : this.Roles.Max(x =&gt; x.Position)</td></tr>
+<tr class="memdesc:a461a1d0f0b696a3f0c0cb2d4eeb20e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns int.MaxValue for the guild's owner.  <a href="#a461a1d0f0b696a3f0c0cb2d4eeb20e46">More...</a><br /></td></tr>
 <tr class="separator:a461a1d0f0b696a3f0c0cb2d4eeb20e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_d_sharp_plus_1_1_entities_1_1_discord_user')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DSharpPlus.Entities.DiscordUser</a></td></tr>
 <tr class="memitem:a002cf86e248309583496136337512135 inherit pub_attribs_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a002cf86e248309583496136337512135">AvatarUrl</a> =&gt; !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith(&quot;a_&quot;) ? $&quot;https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.gif?size=1024&quot; : $&quot;https://cdn.discordapp.com/avatars/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a>}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.png?size=1024&quot;) : this.DefaultAvatarUrl</td></tr>
@@ -287,6 +287,9 @@ Properties</h2></td></tr>
 <tr class="memitem:acef61806d3a201278836a2a74a97403d"><td class="memItemLeft" align="right" valign="top">override? bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#acef61806d3a201278836a2a74a97403d">Verified</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acef61806d3a201278836a2a74a97403d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the user is verified.  <a href="#acef61806d3a201278836a2a74a97403d">More...</a><br /></td></tr>
 <tr class="separator:acef61806d3a201278836a2a74a97403d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a15ac9c7ee45d86a3a2b77403a4a43"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a67a15ac9c7ee45d86a3a2b77403a4a43">Locale</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a67a15ac9c7ee45d86a3a2b77403a4a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's chosen language  <a href="#a67a15ac9c7ee45d86a3a2b77403a4a43">More...</a><br /></td></tr>
+<tr class="separator:a67a15ac9c7ee45d86a3a2b77403a4a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td colspan="2" onclick="javascript:toggleInherit('properties_class_d_sharp_plus_1_1_entities_1_1_discord_user')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html">DSharpPlus.Entities.DiscordUser</a></td></tr>
 <tr class="memitem:ac543040b76508be227dfe4ec1c2337f1 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ac543040b76508be227dfe4ec1c2337f1">Username</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ac543040b76508be227dfe4ec1c2337f1 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this user's username.  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ac543040b76508be227dfe4ec1c2337f1">More...</a><br /></td></tr>
@@ -309,6 +312,12 @@ Properties</h2></td></tr>
 <tr class="memitem:abf41448e19ae920609ef5c4612ac9006 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#abf41448e19ae920609ef5c4612ac9006">Email</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:abf41448e19ae920609ef5c4612ac9006 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's email address.  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#abf41448e19ae920609ef5c4612ac9006">More...</a><br /></td></tr>
 <tr class="separator:abf41448e19ae920609ef5c4612ac9006 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ffe7e3479ca67ce3e0c00b154e87f45 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top">virtual ? <a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">PremiumType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a3ffe7e3479ca67ce3e0c00b154e87f45">PremiumType</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a3ffe7e3479ca67ce3e0c00b154e87f45 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's premium type.  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a3ffe7e3479ca67ce3e0c00b154e87f45">More...</a><br /></td></tr>
+<tr class="separator:a3ffe7e3479ca67ce3e0c00b154e87f45 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be62851c277b58566269e8a7e279620 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a9be62851c277b58566269e8a7e279620">Locale</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a9be62851c277b58566269e8a7e279620 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's chosen language  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a9be62851c277b58566269e8a7e279620">More...</a><br /></td></tr>
+<tr class="separator:a9be62851c277b58566269e8a7e279620 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473c03bf44d48d7d6979031e6fea2fb3 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_presence.html">DiscordPresence</a>?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3">Presence</a><code> [get]</code></td></tr>
 <tr class="memdesc:a473c03bf44d48d7d6979031e6fea2fb3 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this user's presence.  <a href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3">More...</a><br /></td></tr>
 <tr class="separator:a473c03bf44d48d7d6979031e6fea2fb3 inherit properties_class_d_sharp_plus_1_1_entities_1_1_discord_user"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -927,6 +936,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>[alias="KickAsync"]</p>
 
 </div>
 </div>
@@ -1226,7 +1236,7 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IEnumerable&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a>&gt; DSharpPlus.Entities.DiscordMember.Roles =&gt; this.RoleIds.Select(xid =&gt; this.Guild.Roles.FirstOrDefault(xr =&gt; xr.Id == xid))</td>
+          <td class="memname">IEnumerable&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a>&gt; DSharpPlus.Entities.DiscordMember.Roles =&gt; this.RoleIds.Select(id =&gt; this.Guild.GetRole(id))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1242,7 +1252,7 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html">DiscordVoiceState</a> DSharpPlus.Entities.DiscordMember.VoiceState =&gt; this.Discord.Guilds[this._guild_id].VoiceStates.FirstOrDefault(xvs =&gt; xvs.UserId == this.Id)</td>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html">DiscordVoiceState</a> DSharpPlus.Entities.DiscordMember.VoiceState =&gt; this.Discord.Guilds[this._guild_id].VoiceStates.TryGetValue(this.Id, out var voiceState) ? voiceState : null</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1290,12 +1300,12 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int DSharpPlus.Entities.DiscordMember.Hierarchy =&gt; this.IsOwner ? int.MaxValue : this.Roles.FirstOrDefault()?.Position ?? 0</td>
+          <td class="memname">int DSharpPlus.Entities.DiscordMember.Hierarchy =&gt; this.IsOwner ? int.MaxValue : this.RoleIds.Count == 0 ? 0 : this.Roles.Max(x =&gt; x.Position)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns int.MaxValue for guild's owner. </p>
+<p>Gets the member's position in the role hierarchy, which is the member's highest role's position. Returns int.MaxValue for the guild's owner. </p>
 
 </div>
 </div>
@@ -1585,6 +1595,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets whether the user is verified. </p>
+
+</div>
+</div>
+<a id="a67a15ac9c7ee45d86a3a2b77403a4a43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67a15ac9c7ee45d86a3a2b77403a4a43">&#9670;&nbsp;</a></span>Locale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string DSharpPlus.Entities.DiscordMember.Locale</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the user's chosen language </p>
 
 </div>
 </div>

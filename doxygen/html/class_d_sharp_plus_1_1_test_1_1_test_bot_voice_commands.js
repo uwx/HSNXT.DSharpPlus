@@ -8,6 +8,5 @@ var class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands =
     [ "VoicePlayLoopStop", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#a765e5a19159aa19a00eb39712338ba03", null ],
     [ "VoicePlayForce", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#a83e6b742fcf41e1de60105c6e716ab3c", null ],
     [ "AudioLoopCancelTokenSource", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#afb29ac264502e2527e36873052765a8b", null ],
-    [ "AudioLoopTask", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#afcd06c34ff05df0471c0363d78336449", null ],
-    [ "Volume", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#ae3b2de29bff56bfdfc07e1a85df05073", null ]
+    [ "AudioLoopTask", "class_d_sharp_plus_1_1_test_1_1_test_bot_voice_commands.html#afcd06c34ff05df0471c0363d78336449", null ]
 ];

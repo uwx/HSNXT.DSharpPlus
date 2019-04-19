@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class InteractivityExtension
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -99,7 +99,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_DiscordMessage_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DiscordMessage,System.Nullable{System.TimeSpan})">CollectReactionsAsync(DiscordMessage, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Collects all reactions on a message</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -118,12 +119,144 @@
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to check</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
+        <td><p>Timeout override</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>&gt;</td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CollectReactionsAsync_DiscordMessage_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DiscordMessage,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">CollectReactionsAsync(DiscordMessage, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Collects all new reactions to a message until a timer expires or the task is canceled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CollectReactionsAsync(DiscordMessage message, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to collect reactions in</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>&gt;</td>
+        <td><p>Task resolving to a <a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a> containing the reactions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">message</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_DiscordMessage_System_Collections_Generic_IEnumerable_DiscordEmoji__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync(DiscordMessage,System.Collections.Generic.IEnumerable{DiscordEmoji},System.Nullable{System.TimeSpan})">CreatePollAsync(DiscordMessage, IEnumerable&lt;DiscordEmoji&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a poll</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CreatePollAsync(DiscordMessage message, IEnumerable&lt;DiscordEmoji&gt; emojis, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Message poll belongs to</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">DiscordEmoji</span>&gt;</td>
+        <td><span class="parametername">emojis</span></td>
+        <td><p>Emojis to poll</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeoutoverride</span></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -145,12 +278,14 @@
   
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync*"></a>
-  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_DiscordMessage_System_Collections_Generic_IEnumerable_DiscordEmoji__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync(DiscordMessage,System.Collections.Generic.IEnumerable{DiscordEmoji},System.Nullable{System.TimeSpan})">CreatePollAsync(DiscordMessage, IEnumerable&lt;DiscordEmoji&gt;, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_CreatePollAsync_DiscordMessage_System_Collections_Generic_IEnumerable_DiscordEmoji__System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync(DiscordMessage,System.Collections.Generic.IEnumerable{DiscordEmoji},System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">CreatePollAsync(DiscordMessage, IEnumerable&lt;DiscordEmoji&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a reaction-based poll. Resolves to a <a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a> containing the relevant
+emote reactions.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CreatePollAsync(DiscordMessage message, IEnumerable&lt;DiscordEmoji&gt; emojis, TimeSpan? timeoutoverride = default(TimeSpan? ))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionCollectionContext&gt; CreatePollAsync(DiscordMessage message, IEnumerable&lt;DiscordEmoji&gt; emojiSource = null, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,17 +300,28 @@
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The message to run the poll on</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">DiscordEmoji</span>&gt;</td>
-        <td><span class="parametername">emojis</span></td>
-        <td></td>
+        <td><span class="parametername">emojiSource</span></td>
+        <td><p>The poll selection options. Each emote will be added to the message as a reaction.
+Default are thumbs up and thumbs down emojis.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
-        <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -190,7 +336,29 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>&gt;</td>
-        <td></td>
+        <td><p>Task that resolves to a <a class="xref" href="DSharpPlus.Interactivity.ReactionCollectionContext.html">ReactionCollectionContext</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">message</code> is null</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">emojiSource</code> is empty</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -198,7 +366,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_DoPagination_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.DoPagination*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_DoPagination_DiscordEmoji_DiscordMessage_DSharpPlus_Interactivity_PaginatedMessage_System_Threading_CancellationTokenSource_DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.DoPagination(DiscordEmoji,DiscordMessage,DSharpPlus.Interactivity.PaginatedMessage,System.Threading.CancellationTokenSource,DSharpPlus.Interactivity.PaginationEmojis)">DoPagination(DiscordEmoji, DiscordMessage, PaginatedMessage, CancellationTokenSource, PaginationEmojis)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Does pagination (for custom handling)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -217,27 +386,32 @@
       <tr>
         <td><span class="xref">DiscordEmoji</span></td>
         <td><span class="parametername">emoji</span></td>
-        <td></td>
+        <td><p>Emoji that was received</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message reaction belongs to</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DSharpPlus.Interactivity.PaginatedMessage.html">PaginatedMessage</a></td>
         <td><span class="parametername">paginatedmessage</span></td>
-        <td></td>
+        <td><p>Paginated message</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtokensource">CancellationTokenSource</a></td>
         <td><span class="parametername">canceltoken</span></td>
-        <td></td>
+        <td><p>Cancellation token source</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
         <td><span class="parametername">emojis</span></td>
-        <td></td>
+        <td><p>Pagination emoji collection</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -260,7 +434,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds(System.String)">GeneratePagesInEmbeds(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates pages in embeds from a long input string</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -279,7 +454,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">input</span></td>
-        <td></td>
+        <td><p>Input string</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -293,7 +469,51 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInEmbeds_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds(System.String)">GeneratePagesInEmbeds(String)</h4>
+  <div class="markdown level1 summary"><p>Generates pages in embeds from a long input string</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Page&gt; GeneratePagesInEmbeds(string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Input string</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -302,7 +522,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings(System.String)">GeneratePagesInStrings(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates pages in strings from a long input string</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -321,7 +542,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">input</span></td>
-        <td></td>
+        <td><p>Input string</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -335,7 +557,51 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePagesInStrings_System_String_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings(System.String)">GeneratePagesInStrings(String)</h4>
+  <div class="markdown level1 summary"><p>Generates pages in strings from a long input string</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Page&gt; GeneratePagesInStrings(string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Input string</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -344,7 +610,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_DiscordMessage_DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions(DiscordMessage,DSharpPlus.Interactivity.PaginationEmojis)">GeneratePaginationReactions(DiscordMessage, PaginationEmojis)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates pagination reactions</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -363,12 +630,64 @@
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to attach reactions to</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
         <td><span class="parametername">emojis</span></td>
+        <td><p>Emojis to attach</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_GeneratePaginationReactions_DiscordMessage_DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions(DiscordMessage,DSharpPlus.Interactivity.PaginationEmojis)">GeneratePaginationReactions(DiscordMessage, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"><p>Generates pagination reactions</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task GeneratePaginationReactions(DiscordMessage message, PaginationEmojis emojis)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordMessage</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Message to attach reactions to</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td><p>Emojis to attach</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -390,8 +709,118 @@
   
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_DiscordChannel_DiscordUser_System_Collections_Generic_IEnumerable_DSharpPlus_Interactivity_Page__System_Nullable_System_Threading_CancellationToken__System_Nullable_System_TimeSpan__System_Nullable_DSharpPlus_Interactivity_TimeoutBehaviour__DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage(DiscordChannel,DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.Threading.CancellationToken},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour},DSharpPlus.Interactivity.PaginationEmojis)">SendPaginatedMessage(DiscordChannel, DiscordUser, IEnumerable&lt;Page&gt;, Nullable&lt;CancellationToken&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;TimeoutBehaviour&gt;, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"><p>Sends a message with a &quot;page&quot;, with reactions to move between pages. Task resolves when
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is cancelled, <code data-dev-comment-type="paramref" class="paramref">timeout</code> is hit, or
+<a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html#DSharpPlus_Interactivity_PaginationEmojis_Stop">Stop</a> is clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendPaginatedMessage(DiscordChannel channel, DiscordUser user, IEnumerable&lt;Page&gt; messagePages, CancellationToken? ct = default(CancellationToken? ), TimeSpan? timeout = default(TimeSpan? ), TimeoutBehaviour? timeoutBehaviourOverride = default(TimeoutBehaviour? ), PaginationEmojis emojis = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel to send the paginated message in</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The user that can interact with the pages</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
+        <td><span class="parametername">messagePages</span></td>
+        <td><p>Any amount of <a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>s to use</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token to skip the timeout and instantly stop the pagination</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>. The timeout is reset whenever an action is taken (e.g
+clicking a button)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour_1.html">TimeoutBehaviour</a>&gt;</td>
+        <td><span class="parametername">timeoutBehaviourOverride</span></td>
+        <td><p>Behavior for when the pagination finishes (e.g timeout is hit).
+Defaults to <a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior">PaginationBehavior</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td><p>Set of <a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a> to use for controlling the pages. Defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPaginationEmojis">DefaultPaginationEmojis</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Task that resolves when pagination ends</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">channel</code>, <code data-dev-comment-type="paramref" class="paramref">user</code> or
+<code data-dev-comment-type="paramref" class="paramref">messagePages</code> is null</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>If there are no pages to send</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_SendPaginatedMessage_DiscordChannel_DiscordUser_System_Collections_Generic_IEnumerable_DSharpPlus_Interactivity_Page__System_Nullable_System_TimeSpan__System_Nullable_DSharpPlus_Interactivity_TimeoutBehaviour__DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage(DiscordChannel,DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour},DSharpPlus.Interactivity.PaginationEmojis)">SendPaginatedMessage(DiscordChannel, DiscordUser, IEnumerable&lt;Page&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;TimeoutBehaviour&gt;, PaginationEmojis)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends a paginated message</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -410,32 +839,38 @@
       <tr>
         <td><span class="xref">DiscordChannel</span></td>
         <td><span class="parametername">channel</span></td>
-        <td></td>
+        <td><p>Channel to send message to</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordUser</span></td>
         <td><span class="parametername">user</span></td>
-        <td></td>
+        <td><p>User that may interact with this paginated message</p>
+</td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page.html">Page</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.Page_1.html">Page</a>&gt;</td>
         <td><span class="parametername">message_pages</span></td>
-        <td></td>
+        <td><p>Pages for this message</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour.html">TimeoutBehaviour</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour_1.html">TimeoutBehaviour</a>&gt;</td>
         <td><span class="parametername">timeoutbehaviouroverride</span></td>
-        <td></td>
+        <td><p>Timeout behaviour override</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
         <td><span class="parametername">emojis</span></td>
-        <td></td>
+        <td><p>Pagination emoji override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -451,6 +886,114 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_SendSplitMessage_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendSplitMessage*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_SendSplitMessage_DiscordChannel_DiscordUser_System_String_System_Nullable_System_Threading_CancellationToken__System_Nullable_System_TimeSpan__System_Nullable_DSharpPlus_Interactivity_TimeoutBehaviour__DSharpPlus_Interactivity_PaginationEmojis_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.SendSplitMessage(DiscordChannel,DiscordUser,System.String,System.Nullable{System.Threading.CancellationToken},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour},DSharpPlus.Interactivity.PaginationEmojis)">SendSplitMessage(DiscordChannel, DiscordUser, String, Nullable&lt;CancellationToken&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;TimeoutBehaviour&gt;, PaginationEmojis)</h4>
+  <div class="markdown level1 summary"><p>Sends a string message automatically split into pages by length using pagination. Task resolves when
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is cancelled, <code data-dev-comment-type="paramref" class="paramref">timeout</code> is hit, or
+<a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html#DSharpPlus_Interactivity_PaginationEmojis_Stop">Stop</a> is clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendSplitMessage(DiscordChannel channel, DiscordUser user, string input, CancellationToken? ct = default(CancellationToken? ), TimeSpan? timeout = default(TimeSpan? ), TimeoutBehaviour? timeoutBehaviourOverride = default(TimeoutBehaviour? ), PaginationEmojis emojis = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel to send the paginated message in</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The user that can interact with the pages</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The message content to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token to skip the timeout and instantly stop the pagination</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>. The timeout is reset whenever an action is taken (e.g
+clicking a button)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.TimeoutBehaviour_1.html">TimeoutBehaviour</a>&gt;</td>
+        <td><span class="parametername">timeoutBehaviourOverride</span></td>
+        <td><p>Behavior for when the pagination finishes (e.g timeout is hit).
+Defaults to <a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_PaginationBehavior">PaginationBehavior</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a></td>
+        <td><span class="parametername">emojis</span></td>
+        <td><p>Set of <a class="xref" href="DSharpPlus.Interactivity.PaginationEmojis.html">PaginationEmojis</a> to use for controlling the pages. Defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_DefaultPaginationEmojis">DefaultPaginationEmojis</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Task that resolves when pagination ends</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">channel</code> or <code data-dev-comment-type="paramref" class="paramref">user</code> is null</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">input</code> is null or empty</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -485,9 +1028,484 @@
   <div><a class="xref" href="DSharpPlus.BaseExtension.html#DSharpPlus_BaseExtension_Setup_DSharpPlus_DiscordClient_">BaseExtension.Setup(DiscordClient)</a></div>
   
   
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_Setup_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.Setup*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_Setup_DSharpPlus_DiscordClient_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.Setup(DSharpPlus.DiscordClient)">Setup(DiscordClient)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Setup(DiscordClient client)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.DiscordClient.html">DiscordClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="DSharpPlus.BaseExtension.html#DSharpPlus_BaseExtension_Setup_DSharpPlus_DiscordClient_">BaseExtension.Setup(DiscordClient)</a></div>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_DiscordChannel_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(DiscordChannel,DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(DiscordChannel, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+in channel <code data-dev-comment-type="paramref" class="paramref">channel</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is
+canceled or the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(DiscordChannel channel, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the message must be sent in for it to be returned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the message for it to be returned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_DiscordChannel_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(DiscordChannel,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(DiscordChannel, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message in channel
+<code data-dev-comment-type="paramref" class="paramref">channel</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(DiscordChannel channel, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the message must be sent in for it to be returned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message sent by <code data-dev-comment-type="paramref" class="paramref">author</code>,
+or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out
+as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the message for it to be returned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__DiscordChannel_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},DiscordChannel,DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, DiscordChannel, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+in channel <code data-dev-comment-type="paramref" class="paramref">channel</code> matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if
+the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(Func&lt;DiscordMessage, bool&gt; predicate, DiscordChannel channel, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received message and returns whether or not that is the
+message to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the message must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the message for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__DiscordChannel_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},DiscordChannel,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, DiscordChannel, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message in channel <code data-dev-comment-type="paramref" class="paramref">channel</code>
+matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(Func&lt;DiscordMessage, bool&gt; predicate, DiscordChannel channel, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received message and returns whether or not that is the
+message to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the message must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(Func&lt;DiscordMessage, bool&gt; predicate, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received message and returns whether or not that is the
+message to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the message for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Waits for a message to be received</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -506,12 +1524,14 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>Expected predicate</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -532,9 +1552,141 @@
   </table>
   
   
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Func_DiscordMessage_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(Func&lt;DiscordMessage, Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing a message matching a predicate
+<code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or
+the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(Func&lt;DiscordMessage, bool&gt; predicate, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordMessage</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received message and returns whether or not that is the
+message to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageAsync_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForMessageAsync(Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a message context containing the first new message the client receives,
+or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out
+as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MessageContext&gt; WaitForMessageAsync(TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.MessageContext.html">MessageContext</a> containing the message, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_DiscordMessage_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(DiscordMessage,DiscordUser,System.Nullable{System.TimeSpan})">WaitForMessageReactionAsync(DiscordMessage, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wait for any reaction on a specific message</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -553,17 +1705,20 @@
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to check</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordUser</span></td>
         <td><span class="parametername">user</span></td>
-        <td></td>
+        <td><p>(optional) User override</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -586,7 +1741,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForMessageReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordMessage_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordMessage,DiscordUser,System.Nullable{System.TimeSpan})">WaitForMessageReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordMessage, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wait for a reaction on a specific message by a specific user</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -605,22 +1761,26 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>Expected predicate</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordMessage</span></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message reaction has to be placed on</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordUser</span></td>
         <td><span class="parametername">user</span></td>
-        <td></td>
+        <td><p>User reaction was sent by</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -642,8 +1802,997 @@
   
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordChannel_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordChannel,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordChannel, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> in channel <code data-dev-comment-type="paramref" class="paramref">channel</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordChannel channel, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordChannel_DiscordUser_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordChannel,DiscordUser,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordChannel, DiscordUser, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> sent by <code data-dev-comment-type="paramref" class="paramref">author</code> in channel <code data-dev-comment-type="paramref" class="paramref">channel</code>, or
+<code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as
+specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordChannel channel, DiscordUser author, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordChannel_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordChannel,DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordChannel, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+in channel <code data-dev-comment-type="paramref" class="paramref">channel</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is
+canceled or the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordChannel channel, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordChannel_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordChannel,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordChannel, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction in channel
+<code data-dev-comment-type="paramref" class="paramref">channel</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordChannel channel, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the
+waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordUser_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordUser,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordUser, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> sent by <code data-dev-comment-type="paramref" class="paramref">author</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordUser author, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction sent by <code data-dev-comment-type="paramref" class="paramref">author</code>,
+or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out
+as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordChannel_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordChannel,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordChannel, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> in channel <code data-dev-comment-type="paramref" class="paramref">channel</code> matching a predicate
+<code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or
+the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordChannel channel, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordChannel_DiscordUser_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordChannel,DiscordUser,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordChannel, DiscordUser, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> sent by <code data-dev-comment-type="paramref" class="paramref">author</code> in channel <code data-dev-comment-type="paramref" class="paramref">channel</code> matching a
+predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is
+canceled or the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordChannel channel, DiscordUser author, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordChannel_DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordChannel,DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordChannel, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+in channel <code data-dev-comment-type="paramref" class="paramref">channel</code> matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if
+the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordChannel channel, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordChannel_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordChannel,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordChannel, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction in channel
+<code data-dev-comment-type="paramref" class="paramref">channel</code> matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the
+cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordChannel channel, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordChannel</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>Channel that the reaction must be sent in for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the
+cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordUser_DiscordEmoji_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordUser,DiscordEmoji,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordUser, DiscordEmoji, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction with an emoji
+<code data-dev-comment-type="paramref" class="paramref">emoji</code> sent by <code data-dev-comment-type="paramref" class="paramref">author</code> matching a predicate
+<code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or
+the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordUser author, DiscordEmoji emoji, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordEmoji</span></td>
+        <td><span class="parametername">emoji</span></td>
+        <td><p>The reaction emoji to look for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordUser,System.Nullable{System.TimeSpan})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wait for a reaction by a specific user to be received</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -662,17 +2811,20 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>Expected predicate</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">DiscordUser</span></td>
         <td><span class="parametername">user</span></td>
-        <td></td>
+        <td><p>User that sends the reaction</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -694,8 +2846,93 @@
   
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__DiscordUser_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},DiscordUser,System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, DiscordUser, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction sent by <code data-dev-comment-type="paramref" class="paramref">author</code>
+matching a predicate <code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token
+<code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out as specified by
+<code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, DiscordUser author, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DiscordUser</span></td>
+        <td><span class="parametername">author</span></td>
+        <td><p>User that must have sent the reaction for it to be evaluated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},System.Nullable{System.TimeSpan})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Waits for a reaction to be received</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -714,12 +2951,14 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>Expected predicate</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>TImeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -740,9 +2979,141 @@
   </table>
   
   
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Func_DiscordEmoji_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DiscordEmoji,System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Func&lt;DiscordEmoji, Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing a reaction matching a predicate
+<code data-dev-comment-type="paramref" class="paramref">predicate</code>, or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or
+the waiting period times out as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(Func&lt;DiscordEmoji, bool&gt; predicate, TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">DiscordEmoji</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>Function that takes in a received reaction and returns whether or not that is the
+reaction to resolve the task with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">predicate</code> is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync*"></a>
+  <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForReactionAsync_System_Nullable_System_TimeSpan__System_Nullable_System_Threading_CancellationToken__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Nullable{System.TimeSpan},System.Nullable{System.Threading.CancellationToken})">WaitForReactionAsync(Nullable&lt;TimeSpan&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a task that resolves to a reaction context containing the first new reaction the client receives,
+or <code>null</code> if the cancellation token <code data-dev-comment-type="paramref" class="paramref">ct</code> is canceled or the waiting period times out
+as specified by <code data-dev-comment-type="paramref" class="paramref">timeout</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ReactionContext&gt; WaitForReactionAsync(TimeSpan? timeout = default(TimeSpan? ), CancellationToken? ct = default(CancellationToken? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout for the waiting period. If not specified, defaults to
+<a class="xref" href="DSharpPlus.Interactivity.InteractivityConfiguration.html#DSharpPlus_Interactivity_InteractivityConfiguration_Timeout">Timeout</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>&gt;</td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Cancellation token that can be used to end the waiting period early.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a>&gt;</td>
+        <td><p>Task that resolves to a new <a class="xref" href="DSharpPlus.Interactivity.ReactionContext.html">ReactionContext</a> containing the reaction, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingChannelAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingChannelAsync_DiscordUser_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync(DiscordUser,System.Nullable{System.TimeSpan})">WaitForTypingChannelAsync(DiscordUser, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Waits for a user to type in any channel</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -761,12 +3132,14 @@
       <tr>
         <td><span class="xref">DiscordUser</span></td>
         <td><span class="parametername">user</span></td>
-        <td></td>
+        <td><p>User to check</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -789,7 +3162,8 @@
   
   <a id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingUserAsync_" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync*"></a>
   <h4 id="DSharpPlus_Interactivity_InteractivityExtension_WaitForTypingUserAsync_DiscordChannel_System_Nullable_System_TimeSpan__" data-uid="DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync(DiscordChannel,System.Nullable{System.TimeSpan})">WaitForTypingUserAsync(DiscordChannel, Nullable&lt;TimeSpan&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Waits for any user to start typing</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -808,12 +3182,14 @@
       <tr>
         <td><span class="xref">DiscordChannel</span></td>
         <td><span class="parametername">channel</span></td>
-        <td></td>
+        <td><p>Channel to check</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
         <td><span class="parametername">timeoutoverride</span></td>
-        <td></td>
+        <td><p>Timeout override</p>
+</td>
       </tr>
     </tbody>
   </table>

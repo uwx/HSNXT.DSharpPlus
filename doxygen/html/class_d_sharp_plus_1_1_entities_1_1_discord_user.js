@@ -17,5 +17,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_user =
     [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#af03bfd6e4438fe9f452a2287cff587d2", null ],
     [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae1cf2e4e18e6420ece01aa2942303ca5", null ],
     [ "Email", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#abf41448e19ae920609ef5c4612ac9006", null ],
+    [ "PremiumType", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a3ffe7e3479ca67ce3e0c00b154e87f45", null ],
+    [ "Locale", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a9be62851c277b58566269e8a7e279620", null ],
     [ "Presence", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3", null ]
 ];

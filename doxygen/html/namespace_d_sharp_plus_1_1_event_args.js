@@ -43,7 +43,6 @@ var namespace_d_sharp_plus_1_1_event_args =
     [ "UserSettingsUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_user_settings_update_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_user_settings_update_event_args" ],
     [ "UserSpeakingEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_user_speaking_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_user_speaking_event_args" ],
     [ "UserUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_user_update_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_user_update_event_args" ],
-    [ "VoiceReceiveEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_voice_receive_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_voice_receive_event_args" ],
     [ "VoiceServerUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_voice_server_update_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_voice_server_update_event_args" ],
     [ "VoiceStateUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_voice_state_update_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_voice_state_update_event_args" ],
     [ "WebhooksUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_webhooks_update_event_args.html", "class_d_sharp_plus_1_1_event_args_1_1_webhooks_update_event_args" ]
