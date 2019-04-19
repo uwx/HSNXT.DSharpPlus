@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
 
@@ -90,5 +91,55 @@ namespace HSNXT.DSharpPlus.InteractivityNext
                 i += size;
             }
         }
+
+        // TODO tests
+        internal static IEnumerable<string> SplitLines(this string str, int chunkSize) 
+            => SplitAtCharByLength(str, chunkSize, '\n');
+
+        internal static IEnumerable<string> SplitWords(this string str, int chunkSize) 
+            => SplitAtCharByLength(str, chunkSize, '\t', '\n', '\v', '\f', '\r', ' ', '\u00a0', '\u0085');
+
+        private static IEnumerable<string> SplitAtCharByLength(string str, int chunkSize, params char[] ch)
+        {
+            var strings = new List<string>();
+            var currentBuilder = new StringBuilder();
+            var lastIndex = 0;
+            do
+            {
+                var nextIndex = str.IndexOfAny(ch, lastIndex) + 1;
+                var newLine = str.Substring(lastIndex, nextIndex - lastIndex);
+
+                if (currentBuilder.Length + (nextIndex - lastIndex) < chunkSize)
+                {
+                    currentBuilder.Append(ch).Append(newLine);
+                }
+                else
+                {
+                    // add current line and start a new line
+                    strings.Add(currentBuilder.ToString());
+                    currentBuilder.Clear();
+
+                    // if new line is too big to fit, split it by words and add all of those sections individually
+                    if (nextIndex - lastIndex >= chunkSize)
+                    {
+                        strings.AddRange(SplitWords(newLine, chunkSize));
+                    }
+                    else
+                    {
+                        currentBuilder.Append(newLine);
+                    }
+                }
+
+                lastIndex = nextIndex;
+            } while (lastIndex != 0);
+
+            if (currentBuilder.Length != 0)
+            {
+                strings.Add(currentBuilder.ToString());
+            }
+
+            return strings;
+        }
+
     }
 }
