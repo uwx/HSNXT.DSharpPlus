@@ -8,12 +8,24 @@
       Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
       regarding this package in official DSharpPlus discussion boards.</Description>
     <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug (Extended headers)' ">
+    <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
+    <DebugSymbols Condition=" '$(DebugSymbols)' == '' ">true</DebugSymbols>
+    <Optimize Condition=" '$(Optimize)' == '' ">false</Optimize>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release (Extended headers)' ">
+    <DefineConstants>TRACE;IS_LITE_VERSION</DefineConstants>
+    <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />

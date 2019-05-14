@@ -12,6 +12,16 @@
     <PackageTags>discord discord-api bots discord-bots chat dsharp dsharpplus csharp dotnet vb-net fsharp interactive pagination reactions</PackageTags>
     <OutputType>Library</OutputType>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug (Extended headers)' ">
+    <DebugSymbols Condition=" '$(DebugSymbols)' == '' ">true</DebugSymbols>
+    <Optimize Condition=" '$(Optimize)' == '' ">false</Optimize>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release (Extended headers)' ">
+    <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
