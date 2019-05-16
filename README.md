@@ -4,6 +4,8 @@
 
 Home of CNextNotifier, DSharpPlus.Extended, ModernEmbedBuilder, CommandsNext.Extended and maybe more...
 
+All the packages provided here are experimental and may be subject to change without notice. Consume with care.
+
 [![HSNXT.DSharpPlus.CNextNotifier NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.CNextNotifier.svg?label=HSNXT.DSharpPlus.CNextNotifier)](https://nuget.org/packages/HSNXT.DSharpPlus.CNextNotifier)  
 [![HSNXT.DSharpPlus.CommandsNext.Extended NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.CommandsNext.Extended.svg?label=HSNXT.DSharpPlus.CommandsNext.Extended)](https://nuget.org/packages/HSNXT.DSharpPlus.CommandsNext.Extended)  
 [![HSNXT.DSharpPlus.Extended NuGet](https://img.shields.io/nuget/vpre/HSNXT.DSharpPlus.Extended.svg?label=HSNXT.DSharpPlus.Extended)](https://nuget.org/packages/HSNXT.DSharpPlus.Extended)  
