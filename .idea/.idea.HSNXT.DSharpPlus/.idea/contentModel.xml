@@ -140,6 +140,7 @@
           <e p="IOAuth2Payload.cs" t="Include" />
           <e p="ReadyPayload.cs" t="Include" />
           <e p="RestChannelPayloads.cs" t="Include" />
+          <e p="RestEmojiPayloads.cs" t="Include" />
           <e p="RestGuildPayloads.cs" t="Include" />
           <e p="RestUserPayloads.cs" t="Include" />
           <e p="RestWebhookPayloads.cs" t="Include" />
@@ -179,6 +180,7 @@
         </e>
         <e p="WebSocket" t="Include">
           <e p="BaseWebSocketClient.cs" t="Include" />
+          <e p="SocketLock.cs" t="Include" />
           <e p="WebSocketClient.cs" t="Include" />
           <e p="WebSocketClient2.cs" t="Include" />
         </e>
