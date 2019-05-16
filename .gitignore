@@ -16,3 +16,7 @@ packages
 /HSNXT.Test.VLCRPC/discord-rpc.dll
 doxygen_out
 sharpdox_out
+/.vs/TestProject/v15/Server/sqlite3/db.lock
+/.vs/TestProject/v15/Server/sqlite3/storage.ide
+/.vs/TestProject/v15/sqlite3/db.lock
+/.vs/TestProject/v15/sqlite3/storage.ide
