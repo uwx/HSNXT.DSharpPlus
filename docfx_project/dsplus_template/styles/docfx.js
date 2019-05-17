@@ -533,6 +533,12 @@ $(function () {
           })
         });
 
+        /*[...document.querySelectorAll('#toc .level1 > li')]
+          .filter(e => e.children[1].title.startsWith('DSharpPlus'))
+          .forEach(e => {
+            e.parentElement.removeChild(e);
+          });*/
+
         renderSidebar();
       });
     }

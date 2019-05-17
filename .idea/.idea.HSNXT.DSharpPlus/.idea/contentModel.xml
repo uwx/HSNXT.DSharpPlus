@@ -630,7 +630,6 @@
             <e p="InteractivityContext.cs" t="Include" />
             <e p="MessageContext.cs" t="Include" />
             <e p="ReactionContext.cs" t="Include" />
-            <e p="TypingContext.cs" t="Include" />
           </e>
           <e p="Events" t="Include">
             <e p="AwaiterHolder.cs" t="Include" />

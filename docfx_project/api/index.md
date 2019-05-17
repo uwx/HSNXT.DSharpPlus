@@ -1,5 +1,5 @@
 # API Documentation
 
-Because of the unique way in which DocFX is structured, I'm supposed to write something here. The table of contents to
-your left contains a tree of exported types from every library project. You can click any of them to see their
-documentation.
+The table of contents to the left contains a list of links to the relevant API documentation for the extension
+libraries. You can also access the documentation for DSharpPlus types itself either through its dedicated API page or
+by clicking on the relevant cross-references in the extension libraries' documentation.
