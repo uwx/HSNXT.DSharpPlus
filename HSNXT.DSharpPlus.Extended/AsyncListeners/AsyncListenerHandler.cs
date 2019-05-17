@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using HSNXT.DSharpPlus.Extended.EventArgs;
+using HSNXT.DSharpPlus.Extended;
 
 namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {

@@ -2,7 +2,7 @@
 using DSharpPlus;
 using DSharpPlus.EventArgs;
 
-namespace HSNXT.DSharpPlus.Extended.EventArgs
+namespace HSNXT.DSharpPlus.Extended
 {
     /// <summary>
     /// Represents arguments for <see cref="E:DSharpPlus.DiscordClient.ExtensionErrored" /> event.

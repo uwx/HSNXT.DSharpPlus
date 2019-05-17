@@ -3,7 +3,7 @@ using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 
-namespace HSNXT.DSharpPlus.Extended.EventArgs
+namespace HSNXT.DSharpPlus.Extended
 {
     public class MentionReceivedEventArgs : DiscordEventArgs
     {

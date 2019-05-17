@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
-using HSNXT.DSharpPlus.Extended.EventArgs;
+using HSNXT.DSharpPlus.Extended;
 using HSNXT.DSharpPlus.Extended.AsyncListeners;
 
 namespace HSNXT.DSharpPlus.Extended
