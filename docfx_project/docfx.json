@@ -41,13 +41,12 @@
     "content": [
       {
         "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
           "api/**.yml",
-          "api/index.md"
-        ]
-      },
-      {
-        "files": [
-          "articles"
+          "api/index.md",
+          "toc.yml",
+          "*.md"
         ],
         "exclude": [
           "obj/**",
@@ -89,7 +88,6 @@
     ],
     "postProcessors": ["ExtractSearchIndex", "CustomMemberIndexer"],
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
-    "postProcessors": [],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,
