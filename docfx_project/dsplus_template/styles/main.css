@@ -27,3 +27,6 @@ h1.delet-this {
 .footer a {
   color: #b5c5ff !important;
 }
+.footer a:hover {
+  color: #d5deff !important;
+}
