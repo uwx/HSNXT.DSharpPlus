@@ -2,21 +2,25 @@
 using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace HSNXT.DSharpPlus.Extended
 {
+    /// <summary>
+    /// Represents arguments for the <see cref="DspExtended.MentionReceived"/> event.
+    /// </summary>
     public class MentionReceivedEventArgs : DiscordEventArgs
     {
-        /// <summary>Gets the message that was created.</summary>
+        /// <summary>Gets the mention message that was created.</summary>
         public DiscordMessage Message { get; internal set; }
 
-        /// <summary>Gets the channel this message belongs to.</summary>
+        /// <summary>Gets the channel the mention message message belongs to.</summary>
         public DiscordChannel Channel => Message.Channel;
 
-        /// <summary>Gets the guild this message belongs to.</summary>
+        /// <summary>Gets the guild the mention message message belongs to.</summary>
         public DiscordGuild Guild => Channel.Guild;
 
-        /// <summary>Gets the author of the message.</summary>
+        /// <summary>Gets the author of the mention message.</summary>
         public DiscordUser Author => Message.Author;
 
         /// <summary>Gets the collection of mentioned users.</summary>
