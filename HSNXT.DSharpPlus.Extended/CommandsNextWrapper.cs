@@ -18,7 +18,8 @@ namespace HSNXT.DSharpPlus.Extended
         private readonly DiscordClient _client;
         private CommandsNextExtension _cnext;
         
-        public CommandsNextExtension Value {
+        public CommandsNextExtension Value
+        {
             get
             {
                 if (_cnext == null && (_cnext = _client.GetCommandsNext()) == null)
@@ -35,6 +36,7 @@ namespace HSNXT.DSharpPlus.Extended
         }
 #endif
 
+        // ReSharper disable once UnusedParameter.Local
         public CommandsNextWrapper(DiscordClient client)
         {
 #if !IS_LITE_VERSION
