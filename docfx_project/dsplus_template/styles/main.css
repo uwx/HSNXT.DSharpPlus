@@ -1,22 +1,27 @@
-#logo
-{
+#logo {
 	max-height: 50px;
 }
 
-h1.logo-center
-{
+h1.logo-center {
 	text-align: center;
 	margin-top: 0;
 }
 
-article p > img
-{
+article p > img {
 	box-shadow: 3px 3px 6px #111;
 	border-radius: 3px;
 	border: 1px solid #222;
 }
 
-h1.delet-this
-{
+h1.delet-this {
 	display: none;
+}
+
+.footer {
+  background: no-repeat url(https://i.imgur.com/TiZW4yr.jpg) center 65%/cover;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.footer a {
+  color: #b5c5ff !important;
 }
