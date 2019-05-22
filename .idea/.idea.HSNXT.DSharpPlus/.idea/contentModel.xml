@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Rafael\.Rider2018.3\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\system\resharper-host\Local\Transient\ReSharperHost\v183\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.1\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.1\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.1\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.1\system\resharper-host\Local\Transient\ReSharperHost\v191\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus" t="IncludeRecursive">
       <e p="AssemblyInfo.cs" t="Include" />
       <e p="AsyncEvent.cs" t="Include" />
