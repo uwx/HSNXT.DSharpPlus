@@ -2,13 +2,14 @@
 using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
-// ReSharper disable UnusedAutoPropertyAccessor.Global
+using JetBrains.Annotations;
 
 namespace HSNXT.DSharpPlus.Extended
 {
     /// <summary>
     /// Represents arguments for the <see cref="DspExtended.MentionReceived"/> event.
     /// </summary>
+    [PublicAPI]
     public class MentionReceivedEventArgs : DiscordEventArgs
     {
         /// <summary>Gets the mention message that was created.</summary>

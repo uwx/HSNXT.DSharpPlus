@@ -1,13 +1,14 @@
 ﻿using System;
 using DSharpPlus;
 using DSharpPlus.EventArgs;
-// ReSharper disable UnusedAutoPropertyAccessor.Global
+using JetBrains.Annotations;
 
 namespace HSNXT.DSharpPlus.Extended
 {
     /// <summary>
     /// Represents arguments for the <see cref="DspExtended.ExtensionErrored"/> event.
     /// </summary>
+    [PublicAPI]
     public class ExtensionErrorEventArgs : DiscordEventArgs
     {
         /// <summary>Gets the exception thrown by the extension.</summary>

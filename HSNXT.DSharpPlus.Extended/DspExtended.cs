@@ -8,6 +8,7 @@ using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using HSNXT.DSharpPlus.Extended.AsyncListeners;
+using JetBrains.Annotations;
 
 namespace HSNXT.DSharpPlus.Extended
 {
@@ -32,6 +33,7 @@ namespace HSNXT.DSharpPlus.Extended
             => ModuleLoader.UseModuleAsync<DspExtended>(client);
     }
 
+#pragma warning disable 1584,1581,1580
     /// <summary>
     /// An extension for DSharpPlus adding a variety of extension methods, and more. Some features include, but are not
     /// limited to:
@@ -65,6 +67,8 @@ namespace HSNXT.DSharpPlus.Extended
     /// customize the fucntionality. If you're using any of the CommandsNext-related extensions, always register
     /// D#+ Extended <i>after</i> CommandsNext, or you will encounter crashes.
     /// </example>
+#pragma warning restore 1584,1581,1580
+    [PublicAPI]
     public class DspExtended : ClientModule, IDisposable
     {
         internal CommandsNextWrapper CNext { get; set; }
