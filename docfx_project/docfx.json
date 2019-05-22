@@ -83,7 +83,7 @@
     "template": [
       "dsplus_template"
     ],
-    "postProcessors": ["ExtractSearchIndex"],
+    "postProcessors": ["ExtractSearchIndex", "CustomMemberIndexer"],
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
     "noLangKeyword": false,
     "keepFileLink": false,
