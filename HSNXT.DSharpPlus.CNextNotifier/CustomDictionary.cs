@@ -2,11 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// ReSharper disable ForCanBeConvertedToForeach
-
 namespace HSNXT.DSharpPlus.CNextNotifier
 {
-    public class CustomDictionary<TK, TV> : IDictionary<TK, TV>, IDictionary
+    // From http://blog.teamleadnet.com/2012/07/ultra-fast-hashtable-dictionary-with.html
+    public class CustomDictionary<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary
     {
         private int[] _hashes;
         private DictionaryEntry[] _entries;
@@ -26,9 +25,9 @@ namespace HSNXT.DSharpPlus.CNextNotifier
 
         private struct DictionaryEntry
         {
-            public TK Key;
+            public TKey Key;
             public int Next;
-            public TV Value;
+            public TValue Value;
             public uint Hashcode;
         }
 
@@ -37,22 +36,22 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             Initialize();
         }
 
-        public int InitOrGetPosition(TK key)
+        public int InitOrGetPosition(TKey key)
         {
             return Add(key, default, false);
         }
 
-        public TV GetAtPosition(int pos)
+        public TValue GetAtPosition(int pos)
         {
             return _entries[pos].Value;
         }
 
-        public void StoreAtPosition(int pos, TV value)
+        public void StoreAtPosition(int pos, TValue value)
         {
             _entries[pos].Value = value;
         }
 
-        public int Add(TK key, TV value, bool overwrite)
+        public int Add(TKey key, TValue value, bool overwrite)
         {
             if (Count >= _entries.Length)
                 Resize();
@@ -138,16 +137,16 @@ namespace HSNXT.DSharpPlus.CNextNotifier
         {
             var roughsize = (uint) _hashes.Length * 2 + 1;
 
-            for (var i = 0; i < PrimeSizes.Length; i++)
+            foreach (var t in PrimeSizes)
             {
-                if (PrimeSizes[i] >= roughsize)
-                    return PrimeSizes[i];
+                if (t >= roughsize)
+                    return t;
             }
 
             throw new ArgumentOutOfRangeException(nameof(PrimeSizes), "Too large array");
         }
 
-        public TV Get(TK key)
+        public TValue Get(TKey key)
         {
             var pos = GetPosition(key);
 
@@ -157,7 +156,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             return _entries[pos].Value;
         }
 
-        public int GetPosition(TK key)
+        public int GetPosition(TKey key)
         {
             var hash = (uint) key.GetHashCode();
 
@@ -183,19 +182,19 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             return -1;
         }
 
-        public bool ContainsKey(TK key)
+        public bool ContainsKey(TKey key)
         {
             return GetPosition(key) != -1;
         }
 
-        public ICollection<TK> Keys => throw new NotImplementedException();
+        public ICollection<TKey> Keys => throw new NotImplementedException();
 
-        public bool Remove(TK key)
+        public bool Remove(TKey key)
         {
             throw new NotImplementedException();
         }
 
-        public bool TryGetValue(TK key, out TV value)
+        public bool TryGetValue(TKey key, out TValue value)
         {
             var pos = GetPosition(key);
 
@@ -210,15 +209,15 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             return true;
         }
 
-        public ICollection<TV> Values => throw new NotImplementedException();
+        public ICollection<TValue> Values => throw new NotImplementedException();
 
-        public TV this[TK key]
+        public TValue this[TKey key]
         {
             get => Get(key);
             set => Add(key, value, true);
         }
 
-        public void Add(KeyValuePair<TK, TV> item)
+        public void Add(KeyValuePair<TKey, TValue> item)
         {
             var pos = Add(item.Key, item.Value, false);
 
@@ -226,7 +225,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
                 throw new Exception("Key already exists");
         }
 
-        void IDictionary<TK, TV>.Add(TK key, TV value)
+        void IDictionary<TKey, TValue>.Add(TKey key, TValue value)
         {
             var pos = Add(key, value, false);
 
@@ -251,7 +250,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             }
         }
 
-        public bool Contains(KeyValuePair<TK, TV> item)
+        public bool Contains(KeyValuePair<TKey, TValue> item)
         {
             if (item.Key == null)
                 return false;
@@ -259,7 +258,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
             return TryGetValue(item.Key, out var value) && item.Value.Equals(value);
         }
 
-        public void CopyTo(KeyValuePair<TK, TV>[] array, int arrayIndex)
+        public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
             throw new NotImplementedException();
         }
@@ -268,16 +267,16 @@ namespace HSNXT.DSharpPlus.CNextNotifier
 
         public bool IsReadOnly => false;
 
-        public bool Remove(KeyValuePair<TK, TV> item)
+        public bool Remove(KeyValuePair<TKey, TValue> item)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
         {
             for (var i = 0; i < Count; i++)
             {
-                yield return new KeyValuePair<TK, TV>(_entries[i].Key, _entries[i].Value);
+                yield return new KeyValuePair<TKey, TValue>(_entries[i].Key, _entries[i].Value);
             }
         }
 
@@ -286,13 +285,13 @@ namespace HSNXT.DSharpPlus.CNextNotifier
         {
             for (var i = 0; i < Count; i++)
             {
-                yield return new KeyValuePair<TK, TV>(_entries[i].Key, _entries[i].Value);
+                yield return new KeyValuePair<TKey, TValue>(_entries[i].Key, _entries[i].Value);
             }
         }
 
         public void Add(object key, object value)
         {
-            var pos = Add((TK) key, (TV) value, false);
+            var pos = Add((TKey) key, (TValue) value, false);
 
             if (pos + 1 != Count)
                 throw new Exception("Key already exists");
@@ -300,7 +299,7 @@ namespace HSNXT.DSharpPlus.CNextNotifier
 
         public bool Contains(object key)
         {
-            return ContainsKey((TK) key);
+            return ContainsKey((TKey) key);
         }
 
         IDictionaryEnumerator IDictionary.GetEnumerator()
@@ -321,8 +320,8 @@ namespace HSNXT.DSharpPlus.CNextNotifier
 
         public object this[object key]
         {
-            get => this[(TK) key];
-            set => this[(TK) key] = (TV) value;
+            get => this[(TKey) key];
+            set => this[(TKey) key] = (TValue) value;
         }
 
         public void CopyTo(Array array, int index)
