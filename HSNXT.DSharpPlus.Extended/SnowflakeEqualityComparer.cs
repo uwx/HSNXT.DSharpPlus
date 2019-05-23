@@ -9,8 +9,10 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
     /// </summary>
     public readonly struct SnowflakeEqualityComparer : IEqualityComparer<SnowflakeObject>
     {
-        public bool Equals(SnowflakeObject x, SnowflakeObject y) => x.Id == y.Id;
+        public bool Equals(SnowflakeObject x, SnowflakeObject y)
+            => x == y || x != null && y != null && x.Id == y.Id;
 
-        public int GetHashCode(SnowflakeObject obj) => obj.Id.GetHashCode();
+        public int GetHashCode(SnowflakeObject obj)
+            => obj.Id.GetHashCode();
     }
 }
