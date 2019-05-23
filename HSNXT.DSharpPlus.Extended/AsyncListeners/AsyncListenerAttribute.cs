@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace HSNXT.DSharpPlus.Extended.AsyncListeners
 {
@@ -8,6 +9,7 @@ namespace HSNXT.DSharpPlus.Extended.AsyncListeners
     /// EventArgs parameter (or none if there is none)
     /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
+    [PublicAPI]
     public class AsyncListenerAttribute : Attribute
     {
         public EventTypes Target { get; }
