@@ -14,7 +14,7 @@ namespace HSNXT.DSharpPlus.Extended
             Client = client;
         }
         
-        protected override void Setup(DiscordClient client)
+        protected sealed override void Setup(DiscordClient client)
         {
             // empty. we set up the client directly in the constructor, to give extensions full access to everything
             // where they can assign readonly variables and the like. the setup pattern doesn't really serve any purpose
@@ -42,7 +42,7 @@ namespace HSNXT.DSharpPlus.Extended
             Configuration = config;
         }
         
-        protected override void Setup(DiscordClient client)
+        protected sealed override void Setup(DiscordClient client)
         {
             // empty. we set up the client directly in the constructor, to give extensions full access to everything
             // where they can assign readonly variables and the like. the setup pattern doesn't really serve any purpose
