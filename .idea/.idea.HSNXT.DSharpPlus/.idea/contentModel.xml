@@ -441,7 +441,6 @@
       <e p="HSNXT.DSharpPlus.CNextNotifier" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="CNextNotifier.cs" t="Include" />
-        <e p="CustomDictionary.cs" t="Include" />
         <e p="Example.cs" t="Include" />
         <e p="HSNXT.DSharpPlus.CNextNotifier.csproj" t="IncludeRecursive" />
         <e p="LICENSE" t="Include" />

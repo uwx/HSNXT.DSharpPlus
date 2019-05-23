@@ -16,4 +16,7 @@
     <ProjectReference Include="..\..\DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj" />
     <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" />
+  </ItemGroup>
 </Project>
