@@ -687,12 +687,6 @@
         </e>
       </e>
       <e p="HSNXT.DSharpPlus.sln" t="IncludeFlat" />
-      <e p="HSNXT.DSharpPlus.Workaround" t="IncludeRecursive">
-        <e p="HSNXT.DSharpPlus.Workaround.csproj" t="IncludeRecursive" />
-      </e>
-      <e p="HSNXT.Workaround.Test" t="IncludeRecursive">
-        <e p="HSNXT.Workaround.Test.csproj" t="IncludeRecursive" />
-      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
