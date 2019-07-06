@@ -73,6 +73,9 @@
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MemberExtensions.cs">
       <Link>MemberExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\MessageExtensions.cs">
+      <Link>MessageExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\HSNXT.DSharpPlus.Extended\ExtensionMethods\RoleExtensions.cs">
       <Link>RoleExtensions.cs</Link>
     </Compile>
