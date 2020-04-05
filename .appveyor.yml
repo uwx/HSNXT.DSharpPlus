@@ -44,8 +44,8 @@ deploy:
     skip_symbols: false
     api_key:
       secure: JLjMYOq3qi+ufhrG7RW0ruPttMFub/anRnFHckBxMO5GvL3W0CVYd2CZpR4zQVqj
-    # don't push D#+ packages, also don't push test packages
-    artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
+    # don't push D#+ packages
+    artifact: /^(?:(?!(?:Packaged\\)?DSharpPlus)).*\.nupkg$/
    
 after_deploy:
 # setup auth
