@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Rafael\.Rider2019.1\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2019.1\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2019.1\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2019.1\system\resharper-host\Local\Transient\ReSharperHost\v191\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\system\resharper-host\Local\Transient\ReSharperHost\v193\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus" t="IncludeRecursive">
       <e p="AsyncEvent.cs" t="Include" />
       <e p="AsyncManualResetEvent.cs" t="Include" />
@@ -55,6 +55,7 @@
         <e p="DiscordPresence.cs" t="Include" />
         <e p="DiscordReaction.cs" t="Include" />
         <e p="DiscordRole.cs" t="Include" />
+        <e p="DiscordTeam.cs" t="Include" />
         <e p="DiscordUri.cs" t="Include" />
         <e p="DiscordUser.cs" t="Include" />
         <e p="DiscordVoiceRegion.cs" t="Include" />
@@ -70,6 +71,7 @@
         <e p="MentionType.cs" t="Include" />
         <e p="OverwriteType.cs" t="Include" />
         <e p="Permission.cs" t="Include" />
+        <e p="PremiumTier.cs" t="Include" />
         <e p="PremiumType.cs" t="Include" />
         <e p="TokenType.cs" t="Include" />
       </e>
@@ -145,7 +147,9 @@
           <e p="ShardInfo.cs" t="Include" />
           <e p="StatusUpdate.cs" t="Include" />
           <e p="TransportActivity.cs" t="Include" />
+          <e p="TransportApplication.cs" t="Include" />
           <e p="TransportMember.cs" t="Include" />
+          <e p="TransportTeam.cs" t="Include" />
           <e p="TransportUser.cs" t="Include" />
           <e p="VoiceStateUpdate.cs" t="Include" />
         </e>
@@ -186,12 +190,6 @@
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
-            <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
             <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
           </e>
           <e p="netstandard1.1" t="Include">
@@ -313,12 +311,6 @@
           <e p="net45" t="Include">
             <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
           </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
-            <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
-          </e>
           <e p="netstandard1.1" t="Include">
             <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
           </e>
@@ -339,12 +331,6 @@
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
-            <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
             <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
           </e>
           <e p="netstandard1.1" t="Include">
@@ -395,12 +381,6 @@
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
-            <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
             <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
           </e>
           <e p="netstandard1.1" t="Include">
@@ -556,6 +536,7 @@
           <e p="ClientExtensions.cs" t="Include" />
           <e p="ColorExtensions.cs" t="Include" />
           <e p="MemberExtensions.cs" t="Include" />
+          <e p="MessageExtensions.cs" t="Include" />
           <e p="ModifyShortcuts" t="Include">
             <e p="ChannelExtensions.cs" t="Include" />
             <e p="GuildEmojiExtensions.cs" t="Include" />
