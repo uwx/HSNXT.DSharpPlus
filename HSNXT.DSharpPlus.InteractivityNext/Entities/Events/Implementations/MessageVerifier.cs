@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     internal class MessageVerifier : DiscordEventAwaiter<MessageCreateEventArgs, MessageContext>
     {

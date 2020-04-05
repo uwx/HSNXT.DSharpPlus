@@ -4,21 +4,40 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DSharpPlus;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     public static class ExtensionMethods
     {
+        /// <summary>
+        /// Installs the Interactivity extension for this client.
+        /// </summary>
+        /// <param name="c">The client to install the extension for</param>
+        /// <param name="cfg">The configuration for the extension</param>
+        /// <returns>The newly created extension</returns>
+        /// <exception cref="InvalidOperationException">
+        /// If the Interactivity extension has already been enabled for this client
+        /// </exception>
         public static InteractivityExtension UseInteractivity(this DiscordClient c, InteractivityConfiguration cfg)
         {
             if (c.GetExtension<InteractivityExtension>() != null)
-                throw new Exception("Interactivity module is already enabled for this client!");
+                throw new InvalidOperationException("Interactivity module is already enabled for this client!");
 
             var m = new InteractivityExtension(cfg);
             c.AddExtension(m);
             return m;
         }
 
+        /// <summary>
+        /// Installs the Interactivity extension for every shard in this client.
+        /// </summary>
+        /// <param name="c">The client to install the extension for</param>
+        /// <param name="cfg">The configuration for the extension</param>
+        /// <returns>A mapping of shard ids to extension instances</returns>
+        /// <exception cref="InvalidOperationException">
+        /// If the Interactivity extension has already been enabled for this client
+        /// </exception>
         public static async Task<IReadOnlyDictionary<int, InteractivityExtension>> UseInteractivityAsync(this DiscordShardedClient c, InteractivityConfiguration cfg)
         {
             var modules = new Dictionary<int, InteractivityExtension>();
@@ -34,11 +53,21 @@ namespace DSharpPlus.Interactivity
             return new ReadOnlyDictionary<int, InteractivityExtension>(modules);
         }
 
+        /// <summary>
+        /// Gets the active Interactivity extension for this client.
+        /// </summary>
+        /// <param name="c">Client to get the Interactivity extension from.</param>
+        /// <returns>The extension, or null if not activated.</returns>
         public static InteractivityExtension GetInteractivity(this DiscordClient c)
         {
             return c.GetExtension<InteractivityExtension>();
         }
 
+        /// <summary>
+        /// Gets the active CommandsNext modules for all shards in this client.
+        /// </summary>
+        /// <param name="c">Client to get the Interactivity extensions from.</param>
+        /// <returns>A mapping of shard ids to extension instances</returns>
         public static IReadOnlyDictionary<int, InteractivityExtension> GetInteractivity(this DiscordShardedClient c)
         {
             c.InitializeShardsAsync().ConfigureAwait(false).GetAwaiter().GetResult();
@@ -63,33 +92,54 @@ namespace DSharpPlus.Interactivity
             }
         }
 
-        internal static IEnumerable<string> SplitWords(this string str, int chunkSize)
-        {
-            var words = str.Split(' ');
-            var part = new StringBuilder();
-            foreach (var word in words)
-            {
-                if (word.Length >= chunkSize)
-                {
-                    foreach (var chunk in Split(word, chunkSize))
-                    {
-                        yield return chunk;
-                    }
-                }
-                else if (part.Length + word.Length < chunkSize)
-                {
-                    if (part.Length != 0)
-                        part.Append(' ');
+        // TODO tests
+        internal static IEnumerable<string> SplitLines(this string str, int chunkSize) 
+            => SplitAtCharByLength(str, chunkSize, '\n');
 
-                    part.Append(word);
+        internal static IEnumerable<string> SplitWords(this string str, int chunkSize) 
+            => SplitAtCharByLength(str, chunkSize, '\t', '\n', '\v', '\f', '\r', ' ', '\u00a0', '\u0085');
+
+        private static IEnumerable<string> SplitAtCharByLength(string str, int chunkSize, params char[] ch)
+        {
+            var strings = new List<string>();
+            var currentBuilder = new StringBuilder();
+            var lastIndex = 0;
+            do
+            {
+                var nextIndex = str.IndexOfAny(ch, lastIndex) + 1;
+                var newLine = str.Substring(lastIndex, nextIndex - lastIndex);
+
+                if (currentBuilder.Length + (nextIndex - lastIndex) < chunkSize)
+                {
+                    currentBuilder.Append(ch).Append(newLine);
                 }
                 else
                 {
-                    yield return part.ToString();
-                    part.Clear();
-                    part.Append(word);
+                    // add current line and start a new line
+                    strings.Add(currentBuilder.ToString());
+                    currentBuilder.Clear();
+
+                    // if new line is too big to fit, split it by words and add all of those sections individually
+                    if (nextIndex - lastIndex >= chunkSize)
+                    {
+                        strings.AddRange(SplitWords(newLine, chunkSize));
+                    }
+                    else
+                    {
+                        currentBuilder.Append(newLine);
+                    }
                 }
+
+                lastIndex = nextIndex;
+            } while (lastIndex != 0);
+
+            if (currentBuilder.Length != 0)
+            {
+                strings.Add(currentBuilder.ToString());
             }
+
+            return strings;
         }
+
     }
 }

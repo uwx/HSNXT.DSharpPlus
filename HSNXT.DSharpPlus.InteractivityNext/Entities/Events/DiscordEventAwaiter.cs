@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
     /// <p>
@@ -31,7 +31,7 @@ namespace DSharpPlus.Interactivity
     ///     {
     ///         if (!condition) return null; // no result, continue execution
     ///
-    ///         // success, will complete Task and remove self from the DiscordAwaiterHolder
+    ///         // success, will complete Task and remove self from the AwaiterHolder
     ///         return new MessageContext(Interactivity, e.Message);  
     ///     }
     /// }
@@ -43,7 +43,7 @@ namespace DSharpPlus.Interactivity
         where TContextResult : InteractivityContext
     {
         protected InteractivityExtension Interactivity { get; }
-		
+        
         internal TaskCompletionSource<TContextResult> Result { get; } = new TaskCompletionSource<TContextResult>();
 
         protected DiscordEventAwaiter(InteractivityExtension interactivity)
@@ -57,7 +57,7 @@ namespace DSharpPlus.Interactivity
         {
             var result = await CheckResult(args);
             if (result == null) return false;
-			
+            
             Result.TrySetResult(result);
             return true;
         }

@@ -1,21 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../HSNXT.DSharpPlus.targets" />
-  
-  <PropertyGroup>
-    <AssemblyName>DSharpPlus.Interactivity</AssemblyName>
-    <RootNamespace>HSNXT.DSharpPlus.InteractivityNext</RootNamespace>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  
   <PropertyGroup>
     <PackageId>HSNXT.DSharpPlus.InteractivityNext</PackageId>
-    <Description>An addon that adds interactivity capabilities to commands.</Description>
+    <AssemblyName>DSharpPlus.Interactivity</AssemblyName>
+    <RootNamespace>HSNXT.DSharpPlus.InteractivityNext</RootNamespace>
+    <Description>A DSharpPlus extension that adds interactivity capabilities to commands. This package is a
+      fork/rewrite of the original interactivity module. This package is intended as a replacement, so it is not
+      possible to have both modules installed at the same time.
+      Note: This package is not supported or endorsed by the DSharpPlus team. Please do not ask for support
+      regarding this package in official DSharpPlus discussion boards.</Description>
     <PackageTags>discord discord-api bots discord-bots chat dsharp dsharpplus csharp dotnet vb-net fsharp interactive pagination reactions</PackageTags>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
-  
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug (Extended headers)' ">
+    <DebugSymbols Condition=" '$(DebugSymbols)' == '' ">true</DebugSymbols>
+    <Optimize Condition=" '$(Optimize)' == '' ">false</Optimize>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release (Extended headers)' ">
+    <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DSharpPlus\DSharpPlus\DSharpPlus.csproj" />
   </ItemGroup>

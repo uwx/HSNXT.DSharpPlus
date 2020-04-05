@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
 {
+    /// <summary>
+    /// Extensions for <see cref="DiscordRole"/>
+    /// </summary>
     public static class RoleExtensions
     {
         /// <summary>
@@ -20,12 +25,20 @@ namespace HSNXT.DSharpPlus.Extended.ExtensionMethods
             return target.Position < @this.Position;
         }
         
-        /*/// <summary>
-        /// Gets all members in the guild with this role.
+        /// <summary>
+        /// Gets all cached members in the guild with this role.
         /// </summary>
         /// <param name="this">this object</param>
-        /// <returns>an enumerable containing the members in the guild that have the role <c>this</c>.</returns>
+        /// <returns>an enumerable containing the members in the guild that are present in the member cache and that
+        /// have the role <paramref name="this"/>.</returns>
         public static IEnumerable<DiscordMember> GetMembers(this DiscordRole @this)
-            => @this.Guild.Members.Where(e => e.Roles.Any(r => r.Id == @this.Id));*/
+        {
+            // keep it outside so it doesn't create a closure on every iteration (i think?)
+            bool IsSame(DiscordRole r) => r.Id == @this.Id;
+
+            return ReflectionUtils.GetClient(@this).Guilds[
+                ReflectionUtils.GetGuildId(@this)
+            ].Members.Values.Where(e => e.Roles.Any(IsSame));
+        }
     }
 }

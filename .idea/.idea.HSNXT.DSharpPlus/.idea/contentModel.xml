@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Rafael\.Rider2018.3\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Rafael\.Rider2018.3\system\resharper-host\Local\Transient\ReSharperHost\v183\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Rafael\.Rider2019.3\system\resharper-host\Local\Transient\ReSharperHost\v193\SolutionCaches\_HSNXT.DSharpPlus.-907824701.00" t="ExcludeRecursive" />
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus" t="IncludeRecursive">
-      <e p="AssemblyInfo.cs" t="Include" />
       <e p="AsyncEvent.cs" t="Include" />
       <e p="AsyncManualResetEvent.cs" t="Include" />
       <e p="BaseDiscordClient.cs" t="Include" />
@@ -56,6 +55,7 @@
         <e p="DiscordPresence.cs" t="Include" />
         <e p="DiscordReaction.cs" t="Include" />
         <e p="DiscordRole.cs" t="Include" />
+        <e p="DiscordTeam.cs" t="Include" />
         <e p="DiscordUri.cs" t="Include" />
         <e p="DiscordUser.cs" t="Include" />
         <e p="DiscordVoiceRegion.cs" t="Include" />
@@ -71,6 +71,7 @@
         <e p="MentionType.cs" t="Include" />
         <e p="OverwriteType.cs" t="Include" />
         <e p="Permission.cs" t="Include" />
+        <e p="PremiumTier.cs" t="Include" />
         <e p="PremiumType.cs" t="Include" />
         <e p="TokenType.cs" t="Include" />
       </e>
@@ -140,14 +141,15 @@
           <e p="IOAuth2Payload.cs" t="Include" />
           <e p="ReadyPayload.cs" t="Include" />
           <e p="RestChannelPayloads.cs" t="Include" />
-          <e p="RestEmojiPayloads.cs" t="Include" />
           <e p="RestGuildPayloads.cs" t="Include" />
           <e p="RestUserPayloads.cs" t="Include" />
           <e p="RestWebhookPayloads.cs" t="Include" />
           <e p="ShardInfo.cs" t="Include" />
           <e p="StatusUpdate.cs" t="Include" />
           <e p="TransportActivity.cs" t="Include" />
+          <e p="TransportApplication.cs" t="Include" />
           <e p="TransportMember.cs" t="Include" />
+          <e p="TransportTeam.cs" t="Include" />
           <e p="TransportUser.cs" t="Include" />
           <e p="VoiceStateUpdate.cs" t="Include" />
         </e>
@@ -180,6 +182,7 @@
         </e>
         <e p="WebSocket" t="Include">
           <e p="BaseWebSocketClient.cs" t="Include" />
+          <e p="SocketLock.cs" t="Include" />
           <e p="WebSocketClient.cs" t="Include" />
           <e p="WebSocketClient2.cs" t="Include" />
         </e>
@@ -187,12 +190,6 @@
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
-            <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
             <e p="DSharpPlus.AssemblyInfo.cs" t="Include" />
           </e>
           <e p="netstandard1.1" t="Include">
@@ -314,12 +311,6 @@
           <e p="net45" t="Include">
             <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
           </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
-            <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
-          </e>
           <e p="netstandard1.1" t="Include">
             <e p="DSharpPlus.CommandsNext.AssemblyInfo.cs" t="Include" />
           </e>
@@ -333,55 +324,6 @@
       </e>
       <e p="Polyfills.cs" t="Include" />
     </e>
-    <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Interactivity" t="IncludeRecursive">
-      <e p="bin" t="ExcludeRecursive" />
-      <e p="DSharpPlus.Interactivity.csproj" t="IncludeRecursive" />
-      <e p="Entities" t="Include">
-        <e p="MessageContext.cs" t="Include" />
-        <e p="obj" t="Include">
-          <e p="xdoc" t="Include">
-            <e p="cache" t="Include">
-              <e p="final" t="Include">
-                <e p="1239584245" t="Include" />
-              </e>
-              <e p="obj" t="Include">
-                <e p=".inter" t="Include" />
-                <e p="gab0rdk4.ous" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
-        <e p="PaginationEmojis.cs" t="Include" />
-        <e p="ReactionCollectionContext.cs" t="Include" />
-        <e p="ReactionContext.cs" t="Include" />
-        <e p="TypingContext.cs" t="Include" />
-      </e>
-      <e p="InteractivityConfiguration.cs" t="Include" />
-      <e p="InteractivityExtension.cs" t="Include" />
-      <e p="InteractivityExtensionMethods.cs" t="Include" />
-      <e p="obj" t="ExcludeRecursive">
-        <e p="Debug" t="Include">
-          <e p="net45" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="netstandard1.1" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="netstandard1.3" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="netstandard2.0" t="Include">
-            <e p="DSharpPlus.Interactivity.AssemblyInfo.cs" t="Include" />
-          </e>
-        </e>
-      </e>
-    </e>
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\DSharpPlus\DSharpPlus.Rest" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="DiscordRestClient.cs" t="Include" />
@@ -389,12 +331,6 @@
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="net45" t="Include">
-            <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
             <e p="DSharpPlus.Rest.AssemblyInfo.cs" t="Include" />
           </e>
           <e p="netstandard1.1" t="Include">
@@ -447,12 +383,6 @@
           <e p="net45" t="Include">
             <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
           </e>
-          <e p="net46" t="Include">
-            <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
-          </e>
-          <e p="net47" t="Include">
-            <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
-          </e>
           <e p="netstandard1.1" t="Include">
             <e p="DSharpPlus.VoiceNext.AssemblyInfo.cs" t="Include" />
           </e>
@@ -488,11 +418,10 @@
     <e p="F:\Stuff1tb\GitHub\Dsharp\RayBot2\HSNXT.DSharpPlus" t="IncludeFlat">
       <e p="HSNXT.DSharpPlus.CNextNotifier" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CNextNotifier.cs" t="Include" />
-        <e p="CustomDictionary.cs" t="Include" />
         <e p="Example.cs" t="Include" />
         <e p="HSNXT.DSharpPlus.CNextNotifier.csproj" t="IncludeRecursive" />
         <e p="LICENSE" t="Include" />
+        <e p="NotifierExtension.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
@@ -594,16 +523,20 @@
         <e p="CNext" t="Include">
           <e p="RequireRoleOrHigherAttribute.cs" t="Include" />
         </e>
+        <e p="CommandsNextWrapper.cs" t="Include" />
         <e p="DspExtended.cs" t="Include" />
         <e p="EmptyList.cs" t="Include" />
         <e p="EventArgs" t="Include">
           <e p="ExtensionErrorEventArgs.cs" t="Include" />
           <e p="MentionReceivedEventArgs.cs" t="Include" />
         </e>
+        <e p="Expressions.cs" t="Include" />
         <e p="ExtensionMethods" t="Include">
           <e p="ChannelExtensions.cs" t="Include" />
+          <e p="ClientExtensions.cs" t="Include" />
           <e p="ColorExtensions.cs" t="Include" />
           <e p="MemberExtensions.cs" t="Include" />
+          <e p="MessageExtensions.cs" t="Include" />
           <e p="ModifyShortcuts" t="Include">
             <e p="ChannelExtensions.cs" t="Include" />
             <e p="GuildEmojiExtensions.cs" t="Include" />
@@ -614,6 +547,11 @@
           <e p="RoleExtensions.cs" t="Include" />
         </e>
         <e p="HSNXT.DSharpPlus.Extended.csproj" t="IncludeRecursive" />
+        <e p="Modules" t="Include">
+          <e p="ClientModule.cs" t="Include" />
+          <e p="ModuleLoader.cs" t="Include" />
+          <e p="SampleClientModule.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net47" t="Include">
@@ -624,10 +562,13 @@
             </e>
           </e>
         </e>
+        <e p="ReflectionUtils.cs" t="Include" />
+        <e p="SnowflakeEqualityComparer.cs" t="Include" />
+        <e p="Utils.cs" t="Include" />
+        <e p="Watchdog.cs" t="Include" />
       </e>
       <e p="HSNXT.DSharpPlus.Extended.Emoji" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="E.cs" t="Include" />
         <e p="Emoji.cs" t="Include" />
         <e p="HSNXT.DSharpPlus.Extended.Emoji.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -655,6 +596,55 @@
           </e>
         </e>
       </e>
+      <e p="HSNXT.DSharpPlus.InteractivityNext" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Compat.cs" t="Include" />
+        <e p="ConcurrentHashSet" t="Include">
+          <e p="ConcurrentHashSet.cs" t="Include" />
+          <e p="PlatformHelper.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Context" t="Include">
+            <e p="InteractivityContext.cs" t="Include" />
+            <e p="MessageContext.cs" t="Include" />
+            <e p="ReactionContext.cs" t="Include" />
+          </e>
+          <e p="Events" t="Include">
+            <e p="AwaiterHolder.cs" t="Include" />
+            <e p="DiscordEventAwaiter.cs" t="Include" />
+            <e p="Implementations" t="Include">
+              <e p="MessageVerifier.cs" t="Include" />
+              <e p="ReactionVerifier.cs" t="Include" />
+            </e>
+          </e>
+          <e p="FinishBehaviour.cs" t="Include" />
+          <e p="Pagination" t="Include">
+            <e p="BaseControlState.cs" t="Include" />
+            <e p="Page.cs" t="Include" />
+            <e p="PaginationState.cs" t="Include" />
+          </e>
+          <e p="PaginationEmojis.cs" t="Include" />
+          <e p="ReactionCancellationAwaiterHolder.cs" t="Include" />
+          <e p="ReactionCollectionContext.cs" t="Include" />
+          <e p="StringSplittingLogic.cs" t="Include" />
+        </e>
+        <e p="ExtensionMethods.cs" t="Include" />
+        <e p="HSNXT.DSharpPlus.InteractivityNext.csproj" t="IncludeRecursive" />
+        <e p="InteractivityConfiguration.cs" t="Include" />
+        <e p="InteractivityExtension.cs" t="Include" />
+        <e p="InteractivityExtension.Message.cs" t="Include" />
+        <e p="InteractivityExtension.Pagination.cs" t="Include" />
+        <e p="InteractivityExtension.Reaction.cs" t="Include" />
+        <e p="LICENSE.ConcurrentHashSet.txt" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="HSNXT.DSharpPlus.InteractivityNext.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="What works, what's not done and what's not coming.txt" t="Include" />
+      </e>
       <e p="HSNXT.DSharpPlus.ModernEmbedBuilder" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="DuckAuthor.cs" t="Include" />
@@ -678,177 +668,6 @@
         </e>
       </e>
       <e p="HSNXT.DSharpPlus.sln" t="IncludeFlat" />
-      <e p="HSNXT.SyncLauncher" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HSNXT.SyncLauncher.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.SyncLauncher.AssemblyInfo.cs" t="Include" />
-            </e>
-            <e p="netcoreapp2.0" t="Include">
-              <e p="HSNXT.SyncLauncher.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.BotTest" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HSNXT.Test.BotTest.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp2.0" t="Include">
-              <e p="HSNXT.Test.BotTest.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.DiscordRPC.Base" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
-        <e p="HSNXT.Test.DiscordRPC.Base.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DiscordRPC.Base.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="HSNXT.Test.DiscordRPC.NotepadPlusPlus" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HSNXT.Test.DiscordRPC.NotepadPlusPlus.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DiscordRPC.NotepadPlusPlus.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.DiscordRPC.VLCa" t="IncludeRecursive">
-        <e p="app.config" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HSNXT.DiscordRPC.VLC.csproj.DotSettings" t="Include" />
-        <e p="HSNXT.Test.DiscordRPC.VLCa.csproj" t="IncludeRecursive" />
-        <e p="JsonBits.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DiscordRPC.VLCa.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
-        <e p="unirest-net-master" t="Include">
-          <e p=".gitignore" t="Include" />
-          <e p="LICENSE" t="Include" />
-          <e p="README.md" t="Include" />
-          <e p="Unirest" t="Include">
-            <e p="HttpClientHelper.cs" t="Include" />
-            <e p="HttpRequest.cs" t="Include" />
-            <e p="HttpRequestUrl.cs" t="Include" />
-            <e p="HttpResponse.cs" t="Include" />
-            <e p="Unirest.cs" t="Include" />
-          </e>
-        </e>
-      </e>
-      <e p="HSNXT.Test.DSPEmoji.Neo" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="emoji.txt" t="Include" />
-        <e p="HSNXT.Test.DSPEmoji.Neo.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp2.1" t="Include">
-              <e p="HSNXT.Test.DSPEmoji.Neo.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.DSPEmojiEscape" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="emoji.txt" t="Include" />
-        <e p="HSNXT.Test.DSPEmojiEscape.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DSPEmojiEscape.AssemblyInfo.cs" t="Include" />
-            </e>
-            <e p="netstandard2.0" t="Include">
-              <e p="HSNXT.Test.DSPEmojiEscape.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.DSPEmojiGenerator" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
-        <e p="HSNXT.Test.DSPEmojiGenerator.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
-            </e>
-            <e p="netstandard2.0" t="Include">
-              <e p="HSNXT.Test.DSPEmojiGenerator.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="out.txt" t="Include" />
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.DSPEmojiGenerator2" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="emoji.txt" t="Include" />
-        <e p="HSNXT.Test.DSPEmojiGenerator2.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.DSPEmojiGenerator2.AssemblyInfo.cs" t="Include" />
-            </e>
-            <e p="netcoreapp2.0" t="Include">
-              <e p="HSNXT.Test.DSPEmojiGenerator2.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-      </e>
-      <e p="HSNXT.Test.VLCRPC" t="IncludeRecursive">
-        <e p="app.config" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="DRPCTest.csproj.DotSettings" t="Include" />
-        <e p="HSNXT.Test.VLCRPC.csproj" t="IncludeRecursive" />
-        <e p="JsonBits.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net47" t="Include">
-              <e p="HSNXT.Test.VLCRPC.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="packages.config" t="Include" />
-        <e p="Program.cs" t="Include" />
-        <e p="unirest-net-master" t="Include">
-          <e p=".gitignore" t="Include" />
-          <e p="LICENSE" t="Include" />
-          <e p="README.md" t="Include" />
-          <e p="Unirest" t="Include">
-            <e p="HttpClientHelper.cs" t="Include" />
-            <e p="HttpRequest.cs" t="Include" />
-            <e p="HttpRequestUrl.cs" t="Include" />
-            <e p="HttpResponse.cs" t="Include" />
-            <e p="Unirest.cs" t="Include" />
-          </e>
-        </e>
-      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

@@ -3,7 +3,6 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.CommandsNext" />
-    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.Interactivity" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.Rest" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.VoiceNext" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore" />

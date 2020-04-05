@@ -6,25 +6,28 @@
         <NoWarn>1591</NoWarn>
         <Optimize>True</Optimize>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <Authors>uwx / fallk</Authors>
-        <Company>uwx</Company>
+        <Authors>uwx</Authors>
+        <Company>$(Authors)</Company>
         <PackageLicenseUrl>https://github.com/uwx/HSNXT.DSharpPlus/blob/master/LICENSE</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/uwx/HSNXT.DSharpPlus</PackageProjectUrl>
         <PackageIconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</PackageIconUrl>
         <RepositoryUrl>https://github.com/uwx/HSNXT.DSharpPlusr</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET, VB.NET, VB, F#</PackageTags>
+        <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET</PackageTags>
+
+        <MajorVersion>5</MajorVersion>
+        <DSharpPlusTarget>4</DSharpPlusTarget>
     </PropertyGroup>
     
     <PropertyGroup Condition="'$(Appveyor_Build_Number)' == ''">
-        <Version>3.0.0</Version>
-        <AssemblyVersion>3.0.0</AssemblyVersion>
-        <FileVersion>3.0.0</FileVersion>
+        <Version>$(MajorVersion).0.0+dsharp-$(DSharpPlusTarget)</Version>
+        <AssemblyVersion>$(MajorVersion).0.0</AssemblyVersion>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Appveyor_Build_Number)' != ''">
-        <Version>3.0.$(Appveyor_Build_Number)</Version>
-        <AssemblyVersion>3.0.$(Appveyor_Build_Number)</AssemblyVersion>
-        <FileVersion>3.0.$(Appveyor_Build_Number)</FileVersion>
+        <Version>$(MajorVersion).0.0-pre.$(Appveyor_Build_Number)+dsharp-$(DSharpPlusTarget)</Version>
+        <AssemblyVersion>$(MajorVersion).0.0</AssemblyVersion>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
     </PropertyGroup>
     
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

@@ -5,33 +5,45 @@
         {
           "src": "..",
           "files": [
-            "**.cs"
+            "**.csproj"
           ],
           "exclude": [
             "**/obj/**",
             "**/bin/**",
-            "**/doxygen_out/**",
-            "_site/**"
-          ]
-        },
-        {
-          "src": "../../DSharpPlus",
-          "files": [
-            "**.cs"
-          ],
-          "exclude": [
-            "**/obj/**",
-            "**/bin/**",
-            "_site/**",
-            "**/docs/**",
-            "**/DSharpPlus.CommandsNext/**"
+            "docfx_project/**"
           ]
         }
       ],
-      "dest": "api",
-      "filter": "filter_config.yml",
+      "dest": "api/HSNXT.DSharpPlus",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
+    },
+    {
+      "src": [
+        {
+          "src": "../../DSharpPlus",
+          "files": [
+            "**.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**",
+            "docs/**",
+
+            "DSharpPlus.CommandsNext/**",
+            "DSharpPlus.Interactivity/**",
+            "DSharpPlus.WebSocket.**"
+
+          ]
+        }
+      ],
+      "dest": "api/DSharpPlus",
+      "disableGitFeatures": false,
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
     }
   ],
   "build": {
@@ -39,34 +51,19 @@
       {
         "files": [
           "api/**.yml",
-          "api/index.md"
+          "api/index.md",
+          "api/**/toc.yml",
+          "api/**/index.md",
+          "api/toc.md"
         ]
       },
       {
         "files": [
-          "articles"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "files": [
-          "images"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
+          "articles/**.md",
+          "articles/toc.yml",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
         ],
         "exclude": [
           "obj/**",
@@ -77,12 +74,17 @@
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
+    "fileMetadata":{
+    },
+    "globalMetadata" : {
+      "_appFooter": "© 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.",
+      "_enableSearch": "true"
+    },
     "template": [
-      "default"
+      "dsplus_template"
     ],
+    "postProcessors": ["ExtractSearchIndex", "CustomMemberIndexer"],
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
-    "postProcessors": [],
-    "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,

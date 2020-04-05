@@ -181,7 +181,6 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
         /// <summary>
         /// Gets or sets the embed's fields.
         /// </summary>
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public List<DuckField> Fields
         {
             get => _fields;
@@ -193,7 +192,6 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
                 _fields = value;
             }
         }
-
         private List<DuckField> _fields = new List<DuckField>();
 
         internal static string CheckLength(string type, string value, int limit)

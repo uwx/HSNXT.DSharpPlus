@@ -1,0 +1,32 @@
+#logo {
+	max-height: 50px;
+}
+
+h1.logo-center {
+	text-align: center;
+	margin-top: 0;
+}
+
+article p > img {
+	box-shadow: 3px 3px 6px #111;
+	border-radius: 3px;
+	border: 1px solid #222;
+}
+
+h1.delet-this {
+	display: none;
+}
+
+.footer {
+  background: no-repeat url(https://i.imgur.com/TiZW4yr.jpg) center 65%/cover;
+  /* this is disgusting */
+  text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.footer a {
+  color: #b5c5ff !important;
+}
+.footer a:hover {
+  color: #d5deff !important;
+}

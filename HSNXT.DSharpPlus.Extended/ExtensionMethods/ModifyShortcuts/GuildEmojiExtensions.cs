@@ -4,6 +4,9 @@ using DSharpPlus.Entities;
 
 namespace HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts
 {
+    /// <summary>
+    /// Shortcuts for <see cref="DiscordGuildEmoji.ModifyAsync"/> in <see cref="DiscordGuildEmoji"/>.
+    /// </summary>
     public static class GuildEmojiExtensions
     {
         /// <summary>

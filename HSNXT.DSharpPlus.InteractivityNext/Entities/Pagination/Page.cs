@@ -1,44 +1,21 @@
 ﻿using DSharpPlus.Entities;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     /// <summary>
-    /// Represents an individual page for <see cref="InteractivityExtension.SendPaginatedMessage"/>.
+    /// Represents a single "unpaginated" message. One or more of these can be used for pagination, although it will
+    /// only really be useful if you have more than a single page.
     /// </summary>
-    public readonly struct Page
+    public class Page
     {
-        public string Content { get; }
-        public DiscordEmbed Embed { get; }
-
         /// <summary>
-        /// Creates a page containing a text message.
+        /// Text content for the message
         /// </summary>
-        /// <param name="content">The page contents.</param>
-        public Page(string content)
-        {
-            Content = content;
-            Embed = null;
-        }
-
+        public string Content { get; set; }
+        
         /// <summary>
-        /// Creates a page containing an embed.
+        /// Embed for the message
         /// </summary>
-        /// <param name="embed">The page contents.</param>
-        public Page(DiscordEmbed embed)
-        {
-            Content = null;
-            Embed = embed;
-        }
-
-        /// <summary>
-        /// Creates a page containing both an embed and an attached message.
-        /// </summary>
-        /// <param name="content">The page text message.</param>
-        /// <param name="embed">The page embed.</param>
-        public Page(string content, DiscordEmbed embed)
-        {
-            Content = content;
-            Embed = embed;
-        }
+        public DiscordEmbed Embed { get; set; }
     }
 }

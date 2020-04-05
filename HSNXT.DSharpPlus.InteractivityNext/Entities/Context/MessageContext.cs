@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using DSharpPlus.Entities;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
     public class MessageContext : InteractivityContext
     {

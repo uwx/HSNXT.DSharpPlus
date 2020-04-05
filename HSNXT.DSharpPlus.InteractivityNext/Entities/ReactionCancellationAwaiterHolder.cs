@@ -1,10 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus.EventArgs;
 
-namespace DSharpPlus.Interactivity
+namespace HSNXT.DSharpPlus.InteractivityNext
 {
+    /// <summary>
+    /// <p>An extension of <see cref="AwaiterHolder{TMachine,TEventArgs,TContextResult}"/> that, instead of hooking a
+    /// single event, hooks the 3 main reaction-related events at once. As such, usages need to provide all 3 events.
+    /// This is used for collecting reactions, as they need to process not only added reactions but also removed and
+    /// cleared ones.</p>
+    ///
+    /// <p>Importantly, pending hooks for this class will never finish in the conventional way; as it is
+    /// intended for indefinitely long-running operations. The awaiter task completes when either the passed
+    /// cancellation token is triggered or when the timeout is reached.</p>
+    /// </summary>
     internal class ReactionCancellationAwaiterHolder
     {
         private readonly InteractivityExtension _interactivity;
@@ -66,7 +77,7 @@ namespace DSharpPlus.Interactivity
                     case MessageReactionsClearEventArgs clearArgs:
                         return clearHandler(clearArgs);
                     default:
-                        return Task.FromResult<InteractivityContext>(null);
+                        return Task.CompletedTask;
                 }
             }), ct, timeout);
         }
@@ -90,7 +101,7 @@ namespace DSharpPlus.Interactivity
                     case MessageReactionsClearEventArgs clearArgs:
                         return clearHandler(collection, clearArgs);
                     default:
-                        return Task.FromResult<InteractivityContext>(null);
+                        return Task.CompletedTask;
                 }
             }), ct, timeout);
 
