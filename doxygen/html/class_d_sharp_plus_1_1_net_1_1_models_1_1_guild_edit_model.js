@@ -11,5 +11,8 @@ var class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model =
     [ "AfkTimeout", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#adfedbaf41eea6374f4e5a524951c0bd6", null ],
     [ "Owner", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a390df0be68375713d3bcca16a3756d32", null ],
     [ "Splash", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a34b15418729533df6f9b4c576aaf3387", null ],
-    [ "SystemChannel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a3e50fcd2ee4e81ef48206029bbcba217", null ]
+    [ "SystemChannel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a3e50fcd2ee4e81ef48206029bbcba217", null ],
+    [ "RulesChannel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a683e8eaf3a1a69208dd4a81c20ac58b3", null ],
+    [ "PublicUpdatesChannel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#aed9a1b9633389be368327439e582dfa6", null ],
+    [ "PreferredLocale", "class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html#a3424290f951460414c03a8d7e84b98f4", null ]
 ];

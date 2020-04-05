@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['member',['Member',['../class_d_sharp_plus_1_1_commands_next_1_1_command_context.html#aa7c824d1c40924b1f222d1e4dad37822',1,'DSharpPlus::CommandsNext::CommandContext']]],
   ['members',['Members',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a664d487f0f824a66948db57e8e4c03f4',1,'DSharpPlus::Entities::DiscordGuild']]],
   ['mention',['Mention',['../class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#afa92317a7f4323453909da41b645a359',1,'DSharpPlus.Entities.DiscordChannel.Mention()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_role.html#aeb956d637742badda82bb5aff9f1df52',1,'DSharpPlus.Entities.DiscordRole.Mention()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae8e5f0f8997e894b1893c9ffe8cecbdf',1,'DSharpPlus.Entities.DiscordUser.Mention()']]],
-  ['mentionedchannels',['MentionedChannels',['../class_d_sharp_plus_1_1_interactivity_1_1_message_context.html#a6e9c2696c7f53580f27fe9d3a5d46fc4',1,'DSharpPlus.Interactivity.MessageContext.MentionedChannels()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ac2df16361820f778aeaa812f73b79ad0',1,'DSharpPlus.Entities.DiscordMessage.MentionedChannels()']]],
-  ['mentionedroles',['MentionedRoles',['../class_d_sharp_plus_1_1_interactivity_1_1_message_context.html#a06005ee26f990231fac98b39a2af318c',1,'DSharpPlus.Interactivity.MessageContext.MentionedRoles()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ab230e0e9ed98034f45e3697b43f7c010',1,'DSharpPlus.Entities.DiscordMessage.MentionedRoles()']]],
-  ['mentionedusers',['MentionedUsers',['../class_d_sharp_plus_1_1_interactivity_1_1_message_context.html#a0bad6bb3ed3721440ec24ce4c0c7ee51',1,'DSharpPlus.Interactivity.MessageContext.MentionedUsers()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a71cfe65d73068e3680ff454f481430e6',1,'DSharpPlus.Entities.DiscordMessage.MentionedUsers()']]]
+  ['mentionedchannels',['MentionedChannels',['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ac2df16361820f778aeaa812f73b79ad0',1,'DSharpPlus::Entities::DiscordMessage']]],
+  ['mentionedroles',['MentionedRoles',['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#ab230e0e9ed98034f45e3697b43f7c010',1,'DSharpPlus::Entities::DiscordMessage']]],
+  ['mentionedusers',['MentionedUsers',['../class_d_sharp_plus_1_1_entities_1_1_discord_message.html#a71cfe65d73068e3680ff454f481430e6',1,'DSharpPlus::Entities::DiscordMessage']]],
+  ['message',['Message',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html#a489c9ee2acf2e9ddf16d2780354d3b7a',1,'HSNXT::DSharpPlus::Extended::ExtensionErrorEventArgs']]]
 ];

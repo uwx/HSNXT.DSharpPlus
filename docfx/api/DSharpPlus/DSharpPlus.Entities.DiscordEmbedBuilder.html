@@ -1,0 +1,1424 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DiscordEmbedBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DiscordEmbedBuilder
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder">
+  
+  
+  <h1 id="DSharpPlus_Entities_DiscordEmbedBuilder" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder" class="text-break">Class DiscordEmbedBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Constructs embeds.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">DiscordEmbedBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Entities.html">DSharpPlus.Entities</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Entities_DiscordEmbedBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DiscordEmbedBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder__ctor.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L103">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder__ctor_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.#ctor*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder__ctor" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.#ctor">DiscordEmbedBuilder()</h4>
+  <div class="markdown level1 summary"><p>Constructs a new empty embed builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder__ctor_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.%23ctor(DSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L112">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder__ctor_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.#ctor*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder__ctor_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.#ctor(DSharpPlus.Entities.DiscordEmbed)">DiscordEmbedBuilder(DiscordEmbed)</h4>
+  <div class="markdown level1 summary"><p>Constructs a new embed builder using another embed as prototype.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder(DiscordEmbed original)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a></td>
+        <td><span class="parametername">original</span></td>
+        <td><p>Embed to use as prototype.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Author.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Author%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L87">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Author_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Author*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Author" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Author">Author</h4>
+  <div class="markdown level1 summary"><p>Gets the embed&apos;s author.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder.EmbedAuthor Author { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.EmbedAuthor.html">DiscordEmbedBuilder.EmbedAuthor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Color.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Color%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L57">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Color_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Color*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Color" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Color">Color</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the embed&apos;s color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordColor&gt; Color { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordColor.html">DiscordColor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Description.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L32">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Description_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Description*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Description" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Description">Description</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the embed&apos;s description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Fields.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Fields%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L97">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Fields_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Fields*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Fields" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Fields">Fields</h4>
+  <div class="markdown level1 summary"><p>Gets the embed&apos;s fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DiscordEmbedField&gt; Fields { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordEmbedField.html">DiscordEmbedField</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Footer.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Footer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L92">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Footer_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Footer*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Footer" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Footer">Footer</h4>
+  <div class="markdown level1 summary"><p>Gets the embed&apos;s footer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder.EmbedFooter Footer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.EmbedFooter.html">DiscordEmbedBuilder.EmbedFooter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_ImageUrl.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.ImageUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L67">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_ImageUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ImageUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_ImageUrl" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ImageUrl">ImageUrl</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the embed&apos;s image url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ImageUrl { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_ThumbnailUrl.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L77">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_ThumbnailUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_ThumbnailUrl" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl">ThumbnailUrl</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the thumbnail&apos;s image url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ThumbnailUrl { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Timestamp.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Timestamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L62">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Timestamp_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Timestamp*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Timestamp" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Timestamp">Timestamp</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the embed&apos;s timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? Timestamp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Title.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Title%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L17">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Title_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Title*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Title" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Title">Title</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the embed&apos;s title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Url.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L47">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Url_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Url*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Url" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Url">Url</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the url for the embed&apos;s title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Url { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_AddField_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.AddField(System.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L329">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_AddField_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.AddField*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_AddField_System_String_System_String_System_Boolean_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.AddField(System.String,System.String,System.Boolean)">AddField(String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds a field to this embed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder AddField(string name, string value, bool inline = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the field to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value of the field to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">inline</span></td>
+        <td><p>Whether the field is to be inline or not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_Build.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L375">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_Build_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Build*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_Build" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.Build">Build()</h4>
+  <div class="markdown level1 summary"><p>Constructs a new embed from data supplied to this builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbed Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a></td>
+        <td><p>New discord embed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_ClearFields.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.ClearFields%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L365">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_ClearFields_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ClearFields*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_ClearFields" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.ClearFields">ClearFields()</h4>
+  <div class="markdown level1 summary"><p>Removes all fields from this embed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder ClearFields()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithAuthor_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithAuthor(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L286">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithAuthor_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithAuthor*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithAuthor_System_String_System_String_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithAuthor(System.String,System.String,System.String)">WithAuthor(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s author.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithAuthor(string name = null, string url = null, string iconUrl = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Author&apos;s name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Author&apos;s url.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">iconUrl</span></td>
+        <td><p>Author icon&apos;s url.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithColor_DSharpPlus_Entities_DiscordColor_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithColor(DSharpPlus.Entities.DiscordColor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L193">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithColor_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithColor*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithColor_DSharpPlus_Entities_DiscordColor_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithColor(DSharpPlus.Entities.DiscordColor)">WithColor(DiscordColor)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithColor(DiscordColor color)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordColor.html">DiscordColor</a></td>
+        <td><span class="parametername">color</span></td>
+        <td><p>Embed color to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithDescription_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithDescription(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L160">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithDescription_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithDescription*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithDescription_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithDescription(System.String)">WithDescription(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithDescription(string description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>Description to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithFooter_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithFooter(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L306">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithFooter_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithFooter*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithFooter_System_String_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithFooter(System.String,System.String)">WithFooter(String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s footer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithFooter(string text = null, string iconUrl = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">text</span></td>
+        <td><p>Footer&apos;s text.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">iconUrl</span></td>
+        <td><p>Footer icon&apos;s url.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L240">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl(System.String)">WithImageUrl(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s image url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithImageUrl(string url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Image url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_System_Uri_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L251">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithImageUrl_System_Uri_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl(System.Uri)">WithImageUrl(Uri)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s image url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithImageUrl(Uri url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Image url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L262">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.String)">WithThumbnailUrl(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s thumbnail url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithThumbnailUrl(string url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Thumbnail url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_Uri_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L273">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_Uri_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.Uri)">WithThumbnailUrl(Uri)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s thumbnail url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithThumbnailUrl(Uri url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Thumbnail url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_Nullable_System_DateTime__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.Nullable%7BSystem.DateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L215">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_Nullable_System_DateTime__" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.Nullable{System.DateTime})">WithTimestamp(Nullable&lt;DateTime&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithTimestamp(DateTime? timestamp)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime">DateTime</a>&gt;</td>
+        <td><span class="parametername">timestamp</span></td>
+        <td><p>Timestamp to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_Nullable_System_DateTimeOffset__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.Nullable%7BSystem.DateTimeOffset%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L204">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_Nullable_System_DateTimeOffset__" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.Nullable{System.DateTimeOffset})">WithTimestamp(Nullable&lt;DateTimeOffset&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithTimestamp(DateTimeOffset? timestamp)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
+        <td><span class="parametername">timestamp</span></td>
+        <td><p>Timestamp to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L229">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_UInt64_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.UInt64)">WithTimestamp(UInt64)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s timestamp based on a snowflake.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithTimestamp(ulong snowflake)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">snowflake</span></td>
+        <td><p>Snowflake to calculate timestamp from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithTitle_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithTitle(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L149">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTitle_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTitle*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithTitle_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithTitle(System.String)">WithTitle(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithTitle(string title)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>Title to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L171">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_System_String_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl(System.String)">WithUrl(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s title url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithUrl(string url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Title url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_System_Uri_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L182">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_WithUrl_System_Uri_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.WithUrl(System.Uri)">WithUrl(Uri)</h4>
+  <div class="markdown level1 summary"><p>Sets the embed&apos;s title url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordEmbedBuilder WithUrl(Uri url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Title url to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><p>This embed builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder_op_Implicit_DSharpPlus_Entities_DiscordEmbedBuilder__DSharpPlus_Entities_DiscordEmbed.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder.op_Implicit(DSharpPlus.Entities.DiscordEmbedBuilder)~DSharpPlus.Entities.DiscordEmbed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L415">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordEmbedBuilder_op_Implicit_" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.op_Implicit*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordEmbedBuilder_op_Implicit_DSharpPlus_Entities_DiscordEmbedBuilder__DSharpPlus_Entities_DiscordEmbed" data-uid="DSharpPlus.Entities.DiscordEmbedBuilder.op_Implicit(DSharpPlus.Entities.DiscordEmbedBuilder)~DSharpPlus.Entities.DiscordEmbed">Implicit(DiscordEmbedBuilder to DiscordEmbed)</h4>
+  <div class="markdown level1 summary"><p>Implicitly converts this builder to an embed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator DiscordEmbed(DiscordEmbedBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbedBuilder.html">DiscordEmbedBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>Builder to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordEmbedBuilder.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordEmbedBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordEmbedBuilder.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -132,11 +132,9 @@ Properties</h2></td></tr>
 <tr class="separator:a8dfcee476844513dca5db66073346e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b3088553374b9e49be264c83b19445"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a06b3088553374b9e49be264c83b19445">MessageCacheSize</a> = 1024<code> [get, set]</code></td></tr>
 <tr class="separator:a06b3088553374b9e49be264c83b19445"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3187899b1716c35f1bef8dd952104ea2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a3187899b1716c35f1bef8dd952104ea2">AutomaticGuildSync</a> = true<code> [get, set]</code></td></tr>
-<tr class="separator:a3187899b1716c35f1bef8dd952104ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeee12440ec12eb0eca5624e9ddcb031"><td class="memItemLeft" align="right" valign="top">IWebProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#adeee12440ec12eb0eca5624e9ddcb031">Proxy</a> = null<code> [get, set]</code></td></tr>
 <tr class="separator:adeee12440ec12eb0eca5624e9ddcb031"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5efbedc13d67f7bccaa617d35e073e95"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a5efbedc13d67f7bccaa617d35e073e95">HttpTimeout</a> = TimeSpan.FromSeconds(10)<code> [get, set]</code></td></tr>
+<tr class="memitem:a5efbedc13d67f7bccaa617d35e073e95"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a5efbedc13d67f7bccaa617d35e073e95">HttpTimeout</a> = TimeSpan.FromSeconds(100)<code> [get, set]</code></td></tr>
 <tr class="separator:a5efbedc13d67f7bccaa617d35e073e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0a814fe16d6fc3e8d4536c66fe80bde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#aa0a814fe16d6fc3e8d4536c66fe80bde">ReconnectIndefinitely</a> = false<code> [get, set]</code></td></tr>
 <tr class="separator:aa0a814fe16d6fc3e8d4536c66fe80bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -495,32 +493,6 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a3187899b1716c35f1bef8dd952104ea2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3187899b1716c35f1bef8dd952104ea2">&#9670;&nbsp;</a></span>AutomaticGuildSync</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool DSharpPlus.DiscordConfiguration.AutomaticGuildSync = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p></p>
-<p>Sets whether guilds should be automatically synced when logging in with a user token.</p>
-<p>Defaults to true.</p>
-
-</div>
-</div>
 <a id="adeee12440ec12eb0eca5624e9ddcb031"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adeee12440ec12eb0eca5624e9ddcb031">&#9670;&nbsp;</a></span>Proxy</h2>
 
@@ -557,7 +529,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TimeSpan DSharpPlus.DiscordConfiguration.HttpTimeout = TimeSpan.FromSeconds(10)</td>
+          <td class="memname">TimeSpan DSharpPlus.DiscordConfiguration.HttpTimeout = TimeSpan.FromSeconds(100)</td>
         </tr>
       </table>
   </td>

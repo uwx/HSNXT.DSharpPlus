@@ -30,6 +30,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_member =
     [ "Nickname", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a145b686e7e6514fae471a3f0f98ee574", null ],
     [ "Color", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#acf1abaa1f6929195dab2b273069a6dc6", null ],
     [ "JoinedAt", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a7481918558c9d35b4b29a59aa65c9b82", null ],
+    [ "PremiumSince", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#aedc6c3ba1a2b19f645162f15d9712eaf", null ],
     [ "IsDeafened", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a5f33d43c6f63e08f76c8cf382085fd5e", null ],
     [ "IsMuted", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a3c50cbdbcb73a9d3ea97053a81b3fa5e", null ],
     [ "Username", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a8f1ca41fca72da0ee52750a566d3cfd1", null ],

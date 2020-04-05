@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace HSNXT.DSharpPlus.Extended
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace HSNXT.DSharpPlus.Extended
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="HSNXT.DSharpPlus.Extended">
+  
+  <h1 id="HSNXT_DSharpPlus_Extended" data-uid="HSNXT.DSharpPlus.Extended" class="text-break">Namespace HSNXT.DSharpPlus.Extended
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.ClientModule.html">ClientModule</a></h4>
+      <section><p>A base type for modules without a configuration parameter. Children of this class must provide a constructor
+taking a single <a class="xref" href="../DSharpPlus/DSharpPlus.DiscordClient.html">DiscordClient</a> parameter that calls the base constructor with the same signature.
+Different or missing constructors will cause a runtime error.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.ClientModule-1.html">ClientModule&lt;TConfiguration&gt;</a></h4>
+      <section><p>A base type for modules with a configuration parameter. Children of this class must provide a constructor taking
+two parameters, a <a class="xref" href="../DSharpPlus/DSharpPlus.DiscordClient.html">DiscordClient</a> and one with the same type as
+<code data-dev-comment-type="typeparamref" class="typeparamref">TConfiguration</code>, and it must call the base constructor with the same signature.
+Different or missing constructors will cause a runtime error.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtended.html">DspExtended</a></h4>
+      <section><p>An extension for DSharpPlus adding a variety of extension methods, and more. Some features include, but are not
+limited to:
+<ul><li>
+        Extension methods for <a class="xref" href="../DSharpPlus/DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a>, <a class="xref" href="../DSharpPlus/DSharpPlus.Entities.DiscordMember.html">DiscordMember</a> and
+<a class="xref" href="../DSharpPlus/DSharpPlus.Entities.DiscordRole.html">DiscordRole</a>
+</li><li>
+    Module system that works on top of DSharpPlus&apos; extension system. See the documentation on
+<a class="xref" href="HSNXT.DSharpPlus.Extended.ModuleLoader.html">ModuleLoader</a> to get started!
+</li><li>
+    A <a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtended.html#HSNXT_DSharpPlus_Extended_DspExtended_MentionReceived">MentionReceived</a> event
+</li></ul>
+The full version includes some more contested goodies:
+<ul><li>
+        Async listener methods registered through <a class="xref" href="HSNXT.DSharpPlus.Extended.AsyncListeners.AsyncListenerAttribute.html">AsyncListenerAttribute</a>
+</li><li>
+    Shortcuts for modifying specific members of entities with <a class="xref" href="HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts.html">HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts</a>
+</li></ul></p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtendedLoader.html">DspExtendedLoader</a></h4>
+      <section><p>Extension class to install the <a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtended.html">DspExtended</a> module.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.Expressions.html">Expressions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.ExtensionErrorEventArgs.html">ExtensionErrorEventArgs</a></h4>
+      <section><p>Represents arguments for the <a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtended.html#HSNXT_DSharpPlus_Extended_DspExtended_ExtensionErrored">ExtensionErrored</a> event.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.MentionReceivedEventArgs.html">MentionReceivedEventArgs</a></h4>
+      <section><p>Represents arguments for the <a class="xref" href="HSNXT.DSharpPlus.Extended.DspExtended.html#HSNXT_DSharpPlus_Extended_DspExtended_MentionReceived">MentionReceived</a> event.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.ModuleLoader.html">ModuleLoader</a></h4>
+      <section><p>The main class for a client module. A module is just a layer of abstraction to make creating client extensions
+less of a burden, as it gives you access to the client in the constructor rather than an initialization method.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.ReflectionUtils.html">ReflectionUtils</a></h4>
+      <section><p>Utility methods to reflectively access private members in DSharpPlus. <strong>Warning:</strong> all of this class&apos; members
+are likely to break at some point or another, and may be changed without warning or any deprecation procedure.</p>
+</section>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.Watchdog.html">Watchdog</a></h4>
+      <section><p>A watchdog timer to detect deadlocks in threads.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.LogSource.html">LogSource</a></h4>
+      <section><p>A type of console message in D#+ Extended. This can be used to control what gets logged by the library through.</p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="HSNXT.DSharpPlus.Extended.Watchdog.DeadlockHandler.html">Watchdog.DeadlockHandler</a></h4>
+      <section></section>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

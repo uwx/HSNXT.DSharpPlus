@@ -110,15 +110,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2cf0a26e82d1b211a781e9438909a6a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html">LavalinkGuildConnection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a2cf0a26e82d1b211a781e9438909a6a5">GetConnection</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> guild)</td></tr>
 <tr class="memdesc:a2cf0a26e82d1b211a781e9438909a6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection to specified Discord channel.  <a href="#a2cf0a26e82d1b211a781e9438909a6a5">More...</a><br /></td></tr>
 <tr class="separator:a2cf0a26e82d1b211a781e9438909a6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bb6f21789df1cc9348fb13a4cb068f3"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a9bb6f21789df1cc9348fb13a4cb068f3">GetTracksAsync</a> (string searchQuery)</td></tr>
-<tr class="memdesc:a9bb6f21789df1cc9348fb13a4cb068f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches YouTube for specified terms.  <a href="#a9bb6f21789df1cc9348fb13a4cb068f3">More...</a><br /></td></tr>
-<tr class="separator:a9bb6f21789df1cc9348fb13a4cb068f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80f46f94b060e5e2ffda098b16bc884"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#aa80f46f94b060e5e2ffda098b16bc884">GetTracksAsync</a> (Uri uri)</td></tr>
-<tr class="memdesc:aa80f46f94b060e5e2ffda098b16bc884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads tracks from specified URL.  <a href="#aa80f46f94b060e5e2ffda098b16bc884">More...</a><br /></td></tr>
-<tr class="separator:aa80f46f94b060e5e2ffda098b16bc884"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5165182cc92d47e7ac6ecb47814bb1f6"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a5165182cc92d47e7ac6ecb47814bb1f6">GetTracksAsync</a> (FileInfo file)</td></tr>
-<tr class="memdesc:a5165182cc92d47e7ac6ecb47814bb1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads tracks from a local file.  <a href="#a5165182cc92d47e7ac6ecb47814bb1f6">More...</a><br /></td></tr>
-<tr class="separator:a5165182cc92d47e7ac6ecb47814bb1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -137,9 +128,15 @@ Properties</h2></td></tr>
 <tr class="memitem:ae22374cb141364925899f6661404f6bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_node_disconnected_event_args.html">NodeDisconnectedEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ae22374cb141364925899f6661404f6bc">Disconnected</a></td></tr>
 <tr class="memdesc:ae22374cb141364925899f6661404f6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered when this node disconnects.  <a href="#ae22374cb141364925899f6661404f6bc">More...</a><br /></td></tr>
 <tr class="separator:ae22374cb141364925899f6661404f6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4eca74308dd25fc72978d2c94da499"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_statistics_received_event_args.html">StatisticsReceivedEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#acf4eca74308dd25fc72978d2c94da499">StatisticsReceived</a></td></tr>
+<tr class="memdesc:acf4eca74308dd25fc72978d2c94da499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered when this node receives a statistics update.  <a href="#acf4eca74308dd25fc72978d2c94da499">More...</a><br /></td></tr>
+<tr class="separator:acf4eca74308dd25fc72978d2c94da499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2012e88f9d2ff1cf7d1581044e866d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_player_update_event_args.html">PlayerUpdateEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#aa2012e88f9d2ff1cf7d1581044e866d1">PlayerUpdated</a></td></tr>
 <tr class="memdesc:aa2012e88f9d2ff1cf7d1581044e866d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever any of the players on this node is updated.  <a href="#aa2012e88f9d2ff1cf7d1581044e866d1">More...</a><br /></td></tr>
 <tr class="separator:aa2012e88f9d2ff1cf7d1581044e866d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244028220a3006d1bbcf51c6e95ea34a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_start_event_args.html">TrackStartEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a244028220a3006d1bbcf51c6e95ea34a">PlaybackStarted</a></td></tr>
+<tr class="memdesc:a244028220a3006d1bbcf51c6e95ea34a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever playback of a track starts.  <a href="#a244028220a3006d1bbcf51c6e95ea34a">More...</a><br /></td></tr>
+<tr class="separator:a244028220a3006d1bbcf51c6e95ea34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8e8517918dd393731adf5adbc2d7d8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt; <a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_finish_event_args.html">TrackFinishEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#ac8e8517918dd393731adf5adbc2d7d8d">PlaybackFinished</a></td></tr>
 <tr class="memdesc:ac8e8517918dd393731adf5adbc2d7d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered whenever playback of a track finishes.  <a href="#ac8e8517918dd393731adf5adbc2d7d8d">More...</a><br /></td></tr>
 <tr class="separator:ac8e8517918dd393731adf5adbc2d7d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +149,9 @@ Properties</h2></td></tr>
 <tr class="memitem:afa7c89f80871bc5061b648681643c7a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html">LavalinkStatistics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#afa7c89f80871bc5061b648681643c7a3">Statistics</a><code> [get]</code></td></tr>
 <tr class="memdesc:afa7c89f80871bc5061b648681643c7a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current resource usage statistics.  <a href="#afa7c89f80871bc5061b648681643c7a3">More...</a><br /></td></tr>
 <tr class="separator:afa7c89f80871bc5061b648681643c7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a218246515e133a16cf6872c013b7d093"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_rest.html">LavalinkRest</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a218246515e133a16cf6872c013b7d093">Rest</a><code> [get]</code></td></tr>
+<tr class="memdesc:a218246515e133a16cf6872c013b7d093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the REST client for this <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection.  <a href="#a218246515e133a16cf6872c013b7d093">More...</a><br /></td></tr>
+<tr class="separator:a218246515e133a16cf6872c013b7d093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a connection to a <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> node. </p>
@@ -246,111 +246,6 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a9bb6f21789df1cc9348fb13a4cb068f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bb6f21789df1cc9348fb13a4cb068f3">&#9670;&nbsp;</a></span>GetTracksAsync() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a>&gt; DSharpPlus.Lavalink.LavalinkNodeConnection.GetTracksAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>searchQuery</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Searches YouTube for specified terms. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">searchQuery</td><td>What to search for.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A collection of tracks matching the criteria.</dd></dl>
-
-</div>
-</div>
-<a id="aa80f46f94b060e5e2ffda098b16bc884"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa80f46f94b060e5e2ffda098b16bc884">&#9670;&nbsp;</a></span>GetTracksAsync() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a>&gt; DSharpPlus.Lavalink.LavalinkNodeConnection.GetTracksAsync </td>
-          <td>(</td>
-          <td class="paramtype">Uri&#160;</td>
-          <td class="paramname"><em>uri</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads tracks from specified URL. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">uri</td><td>URL to load tracks from.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A collection of tracks from the URL.</dd></dl>
-
-</div>
-</div>
-<a id="a5165182cc92d47e7ac6ecb47814bb1f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5165182cc92d47e7ac6ecb47814bb1f6">&#9670;&nbsp;</a></span>GetTracksAsync() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html">LavalinkLoadResult</a>&gt; DSharpPlus.Lavalink.LavalinkNodeConnection.GetTracksAsync </td>
-          <td>(</td>
-          <td class="paramtype">FileInfo&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads tracks from a local file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>File to load tracks from.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A collection of tracks from the file.</dd></dl>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a57b9f6f2211de96bcb8be7497ecd5373"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57b9f6f2211de96bcb8be7497ecd5373">&#9670;&nbsp;</a></span>NodeEndpoint</h2>
@@ -433,6 +328,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="acf4eca74308dd25fc72978d2c94da499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4eca74308dd25fc72978d2c94da499">&#9670;&nbsp;</a></span>StatisticsReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt;<a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_statistics_received_event_args.html">StatisticsReceivedEventArgs</a>&gt; DSharpPlus.Lavalink.LavalinkNodeConnection.StatisticsReceived</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">add</span><span class="mlabel">remove</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Triggered when this node receives a statistics update. </p>
+
+</div>
+</div>
 <a id="aa2012e88f9d2ff1cf7d1581044e866d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2012e88f9d2ff1cf7d1581044e866d1">&#9670;&nbsp;</a></span>PlayerUpdated</h2>
 
@@ -454,6 +373,31 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Triggered whenever any of the players on this node is updated. </p>
+
+</div>
+</div>
+<a id="a244028220a3006d1bbcf51c6e95ea34a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244028220a3006d1bbcf51c6e95ea34a">&#9670;&nbsp;</a></span>PlaybackStarted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#af4f86f4984f5693870070fa09aee109b">AsyncEventHandler</a>&lt;<a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_start_event_args.html">TrackStartEventArgs</a>&gt; DSharpPlus.Lavalink.LavalinkNodeConnection.PlaybackStarted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">add</span><span class="mlabel">remove</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Triggered whenever playback of a track starts. </p>
+<p>This is only available for version 3.3.1 and greater.</p>
 
 </div>
 </div>
@@ -550,6 +494,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the current resource usage statistics. </p>
+
+</div>
+</div>
+<a id="a218246515e133a16cf6872c013b7d093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a218246515e133a16cf6872c013b7d093">&#9670;&nbsp;</a></span>Rest</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_rest.html">LavalinkRest</a> DSharpPlus.Lavalink.LavalinkNodeConnection.Rest</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the REST client for this <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection. </p>
 
 </div>
 </div>

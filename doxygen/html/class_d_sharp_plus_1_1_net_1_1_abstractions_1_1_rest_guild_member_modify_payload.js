@@ -4,5 +4,5 @@ var class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_pay
     [ "RoleIds", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_payload.html#aa82a4b3e3778a4449c60aa8f1108844f", null ],
     [ "Mute", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_payload.html#aaa189e69fa66246273266d344f9432a8", null ],
     [ "Deafen", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_payload.html#ab12962f07f71fa23348e22be01977dc0", null ],
-    [ "VoiceChannelId", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_payload.html#a70ad2a3d8678b730dcf324dc6ab86797", null ]
+    [ "VoiceChannelId", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_modify_payload.html#a0f1cfab750ed5a6f62da7b8e08048612", null ]
 ];

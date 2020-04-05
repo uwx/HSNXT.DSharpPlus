@@ -3,9 +3,9 @@ var searchData=
   ['asynclisteners',['AsyncListeners',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners.html',1,'HSNXT::DSharpPlus::Extended']]],
   ['cnext',['CNext',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next.html',1,'HSNXT::DSharpPlus::Extended']]],
   ['cnextnotifier',['CNextNotifier',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier.html',1,'HSNXT::DSharpPlus']]],
+  ['concurrentcollections',['ConcurrentCollections',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_internals_1_1_concurrent_collections.html',1,'HSNXT::DSharpPlus::InteractivityInternals']]],
   ['dsharpplus',['DSharpPlus',['../namespace_h_s_n_x_t_1_1_d_sharp_plus.html',1,'HSNXT']]],
   ['emoji',['Emoji',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji.html',1,'HSNXT::DSharpPlus::Extended']]],
-  ['eventargs',['EventArgs',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args.html',1,'HSNXT::DSharpPlus::Extended']]],
   ['extended',['Extended',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html',1,'HSNXT::DSharpPlus']]],
   ['extensionmethods',['ExtensionMethods',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods.html',1,'HSNXT::DSharpPlus::Extended']]],
   ['handled',['Handled',['../class_d_sharp_plus_1_1_async_event_args.html#acef27fbe85994102394c8923dadcd844',1,'DSharpPlus::AsyncEventArgs']]],
@@ -19,8 +19,6 @@ var searchData=
   ['heartbeatinterval',['HeartbeatInterval',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_hello.html#ab9141f147bfbe07bfea0bc292a1ce920',1,'DSharpPlus::Net::Abstractions::GatewayHello']]],
   ['height',['Height',['../class_d_sharp_plus_1_1_entities_1_1_discord_attachment.html#a8468fac1f5a550dc79bd3df4768446d3',1,'DSharpPlus.Entities.DiscordAttachment.Height()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_image.html#a984152e3584eb5fce40141390316a06f',1,'DSharpPlus.Entities.DiscordEmbedImage.Height()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_thumbnail.html#a3a2a99a006df1bc75eb0aa571d781a10',1,'DSharpPlus.Entities.DiscordEmbedThumbnail.Height()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_video.html#a73a8ba5e7e8fa9514f13b8eb8c309d6e',1,'DSharpPlus.Entities.DiscordEmbedVideo.Height()']]],
   ['hello',['Hello',['../namespace_d_sharp_plus_1_1_net_1_1_abstractions.html#aaf6bf7fbeb2ba8ea0e68b79d2128262ca8b1a9953c4611296a827abf8c47804d7',1,'DSharpPlus::Net::Abstractions']]],
-  ['helpformatterfactory',['HelpFormatterFactory',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_help_formatter_factory.html',1,'DSharpPlus::CommandsNext::Converters']]],
-  ['hiddenattribute',['HiddenAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_hidden_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
   ['hierarchy',['Hierarchy',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a461a1d0f0b696a3f0c0cb2d4eeb20e46',1,'DSharpPlus::Entities::DiscordMember']]],
   ['high',['High',['../namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4aa655d20c1ca69519ca647684edbb2db35',1,'DSharpPlus::Entities']]],
   ['highest',['Highest',['../namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4aa582996407922dab08d5cf2b3d2a7c1c9',1,'DSharpPlus::Entities']]],
@@ -30,7 +28,8 @@ var searchData=
   ['hotpink',['HotPink',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#ac38ea89f027c5c3a1e7c7083084236a5',1,'DSharpPlus::Entities::DiscordColor']]],
   ['hsnxt',['HSNXT',['../namespace_h_s_n_x_t.html',1,'']]],
   ['httptimeout',['HttpTimeout',['../class_d_sharp_plus_1_1_discord_configuration.html#a5efbedc13d67f7bccaa617d35e073e95',1,'DSharpPlus::DiscordConfiguration']]],
+  ['interactivityinternals',['InteractivityInternals',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_internals.html',1,'HSNXT::DSharpPlus']]],
+  ['interactivitynext',['InteractivityNext',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next.html',1,'HSNXT::DSharpPlus']]],
   ['modernembedbuilder',['ModernEmbedBuilder',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder.html',1,'HSNXT::DSharpPlus']]],
-  ['modifyshortcuts',['ModifyShortcuts',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_modify_shortcuts.html',1,'HSNXT::DSharpPlus::Extended::ExtensionMethods']]],
-  ['synclauncher',['SyncLauncher',['../namespace_h_s_n_x_t_1_1_sync_launcher.html',1,'HSNXT']]]
+  ['modifyshortcuts',['ModifyShortcuts',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_modify_shortcuts.html',1,'HSNXT::DSharpPlus::Extended::ExtensionMethods']]]
 ];

@@ -24,9 +24,9 @@ var namespace_d_sharp_plus_1_1_net_1_1_abstractions =
     [ "RestChannelMessageCreateMultipartPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_create_multipart_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_create_multipart_payload" ],
     [ "RestChannelMessageCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_create_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_create_payload" ],
     [ "RestChannelMessageEditPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_edit_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_edit_payload" ],
+    [ "RestChannelMessageSuppressEmbedsPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_suppress_embeds_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_suppress_embeds_payload" ],
     [ "RestChannelModifyPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_modify_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_modify_payload" ],
     [ "RestChannelPermissionEditPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_permission_edit_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_permission_edit_payload" ],
-    [ "RestEmojiCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_emoji_create_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_emoji_create_payload" ],
     [ "RestGuildChannelReorderPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_channel_reorder_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_channel_reorder_payload" ],
     [ "RestGuildCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_create_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_create_payload" ],
     [ "RestGuildEmojiCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_emoji_create_payload.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_emoji_create_payload" ],
@@ -50,7 +50,10 @@ var namespace_d_sharp_plus_1_1_net_1_1_abstractions =
     [ "ShardInfoConverter", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_shard_info_converter.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_shard_info_converter" ],
     [ "StatusUpdate", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_status_update.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_status_update" ],
     [ "TransportActivity", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity" ],
+    [ "TransportApplication", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_application.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_application" ],
     [ "TransportMember", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_member.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_member" ],
+    [ "TransportTeam", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team" ],
+    [ "TransportTeamMember", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team_member.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team_member" ],
     [ "TransportUser", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user" ],
     [ "VoiceStateUpdate", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_voice_state_update.html", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_voice_state_update" ]
 ];

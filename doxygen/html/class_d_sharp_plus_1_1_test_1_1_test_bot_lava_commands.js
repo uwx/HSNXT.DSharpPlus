@@ -6,6 +6,7 @@ var class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands =
     [ "LeaveAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a07c963a3dbdaacdea76ceff9d97abd17", null ],
     [ "PlayAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#af28ea23c1536c9405d04d4cb22084456", null ],
     [ "PlayFileAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#ae1d8a2f5b8fc6425d0d66f026d5ada4b", null ],
+    [ "PlaySoundCloudAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#af7cd4ebf26e6f6f8a29cb564758386f6", null ],
     [ "PlayPartialAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#a8685471f45986a7a17183d4cc1167671", null ],
     [ "PauseAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#aa295cff7db4975d115e409aba4a77ede", null ],
     [ "ResumeAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html#ae004a26f2244b5a42e0956432d23842d", null ],

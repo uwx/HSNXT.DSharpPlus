@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['readmessagehistory',['ReadMessageHistory',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa72cf090118be1e100438712db50ab464',1,'DSharpPlus']]],
-  ['recipientadd',['RecipientAdd',['../namespace_d_sharp_plus_1_1_entities.html#a89758f9dba6971a2a5b321f6d58662d4a2c31ef36b3d054e9546c939df082cc77',1,'DSharpPlus::Entities']]],
-  ['recipientremove',['RecipientRemove',['../namespace_d_sharp_plus_1_1_entities.html#a89758f9dba6971a2a5b321f6d58662d4a254bdd38b26aee4fc27b9ff85e788659',1,'DSharpPlus::Entities']]],
-  ['reconnect',['Reconnect',['../namespace_d_sharp_plus_1_1_net_1_1_abstractions.html#aaf6bf7fbeb2ba8ea0e68b79d2128262ca880b8461cba2e295e1828be8d6eedb0a',1,'DSharpPlus::Net::Abstractions']]],
-  ['replaced',['Replaced',['../namespace_d_sharp_plus_1_1_lavalink_1_1_event_args.html#aaf4795bda2975e286247452b57fe6ecfab3f23170be598de0771ac94684114f94',1,'DSharpPlus::Lavalink::EventArgs']]],
-  ['requestguildmembers',['RequestGuildMembers',['../namespace_d_sharp_plus_1_1_net_1_1_abstractions.html#aaf6bf7fbeb2ba8ea0e68b79d2128262ca3151ff1ba2392e0faa2ed8fec094f97e',1,'DSharpPlus::Net::Abstractions']]],
-  ['resume',['Resume',['../namespace_d_sharp_plus_1_1_net_1_1_abstractions.html#aaf6bf7fbeb2ba8ea0e68b79d2128262caf1cefec9e2196c672a622347f1fbc325',1,'DSharpPlus::Net::Abstractions']]],
-  ['role',['Role',['../namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5fabbbabdbe1b262f75d99d62880b953be1',1,'DSharpPlus.Role()'],['../namespace_d_sharp_plus.html#a9167f86cc4fe882e6d76ccd92157d1d9abbbabdbe1b262f75d99d62880b953be1',1,'DSharpPlus.Role()']]],
-  ['rolecreate',['RoleCreate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a6d2639d8db78e67bdfadcb637f63ce11',1,'DSharpPlus::Entities']]],
-  ['roledelete',['RoleDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18ab5f7f57ab5038dad9b46c1ed53c98d46',1,'DSharpPlus::Entities']]],
-  ['roleupdate',['RoleUpdate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a9315e6e3f8daa131ba734151f66ef726',1,'DSharpPlus::Entities']]]
+  ['patch',['PATCH',['../namespace_d_sharp_plus_1_1_net.html#a61a00933331c78fea2a676ddab71a89fa63bc9a3997d66d835d9f3ec29451407d',1,'DSharpPlus::Net']]],
+  ['payload',['Payload',['../namespace_d_sharp_plus.html#a89353079e31c94d4ec36112c7c01a696a00f4e5788aab6d3546bb433842dbbefc',1,'DSharpPlus']]],
+  ['playing',['Playing',['../namespace_d_sharp_plus_1_1_entities.html#aedfff5f54450f621fb2e709ee6148695ac9dbb2b7c84159b632d71e512eba8428',1,'DSharpPlus::Entities']]],
+  ['playlistloaded',['PlaylistLoaded',['../namespace_d_sharp_plus_1_1_lavalink.html#a2598c8e19885d87165ea14fc3dcbb52ea6874afea444c61e99cddc4b2979ada59',1,'DSharpPlus::Lavalink']]],
+  ['post',['POST',['../namespace_d_sharp_plus_1_1_net.html#a61a00933331c78fea2a676ddab71a89faa02439ec229d8be0e74b0c1602392310',1,'DSharpPlus::Net']]],
+  ['priorityspeaker',['PrioritySpeaker',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaff4418a037120cace5cdc60136dea5a9',1,'DSharpPlus']]],
+  ['private',['Private',['../namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfa47f9082fc380ca62d531096aa1d110f1',1,'DSharpPlus']]],
+  ['prune',['Prune',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18ae4fa1bfd545d32f5387726601e091f0b',1,'DSharpPlus::Entities']]],
+  ['put',['PUT',['../namespace_d_sharp_plus_1_1_net.html#a61a00933331c78fea2a676ddab71a89fa3e75383a5992a6d15fb81e872e46e256',1,'DSharpPlus::Net']]]
 ];

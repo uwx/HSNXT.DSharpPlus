@@ -1,0 +1,1900 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DiscordShardedClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DiscordShardedClient
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.DiscordShardedClient">
+  
+  
+  <h1 id="DSharpPlus_DiscordShardedClient" data-uid="DSharpPlus.DiscordShardedClient" class="text-break">Class DiscordShardedClient
+  </h1>
+  <div class="markdown level0 summary"><p>A Discord client that shards automatically.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">DiscordShardedClient</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.html">DSharpPlus</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_DiscordShardedClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DiscordShardedClient</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient__ctor_DSharpPlus_DiscordConfiguration_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.%23ctor(DSharpPlus.DiscordConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L560">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient__ctor_" data-uid="DSharpPlus.DiscordShardedClient.#ctor*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient__ctor_DSharpPlus_DiscordConfiguration_" data-uid="DSharpPlus.DiscordShardedClient.#ctor(DSharpPlus.DiscordConfiguration)">DiscordShardedClient(DiscordConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Initializes new auto-sharding Discord client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordShardedClient(DiscordConfiguration config)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.DiscordConfiguration.html">DiscordConfiguration</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>Configuration to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_CurrentApplication.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.CurrentApplication%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L539">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_CurrentApplication_" data-uid="DSharpPlus.DiscordShardedClient.CurrentApplication*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_CurrentApplication" data-uid="DSharpPlus.DiscordShardedClient.CurrentApplication">CurrentApplication</h4>
+  <div class="markdown level1 summary"><p>Gets the current application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordApplication CurrentApplication { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordApplication.html">DiscordApplication</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_CurrentUser.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.CurrentUser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L531">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_CurrentUser_" data-uid="DSharpPlus.DiscordShardedClient.CurrentUser*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_CurrentUser" data-uid="DSharpPlus.DiscordShardedClient.CurrentUser">CurrentUser</h4>
+  <div class="markdown level1 summary"><p>Gets the current user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordUser CurrentUser { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_DebugLogger.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.DebugLogger%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L520">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_DebugLogger_" data-uid="DSharpPlus.DiscordShardedClient.DebugLogger*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_DebugLogger" data-uid="DSharpPlus.DiscordShardedClient.DebugLogger">DebugLogger</h4>
+  <div class="markdown level1 summary"><p>Gets the logger for this client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebugLogger DebugLogger { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.DebugLogger.html">DebugLogger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ShardClients.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ShardClients%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L525">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_ShardClients_" data-uid="DSharpPlus.DiscordShardedClient.ShardClients*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_ShardClients" data-uid="DSharpPlus.DiscordShardedClient.ShardClients">ShardClients</h4>
+  <div class="markdown level1 summary"><p>Gets all client shards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;int, DiscordClient&gt; ShardClients { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="DSharpPlus.DiscordClient.html">DiscordClient</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_VoiceRegions.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.VoiceRegions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L547">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_VoiceRegions_" data-uid="DSharpPlus.DiscordShardedClient.VoiceRegions*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_VoiceRegions" data-uid="DSharpPlus.DiscordShardedClient.VoiceRegions">VoiceRegions</h4>
+  <div class="markdown level1 summary"><p>Gets the list of available voice regions. Note that this property will not contain VIP voice regions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, DiscordVoiceRegion&gt; VoiceRegions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="DSharpPlus.Entities.DiscordVoiceRegion.html">DiscordVoiceRegion</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_StartAsync.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.StartAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L646">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_StartAsync_" data-uid="DSharpPlus.DiscordShardedClient.StartAsync*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_StartAsync" data-uid="DSharpPlus.DiscordShardedClient.StartAsync">StartAsync()</h4>
+  <div class="markdown level1 summary"><p>Initializes and connects all shards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task StartAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_UpdateStatusAsync_DSharpPlus_Entities_DiscordActivity_System_Nullable_DSharpPlus_Entities_UserStatus__System_Nullable_System_DateTimeOffset__.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.UpdateStatusAsync(DSharpPlus.Entities.DiscordActivity%2CSystem.Nullable%7BDSharpPlus.Entities.UserStatus%7D%2CSystem.Nullable%7BSystem.DateTimeOffset%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L742">View Source</a>
+  </span>
+  <a id="DSharpPlus_DiscordShardedClient_UpdateStatusAsync_" data-uid="DSharpPlus.DiscordShardedClient.UpdateStatusAsync*"></a>
+  <h4 id="DSharpPlus_DiscordShardedClient_UpdateStatusAsync_DSharpPlus_Entities_DiscordActivity_System_Nullable_DSharpPlus_Entities_UserStatus__System_Nullable_System_DateTimeOffset__" data-uid="DSharpPlus.DiscordShardedClient.UpdateStatusAsync(DSharpPlus.Entities.DiscordActivity,System.Nullable{DSharpPlus.Entities.UserStatus},System.Nullable{System.DateTimeOffset})">UpdateStatusAsync(DiscordActivity, Nullable&lt;UserStatus&gt;, Nullable&lt;DateTimeOffset&gt;)</h4>
+  <div class="markdown level1 summary"><p>Updates playing statuses on all shards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task UpdateStatusAsync(DiscordActivity activity = null, UserStatus? userStatus = default(UserStatus? ), DateTimeOffset? idleSince = default(DateTimeOffset? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordActivity.html">DiscordActivity</a></td>
+        <td><span class="parametername">activity</span></td>
+        <td><p>Activity to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.Entities.UserStatus.html">UserStatus</a>&gt;</td>
+        <td><span class="parametername">userStatus</span></td>
+        <td><p>Status of the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
+        <td><span class="parametername">idleSince</span></td>
+        <td><p>Since when is the client performing the specified activity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ChannelCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ChannelCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L85">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_ChannelCreated" data-uid="DSharpPlus.DiscordShardedClient.ChannelCreated">ChannelCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when a new channel is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ChannelCreateEventArgs&gt; ChannelCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ChannelCreateEventArgs.html">ChannelCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ChannelDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ChannelDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L115">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_ChannelDeleted" data-uid="DSharpPlus.DiscordShardedClient.ChannelDeleted">ChannelDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when a channel is deleted</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ChannelDeleteEventArgs&gt; ChannelDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ChannelDeleteEventArgs.html">ChannelDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ChannelPinsUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ChannelPinsUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L135">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_ChannelPinsUpdated" data-uid="DSharpPlus.DiscordShardedClient.ChannelPinsUpdated">ChannelPinsUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired whenever a channel&apos;s pinned message list is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ChannelPinsUpdateEventArgs&gt; ChannelPinsUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ChannelPinsUpdateEventArgs.html">ChannelPinsUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ChannelUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ChannelUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L105">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_ChannelUpdated" data-uid="DSharpPlus.DiscordShardedClient.ChannelUpdated">ChannelUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a channel is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ChannelUpdateEventArgs&gt; ChannelUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ChannelUpdateEventArgs.html">ChannelUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_ClientErrored.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.ClientErrored%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L25">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_ClientErrored" data-uid="DSharpPlus.DiscordShardedClient.ClientErrored">ClientErrored</h4>
+  <div class="markdown level1 summary"><p>Fired whenever an error occurs within an event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ClientErrorEventArgs&gt; ClientErrored</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ClientErrorEventArgs.html">ClientErrorEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_DmChannelCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.DmChannelCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L95">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_DmChannelCreated" data-uid="DSharpPlus.DiscordShardedClient.DmChannelCreated">DmChannelCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when a new direct message channel is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;DmChannelCreateEventArgs&gt; DmChannelCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.DmChannelCreateEventArgs.html">DmChannelCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_DmChannelDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.DmChannelDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L125">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_DmChannelDeleted" data-uid="DSharpPlus.DiscordShardedClient.DmChannelDeleted">DmChannelDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when a dm channel is deleted</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;DmChannelDeleteEventArgs&gt; DmChannelDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.DmChannelDeleteEventArgs.html">DmChannelDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildAvailable.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildAvailable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L155">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildAvailable" data-uid="DSharpPlus.DiscordShardedClient.GuildAvailable">GuildAvailable</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild is becoming available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildCreateEventArgs&gt; GuildAvailable</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildCreateEventArgs.html">GuildCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildBanAdded.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildBanAdded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L245">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildBanAdded" data-uid="DSharpPlus.DiscordShardedClient.GuildBanAdded">GuildBanAdded</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild ban gets added</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildBanAddEventArgs&gt; GuildBanAdded</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildBanAddEventArgs.html">GuildBanAddEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildBanRemoved.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildBanRemoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L255">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildBanRemoved" data-uid="DSharpPlus.DiscordShardedClient.GuildBanRemoved">GuildBanRemoved</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild ban gets removed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildBanRemoveEventArgs&gt; GuildBanRemoved</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildBanRemoveEventArgs.html">GuildBanRemoveEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L145">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildCreated" data-uid="DSharpPlus.DiscordShardedClient.GuildCreated">GuildCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when the user joins a new guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildCreateEventArgs&gt; GuildCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildCreateEventArgs.html">GuildCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L175">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildDeleted" data-uid="DSharpPlus.DiscordShardedClient.GuildDeleted">GuildDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when the user leaves or is removed from a guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildDeleteEventArgs&gt; GuildDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildDeleteEventArgs.html">GuildDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildDownloadCompleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildDownloadCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L195">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildDownloadCompleted" data-uid="DSharpPlus.DiscordShardedClient.GuildDownloadCompleted">GuildDownloadCompleted</h4>
+  <div class="markdown level1 summary"><p>Fired when all guilds finish streaming from Discord.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildDownloadCompletedEventArgs&gt; GuildDownloadCompleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildDownloadCompletedEventArgs.html">GuildDownloadCompletedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildEmojisUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildEmojisUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L265">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildEmojisUpdated" data-uid="DSharpPlus.DiscordShardedClient.GuildEmojisUpdated">GuildEmojisUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guilds emojis get updated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildEmojisUpdateEventArgs&gt; GuildEmojisUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildEmojisUpdateEventArgs.html">GuildEmojisUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildIntegrationsUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildIntegrationsUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L275">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildIntegrationsUpdated" data-uid="DSharpPlus.DiscordShardedClient.GuildIntegrationsUpdated">GuildIntegrationsUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild integration is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildIntegrationsUpdateEventArgs&gt; GuildIntegrationsUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildIntegrationsUpdateEventArgs.html">GuildIntegrationsUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildMemberAdded.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildMemberAdded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L285">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildMemberAdded" data-uid="DSharpPlus.DiscordShardedClient.GuildMemberAdded">GuildMemberAdded</h4>
+  <div class="markdown level1 summary"><p>Fired when a new user joins a guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildMemberAddEventArgs&gt; GuildMemberAdded</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildMemberAddEventArgs.html">GuildMemberAddEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildMemberRemoved.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildMemberRemoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L295">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildMemberRemoved" data-uid="DSharpPlus.DiscordShardedClient.GuildMemberRemoved">GuildMemberRemoved</h4>
+  <div class="markdown level1 summary"><p>Fired when a user is removed from a guild (leave/kick/ban).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildMemberRemoveEventArgs&gt; GuildMemberRemoved</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildMemberRemoveEventArgs.html">GuildMemberRemoveEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildMembersChunked.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildMembersChunked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L425">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildMembersChunked" data-uid="DSharpPlus.DiscordShardedClient.GuildMembersChunked">GuildMembersChunked</h4>
+  <div class="markdown level1 summary"><p>Fired in response to Gateway Request Guild Members.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildMembersChunkEventArgs&gt; GuildMembersChunked</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html">GuildMembersChunkEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildMemberUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildMemberUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L305">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildMemberUpdated" data-uid="DSharpPlus.DiscordShardedClient.GuildMemberUpdated">GuildMemberUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild member is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildMemberUpdateEventArgs&gt; GuildMemberUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildMemberUpdateEventArgs.html">GuildMemberUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildRoleCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildRoleCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L315">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildRoleCreated" data-uid="DSharpPlus.DiscordShardedClient.GuildRoleCreated">GuildRoleCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild role is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildRoleCreateEventArgs&gt; GuildRoleCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildRoleCreateEventArgs.html">GuildRoleCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildRoleDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildRoleDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L335">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildRoleDeleted" data-uid="DSharpPlus.DiscordShardedClient.GuildRoleDeleted">GuildRoleDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild role is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildRoleDeleteEventArgs&gt; GuildRoleDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildRoleDeleteEventArgs.html">GuildRoleDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildRoleUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildRoleUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L325">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildRoleUpdated" data-uid="DSharpPlus.DiscordShardedClient.GuildRoleUpdated">GuildRoleUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild role is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildRoleUpdateEventArgs&gt; GuildRoleUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildRoleUpdateEventArgs.html">GuildRoleUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildUnavailable.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildUnavailable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L185">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildUnavailable" data-uid="DSharpPlus.DiscordShardedClient.GuildUnavailable">GuildUnavailable</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild becomes unavailable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildDeleteEventArgs&gt; GuildUnavailable</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildDeleteEventArgs.html">GuildDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_GuildUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.GuildUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L165">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_GuildUpdated" data-uid="DSharpPlus.DiscordShardedClient.GuildUpdated">GuildUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;GuildUpdateEventArgs&gt; GuildUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.GuildUpdateEventArgs.html">GuildUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_Heartbeated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.Heartbeated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L495">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_Heartbeated" data-uid="DSharpPlus.DiscordShardedClient.Heartbeated">Heartbeated</h4>
+  <div class="markdown level1 summary"><p>Fired on received heartbeat ACK.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;HeartbeatEventArgs&gt; Heartbeated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.HeartbeatEventArgs.html">HeartbeatEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_InviteCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.InviteCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L205">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_InviteCreated" data-uid="DSharpPlus.DiscordShardedClient.InviteCreated">InviteCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when an invite is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;InviteCreateEventArgs&gt; InviteCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.InviteCreateEventArgs.html">InviteCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_InviteDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.InviteDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L215">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_InviteDeleted" data-uid="DSharpPlus.DiscordShardedClient.InviteDeleted">InviteDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when an invite is deleted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;InviteDeleteEventArgs&gt; InviteDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.InviteDeleteEventArgs.html">InviteDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageCreated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageCreated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L225">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageCreated" data-uid="DSharpPlus.DiscordShardedClient.MessageCreated">MessageCreated</h4>
+  <div class="markdown level1 summary"><p>Fired when a message is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageCreateEventArgs&gt; MessageCreated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageCreateEventArgs.html">MessageCreateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L355">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageDeleted" data-uid="DSharpPlus.DiscordShardedClient.MessageDeleted">MessageDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when a message is deleted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageDeleteEventArgs&gt; MessageDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageDeleteEventArgs.html">MessageDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageReactionAdded.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageReactionAdded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L445">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageReactionAdded" data-uid="DSharpPlus.DiscordShardedClient.MessageReactionAdded">MessageReactionAdded</h4>
+  <div class="markdown level1 summary"><p>Fired when a reaction gets added to a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageReactionAddEventArgs&gt; MessageReactionAdded</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageReactionAddEventArgs.html">MessageReactionAddEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageReactionRemoved.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageReactionRemoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L455">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageReactionRemoved" data-uid="DSharpPlus.DiscordShardedClient.MessageReactionRemoved">MessageReactionRemoved</h4>
+  <div class="markdown level1 summary"><p>Fired when a reaction gets removed from a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageReactionRemoveEventArgs&gt; MessageReactionRemoved</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageReactionRemoveEventArgs.html">MessageReactionRemoveEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageReactionRemovedEmoji.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageReactionRemovedEmoji%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L475">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageReactionRemovedEmoji" data-uid="DSharpPlus.DiscordShardedClient.MessageReactionRemovedEmoji">MessageReactionRemovedEmoji</h4>
+  <div class="markdown level1 summary"><p>Fired when all reactions of a specific reaction are removed from a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageReactionRemoveEmojiEventArgs&gt; MessageReactionRemovedEmoji</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageReactionRemoveEmojiEventArgs.html">MessageReactionRemoveEmojiEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageReactionsCleared.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageReactionsCleared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L465">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageReactionsCleared" data-uid="DSharpPlus.DiscordShardedClient.MessageReactionsCleared">MessageReactionsCleared</h4>
+  <div class="markdown level1 summary"><p>Fired when all reactions get removed from a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageReactionsClearEventArgs&gt; MessageReactionsCleared</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageReactionsClearEventArgs.html">MessageReactionsClearEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessagesBulkDeleted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessagesBulkDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L365">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessagesBulkDeleted" data-uid="DSharpPlus.DiscordShardedClient.MessagesBulkDeleted">MessagesBulkDeleted</h4>
+  <div class="markdown level1 summary"><p>Fired when multiple messages are deleted at once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageBulkDeleteEventArgs&gt; MessagesBulkDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageBulkDeleteEventArgs.html">MessageBulkDeleteEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_MessageUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.MessageUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L345">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_MessageUpdated" data-uid="DSharpPlus.DiscordShardedClient.MessageUpdated">MessageUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a message is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;MessageUpdateEventArgs&gt; MessageUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.MessageUpdateEventArgs.html">MessageUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_PresenceUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.PresenceUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L235">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_PresenceUpdated" data-uid="DSharpPlus.DiscordShardedClient.PresenceUpdated">PresenceUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a presence has been updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;PresenceUpdateEventArgs&gt; PresenceUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.PresenceUpdateEventArgs.html">PresenceUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_Ready.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.Ready%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L65">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_Ready" data-uid="DSharpPlus.DiscordShardedClient.Ready">Ready</h4>
+  <div class="markdown level1 summary"><p>Fired when the client enters ready state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ReadyEventArgs&gt; Ready</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ReadyEventArgs.html">ReadyEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_Resumed.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.Resumed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L75">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_Resumed" data-uid="DSharpPlus.DiscordShardedClient.Resumed">Resumed</h4>
+  <div class="markdown level1 summary"><p>Fired whenever a session is resumed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;ReadyEventArgs&gt; Resumed</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.ReadyEventArgs.html">ReadyEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_SocketClosed.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.SocketClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L55">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_SocketClosed" data-uid="DSharpPlus.DiscordShardedClient.SocketClosed">SocketClosed</h4>
+  <div class="markdown level1 summary"><p>Fired whenever WebSocket connection is terminated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketCloseEventArgs&gt; SocketClosed</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketCloseEventArgs.html">SocketCloseEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_SocketErrored.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.SocketErrored%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L35">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_SocketErrored" data-uid="DSharpPlus.DiscordShardedClient.SocketErrored">SocketErrored</h4>
+  <div class="markdown level1 summary"><p>Fired whenever a WebSocket error occurs within the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketErrorEventArgs&gt; SocketErrored</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketErrorEventArgs.html">SocketErrorEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_SocketOpened.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.SocketOpened%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L45">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_SocketOpened" data-uid="DSharpPlus.DiscordShardedClient.SocketOpened">SocketOpened</h4>
+  <div class="markdown level1 summary"><p>Fired whenever WebSocket connection is established.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler SocketOpened</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler.html">AsyncEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_TypingStarted.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.TypingStarted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L375">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_TypingStarted" data-uid="DSharpPlus.DiscordShardedClient.TypingStarted">TypingStarted</h4>
+  <div class="markdown level1 summary"><p>Fired when a user starts typing in a channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;TypingStartEventArgs&gt; TypingStarted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.TypingStartEventArgs.html">TypingStartEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_UnknownEvent.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.UnknownEvent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L435">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_UnknownEvent" data-uid="DSharpPlus.DiscordShardedClient.UnknownEvent">UnknownEvent</h4>
+  <div class="markdown level1 summary"><p>Fired when an unknown event gets received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;UnknownEventArgs&gt; UnknownEvent</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.UnknownEventArgs.html">UnknownEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_UserSettingsUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.UserSettingsUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L385">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_UserSettingsUpdated" data-uid="DSharpPlus.DiscordShardedClient.UserSettingsUpdated">UserSettingsUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when the current user updates their settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;UserSettingsUpdateEventArgs&gt; UserSettingsUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.UserSettingsUpdateEventArgs.html">UserSettingsUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_UserUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.UserUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L395">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_UserUpdated" data-uid="DSharpPlus.DiscordShardedClient.UserUpdated">UserUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when properties about the user change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;UserUpdateEventArgs&gt; UserUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.UserUpdateEventArgs.html">UserUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_VoiceServerUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.VoiceServerUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L415">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_VoiceServerUpdated" data-uid="DSharpPlus.DiscordShardedClient.VoiceServerUpdated">VoiceServerUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when a guild&apos;s voice server is updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;VoiceServerUpdateEventArgs&gt; VoiceServerUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.VoiceServerUpdateEventArgs.html">VoiceServerUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_VoiceStateUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.VoiceStateUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L405">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_VoiceStateUpdated" data-uid="DSharpPlus.DiscordShardedClient.VoiceStateUpdated">VoiceStateUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired when someone joins/leaves/moves voice channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;VoiceStateUpdateEventArgs&gt; VoiceStateUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.VoiceStateUpdateEventArgs.html">VoiceStateUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient_WebhooksUpdated.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient.WebhooksUpdated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L485">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_DiscordShardedClient_WebhooksUpdated" data-uid="DSharpPlus.DiscordShardedClient.WebhooksUpdated">WebhooksUpdated</h4>
+  <div class="markdown level1 summary"><p>Fired whenever webhooks update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;WebhooksUpdateEventArgs&gt; WebhooksUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.WebhooksUpdateEventArgs.html">WebhooksUpdateEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DSharpPlus.Lavalink.DiscordClientExtensions.html#DSharpPlus_Lavalink_DiscordClientExtensions_UseLavalinkAsync_DSharpPlus_DiscordShardedClient_">DiscordClientExtensions.UseLavalinkAsync(DiscordShardedClient)</a>
+  </div>
+  <div>
+      <a class="xref" href="DSharpPlus.VoiceNext.DiscordClientExtensions.html#DSharpPlus_VoiceNext_DiscordClientExtensions_UseVoiceNextAsync_DSharpPlus_DiscordShardedClient_DSharpPlus_VoiceNext_VoiceNextConfiguration_">DiscordClientExtensions.UseVoiceNextAsync(DiscordShardedClient, VoiceNextConfiguration)</a>
+  </div>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordShardedClient.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordShardedClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/DiscordShardedClient.cs/#L19" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

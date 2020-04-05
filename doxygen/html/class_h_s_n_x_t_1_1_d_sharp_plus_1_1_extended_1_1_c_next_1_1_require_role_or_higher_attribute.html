@@ -101,19 +101,16 @@ $(document).ready(function(){initNavTree('class_h_s_n_x_t_1_1_d_sharp_plus_1_1_e
 Inheritance diagram for HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.png" usemap="#HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute_map" alt=""/>
-  <map id="HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute_map" name="HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute_map">
-<area href="class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_check_base_attribute.html" title="Represents a base for all command pre-execution check attributes." alt="DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute" shape="rect" coords="0,56,391,80"/>
-  </map>
-</div></div>
+  <img src="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0e5e96648a1fde0e53b203b5fdc5cea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html#ad0e5e96648a1fde0e53b203b5fdc5cea">RequireRoleOrHigherAttribute</a> (string roleName)</td></tr>
 <tr class="memdesc:ad0e5e96648a1fde0e53b203b5fdc5cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines that usage of this command is restricted to members with specified role, or higher.  <a href="#ad0e5e96648a1fde0e53b203b5fdc5cea">More...</a><br /></td></tr>
 <tr class="separator:ad0e5e96648a1fde0e53b203b5fdc5cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21d4ccfcfd876a520d84743126896c03"><td class="memItemLeft" align="right" valign="top">override Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html#a21d4ccfcfd876a520d84743126896c03">ExecuteCheckAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_commands_next_1_1_command_context.html">CommandContext</a> ctx, bool help)</td></tr>
-<tr class="memdesc:a21d4ccfcfd876a520d84743126896c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously checks whether this command can be executed within given context.  <a href="#a21d4ccfcfd876a520d84743126896c03">More...</a><br /></td></tr>
+<tr class="memitem:a21d4ccfcfd876a520d84743126896c03"><td class="memItemLeft" align="right" valign="top"><a id="a21d4ccfcfd876a520d84743126896c03"></a>
+override Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ExecuteCheckAsync</b> (CommandContext ctx, bool help)</td></tr>
 <tr class="separator:a21d4ccfcfd876a520d84743126896c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -148,55 +145,6 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a21d4ccfcfd876a520d84743126896c03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21d4ccfcfd876a520d84743126896c03">&#9670;&nbsp;</a></span>ExecuteCheckAsync()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">override Task&lt;bool&gt; HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute.ExecuteCheckAsync </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_commands_next_1_1_command_context.html">CommandContext</a>&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>help</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Asynchronously checks whether this command can be executed within given context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>Context to check execution ability for.</td></tr>
-    <tr><td class="paramname">help</td><td>Whether this check is being executed from help or not. This can be used to probe whether command can be run without setting off certain fail conditions (such as cooldowns).</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Whether the command can be executed in given context.</dd></dl>
-
-<p>Implements <a class="el" href="class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_check_base_attribute.html#aab50f66c0890dd57a75e94a036e85ad1">DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute</a>.</p>
 
 </div>
 </div>

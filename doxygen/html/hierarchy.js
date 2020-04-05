@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "DSharpPlus.Net.Abstractions.AcknowledgePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_acknowledge_payload.html", null ],
-    [ "DSharpPlus.CommandsNext.Converters.ArgumentBindingResult", "struct_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_argument_binding_result.html", null ],
     [ "DSharpPlus.AsyncEvent< T >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< ChannelCreateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
@@ -11,9 +10,6 @@ var hierarchy =
     [ "DSharpPlus.AsyncEvent< ClientErrorEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< DmChannelCreateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< DmChannelDeleteEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
-    [ "DSharpPlus.AsyncEvent< DSharpPlus.CommandsNext.CommandErrorEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
-    [ "DSharpPlus.AsyncEvent< DSharpPlus.CommandsNext.CommandExecutionEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
-    [ "DSharpPlus.AsyncEvent< ExtensionErrorEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< GuildBanAddEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< GuildBanRemoveEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< GuildCreateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
@@ -30,12 +26,14 @@ var hierarchy =
     [ "DSharpPlus.AsyncEvent< GuildRoleUpdateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< GuildUpdateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< HeartbeatEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
-    [ "DSharpPlus.AsyncEvent< MentionReceivedEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< InviteCreateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< InviteDeleteEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageAcknowledgeEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageBulkDeleteEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageCreateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageDeleteEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageReactionAddEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< MessageReactionRemoveEmojiEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageReactionRemoveEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageReactionsClearEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< MessageUpdateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
@@ -46,8 +44,11 @@ var hierarchy =
     [ "DSharpPlus.AsyncEvent< SocketCloseEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< SocketErrorEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< SocketMessageEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< StatisticsReceivedEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< T >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< TrackExceptionEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< TrackFinishEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "DSharpPlus.AsyncEvent< TrackStartEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< TrackStuckEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< TypingStartEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< UnknownEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
@@ -61,37 +62,13 @@ var hierarchy =
     [ "DSharpPlus.AsyncEvent< VoiceUserLeaveEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< WebhooksUpdateEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
     [ "DSharpPlus.AsyncEvent< WebSocketCloseEventArgs >", "class_d_sharp_plus_1_1_async_event.html", null ],
+    [ "HSNXT.DSharpPlus.Extended.AsyncListeners.AsyncListenerMethod", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_method.html", null ],
     [ "DSharpPlus.AsyncManualResetEvent", "class_d_sharp_plus_1_1_async_manual_reset_event.html", null ],
     [ "Attribute", null, [
-      [ "DSharpPlus.CommandsNext.Attributes.AliasesAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_aliases_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.CheckBaseAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_check_base_attribute.html", [
-        [ "DSharpPlus.CommandsNext.Attributes.CooldownAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_cooldown_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireBotPermissionsAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_bot_permissions_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireDirectMessageAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_direct_message_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireGuildAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_guild_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireNsfwAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_nsfw_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireOwnerAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_owner_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequirePermissionsAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_permissions_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequirePrefixesAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_prefixes_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireRolesAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_roles_attribute.html", null ],
-        [ "DSharpPlus.CommandsNext.Attributes.RequireUserPermissionsAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_require_user_permissions_attribute.html", null ],
-        [ "DSharpPlus.Test.DebugCheckAttribute", "class_d_sharp_plus_1_1_test_1_1_debug_check_attribute.html", null ],
-        [ "DSharpPlus.Test.TestBotCheckAttribute", "class_d_sharp_plus_1_1_test_1_1_test_bot_check_attribute.html", null ],
-        [ "HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html", null ]
-      ] ],
-      [ "DSharpPlus.CommandsNext.Attributes.CommandAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.DescriptionAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_description_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.DontInjectAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_dont_inject_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.GroupAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_group_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.GroupCommandAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_group_command_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.HiddenAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_hidden_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.ModuleLifespanAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_module_lifespan_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.PriorityAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_priority_attribute.html", null ],
-      [ "DSharpPlus.CommandsNext.Attributes.RemainingTextAttribute", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_remaining_text_attribute.html", null ],
       [ "DSharpPlus.PermissionStringAttribute", "class_d_sharp_plus_1_1_permission_string_attribute.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.TestAttribute", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_test_attribute.html", null ],
       [ "HSNXT.DSharpPlus.CNextNotifier.SuppressErrorAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_suppress_error_attribute.html", null ],
-      [ "HSNXT.DSharpPlus.Extended.AsyncListeners.AsyncListenerAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html", null ]
+      [ "HSNXT.DSharpPlus.Extended.AsyncListeners.AsyncListenerAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_async_listener_attribute.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.SeverityAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_severity_attribute.html", null ]
     ] ],
     [ "DSharpPlus.VoiceNext.AudioFormat", "struct_d_sharp_plus_1_1_voice_next_1_1_audio_format.html", null ],
     [ "DSharpPlus.Net.Abstractions.AuditLog", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log.html", null ],
@@ -100,25 +77,13 @@ var hierarchy =
     [ "DSharpPlus.Net.Abstractions.AuditLogActionOptions", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_action_options.html", null ],
     [ "DSharpPlus.Net.Abstractions.AuditLogUser", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_user.html", null ],
     [ "DSharpPlus.Net.Abstractions.AuditLogWebhook", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_audit_log_webhook.html", null ],
-    [ "DSharpPlus.Interactivity.AwaiterHolder< TMachine, TEventArgs, TContextResult >", "class_d_sharp_plus_1_1_interactivity_1_1_awaiter_holder.html", null ],
-    [ "DSharpPlus.Interactivity.AwaiterHolder< CancelVerifier, DiscordEventArgs, DSharpPlus.Interactivity.InteractivityContext >", "class_d_sharp_plus_1_1_interactivity_1_1_awaiter_holder.html", null ],
-    [ "DSharpPlus.Interactivity.AwaiterHolder< DSharpPlus.Interactivity.MessageVerifier, MessageCreateEventArgs, DSharpPlus.Interactivity.MessageContext >", "class_d_sharp_plus_1_1_interactivity_1_1_awaiter_holder.html", null ],
-    [ "DSharpPlus.Interactivity.AwaiterHolder< DSharpPlus.Interactivity.ReactionVerifier, MessageReactionAddEventArgs, DSharpPlus.Interactivity.ReactionContext >", "class_d_sharp_plus_1_1_interactivity_1_1_awaiter_holder.html", null ],
-    [ "DSharpPlus.CommandsNext.BaseCommandModule", "class_d_sharp_plus_1_1_commands_next_1_1_base_command_module.html", [
-      [ "DSharpPlus.CommandsNext.CommandsNextExtension.DefaultHelpModule", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension_1_1_default_help_module.html", null ],
-      [ "DSharpPlus.Test.CheckTestModule", "class_d_sharp_plus_1_1_test_1_1_check_test_module.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.AwaiterHolder< TMachine, TEventArgs, TContextResult >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_awaiter_holder.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.AwaiterHolder< CancelVerifier, DiscordEventArgs, HSNXT.DSharpPlus.InteractivityNext.InteractivityContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_awaiter_holder.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.AwaiterHolder< HSNXT.DSharpPlus.InteractivityNext.MessageVerifier, MessageCreateEventArgs, HSNXT.DSharpPlus.InteractivityNext.MessageContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_awaiter_holder.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.AwaiterHolder< HSNXT.DSharpPlus.InteractivityNext.ReactionVerifier, MessageReactionAddEventArgs, HSNXT.DSharpPlus.InteractivityNext.ReactionContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_awaiter_holder.html", null ],
+    [ "BaseCommandModule", null, [
       [ "DSharpPlus.Test.TestBotCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands.html", null ],
       [ "DSharpPlus.Test.TestBotCommands.Binding", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Conflict1", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_conflict1.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.CustomAttributes", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_custom_attributes.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Executable1", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_executable1.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.ImplicitGroup", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_implicit_group.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Moon", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_moon.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Nesting1", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_nesting1.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Prefixes", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_prefixes.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Scoped", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_scoped.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Singleton", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_singleton.html", null ],
-      [ "DSharpPlus.Test.TestBotCommands.Transient", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_transient.html", null ],
       [ "DSharpPlus.Test.TestBotDynamicCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_dynamic_commands.html", null ],
       [ "DSharpPlus.Test.TestBotEvalCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_eval_commands.html", null ],
       [ "DSharpPlus.Test.TestBotLavaCommands", "class_d_sharp_plus_1_1_test_1_1_test_bot_lava_commands.html", null ],
@@ -130,16 +95,18 @@ var hierarchy =
       [ "DSharpPlus.Net.Models.MemberEditModel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_member_edit_model.html", null ],
       [ "DSharpPlus.Net.Models.RoleEditModel", "class_d_sharp_plus_1_1_net_1_1_models_1_1_role_edit_model.html", null ]
     ] ],
+    [ "BaseExtension", null, [
+      [ "HSNXT.DSharpPlus.InteractivityNext.InteractivityExtension", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_extension.html", null ]
+    ] ],
     [ "DSharpPlus.BaseExtension", "class_d_sharp_plus_1_1_base_extension.html", [
-      [ "DSharpPlus.CommandsNext.CommandsNextExtension", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html", null ],
-      [ "DSharpPlus.Interactivity.InteractivityExtension", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html", null ],
       [ "DSharpPlus.Interactivity.InteractivityExtension", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html", null ],
       [ "DSharpPlus.Lavalink.LavalinkExtension", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_extension.html", null ],
       [ "DSharpPlus.VoiceNext.VoiceNextExtension", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_extension.html", null ],
-      [ "HSNXT.DSharpPlus.CNextNotifier.CNextNotifier", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_c_next_notifier.html", null ]
+      [ "HSNXT.DSharpPlus.CNextNotifier.NotifierExtension", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_notifier_extension.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.ClientModule< TConfiguration >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.ClientModule< TConfiguration >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html", null ]
     ] ],
-    [ "DSharpPlus.CommandsNext.Converters.BaseHelpFormatter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_base_help_formatter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DefaultHelpFormatter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_default_help_formatter.html", null ],
+    [ "BaseHelpFormatter", null, [
       [ "DSharpPlus.Test.TestBotHelpFormatter", "class_d_sharp_plus_1_1_test_1_1_test_bot_help_formatter.html", null ]
     ] ],
     [ "DSharpPlus.Net.BaseRestRequest", "class_d_sharp_plus_1_1_net_1_1_base_rest_request.html", [
@@ -147,31 +114,29 @@ var hierarchy =
       [ "DSharpPlus.Net.RestRequest", "class_d_sharp_plus_1_1_net_1_1_rest_request.html", null ]
     ] ],
     [ "DSharpPlus.Net.Udp.BaseUdpClient", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_base_udp_client.html", [
-      [ "DSharpPlus.Net.Udp.DspUdpClient", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html", null ],
       [ "DSharpPlus.Net.Udp.DspUdpClient", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html", null ]
     ] ],
     [ "BinaryReader", null, [
       [ "DSharpPlus.Lavalink.JavaBinaryReader", "class_d_sharp_plus_1_1_lavalink_1_1_java_binary_reader.html", null ]
     ] ],
+    [ "CheckBaseAttribute", null, [
+      [ "HSNXT.DSharpPlus.Extended.CNext.RequireRoleOrHigherAttribute", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_c_next_1_1_require_role_or_higher_attribute.html", null ]
+    ] ],
+    [ "HSNXT.DSharpPlus.Extended.ClientModule", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html", [
+      [ "HSNXT.DSharpPlus.Extended.DspExtended", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html", null ]
+    ] ],
     [ "DSharpPlus.Net.Abstractions.ClientProperties", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html", null ],
-    [ "HSNXT.DSharpPlus.CNextNotifier.CmdSuppressPair", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_cmd_suppress_pair.html", null ],
-    [ "DSharpPlus.CommandsNext.Command", "class_d_sharp_plus_1_1_commands_next_1_1_command.html", [
-      [ "DSharpPlus.CommandsNext.CommandGroup", "class_d_sharp_plus_1_1_commands_next_1_1_command_group.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.CommandArgument", "class_d_sharp_plus_1_1_commands_next_1_1_command_argument.html", null ],
-    [ "DSharpPlus.CommandsNext.Builders.CommandBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_builder.html", [
-      [ "DSharpPlus.CommandsNext.Builders.CommandGroupBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_group_builder.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.CommandContext", "class_d_sharp_plus_1_1_commands_next_1_1_command_context.html", null ],
-    [ "DSharpPlus.CommandsNext.Entities.CommandHelpMessage", "struct_d_sharp_plus_1_1_commands_next_1_1_entities_1_1_command_help_message.html", null ],
-    [ "DSharpPlus.CommandsNext.Builders.CommandModuleBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_module_builder.html", null ],
-    [ "DSharpPlus.CommandsNext.CommandOverload", "class_d_sharp_plus_1_1_commands_next_1_1_command_overload.html", null ],
-    [ "DSharpPlus.CommandsNext.Builders.CommandOverloadBuilder", "class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_overload_builder.html", null ],
-    [ "DSharpPlus.CommandsNext.CommandResult", "struct_d_sharp_plus_1_1_commands_next_1_1_command_result.html", null ],
-    [ "DSharpPlus.CommandsNext.CommandsNextConfiguration", "class_d_sharp_plus_1_1_commands_next_1_1_commands_next_configuration.html", null ],
-    [ "ConcurrentCollections.ConcurrentHashSet< TMachine >", "class_concurrent_collections_1_1_concurrent_hash_set.html", null ],
+    [ "HSNXT.DSharpPlus.Extended.CommandsNextWrapper", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_commands_next_wrapper.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DiscordUser >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.CollectRequest< T > >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.IPaginationRequest >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.MatchRequest< T > >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.PollEmoji >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.PollRequest >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.Reaction >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< DSharpPlus.Interactivity.EventHandling.ReactionCollectRequest >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections.ConcurrentHashSet< TMachine >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_internals_1_1_concurrent_collections_1_1_concurrent_hash_set.html", null ],
     [ "DSharpPlus.Net.ConnectionEndpoint", "struct_d_sharp_plus_1_1_net_1_1_connection_endpoint.html", null ],
-    [ "HSNXT.DSharpPlus.CNextNotifier.CustomDictionary< Command, HSNXT.DSharpPlus.CNextNotifier.CmdSuppressPair >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html", null ],
     [ "DSharpPlus.DebugLogger", "class_d_sharp_plus_1_1_debug_logger.html", null ],
     [ "DefaultContractResolver", null, [
       [ "DSharpPlus.Entities.OptionalJsonContractResolver", "class_d_sharp_plus_1_1_entities_1_1_optional_json_contract_resolver.html", null ]
@@ -187,6 +152,7 @@ var hierarchy =
     [ "DSharpPlus.Entities.DiscordColor", "struct_d_sharp_plus_1_1_entities_1_1_discord_color.html", null ],
     [ "DSharpPlus.DiscordConfiguration", "class_d_sharp_plus_1_1_discord_configuration.html", null ],
     [ "DSharpPlus.Entities.DiscordConnection", "class_d_sharp_plus_1_1_entities_1_1_discord_connection.html", null ],
+    [ "DSharpPlus.Entities.DiscordCustomStatus", "class_d_sharp_plus_1_1_entities_1_1_discord_custom_status.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbed", "class_d_sharp_plus_1_1_entities_1_1_discord_embed.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedAuthor", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_author.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedBuilder", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html", null ],
@@ -196,16 +162,19 @@ var hierarchy =
     [ "DSharpPlus.Entities.DiscordEmbedProvider", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_provider.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedThumbnail", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_thumbnail.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedVideo", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_video.html", null ],
-    [ "DSharpPlus.Interactivity.DiscordEventAwaiter< TEventArgs, TContextResult >", "class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html", null ],
-    [ "DSharpPlus.Interactivity.DiscordEventAwaiter< DiscordEventArgs, InteractivityContext >", "class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html", null ],
-    [ "DSharpPlus.Interactivity.DiscordEventAwaiter< MessageCreateEventArgs, MessageContext >", "class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html", [
-      [ "DSharpPlus.Interactivity.MessageVerifier", "class_d_sharp_plus_1_1_interactivity_1_1_message_verifier.html", null ]
+    [ "HSNXT.DSharpPlus.InteractivityNext.DiscordEventAwaiter< TEventArgs, TContextResult >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_discord_event_awaiter.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.DiscordEventAwaiter< DiscordEventArgs, InteractivityContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_discord_event_awaiter.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.DiscordEventAwaiter< MessageCreateEventArgs, MessageContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_discord_event_awaiter.html", [
+      [ "HSNXT.DSharpPlus.InteractivityNext.MessageVerifier", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_message_verifier.html", null ]
     ] ],
-    [ "DSharpPlus.Interactivity.DiscordEventAwaiter< MessageReactionAddEventArgs, ReactionContext >", "class_d_sharp_plus_1_1_interactivity_1_1_discord_event_awaiter.html", [
-      [ "DSharpPlus.Interactivity.ReactionVerifier", "class_d_sharp_plus_1_1_interactivity_1_1_reaction_verifier.html", null ]
+    [ "HSNXT.DSharpPlus.InteractivityNext.DiscordEventAwaiter< MessageReactionAddEventArgs, ReactionContext >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_discord_event_awaiter.html", [
+      [ "HSNXT.DSharpPlus.InteractivityNext.ReactionVerifier", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_reaction_verifier.html", null ]
     ] ],
     [ "DSharpPlus.Entities.DiscordGuildEmbed", "class_d_sharp_plus_1_1_entities_1_1_discord_guild_embed.html", null ],
     [ "DSharpPlus.Entities.DiscordInvite", "class_d_sharp_plus_1_1_entities_1_1_discord_invite.html", null ],
+    [ "DSharpPlus.Entities.DiscordMentions", "class_d_sharp_plus_1_1_entities_1_1_discord_mentions.html", null ],
+    [ "DSharpPlus.Entities.DiscordMessageActivity", "class_d_sharp_plus_1_1_entities_1_1_discord_message_activity.html", null ],
+    [ "DSharpPlus.Entities.DiscordMessageReference", "class_d_sharp_plus_1_1_entities_1_1_discord_message_reference.html", null ],
     [ "DSharpPlus.Entities.DiscordOverwriteBuilder", "class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder.html", null ],
     [ "DSharpPlus.Entities.DiscordPresence", "class_d_sharp_plus_1_1_entities_1_1_discord_presence.html", null ],
     [ "DSharpPlus.Entities.DiscordReaction", "class_d_sharp_plus_1_1_entities_1_1_discord_reaction.html", null ],
@@ -215,23 +184,19 @@ var hierarchy =
     [ "DSharpPlus.Net.DiscordUri", "class_d_sharp_plus_1_1_net_1_1_discord_uri.html", null ],
     [ "DSharpPlus.Entities.DiscordVoiceRegion", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_region.html", null ],
     [ "DSharpPlus.Entities.DiscordVoiceState", "class_d_sharp_plus_1_1_entities_1_1_discord_voice_state.html", null ],
+    [ "DSharpPlus.Entities.DiscordWebhookBuilder", "class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html", null ],
     [ "DSharpPlus.DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html", null ],
-    [ "HSNXT.DSharpPlus.Extended.DspExtended", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html", null ],
+    [ "HSNXT.DSharpPlus.Extended.DspExtendedLogger", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended_logger.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckAuthor", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_author.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckColor", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_color.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckField", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_field.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckFooter", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_footer.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckTimestamp", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_timestamp.html", null ],
-    [ "HSNXT.DSharpPlus.Extended.Emoji.E", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_e.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedBuilder.EmbedAuthor", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder_1_1_embed_author.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedBuilder.EmbedFooter", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder_1_1_embed_footer.html", null ],
     [ "HSNXT.DSharpPlus.Extended.Emoji.Emoji", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html", null ],
     [ "EventArgs", null, [
       [ "DSharpPlus.AsyncEventArgs", "class_d_sharp_plus_1_1_async_event_args.html", [
-        [ "DSharpPlus.CommandsNext.CommandEventArgs", "class_d_sharp_plus_1_1_commands_next_1_1_command_event_args.html", [
-          [ "DSharpPlus.CommandsNext.CommandErrorEventArgs", "class_d_sharp_plus_1_1_commands_next_1_1_command_error_event_args.html", null ],
-          [ "DSharpPlus.CommandsNext.CommandExecutionEventArgs", "class_d_sharp_plus_1_1_commands_next_1_1_command_execution_event_args.html", null ]
-        ] ],
         [ "DSharpPlus.EventArgs.DiscordEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_discord_event_args.html", [
           [ "DSharpPlus.EventArgs.ChannelCreateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_channel_create_event_args.html", null ],
           [ "DSharpPlus.EventArgs.ChannelDeleteEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_channel_delete_event_args.html", null ],
@@ -256,11 +221,14 @@ var hierarchy =
           [ "DSharpPlus.EventArgs.GuildRoleUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_guild_role_update_event_args.html", null ],
           [ "DSharpPlus.EventArgs.GuildUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html", null ],
           [ "DSharpPlus.EventArgs.HeartbeatEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html", null ],
+          [ "DSharpPlus.EventArgs.InviteCreateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_invite_create_event_args.html", null ],
+          [ "DSharpPlus.EventArgs.InviteDeleteEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_invite_delete_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageAcknowledgeEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_acknowledge_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageBulkDeleteEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_bulk_delete_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageCreateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_create_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageDeleteEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_delete_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageReactionAddEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_reaction_add_event_args.html", null ],
+          [ "DSharpPlus.EventArgs.MessageReactionRemoveEmojiEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_reaction_remove_emoji_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageReactionRemoveEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_reaction_remove_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageReactionsClearEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_reactions_clear_event_args.html", null ],
           [ "DSharpPlus.EventArgs.MessageUpdateEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_message_update_event_args.html", null ],
@@ -279,30 +247,35 @@ var hierarchy =
           [ "DSharpPlus.VoiceNext.EventArgs.VoiceReceiveEventArgs", "class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_receive_event_args.html", null ],
           [ "DSharpPlus.VoiceNext.EventArgs.VoiceUserJoinEventArgs", "class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_join_event_args.html", null ],
           [ "DSharpPlus.VoiceNext.EventArgs.VoiceUserLeaveEventArgs", "class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_leave_event_args.html", null ],
-          [ "HSNXT.DSharpPlus.Extended.EventArgs.ExtensionErrorEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_extension_error_event_args.html", null ],
-          [ "HSNXT.DSharpPlus.Extended.EventArgs.MentionReceivedEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args.html", null ]
+          [ "HSNXT.DSharpPlus.Extended.ExtensionErrorEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html", null ],
+          [ "HSNXT.DSharpPlus.Extended.MentionReceivedEventArgs", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_mention_received_event_args.html", null ]
         ] ],
-        [ "DSharpPlus.EventArgs.SocketMessageEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_socket_message_event_args.html", null ],
+        [ "DSharpPlus.EventArgs.SocketMessageEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_socket_message_event_args.html", [
+          [ "DSharpPlus.EventArgs.SocketBinaryMessageEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_socket_binary_message_event_args.html", null ],
+          [ "DSharpPlus.EventArgs.SocketTextMessageEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_socket_text_message_event_args.html", null ]
+        ] ],
         [ "DSharpPlus.Lavalink.EventArgs.NodeDisconnectedEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_node_disconnected_event_args.html", null ],
         [ "DSharpPlus.Lavalink.EventArgs.PlayerUpdateEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_player_update_event_args.html", null ],
+        [ "DSharpPlus.Lavalink.EventArgs.StatisticsReceivedEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_statistics_received_event_args.html", null ],
         [ "DSharpPlus.Lavalink.EventArgs.TrackExceptionEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_exception_event_args.html", null ],
         [ "DSharpPlus.Lavalink.EventArgs.TrackFinishEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_finish_event_args.html", null ],
+        [ "DSharpPlus.Lavalink.EventArgs.TrackStartEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_start_event_args.html", null ],
         [ "DSharpPlus.Lavalink.EventArgs.TrackStuckEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_stuck_event_args.html", null ],
         [ "DSharpPlus.Lavalink.EventArgs.WebSocketCloseEventArgs", "class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_web_socket_close_event_args.html", null ]
       ] ],
       [ "DSharpPlus.EventArgs.DebugLogMessageEventArgs", "class_d_sharp_plus_1_1_event_args_1_1_debug_log_message_event_args.html", null ]
     ] ],
+    [ "DSharpPlus.Interactivity.EventHandling.EventWaiter< MessageCreateEventArgs >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_event_waiter.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.EventWaiter< MessageReactionAddEventArgs >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_event_waiter.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.EventWaiter< TypingStartEventArgs >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_event_waiter.html", null ],
     [ "Exception", null, [
-      [ "DSharpPlus.CommandsNext.Exceptions.ChecksFailedException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_checks_failed_exception.html", null ],
-      [ "DSharpPlus.CommandsNext.Exceptions.CommandNotFoundException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_command_not_found_exception.html", null ],
-      [ "DSharpPlus.CommandsNext.Exceptions.DuplicateCommandException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_command_exception.html", null ],
-      [ "DSharpPlus.CommandsNext.Exceptions.DuplicateOverloadException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_duplicate_overload_exception.html", null ],
-      [ "DSharpPlus.CommandsNext.Exceptions.InvalidOverloadException", "class_d_sharp_plus_1_1_commands_next_1_1_exceptions_1_1_invalid_overload_exception.html", null ],
       [ "DSharpPlus.Exceptions.BadRequestException", "class_d_sharp_plus_1_1_exceptions_1_1_bad_request_exception.html", null ],
       [ "DSharpPlus.Exceptions.NotFoundException", "class_d_sharp_plus_1_1_exceptions_1_1_not_found_exception.html", null ],
       [ "DSharpPlus.Exceptions.RateLimitException", "class_d_sharp_plus_1_1_exceptions_1_1_rate_limit_exception.html", null ],
+      [ "DSharpPlus.Exceptions.RequestSizeException", "class_d_sharp_plus_1_1_exceptions_1_1_request_size_exception.html", null ],
       [ "DSharpPlus.Exceptions.UnauthorizedException", "class_d_sharp_plus_1_1_exceptions_1_1_unauthorized_exception.html", null ]
     ] ],
+    [ "HSNXT.DSharpPlus.Extended.Expressions", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_expressions.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportActivity.GameParty", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_party.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportActivity.GameParty.GamePartySize", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_party_1_1_game_party_size.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportActivity.GameSecrets", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_secrets.html", null ],
@@ -312,102 +285,10 @@ var hierarchy =
     [ "DSharpPlus.Net.Abstractions.GatewayPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.GatewayRequestGuildMembers", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_request_guild_members.html", null ],
     [ "DSharpPlus.Net.Abstractions.GatewayResume", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_resume.html", null ],
-    [ "DSharpPlus.CommandsNext.Converters.HelpFormatterFactory", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_help_formatter_factory.html", null ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< T >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< bool >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.BoolConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_bool_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< byte >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Uint8Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_uint8_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DateTime >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DateTimeConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_date_time_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DateTimeOffset >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DateTimeOffsetConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_date_time_offset_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< decimal >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Float128Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float128_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordChannel >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordChannelConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_channel_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordColor >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordColorConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_color_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordEmoji >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordEmojiConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_emoji_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordGuild >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordGuildConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_guild_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordMember >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordMemberConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_member_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordMessage >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordMessageConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_message_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordRole >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordRoleConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_role_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< DiscordUser >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.DiscordUserConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_discord_user_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< double >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Float64Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float64_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< float >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Float32Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_float32_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< int >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Int32Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int32_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< long >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Int64Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int64_converter.html", null ]
-    ] ],
-    [ "IArgumentConverter< Nullable< T >>", null, [
-      [ "DSharpPlus.CommandsNext.Converters.NullableConverter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_nullable_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< sbyte >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Int8Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int8_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< short >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Int16Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_int16_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< string >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.StringConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_string_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< T >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.EnumConverter< T >", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_enum_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< TimeSpan >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.TimeSpanConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_time_span_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< uint >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Uint32Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_uint32_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< ulong >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Uint64Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_uint64_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< Uri >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.UriConverter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_uri_converter.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Converters.IArgumentConverter< ushort >", "interface_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_i_argument_converter.html", [
-      [ "DSharpPlus.CommandsNext.Converters.Uint16Converter", "class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_uint16_converter.html", null ]
-    ] ],
     [ "ICollection", null, [
-      [ "ConcurrentCollections.ConcurrentHashSet< T >", "class_concurrent_collections_1_1_concurrent_hash_set.html", null ],
-      [ "DSharpPlus.RingBuffer< T >", "class_d_sharp_plus_1_1_ring_buffer.html", null ]
-    ] ],
-    [ "DSharpPlus.CommandsNext.Entities.ICommandModule", "interface_d_sharp_plus_1_1_commands_next_1_1_entities_1_1_i_command_module.html", [
-      [ "DSharpPlus.CommandsNext.Entities.SingletonCommandModule", "class_d_sharp_plus_1_1_commands_next_1_1_entities_1_1_singleton_command_module.html", null ],
-      [ "DSharpPlus.CommandsNext.Entities.TransientCommandModule", "class_d_sharp_plus_1_1_commands_next_1_1_entities_1_1_transient_command_module.html", null ]
-    ] ],
-    [ "IDictionary", null, [
-      [ "HSNXT.DSharpPlus.CNextNotifier.CustomDictionary< TK, TV >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html", null ],
-      [ "HSNXT.DSharpPlus.CNextNotifier.CustomDictionary< TK, TV >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_custom_dictionary.html", null ]
+      [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< T >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+      [ "DSharpPlus.RingBuffer< T >", "class_d_sharp_plus_1_1_ring_buffer.html", null ],
+      [ "HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections.ConcurrentHashSet< T >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_internals_1_1_concurrent_collections_1_1_concurrent_hash_set.html", null ]
     ] ],
     [ "IDisposable", null, [
       [ "DSharpPlus.BaseDiscordClient", "class_d_sharp_plus_1_1_base_discord_client.html", [
@@ -415,25 +296,36 @@ var hierarchy =
         [ "DSharpPlus.DiscordRestClient", "class_d_sharp_plus_1_1_discord_rest_client.html", null ]
       ] ],
       [ "DSharpPlus.ImageTool", "class_d_sharp_plus_1_1_image_tool.html", null ],
-      [ "DSharpPlus.Net.WebSocket.BaseWebSocketClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_base_web_socket_client.html", [
-        [ "DSharpPlus.Net.WebSocket.WebSocket4NetClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_client.html", null ],
-        [ "DSharpPlus.Net.WebSocket.WebSocket4NetCoreClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket4_net_core_client.html", null ],
-        [ "DSharpPlus.Net.WebSocket.WebSocketClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_client.html", null ],
-        [ "DSharpPlus.Net.WebSocket.WebSocketClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_client.html", null ],
-        [ "DSharpPlus.Net.WebSocket.WebSocketSharpClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_sharp_client.html", null ]
+      [ "DSharpPlus.Interactivity.EventHandling.CollectRequest< T >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_collect_request.html", null ],
+      [ "DSharpPlus.Interactivity.EventHandling.EventWaiter< T >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_event_waiter.html", null ],
+      [ "DSharpPlus.Interactivity.EventHandling.MatchRequest< T >", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_match_request.html", null ],
+      [ "DSharpPlus.Interactivity.EventHandling.ReactionCollector", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_reaction_collector.html", null ],
+      [ "DSharpPlus.Interactivity.EventHandling.ReactionCollectRequest", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_reaction_collect_request.html", null ],
+      [ "DSharpPlus.Net.WebSocket.IWebSocketClient", "interface_d_sharp_plus_1_1_net_1_1_web_socket_1_1_i_web_socket_client.html", [
+        [ "DSharpPlus.Net.WebSocket.WebSocketClient", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_web_socket_client.html", null ]
       ] ],
+      [ "DSharpPlus.Net.WebSocket.PayloadDecompressor", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_payload_decompressor.html", null ],
+      [ "DSharpPlus.Net.WebSocket.SocketLock", "class_d_sharp_plus_1_1_net_1_1_web_socket_1_1_socket_lock.html", null ],
       [ "DSharpPlus.VoiceNext.Codec.Opus", "class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus.html", null ],
       [ "DSharpPlus.VoiceNext.Codec.OpusDecoder", "class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_opus_decoder.html", null ],
       [ "DSharpPlus.VoiceNext.Codec.Rtp", "class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_rtp.html", null ],
       [ "DSharpPlus.VoiceNext.Codec.Sodium", "class_d_sharp_plus_1_1_voice_next_1_1_codec_1_1_sodium.html", null ],
       [ "DSharpPlus.VoiceNext.Entities.AudioSender", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_audio_sender.html", null ],
-      [ "DSharpPlus.VoiceNext.VoiceNextConnection", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html", null ]
+      [ "DSharpPlus.VoiceNext.VoiceNextConnection", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.DspExtended", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.Watchdog", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_watchdog.html", null ],
+      [ "HSNXT.DSharpPlus.InteractivityNext.BaseControlState", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_base_control_state.html", [
+        [ "HSNXT.DSharpPlus.InteractivityNext.PaginationState", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_pagination_state.html", null ]
+      ] ]
+    ] ],
+    [ "IEnumerable", null, [
+      [ "HSNXT.DSharpPlus.InteractivityNext.PaginationEmojis", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_pagination_emojis.html", null ]
     ] ],
     [ "IEqualityComparer", null, [
-      [ "DSharpPlus.Lavalink.LavalinkBandAdjustmentComparer", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_band_adjustment_comparer.html", null ]
+      [ "DSharpPlus.Lavalink.LavalinkBandAdjustmentComparer", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_band_adjustment_comparer.html", null ],
+      [ "HSNXT.DSharpPlus.Extended.ExtensionMethods.SnowflakeEqualityComparer", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_snowflake_equality_comparer.html", null ]
     ] ],
     [ "IEquatable", null, [
-      [ "DSharpPlus.CommandsNext.Attributes.CommandCooldownBucket", "class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_command_cooldown_bucket.html", null ],
       [ "DSharpPlus.Entities.DiscordApplication", "class_d_sharp_plus_1_1_entities_1_1_discord_application.html", null ],
       [ "DSharpPlus.Entities.DiscordApplicationAsset", "class_d_sharp_plus_1_1_entities_1_1_discord_application_asset.html", null ],
       [ "DSharpPlus.Entities.DiscordChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html", [
@@ -446,6 +338,8 @@ var hierarchy =
       [ "DSharpPlus.Entities.DiscordMember", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html", null ],
       [ "DSharpPlus.Entities.DiscordMessage", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html", null ],
       [ "DSharpPlus.Entities.DiscordRole", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html", null ],
+      [ "DSharpPlus.Entities.DiscordTeam", "class_d_sharp_plus_1_1_entities_1_1_discord_team.html", null ],
+      [ "DSharpPlus.Entities.DiscordTeamMember", "class_d_sharp_plus_1_1_entities_1_1_discord_team_member.html", null ],
       [ "DSharpPlus.Entities.DiscordUser", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html", [
         [ "DSharpPlus.Entities.DiscordMember", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html", null ]
       ] ],
@@ -459,11 +353,19 @@ var hierarchy =
     [ "IList", null, [
       [ "HSNXT.DSharpPlus.Extended.EmptyList< T >", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_empty_list.html", null ]
     ] ],
-    [ "DSharpPlus.Interactivity.InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html", null ],
-    [ "DSharpPlus.Interactivity.InteractivityContext", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_context.html", [
-      [ "DSharpPlus.Interactivity.MessageContext", "class_d_sharp_plus_1_1_interactivity_1_1_message_context.html", null ],
-      [ "DSharpPlus.Interactivity.ReactionContext", "class_d_sharp_plus_1_1_interactivity_1_1_reaction_context.html", null ]
+    [ "DSharpPlus.Entities.IMention", "interface_d_sharp_plus_1_1_entities_1_1_i_mention.html", [
+      [ "DSharpPlus.Entities.EveryoneMention", "struct_d_sharp_plus_1_1_entities_1_1_everyone_mention.html", null ],
+      [ "DSharpPlus.Entities.RoleMention", "struct_d_sharp_plus_1_1_entities_1_1_role_mention.html", null ],
+      [ "DSharpPlus.Entities.UserMention", "struct_d_sharp_plus_1_1_entities_1_1_user_mention.html", null ]
     ] ],
+    [ "DSharpPlus.Interactivity.InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.InteractivityConfiguration", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_configuration.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.InteractivityContext", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_context.html", [
+      [ "HSNXT.DSharpPlus.InteractivityNext.MessageContext", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_message_context.html", null ],
+      [ "HSNXT.DSharpPlus.InteractivityNext.ReactionContext", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_reaction_context.html", null ]
+    ] ],
+    [ "DSharpPlus.Interactivity.InteractivityResult< T >", "struct_d_sharp_plus_1_1_interactivity_1_1_interactivity_result.html", null ],
+    [ "DSharpPlus.Entities.InternalDiscordMessageReference", "struct_d_sharp_plus_1_1_entities_1_1_internal_discord_message_reference.html", null ],
     [ "DSharpPlus.Net.Abstractions.IOAuth2Payload", "interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_o_auth2_payload.html", [
       [ "DSharpPlus.Net.Abstractions.RestChannelGroupDmRecipientAddPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_group_dm_recipient_add_payload.html", null ],
       [ "DSharpPlus.Net.Abstractions.RestGuildMemberAddPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_member_add_payload.html", null ]
@@ -471,10 +373,15 @@ var hierarchy =
     [ "DSharpPlus.Entities.IOptional", "interface_d_sharp_plus_1_1_entities_1_1_i_optional.html", [
       [ "DSharpPlus.Entities.Optional< T >", "struct_d_sharp_plus_1_1_entities_1_1_optional.html", null ]
     ] ],
+    [ "DSharpPlus.Interactivity.EventHandling.IPaginationRequest", "interface_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_i_pagination_request.html", [
+      [ "DSharpPlus.Interactivity.EventHandling.PaginationRequest", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_pagination_request.html", null ],
+      [ "DSharpPlus.Test.TestBotPaginator", "class_d_sharp_plus_1_1_test_1_1_test_bot_paginator.html", null ]
+    ] ],
     [ "DSharpPlus.Net.IpEndpoint", "struct_d_sharp_plus_1_1_net_1_1_ip_endpoint.html", null ],
     [ "IReadOnlyCollection", null, [
-      [ "ConcurrentCollections.ConcurrentHashSet< T >", "class_concurrent_collections_1_1_concurrent_hash_set.html", null ],
-      [ "DSharpPlus.ReadOnlySet< T >", "struct_d_sharp_plus_1_1_read_only_set.html", null ]
+      [ "DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet< T >", "class_d_sharp_plus_1_1_interactivity_1_1_concurrency_1_1_concurrent_hash_set.html", null ],
+      [ "DSharpPlus.ReadOnlySet< T >", "struct_d_sharp_plus_1_1_read_only_set.html", null ],
+      [ "HSNXT.DSharpPlus.InteractivityInternals.ConcurrentCollections.ConcurrentHashSet< T >", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_internals_1_1_concurrent_collections_1_1_concurrent_hash_set.html", null ]
     ] ],
     [ "IReadOnlyDictionary", null, [
       [ "DSharpPlus.ReadOnlyConcurrentDictionary< TKey, TValue >", "struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html", null ]
@@ -493,10 +400,14 @@ var hierarchy =
     ] ],
     [ "DSharpPlus.Lavalink.LavalinkBandAdjustment", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_band_adjustment.html", null ],
     [ "DSharpPlus.Lavalink.LavalinkConfiguration", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html", null ],
+    [ "DSharpPlus.Lavalink.Entities.LavalinkFailedAddress", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_failed_address.html", null ],
     [ "DSharpPlus.Lavalink.LavalinkGuildConnection", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_guild_connection.html", null ],
+    [ "DSharpPlus.Lavalink.Entities.LavalinkIpBlock", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_ip_block.html", null ],
+    [ "DSharpPlus.Lavalink.LavalinkLoadFailedInfo", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_failed_info.html", null ],
     [ "DSharpPlus.Lavalink.LavalinkLoadResult", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html", null ],
     [ "DSharpPlus.Lavalink.LavalinkNodeConnection", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkPayload", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload.html", [
+      [ "DSharpPlus.Lavalink.Entities.LavalinkConfigureResume", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_configure_resume.html", null ],
       [ "DSharpPlus.Lavalink.Entities.LavalinkDestroy", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy.html", null ],
       [ "DSharpPlus.Lavalink.Entities.LavalinkEqualizer", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_equalizer.html", null ],
       [ "DSharpPlus.Lavalink.Entities.LavalinkPause", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause.html", null ],
@@ -509,28 +420,32 @@ var hierarchy =
     ] ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkPlayerState", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html", null ],
     [ "DSharpPlus.Lavalink.LavalinkPlaylistInfo", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_playlist_info.html", null ],
+    [ "DSharpPlus.Lavalink.LavalinkRest", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_rest.html", null ],
+    [ "DSharpPlus.Lavalink.Entities.LavalinkRouteStatus", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status.html", null ],
+    [ "DSharpPlus.Lavalink.Entities.LavalinkRouteStatusDetails", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status_details.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkState", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_state.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkStatistics", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkStats", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_stats.html", null ],
-    [ "DSharpPlus.Lavalink.LavalinkTrack", "struct_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html", null ],
+    [ "DSharpPlus.Lavalink.LavalinkTrack", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_track.html", null ],
     [ "DSharpPlus.Lavalink.Entities.LavalinkVoiceServerUpdate", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_voice_server_update.html", null ],
-    [ "HSNXT.DSharpPlus.Extended.AsyncListeners.ListenerMethod", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_async_listeners_1_1_listener_method.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.MebUri", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_meb_uri.html", null ],
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html", null ],
-    [ "DSharpPlus.Test.TestBotCommands.Nesting1.Nesting2", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_nesting1_1_1_nesting2.html", null ],
-    [ "DSharpPlus.Test.TestBotCommands.Nesting1.Nesting2.Nesting3", "class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_nesting1_1_1_nesting2_1_1_nesting3.html", null ],
-    [ "DSharpPlus.Test.NetStandard1_1Shims", "class_d_sharp_plus_1_1_test_1_1_net_standard1__1_shims.html", null ],
-    [ "DSharpPlus.Interactivity.Page", "struct_d_sharp_plus_1_1_interactivity_1_1_page.html", null ],
-    [ "DSharpPlus.Interactivity.PageContext", "class_d_sharp_plus_1_1_interactivity_1_1_page_context.html", null ],
-    [ "DSharpPlus.Interactivity.PaginatedMessage", "class_d_sharp_plus_1_1_interactivity_1_1_paginated_message.html", null ],
-    [ "DSharpPlus.Interactivity.PaginationEmojis", "class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.Page", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_page.html", null ],
+    [ "DSharpPlus.Interactivity.DSharpPlus.Interactivity.Page", "class_d_sharp_plus_1_1_interactivity_1_1_d_sharp_plus_1_1_interactivity_1_1_page.html", null ],
+    [ "DSharpPlus.Interactivity.DSharpPlus.Interactivity.PaginationEmojis", "class_d_sharp_plus_1_1_interactivity_1_1_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.Paginator", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_paginator.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.PollEmoji", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_poll_emoji.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.Poller", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_poller.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.PollRequest", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_poll_request.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportActivity.PresenceAssets", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_presence_assets.html", null ],
-    [ "HSNXT.SyncLauncher.Program", "class_h_s_n_x_t_1_1_sync_launcher_1_1_program.html", null ],
     [ "DSharpPlus.Test.Program", "class_d_sharp_plus_1_1_test_1_1_program.html", null ],
     [ "DSharpPlus.Entities.PropertyChange< T >", "class_d_sharp_plus_1_1_entities_1_1_property_change.html", null ],
-    [ "DSharpPlus.Interactivity.ReactionCancellationAwaiterHolder", "class_d_sharp_plus_1_1_interactivity_1_1_reaction_cancellation_awaiter_holder.html", null ],
-    [ "DSharpPlus.Interactivity.ReactionCollectionContext", "class_d_sharp_plus_1_1_interactivity_1_1_reaction_collection_context.html", null ],
+    [ "DSharpPlus.QueryUriBuilder", "class_d_sharp_plus_1_1_query_uri_builder.html", null ],
+    [ "DSharpPlus.Interactivity.EventHandling.Reaction", "class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_reaction.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.ReactionCancellationAwaiterHolder", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_reaction_cancellation_awaiter_holder.html", null ],
+    [ "HSNXT.DSharpPlus.InteractivityNext.ReactionCollectionContext", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_reaction_collection_context.html", null ],
     [ "DSharpPlus.Net.Abstractions.ReadyPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_ready_payload.html", null ],
+    [ "HSNXT.DSharpPlus.Extended.ReflectionUtils", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_reflection_utils.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestChannelCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_create_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestChannelInviteCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_invite_create_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestChannelMessageBulkDeletePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_bulk_delete_payload.html", null ],
@@ -538,10 +453,10 @@ var hierarchy =
     [ "DSharpPlus.Net.Abstractions.RestChannelMessageEditPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_edit_payload.html", [
       [ "DSharpPlus.Net.Abstractions.RestChannelMessageCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_create_payload.html", null ]
     ] ],
+    [ "DSharpPlus.Net.Abstractions.RestChannelMessageSuppressEmbedsPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_message_suppress_embeds_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestChannelModifyPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_modify_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestChannelPermissionEditPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_channel_permission_edit_payload.html", null ],
     [ "DSharpPlus.Net.RestClient", "class_d_sharp_plus_1_1_net_1_1_rest_client.html", null ],
-    [ "DSharpPlus.Net.Abstractions.RestEmojiCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_emoji_create_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestGuildChannelReorderPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_channel_reorder_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestGuildCreatePayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_create_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.RestGuildEmojiModifyPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_guild_emoji_modify_payload.html", [
@@ -564,17 +479,21 @@ var hierarchy =
     [ "DSharpPlus.Net.Abstractions.RestWebhookPayload", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_rest_webhook_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.ShardInfo", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_shard_info.html", null ],
     [ "DSharpPlus.Entities.SnowflakeObject", "class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html", [
-      [ "DSharpPlus.Entities.DiscordApplication", "class_d_sharp_plus_1_1_entities_1_1_discord_application.html", null ],
       [ "DSharpPlus.Entities.DiscordAttachment", "class_d_sharp_plus_1_1_entities_1_1_discord_attachment.html", null ],
       [ "DSharpPlus.Entities.DiscordAuditLogEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_entry.html", [
         [ "DSharpPlus.Entities.DiscordAuditLogBanEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_ban_entry.html", null ],
+        [ "DSharpPlus.Entities.DiscordAuditLogBotAddEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_bot_add_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogChannelEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogEmojiEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_emoji_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogGuildEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html", null ],
+        [ "DSharpPlus.Entities.DiscordAuditLogIntegrationEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_integration_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogInviteEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_invite_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogKickEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_kick_entry.html", null ],
+        [ "DSharpPlus.Entities.DiscordAuditLogMemberDisconnectEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_member_disconnect_entry.html", null ],
+        [ "DSharpPlus.Entities.DiscordAuditLogMemberMoveEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_member_move_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogMemberUpdateEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_member_update_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogMessageEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_message_entry.html", null ],
+        [ "DSharpPlus.Entities.DiscordAuditLogMessagePinEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_message_pin_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogOverwriteEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_overwrite_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogPruneEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_prune_entry.html", null ],
         [ "DSharpPlus.Entities.DiscordAuditLogRoleUpdateEntry", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_role_update_entry.html", null ],
@@ -583,13 +502,18 @@ var hierarchy =
       [ "DSharpPlus.Entities.DiscordChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html", null ],
       [ "DSharpPlus.Entities.DiscordEmoji", "class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html", null ],
       [ "DSharpPlus.Entities.DiscordGuild", "class_d_sharp_plus_1_1_entities_1_1_discord_guild.html", null ],
+      [ "DSharpPlus.Entities.DiscordGuildPreview", "class_d_sharp_plus_1_1_entities_1_1_discord_guild_preview.html", null ],
       [ "DSharpPlus.Entities.DiscordIntegration", "class_d_sharp_plus_1_1_entities_1_1_discord_integration.html", null ],
       [ "DSharpPlus.Entities.DiscordIntegrationAccount", "class_d_sharp_plus_1_1_entities_1_1_discord_integration_account.html", null ],
       [ "DSharpPlus.Entities.DiscordInviteChannel", "class_d_sharp_plus_1_1_entities_1_1_discord_invite_channel.html", null ],
       [ "DSharpPlus.Entities.DiscordInviteGuild", "class_d_sharp_plus_1_1_entities_1_1_discord_invite_guild.html", null ],
       [ "DSharpPlus.Entities.DiscordMessage", "class_d_sharp_plus_1_1_entities_1_1_discord_message.html", null ],
+      [ "DSharpPlus.Entities.DiscordMessageApplication", "class_d_sharp_plus_1_1_entities_1_1_discord_message_application.html", [
+        [ "DSharpPlus.Entities.DiscordApplication", "class_d_sharp_plus_1_1_entities_1_1_discord_application.html", null ]
+      ] ],
       [ "DSharpPlus.Entities.DiscordOverwrite", "class_d_sharp_plus_1_1_entities_1_1_discord_overwrite.html", null ],
       [ "DSharpPlus.Entities.DiscordRole", "class_d_sharp_plus_1_1_entities_1_1_discord_role.html", null ],
+      [ "DSharpPlus.Entities.DiscordTeam", "class_d_sharp_plus_1_1_entities_1_1_discord_team.html", null ],
       [ "DSharpPlus.Entities.DiscordUser", "class_d_sharp_plus_1_1_entities_1_1_discord_user.html", null ],
       [ "DSharpPlus.Entities.DiscordWebhook", "class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html", null ]
     ] ],
@@ -599,8 +523,6 @@ var hierarchy =
     ] ],
     [ "DSharpPlus.Test.TestBot", "class_d_sharp_plus_1_1_test_1_1_test_bot.html", null ],
     [ "DSharpPlus.Test.TestBotConfig", "class_d_sharp_plus_1_1_test_1_1_test_bot_config.html", null ],
-    [ "DSharpPlus.Test.TestBotScopedService", "class_d_sharp_plus_1_1_test_1_1_test_bot_scoped_service.html", null ],
-    [ "DSharpPlus.Test.TestBotService", "class_d_sharp_plus_1_1_test_1_1_test_bot_service.html", null ],
     [ "DSharpPlus.Test.TestFixture1", "class_d_sharp_plus_1_1_test_1_1_test_fixture1.html", null ],
     [ "DSharpPlus.Test.TestFixture2", "class_d_sharp_plus_1_1_test_1_1_test_fixture2.html", null ],
     [ "DSharpPlus.Test.TestFixture3", "class_d_sharp_plus_1_1_test_1_1_test_fixture3.html", null ],
@@ -610,11 +532,13 @@ var hierarchy =
     [ "DSharpPlus.Lavalink.EventArgs.TrackFinishData", "struct_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_finish_data.html", null ],
     [ "DSharpPlus.Lavalink.EventArgs.TrackStuckData", "struct_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_track_stuck_data.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportActivity", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity.html", null ],
+    [ "DSharpPlus.Net.Abstractions.TransportApplication", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_application.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportMember", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_member.html", null ],
+    [ "DSharpPlus.Net.Abstractions.TransportTeam", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team.html", null ],
+    [ "DSharpPlus.Net.Abstractions.TransportTeamMember", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_team_member.html", null ],
     [ "DSharpPlus.Net.Abstractions.TransportUser", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html", null ],
-    [ "DSharpPlus.Interactivity.TypingContext", "class_d_sharp_plus_1_1_interactivity_1_1_typing_context.html", null ],
-    [ "DSharpPlus.VoiceNext.Entities.VoiceDispatch", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_dispatch.html", null ],
     [ "DSharpPlus.Lavalink.Entities.VoiceDispatch", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_dispatch.html", null ],
+    [ "DSharpPlus.VoiceNext.Entities.VoiceDispatch", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_dispatch.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoiceIdentifyPayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_identify_payload.html", null ],
     [ "DSharpPlus.VoiceNext.VoiceNextConfiguration", "class_d_sharp_plus_1_1_voice_next_1_1_voice_next_configuration.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoicePacket", "struct_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_packet.html", null ],

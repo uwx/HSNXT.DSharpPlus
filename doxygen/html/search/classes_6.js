@@ -1,31 +1,4 @@
 var searchData=
 [
-  ['gameparty',['GameParty',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_party.html',1,'DSharpPlus::Net::Abstractions::TransportActivity']]],
-  ['gamepartysize',['GamePartySize',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_party_1_1_game_party_size.html',1,'DSharpPlus::Net::Abstractions::TransportActivity::GameParty']]],
-  ['gamepartysizeconverter',['GamePartySizeConverter',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_game_party_size_converter.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['gamesecrets',['GameSecrets',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_secrets.html',1,'DSharpPlus::Net::Abstractions::TransportActivity']]],
-  ['gametimestamps',['GameTimestamps',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_activity_1_1_game_timestamps.html',1,'DSharpPlus::Net::Abstractions::TransportActivity']]],
-  ['gatewayhello',['GatewayHello',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_hello.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['gatewayidentify',['GatewayIdentify',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_identify.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['gatewaypayload',['GatewayPayload',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_payload.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['gatewayrequestguildmembers',['GatewayRequestGuildMembers',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_request_guild_members.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['gatewayresume',['GatewayResume',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_resume.html',1,'DSharpPlus::Net::Abstractions']]],
-  ['groupattribute',['GroupAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_group_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
-  ['groupcommandattribute',['GroupCommandAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_group_command_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]],
-  ['guildbanaddeventargs',['GuildBanAddEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_ban_add_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildbanremoveeventargs',['GuildBanRemoveEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_ban_remove_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildcreateeventargs',['GuildCreateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_create_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guilddeleteeventargs',['GuildDeleteEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_delete_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guilddownloadcompletedeventargs',['GuildDownloadCompletedEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_download_completed_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildeditmodel',['GuildEditModel',['../class_d_sharp_plus_1_1_net_1_1_models_1_1_guild_edit_model.html',1,'DSharpPlus::Net::Models']]],
-  ['guildemojisupdateeventargs',['GuildEmojisUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_emojis_update_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildintegrationsupdateeventargs',['GuildIntegrationsUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_integrations_update_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildmemberaddeventargs',['GuildMemberAddEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_member_add_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildmemberremoveeventargs',['GuildMemberRemoveEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_member_remove_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildmemberschunkeventargs',['GuildMembersChunkEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildmemberupdateeventargs',['GuildMemberUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_member_update_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildrolecreateeventargs',['GuildRoleCreateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_role_create_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildroledeleteeventargs',['GuildRoleDeleteEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_role_delete_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildroleupdateeventargs',['GuildRoleUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_role_update_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['guildupdateeventargs',['GuildUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_guild_update_event_args.html',1,'DSharpPlus::EventArgs']]]
+  ['heartbeateventargs',['HeartbeatEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html',1,'DSharpPlus::EventArgs']]]
 ];

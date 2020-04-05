@@ -1,6 +1,19 @@
 var searchData=
 [
-  ['heartbeateventargs',['HeartbeatEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_heartbeat_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['helpformatterfactory',['HelpFormatterFactory',['../class_d_sharp_plus_1_1_commands_next_1_1_converters_1_1_help_formatter_factory.html',1,'DSharpPlus::CommandsNext::Converters']]],
-  ['hiddenattribute',['HiddenAttribute',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_hidden_attribute.html',1,'DSharpPlus::CommandsNext::Attributes']]]
+  ['imagetool',['ImageTool',['../class_d_sharp_plus_1_1_image_tool.html',1,'DSharpPlus']]],
+  ['imention',['IMention',['../interface_d_sharp_plus_1_1_entities_1_1_i_mention.html',1,'DSharpPlus::Entities']]],
+  ['interactivityconfiguration',['InteractivityConfiguration',['../class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html',1,'DSharpPlus.Interactivity.InteractivityConfiguration'],['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_configuration.html',1,'HSNXT.DSharpPlus.InteractivityNext.InteractivityConfiguration']]],
+  ['interactivitycontext',['InteractivityContext',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_context.html',1,'HSNXT::DSharpPlus::InteractivityNext']]],
+  ['interactivityextension',['InteractivityExtension',['../class_d_sharp_plus_1_1_interactivity_1_1_interactivity_extension.html',1,'DSharpPlus.Interactivity.InteractivityExtension'],['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next_1_1_interactivity_extension.html',1,'HSNXT.DSharpPlus.InteractivityNext.InteractivityExtension']]],
+  ['interactivityresult',['InteractivityResult',['../struct_d_sharp_plus_1_1_interactivity_1_1_interactivity_result.html',1,'DSharpPlus::Interactivity']]],
+  ['internaldiscordmessagereference',['InternalDiscordMessageReference',['../struct_d_sharp_plus_1_1_entities_1_1_internal_discord_message_reference.html',1,'DSharpPlus::Entities']]],
+  ['invitecreateeventargs',['InviteCreateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_invite_create_event_args.html',1,'DSharpPlus::EventArgs']]],
+  ['invitedeleteeventargs',['InviteDeleteEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_invite_delete_event_args.html',1,'DSharpPlus::EventArgs']]],
+  ['ioauth2payload',['IOAuth2Payload',['../interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_o_auth2_payload.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['ioptional',['IOptional',['../interface_d_sharp_plus_1_1_entities_1_1_i_optional.html',1,'DSharpPlus::Entities']]],
+  ['ipaginationrequest',['IPaginationRequest',['../interface_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_i_pagination_request.html',1,'DSharpPlus::Interactivity::EventHandling']]],
+  ['ipendpoint',['IpEndpoint',['../struct_d_sharp_plus_1_1_net_1_1_ip_endpoint.html',1,'DSharpPlus::Net']]],
+  ['ireasonaction',['IReasonAction',['../interface_d_sharp_plus_1_1_net_1_1_abstractions_1_1_i_reason_action.html',1,'DSharpPlus::Net::Abstractions']]],
+  ['ivoicefilter',['IVoiceFilter',['../interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html',1,'DSharpPlus::VoiceNext']]],
+  ['iwebsocketclient',['IWebSocketClient',['../interface_d_sharp_plus_1_1_net_1_1_web_socket_1_1_i_web_socket_client.html',1,'DSharpPlus::Net::WebSocket']]]
 ];

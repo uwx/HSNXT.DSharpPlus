@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['findcommand',['FindCommand',['../class_d_sharp_plus_1_1_commands_next_1_1_commands_next_extension.html#af446c8531a251d6a0b4eb07d464c4fcb',1,'DSharpPlus::CommandsNext::CommandsNextExtension']]],
   ['flush',['Flush',['../class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#afaefa04dbb566f5defdf5497add391b0',1,'DSharpPlus::VoiceNext::VoiceTransmitStream']]],
   ['for',['For',['../class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder.html#a4d5460a7549eb7343aa70f6f67e2b071',1,'DSharpPlus.Entities.DiscordOverwriteBuilder.For(DiscordMember member)'],['../class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder.html#a760675f12538cf02d9bf8b817b25e5bb',1,'DSharpPlus.Entities.DiscordOverwriteBuilder.For(DiscordRole role)']]],
+  ['freeaddressasync',['FreeAddressAsync',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_rest.html#aed855c7c51d61e90ee25d212ecb73610',1,'DSharpPlus::Lavalink::LavalinkRest']]],
+  ['freealladdressesasync',['FreeAllAddressesAsync',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_rest.html#aade29b1225e39bfccd88d9bf5c3cd212',1,'DSharpPlus::Lavalink::LavalinkRest']]],
   ['fromasync',['FromAsync',['../class_d_sharp_plus_1_1_entities_1_1_discord_overwrite_builder.html#a775b8aaf8010cbc4fb03b7b36c8891f7',1,'DSharpPlus::Entities::DiscordOverwriteBuilder']]],
   ['fromguildemote',['FromGuildEmote',['../class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html#a636abd6c83d75ce33c079f4eba114e35',1,'DSharpPlus::Entities::DiscordEmoji']]],
   ['fromhsb',['FromHSB',['../struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_color.html#acc2eed776619f241360ded2e14723e03',1,'HSNXT::DSharpPlus::ModernEmbedBuilder::DuckColor']]],

@@ -139,6 +139,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_permission_string_attribute.html">PermissionStringAttribute</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a readable name for this permission.  <a href="class_d_sharp_plus_1_1_permission_string_attribute.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_query_uri_builder.html">QueryUriBuilder</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html">ReadOnlyConcurrentDictionary</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-only view of a given ConcurrentDictionary&lt;TKey,TValue&gt;.  <a href="struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +163,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfa03937134cedab9078be39a77ee3a48a0">ChannelType.Group</a> = 3, 
 <br />
 &#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfa3adbdb3ac060038aa0e6e6c138ef9873">ChannelType.Category</a> = 4, 
+<a class="el" href="namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfadd1ba1872df91985ed1ca4cde2dfe669">ChannelType.News</a> = 5, 
+<a class="el" href="namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfafdb0c388de01d545017cdf9ccf00eb72">ChannelType.Store</a> = 6, 
 <a class="el" href="namespace_d_sharp_plus.html#ad50811204a6f694bfa5d51fc012e37dfa88183b946cc5f0e8c96b2e66e1c74a7e">ChannelType.Unknown</a> = int.MaxValue
 <br />
  }</td></tr>
@@ -207,46 +211,59 @@ Enumerations</h2></td></tr>
 <tr class="separator:a713f51e46f98f837e496e757e18b9432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532ecbcdb525a4d74d53dfee6119d98a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98a">Permissions</a> : long { <br />
 &#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa6adf97f83acf6453d4a6a4b1070f3754">Permissions.None</a> = 0x0000000000000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aab1c94ca2fbc3e78fc30069c8d0f01680">Permissions.All</a> = 2147483647, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aab46d0caa68bab9a98e31842af1415ad0">Permissions.CreateInstantInvite</a> = 0x0000000000000001, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aab019683f81b60b36367eba2381d675ad">Permissions.KickMembers</a> = 0x0000000000000002, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa148657622de7b4ead2cf02326bf6249a">Permissions.BanMembers</a> = 0x0000000000000004, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa7b7bc2512ee1fedcd76bdc68926d4f7b">Permissions.Administrator</a> = 0x0000000000000008, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa148657622de7b4ead2cf02326bf6249a">Permissions.BanMembers</a> = 0x0000000000000004, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa7b7bc2512ee1fedcd76bdc68926d4f7b">Permissions.Administrator</a> = 0x0000000000000008, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa456eefa86b6087b3dad6595d4350b078">Permissions.ManageChannels</a> = 0x0000000000000010, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa1a927b11783a9abd891bae1754ad2c85">Permissions.ManageGuild</a> = 0x0000000000000020, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa3a4bcfae3a07e0ec170274b8fc07c278">Permissions.AddReactions</a> = 0x0000000000000040, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa803bd176de17d7417518ff5461d4b9f0">Permissions.ViewAuditLog</a> = 0x0000000000000080, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa3a4bcfae3a07e0ec170274b8fc07c278">Permissions.AddReactions</a> = 0x0000000000000040, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa803bd176de17d7417518ff5461d4b9f0">Permissions.ViewAuditLog</a> = 0x0000000000000080, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaff4418a037120cace5cdc60136dea5a9">Permissions.PrioritySpeaker</a> = 0x0000000000000100, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa9e7f4936bd65c2c6440809cd4c2a76e6">Permissions.AccessChannels</a> = 0x0000000000000400, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aac1a6cc628d22efbf4e40b3efbb92289b">Permissions.SendMessages</a> = 0x0000000000000800, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa64a9c179bafc97f30f44a80d67576459">Permissions.SendTtsMessages</a> = 0x0000000000001000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aac1a6cc628d22efbf4e40b3efbb92289b">Permissions.SendMessages</a> = 0x0000000000000800, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa64a9c179bafc97f30f44a80d67576459">Permissions.SendTtsMessages</a> = 0x0000000000001000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aacb97527e6d04b844f0c95526b4d3da8d">Permissions.ManageMessages</a> = 0x0000000000002000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa253c8824554ccc88f1e5fd0101bee8ba">Permissions.EmbedLinks</a> = 0x0000000000004000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae9895260ddab5211122555ec6855dae2">Permissions.AttachFiles</a> = 0x0000000000008000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa72cf090118be1e100438712db50ab464">Permissions.ReadMessageHistory</a> = 0x0000000000010000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae9895260ddab5211122555ec6855dae2">Permissions.AttachFiles</a> = 0x0000000000008000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa72cf090118be1e100438712db50ab464">Permissions.ReadMessageHistory</a> = 0x0000000000010000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8f102b2db5cb702082310c131c2d5fdd">Permissions.MentionEveryone</a> = 0x0000000000020000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aafee2dce22dab5a47214411422ee2c508">Permissions.UseExternalEmojis</a> = 0x0000000000040000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa0acf90199d6d1799bb4feb82c3b262fa">Permissions.UseVoice</a> = 0x0000000000100000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8b1e2b9b342dd37344c6343dc23a6733">Permissions.Speak</a> = 0x0000000000200000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa0acf90199d6d1799bb4feb82c3b262fa">Permissions.UseVoice</a> = 0x0000000000100000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8b1e2b9b342dd37344c6343dc23a6733">Permissions.Speak</a> = 0x0000000000200000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae8969937b064a21923f33c75d1d17da7">Permissions.MuteMembers</a> = 0x0000000000400000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa084e4e202a8a87bcefbd4969fdf4b256">Permissions.DeafenMembers</a> = 0x0000000000800000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa61c6dfdf2a1fde43bb267ba8e6b34958">Permissions.MoveMembers</a> = 0x0000000001000000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaf6156446d4edb2a29a8b2ba5f7979a84">Permissions.UseVoiceDetection</a> = 0x0000000002000000, 
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa61c6dfdf2a1fde43bb267ba8e6b34958">Permissions.MoveMembers</a> = 0x0000000001000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaf6156446d4edb2a29a8b2ba5f7979a84">Permissions.UseVoiceDetection</a> = 0x0000000002000000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa532f4457fd081750c15206f3b693b448">Permissions.ChangeNickname</a> = 0x0000000004000000, 
 <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa379458bef233b7eb9b90db608a759f57">Permissions.ManageNicknames</a> = 0x0000000008000000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaec11b4c7b749646a56ace84ff0f81aa3">Permissions.ManageRoles</a> = 0x0000000010000000, 
 <br />
-&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3">Permissions.ManageWebhooks</a> = 0x0000000020000000, 
-<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3">Permissions.ManageEmojis</a> = 0x0000000040000000
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaec11b4c7b749646a56ace84ff0f81aa3">Permissions.ManageRoles</a> = 0x0000000010000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3">Permissions.ManageWebhooks</a> = 0x0000000020000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3">Permissions.ManageEmojis</a> = 0x0000000040000000, 
+<a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaeae835e83c0494a376229f254f7d3392">Permissions.Stream</a> = 0x0000000000000200
 <br />
  }</td></tr>
 <tr class="memdesc:a532ecbcdb525a4d74d53dfee6119d98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise permission flags.  <a href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98a">More...</a><br /></td></tr>
 <tr class="separator:a532ecbcdb525a4d74d53dfee6119d98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d8c8d4f45925eacc9418c39258bbd6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6">PremiumTier</a> : int { <br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6a6adf97f83acf6453d4a6a4b1070f3754">PremiumTier.None</a> = 0, 
+<a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6aff400b9548ad4e3c0fdd67951400c058">PremiumTier.Tier_1</a> = 1, 
+<a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6aad096762236ed0ffd907fdeff6a0cd33">PremiumTier.Tier_2</a> = 2, 
+<a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6a6de260e8112f599174b10135bd12ec64">PremiumTier.Tier_3</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6a88183b946cc5f0e8c96b2e66e1c74a7e">PremiumTier.Unknown</a> = int.MaxValue
+<br />
+ }</td></tr>
+<tr class="memdesc:a27d8c8d4f45925eacc9418c39258bbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a server's premium tier.  <a href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6">More...</a><br /></td></tr>
+<tr class="separator:a27d8c8d4f45925eacc9418c39258bbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">PremiumType</a> { <a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11a4fb6d4423e30fbdcb90a8c6def5a47ba">PremiumType.NitroClassic</a> = 1, 
 <a class="el" href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11ae3f89d86f9f0d7cadc270dbfb54fc423">PremiumType.Nitro</a> = 2
  }</td></tr>
@@ -310,7 +327,11 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfa03937134cedab9078be39a77ee3a48a0"></a>Group&#160;</td><td class="fielddoc"><p>Indicates that this is a group direct message channel. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfa3adbdb3ac060038aa0e6e6c138ef9873"></a>Category&#160;</td><td class="fielddoc"><p>Indicates that this is a channel category </p>
+<tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfa3adbdb3ac060038aa0e6e6c138ef9873"></a>Category&#160;</td><td class="fielddoc"><p>Indicates that this is a channel category. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfadd1ba1872df91985ed1ca4cde2dfe669"></a>News&#160;</td><td class="fielddoc"><p>Indicates that this is a news channel. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfafdb0c388de01d545017cdf9ccf00eb72"></a>Store&#160;</td><td class="fielddoc"><p>Indicates that this is a store channel. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ad50811204a6f694bfa5d51fc012e37dfa88183b946cc5f0e8c96b2e66e1c74a7e"></a>Unknown&#160;</td><td class="fielddoc"><p>Indicates unknown channel type. </p>
 </td></tr>
@@ -508,6 +529,8 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>Indicates no permissions given. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"><p>Indicates all permissions are granted </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aab46d0caa68bab9a98e31842af1415ad0"></a>CreateInstantInvite&#160;</td><td class="fielddoc"><p>Allows creation of instant channel invites. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aab019683f81b60b36367eba2381d675ad"></a>KickMembers&#160;</td><td class="fielddoc"><p>Allows kicking members. </p>
@@ -565,6 +588,44 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3"></a>ManageWebhooks&#160;</td><td class="fielddoc"><p>Allows managing webhooks in a guild. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3"></a>ManageEmojis&#160;</td><td class="fielddoc"><p>Allows managing guild emoji. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a532ecbcdb525a4d74d53dfee6119d98aaeae835e83c0494a376229f254f7d3392"></a>Stream&#160;</td><td class="fielddoc"><p>Allows the user to go live. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a27d8c8d4f45925eacc9418c39258bbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d8c8d4f45925eacc9418c39258bbd6">&#9670;&nbsp;</a></span>PremiumTier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#a27d8c8d4f45925eacc9418c39258bbd6">DSharpPlus.PremiumTier</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents a server's premium tier. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a27d8c8d4f45925eacc9418c39258bbd6a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>Indicates that this server was not boosted. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a27d8c8d4f45925eacc9418c39258bbd6aff400b9548ad4e3c0fdd67951400c058"></a>Tier_1&#160;</td><td class="fielddoc"><p>Indicates that this server was boosted two times. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a27d8c8d4f45925eacc9418c39258bbd6aad096762236ed0ffd907fdeff6a0cd33"></a>Tier_2&#160;</td><td class="fielddoc"><p>Indicates that this server was boosted fifteen times. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a27d8c8d4f45925eacc9418c39258bbd6a6de260e8112f599174b10135bd12ec64"></a>Tier_3&#160;</td><td class="fielddoc"><p>Indicates that this server was boosted thirty times. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a27d8c8d4f45925eacc9418c39258bbd6a88183b946cc5f0e8c96b2e66e1c74a7e"></a>Unknown&#160;</td><td class="fielddoc"><p>Indicates an unknown premium tier. </p>
 </td></tr>
 </table>
 

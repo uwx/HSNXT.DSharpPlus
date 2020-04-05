@@ -9,5 +9,6 @@ var class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user =
     [ "Verified", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a70ca8af83f4a83f5ebd5f4b7b57972ab", null ],
     [ "Email", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a88de86cdb294dc0f415638e7fb21cd2d", null ],
     [ "PremiumType", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a865ed52b65c7c64811dac1f5d4bbc01d", null ],
-    [ "Locale", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a1e3ba5466f65c07cad0797c10a018ea6", null ]
+    [ "Locale", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a1e3ba5466f65c07cad0797c10a018ea6", null ],
+    [ "Flags", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#ac468992aee80568181b821c256a4af77", null ]
 ];

@@ -107,15 +107,21 @@ Inheritance diagram for DSharpPlus.VoiceNext.VoiceNextConnection:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a5c5b30a81e07ea72dea18f7b7b0ffb25">SendSpeaking</a> (bool speaking=true)</td></tr>
-<tr class="memdesc:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a speaking status to the connected voice channel.  <a href="#a5c5b30a81e07ea72dea18f7b7b0ffb25">More...</a><br /></td></tr>
-<tr class="separator:a5c5b30a81e07ea72dea18f7b7b0ffb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf72ab834a7fba73ee465517234aa68a"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#adf72ab834a7fba73ee465517234aa68a">SendSpeakingAsync</a> (bool speaking=true)</td></tr>
+<tr class="memdesc:adf72ab834a7fba73ee465517234aa68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a speaking status to the connected voice channel.  <a href="#adf72ab834a7fba73ee465517234aa68a">More...</a><br /></td></tr>
+<tr class="separator:adf72ab834a7fba73ee465517234aa68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6182878c9786017cb760a1780e8da7b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html">VoiceTransmitStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a6182878c9786017cb760a1780e8da7b5">GetTransmitStream</a> (int sampleDuration=20)</td></tr>
 <tr class="memdesc:a6182878c9786017cb760a1780e8da7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a transmit stream for this connection, optionally specifying a packet size to use with the stream. If a stream is already configured, it will return the existing one.  <a href="#a6182878c9786017cb760a1780e8da7b5">More...</a><br /></td></tr>
 <tr class="separator:a6182878c9786017cb760a1780e8da7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3ad20295c0acfb88672c29d4b66e73b"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae3ad20295c0acfb88672c29d4b66e73b">WaitForPlaybackFinishAsync</a> ()</td></tr>
 <tr class="memdesc:ae3ad20295c0acfb88672c29d4b66e73b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously waits for playback to be finished. Playback is finished when speaking = false is signalled.  <a href="#ae3ad20295c0acfb88672c29d4b66e73b">More...</a><br /></td></tr>
 <tr class="separator:ae3ad20295c0acfb88672c29d4b66e73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4858327956328c82822cfce4ccb11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#a9f4858327956328c82822cfce4ccb11d">Pause</a> ()</td></tr>
+<tr class="memdesc:a9f4858327956328c82822cfce4ccb11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses playback.  <a href="#a9f4858327956328c82822cfce4ccb11d">More...</a><br /></td></tr>
+<tr class="separator:a9f4858327956328c82822cfce4ccb11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac28e7201fc3b016711f9ddd05ca36bbd"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ac28e7201fc3b016711f9ddd05ca36bbd">ResumeAsync</a> ()</td></tr>
+<tr class="memdesc:ac28e7201fc3b016711f9ddd05ca36bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously resumes playback.  <a href="#ac28e7201fc3b016711f9ddd05ca36bbd">More...</a><br /></td></tr>
+<tr class="separator:ac28e7201fc3b016711f9ddd05ca36bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7e3bd0917112b0ab12ab57331a45963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html#ae7e3bd0917112b0ab12ab57331a45963">Disconnect</a> ()</td></tr>
 <tr class="memdesc:ae7e3bd0917112b0ab12ab57331a45963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects and disposes this voice connection.  <a href="#ae7e3bd0917112b0ab12ab57331a45963">More...</a><br /></td></tr>
 <tr class="separator:ae7e3bd0917112b0ab12ab57331a45963"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,8 +168,8 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> connection to a voice channel. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5c5b30a81e07ea72dea18f7b7b0ffb25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c5b30a81e07ea72dea18f7b7b0ffb25">&#9670;&nbsp;</a></span>SendSpeaking()</h2>
+<a id="adf72ab834a7fba73ee465517234aa68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf72ab834a7fba73ee465517234aa68a">&#9670;&nbsp;</a></span>SendSpeakingAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +178,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeaking </td>
+          <td class="memname">async Task DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>speaking</em> = <code>true</code></td><td>)</td>
@@ -257,6 +263,45 @@ Properties</h2></td></tr>
 
 <p>Asynchronously waits for playback to be finished. Playback is finished when speaking = false is signalled. </p>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the waiting operation.</dd></dl>
+
+</div>
+</div>
+<a id="a9f4858327956328c82822cfce4ccb11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4858327956328c82822cfce4ccb11d">&#9670;&nbsp;</a></span>Pause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DSharpPlus.VoiceNext.VoiceNextConnection.Pause </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pauses playback. </p>
+
+</div>
+</div>
+<a id="ac28e7201fc3b016711f9ddd05ca36bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28e7201fc3b016711f9ddd05ca36bbd">&#9670;&nbsp;</a></span>ResumeAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.VoiceNext.VoiceNextConnection.ResumeAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronously resumes playback. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

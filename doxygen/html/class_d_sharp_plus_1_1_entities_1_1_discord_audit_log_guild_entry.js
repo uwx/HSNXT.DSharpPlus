@@ -11,5 +11,6 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry =
     [ "SystemChannelChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#ab7f7dba580e65cab917016cd3e84a065", null ],
     [ "ExplicitContentFilterChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#ae284a56ece826dd20606ea0a106b93f4", null ],
     [ "MfaLevelChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#af48a150f886407bf2f69e6afa476e025", null ],
-    [ "SplashChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#a770942e72edb26d4ffedd074b7680df7", null ]
+    [ "SplashChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#a770942e72edb26d4ffedd074b7680df7", null ],
+    [ "RegionChange", "class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_guild_entry.html#ad845810c5e095336a1fa495d41804429", null ]
 ];

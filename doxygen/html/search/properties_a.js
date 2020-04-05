@@ -8,12 +8,11 @@ var searchData=
   ['lastupdate',['LastUpdate',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html#a66988b6f5498a5269661353be797fc1f',1,'DSharpPlus::Lavalink::Entities::LavalinkPlayerState']]],
   ['lavalinknode',['LavalinkNode',['../class_d_sharp_plus_1_1_lavalink_1_1_event_args_1_1_node_disconnected_event_args.html#aa61cdde9c5f5b2e73ef8abc86670b1e6',1,'DSharpPlus::Lavalink::EventArgs::NodeDisconnectedEventArgs']]],
   ['lavalinksocketerrored',['LavalinkSocketErrored',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#abc3de23bfd4cc31aeba4bb7d5315b905',1,'DSharpPlus::Lavalink::LavalinkNodeConnection']]],
-  ['left',['Left',['../class_d_sharp_plus_1_1_interactivity_1_1_pagination_emojis.html#af4e7fa8c8fd391129a858ffc6119f550',1,'DSharpPlus::Interactivity::PaginationEmojis']]],
   ['level',['Level',['../class_d_sharp_plus_1_1_event_args_1_1_debug_log_message_event_args.html#a61fae2f9e1ee03927c2a26bab255d897',1,'DSharpPlus::EventArgs::DebugLogMessageEventArgs']]],
-  ['lifespan',['Lifespan',['../class_d_sharp_plus_1_1_commands_next_1_1_attributes_1_1_module_lifespan_attribute.html#a1116024eb34c3f56e2a943586e43147f',1,'DSharpPlus.CommandsNext.Attributes.ModuleLifespanAttribute.Lifespan()'],['../class_d_sharp_plus_1_1_commands_next_1_1_builders_1_1_command_module_builder.html#aaa6e7f826d5bffd6e8c00d8db0d3a41f',1,'DSharpPlus.CommandsNext.Builders.CommandModuleBuilder.Lifespan()']]],
   ['lightgray',['LightGray',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a4713becf81d6240f2ca61529e09d1bed',1,'DSharpPlus::Entities::DiscordColor']]],
   ['lilac',['Lilac',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a6f1220f2001d22b9223bc088c85fa1f8',1,'DSharpPlus::Entities::DiscordColor']]],
   ['loadresulttype',['LoadResultType',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html#a0b4106f53e61dc8224c0e915a9467c5f',1,'DSharpPlus::Lavalink::LavalinkLoadResult']]],
   ['locale',['Locale',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a67a15ac9c7ee45d86a3a2b77403a4a43',1,'DSharpPlus.Entities.DiscordMember.Locale()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a9be62851c277b58566269e8a7e279620',1,'DSharpPlus.Entities.DiscordUser.Locale()']]],
-  ['loglevel',['LogLevel',['../class_d_sharp_plus_1_1_discord_configuration.html#ad9f5015bcc5e241505bf0e5cd1056c9a',1,'DSharpPlus::DiscordConfiguration']]]
+  ['loglevel',['LogLevel',['../class_d_sharp_plus_1_1_discord_configuration.html#ad9f5015bcc5e241505bf0e5cd1056c9a',1,'DSharpPlus::DiscordConfiguration']]],
+  ['logsources',['LogSources',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a320ac100201923442a485c664b6a19a8',1,'HSNXT::DSharpPlus::Extended::DspExtended']]]
 ];

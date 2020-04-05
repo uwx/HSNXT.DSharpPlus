@@ -1,0 +1,1011 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DiscordUser
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DiscordUser
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Entities.DiscordUser">
+  
+  
+  <h1 id="DSharpPlus_Entities_DiscordUser" data-uid="DSharpPlus.Entities.DiscordUser" class="text-break">Class DiscordUser
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a Discord user.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="DSharpPlus.Entities.SnowflakeObject.html">SnowflakeObject</a></div>
+    <div class="level2"><span class="xref">DiscordUser</span></div>
+  </div>
+      <div class="level3"><a class="xref" href="DSharpPlus.Entities.DiscordMember.html">DiscordMember</a></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="DSharpPlus.Entities.SnowflakeObject.html#DSharpPlus_Entities_SnowflakeObject_Id">SnowflakeObject.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="DSharpPlus.Entities.SnowflakeObject.html#DSharpPlus_Entities_SnowflakeObject_CreationTimestamp">SnowflakeObject.CreationTimestamp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Entities.html">DSharpPlus.Entities</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Entities_DiscordUser_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DiscordUser : SnowflakeObject, IEquatable&lt;DiscordUser&gt;</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_AvatarHash.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.AvatarHash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L48">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_AvatarHash_" data-uid="DSharpPlus.Entities.DiscordUser.AvatarHash*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_AvatarHash" data-uid="DSharpPlus.Entities.DiscordUser.AvatarHash">AvatarHash</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s avatar hash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;avatar&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual string AvatarHash { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_AvatarUrl.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.AvatarUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L54">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_AvatarUrl_" data-uid="DSharpPlus.Entities.DiscordUser.AvatarUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_AvatarUrl" data-uid="DSharpPlus.Entities.DiscordUser.AvatarUrl">AvatarUrl</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s avatar URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string AvatarUrl { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_DefaultAvatarUrl.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.DefaultAvatarUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L61">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_DefaultAvatarUrl_" data-uid="DSharpPlus.Entities.DiscordUser.DefaultAvatarUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_DefaultAvatarUrl" data-uid="DSharpPlus.Entities.DiscordUser.DefaultAvatarUrl">DefaultAvatarUrl</h4>
+  <div class="markdown level1 summary"><p>Gets the URL of default avatar for this user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string DefaultAvatarUrl { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Discriminator.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Discriminator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L38">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Discriminator_" data-uid="DSharpPlus.Entities.DiscordUser.Discriminator*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Discriminator" data-uid="DSharpPlus.Entities.DiscordUser.Discriminator">Discriminator</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s 4-digit discriminator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;discriminator&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual string Discriminator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Email.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Email%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L86">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Email_" data-uid="DSharpPlus.Entities.DiscordUser.Email*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Email" data-uid="DSharpPlus.Entities.DiscordUser.Email">Email</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s email address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;email&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual string Email { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_IsBot.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.IsBot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L68">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_IsBot_" data-uid="DSharpPlus.Entities.DiscordUser.IsBot*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_IsBot" data-uid="DSharpPlus.Entities.DiscordUser.IsBot">IsBot</h4>
+  <div class="markdown level1 summary"><p>Gets whether the user is a bot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;bot&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual bool IsBot { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_IsCurrent.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.IsCurrent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L111">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_IsCurrent_" data-uid="DSharpPlus.Entities.DiscordUser.IsCurrent*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_IsCurrent" data-uid="DSharpPlus.Entities.DiscordUser.IsCurrent">IsCurrent</h4>
+  <div class="markdown level1 summary"><p>Gets whether this user is the Client which created this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool IsCurrent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Locale.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Locale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L98">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Locale_" data-uid="DSharpPlus.Entities.DiscordUser.Locale*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Locale" data-uid="DSharpPlus.Entities.DiscordUser.Locale">Locale</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s chosen language</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;locale&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual string Locale { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Mention.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Mention%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L104">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Mention_" data-uid="DSharpPlus.Entities.DiscordUser.Mention*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Mention" data-uid="DSharpPlus.Entities.DiscordUser.Mention">Mention</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s mention string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string Mention { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_MfaEnabled.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.MfaEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L74">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_MfaEnabled_" data-uid="DSharpPlus.Entities.DiscordUser.MfaEnabled*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_MfaEnabled" data-uid="DSharpPlus.Entities.DiscordUser.MfaEnabled">MfaEnabled</h4>
+  <div class="markdown level1 summary"><p>Gets whether the user has multi-factor authentication enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;mfa_enabled&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual bool? MfaEnabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_PremiumType.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.PremiumType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L92">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_PremiumType_" data-uid="DSharpPlus.Entities.DiscordUser.PremiumType*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_PremiumType" data-uid="DSharpPlus.Entities.DiscordUser.PremiumType">PremiumType</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s premium type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;premium_type&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual PremiumType? PremiumType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.PremiumType.html">PremiumType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Presence.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Presence%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L127">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Presence_" data-uid="DSharpPlus.Entities.DiscordUser.Presence*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Presence" data-uid="DSharpPlus.Entities.DiscordUser.Presence">Presence</h4>
+  <div class="markdown level1 summary"><p>Gets this user&apos;s presence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public DiscordPresence Presence { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordPresence.html">DiscordPresence</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Username.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Username%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L32">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Username_" data-uid="DSharpPlus.Entities.DiscordUser.Username*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Username" data-uid="DSharpPlus.Entities.DiscordUser.Username">Username</h4>
+  <div class="markdown level1 summary"><p>Gets this user&apos;s username.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;username&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual string Username { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Verified.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Verified%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L80">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Verified_" data-uid="DSharpPlus.Entities.DiscordUser.Verified*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Verified" data-uid="DSharpPlus.Entities.DiscordUser.Verified">Verified</h4>
+  <div class="markdown level1 summary"><p>Gets whether the user is verified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;verified&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public virtual bool? Verified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Equals_DSharpPlus_Entities_DiscordUser_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Equals(DSharpPlus.Entities.DiscordUser)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L216">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Equals_" data-uid="DSharpPlus.Entities.DiscordUser.Equals*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Equals_DSharpPlus_Entities_DiscordUser_" data-uid="DSharpPlus.Entities.DiscordUser.Equals(DSharpPlus.Entities.DiscordUser)">Equals(DiscordUser)</h4>
+  <div class="markdown level1 summary"><p>Checks whether this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> is equal to another <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(DiscordUser e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> to compare to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> is equal to this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iequatable-1.equals#System_IEquatable_1_Equals__0_">IEquatable&lt;T&gt;.Equals(T)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_Equals_System_Object_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L206">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_Equals_" data-uid="DSharpPlus.Entities.DiscordUser.Equals*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_Equals_System_Object_" data-uid="DSharpPlus.Entities.DiscordUser.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Checks whether this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> is equal to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Object to compare to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the object is equal to this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_GetAvatarUrl_DSharpPlus_ImageFormat_System_UInt16_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.GetAvatarUrl(DSharpPlus.ImageFormat%2CSystem.UInt16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L144">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_GetAvatarUrl_" data-uid="DSharpPlus.Entities.DiscordUser.GetAvatarUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_GetAvatarUrl_DSharpPlus_ImageFormat_System_UInt16_" data-uid="DSharpPlus.Entities.DiscordUser.GetAvatarUrl(DSharpPlus.ImageFormat,System.UInt16)">GetAvatarUrl(ImageFormat, UInt16)</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s avatar URL, in requested format and size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetAvatarUrl(ImageFormat fmt, ushort size = 1024)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.ImageFormat.html">ImageFormat</a></td>
+        <td><span class="parametername">fmt</span></td>
+        <td><p>Format of the avatar to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Maximum size of the avatar. Must be a power of two, minimum 16, maximum 2048.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>URL of the user&apos;s avatar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_GetHashCode.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L231">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_GetHashCode_" data-uid="DSharpPlus.Entities.DiscordUser.GetHashCode*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_GetHashCode" data-uid="DSharpPlus.Entities.DiscordUser.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gets the hash code for this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p>The hash code for this <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_ToString.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L196">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_ToString_" data-uid="DSharpPlus.Entities.DiscordUser.ToString*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_ToString" data-uid="DSharpPlus.Entities.DiscordUser.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a string representation of this user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>String representation of this user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_UnbanAsync_DSharpPlus_Entities_DiscordGuild_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.UnbanAsync(DSharpPlus.Entities.DiscordGuild%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L121">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_UnbanAsync_" data-uid="DSharpPlus.Entities.DiscordUser.UnbanAsync*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_UnbanAsync_DSharpPlus_Entities_DiscordGuild_System_String_" data-uid="DSharpPlus.Entities.DiscordUser.UnbanAsync(DSharpPlus.Entities.DiscordGuild,System.String)">UnbanAsync(DiscordGuild, String)</h4>
+  <div class="markdown level1 summary"><p>Unbans this user from a guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task UnbanAsync(DiscordGuild guild, string reason = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordGuild.html">DiscordGuild</a></td>
+        <td><span class="parametername">guild</span></td>
+        <td><p>Guild to unban this user from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td><p>Reason for audit logs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_op_Equality_DSharpPlus_Entities_DiscordUser_DSharpPlus_Entities_DiscordUser_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.op_Equality(DSharpPlus.Entities.DiscordUser%2CDSharpPlus.Entities.DiscordUser)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L242">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_op_Equality_" data-uid="DSharpPlus.Entities.DiscordUser.op_Equality*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_op_Equality_DSharpPlus_Entities_DiscordUser_DSharpPlus_Entities_DiscordUser_" data-uid="DSharpPlus.Entities.DiscordUser.op_Equality(DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordUser)">Equality(DiscordUser, DiscordUser)</h4>
+  <div class="markdown level1 summary"><p>Gets whether the two <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> objects are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(DiscordUser e1, DiscordUser e2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td><span class="parametername">e1</span></td>
+        <td><p>First user to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td><span class="parametername">e2</span></td>
+        <td><p>Second user to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the two users are equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser_op_Inequality_DSharpPlus_Entities_DiscordUser_DSharpPlus_Entities_DiscordUser_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser.op_Inequality(DSharpPlus.Entities.DiscordUser%2CDSharpPlus.Entities.DiscordUser)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L262">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordUser_op_Inequality_" data-uid="DSharpPlus.Entities.DiscordUser.op_Inequality*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordUser_op_Inequality_DSharpPlus_Entities_DiscordUser_DSharpPlus_Entities_DiscordUser_" data-uid="DSharpPlus.Entities.DiscordUser.op_Inequality(DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordUser)">Inequality(DiscordUser, DiscordUser)</h4>
+  <div class="markdown level1 summary"><p>Gets whether the two <a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a> objects are not equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(DiscordUser e1, DiscordUser e2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td><span class="parametername">e1</span></td>
+        <td><p>First user to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordUser.html">DiscordUser</a></td>
+        <td><span class="parametername">e2</span></td>
+        <td><p>Second user to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the two users are not equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordUser.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordUser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordUser.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

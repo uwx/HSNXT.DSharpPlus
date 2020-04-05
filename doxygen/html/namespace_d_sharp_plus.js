@@ -1,6 +1,5 @@
 var namespace_d_sharp_plus =
 [
-    [ "CommandsNext", "namespace_d_sharp_plus_1_1_commands_next.html", "namespace_d_sharp_plus_1_1_commands_next" ],
     [ "Entities", "namespace_d_sharp_plus_1_1_entities.html", "namespace_d_sharp_plus_1_1_entities" ],
     [ "EventArgs", "namespace_d_sharp_plus_1_1_event_args.html", "namespace_d_sharp_plus_1_1_event_args" ],
     [ "Exceptions", "namespace_d_sharp_plus_1_1_exceptions.html", "namespace_d_sharp_plus_1_1_exceptions" ],
@@ -22,6 +21,7 @@ var namespace_d_sharp_plus =
     [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html", "class_d_sharp_plus_1_1_discord_webhook_client" ],
     [ "ImageTool", "class_d_sharp_plus_1_1_image_tool.html", "class_d_sharp_plus_1_1_image_tool" ],
     [ "PermissionStringAttribute", "class_d_sharp_plus_1_1_permission_string_attribute.html", "class_d_sharp_plus_1_1_permission_string_attribute" ],
+    [ "QueryUriBuilder", "class_d_sharp_plus_1_1_query_uri_builder.html", "class_d_sharp_plus_1_1_query_uri_builder" ],
     [ "ReadOnlyConcurrentDictionary", "struct_d_sharp_plus_1_1_read_only_concurrent_dictionary.html", "struct_d_sharp_plus_1_1_read_only_concurrent_dictionary" ],
     [ "ReadOnlySet", "struct_d_sharp_plus_1_1_read_only_set.html", "struct_d_sharp_plus_1_1_read_only_set" ],
     [ "RingBuffer", "class_d_sharp_plus_1_1_ring_buffer.html", "class_d_sharp_plus_1_1_ring_buffer" ]

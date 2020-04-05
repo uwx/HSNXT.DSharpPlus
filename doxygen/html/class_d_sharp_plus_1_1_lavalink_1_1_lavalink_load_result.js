@@ -2,5 +2,6 @@ var class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result =
 [
     [ "LoadResultType", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html#a0b4106f53e61dc8224c0e915a9467c5f", null ],
     [ "PlaylistInfo", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html#af676095cd665653973ae3b833921f311", null ],
+    [ "Exception", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html#aae460d1e6902905524d99551de353526", null ],
     [ "Tracks", "class_d_sharp_plus_1_1_lavalink_1_1_lavalink_load_result.html#aea04a490a7f9baafaecbfbfbdcb7e92f", null ]
 ];

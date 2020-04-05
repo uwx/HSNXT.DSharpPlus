@@ -2,13 +2,9 @@ var class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration =
 [
     [ "InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a52bcebd99dd1699c4cf4ff3a6d25dbdf", null ],
     [ "InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a356c080056d4dd01758b200a84b1852a", null ],
-    [ "InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a52bcebd99dd1699c4cf4ff3a6d25dbdf", null ],
-    [ "InteractivityConfiguration", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a356c080056d4dd01758b200a84b1852a", null ],
-    [ "Timeout", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a54ebf77ebdd260970bb81e42483e6746", null ],
-    [ "PaginationTimeout", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#aab348d2c96f6f466a076ceb88a29b650", null ],
-    [ "PaginationBehavior", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a9092990df59943cc4999afbdac2c3d5d", null ],
-    [ "DefaultPollOptions", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a8bbe4649f4d52ff4804933e1c03ace69", null ],
-    [ "DefaultPageHeader", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#acf6f52ad6f2dd3d3b04b31c212de995e", null ],
-    [ "DefaultStringPageHeader", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a0b000fa854accb15790c71c9c130d00c", null ],
-    [ "DefaultPaginationEmojis", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a5ea40496440bf62313c021074e47d4fd", null ]
+    [ "Timeout", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a716822c54c8e0df611fc65a57fb1fb9a", null ],
+    [ "PollBehaviour", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#aabe4680b7183b4127a7521bdde2cbf9b", null ],
+    [ "PaginationEmojis", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a446a7127ee3fd2bab7e87bb578cb5554", null ],
+    [ "PaginationBehaviour", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a146a39b8bcf5669854a0044fa3d8682a", null ],
+    [ "PaginationDeletion", "class_d_sharp_plus_1_1_interactivity_1_1_interactivity_configuration.html#a4e82cdd71449f0e6f7aa43a9c8d3ebad", null ]
 ];

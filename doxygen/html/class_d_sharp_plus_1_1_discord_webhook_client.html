@@ -127,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f5aa3e67ae71ff1c9b18e0ff340897d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html">DiscordWebhook</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#a3f5aa3e67ae71ff1c9b18e0ff340897d">GetRegisteredWebhook</a> (ulong id)</td></tr>
 <tr class="memdesc:a3f5aa3e67ae71ff1c9b18e0ff340897d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a registered webhook with specified ID.  <a href="#a3f5aa3e67ae71ff1c9b18e0ff340897d">More...</a><br /></td></tr>
 <tr class="separator:a3f5aa3e67ae71ff1c9b18e0ff340897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61b240d6656cbc7019ae311842b293de"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#a61b240d6656cbc7019ae311842b293de">BroadcastMessageAsync</a> (string content=null, List&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_embed.html">DiscordEmbed</a> &gt; embeds=null, bool tts=false, string username_override=null, string avatar_override=null)</td></tr>
-<tr class="memdesc:a61b240d6656cbc7019ae311842b293de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a message to all registered webhooks.  <a href="#a61b240d6656cbc7019ae311842b293de">More...</a><br /></td></tr>
-<tr class="separator:a61b240d6656cbc7019ae311842b293de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79de00493e062328e260666f37c0f32e"><td class="memItemLeft" align="right" valign="top">async Task&lt; Dictionary&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html">DiscordWebhook</a>, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#a79de00493e062328e260666f37c0f32e">BroadcastMessageAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html">DiscordWebhookBuilder</a> builder)</td></tr>
+<tr class="memdesc:a79de00493e062328e260666f37c0f32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a message to all registered webhooks.  <a href="#a79de00493e062328e260666f37c0f32e">More...</a><br /></td></tr>
+<tr class="separator:a79de00493e062328e260666f37c0f32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -477,8 +477,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a61b240d6656cbc7019ae311842b293de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61b240d6656cbc7019ae311842b293de">&#9670;&nbsp;</a></span>BroadcastMessageAsync()</h2>
+<a id="a79de00493e062328e260666f37c0f32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79de00493e062328e260666f37c0f32e">&#9670;&nbsp;</a></span>BroadcastMessageAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -487,39 +487,11 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task DSharpPlus.DiscordWebhookClient.BroadcastMessageAsync </td>
+          <td class="memname">async Task&lt;Dictionary&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html">DiscordWebhook</a>, <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&gt; &gt; DSharpPlus.DiscordWebhookClient.BroadcastMessageAsync </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>content</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html">DiscordWebhookBuilder</a>&#160;</td>
+          <td class="paramname"><em>builder</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_embed.html">DiscordEmbed</a> &gt;&#160;</td>
-          <td class="paramname"><em>embeds</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>tts</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>username_override</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>avatar_override</em> = <code>null</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -532,11 +504,7 @@ Properties</h2></td></tr>
 <p>Broadcasts a message to all registered webhooks. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">content</td><td>Contents of the message to broadcast.</td></tr>
-    <tr><td class="paramname">embeds</td><td>Embeds to send with the messages.</td></tr>
-    <tr><td class="paramname">tts</td><td>Whether the messages should be read aloud using TTS engine.</td></tr>
-    <tr><td class="paramname">username_override</td><td>Username to use for this broadcast.</td></tr>
-    <tr><td class="paramname">avatar_override</td><td>Avatar URL to use for this broadcast.</td></tr>
+    <tr><td class="paramname">builder</td><td>Webhook builder filled with data to send.</td></tr>
   </table>
   </dd>
 </dl>

@@ -13,7 +13,6 @@ var class_d_sharp_plus_1_1_discord_configuration =
     [ "ShardCount", "class_d_sharp_plus_1_1_discord_configuration.html#a793f74d52206604446939ac885974285", null ],
     [ "GatewayCompressionLevel", "class_d_sharp_plus_1_1_discord_configuration.html#a8dfcee476844513dca5db66073346e40", null ],
     [ "MessageCacheSize", "class_d_sharp_plus_1_1_discord_configuration.html#a06b3088553374b9e49be264c83b19445", null ],
-    [ "AutomaticGuildSync", "class_d_sharp_plus_1_1_discord_configuration.html#a3187899b1716c35f1bef8dd952104ea2", null ],
     [ "Proxy", "class_d_sharp_plus_1_1_discord_configuration.html#adeee12440ec12eb0eca5624e9ddcb031", null ],
     [ "HttpTimeout", "class_d_sharp_plus_1_1_discord_configuration.html#a5efbedc13d67f7bccaa617d35e073e95", null ],
     [ "ReconnectIndefinitely", "class_d_sharp_plus_1_1_discord_configuration.html#aa0a814fe16d6fc3e8d4536c66fe80bde", null ],

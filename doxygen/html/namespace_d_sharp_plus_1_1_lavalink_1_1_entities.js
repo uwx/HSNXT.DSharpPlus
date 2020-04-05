@@ -1,12 +1,17 @@
 var namespace_d_sharp_plus_1_1_lavalink_1_1_entities =
 [
+    [ "LavalinkConfigureResume", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_configure_resume.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_configure_resume" ],
     [ "LavalinkDestroy", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_destroy" ],
     [ "LavalinkEqualizer", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_equalizer.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_equalizer" ],
+    [ "LavalinkFailedAddress", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_failed_address.html", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_failed_address" ],
+    [ "LavalinkIpBlock", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_ip_block.html", "struct_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_ip_block" ],
     [ "LavalinkPause", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_pause" ],
     [ "LavalinkPayload", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_payload" ],
     [ "LavalinkPlay", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play" ],
     [ "LavalinkPlayerState", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_player_state" ],
     [ "LavalinkPlayPartial", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play_partial.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_play_partial" ],
+    [ "LavalinkRouteStatus", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status" ],
+    [ "LavalinkRouteStatusDetails", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status_details.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_route_status_details" ],
     [ "LavalinkSeek", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_seek.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_seek" ],
     [ "LavalinkState", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_state.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_state" ],
     [ "LavalinkStatistics", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics.html", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_lavalink_statistics" ],

@@ -1,10 +1,10 @@
 var class_d_sharp_plus_1_1_entities_1_1_discord_channel =
 [
-    [ "SendMessageAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a83ca1c19453533f3979ddb2655a722b5", null ],
-    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a0709a055fdcdf26ecbc30472a4a6e20d", null ],
-    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#abf74794bbc0a8c04069b6bc8f0e07686", null ],
-    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#acca3a7e17f29ed31fd93f29eaa88cb97", null ],
-    [ "SendMultipleFilesAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#abb28cf277b9272e9e618231d938e9cbe", null ],
+    [ "SendMessageAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#ad816e61e2b57ea726bf057c696c2901b", null ],
+    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a1d8a215eae954846020b3575ebc15f57", null ],
+    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a4b3359df6277b393daff2a4b19079180", null ],
+    [ "SendFileAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#abb7f7579bf2f23ac7fc6e94d3dacea98", null ],
+    [ "SendMultipleFilesAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#ad1e8f91d77e74013a64d73ca3ee7f47d", null ],
     [ "DeleteAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#afae39881e24f978945e19516e3e23745", null ],
     [ "CloneAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a57e427a8fe464758587a55a50436568b", null ],
     [ "GetMessageAsync", "class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#a278f885bbb195aea8beccda3bd15cce2", null ],

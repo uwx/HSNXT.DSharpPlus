@@ -89,28 +89,89 @@ $(document).ready(function(){initNavTree('class_h_s_n_x_t_1_1_d_sharp_plus_1_1_e
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HSNXT.DSharpPlus.Extended.DspExtended Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An extension for <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a> adding a variety of extension methods, and more. Some features include, but are not limited to: </p><ul>
+<li>
+Extension methods for DiscordChannel, DiscordMember and DiscordRole  </li>
+<li>
+Module system that works on top of <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a>' extension system. See the documentation on ModuleLoader to get started!  </li>
+<li>
+A <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0" title="Fired when the client&#39;s user gets mentioned.">MentionReceived</a> event  </li>
+</ul>
+<p>The full version includes some more contested goodies: </p><ul>
+<li>
+Async listener methods registered through AsyncListenerAttribute  </li>
+<li>
+Shortcuts for modifying specific members of entities with <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_modify_shortcuts.html">HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts</a>  </li>
+</ul>
+ 
+ <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for HSNXT.DSharpPlus.Extended.DspExtended:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.png" usemap="#HSNXT.DSharpPlus.Extended.DspExtended_map" alt=""/>
+  <map id="HSNXT.DSharpPlus.Extended.DspExtended_map" name="HSNXT.DSharpPlus.Extended.DspExtended_map">
+<area href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html" title="A base type for modules without a configuration parameter. Children of this class must provide a cons..." alt="HSNXT.DSharpPlus.Extended.ClientModule" shape="rect" coords="0,0,259,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a72bea699e2200ca139e17fb582799399"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a72bea699e2200ca139e17fb582799399">RegisterAssembly</a> (Assembly assembly=null)</td></tr>
-<tr class="memdesc:a72bea699e2200ca139e17fb582799399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers async listeners for an assembly  <a href="#a72bea699e2200ca139e17fb582799399">More...</a><br /></td></tr>
+<tr class="memdesc:a72bea699e2200ca139e17fb582799399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers async listeners for every type (with matching method attributes) in an assembly.  <a href="#a72bea699e2200ca139e17fb582799399">More...</a><br /></td></tr>
 <tr class="separator:a72bea699e2200ca139e17fb582799399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10501c090301ad1299610aa09a249413"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a10501c090301ad1299610aa09a249413">Register&lt; T &gt;</a> ()</td></tr>
+<tr class="memdesc:a10501c090301ad1299610aa09a249413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers async listeners for a type based on a generic type parameter.  <a href="#a10501c090301ad1299610aa09a249413">More...</a><br /></td></tr>
+<tr class="separator:a10501c090301ad1299610aa09a249413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea4936f7a5fb9d693a6de9ee5b9ab6a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aea4936f7a5fb9d693a6de9ee5b9ab6a6">Register</a> (Type type)</td></tr>
+<tr class="memdesc:aea4936f7a5fb9d693a6de9ee5b9ab6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers async listeners for a type based on a Type instance.  <a href="#aea4936f7a5fb9d693a6de9ee5b9ab6a6">More...</a><br /></td></tr>
+<tr class="separator:aea4936f7a5fb9d693a6de9ee5b9ab6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339325ee6eaf4e1fba78e54c280f4680"><td class="memItemLeft" align="right" valign="top"><a id="a339325ee6eaf4e1fba78e54c280f4680"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Dispose</b> ()</td></tr>
+<tr class="separator:a339325ee6eaf4e1fba78e54c280f4680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:ad4fe89fbb36718407aef380715de60a6"><td class="memItemLeft" align="right" valign="top">AsyncEventHandler&lt; <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#ad4fe89fbb36718407aef380715de60a6">ExtensionErrored</a></td></tr>
-<tr class="memdesc:ad4fe89fbb36718407aef380715de60a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fired whenever an error occurs within an extension event handler.  <a href="#ad4fe89fbb36718407aef380715de60a6">More...</a><br /></td></tr>
-<tr class="separator:ad4fe89fbb36718407aef380715de60a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0eead097e8f9b92016ccd1bf411c2b0"><td class="memItemLeft" align="right" valign="top">AsyncEventHandler&lt; <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args.html">MentionReceivedEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0">MentionReceived</a></td></tr>
+<tr class="memitem:a320ac100201923442a485c664b6a19a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210">LogSource</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a320ac100201923442a485c664b6a19a8">LogSources</a> = <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a7a1920d61156abc05a60135aefe8bc67">LogSource.Default</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a320ac100201923442a485c664b6a19a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the log sources for D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a>. This can be set by the library consumer to one or more <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210" title="A type of console message in D#+ Extended. This can be used to control what gets logged by the librar...">LogSource</a> flags ORed together to select which sources to log, or <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a6adf97f83acf6453d4a6a4b1070f3754" title="Don&#39;t log anything. This only affects log messages generated by D#+ Extended.">LogSource.None</a> to disable logging entirely.  <a href="#a320ac100201923442a485c664b6a19a8">More...</a><br /></td></tr>
+<tr class="separator:a320ac100201923442a485c664b6a19a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0eead097e8f9b92016ccd1bf411c2b0"><td class="memItemLeft" align="right" valign="top">AsyncEventHandler&lt; <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_mention_received_event_args.html">MentionReceivedEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0">MentionReceived</a></td></tr>
 <tr class="memdesc:aa0eead097e8f9b92016ccd1bf411c2b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fired when the client's user gets mentioned.  <a href="#aa0eead097e8f9b92016ccd1bf411c2b0">More...</a><br /></td></tr>
 <tr class="separator:aa0eead097e8f9b92016ccd1bf411c2b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:ad4fe89fbb36718407aef380715de60a6"><td class="memItemLeft" align="right" valign="top">AsyncEventHandler&lt; <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#ad4fe89fbb36718407aef380715de60a6">ExtensionErrored</a></td></tr>
+<tr class="memdesc:ad4fe89fbb36718407aef380715de60a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fired whenever an error occurs within an extension event handler.  <a href="#ad4fe89fbb36718407aef380715de60a6">More...</a><br /></td></tr>
+<tr class="separator:ad4fe89fbb36718407aef380715de60a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31df8d0fb549ed66660b85625d175a6"><td class="memItemLeft" align="right" valign="top">AsyncEventHandler&lt; <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#ad31df8d0fb549ed66660b85625d175a6">AsyncEventErrored</a></td></tr>
+<tr class="memdesc:ad31df8d0fb549ed66660b85625d175a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fired whenever an error occurs in an async event listener (a method tagged with AsyncListenerAttribute).  <a href="#ad31df8d0fb549ed66660b85625d175a6">More...</a><br /></td></tr>
+<tr class="separator:ad31df8d0fb549ed66660b85625d175a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An extension for <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a> adding a variety of extension methods, and more. Some features include, but are not limited to: </p><ul>
+<li>
+Extension methods for DiscordChannel, DiscordMember and DiscordRole  </li>
+<li>
+Module system that works on top of <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a>' extension system. See the documentation on ModuleLoader to get started!  </li>
+<li>
+A <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0" title="Fired when the client&#39;s user gets mentioned.">MentionReceived</a> event  </li>
+</ul>
+<p>The full version includes some more contested goodies: </p><ul>
+<li>
+Async listener methods registered through AsyncListenerAttribute  </li>
+<li>
+Shortcuts for modifying specific members of entities with <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_modify_shortcuts.html">HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts</a>  </li>
+</ul>
+<p>The extension methods do not require any extra setup - simply import them and use away. To install the main extension, call DspExtendedLoader.DspExtendedLoader.UseDspExtended or DspExtendedLoader.UseDspExtendedAsync. You can use the methods on the resulting instance to customize the fucntionality. If you're using any of the CommandsNext-related extensions, always register D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a> <em>after</em> CommandsNext, or you will encounter crashes. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a72bea699e2200ca139e17fb582799399"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72bea699e2200ca139e17fb582799399">&#9670;&nbsp;</a></span>RegisterAssembly()</h2>
 
@@ -135,19 +196,73 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Registers async listeners for an assembly </p>
+<p>Registers async listeners for every type (with matching method attributes) in an assembly. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">assembly</td><td>the assembly to register</td></tr>
+    <tr><td class="paramname">assembly</td><td>The assembly to register. If not specified, defaults to the assembly containing the current program's entry point. </td></tr>
   </table>
   </dd>
 </dl>
+<p>This method should be used with care and is usually not recommended as it performs an iteration through every single type in the assembly. Consider an overload that accepts an individual type such as <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aea4936f7a5fb9d693a6de9ee5b9ab6a6" title="Registers async listeners for a type based on a Type instance.">Register</a> or <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#a10501c090301ad1299610aa09a249413" title="Registers async listeners for a type based on a generic type parameter.">Register&lt;T&gt;</a>. </p>
+
+</div>
+</div>
+<a id="a10501c090301ad1299610aa09a249413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10501c090301ad1299610aa09a249413">&#9670;&nbsp;</a></span>Register&lt; T &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aea4936f7a5fb9d693a6de9ee5b9ab6a6">HSNXT.DSharpPlus.Extended.DspExtended.Register</a>&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers async listeners for a type based on a generic type parameter. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type to register</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method will do nothing if the specified type has no methods marked with an AsyncListenerAttribute. </p>
+
+</div>
+</div>
+<a id="aea4936f7a5fb9d693a6de9ee5b9ab6a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea4936f7a5fb9d693a6de9ee5b9ab6a6">&#9670;&nbsp;</a></span>Register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HSNXT.DSharpPlus.Extended.DspExtended.Register </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers async listeners for a type based on a Type instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type to register</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method will do nothing if the specified type has no methods marked with an AsyncListenerAttribute. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="ad4fe89fbb36718407aef380715de60a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4fe89fbb36718407aef380715de60a6">&#9670;&nbsp;</a></span>ExtensionErrored</h2>
+<a id="a320ac100201923442a485c664b6a19a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320ac100201923442a485c664b6a19a8">&#9670;&nbsp;</a></span>LogSources</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,17 +271,17 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AsyncEventHandler&lt;<a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a>&gt; HSNXT.DSharpPlus.Extended.DspExtended.ExtensionErrored</td>
+          <td class="memname"><a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210">LogSource</a> HSNXT.DSharpPlus.Extended.DspExtended.LogSources = <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a7a1920d61156abc05a60135aefe8bc67">LogSource.Default</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">add</span><span class="mlabel">remove</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fired whenever an error occurs within an extension event handler. </p>
+<p>Sets the log sources for D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a>. This can be set by the library consumer to one or more <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210" title="A type of console message in D#+ Extended. This can be used to control what gets logged by the librar...">LogSource</a> flags ORed together to select which sources to log, or <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a6adf97f83acf6453d4a6a4b1070f3754" title="Don&#39;t log anything. This only affects log messages generated by D#+ Extended.">LogSource.None</a> to disable logging entirely. </p>
 
 </div>
 </div>
@@ -180,7 +295,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AsyncEventHandler&lt;<a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_event_args_1_1_mention_received_event_args.html">MentionReceivedEventArgs</a>&gt; HSNXT.DSharpPlus.Extended.DspExtended.MentionReceived</td>
+          <td class="memname">AsyncEventHandler&lt;<a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_mention_received_event_args.html">MentionReceivedEventArgs</a>&gt; HSNXT.DSharpPlus.Extended.DspExtended.MentionReceived</td>
         </tr>
       </table>
   </td>
@@ -191,6 +306,40 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Fired when the client's user gets mentioned. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="ad4fe89fbb36718407aef380715de60a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4fe89fbb36718407aef380715de60a6">&#9670;&nbsp;</a></span>ExtensionErrored</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncEventHandler&lt;<a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a>&gt; HSNXT.DSharpPlus.Extended.DspExtended.ExtensionErrored</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fired whenever an error occurs within an extension event handler. </p>
+<p>The error handling for this event is done in the invoker rather than <a class="el" href="class_d_sharp_plus_1_1_async_event.html">AsyncEvent&lt;T&gt;</a>, to prevent infinite error loops. </p>
+
+</div>
+</div>
+<a id="ad31df8d0fb549ed66660b85625d175a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31df8d0fb549ed66660b85625d175a6">&#9670;&nbsp;</a></span>AsyncEventErrored</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncEventHandler&lt;<a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a>&gt; HSNXT.DSharpPlus.Extended.DspExtended.AsyncEventErrored</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fired whenever an error occurs in an async event listener (a method tagged with AsyncListenerAttribute). </p>
 
 </div>
 </div>

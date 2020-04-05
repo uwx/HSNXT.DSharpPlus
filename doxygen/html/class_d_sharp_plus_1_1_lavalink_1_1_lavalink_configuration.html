@@ -113,11 +113,17 @@ Properties</h2></td></tr>
 <tr class="memdesc:a034ef1d61c6334eedd738d88a020c4ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the endpoint for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> REST.  <a href="#a034ef1d61c6334eedd738d88a020c4ba">More...</a><br /></td></tr>
 <tr class="separator:a034ef1d61c6334eedd738d88a020c4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08b6267df57cc4e4cc1ce1b8f97fb218"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_sharp_plus_1_1_net_1_1_connection_endpoint.html">ConnectionEndpoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html#a08b6267df57cc4e4cc1ce1b8f97fb218">SocketEndpoint</a> = new <a class="el" href="struct_d_sharp_plus_1_1_net_1_1_connection_endpoint.html">ConnectionEndpoint</a>(&quot;127.0.0.1&quot;, 2333)<code> [get, set]</code></td></tr>
-<tr class="memdesc:a08b6267df57cc4e4cc1ce1b8f97fb218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the endpoint for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> Websocket connection.  <a href="#a08b6267df57cc4e4cc1ce1b8f97fb218">More...</a><br /></td></tr>
+<tr class="memdesc:a08b6267df57cc4e4cc1ce1b8f97fb218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the endpoint for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> Websocket connection.  <a href="#a08b6267df57cc4e4cc1ce1b8f97fb218">More...</a><br /></td></tr>
 <tr class="separator:a08b6267df57cc4e4cc1ce1b8f97fb218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a26f18c9a3bb0c1e07bf0321a934215"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html#a9a26f18c9a3bb0c1e07bf0321a934215">Password</a> = &quot;youshallnotpass&quot;<code> [get, set]</code></td></tr>
-<tr class="memdesc:a9a26f18c9a3bb0c1e07bf0321a934215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the password for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection.  <a href="#a9a26f18c9a3bb0c1e07bf0321a934215">More...</a><br /></td></tr>
+<tr class="memdesc:a9a26f18c9a3bb0c1e07bf0321a934215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the password for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection.  <a href="#a9a26f18c9a3bb0c1e07bf0321a934215">More...</a><br /></td></tr>
 <tr class="separator:a9a26f18c9a3bb0c1e07bf0321a934215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3aa4c07751169c75fd5c8858aea56c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html#afa3aa4c07751169c75fd5c8858aea56c">ResumeKey</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:afa3aa4c07751169c75fd5c8858aea56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the resume key for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection.  <a href="#afa3aa4c07751169c75fd5c8858aea56c">More...</a><br /></td></tr>
+<tr class="separator:afa3aa4c07751169c75fd5c8858aea56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c80066afddea3d22548f0c58ef688f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_lavalink_1_1_lavalink_configuration.html#a1c80066afddea3d22548f0c58ef688f2">ResumeTimeout</a> = 60<code> [get, set]</code></td></tr>
+<tr class="memdesc:a1c80066afddea3d22548f0c58ef688f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the time in seconds when all voice sessions are closed after the client disconnects.  <a href="#a1c80066afddea3d22548f0c58ef688f2">More...</a><br /></td></tr>
+<tr class="separator:a1c80066afddea3d22548f0c58ef688f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection configuration. </p>
@@ -205,6 +211,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the endpoint for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> REST. </p>
+<p>Defaults to 127.0.0.1 on port 2333.</p>
 
 </div>
 </div>
@@ -228,7 +235,8 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the endpoint for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> Websocket connection. </p>
+<p>Sets the endpoint for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> Websocket connection. </p>
+<p>Defaults to 127.0.0.1 on port 2333.</p>
 
 </div>
 </div>
@@ -252,7 +260,58 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the password for <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection. </p>
+<p>Sets the password for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection. </p>
+<p>Defaults to "youshallnotpass".</p>
+
+</div>
+</div>
+<a id="afa3aa4c07751169c75fd5c8858aea56c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3aa4c07751169c75fd5c8858aea56c">&#9670;&nbsp;</a></span>ResumeKey</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DSharpPlus.Lavalink.LavalinkConfiguration.ResumeKey</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the resume key for the <a class="el" href="namespace_d_sharp_plus_1_1_lavalink.html">Lavalink</a> connection. </p>
+<p>This will allow existing voice sessions to continue for a certain time after the client is disconnected.</p>
+
+</div>
+</div>
+<a id="a1c80066afddea3d22548f0c58ef688f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c80066afddea3d22548f0c58ef688f2">&#9670;&nbsp;</a></span>ResumeTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DSharpPlus.Lavalink.LavalinkConfiguration.ResumeTimeout = 60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the time in seconds when all voice sessions are closed after the client disconnects. </p>
+<p>Defaults to 60 seconds.</p>
 
 </div>
 </div>

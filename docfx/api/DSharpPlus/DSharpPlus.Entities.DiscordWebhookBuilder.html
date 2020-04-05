@@ -1,0 +1,898 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DiscordWebhookBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DiscordWebhookBuilder
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder">
+  
+  
+  <h1 id="DSharpPlus_Entities_DiscordWebhookBuilder" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder" class="text-break">Class DiscordWebhookBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Constructs ready-to-send webhook requests.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">DiscordWebhookBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Entities.html">DSharpPlus.Entities</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Entities_DiscordWebhookBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DiscordWebhookBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder__ctor.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L64">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder__ctor_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.#ctor*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder__ctor" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.#ctor">DiscordWebhookBuilder()</h4>
+  <div class="markdown level1 summary"><p>Constructs a new empty webhook request builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AvatarUrl.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AvatarUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L21">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AvatarUrl_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AvatarUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AvatarUrl" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AvatarUrl">AvatarUrl</h4>
+  <div class="markdown level1 summary"><p>Avatar url to use for this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;string&gt; AvatarUrl { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_Content.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.Content%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L31">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_Content_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Content*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_Content" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Content">Content</h4>
+  <div class="markdown level1 summary"><p>Message to send on this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Content { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_Embeds.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.Embeds%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L46">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_Embeds_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Embeds*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_Embeds" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Embeds">Embeds</h4>
+  <div class="markdown level1 summary"><p>Embeds to send on this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DiscordEmbed&gt; Embeds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_Files.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.Files%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L52">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_Files_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Files*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_Files" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Files">Files</h4>
+  <div class="markdown level1 summary"><p>Files to send on this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, Stream&gt; Files { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_IsTTS.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.IsTTS%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L26">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_IsTTS_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.IsTTS*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_IsTTS" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.IsTTS">IsTTS</h4>
+  <div class="markdown level1 summary"><p>Whether this webhook request is text-to-speech.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTTS { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_Mentions.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.Mentions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L58">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_Mentions_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Mentions*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_Mentions" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Mentions">Mentions</h4>
+  <div class="markdown level1 summary"><p>Mentions to send on this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IMention&gt; Mentions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Entities.IMention.html">IMention</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_Username.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.Username%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L16">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_Username_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Username*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_Username" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.Username">Username</h4>
+  <div class="markdown level1 summary"><p>Username to use for this webhook request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;string&gt; Username { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbed_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbed(DSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L115">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbed_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbed*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbed_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbed(DSharpPlus.Entities.DiscordEmbed)">AddEmbed(DiscordEmbed)</h4>
+  <div class="markdown level1 summary"><p>Adds an embed to send at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddEmbed(DiscordEmbed embed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a></td>
+        <td><span class="parametername">embed</span></td>
+        <td><p>Embed to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbeds_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordEmbed__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbeds(System.Collections.Generic.IEnumerable%7BDSharpPlus.Entities.DiscordEmbed%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L125">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbeds_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbeds*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddEmbeds_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordEmbed__" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddEmbeds(System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmbed})">AddEmbeds(IEnumerable&lt;DiscordEmbed&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds the given embeds to send at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddEmbeds(IEnumerable&lt;DiscordEmbed&gt; embeds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordEmbed.html">DiscordEmbed</a>&gt;</td>
+        <td><span class="parametername">embeds</span></td>
+        <td><p>Embeds to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddFile_System_String_System_IO_Stream_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddFile(System.String%2CSystem.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L136">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddFile_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddFile*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddFile_System_String_System_IO_Stream_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddFile(System.String,System.IO.Stream)">AddFile(String, Stream)</h4>
+  <div class="markdown level1 summary"><p>Adds a file to send at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddFile(string filename, Stream data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">filename</span></td>
+        <td><p>Name of the file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>File data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddFiles_System_Collections_Generic_Dictionary_System_String_System_IO_Stream__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddFiles(System.Collections.Generic.Dictionary%7BSystem.String%2CSystem.IO.Stream%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L146">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddFiles_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddFiles*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddFiles_System_Collections_Generic_Dictionary_System_String_System_IO_Stream__" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddFiles(System.Collections.Generic.Dictionary{System.String,System.IO.Stream})">AddFiles(Dictionary&lt;String, Stream&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds the given files to send at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddFiles(Dictionary&lt;string, Stream&gt; files)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</td>
+        <td><span class="parametername">files</span></td>
+        <td><p>Dictionary of file name and file data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddMention_DSharpPlus_Entities_IMention_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddMention(DSharpPlus.Entities.IMention)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L159">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddMention_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddMention*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddMention_DSharpPlus_Entities_IMention_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddMention(DSharpPlus.Entities.IMention)">AddMention(IMention)</h4>
+  <div class="markdown level1 summary"><p>Adds the mention to the mentions to parse, etc. at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddMention(IMention mention)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.IMention.html">IMention</a></td>
+        <td><span class="parametername">mention</span></td>
+        <td><p>Mention to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_AddMentions_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_IMention__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.AddMentions(System.Collections.Generic.IEnumerable%7BDSharpPlus.Entities.IMention%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L169">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_AddMentions_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddMentions*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_AddMentions_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_IMention__" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.AddMentions(System.Collections.Generic.IEnumerable{DSharpPlus.Entities.IMention})">AddMentions(IEnumerable&lt;IMention&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds the mentions to the mentions to parse, etc. at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder AddMentions(IEnumerable&lt;IMention&gt; mentions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="DSharpPlus.Entities.IMention.html">IMention</a>&gt;</td>
+        <td><span class="parametername">mentions</span></td>
+        <td><p>Mentions to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_WithAvatarUrl_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.WithAvatarUrl(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L85">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_WithAvatarUrl_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithAvatarUrl*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_WithAvatarUrl_System_String_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithAvatarUrl(System.String)">WithAvatarUrl(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the avatar of this webhook builder from its url.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder WithAvatarUrl(string avatarUrl)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">avatarUrl</span></td>
+        <td><p>Avatar url of the webhook</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_WithContent_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.WithContent(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L105">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_WithContent_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithContent*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_WithContent_System_String_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithContent(System.String)">WithContent(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the message to send at the execution of the webhook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder WithContent(string content)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>Message to send.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_WithTTS_System_Boolean_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.WithTTS(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L95">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_WithTTS_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithTTS*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_WithTTS_System_Boolean_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithTTS(System.Boolean)">WithTTS(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Indicates if the webhook must use text-to-speech.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder WithTTS(bool tts)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">tts</span></td>
+        <td><p>Text-to-speech</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder_WithUsername_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder.WithUsername(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L75">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordWebhookBuilder_WithUsername_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithUsername*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordWebhookBuilder_WithUsername_System_String_" data-uid="DSharpPlus.Entities.DiscordWebhookBuilder.WithUsername(System.String)">WithUsername(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the username for this webhook builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordWebhookBuilder WithUsername(string username)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Username of the webhook</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordWebhookBuilder.html">DiscordWebhookBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordWebhookBuilder.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordWebhookBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordWebhookBuilder.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

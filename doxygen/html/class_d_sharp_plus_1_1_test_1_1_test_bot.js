@@ -2,6 +2,7 @@ var class_d_sharp_plus_1_1_test_1_1_test_bot =
 [
     [ "TestBot", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#a6cc0f182d90e4a23e3dda48db30cea47", null ],
     [ "RunAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#a9115ef33b4540cd4c0ac5bc7282dcc9d", null ],
+    [ "StopAsync", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#a7db567d5338653bcd4c165ca69dbc2df", null ],
     [ "Config", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#aca5c1d6ebeb334e4e8a1b1faf444063d", null ],
     [ "Discord", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#ac503676c174e3c571761229130ff0044", null ],
     [ "Commands", "class_d_sharp_plus_1_1_test_1_1_test_bot.html#a8580891e948103f417d497dbe76a2b28", null ],

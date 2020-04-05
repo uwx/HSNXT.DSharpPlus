@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kick',['Kick',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a3e07960fcc45408894cf1402257bd9fd',1,'DSharpPlus::Entities']]],
-  ['kickmembers',['KickMembers',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aab019683f81b60b36367eba2381d675ad',1,'DSharpPlus']]]
+  ['join',['Join',['../namespace_d_sharp_plus_1_1_enums.html#a659a7442136b2df92b372fbc9525010aaa286d9991c6a547ae25a5f5216164b8f',1,'DSharpPlus::Enums']]],
+  ['joinrequest',['JoinRequest',['../namespace_d_sharp_plus_1_1_enums.html#a659a7442136b2df92b372fbc9525010aac4287a70863f53e6cd3dbf3d79015dba',1,'DSharpPlus::Enums']]]
 ];

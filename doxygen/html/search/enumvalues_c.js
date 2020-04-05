@@ -1,9 +1,26 @@
 var searchData=
 [
-  ['nickname',['Nickname',['../namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5fa1771b8284280660537e3e533f88af3b2',1,'DSharpPlus']]],
-  ['nitro',['Nitro',['../namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11ae3f89d86f9f0d7cadc270dbfb54fc423',1,'DSharpPlus']]],
-  ['nitroclassic',['NitroClassic',['../namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11a4fb6d4423e30fbdcb90a8c6def5a47ba',1,'DSharpPlus']]],
-  ['nomatches',['NoMatches',['../namespace_d_sharp_plus_1_1_lavalink.html#a2598c8e19885d87165ea14fc3dcbb52ea88f811bfc307c8090e22e3367e94976d',1,'DSharpPlus::Lavalink']]],
-  ['none',['None',['../namespace_d_sharp_plus_1_1_commands_next_1_1_attributes.html#a9d98201b5285aa5b34f3f0e6b0e3817ea6adf97f83acf6453d4a6a4b1070f3754',1,'DSharpPlus.CommandsNext.Attributes.None()'],['../namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4aa6adf97f83acf6453d4a6a4b1070f3754',1,'DSharpPlus.Entities.None()'],['../namespace_d_sharp_plus.html#a89353079e31c94d4ec36112c7c01a696a6adf97f83acf6453d4a6a4b1070f3754',1,'DSharpPlus.None()'],['../namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5fa6adf97f83acf6453d4a6a4b1070f3754',1,'DSharpPlus.None()'],['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa6adf97f83acf6453d4a6a4b1070f3754',1,'DSharpPlus.None()']]],
-  ['nonstandard',['NonStandard',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder.html#ab83be9225a8afa3ab3bc8147852330e8a1a50650f175a7245612a1a9b54707b30',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.NonStandard()'],['../namespace_d_sharp_plus_1_1_net.html#a450a1a743a1dd8c0112b9068d717bf0ca1a50650f175a7245612a1a9b54707b30',1,'DSharpPlus.Net.NonStandard()']]]
+  ['managechannels',['ManageChannels',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa456eefa86b6087b3dad6595d4350b078',1,'DSharpPlus']]],
+  ['manageemojis',['ManageEmojis',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa376a589f704acbdc9f90d8637d529da3',1,'DSharpPlus']]],
+  ['manageguild',['ManageGuild',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa1a927b11783a9abd891bae1754ad2c85',1,'DSharpPlus']]],
+  ['managemessages',['ManageMessages',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aacb97527e6d04b844f0c95526b4d3da8d',1,'DSharpPlus']]],
+  ['managenicknames',['ManageNicknames',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa379458bef233b7eb9b90db608a759f57',1,'DSharpPlus']]],
+  ['manageroles',['ManageRoles',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aaec11b4c7b749646a56ace84ff0f81aa3',1,'DSharpPlus']]],
+  ['managewebhooks',['ManageWebhooks',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa94806c8ddad40e5053ab1f1e3e030cd3',1,'DSharpPlus']]],
+  ['medium',['Medium',['../namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4aa87f8a6ab85c9ced3702b4ea641ad4bb5',1,'DSharpPlus::Entities']]],
+  ['member',['Member',['../namespace_d_sharp_plus.html#a9167f86cc4fe882e6d76ccd92157d1d9a858ba4765e53c712ef672a9570474b1d',1,'DSharpPlus']]],
+  ['memberdisconnect',['MemberDisconnect',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18af683c13191b495dc67ab941e97032f8d',1,'DSharpPlus::Entities']]],
+  ['membermove',['MemberMove',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a0204c93dabd822676cc928c00bf3fa60',1,'DSharpPlus::Entities']]],
+  ['memberroleupdate',['MemberRoleUpdate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a1e0a1b855cadb38cb8a195a58d1d3f75',1,'DSharpPlus::Entities']]],
+  ['memberswithoutroles',['MembersWithoutRoles',['../namespace_d_sharp_plus_1_1_entities.html#af2074e9af653c47cf289cc81f42ea9eba3037157860d82788e3070164863365b5',1,'DSharpPlus::Entities']]],
+  ['memberupdate',['MemberUpdate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18af3e4f5c2361e0e0a335c017e1e5219ce',1,'DSharpPlus::Entities']]],
+  ['mentioneveryone',['MentionEveryone',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa8f102b2db5cb702082310c131c2d5fdd',1,'DSharpPlus']]],
+  ['mentionsonly',['MentionsOnly',['../namespace_d_sharp_plus_1_1_entities.html#ad4de7ad6f9fd21ddfa13d6c8682c0702a7317ef99f6dd5234aa452e9a2b9367b1',1,'DSharpPlus::Entities']]],
+  ['messagebulkdelete',['MessageBulkDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18ae671be067afc758b914c1b37d31f5df5',1,'DSharpPlus::Entities']]],
+  ['messagedelete',['MessageDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18aadcd087fda3e232e1fab4f93336b00b5',1,'DSharpPlus::Entities']]],
+  ['messagepin',['MessagePin',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18abd59700f64f69565fe709abe0ea044ab',1,'DSharpPlus::Entities']]],
+  ['messageunpin',['MessageUnpin',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a7eb162a0256ca78968305352e16d1859',1,'DSharpPlus::Entities']]],
+  ['movemembers',['MoveMembers',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa61c6dfdf2a1fde43bb267ba8e6b34958',1,'DSharpPlus']]],
+  ['music',['Music',['../namespace_d_sharp_plus_1_1_voice_next.html#a6eda0ecac285723a2e52838156163412a47dcbd834e669233d7eb8a51456ed217',1,'DSharpPlus::VoiceNext']]],
+  ['mutemembers',['MuteMembers',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aae8969937b064a21923f33c75d1d17da7',1,'DSharpPlus']]]
 ];

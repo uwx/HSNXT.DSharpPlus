@@ -1,11 +1,6 @@
 var class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client =
 [
     [ "DspUdpClient", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#aa770d7b92e5e0c5fa2f69009aa63c0dd", null ],
-    [ "DspUdpClient", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#aa770d7b92e5e0c5fa2f69009aa63c0dd", null ],
-    [ "Setup", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#a909ef648c1ed66307b693facc79d4b3d", null ],
-    [ "SendAsync", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#adbdc1e6649958281bc699d5757f019b6", null ],
-    [ "ReceiveAsync", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#a531339434c98d2eb9b2cfe30701a14d3", null ],
-    [ "Close", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#af01976cf02c66afa1da2acc12086fa96", null ],
     [ "Setup", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#a909ef648c1ed66307b693facc79d4b3d", null ],
     [ "SendAsync", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#adbdc1e6649958281bc699d5757f019b6", null ],
     [ "ReceiveAsync", "class_d_sharp_plus_1_1_net_1_1_udp_1_1_dsp_udp_client.html#a531339434c98d2eb9b2cfe30701a14d3", null ],

@@ -88,7 +88,8 @@ $(document).ready(function(){initNavTree('namespace_h_s_n_x_t_1_1_d_sharp_plus_1
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">HSNXT.DSharpPlus.Extended Namespace Reference</div>  </div>
 </div><!--header-->
@@ -96,13 +97,127 @@ $(document).ready(function(){initNavTree('namespace_h_s_n_x_t_1_1_d_sharp_plus_1
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html">DspExtended</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html">ClientModule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base type for modules without a configuration parameter. Children of this class must provide a constructor taking a single DiscordClient parameter that calls the base constructor with the same signature. Different or missing constructors will cause a runtime error.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>DspExtendedModuleLoader</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_commands_next_wrapper.html">CommandsNextWrapper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for <code>CommandsNextExtension</code> that exists in both the lite and full versions but only serves a purpose in the full version. It exists to avoid having loads of #ifdef lines initializing little things in the main <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html" title="An extension for DSharpPlus adding a variety of extension methods, and more. Some features include,...">DspExtended</a> class.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_commands_next_wrapper.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html">DspExtended</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An extension for <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a> adding a variety of extension methods, and more. Some features include, but are not limited to: </p><ul>
+<li>
+Extension methods for DiscordChannel, DiscordMember and DiscordRole  </li>
+<li>
+Module system that works on top of <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a>' extension system. See the documentation on ModuleLoader to get started!  </li>
+<li>
+A <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0" title="Fired when the client&#39;s user gets mentioned.">MentionReceived</a> event  </li>
+</ul>
+<p>The full version includes some more contested goodies: </p><ul>
+<li>
+Async listener methods registered through AsyncListenerAttribute  </li>
+<li>
+Shortcuts for modifying specific members of entities with <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_methods_1_1_modify_shortcuts.html">HSNXT.DSharpPlus.Extended.ExtensionMethods.ModifyShortcuts</a>  </li>
+</ul>
+ <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>DspExtendedLoader</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extension class to install the <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html" title="An extension for DSharpPlus adding a variety of extension methods, and more. Some features include,...">DspExtended</a> module. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended_logger.html">DspExtendedLogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal logging class that allows the library consumer to have in-depth control over what gets logged by D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a>.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended_logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_empty_list.html">EmptyList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_expressions.html">Expressions</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html">ExtensionErrorEventArgs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents arguments for the <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#ad4fe89fbb36718407aef380715de60a6" title="Fired whenever an error occurs within an extension event handler.">DspExtended.ExtensionErrored</a> event.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_extension_error_event_args.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_mention_received_event_args.html">MentionReceivedEventArgs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents arguments for the <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#aa0eead097e8f9b92016ccd1bf411c2b0" title="Fired when the client&#39;s user gets mentioned.">DspExtended.MentionReceived</a> event.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_mention_received_event_args.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>ModuleLoader</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main class for a client module. A module is just a layer of abstraction to make creating client extensions less of a burden, as it gives you access to the client in the constructor rather than an initialization method. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_reflection_utils.html">ReflectionUtils</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility methods to reflectively access private members in <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus.html">DSharpPlus</a>. <b>Warning:</b> all of this class' members are likely to break at some point or another, and may be changed without warning or any deprecation procedure.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_reflection_utils.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_severity_attribute.html">SeverityAttribute</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks the severity of a <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210" title="A type of console message in D#+ Extended. This can be used to control what gets logged by the librar...">LogSource</a> message.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_severity_attribute.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Utils</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_watchdog.html">Watchdog</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A watchdog timer to detect deadlocks in threads.  <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_watchdog.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab9fb9dc7a41ee763ef0994536aa6b210"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210">LogSource</a> { <br />
+&#160;&#160;<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a6adf97f83acf6453d4a6a4b1070f3754">LogSource.None</a> = 0, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210ab1c94ca2fbc3e78fc30069c8d0f01680">LogSource.All</a> = byte.MaxValue, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a7a1920d61156abc05a60135aefe8bc67">LogSource.Default</a> = EventError | TimeoutExceeded | AsyncEventError, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210ae0a7b8d12ae71124d1d423f3635dc120">LogSource.EventError</a> = 1 &lt;&lt; 0, 
+<br />
+&#160;&#160;<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210abb410eaada90c25e30a81a30e4d7ea9f">LogSource.TimeoutExceeded</a> = 1 &lt;&lt; 1, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210abe008a90edbf0c946b638e5236405038">LogSource.EventInvoke</a> = 1 &lt;&lt; 2, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a47d3caa79f68300e02c2b3d44890ef6c">LogSource.AsyncEventInvoke</a> = 1 &lt;&lt; 3, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210aac6e873184f2595a1750c3cfadb87729">LogSource.AsyncEventError</a> = 1 &lt;&lt; 4, 
+<br />
+&#160;&#160;<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210ac3e06602a57afb0cc6a96dd91206476f">LogSource.WatchdogDebug</a> = 1 &lt;&lt; 5, 
+<a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210a9607252c54dec61bd17b909143b190fd">LogSource.ExtensionDebug</a> = 1 &lt;&lt; 6
+<br />
+ }</td></tr>
+<tr class="memdesc:ab9fb9dc7a41ee763ef0994536aa6b210"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type of console message in D#+ Extended. This can be used to control what gets logged by the library through.  <a href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210">More...</a><br /></td></tr>
+<tr class="separator:ab9fb9dc7a41ee763ef0994536aa6b210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ab9fb9dc7a41ee763ef0994536aa6b210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9fb9dc7a41ee763ef0994536aa6b210">&#9670;&nbsp;</a></span>LogSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210">HSNXT.DSharpPlus.Extended.LogSource</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type of console message in D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a>. This can be used to control what gets logged by the library through. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>Don't log anything. This only affects log messages generated by D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a>. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"><p>Log everything from every category. Not recommended unless you want your console to get spammed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210a7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><p>Use the default logging settings. This is implementation-defined, but usually will log everything that isn't debug info. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210ae0a7b8d12ae71124d1d423f3635dc120"></a>EventError&#160;</td><td class="fielddoc"><p>Logged when an error is encountered in a D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a> event handler. Does not affect base D#+'s events, and does not stop <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html#ad4fe89fbb36718407aef380715de60a6" title="Fired whenever an error occurs within an extension event handler.">DspExtended.ExtensionErrored</a> from being called. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210abb410eaada90c25e30a81a30e4d7ea9f"></a>TimeoutExceeded&#160;</td><td class="fielddoc"><p>Logged when a D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a> event handler takes over 10 seconds to complete. Does not apply to async listener methods. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210abe008a90edbf0c946b638e5236405038"></a>EventInvoke&#160;</td><td class="fielddoc"><p>Logged when a D#+ <a class="el" href="namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html">Extended</a> event is invoked. Does not apply to events from base D#+, or to async listener methods. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210a47d3caa79f68300e02c2b3d44890ef6c"></a>AsyncEventInvoke&#160;</td><td class="fielddoc"><p>Logged when an async listener method (one that is tagged with AsyncListenerAttribute and has been registered through <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html" title="An extension for DSharpPlus adding a variety of extension methods, and more. Some features include,...">DspExtended</a>.Register/RegisterAssembly) is invoked. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210aac6e873184f2595a1750c3cfadb87729"></a>AsyncEventError&#160;</td><td class="fielddoc"><p>Logged when an error is encountered in an async listener method (one that is tagged with AsyncListenerAttribute and has been registered through <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_dsp_extended.html" title="An extension for DSharpPlus adding a variety of extension methods, and more. Some features include,...">DspExtended</a>.Register/RegisterAssembly). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210ac3e06602a57afb0cc6a96dd91206476f"></a>WatchdogDebug&#160;</td><td class="fielddoc"><p>Used for fine debug logging for the <a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_watchdog.html" title="A watchdog timer to detect deadlocks in threads.">Watchdog</a>. This usually does not need to be enabled unless you are testing the watchdog. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9fb9dc7a41ee763ef0994536aa6b210a9607252c54dec61bd17b909143b190fd"></a>ExtensionDebug&#160;</td><td class="fielddoc"><p>Used for fine debug logging for the extension. Usually only needed for testing the extension itself. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

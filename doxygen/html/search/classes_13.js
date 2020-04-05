@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['voicedispatch',['VoiceDispatch',['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_dispatch.html',1,'DSharpPlus.VoiceNext.Entities.VoiceDispatch'],['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_dispatch.html',1,'DSharpPlus.Lavalink.Entities.VoiceDispatch']]],
+  ['voicedispatch',['VoiceDispatch',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_dispatch.html',1,'DSharpPlus.Lavalink.Entities.VoiceDispatch'],['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_dispatch.html',1,'DSharpPlus.VoiceNext.Entities.VoiceDispatch']]],
   ['voiceidentifypayload',['VoiceIdentifyPayload',['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_identify_payload.html',1,'DSharpPlus::VoiceNext::Entities']]],
   ['voicenextconfiguration',['VoiceNextConfiguration',['../class_d_sharp_plus_1_1_voice_next_1_1_voice_next_configuration.html',1,'DSharpPlus::VoiceNext']]],
   ['voicenextconnection',['VoiceNextConnection',['../class_d_sharp_plus_1_1_voice_next_1_1_voice_next_connection.html',1,'DSharpPlus::VoiceNext']]],

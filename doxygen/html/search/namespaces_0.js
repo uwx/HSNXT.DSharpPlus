@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['concurrentcollections',['ConcurrentCollections',['../namespace_concurrent_collections.html',1,'']]]
+  ['abstractions',['Abstractions',['../namespace_d_sharp_plus_1_1_net_1_1_abstractions.html',1,'DSharpPlus::Net']]],
+  ['codec',['Codec',['../namespace_d_sharp_plus_1_1_voice_next_1_1_codec.html',1,'DSharpPlus::VoiceNext']]],
+  ['concurrency',['Concurrency',['../namespace_d_sharp_plus_1_1_interactivity_1_1_concurrency.html',1,'DSharpPlus::Interactivity']]],
+  ['dsharpplus',['DSharpPlus',['../namespace_d_sharp_plus.html',1,'DSharpPlus'],['../namespace_d_sharp_plus_1_1_interactivity_1_1_d_sharp_plus.html',1,'DSharpPlus.Interactivity.DSharpPlus']]],
+  ['entities',['Entities',['../namespace_d_sharp_plus_1_1_entities.html',1,'DSharpPlus.Entities'],['../namespace_d_sharp_plus_1_1_lavalink_1_1_entities.html',1,'DSharpPlus.Lavalink.Entities'],['../namespace_d_sharp_plus_1_1_voice_next_1_1_entities.html',1,'DSharpPlus.VoiceNext.Entities']]],
+  ['enums',['Enums',['../namespace_d_sharp_plus_1_1_enums.html',1,'DSharpPlus.Enums'],['../namespace_d_sharp_plus_1_1_interactivity_1_1_enums.html',1,'DSharpPlus.Interactivity.Enums']]],
+  ['eventargs',['EventArgs',['../namespace_d_sharp_plus_1_1_event_args.html',1,'DSharpPlus.EventArgs'],['../namespace_d_sharp_plus_1_1_lavalink_1_1_event_args.html',1,'DSharpPlus.Lavalink.EventArgs'],['../namespace_d_sharp_plus_1_1_voice_next_1_1_event_args.html',1,'DSharpPlus.VoiceNext.EventArgs']]],
+  ['eventhandling',['EventHandling',['../namespace_d_sharp_plus_1_1_interactivity_1_1_event_handling.html',1,'DSharpPlus::Interactivity']]],
+  ['exceptions',['Exceptions',['../namespace_d_sharp_plus_1_1_exceptions.html',1,'DSharpPlus']]],
+  ['interactivity',['Interactivity',['../namespace_d_sharp_plus_1_1_interactivity.html',1,'DSharpPlus.Interactivity'],['../namespace_d_sharp_plus_1_1_interactivity_1_1_d_sharp_plus_1_1_interactivity.html',1,'DSharpPlus.Interactivity.DSharpPlus.Interactivity']]],
+  ['lavalink',['Lavalink',['../namespace_d_sharp_plus_1_1_lavalink.html',1,'DSharpPlus']]],
+  ['models',['Models',['../namespace_d_sharp_plus_1_1_net_1_1_models.html',1,'DSharpPlus::Net']]],
+  ['net',['Net',['../namespace_d_sharp_plus_1_1_net.html',1,'DSharpPlus']]],
+  ['serialization',['Serialization',['../namespace_d_sharp_plus_1_1_net_1_1_serialization.html',1,'DSharpPlus::Net']]],
+  ['test',['Test',['../namespace_d_sharp_plus_1_1_test.html',1,'DSharpPlus']]],
+  ['udp',['Udp',['../namespace_d_sharp_plus_1_1_net_1_1_udp.html',1,'DSharpPlus::Net']]],
+  ['voicenext',['VoiceNext',['../namespace_d_sharp_plus_1_1_voice_next.html',1,'DSharpPlus']]],
+  ['websocket',['WebSocket',['../namespace_d_sharp_plus_1_1_net_1_1_web_socket.html',1,'DSharpPlus::Net']]]
 ];

@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VoiceNextConnection
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VoiceNextConnection
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection">
+  
+  
+  <h1 id="DSharpPlus_VoiceNext_VoiceNextConnection" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection" class="text-break">Class VoiceNextConnection
+  </h1>
+  <div class="markdown level0 summary"><p>VoiceNext connection to a voice channel.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">VoiceNextConnection</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.VoiceNext.html">DSharpPlus.VoiceNext</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.VoiceNext.dll</h6>
+  <h5 id="DSharpPlus_VoiceNext_VoiceNextConnection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class VoiceNextConnection : IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_AudioFormat.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.AudioFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L149">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_AudioFormat_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.AudioFormat*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_AudioFormat" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.AudioFormat">AudioFormat</h4>
+  <div class="markdown level1 summary"><p>Gets the audio format used by the Opus encoder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioFormat AudioFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.VoiceNext.AudioFormat.html">AudioFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_Channel.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.Channel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L174">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_Channel_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Channel*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_Channel" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Channel">Channel</h4>
+  <div class="markdown level1 summary"><p>Gets the channel this voice client is connected to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscordChannel Channel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_IsPlaying.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L154">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_IsPlaying_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_IsPlaying" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying">IsPlaying</h4>
+  <div class="markdown level1 summary"><p>Gets whether this connection is still playing audio.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPlaying { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_UdpPing.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.UdpPing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L167">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_UdpPing_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.UdpPing*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_UdpPing" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.UdpPing">UdpPing</h4>
+  <div class="markdown level1 summary"><p>Gets the UDP round-trip time in ms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int UdpPing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_WebSocketPing.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.WebSocketPing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L160">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_WebSocketPing_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.WebSocketPing*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_WebSocketPing" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.WebSocketPing">WebSocketPing</h4>
+  <div class="markdown level1 summary"><p>Gets the websocket round-trip time in ms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WebSocketPing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_Disconnect.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.Disconnect%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L644">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_Disconnect_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Disconnect*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_Disconnect" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Disconnect">Disconnect()</h4>
+  <div class="markdown level1 summary"><p>Disconnects and disposes this voice connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Disconnect()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_Dispose.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L650">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_Dispose_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Dispose*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_Dispose" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Disconnects and disposes this voice connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_Finalize.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L230">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_Finalize_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Finalize*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_Finalize" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Finalize">Finalize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_GetTransmitStream_System_Int32_.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.GetTransmitStream(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L607">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_GetTransmitStream_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.GetTransmitStream*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_GetTransmitStream_System_Int32_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.GetTransmitStream(System.Int32)">GetTransmitStream(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets a transmit stream for this connection, optionally specifying a packet size to use with the stream. If a stream is already configured, it will return the existing one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VoiceTransmitStream GetTransmitStream(int sampleDuration = 20)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">sampleDuration</span></td>
+        <td><p>Duration, in ms, to use for audio packets.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.VoiceNext.VoiceTransmitStream.html">VoiceTransmitStream</a></td>
+        <td><p>Transmit stream.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_Pause.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.Pause%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L631">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_Pause_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Pause*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_Pause" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.Pause">Pause()</h4>
+  <div class="markdown level1 summary"><p>Pauses playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pause()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_ResumeAsync.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.ResumeAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L638">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_ResumeAsync_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.ResumeAsync*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_ResumeAsync" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.ResumeAsync">ResumeAsync()</h4>
+  <div class="markdown level1 summary"><p>Asynchronously resumes playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ResumeAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_SendSpeakingAsync_System_Boolean_.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L583">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_SendSpeakingAsync_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_SendSpeakingAsync_System_Boolean_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync(System.Boolean)">SendSpeakingAsync(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sends a speaking status to the connected voice channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendSpeakingAsync(bool speaking = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">speaking</span></td>
+        <td><p>Whether the current user is speaking or not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A task representing the sending operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_WaitForPlaybackFinishAsync.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.WaitForPlaybackFinishAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L622">View Source</a>
+  </span>
+  <a id="DSharpPlus_VoiceNext_VoiceNextConnection_WaitForPlaybackFinishAsync_" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.WaitForPlaybackFinishAsync*"></a>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_WaitForPlaybackFinishAsync" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.WaitForPlaybackFinishAsync">WaitForPlaybackFinishAsync()</h4>
+  <div class="markdown level1 summary"><p>Asynchronously waits for playback to be finished. Playback is finished when speaking = false is signalled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task WaitForPlaybackFinishAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A task representing the waiting operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_UserJoined.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.UserJoined%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L45">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_UserJoined" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.UserJoined">UserJoined</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever a user joins voice in the connected guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;VoiceUserJoinEventArgs&gt; UserJoined</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.VoiceNext.EventArgs.VoiceUserJoinEventArgs.html">VoiceUserJoinEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_UserLeft.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.UserLeft%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L55">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_UserLeft" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.UserLeft">UserLeft</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever a user leaves voice in the connected guild.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;VoiceUserLeaveEventArgs&gt; UserLeft</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.VoiceNext.EventArgs.VoiceUserLeaveEventArgs.html">VoiceUserLeaveEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_UserSpeaking.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.UserSpeaking%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L35">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_UserSpeaking" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.UserSpeaking">UserSpeaking</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever a user speaks in the connected voice channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;UserSpeakingEventArgs&gt; UserSpeaking</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.UserSpeakingEventArgs.html">UserSpeakingEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_VoiceReceived.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.VoiceReceived%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L65">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_VoiceReceived" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.VoiceReceived">VoiceReceived</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever voice data is received from the connected voice channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;VoiceReceiveEventArgs&gt; VoiceReceived</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.VoiceNext.EventArgs.VoiceReceiveEventArgs.html">VoiceReceiveEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection_VoiceSocketErrored.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection.VoiceSocketErrored%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L75">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_VoiceNext_VoiceNextConnection_VoiceSocketErrored" data-uid="DSharpPlus.VoiceNext.VoiceNextConnection.VoiceSocketErrored">VoiceSocketErrored</h4>
+  <div class="markdown level1 summary"><p>Triggered whenever voice WebSocket throws an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketErrorEventArgs&gt; VoiceSocketErrored</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketErrorEventArgs.html">SocketErrorEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_VoiceNext_VoiceNextConnection.md&amp;value=---%0Auid%3A%20DSharpPlus.VoiceNext.VoiceNextConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.VoiceNext/VoiceNextConnection.cs/#L30" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

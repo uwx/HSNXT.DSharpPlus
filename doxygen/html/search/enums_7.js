@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['meburitype',['MebUriType',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder.html#ab83be9225a8afa3ab3bc8147852330e8',1,'HSNXT::DSharpPlus::ModernEmbedBuilder']]],
-  ['mentiontype',['MentionType',['../namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5f',1,'DSharpPlus']]],
-  ['messagetype',['MessageType',['../namespace_d_sharp_plus_1_1_entities.html#a89758f9dba6971a2a5b321f6d58662d4',1,'DSharpPlus::Entities']]],
-  ['mfalevel',['MfaLevel',['../namespace_d_sharp_plus_1_1_entities.html#aacb7b81b89a23f7e8212645fdb1f374b',1,'DSharpPlus::Entities']]],
-  ['modulelifespan',['ModuleLifespan',['../namespace_d_sharp_plus_1_1_commands_next_1_1_attributes.html#a1a209653cac5296f3ecdabdb35f0b1b5',1,'DSharpPlus::CommandsNext::Attributes']]]
+  ['lavalinkloadresulttype',['LavalinkLoadResultType',['../namespace_d_sharp_plus_1_1_lavalink.html#a2598c8e19885d87165ea14fc3dcbb52e',1,'DSharpPlus::Lavalink']]],
+  ['loadfailedseverity',['LoadFailedSeverity',['../namespace_d_sharp_plus_1_1_lavalink.html#a6b80bf9dd5f57e338d623cb5aa471b79',1,'DSharpPlus::Lavalink']]],
+  ['loglevel',['LogLevel',['../namespace_d_sharp_plus.html#a42737263f50dd52059e9c8bd885f5d70',1,'DSharpPlus']]],
+  ['logsource',['LogSource',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended.html#ab9fb9dc7a41ee763ef0994536aa6b210',1,'HSNXT::DSharpPlus::Extended']]]
 ];

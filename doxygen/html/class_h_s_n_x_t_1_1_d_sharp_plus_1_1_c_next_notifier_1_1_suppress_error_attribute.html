@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c
 <div class="title">HSNXT.DSharpPlus.CNextNotifier.SuppressErrorAttribute Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Can be applied onto a command overload method to automatically suppress an exception of a certain type or all types that extend it (unless a more specific attribute is present)  
+ <a href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_suppress_error_attribute.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for HSNXT.DSharpPlus.CNextNotifier.SuppressErrorAttribute:</div>
 <div class="dyncontent">
@@ -109,15 +112,106 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:af921cd23089db49d0961d0c412d044bb"><td class="memItemLeft" align="right" valign="top"><a id="af921cd23089db49d0961d0c412d044bb"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>Message</b><code> [get]</code></td></tr>
-<tr class="separator:af921cd23089db49d0961d0c412d044bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6d7c407a3903100ed53b0cfc0266961"><td class="memItemLeft" align="right" valign="top"><a id="ac6d7c407a3903100ed53b0cfc0266961"></a>
-Type&#160;</td><td class="memItemRight" valign="bottom"><b>ExceptionType</b><code> [get]</code></td></tr>
+<tr class="memitem:ac6d7c407a3903100ed53b0cfc0266961"><td class="memItemLeft" align="right" valign="top">Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_suppress_error_attribute.html#ac6d7c407a3903100ed53b0cfc0266961">ExceptionType</a><code> [get]</code></td></tr>
+<tr class="memdesc:ac6d7c407a3903100ed53b0cfc0266961"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base type of the exception to handle with a message  <a href="#ac6d7c407a3903100ed53b0cfc0266961">More...</a><br /></td></tr>
 <tr class="separator:ac6d7c407a3903100ed53b0cfc0266961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af921cd23089db49d0961d0c412d044bb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_s_n_x_t_1_1_d_sharp_plus_1_1_c_next_notifier_1_1_suppress_error_attribute.html#af921cd23089db49d0961d0c412d044bb">Message</a><code> [get]</code></td></tr>
+<tr class="memdesc:af921cd23089db49d0961d0c412d044bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The message to handle the exception with, either by sending a plain message formatted with arguments (the default) or by calling a custom handler defined when instantiating the extension. In the case of the default handler, the following substrings have special replacements: </p><ul>
+<li>
+{exceptionType} becomes the name of the type of the exception that was thrown (<code>CommandErrorEventArgs.Exception.GetType().Name</code>)  </li>
+<li>
+{exception} becomes the message string of the exception that was thrown (<code>CommandErrorEventArgs.Exception.Message</code>)  </li>
+<li>
+{trace} becomes the stack trace of the exception that was thrown (<code>CommandErrorEventArgs.Exception.StackTrace</code>)  </li>
+<li>
+{traceFull} becomes the string value of the exception that was thrown, usually including the type of the exception, exception message, stack trace, and inner exceptions (<code>CommandErrorEventArgs.Exception.ToString()</code>)  </li>
+<li>
+{messageContent} becomes the content of the message of that invoked the command which failed (<code>CommandContext.Message.Content</code>)  </li>
+<li>
+{command} becomes the qualified name (including all parents) of the command that failed (<code>CommandContext.Command.QualifiedName</code>)  </li>
+<li>
+{args} becomes the raw argument string of the command invocation that failed (<code>CommandContext.RawArgumentString</code>)  </li>
+<li>
+{invoker} becomes the formatted name of the user that invoked the failing command (<code>{CommandContext.User.Username}#{CommandContext.User.Discriminator}</code>)  </li>
+<li>
+{@invoker} becomes the mention string for the user that invoked the failing command (<code>CommandContext.User.Mention</code>)  </li>
+</ul>
+ <a href="#af921cd23089db49d0961d0c412d044bb">More...</a><br /></td></tr>
+<tr class="separator:af921cd23089db49d0961d0c412d044bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Can be applied onto a command overload method to automatically suppress an exception of a certain type or all types that extend it (unless a more specific attribute is present) </p>
+</div><h2 class="groupheader">Property Documentation</h2>
+<a id="ac6d7c407a3903100ed53b0cfc0266961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6d7c407a3903100ed53b0cfc0266961">&#9670;&nbsp;</a></span>ExceptionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Type HSNXT.DSharpPlus.CNextNotifier.SuppressErrorAttribute.ExceptionType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The base type of the exception to handle with a message </p>
+
+</div>
+</div>
+<a id="af921cd23089db49d0961d0c412d044bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af921cd23089db49d0961d0c412d044bb">&#9670;&nbsp;</a></span>Message</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string HSNXT.DSharpPlus.CNextNotifier.SuppressErrorAttribute.Message</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The message to handle the exception with, either by sending a plain message formatted with arguments (the default) or by calling a custom handler defined when instantiating the extension. In the case of the default handler, the following substrings have special replacements: </p><ul>
+<li>
+{exceptionType} becomes the name of the type of the exception that was thrown (<code>CommandErrorEventArgs.Exception.GetType().Name</code>)  </li>
+<li>
+{exception} becomes the message string of the exception that was thrown (<code>CommandErrorEventArgs.Exception.Message</code>)  </li>
+<li>
+{trace} becomes the stack trace of the exception that was thrown (<code>CommandErrorEventArgs.Exception.StackTrace</code>)  </li>
+<li>
+{traceFull} becomes the string value of the exception that was thrown, usually including the type of the exception, exception message, stack trace, and inner exceptions (<code>CommandErrorEventArgs.Exception.ToString()</code>)  </li>
+<li>
+{messageContent} becomes the content of the message of that invoked the command which failed (<code>CommandContext.Message.Content</code>)  </li>
+<li>
+{command} becomes the qualified name (including all parents) of the command that failed (<code>CommandContext.Command.QualifiedName</code>)  </li>
+<li>
+{args} becomes the raw argument string of the command invocation that failed (<code>CommandContext.RawArgumentString</code>)  </li>
+<li>
+{invoker} becomes the formatted name of the user that invoked the failing command (<code>{CommandContext.User.Username}#{CommandContext.User.Discriminator}</code>)  </li>
+<li>
+{@invoker} becomes the mention string for the user that invoked the failing command (<code>CommandContext.User.Mention</code>)  </li>
+</ul>
+</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>HSNXT.DSharpPlus.CNextNotifier/CNextNotifier.cs</li>
+<li>HSNXT.DSharpPlus.CNextNotifier/NotifierExtension.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

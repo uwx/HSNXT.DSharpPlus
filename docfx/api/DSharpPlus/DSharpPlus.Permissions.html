@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum Permissions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum Permissions
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Permissions">
+  
+  
+  <h1 id="DSharpPlus_Permissions" data-uid="DSharpPlus.Permissions" class="text-break">Enum Permissions
+  </h1>
+  <div class="markdown level0 summary"><p>Bitwise permission flags.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.html">DSharpPlus</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Permissions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Flags]
+public enum Permissions : long</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="DSharpPlus_Permissions_AccessChannels">AccessChannels</td>
+        <td><p>Allows accessing text and voice channels. Disabling this permission hides channels.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_AddReactions">AddReactions</td>
+        <td><p>Allows adding reactions to messages.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_Administrator">Administrator</td>
+        <td><p>Enables full access on a given guild. This also overrides other permissions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_All">All</td>
+        <td><p>Indicates all permissions are granted</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_AttachFiles">AttachFiles</td>
+        <td><p>Allows uploading files.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_BanMembers">BanMembers</td>
+        <td><p>Allows banning and unbanning members.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ChangeNickname">ChangeNickname</td>
+        <td><p>Allows changing of own nickname.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_CreateInstantInvite">CreateInstantInvite</td>
+        <td><p>Allows creation of instant channel invites.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_DeafenMembers">DeafenMembers</td>
+        <td><p>Allows deafening other members in voice chat.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_EmbedLinks">EmbedLinks</td>
+        <td><p>Allows embedding content in messages.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_KickMembers">KickMembers</td>
+        <td><p>Allows kicking members.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageChannels">ManageChannels</td>
+        <td><p>Allows managing channels.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageEmojis">ManageEmojis</td>
+        <td><p>Allows managing guild emoji.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageGuild">ManageGuild</td>
+        <td><p>Allows managing the guild.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageMessages">ManageMessages</td>
+        <td><p>Allows managing messages of other users.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageNicknames">ManageNicknames</td>
+        <td><p>Allows managing nicknames of other members.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageRoles">ManageRoles</td>
+        <td><p>Allows managing roles in a guild.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ManageWebhooks">ManageWebhooks</td>
+        <td><p>Allows managing webhooks in a guild.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_MentionEveryone">MentionEveryone</td>
+        <td><p>Allows using @everyone and @here mentions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_MoveMembers">MoveMembers</td>
+        <td><p>Allows moving voice chat members.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_MuteMembers">MuteMembers</td>
+        <td><p>Allows muting other members in voice chat.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_None">None</td>
+        <td><p>Indicates no permissions given.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_PrioritySpeaker">PrioritySpeaker</td>
+        <td><p>Allows the use of priority speaker.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ReadMessageHistory">ReadMessageHistory</td>
+        <td><p>Allows reading message history.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_SendMessages">SendMessages</td>
+        <td><p>Allows sending messages.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_SendTtsMessages">SendTtsMessages</td>
+        <td><p>Allows sending text-to-speech messages.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_Speak">Speak</td>
+        <td><p>Allows speaking in voice chat.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_Stream">Stream</td>
+        <td><p>Allows the user to go live.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_UseExternalEmojis">UseExternalEmojis</td>
+        <td><p>Allows using emojis from external servers, such as twitch or nitro emojis.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_UseVoice">UseVoice</td>
+        <td><p>Allows connecting to voice chat.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_UseVoiceDetection">UseVoiceDetection</td>
+        <td><p>Allows using voice activation in voice chat. Revoking this will usage of push-to-talk.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="DSharpPlus_Permissions_ViewAuditLog">ViewAuditLog</td>
+        <td><p>Allows viewing audit log entries.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DSharpPlus.PermissionMethods.html#DSharpPlus_PermissionMethods_HasPermission_DSharpPlus_Permissions_DSharpPlus_Permissions_">PermissionMethods.HasPermission(Permissions)</a>
+  </div>
+  <div>
+      <a class="xref" href="DSharpPlus.PermissionMethods.html#DSharpPlus_PermissionMethods_Grant_DSharpPlus_Permissions_DSharpPlus_Permissions_">PermissionMethods.Grant(Permissions)</a>
+  </div>
+  <div>
+      <a class="xref" href="DSharpPlus.PermissionMethods.html#DSharpPlus_PermissionMethods_Revoke_DSharpPlus_Permissions_DSharpPlus_Permissions_">PermissionMethods.Revoke(Permissions)</a>
+  </div>
+  <div>
+      <a class="xref" href="DSharpPlus.Utilities.html#DSharpPlus_Utilities_ToPermissionString_DSharpPlus_Permissions_">Utilities.ToPermissionString()</a>
+  </div>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Permissions.md&amp;value=---%0Auid%3A%20DSharpPlus.Permissions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Enums/Permission.cs/#L58" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

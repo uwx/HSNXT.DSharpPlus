@@ -117,9 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abffe8091f6ef46b5fd146d4737105eec"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html#abffe8091f6ef46b5fd146d4737105eec">DeleteAsync</a> ()</td></tr>
 <tr class="memdesc:abffe8091f6ef46b5fd146d4737105eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permanently deletes this webhook.  <a href="#abffe8091f6ef46b5fd146d4737105eec">More...</a><br /></td></tr>
 <tr class="separator:abffe8091f6ef46b5fd146d4737105eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97fc9e1045eedc89850f10cb2dea60a3"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html#a97fc9e1045eedc89850f10cb2dea60a3">ExecuteAsync</a> (string content=null, string username=null, string avatar_url=null, bool tts=false, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_embed.html">DiscordEmbed</a> &gt; embeds=null)</td></tr>
-<tr class="memdesc:a97fc9e1045eedc89850f10cb2dea60a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes this webhook.  <a href="#a97fc9e1045eedc89850f10cb2dea60a3">More...</a><br /></td></tr>
-<tr class="separator:a97fc9e1045eedc89850f10cb2dea60a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3541bb21dc2f37f23b29ab6194215191"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html#a3541bb21dc2f37f23b29ab6194215191">ExecuteAsync</a> (<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html">DiscordWebhookBuilder</a> builder)</td></tr>
+<tr class="memdesc:a3541bb21dc2f37f23b29ab6194215191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes this webhook with the given <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html" title="Constructs ready-to-send webhook requests.">DiscordWebhookBuilder</a>.  <a href="#a3541bb21dc2f37f23b29ab6194215191">More...</a><br /></td></tr>
+<tr class="separator:a3541bb21dc2f37f23b29ab6194215191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2455223f7cc67511e7e734caaaa38656"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html#a2455223f7cc67511e7e734caaaa38656">ExecuteSlackAsync</a> (string json)</td></tr>
 <tr class="memdesc:a2455223f7cc67511e7e734caaaa38656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes this webhook in Slack compatibility mode.  <a href="#a2455223f7cc67511e7e734caaaa38656">More...</a><br /></td></tr>
 <tr class="separator:a2455223f7cc67511e7e734caaaa38656"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,62 +246,29 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a97fc9e1045eedc89850f10cb2dea60a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97fc9e1045eedc89850f10cb2dea60a3">&#9670;&nbsp;</a></span>ExecuteAsync()</h2>
+<a id="a3541bb21dc2f37f23b29ab6194215191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3541bb21dc2f37f23b29ab6194215191">&#9670;&nbsp;</a></span>ExecuteAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Task DSharpPlus.Entities.DiscordWebhook.ExecuteAsync </td>
+          <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_message.html">DiscordMessage</a>&gt; DSharpPlus.Entities.DiscordWebhook.ExecuteAsync </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>content</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html">DiscordWebhookBuilder</a>&#160;</td>
+          <td class="paramname"><em>builder</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>username</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>avatar_url</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>tts</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_embed.html">DiscordEmbed</a> &gt;&#160;</td>
-          <td class="paramname"><em>embeds</em> = <code>null</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Executes this webhook. </p>
+<p>Executes this webhook with the given <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook_builder.html" title="Constructs ready-to-send webhook requests.">DiscordWebhookBuilder</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">content</td><td>The contents of the message to send.</td></tr>
-    <tr><td class="paramname">username</td><td>Username to use for this message.</td></tr>
-    <tr><td class="paramname">avatar_url</td><td>Url of the avatar to use for this message.</td></tr>
-    <tr><td class="paramname">tts</td><td>Whether the message is to be spoken aloud.</td></tr>
-    <tr><td class="paramname">embeds</td><td>Embeds to attach to the message being sent.</td></tr>
+    <tr><td class="paramname">builder</td><td>Webhook builder filled with data to send.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

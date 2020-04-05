@@ -119,9 +119,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b086a6b13fa1f4e6e1c87fbbfb96011"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#a7b086a6b13fa1f4e6e1c87fbbfb96011">Write</a> (byte[] buffer, int offset, int count)</td></tr>
 <tr class="memdesc:a7b086a6b13fa1f4e6e1c87fbbfb96011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes PCM data to the stream. The data is prepared for transmission, and enqueued.  <a href="#a7b086a6b13fa1f4e6e1c87fbbfb96011">More...</a><br /></td></tr>
 <tr class="separator:a7b086a6b13fa1f4e6e1c87fbbfb96011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d1bf5a8e1ea8e2753f057b7f658f3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#ac3d1bf5a8e1ea8e2753f057b7f658f3f">Write</a> (ReadOnlySpan&lt; byte &gt; buffer)</td></tr>
+<tr class="memdesc:ac3d1bf5a8e1ea8e2753f057b7f658f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes PCM data to the stream. The data is prepared for transmission, and enqueued.  <a href="#ac3d1bf5a8e1ea8e2753f057b7f658f3f">More...</a><br /></td></tr>
+<tr class="separator:ac3d1bf5a8e1ea8e2753f057b7f658f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaefa04dbb566f5defdf5497add391b0"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#afaefa04dbb566f5defdf5497add391b0">Flush</a> ()</td></tr>
 <tr class="memdesc:afaefa04dbb566f5defdf5497add391b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the PCM data in this buffer to <a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> packet queue.  <a href="#afaefa04dbb566f5defdf5497add391b0">More...</a><br /></td></tr>
 <tr class="separator:afaefa04dbb566f5defdf5497add391b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8906ae24d62b1517dbbbe741a6d0a93d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#a8906ae24d62b1517dbbbe741a6d0a93d">Pause</a> ()</td></tr>
+<tr class="memdesc:a8906ae24d62b1517dbbbe741a6d0a93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses playback.  <a href="#a8906ae24d62b1517dbbbe741a6d0a93d">More...</a><br /></td></tr>
+<tr class="separator:a8906ae24d62b1517dbbbe741a6d0a93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78dc06f0bf65de6d4f7f9e341b119627"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#a78dc06f0bf65de6d4f7f9e341b119627">ResumeAsync</a> ()</td></tr>
+<tr class="memdesc:a78dc06f0bf65de6d4f7f9e341b119627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes playback.  <a href="#a78dc06f0bf65de6d4f7f9e341b119627">More...</a><br /></td></tr>
+<tr class="separator:a78dc06f0bf65de6d4f7f9e341b119627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347edfcdd4abe99ae8990c36925141f4"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="interface_d_sharp_plus_1_1_voice_next_1_1_i_voice_filter.html">IVoiceFilter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html#a347edfcdd4abe99ae8990c36925141f4">GetInstalledFilters</a> ()</td></tr>
 <tr class="memdesc:a347edfcdd4abe99ae8990c36925141f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of installed PCM filters, in order of their execution.  <a href="#a347edfcdd4abe99ae8990c36925141f4">More...</a><br /></td></tr>
 <tr class="separator:a347edfcdd4abe99ae8990c36925141f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,7 +305,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <a id="a7b086a6b13fa1f4e6e1c87fbbfb96011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b086a6b13fa1f4e6e1c87fbbfb96011">&#9670;&nbsp;</a></span>Write()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b086a6b13fa1f4e6e1c87fbbfb96011">&#9670;&nbsp;</a></span>Write() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,6 +356,40 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="ac3d1bf5a8e1ea8e2753f057b7f658f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d1bf5a8e1ea8e2753f057b7f658f3f">&#9670;&nbsp;</a></span>Write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DSharpPlus.VoiceNext.VoiceTransmitStream.Write </td>
+          <td>(</td>
+          <td class="paramtype">ReadOnlySpan&lt; byte &gt;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes PCM data to the stream. The data is prepared for transmission, and enqueued. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>PCM data buffer to send.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="afaefa04dbb566f5defdf5497add391b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afaefa04dbb566f5defdf5497add391b0">&#9670;&nbsp;</a></span>Flush()</h2>
 
@@ -371,6 +414,45 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Flushes the rest of the PCM data in this buffer to <a class="el" href="namespace_d_sharp_plus_1_1_voice_next.html">VoiceNext</a> packet queue. </p>
+
+</div>
+</div>
+<a id="a8906ae24d62b1517dbbbe741a6d0a93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8906ae24d62b1517dbbbe741a6d0a93d">&#9670;&nbsp;</a></span>Pause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DSharpPlus.VoiceNext.VoiceTransmitStream.Pause </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pauses playback. </p>
+
+</div>
+</div>
+<a id="a78dc06f0bf65de6d4f7f9e341b119627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78dc06f0bf65de6d4f7f9e341b119627">&#9670;&nbsp;</a></span>ResumeAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task DSharpPlus.VoiceNext.VoiceTransmitStream.ResumeAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resumes playback. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

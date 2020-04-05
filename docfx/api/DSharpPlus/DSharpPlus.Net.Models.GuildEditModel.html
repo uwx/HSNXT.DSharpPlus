@@ -1,0 +1,633 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GuildEditModel
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GuildEditModel
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Net.Models.GuildEditModel">
+  
+  
+  <h1 id="DSharpPlus_Net_Models_GuildEditModel" data-uid="DSharpPlus.Net.Models.GuildEditModel" class="text-break">Class GuildEditModel
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="DSharpPlus.Net.Models.BaseEditModel.html">BaseEditModel</a></div>
+    <div class="level2"><span class="xref">GuildEditModel</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="DSharpPlus.Net.Models.BaseEditModel.html#DSharpPlus_Net_Models_BaseEditModel_AuditLogReason">BaseEditModel.AuditLogReason</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Net.Models.html">DSharpPlus.Net.Models</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Net_Models_GuildEditModel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GuildEditModel : BaseEditModel</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_AfkChannel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.AfkChannel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L46">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_AfkChannel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.AfkChannel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_AfkChannel" data-uid="DSharpPlus.Net.Models.GuildEditModel.AfkChannel">AfkChannel</h4>
+  <div class="markdown level1 summary"><p>The new AFK voice channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordChannel&gt; AfkChannel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_AfkTimeout.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.AfkTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L51">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_AfkTimeout_" data-uid="DSharpPlus.Net.Models.GuildEditModel.AfkTimeout*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_AfkTimeout" data-uid="DSharpPlus.Net.Models.GuildEditModel.AfkTimeout">AfkTimeout</h4>
+  <div class="markdown level1 summary"><p>The new AFK timeout time in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;int&gt; AfkTimeout { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_DefaultMessageNotifications.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.DefaultMessageNotifications%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L31">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_DefaultMessageNotifications_" data-uid="DSharpPlus.Net.Models.GuildEditModel.DefaultMessageNotifications*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_DefaultMessageNotifications" data-uid="DSharpPlus.Net.Models.GuildEditModel.DefaultMessageNotifications">DefaultMessageNotifications</h4>
+  <div class="markdown level1 summary"><p>The new guild default message notification level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DefaultMessageNotifications&gt; DefaultMessageNotifications { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DefaultMessageNotifications.html">DefaultMessageNotifications</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_ExplicitContentFilter.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.ExplicitContentFilter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L41">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_ExplicitContentFilter_" data-uid="DSharpPlus.Net.Models.GuildEditModel.ExplicitContentFilter*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_ExplicitContentFilter" data-uid="DSharpPlus.Net.Models.GuildEditModel.ExplicitContentFilter">ExplicitContentFilter</h4>
+  <div class="markdown level1 summary"><p>The new guild explicit content filter level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;ExplicitContentFilter&gt; ExplicitContentFilter { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.ExplicitContentFilter.html">ExplicitContentFilter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_Icon.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.Icon%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L21">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_Icon_" data-uid="DSharpPlus.Net.Models.GuildEditModel.Icon*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_Icon" data-uid="DSharpPlus.Net.Models.GuildEditModel.Icon">Icon</h4>
+  <div class="markdown level1 summary"><p>The new guild icon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;Stream&gt; Icon { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_MfaLevel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.MfaLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L36">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_MfaLevel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.MfaLevel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_MfaLevel" data-uid="DSharpPlus.Net.Models.GuildEditModel.MfaLevel">MfaLevel</h4>
+  <div class="markdown level1 summary"><p>The new guild MFA level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;MfaLevel&gt; MfaLevel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.MfaLevel.html">MfaLevel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_Name.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L11">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_Name_" data-uid="DSharpPlus.Net.Models.GuildEditModel.Name*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_Name" data-uid="DSharpPlus.Net.Models.GuildEditModel.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The new guild name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;string&gt; Name { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_Owner.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.Owner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L56">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_Owner_" data-uid="DSharpPlus.Net.Models.GuildEditModel.Owner*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_Owner" data-uid="DSharpPlus.Net.Models.GuildEditModel.Owner">Owner</h4>
+  <div class="markdown level1 summary"><p>The new guild owner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordMember&gt; Owner { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordMember.html">DiscordMember</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_PreferredLocale.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.PreferredLocale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L81">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_PreferredLocale_" data-uid="DSharpPlus.Net.Models.GuildEditModel.PreferredLocale*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_PreferredLocale" data-uid="DSharpPlus.Net.Models.GuildEditModel.PreferredLocale">PreferredLocale</h4>
+  <div class="markdown level1 summary"><p>The new guild preferred locale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;string&gt; PreferredLocale { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_PublicUpdatesChannel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.PublicUpdatesChannel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L76">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_PublicUpdatesChannel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.PublicUpdatesChannel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_PublicUpdatesChannel" data-uid="DSharpPlus.Net.Models.GuildEditModel.PublicUpdatesChannel">PublicUpdatesChannel</h4>
+  <div class="markdown level1 summary"><p>The new guild public updates channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordChannel&gt; PublicUpdatesChannel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_Region.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.Region%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L16">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_Region_" data-uid="DSharpPlus.Net.Models.GuildEditModel.Region*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_Region" data-uid="DSharpPlus.Net.Models.GuildEditModel.Region">Region</h4>
+  <div class="markdown level1 summary"><p>The new guild voice region.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordVoiceRegion&gt; Region { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordVoiceRegion.html">DiscordVoiceRegion</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_RulesChannel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.RulesChannel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L71">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_RulesChannel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.RulesChannel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_RulesChannel" data-uid="DSharpPlus.Net.Models.GuildEditModel.RulesChannel">RulesChannel</h4>
+  <div class="markdown level1 summary"><p>The new guild rules channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordChannel&gt; RulesChannel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_Splash.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.Splash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L61">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_Splash_" data-uid="DSharpPlus.Net.Models.GuildEditModel.Splash*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_Splash" data-uid="DSharpPlus.Net.Models.GuildEditModel.Splash">Splash</h4>
+  <div class="markdown level1 summary"><p>The new guild splash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;Stream&gt; Splash { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_SystemChannel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.SystemChannel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L66">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_SystemChannel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.SystemChannel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_SystemChannel" data-uid="DSharpPlus.Net.Models.GuildEditModel.SystemChannel">SystemChannel</h4>
+  <div class="markdown level1 summary"><p>The new guild system channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;DiscordChannel&gt; SystemChannel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.DiscordChannel.html">DiscordChannel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel_VerificationLevel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel.VerificationLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L26">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_Models_GuildEditModel_VerificationLevel_" data-uid="DSharpPlus.Net.Models.GuildEditModel.VerificationLevel*"></a>
+  <h4 id="DSharpPlus_Net_Models_GuildEditModel_VerificationLevel" data-uid="DSharpPlus.Net.Models.GuildEditModel.VerificationLevel">VerificationLevel</h4>
+  <div class="markdown level1 summary"><p>The new guild verification level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;VerificationLevel&gt; VerificationLevel { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Entities.Optional-1.html">Optional</a>&lt;<a class="xref" href="DSharpPlus.Entities.VerificationLevel.html">VerificationLevel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_Models_GuildEditModel.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.Models.GuildEditModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/Models/GuildEditModel.cs/#L6" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

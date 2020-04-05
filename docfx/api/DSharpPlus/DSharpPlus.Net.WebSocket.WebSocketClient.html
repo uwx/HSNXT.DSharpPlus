@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WebSocketClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WebSocketClient
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient">
+  
+  
+  <h1 id="DSharpPlus_Net_WebSocket_WebSocketClient" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient" class="text-break">Class WebSocketClient
+  </h1>
+  <div class="markdown level0 summary"><p>The default, native-based WebSocket client implementation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">WebSocketClient</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DSharpPlus.Net.WebSocket.html">DSharpPlus.Net.WebSocket</a></h6>
+  <h6><strong>Assembly</strong>: DSharpPlus.dll</h6>
+  <h5 id="DSharpPlus_Net_WebSocket_WebSocketClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebSocketClient : IWebSocketClient, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_DefaultHeaders.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.DefaultHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L27">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_DefaultHeaders_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.DefaultHeaders*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_DefaultHeaders" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.DefaultHeaders">DefaultHeaders</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of default headers to send when connecting to the remote endpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, string&gt; DefaultHeaders { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_DefaultHeaders">IWebSocketClient.DefaultHeaders</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_Proxy.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.Proxy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L24">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_Proxy_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Proxy*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_Proxy" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Proxy">Proxy</h4>
+  <div class="markdown level1 summary"><p>Gets the proxy settings for this client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IWebProxy Proxy { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.iwebproxy">IWebProxy</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_Proxy">IWebSocketClient.Proxy</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_AddDefaultHeader_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.AddDefaultHeader(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L170">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_AddDefaultHeader_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.AddDefaultHeader*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_AddDefaultHeader_System_String_System_String_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.AddDefaultHeader(System.String,System.String)">AddDefaultHeader(String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a header to the default header collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddDefaultHeader(string name, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the header to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value of the header to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the operation succeeded.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_AddDefaultHeader_System_String_System_String_">IWebSocketClient.AddDefaultHeader(String, String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_ConnectAsync_System_Uri_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.ConnectAsync(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L66">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_ConnectAsync_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.ConnectAsync*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_ConnectAsync_System_Uri_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.ConnectAsync(System.Uri)">ConnectAsync(Uri)</h4>
+  <div class="markdown level1 summary"><p>Connects to a specified remote WebSocket endpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ConnectAsync(Uri uri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">uri</span></td>
+        <td><p>The URI of the WebSocket endpoint.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_ConnectAsync_System_Uri_">IWebSocketClient.ConnectAsync(Uri)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_CreateNew_System_Net_IWebProxy_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.CreateNew(System.Net.IWebProxy)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L271">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_CreateNew_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.CreateNew*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_CreateNew_System_Net_IWebProxy_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.CreateNew(System.Net.IWebProxy)">CreateNew(IWebProxy)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="DSharpPlus.Net.WebSocket.WebSocketClient.html">WebSocketClient</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IWebSocketClient CreateNew(IWebProxy proxy)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.iwebproxy">IWebProxy</a></td>
+        <td><span class="parametername">proxy</span></td>
+        <td><p>Proxy to use for this client instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html">IWebSocketClient</a></td>
+        <td><p>An instance of <a class="xref" href="DSharpPlus.Net.WebSocket.WebSocketClient.html">WebSocketClient</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_DisconnectAsync_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.DisconnectAsync(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L106">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_DisconnectAsync_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.DisconnectAsync*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_DisconnectAsync_System_Int32_System_String_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.DisconnectAsync(System.Int32,System.String)">DisconnectAsync(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Disconnects the WebSocket connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DisconnectAsync(int code = 1000, string message = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">code</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_DisconnectAsync_System_Int32_System_String_">IWebSocketClient.DisconnectAsync(Int32, String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_Dispose.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L183">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_Dispose_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Dispose*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_Dispose" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Disposes of resources used by this WebSocket client instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_RemoveDefaultHeader_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.RemoveDefaultHeader(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L177">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_RemoveDefaultHeader_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.RemoveDefaultHeader*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_RemoveDefaultHeader_System_String_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.RemoveDefaultHeader(System.String)">RemoveDefaultHeader(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a header from the default header collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveDefaultHeader(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the header to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Whether the operation succeeded.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_RemoveDefaultHeader_System_String_">IWebSocketClient.RemoveDefaultHeader(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_SendMessageAsync_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.SendMessageAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L141">View Source</a>
+  </span>
+  <a id="DSharpPlus_Net_WebSocket_WebSocketClient_SendMessageAsync_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.SendMessageAsync*"></a>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_SendMessageAsync_System_String_" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.SendMessageAsync(System.String)">SendMessageAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Send a message to the WebSocket server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendMessageAsync(string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_SendMessageAsync_System_String_">IWebSocketClient.SendMessageAsync(String)</a></div>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_Connected.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.Connected%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L278">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_Connected" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Connected">Connected</h4>
+  <div class="markdown level1 summary"><p>Triggered when the client connects successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler Connected</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler.html">AsyncEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_Connected">IWebSocketClient.Connected</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_Disconnected.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.Disconnected%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L288">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_Disconnected" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.Disconnected">Disconnected</h4>
+  <div class="markdown level1 summary"><p>Triggered when the client is disconnected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketCloseEventArgs&gt; Disconnected</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketCloseEventArgs.html">SocketCloseEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_Disconnected">IWebSocketClient.Disconnected</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_ExceptionThrown.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.ExceptionThrown%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L308">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_ExceptionThrown" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.ExceptionThrown">ExceptionThrown</h4>
+  <div class="markdown level1 summary"><p>Triggered when an error occurs in the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketErrorEventArgs&gt; ExceptionThrown</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketErrorEventArgs.html">SocketErrorEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_ExceptionThrown">IWebSocketClient.ExceptionThrown</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient_MessageReceived.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient.MessageReceived%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L298">View Source</a>
+  </span>
+  <h4 id="DSharpPlus_Net_WebSocket_WebSocketClient_MessageReceived" data-uid="DSharpPlus.Net.WebSocket.WebSocketClient.MessageReceived">MessageReceived</h4>
+  <div class="markdown level1 summary"><p>Triggered when the client receives a message from the remote party.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AsyncEventHandler&lt;SocketMessageEventArgs&gt; MessageReceived</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DSharpPlus.AsyncEventHandler-1.html">AsyncEventHandler</a>&lt;<a class="xref" href="DSharpPlus.EventArgs.SocketMessageEventArgs.html">SocketMessageEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DSharpPlus.Net.WebSocket.IWebSocketClient.html#DSharpPlus_Net_WebSocket_IWebSocketClient_MessageReceived">IWebSocketClient.MessageReceived</a></div>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Net_WebSocket_WebSocketClient.md&amp;value=---%0Auid%3A%20DSharpPlus.Net.WebSocket.WebSocketClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Net/WebSocket/WebSocketClient.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            © 2017-2019 uwx. DSharpPlus is copyright © 2017-2019 DSharpPlus development team. uwx's DSharpPlus Extensions is not supported or endorsed by the DSharpPlus development team.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
