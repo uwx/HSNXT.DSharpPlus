@@ -5,7 +5,6 @@
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.CommandsNext" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.Rest" />
     <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.VoiceNext" />
-    <content url="file://$MODULE_DIR$/../../../DSharpPlus/DSharpPlus.WebSocket.WebSocket4NetCore" />
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

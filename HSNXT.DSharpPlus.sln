@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.Extended.Lite", "HSNXT.DSharpPlus.Extended.Lite\HSNXT.DSharpPlus.Extended.Lite.csproj", "{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.WebSocket.WebSocket4NetCore", "..\DSharpPlus\DSharpPlus.WebSocket.WebSocket4NetCore\DSharpPlus.WebSocket.WebSocket4NetCore.csproj", "{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.Rest", "..\DSharpPlus\DSharpPlus.Rest\DSharpPlus.Rest.csproj", "{77B91F68-B290-4797-A826-7C5F515D62AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.VoiceNext", "..\DSharpPlus\DSharpPlus.VoiceNext\DSharpPlus.VoiceNext.csproj", "{5BB34BF9-ACC1-42B1-9336-BE56E68CF4B8}"
@@ -57,10 +55,6 @@ Global
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEB46B1B-54EB-4372-8B53-6F4EBBE199E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{834A0F31-6D31-4C8D-94D7-E6D70BC89D25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B91F68-B290-4797-A826-7C5F515D62AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
