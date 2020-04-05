@@ -15,7 +15,7 @@
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Discord, Discord API, Bots, Discord Bots, Chat, DSharp, DSharpPlus, C#, .NET</PackageTags>
 
-        <MajorVersion>4</MajorVersion>
+        <MajorVersion>5</MajorVersion>
         <DSharpPlusTarget>4</DSharpPlusTarget>
     </PropertyGroup>
     
