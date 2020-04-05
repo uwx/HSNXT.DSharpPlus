@@ -93,7 +93,7 @@ namespace HSNXT.DSharpPlus.Extended
 
             _watchdog = new Watchdog((handleSrc, reason, thread, time) =>
             {
-                reason = reason ?? $"The thread at {thread.Name ?? "<no name>"} with ID {thread.ManagedThreadId}";
+                reason ??= $"The thread at {thread.Name ?? "<no name>"} with ID {thread.ManagedThreadId}";
                 
                 Log[LogSource.TimeoutExceeded]($"{reason} has taken at least {time} to complete its current operation. This may be a deadlock");
             }, log: Log[LogSource.WatchdogDebug]);
