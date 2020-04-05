@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DSharpPlus.CommandsNext.Attributes
@@ -15,10 +16,11 @@ namespace DSharpPlus.CommandsNext.Attributes
             var app = ctx.Client.CurrentApplication;
             var me = ctx.Client.CurrentUser;
 
-            if (app != null)
-                return Task.FromResult(ctx.User.Id == app.Owner.Id);
-
-            return Task.FromResult(ctx.User.Id == me.Id);
+            return Task.FromResult(
+                app != null
+                    ? app.Owners.Any(x => x.Id == ctx.User.Id)
+                    : ctx.User.Id == me.Id
+            );
         }
     }
 }
