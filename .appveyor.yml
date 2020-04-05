@@ -31,8 +31,8 @@ build_script:
   - cmd: dotnet pack "HSNXT.DSharpPlus.sln" -c Release -o "Packaged" --no-build --include-symbols
  
 artifacts:
-  - path: '**\Packaged\*.nupkg'
-  
+  - path: '**\Packaged\HSNXT.*.nupkg'
+
 # Automatically register private account and/or project AppVeyor NuGet feeds.
 nuget:
   account_feed: false
@@ -44,9 +44,7 @@ deploy:
     skip_symbols: false
     api_key:
       secure: JLjMYOq3qi+ufhrG7RW0ruPttMFub/anRnFHckBxMO5GvL3W0CVYd2CZpR4zQVqj
-    # don't push D#+ packages
-    artifact: /^(?:(?!(?:Packaged\\)?DSharpPlus)).*\.nupkg$/
-   
+
 after_deploy:
 # setup auth
   - git config --global credential.helper store
