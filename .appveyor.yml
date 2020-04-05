@@ -43,7 +43,7 @@ deploy:
   - provider: NuGet
     skip_symbols: false
     api_key:
-      secure: A8JdC8M46tJ0WR+LjRq2cHuMfjCOEZ2xU7c75iayd7AnNvgqq7XrCKV5uGyeTpZL
+      secure: JLjMYOq3qi+ufhrG7RW0ruPttMFub/anRnFHckBxMO5GvL3W0CVYd2CZpR4zQVqj
     # don't push D#+ packages, also don't push test packages
     artifact: /^(?:(?!DSharpPlus|HSNXT\.Test)).*\.nupkg/
    
