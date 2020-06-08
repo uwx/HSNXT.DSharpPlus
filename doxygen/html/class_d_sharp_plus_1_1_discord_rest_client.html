@@ -274,9 +274,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83f62884893afcb27dba7384d96ef776"><td class="memItemLeft" align="right" valign="top">Task&lt; IReadOnlyList&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a83f62884893afcb27dba7384d96ef776">GetGuildRolesAsync</a> (ulong guild_id)</td></tr>
 <tr class="memdesc:a83f62884893afcb27dba7384d96ef776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets roles  <a href="#a83f62884893afcb27dba7384d96ef776">More...</a><br /></td></tr>
 <tr class="separator:a83f62884893afcb27dba7384d96ef776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85d72401625e2a78479a56b1551725e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#ac85d72401625e2a78479a56b1551725e">GetGuildAsync</a> (ulong guild_id)</td></tr>
-<tr class="memdesc:ac85d72401625e2a78479a56b1551725e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a guild object  <a href="#ac85d72401625e2a78479a56b1551725e">More...</a><br /></td></tr>
-<tr class="separator:ac85d72401625e2a78479a56b1551725e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ed519079775dd60634df79ef95c66f"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a17ed519079775dd60634df79ef95c66f">GetGuildAsync</a> (ulong guild_id, bool? with_counts=null)</td></tr>
+<tr class="memdesc:a17ed519079775dd60634df79ef95c66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a guild.  <a href="#a17ed519079775dd60634df79ef95c66f">More...</a><br /></td></tr>
+<tr class="separator:a17ed519079775dd60634df79ef95c66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82be8b0b58375f1793dfcece04a88e65"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a82be8b0b58375f1793dfcece04a88e65">ModifyGuildRoleAsync</a> (ulong guild_id, ulong role_id, string name, <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98a">Permissions</a>? permissions, <a class="el" href="struct_d_sharp_plus_1_1_entities_1_1_discord_color.html">DiscordColor</a>? color, bool? hoist, bool? mentionable, string reason)</td></tr>
 <tr class="memdesc:a82be8b0b58375f1793dfcece04a88e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifies a role  <a href="#a82be8b0b58375f1793dfcece04a88e65">More...</a><br /></td></tr>
 <tr class="separator:a82be8b0b58375f1793dfcece04a88e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,12 +289,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7d2ffe17ba6b308a69e876dcaad78ab8"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a7d2ffe17ba6b308a69e876dcaad78ab8">CreateGuildRoleAsync</a> (ulong guild_id, string name, <a class="el" href="namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98a">Permissions</a>? permissions, int? color, bool? hoist, bool? mentionable, string reason)</td></tr>
 <tr class="memdesc:a7d2ffe17ba6b308a69e876dcaad78ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new role  <a href="#a7d2ffe17ba6b308a69e876dcaad78ab8">More...</a><br /></td></tr>
 <tr class="separator:a7d2ffe17ba6b308a69e876dcaad78ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b85b53240971900580d6d8f9c0dfa91"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a3b85b53240971900580d6d8f9c0dfa91">GetGuildPruneCountAsync</a> (ulong guild_id, int days)</td></tr>
-<tr class="memdesc:a3b85b53240971900580d6d8f9c0dfa91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a guild's prune count  <a href="#a3b85b53240971900580d6d8f9c0dfa91">More...</a><br /></td></tr>
-<tr class="separator:a3b85b53240971900580d6d8f9c0dfa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9b780da6ff2cdd7b868f2d2cde683ef"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#ac9b780da6ff2cdd7b868f2d2cde683ef">BeginGuildPruneAsync</a> (ulong guild_id, int days, string reason)</td></tr>
-<tr class="memdesc:ac9b780da6ff2cdd7b868f2d2cde683ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a guild prune  <a href="#ac9b780da6ff2cdd7b868f2d2cde683ef">More...</a><br /></td></tr>
-<tr class="separator:ac9b780da6ff2cdd7b868f2d2cde683ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f27ef1e0b348f87518a051d4b7f50a0"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a2f27ef1e0b348f87518a051d4b7f50a0">GetGuildPruneCountAsync</a> (ulong guild_id, int days, IEnumerable&lt; ulong &gt; include_roles)</td></tr>
+<tr class="memdesc:a2f27ef1e0b348f87518a051d4b7f50a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a guild's prune count.  <a href="#a2f27ef1e0b348f87518a051d4b7f50a0">More...</a><br /></td></tr>
+<tr class="separator:a2f27ef1e0b348f87518a051d4b7f50a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdab1b30ef1f794888e8df4e31e3aa5f"><td class="memItemLeft" align="right" valign="top">Task&lt; int?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#afdab1b30ef1f794888e8df4e31e3aa5f">BeginGuildPruneAsync</a> (ulong guild_id, int days, bool compute_prune_count, IEnumerable&lt; ulong &gt; include_roles, string reason)</td></tr>
+<tr class="memdesc:afdab1b30ef1f794888e8df4e31e3aa5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a guild prune.  <a href="#afdab1b30ef1f794888e8df4e31e3aa5f">More...</a><br /></td></tr>
+<tr class="separator:afdab1b30ef1f794888e8df4e31e3aa5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b2924802ade3b7252c0bfcc9db69483"><td class="memItemLeft" align="right" valign="top">Task&lt; IReadOnlyList&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_integration.html">DiscordIntegration</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_rest_client.html#a8b2924802ade3b7252c0bfcc9db69483">GetGuildIntegrationsAsync</a> (ulong guild_id)</td></tr>
 <tr class="memdesc:a8b2924802ade3b7252c0bfcc9db69483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets guild integrations  <a href="#a8b2924802ade3b7252c0bfcc9db69483">More...</a><br /></td></tr>
 <tr class="separator:a8b2924802ade3b7252c0bfcc9db69483"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3076,8 +3076,8 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
 
 </div>
 </div>
-<a id="ac85d72401625e2a78479a56b1551725e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac85d72401625e2a78479a56b1551725e">&#9670;&nbsp;</a></span>GetGuildAsync()</h2>
+<a id="a17ed519079775dd60634df79ef95c66f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17ed519079775dd60634df79ef95c66f">&#9670;&nbsp;</a></span>GetGuildAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3086,16 +3086,27 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
           <td class="memname">Task&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a>&gt; DSharpPlus.DiscordRestClient.GetGuildAsync </td>
           <td>(</td>
           <td class="paramtype">ulong&#160;</td>
-          <td class="paramname"><em>guild_id</em></td><td>)</td>
+          <td class="paramname"><em>guild_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool?&#160;</td>
+          <td class="paramname"><em>with_counts</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets a guild object </p>
+<p>Gets a guild. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">guild_id</td><td>Guild id</td></tr>
+    <tr><td class="paramname">guild_id</td><td>The guild ID to search for.</td></tr>
+    <tr><td class="paramname">with_counts</td><td>Whether to include approximate presence and member counts in the returned guild.</td></tr>
   </table>
   </dd>
 </dl>
@@ -3354,8 +3365,8 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
 
 </div>
 </div>
-<a id="a3b85b53240971900580d6d8f9c0dfa91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b85b53240971900580d6d8f9c0dfa91">&#9670;&nbsp;</a></span>GetGuildPruneCountAsync()</h2>
+<a id="a2f27ef1e0b348f87518a051d4b7f50a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f27ef1e0b348f87518a051d4b7f50a0">&#9670;&nbsp;</a></span>GetGuildPruneCountAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3370,7 +3381,13 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>days</em>&#160;</td>
+          <td class="paramname"><em>days</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; ulong &gt;&#160;</td>
+          <td class="paramname"><em>include_roles</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3380,11 +3397,12 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
       </table>
 </div><div class="memdoc">
 
-<p>Get a guild's prune count </p>
+<p>Get a guild's prune count. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">guild_id</td><td>Guild id</td></tr>
     <tr><td class="paramname">days</td><td>Days to check for</td></tr>
+    <tr><td class="paramname">include_roles</td><td>The roles to be included in the prune.</td></tr>
   </table>
   </dd>
 </dl>
@@ -3392,14 +3410,14 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
 
 </div>
 </div>
-<a id="ac9b780da6ff2cdd7b868f2d2cde683ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9b780da6ff2cdd7b868f2d2cde683ef">&#9670;&nbsp;</a></span>BeginGuildPruneAsync()</h2>
+<a id="afdab1b30ef1f794888e8df4e31e3aa5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdab1b30ef1f794888e8df4e31e3aa5f">&#9670;&nbsp;</a></span>BeginGuildPruneAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt;int&gt; DSharpPlus.DiscordRestClient.BeginGuildPruneAsync </td>
+          <td class="memname">Task&lt;int?&gt; DSharpPlus.DiscordRestClient.BeginGuildPruneAsync </td>
           <td>(</td>
           <td class="paramtype">ulong&#160;</td>
           <td class="paramname"><em>guild_id</em>, </td>
@@ -3409,6 +3427,18 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>days</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>compute_prune_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; ulong &gt;&#160;</td>
+          <td class="paramname"><em>include_roles</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -3424,11 +3454,13 @@ internal <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html">
       </table>
 </div><div class="memdoc">
 
-<p>Begins a guild prune </p>
+<p>Begins a guild prune. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">guild_id</td><td>Guild id</td></tr>
     <tr><td class="paramname">days</td><td>Days to prune for</td></tr>
+    <tr><td class="paramname">compute_prune_count</td><td>Whether to return the prune count after this method completes. This is discouraged for larger guilds.</td></tr>
+    <tr><td class="paramname">include_roles</td><td>The roles to be included in the prune.</td></tr>
     <tr><td class="paramname">reason</td><td>Reason why this guild was pruned</td></tr>
   </table>
   </dd>

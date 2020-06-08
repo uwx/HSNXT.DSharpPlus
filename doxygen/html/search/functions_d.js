@@ -14,5 +14,5 @@ var searchData=
   ['poller',['Poller',['../class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_poller.html#a52535968645f9529e46266123c4eed0b',1,'DSharpPlus::Interactivity::EventHandling::Poller']]],
   ['pollrequest',['PollRequest',['../class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_poll_request.html#abac9ad25a27dc7b4c2151e8d1b1a0edf',1,'DSharpPlus::Interactivity::EventHandling::PollRequest']]],
   ['previouspageasync',['PreviousPageAsync',['../interface_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_i_pagination_request.html#a25f156ebe79eefcd164c559f351c3f0d',1,'DSharpPlus.Interactivity.EventHandling.IPaginationRequest.PreviousPageAsync()'],['../class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_pagination_request.html#a0afb3bcd40ecd12044eee975f712dee6',1,'DSharpPlus.Interactivity.EventHandling.PaginationRequest.PreviousPageAsync()'],['../class_d_sharp_plus_1_1_test_1_1_test_bot_paginator.html#aae599d1a056a6f36e1ed6e554d4001c5',1,'DSharpPlus.Test.TestBotPaginator.PreviousPageAsync()']]],
-  ['pruneasync',['PruneAsync',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a360403949f133daea2d101cb9910fd21',1,'DSharpPlus::Entities::DiscordGuild']]]
+  ['pruneasync',['PruneAsync',['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a3e03113890f43d3683dbc098d5595299',1,'DSharpPlus::Entities::DiscordGuild']]]
 ];

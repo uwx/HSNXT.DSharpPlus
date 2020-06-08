@@ -16,7 +16,7 @@ var searchData=
   ['voicespeakingpayload',['VoiceSpeakingPayload',['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_speaking_payload.html',1,'DSharpPlus::VoiceNext::Entities']]],
   ['voicestateupdate',['VoiceStateUpdate',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_voice_state_update.html',1,'DSharpPlus::Net::Abstractions']]],
   ['voicestateupdateeventargs',['VoiceStateUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_voice_state_update_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['voicestateupdatepayload',['VoiceStateUpdatePayload',['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_state_update_payload.html',1,'DSharpPlus.Lavalink.Entities.VoiceStateUpdatePayload'],['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_state_update_payload.html',1,'DSharpPlus.VoiceNext.Entities.VoiceStateUpdatePayload']]],
+  ['voicestateupdatepayload',['VoiceStateUpdatePayload',['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_state_update_payload.html',1,'DSharpPlus.VoiceNext.Entities.VoiceStateUpdatePayload'],['../class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_state_update_payload.html',1,'DSharpPlus.Lavalink.Entities.VoiceStateUpdatePayload']]],
   ['voicetransmitstream',['VoiceTransmitStream',['../class_d_sharp_plus_1_1_voice_next_1_1_voice_transmit_stream.html',1,'DSharpPlus::VoiceNext']]],
   ['voiceuserjoineventargs',['VoiceUserJoinEventArgs',['../class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_user_join_event_args.html',1,'DSharpPlus::VoiceNext::EventArgs']]],
   ['voiceuserjoinpayload',['VoiceUserJoinPayload',['../class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_user_join_payload.html',1,'DSharpPlus::VoiceNext::Entities']]],

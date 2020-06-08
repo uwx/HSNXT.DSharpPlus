@@ -40,5 +40,7 @@ var class_d_sharp_plus_1_1_entities_1_1_discord_member =
     [ "Email", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a52b4aed71f6c149d11561cdad45c1915", null ],
     [ "MfaEnabled", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#aeba1139d5433f8ec802436bd84d647c8", null ],
     [ "Verified", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#acef61806d3a201278836a2a74a97403d", null ],
-    [ "Locale", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a67a15ac9c7ee45d86a3a2b77403a4a43", null ]
+    [ "Locale", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a67a15ac9c7ee45d86a3a2b77403a4a43", null ],
+    [ "OAuthFlags", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a45efb85a53da8546cff1c0f86d87cbc3", null ],
+    [ "Flags", "class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a5bdb403d614ace39e95ee320be3fe793", null ]
 ];

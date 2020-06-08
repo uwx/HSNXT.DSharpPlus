@@ -12,5 +12,7 @@ var class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket =
     [ "Route", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a04fcba9e0e495ead66c5276b97f289b5", null ],
     [ "Method", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a33b3327d03ede81810a2747927c8b25a", null ],
     [ "Maximum", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a1e8864d27d40567d859452d0564e8e56", null ],
-    [ "Reset", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a331521dea888bf1dc770a71d29be22ac", null ]
+    [ "Reset", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a331521dea888bf1dc770a71d29be22ac", null ],
+    [ "ResetAfter", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a174262aa87d30880c03782f5e5755df9", null ],
+    [ "_resetAfterOffset", "class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a765fc0c0253d221d1d80c61595a05728", null ]
 ];

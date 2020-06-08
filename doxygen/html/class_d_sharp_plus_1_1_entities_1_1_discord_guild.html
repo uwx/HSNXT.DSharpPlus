@@ -152,12 +152,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a95feba397ec904c2a56d3880676e5762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82d9631f0a89392818b891f307fb0005"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a82d9631f0a89392818b891f307fb0005">DeleteAllChannelsAsync</a> ()</td></tr>
 <tr class="separator:a82d9631f0a89392818b891f307fb0005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab99fc102d5c5fc44b2c1e61e55f81392"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#ab99fc102d5c5fc44b2c1e61e55f81392">GetPruneCountAsync</a> (int days)</td></tr>
-<tr class="memdesc:ab99fc102d5c5fc44b2c1e61e55f81392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimates the number of users to be pruned.  <a href="#ab99fc102d5c5fc44b2c1e61e55f81392">More...</a><br /></td></tr>
-<tr class="separator:ab99fc102d5c5fc44b2c1e61e55f81392"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a360403949f133daea2d101cb9910fd21"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a360403949f133daea2d101cb9910fd21">PruneAsync</a> (int days, string reason=null)</td></tr>
-<tr class="memdesc:a360403949f133daea2d101cb9910fd21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes inactive users from this guild.  <a href="#a360403949f133daea2d101cb9910fd21">More...</a><br /></td></tr>
-<tr class="separator:a360403949f133daea2d101cb9910fd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1043ba282780f2a20c76213834e2d73f"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a1043ba282780f2a20c76213834e2d73f">GetPruneCountAsync</a> (int days=7, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt; includedRoles=null)</td></tr>
+<tr class="memdesc:a1043ba282780f2a20c76213834e2d73f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimates the number of users to be pruned.  <a href="#a1043ba282780f2a20c76213834e2d73f">More...</a><br /></td></tr>
+<tr class="separator:a1043ba282780f2a20c76213834e2d73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e03113890f43d3683dbc098d5595299"><td class="memItemLeft" align="right" valign="top">Task&lt; int?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a3e03113890f43d3683dbc098d5595299">PruneAsync</a> (int days=7, bool computePruneCount=true, IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt; includedRoles=null, string reason=null)</td></tr>
+<tr class="memdesc:a3e03113890f43d3683dbc098d5595299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes inactive users from this guild.  <a href="#a3e03113890f43d3683dbc098d5595299">More...</a><br /></td></tr>
+<tr class="separator:a3e03113890f43d3683dbc098d5595299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a594997a80986e58deaa4ff06fbaeef64"><td class="memItemLeft" align="right" valign="top">Task&lt; IReadOnlyList&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_integration.html">DiscordIntegration</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a594997a80986e58deaa4ff06fbaeef64">GetIntegrationsAsync</a> ()</td></tr>
 <tr class="memdesc:a594997a80986e58deaa4ff06fbaeef64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets integrations attached to this guild.  <a href="#a594997a80986e58deaa4ff06fbaeef64">More...</a><br /></td></tr>
 <tr class="separator:a594997a80986e58deaa4ff06fbaeef64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,9 +200,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6214846be997177cb1638c192d506ec0"><td class="memItemLeft" align="right" valign="top">async Task&lt; IReadOnlyCollection&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html">DiscordMember</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a6214846be997177cb1638c192d506ec0">GetAllMembersAsync</a> ()</td></tr>
 <tr class="memdesc:a6214846be997177cb1638c192d506ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a full list of members from Discord. This method will bypass cache.  <a href="#a6214846be997177cb1638c192d506ec0">More...</a><br /></td></tr>
 <tr class="separator:a6214846be997177cb1638c192d506ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a383566d5370c39a0a152780ffea77100"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a383566d5370c39a0a152780ffea77100">RequestAllMembersAsync</a> ()</td></tr>
-<tr class="memdesc:a383566d5370c39a0a152780ffea77100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests that Discord send a complete list of guild members. This method will return immediately.  <a href="#a383566d5370c39a0a152780ffea77100">More...</a><br /></td></tr>
-<tr class="separator:a383566d5370c39a0a152780ffea77100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533d343b455253c67e61b08b1a1cc6bb"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a533d343b455253c67e61b08b1a1cc6bb">RequestMembersAsync</a> (string query=&quot;&quot;, int limit=0, bool? presences=null, IEnumerable&lt; ulong &gt; userIds=null, string nonce=null)</td></tr>
+<tr class="memdesc:a533d343b455253c67e61b08b1a1cc6bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests that Discord send a list of guild members based on the specified arguments. This method will fire the <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#ad01fbdcc7980122b6e5c1eb235364e8b" title="Fired in response to Gateway Request Guild Members.">DiscordClient.GuildMembersChunked</a> event.  <a href="#a533d343b455253c67e61b08b1a1cc6bb">More...</a><br /></td></tr>
+<tr class="separator:a533d343b455253c67e61b08b1a1cc6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25c93a5e79e274189d6bd643f690220a"><td class="memItemLeft" align="right" valign="top">Task&lt; IReadOnlyList&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_channel.html">DiscordChannel</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a25c93a5e79e274189d6bd643f690220a">GetChannelsAsync</a> ()</td></tr>
 <tr class="memdesc:a25c93a5e79e274189d6bd643f690220a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the channels this guild has.  <a href="#a25c93a5e79e274189d6bd643f690220a">More...</a><br /></td></tr>
 <tr class="separator:a25c93a5e79e274189d6bd643f690220a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -359,7 +359,7 @@ Properties</h2></td></tr>
 <tr class="memitem:ae6ee98d5b98809afd859837704d8e24e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus_1_1_entities.html#af2074e9af653c47cf289cc81f42ea9eb">ExplicitContentFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#ae6ee98d5b98809afd859837704d8e24e">ExplicitContentFilter</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ae6ee98d5b98809afd859837704d8e24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the guild's explicit content filter settings.  <a href="#ae6ee98d5b98809afd859837704d8e24e">More...</a><br /></td></tr>
 <tr class="separator:ae6ee98d5b98809afd859837704d8e24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31eaf0a354689e5ab4c799293e9278b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus_1_1_enums.html#a69e9ba2fb94e29e9c62bee408cb4cac6">SystemChannelFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a31eaf0a354689e5ab4c799293e9278b9">SystemChannelFlags</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a31eaf0a354689e5ab4c799293e9278b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535">SystemChannelFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a31eaf0a354689e5ab4c799293e9278b9">SystemChannelFlags</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a31eaf0a354689e5ab4c799293e9278b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the settings for this guild's system channel.  <a href="#a31eaf0a354689e5ab4c799293e9278b9">More...</a><br /></td></tr>
 <tr class="separator:a31eaf0a354689e5ab4c799293e9278b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9b7ea84d7d1f2777e2a30cae524107"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#aca9b7ea84d7d1f2777e2a30cae524107">WidgetEnabled</a><code> [get, set]</code></td></tr>
@@ -392,6 +392,15 @@ Properties</h2></td></tr>
 <tr class="memitem:a7da64865acc5e05639b4c7b97b21792b"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a7da64865acc5e05639b4c7b97b21792b">MaxPresences</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a7da64865acc5e05639b4c7b97b21792b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum amount of presences allowed for this guild.  <a href="#a7da64865acc5e05639b4c7b97b21792b">More...</a><br /></td></tr>
 <tr class="separator:a7da64865acc5e05639b4c7b97b21792b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ecb8d6adbffacf62f73b1a66be4b63"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#aa7ecb8d6adbffacf62f73b1a66be4b63">ApproximateMemberCount</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa7ecb8d6adbffacf62f73b1a66be4b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the approximate number of members in this guild, when using <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0" title="Gets a guild.">DiscordClient.GetGuildAsync(ulong, bool?)</a> and having <em>withCounts</em>  set to true.  <a href="#aa7ecb8d6adbffacf62f73b1a66be4b63">More...</a><br /></td></tr>
+<tr class="separator:aa7ecb8d6adbffacf62f73b1a66be4b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad77998fc043a09cc60193852ce83e4"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a4ad77998fc043a09cc60193852ce83e4">ApproximatePresenceCount</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a4ad77998fc043a09cc60193852ce83e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the approximate number of presences in this guild, when using <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0" title="Gets a guild.">DiscordClient.GetGuildAsync(ulong, bool?)</a> and having <em>withCounts</em>  set to true.  <a href="#a4ad77998fc043a09cc60193852ce83e4">More...</a><br /></td></tr>
+<tr class="separator:a4ad77998fc043a09cc60193852ce83e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a198fe4a4683904ca533ee405ba5f669a"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a198fe4a4683904ca533ee405ba5f669a">MaxVideoChannelUsers</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a198fe4a4683904ca533ee405ba5f669a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum amount of users allowed per video channel.  <a href="#a198fe4a4683904ca533ee405ba5f669a">More...</a><br /></td></tr>
+<tr class="separator:a198fe4a4683904ca533ee405ba5f669a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2725bfd685291579f64cfe2506a602"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a0e2725bfd685291579f64cfe2506a602">VanityUrlCode</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a0e2725bfd685291579f64cfe2506a602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets vanity URL code for this guild, when applicable.  <a href="#a0e2725bfd685291579f64cfe2506a602">More...</a><br /></td></tr>
 <tr class="separator:a0e2725bfd685291579f64cfe2506a602"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1058,26 +1067,45 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="ab99fc102d5c5fc44b2c1e61e55f81392"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab99fc102d5c5fc44b2c1e61e55f81392">&#9670;&nbsp;</a></span>GetPruneCountAsync()</h2>
+<a id="a1043ba282780f2a20c76213834e2d73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1043ba282780f2a20c76213834e2d73f">&#9670;&nbsp;</a></span>GetPruneCountAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Task&lt;int&gt; DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>days</em></td><td>)</td>
+          <td class="paramname"><em>days</em> = <code>7</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td>
+          <td class="paramname"><em>includedRoles</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Estimates the number of users to be pruned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">days</td><td>Minimum number of inactivity days required for users to be pruned.</td></tr>
+    <tr><td class="paramname">days</td><td>Minimum number of inactivity days required for users to be pruned. Defaults to 7.</td></tr>
+    <tr><td class="paramname">includedRoles</td><td>The roles to be included in the prune.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1085,17 +1113,32 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a360403949f133daea2d101cb9910fd21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a360403949f133daea2d101cb9910fd21">&#9670;&nbsp;</a></span>PruneAsync()</h2>
+<a id="a3e03113890f43d3683dbc098d5595299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e03113890f43d3683dbc098d5595299">&#9670;&nbsp;</a></span>PruneAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt;int&gt; DSharpPlus.Entities.DiscordGuild.PruneAsync </td>
+          <td class="memname">Task&lt;int?&gt; DSharpPlus.Entities.DiscordGuild.PruneAsync </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>days</em>, </td>
+          <td class="paramname"><em>days</em> = <code>7</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>computePruneCount</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_role.html">DiscordRole</a> &gt;&#160;</td>
+          <td class="paramname"><em>includedRoles</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1109,12 +1152,19 @@ Properties</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Prunes inactive users from this guild. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">days</td><td>Minimum number of inactivity days required for users to be pruned.</td></tr>
+    <tr><td class="paramname">days</td><td>Minimum number of inactivity days required for users to be pruned. Defaults to 7.</td></tr>
+    <tr><td class="paramname">computePruneCount</td><td>Whether to return the prune count after this method completes. This is discouraged for larger guilds.</td></tr>
+    <tr><td class="paramname">includedRoles</td><td>The roles to be included in the prune.</td></tr>
     <tr><td class="paramname">reason</td><td>Reason for audit logs.</td></tr>
   </table>
   </dd>
@@ -1517,8 +1567,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a383566d5370c39a0a152780ffea77100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a383566d5370c39a0a152780ffea77100">&#9670;&nbsp;</a></span>RequestAllMembersAsync()</h2>
+<a id="a533d343b455253c67e61b08b1a1cc6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533d343b455253c67e61b08b1a1cc6bb">&#9670;&nbsp;</a></span>RequestMembersAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1527,10 +1577,39 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync </td>
+          <td class="memname">async Task DSharpPlus.Entities.DiscordGuild.RequestMembersAsync </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>query</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>limit</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool?&#160;</td>
+          <td class="paramname"><em>presences</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; ulong &gt;&#160;</td>
+          <td class="paramname"><em>userIds</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nonce</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1540,7 +1619,18 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Requests that Discord send a complete list of guild members. This method will return immediately. </p>
+<p>Requests that Discord send a list of guild members based on the specified arguments. This method will fire the <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#ad01fbdcc7980122b6e5c1eb235364e8b" title="Fired in response to Gateway Request Guild Members.">DiscordClient.GuildMembersChunked</a> event. </p>
+<p>If no arguments aside from <em>presences</em>  and <em>nonce</em>  are specified, this will request all guild members.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>Filters the returned members based on what the username starts with. Either this or <em>userIds</em>  must not be null. The <em>limit</em>  must also be greater than 0 if this is specified.</td></tr>
+    <tr><td class="paramname">limit</td><td>Total number of members to request. This must be greater than 0 if <em>query</em>  is specified.</td></tr>
+    <tr><td class="paramname">presences</td><td>Whether to include the <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a90939f49c16540cca6b346bc9ba3c415" title="Gets the collection of presences returned from this chunk, if specified.">EventArgs.GuildMembersChunkEventArgs.Presences</a> associated with the fetched members.</td></tr>
+    <tr><td class="paramname">userIds</td><td>Whether to limit the request to the specified user ids. Either this or <em>query</em>  must not be null.</td></tr>
+    <tr><td class="paramname">nonce</td><td>The unique string to identify the response.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2797,7 +2887,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_d_sharp_plus_1_1_enums.html#a69e9ba2fb94e29e9c62bee408cb4cac6">SystemChannelFlags</a> DSharpPlus.Entities.DiscordGuild.SystemChannelFlags</td>
+          <td class="memname"><a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535">SystemChannelFlags</a> DSharpPlus.Entities.DiscordGuild.SystemChannelFlags</td>
         </tr>
       </table>
   </td>
@@ -3048,6 +3138,78 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the maximum amount of presences allowed for this guild. </p>
+
+</div>
+</div>
+<a id="aa7ecb8d6adbffacf62f73b1a66be4b63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ecb8d6adbffacf62f73b1a66be4b63">&#9670;&nbsp;</a></span>ApproximateMemberCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int? DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the approximate number of members in this guild, when using <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0" title="Gets a guild.">DiscordClient.GetGuildAsync(ulong, bool?)</a> and having <em>withCounts</em>  set to true. </p>
+
+</div>
+</div>
+<a id="a4ad77998fc043a09cc60193852ce83e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad77998fc043a09cc60193852ce83e4">&#9670;&nbsp;</a></span>ApproximatePresenceCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int? DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the approximate number of presences in this guild, when using <a class="el" href="class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0" title="Gets a guild.">DiscordClient.GetGuildAsync(ulong, bool?)</a> and having <em>withCounts</em>  set to true. </p>
+
+</div>
+</div>
+<a id="a198fe4a4683904ca533ee405ba5f669a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a198fe4a4683904ca533ee405ba5f669a">&#9670;&nbsp;</a></span>MaxVideoChannelUsers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int? DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the maximum amount of users allowed per video channel. </p>
 
 </div>
 </div>

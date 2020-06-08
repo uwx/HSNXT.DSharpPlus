@@ -22,7 +22,7 @@ var searchData=
   ['baseudpclient',['BaseUdpClient',['../class_d_sharp_plus_1_1_net_1_1_udp_1_1_base_udp_client.html',1,'DSharpPlus::Net::Udp']]],
   ['bearer',['Bearer',['../namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030',1,'DSharpPlus']]],
   ['before',['Before',['../class_d_sharp_plus_1_1_entities_1_1_property_change.html#a9b297573954f842cf2770e8e16e30f51',1,'DSharpPlus.Entities.PropertyChange.Before()'],['../class_d_sharp_plus_1_1_event_args_1_1_voice_state_update_event_args.html#a88cb9a7c6981c30f95ddbe6fb59da3e0',1,'DSharpPlus.EventArgs.VoiceStateUpdateEventArgs.Before()']]],
-  ['beginguildpruneasync',['BeginGuildPruneAsync',['../class_d_sharp_plus_1_1_discord_rest_client.html#ac9b780da6ff2cdd7b868f2d2cde683ef',1,'DSharpPlus::DiscordRestClient']]],
+  ['beginguildpruneasync',['BeginGuildPruneAsync',['../class_d_sharp_plus_1_1_discord_rest_client.html#afdab1b30ef1f794888e8df4e31e3aa5f',1,'DSharpPlus::DiscordRestClient']]],
   ['binding',['Binding',['../class_d_sharp_plus_1_1_test_1_1_test_bot_commands_1_1_binding.html',1,'DSharpPlus::Test::TestBotCommands']]],
   ['bitrate',['Bitrate',['../class_d_sharp_plus_1_1_entities_1_1_discord_channel.html#aea7478c144e0459d9d19bba8956707b7',1,'DSharpPlus.Entities.DiscordChannel.Bitrate()'],['../class_d_sharp_plus_1_1_net_1_1_models_1_1_channel_edit_model.html#a2d7ad5b0b167ef3d3fd8a8b126294170',1,'DSharpPlus.Net.Models.ChannelEditModel.Bitrate()']]],
   ['bitratechange',['BitrateChange',['../class_d_sharp_plus_1_1_entities_1_1_discord_audit_log_channel_entry.html#ac448626653a6fc24d4e8d47921a9c6eb',1,'DSharpPlus::Entities::DiscordAuditLogChannelEntry']]],
@@ -36,5 +36,7 @@ var searchData=
   ['brown',['Brown',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a865e362d47f1bcb06c09cfae2cc8c9a5',1,'DSharpPlus::Entities::DiscordColor']]],
   ['browser',['Browser',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html#aa79a53b00197430b2898a53b6d9f14af',1,'DSharpPlus::Net::Abstractions::ClientProperties']]],
   ['bucketid',['BucketId',['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#aafcc0df5b4097a8db906fa8872a6efaa',1,'DSharpPlus::Net::RateLimitBucket']]],
+  ['bughunterlevelone',['BugHunterLevelOne',['../namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a62bf6370312f83a88795df44f2a19e9b',1,'DSharpPlus']]],
+  ['bughunterleveltwo',['BugHunterLevelTwo',['../namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1ae74163315cf5166728967ef2d1285ac3',1,'DSharpPlus']]],
   ['build',['Build',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_modern_embed_builder.html#a75be27bd97b24f02c0603876be619f27',1,'HSNXT.DSharpPlus.ModernEmbedBuilder.ModernEmbedBuilder.Build()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder.html#a76abfea654f06db50fc498c4e28845fd',1,'DSharpPlus.Entities.DiscordEmbedBuilder.Build()']]]
 ];

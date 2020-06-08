@@ -194,6 +194,7 @@ var hierarchy =
     [ "HSNXT.DSharpPlus.ModernEmbedBuilder.DuckTimestamp", "struct_h_s_n_x_t_1_1_d_sharp_plus_1_1_modern_embed_builder_1_1_duck_timestamp.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedBuilder.EmbedAuthor", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder_1_1_embed_author.html", null ],
     [ "DSharpPlus.Entities.DiscordEmbedBuilder.EmbedFooter", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder_1_1_embed_footer.html", null ],
+    [ "DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail", "class_d_sharp_plus_1_1_entities_1_1_discord_embed_builder_1_1_embed_thumbnail.html", null ],
     [ "HSNXT.DSharpPlus.Extended.Emoji.Emoji", "class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_emoji_1_1_emoji.html", null ],
     [ "EventArgs", null, [
       [ "DSharpPlus.AsyncEventArgs", "class_d_sharp_plus_1_1_async_event_args.html", [
@@ -549,8 +550,8 @@ var hierarchy =
     [ "DSharpPlus.VoiceNext.Entities.VoiceSessionDescriptionPayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_session_description_payload.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoiceSpeakingPayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_speaking_payload.html", null ],
     [ "DSharpPlus.Net.Abstractions.VoiceStateUpdate", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_voice_state_update.html", null ],
-    [ "DSharpPlus.Lavalink.Entities.VoiceStateUpdatePayload", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_state_update_payload.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoiceStateUpdatePayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_state_update_payload.html", null ],
+    [ "DSharpPlus.Lavalink.Entities.VoiceStateUpdatePayload", "class_d_sharp_plus_1_1_lavalink_1_1_entities_1_1_voice_state_update_payload.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoiceUserJoinPayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_user_join_payload.html", null ],
     [ "DSharpPlus.VoiceNext.Entities.VoiceUserLeavePayload", "class_d_sharp_plus_1_1_voice_next_1_1_entities_1_1_voice_user_leave_payload.html", null ]
 ];

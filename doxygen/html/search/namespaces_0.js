@@ -5,7 +5,7 @@ var searchData=
   ['concurrency',['Concurrency',['../namespace_d_sharp_plus_1_1_interactivity_1_1_concurrency.html',1,'DSharpPlus::Interactivity']]],
   ['dsharpplus',['DSharpPlus',['../namespace_d_sharp_plus.html',1,'DSharpPlus'],['../namespace_d_sharp_plus_1_1_interactivity_1_1_d_sharp_plus.html',1,'DSharpPlus.Interactivity.DSharpPlus']]],
   ['entities',['Entities',['../namespace_d_sharp_plus_1_1_entities.html',1,'DSharpPlus.Entities'],['../namespace_d_sharp_plus_1_1_lavalink_1_1_entities.html',1,'DSharpPlus.Lavalink.Entities'],['../namespace_d_sharp_plus_1_1_voice_next_1_1_entities.html',1,'DSharpPlus.VoiceNext.Entities']]],
-  ['enums',['Enums',['../namespace_d_sharp_plus_1_1_enums.html',1,'DSharpPlus.Enums'],['../namespace_d_sharp_plus_1_1_interactivity_1_1_enums.html',1,'DSharpPlus.Interactivity.Enums']]],
+  ['enums',['Enums',['../namespace_d_sharp_plus_1_1_interactivity_1_1_enums.html',1,'DSharpPlus::Interactivity']]],
   ['eventargs',['EventArgs',['../namespace_d_sharp_plus_1_1_event_args.html',1,'DSharpPlus.EventArgs'],['../namespace_d_sharp_plus_1_1_lavalink_1_1_event_args.html',1,'DSharpPlus.Lavalink.EventArgs'],['../namespace_d_sharp_plus_1_1_voice_next_1_1_event_args.html',1,'DSharpPlus.VoiceNext.EventArgs']]],
   ['eventhandling',['EventHandling',['../namespace_d_sharp_plus_1_1_interactivity_1_1_event_handling.html',1,'DSharpPlus::Interactivity']]],
   ['exceptions',['Exceptions',['../namespace_d_sharp_plus_1_1_exceptions.html',1,'DSharpPlus']]],

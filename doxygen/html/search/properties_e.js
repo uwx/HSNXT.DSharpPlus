@@ -40,6 +40,7 @@ var searchData=
   ['presence',['Presence',['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3',1,'DSharpPlus::Entities::DiscordUser']]],
   ['presenceafter',['PresenceAfter',['../class_d_sharp_plus_1_1_event_args_1_1_presence_update_event_args.html#a970d46d5c8c4c0c43c7a7952efea8f53',1,'DSharpPlus::EventArgs::PresenceUpdateEventArgs']]],
   ['presencebefore',['PresenceBefore',['../class_d_sharp_plus_1_1_event_args_1_1_presence_update_event_args.html#a4e71d89e561fc24572702e99e7f565ef',1,'DSharpPlus::EventArgs::PresenceUpdateEventArgs']]],
+  ['presences',['Presences',['../class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a90939f49c16540cca6b346bc9ba3c415',1,'DSharpPlus::EventArgs::GuildMembersChunkEventArgs']]],
   ['presenceupdated',['PresenceUpdated',['../class_d_sharp_plus_1_1_discord_client.html#a4f3d4612f690619810d342902fe5fc49',1,'DSharpPlus.DiscordClient.PresenceUpdated()'],['../class_d_sharp_plus_1_1_discord_sharded_client.html#afd2e70d499e01223e43dfea530d1112c',1,'DSharpPlus.DiscordShardedClient.PresenceUpdated()']]],
   ['privatechannels',['PrivateChannels',['../class_d_sharp_plus_1_1_discord_client.html#aadeba24ceb2473b8a6b6955b43349cca',1,'DSharpPlus::DiscordClient']]],
   ['provider',['Provider',['../class_d_sharp_plus_1_1_entities_1_1_discord_embed.html#ad37806cc51784d9848a4424868095f97',1,'DSharpPlus::Entities::DiscordEmbed']]],

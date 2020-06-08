@@ -118,6 +118,8 @@ Properties</h2></td></tr>
 <tr class="separator:ad9f5015bcc5e241505bf0e5cd1056c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6fb7e0ee13d420880dab0cfb51a60c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#ab6fb7e0ee13d420880dab0cfb51a60c9">UseInternalLogHandler</a> = false<code> [get, set]</code></td></tr>
 <tr class="separator:ab6fb7e0ee13d420880dab0cfb51a60c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e91fce9663525d25b4d99ba1978c466"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a8e91fce9663525d25b4d99ba1978c466">UseRelativeRatelimit</a> = true<code> [get, set]</code></td></tr>
+<tr class="separator:a8e91fce9663525d25b4d99ba1978c466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad374c86bdbca89a9398c37efdee4754f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#ad374c86bdbca89a9398c37efdee4754f">DateTimeFormat</a> = &quot;yyyy-MM-dd HH:mm:ss zzz&quot;<code> [get, set]</code></td></tr>
 <tr class="separator:ad374c86bdbca89a9398c37efdee4754f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42ad3e18db8f68cbc0cb51eb9e3ee687"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a42ad3e18db8f68cbc0cb51eb9e3ee687">LargeThreshold</a> = 250<code> [get, set]</code></td></tr>
@@ -307,6 +309,34 @@ Properties</h2></td></tr>
 <p></p>
 <p>Sets whether to use the internal log handler.</p>
 <p>This is disabled by default. Use it if you don't want to provide your own log handlers.</p>
+
+</div>
+</div>
+<a id="a8e91fce9663525d25b4d99ba1978c466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e91fce9663525d25b4d99ba1978c466">&#9670;&nbsp;</a></span>UseRelativeRatelimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DSharpPlus.DiscordConfiguration.UseRelativeRatelimit = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>Sets whether to rely on Discord for NTP (Network Time Protocol) synchronization with the "X-Ratelimit-Reset-After" header.</p>
+<p>If the system clock is unsynced, setting this to true will ensure ratelimits are synced with Discord and reduce the risk of hitting one.</p>
+<p>This should only be set to false if the system clock is synced with NTP.</p>
+<p>Defaults to true.</p>
 
 </div>
 </div>

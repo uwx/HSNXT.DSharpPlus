@@ -142,7 +142,7 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a002cf86e248309583496136337512135"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a002cf86e248309583496136337512135">AvatarUrl</a> =&gt; !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith(&quot;a_&quot;) ? $&quot;https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.gif?size=1024&quot; : $&quot;https://cdn.discordapp.com/avatars/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a>}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.png?size=1024&quot;) : this.DefaultAvatarUrl</td></tr>
+<tr class="memitem:a002cf86e248309583496136337512135"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a002cf86e248309583496136337512135">AvatarUrl</a> =&gt; !string.IsNullOrWhiteSpace(this.AvatarHash) ? (this.AvatarHash.StartsWith(&quot;a_&quot;) ? $&quot;https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.gif?size=1024&quot; : $&quot;https://cdn.discordapp.com/avatars/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a>}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.png?size=1024&quot;) : this.DefaultAvatarUrl</td></tr>
 <tr class="memdesc:a002cf86e248309583496136337512135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's avatar URL.  <a href="#a002cf86e248309583496136337512135">More...</a><br /></td></tr>
 <tr class="separator:a002cf86e248309583496136337512135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a95d04f7fc29bc61ebcbd8379078ebf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a5a95d04f7fc29bc61ebcbd8379078ebf">DefaultAvatarUrl</a> =&gt; $&quot;https://cdn.discordapp.com/embed/avatars/{(this.DiscriminatorInt % 5).<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a0cb4d236768b20db9fe814495c16347a">ToString</a>(CultureInfo.InvariantCulture)}.png?size=1024&quot;</td></tr>
@@ -176,6 +176,9 @@ Properties</h2></td></tr>
 <tr class="memitem:af03bfd6e4438fe9f452a2287cff587d2"><td class="memItemLeft" align="right" valign="top">virtual ? bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#af03bfd6e4438fe9f452a2287cff587d2">MfaEnabled</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:af03bfd6e4438fe9f452a2287cff587d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the user has multi-factor authentication enabled.  <a href="#af03bfd6e4438fe9f452a2287cff587d2">More...</a><br /></td></tr>
 <tr class="separator:af03bfd6e4438fe9f452a2287cff587d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302c17032bd01e55343117a34e8b87a5"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a302c17032bd01e55343117a34e8b87a5">IsSystem</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a302c17032bd01e55343117a34e8b87a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the user is an official Discord system user.  <a href="#a302c17032bd01e55343117a34e8b87a5">More...</a><br /></td></tr>
+<tr class="separator:a302c17032bd01e55343117a34e8b87a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1cf2e4e18e6420ece01aa2942303ca5"><td class="memItemLeft" align="right" valign="top">virtual ? bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae1cf2e4e18e6420ece01aa2942303ca5">Verified</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ae1cf2e4e18e6420ece01aa2942303ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the user is verified.  <a href="#ae1cf2e4e18e6420ece01aa2942303ca5">More...</a><br /></td></tr>
 <tr class="separator:ae1cf2e4e18e6420ece01aa2942303ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,6 +191,12 @@ Properties</h2></td></tr>
 <tr class="memitem:a9be62851c277b58566269e8a7e279620"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a9be62851c277b58566269e8a7e279620">Locale</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a9be62851c277b58566269e8a7e279620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's chosen language  <a href="#a9be62851c277b58566269e8a7e279620">More...</a><br /></td></tr>
 <tr class="separator:a9be62851c277b58566269e8a7e279620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f4d59783791e87ed909fadf6dbe340"><td class="memItemLeft" align="right" valign="top">virtual ? <a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">UserFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a89f4d59783791e87ed909fadf6dbe340">OAuthFlags</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a89f4d59783791e87ed909fadf6dbe340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's flags for OAuth.  <a href="#a89f4d59783791e87ed909fadf6dbe340">More...</a><br /></td></tr>
+<tr class="separator:a89f4d59783791e87ed909fadf6dbe340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0250609d97588d880d26718fd5953843"><td class="memItemLeft" align="right" valign="top">virtual ? <a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">UserFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a0250609d97588d880d26718fd5953843">Flags</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a0250609d97588d880d26718fd5953843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the user's flags.  <a href="#a0250609d97588d880d26718fd5953843">More...</a><br /></td></tr>
+<tr class="separator:a0250609d97588d880d26718fd5953843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473c03bf44d48d7d6979031e6fea2fb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_presence.html">DiscordPresence</a>?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a473c03bf44d48d7d6979031e6fea2fb3">Presence</a><code> [get]</code></td></tr>
 <tr class="memdesc:a473c03bf44d48d7d6979031e6fea2fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this user's presence.  <a href="#a473c03bf44d48d7d6979031e6fea2fb3">More...</a><br /></td></tr>
 <tr class="separator:a473c03bf44d48d7d6979031e6fea2fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -509,7 +518,7 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string DSharpPlus.Entities.DiscordUser.AvatarUrl =&gt; !string.IsNullOrWhiteSpace(this.AvatarHash) ? (AvatarHash.StartsWith(&quot;a_&quot;) ? $&quot;https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.gif?size=1024&quot; : $&quot;https://cdn.discordapp.com/avatars/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a>}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.png?size=1024&quot;) : this.DefaultAvatarUrl</td>
+          <td class="memname">string DSharpPlus.Entities.DiscordUser.AvatarUrl =&gt; !string.IsNullOrWhiteSpace(this.AvatarHash) ? (this.AvatarHash.StartsWith(&quot;a_&quot;) ? $&quot;https://cdn.discordapp.com/avatars/{this.Id.ToString(CultureInfo.InvariantCulture)}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.gif?size=1024&quot; : $&quot;https://cdn.discordapp.com/avatars/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_snowflake_object.html#a7f07f895e314c5c3ff4e2ec56dc57492">Id</a>}/{<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_user.html#ae46baa3926d33a55437ef314c823f984">AvatarHash</a>}.png?size=1024&quot;) : this.DefaultAvatarUrl</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -687,6 +696,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a302c17032bd01e55343117a34e8b87a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302c17032bd01e55343117a34e8b87a5">&#9670;&nbsp;</a></span>IsSystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool? DSharpPlus.Entities.DiscordUser.IsSystem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets whether the user is an official Discord system user. </p>
+
+</div>
+</div>
 <a id="ae1cf2e4e18e6420ece01aa2942303ca5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae1cf2e4e18e6420ece01aa2942303ca5">&#9670;&nbsp;</a></span>Verified</h2>
 
@@ -708,6 +741,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets whether the user is verified. </p>
+<p>This is only present in OAuth.</p>
 
 </div>
 </div>
@@ -732,6 +766,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the user's email address. </p>
+<p>This is only present in OAuth.</p>
 
 </div>
 </div>
@@ -780,6 +815,54 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the user's chosen language </p>
+
+</div>
+</div>
+<a id="a89f4d59783791e87ed909fadf6dbe340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f4d59783791e87ed909fadf6dbe340">&#9670;&nbsp;</a></span>OAuthFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ? <a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">UserFlags</a> DSharpPlus.Entities.DiscordUser.OAuthFlags</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the user's flags for OAuth. </p>
+
+</div>
+</div>
+<a id="a0250609d97588d880d26718fd5953843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0250609d97588d880d26718fd5953843">&#9670;&nbsp;</a></span>Flags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ? <a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">UserFlags</a> DSharpPlus.Entities.DiscordUser.Flags</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the user's flags. </p>
 
 </div>
 </div>

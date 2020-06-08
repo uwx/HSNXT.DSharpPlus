@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['earlysupporter',['EarlySupporter',['../namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a7b16d44106c27cbe8402841ee87e0299',1,'DSharpPlus']]],
   ['embedlinks',['EmbedLinks',['../namespace_d_sharp_plus.html#a532ecbcdb525a4d74d53dfee6119d98aa253c8824554ccc88f1e5fd0101bee8ba',1,'DSharpPlus']]],
   ['emojicreate',['EmojiCreate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a50e45012a11e9453448b55be770fa0ff',1,'DSharpPlus::Entities']]],
   ['emojidelete',['EmojiDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18aee2b571927fcbdac39cbfed72984c780',1,'DSharpPlus::Entities']]],

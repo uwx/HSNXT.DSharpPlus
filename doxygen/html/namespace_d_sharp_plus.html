@@ -134,6 +134,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_image_tool.html">ImageTool</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tool to detect image formats and convert from binary data to base64 strings.  <a href="class_d_sharp_plus_1_1_image_tool.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>MessageFlagExtensions</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>PermissionMethods</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_permission_string_attribute.html">PermissionStringAttribute</a></td></tr>
@@ -149,6 +151,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_ring_buffer.html">RingBuffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A circular buffer collection.  <a href="class_d_sharp_plus_1_1_ring_buffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>SystemChannelFlagsExtension</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Utilities</b></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various Discord-related utilities. <br /></td></tr>
@@ -198,6 +202,40 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a815d5eea25ccaeadb40bd4e821e50b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of mention being made  <a href="namespace_d_sharp_plus.html#a815d5eea25ccaeadb40bd4e821e50b5f">More...</a><br /></td></tr>
 <tr class="separator:a815d5eea25ccaeadb40bd4e821e50b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb380172aab808cb9be265ff2590a4f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4f">MessageActivityType</a> { <a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4faa286d9991c6a547ae25a5f5216164b8f">MessageActivityType.Join</a> = 1, 
+<a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4fa0a48c2298d30982281b41a6009732cc3">MessageActivityType.Spectate</a> = 2, 
+<a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4face6802b46091c31e2ec2363883fe8369">MessageActivityType.Listen</a> = 3, 
+<a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4fac4287a70863f53e6cd3dbf3d79015dba">MessageActivityType.JoinRequest</a> = 4
+ }</td></tr>
+<tr class="memdesc:aabb380172aab808cb9be265ff2590a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the type of MessageActivity for the Rich Presence.  <a href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4f">More...</a><br /></td></tr>
+<tr class="separator:aabb380172aab808cb9be265ff2590a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d96a7b5a10a17e92c7d643592c09162"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162">MessageFlags</a> { <a class="el" href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162a64b0e186040158d002ed9cfdb4b73027">MessageFlags.Crossposted</a> = 1 &lt;&lt; 0, 
+<a class="el" href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162abf61a95a5c4b63b212104e24e03018ad">MessageFlags.IsCrosspost</a> = 1 &lt;&lt; 1, 
+<a class="el" href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162a2eaf40b705a8473a03bd34ea248cc99e">MessageFlags.SuppressedEmbeds</a> = 1 &lt;&lt; 2
+ }</td></tr>
+<tr class="memdesc:a8d96a7b5a10a17e92c7d643592c09162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents additional features of a message.  <a href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162">More...</a><br /></td></tr>
+<tr class="separator:a8d96a7b5a10a17e92c7d643592c09162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1295c01ba7817e6d95c318a2528fe778"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778">MessageType</a> : int { <br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a7a1920d61156abc05a60135aefe8bc67">MessageType.Default</a> = 0, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a2c31ef36b3d054e9546c939df082cc77">MessageType.RecipientAdd</a> = 1, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a254bdd38b26aee4fc27b9ff85e788659">MessageType.RecipientRemove</a> = 2, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778ac3755e61202abd74da5885d2e9c9160e">MessageType.Call</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a5436625e2821aed70e84f1a007b5fdf8">MessageType.ChannelNameChange</a> = 4, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a4713868d0f3664b1c6c4bca78ac24a2b">MessageType.ChannelIconChange</a> = 5, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a0c9d90d54d468eb2db345f39f34c2bb4">MessageType.ChannelPinnedMessage</a> = 6, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778ad33cf216a6e1a81061e0ef0b1a9d727b">MessageType.GuildMemberJoin</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a02ab93af66616bc5269fbabd7aa22f8a">MessageType.UserPremiumGuildSubscription</a> = 8, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a3a4b8c4cffbca09267f3e1bdc45662b4">MessageType.TierOneUserPremiumGuildSubscription</a> = 9, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778adbbfdf8e1cb7cbd194e341c5fc0ebe5b">MessageType.TierTwoUserPremiumGuildSubscription</a> = 10, 
+<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778ab5bcc38da276e74ce4c76fdb49d6b088">MessageType.TierThreeUserPremiumGuildSubscription</a> = 11, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778a079f3a050f7118df10693046c17d3066">MessageType.ChannelFollowAdd</a> = 12
+<br />
+ }</td></tr>
+<tr class="memdesc:a1295c01ba7817e6d95c318a2528fe778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the type of the message.  <a href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778">More...</a><br /></td></tr>
+<tr class="separator:a1295c01ba7817e6d95c318a2528fe778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9167f86cc4fe882e6d76ccd92157d1d9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a9167f86cc4fe882e6d76ccd92157d1d9">OverwriteType</a> : int { <a class="el" href="namespace_d_sharp_plus.html#a9167f86cc4fe882e6d76ccd92157d1d9abbbabdbe1b262f75d99d62880b953be1">OverwriteType.Role</a>, 
 <a class="el" href="namespace_d_sharp_plus.html#a9167f86cc4fe882e6d76ccd92157d1d9a858ba4765e53c712ef672a9570474b1d">OverwriteType.Member</a>
  }</td></tr>
@@ -269,19 +307,51 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of Nitro subscription on a user's account.  <a href="namespace_d_sharp_plus.html#a5ae3650ee7ed6ac07a2e85be1f2fdb11">More...</a><br /></td></tr>
 <tr class="separator:a5ae3650ee7ed6ac07a2e85be1f2fdb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae587b668db2e56c756c3b3be3fd34535"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535">SystemChannelFlags</a> { <a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535a1423049dcf7c830e2f3561918785622f">SystemChannelFlags.SuppressJoinNotifications</a> = 1 &lt;&lt; 0, 
+<a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535a25933488e96cdae14b5f534aaa678409">SystemChannelFlags.SuppressPremiumSubscriptions</a> = 1 &lt;&lt; 1
+ }</td></tr>
+<tr class="memdesc:ae587b668db2e56c756c3b3be3fd34535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents settings for a guild's system channel.  <a href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535">More...</a><br /></td></tr>
+<tr class="separator:ae587b668db2e56c756c3b3be3fd34535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c12592a6a8027398f0c6e389811f45c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a9c12592a6a8027398f0c6e389811f45c">TargetUserType</a> { <a class="el" href="namespace_d_sharp_plus.html#a9c12592a6a8027398f0c6e389811f45caac21d502848247aa2f578d0f718f5d1d">TargetUserType.Streaming</a> = 1
+ }</td></tr>
+<tr class="memdesc:a9c12592a6a8027398f0c6e389811f45c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the type of user who the invite is for.  <a href="namespace_d_sharp_plus.html#a9c12592a6a8027398f0c6e389811f45c">More...</a><br /></td></tr>
+<tr class="separator:a9c12592a6a8027398f0c6e389811f45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d246da95984f616102a949c9d471f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1">TokenType</a> { <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a8f9bfe9d1345237cb3b2b205864da075">TokenType.User</a> = 0, 
 <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a1448e86d90e0feb307c2894c24e87767">TokenType.Bot</a> = 1, 
 <a class="el" href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030">TokenType.Bearer</a> = 2
  }</td></tr>
 <tr class="memdesc:ae6d246da95984f616102a949c9d471f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Token type  <a href="namespace_d_sharp_plus.html#ae6d246da95984f616102a949c9d471f1">More...</a><br /></td></tr>
 <tr class="separator:ae6d246da95984f616102a949c9d471f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8b4dce53b114d4f92b960fe75065f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">UserFlags</a> { <br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a6adf97f83acf6453d4a6a4b1070f3754">UserFlags.None</a> = 0, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a513d89d836947cc72df8b934b77058c3">UserFlags.DiscordEmployee</a> = 1 &lt;&lt; 0, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a1b84e28c3902095f14d90c9be17dfb52">UserFlags.DiscordPartner</a> = 1 &lt;&lt; 1, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a88c1d26844a8e20eb8de935b2693d0d7">UserFlags.HypeSquadEvents</a> = 1 &lt;&lt; 2, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a62bf6370312f83a88795df44f2a19e9b">UserFlags.BugHunterLevelOne</a> = 1 &lt;&lt; 3, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a61c23aaa79c69c97063d475f5df9b150">UserFlags.HouseBravery</a> = 1 &lt;&lt; 6, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a1d3a4c04bb753c25684f1b8cd52ebbdb">UserFlags.HouseBrilliance</a> = 1 &lt;&lt; 7, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a0f46efead75533201b1298db22efd043">UserFlags.HouseBalance</a> = 1 &lt;&lt; 8, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a7b16d44106c27cbe8402841ee87e0299">UserFlags.EarlySupporter</a> = 1 &lt;&lt; 9, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a530ab4d291452d4fb0f0e9b693a1a2ed">UserFlags.TeamUser</a> = 1 &lt;&lt; 10, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1aa45da96d0bf6575970f2d27af22be28a">UserFlags.System</a> = 1 &lt;&lt; 12, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1ae74163315cf5166728967ef2d1285ac3">UserFlags.BugHunterLevelTwo</a> = 1 &lt;&lt; 14, 
+<br />
+&#160;&#160;<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a88c9e52c93c8df60757adc4912bd9e0c">UserFlags.VerifiedBot</a> = 1 &lt;&lt; 16, 
+<a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1a0a8e0785c4a14d5bc06064b536bf97f2">UserFlags.VerifiedBotDeveloper</a> = 1 &lt;&lt; 17
+<br />
+ }</td></tr>
+<tr class="memdesc:aff8b4dce53b114d4f92b960fe75065f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents additional details of a users account.  <a href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">More...</a><br /></td></tr>
+<tr class="separator:aff8b4dce53b114d4f92b960fe75065f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b4e2d625137089bd078939d3bc857d8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_d_sharp_plus.html#a9b4e2d625137089bd078939d3bc857d8">ImageFormat</a> : int { <br />
 &#160;&#160;<b>Unknown</b> = 0, 
 <b>Jpeg</b> = 1, 
 <b>Png</b> = 2, 
 <b>Gif</b> = 3, 
 <br />
-&#160;&#160;<b>WebP</b> = 4
+&#160;&#160;<b>WebP</b> = 4, 
+<b>Auto</b> = 5
 <br />
  }</td></tr>
 <tr class="memdesc:a9b4e2d625137089bd078939d3bc857d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents format of an image.  <a href="namespace_d_sharp_plus.html#a9b4e2d625137089bd078939d3bc857d8">More...</a><br /></td></tr>
@@ -438,6 +508,124 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a815d5eea25ccaeadb40bd4e821e50b5fa781dc97dc62331eec3ea9ec4373a3ca8"></a>Channel&#160;</td><td class="fielddoc"><p>Mentioned Channel </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a815d5eea25ccaeadb40bd4e821e50b5fabbbabdbe1b262f75d99d62880b953be1"></a>Role&#160;</td><td class="fielddoc"><p>Mentioned Role </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aabb380172aab808cb9be265ff2590a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb380172aab808cb9be265ff2590a4f">&#9670;&nbsp;</a></span>MessageActivityType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4f">DSharpPlus.MessageActivityType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates the type of MessageActivity for the Rich Presence. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aabb380172aab808cb9be265ff2590a4faa286d9991c6a547ae25a5f5216164b8f"></a>Join&#160;</td><td class="fielddoc"><p>Invites the user to join. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabb380172aab808cb9be265ff2590a4fa0a48c2298d30982281b41a6009732cc3"></a>Spectate&#160;</td><td class="fielddoc"><p>Invites the user to spectate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabb380172aab808cb9be265ff2590a4face6802b46091c31e2ec2363883fe8369"></a>Listen&#160;</td><td class="fielddoc"><p>Invites the user to listen. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabb380172aab808cb9be265ff2590a4fac4287a70863f53e6cd3dbf3d79015dba"></a>JoinRequest&#160;</td><td class="fielddoc"><p>Allows the user to request to join. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a8d96a7b5a10a17e92c7d643592c09162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d96a7b5a10a17e92c7d643592c09162">&#9670;&nbsp;</a></span>MessageFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162">DSharpPlus.MessageFlags</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents additional features of a message. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8d96a7b5a10a17e92c7d643592c09162a64b0e186040158d002ed9cfdb4b73027"></a>Crossposted&#160;</td><td class="fielddoc"><p>Whether this message is the original message that was published from a news channel to subscriber channels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8d96a7b5a10a17e92c7d643592c09162abf61a95a5c4b63b212104e24e03018ad"></a>IsCrosspost&#160;</td><td class="fielddoc"><p>Whether this message is crossposted (automatically posted in a subscriber channel). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8d96a7b5a10a17e92c7d643592c09162a2eaf40b705a8473a03bd34ea248cc99e"></a>SuppressedEmbeds&#160;</td><td class="fielddoc"><p>Whether any embeds in the message are hidden. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a1295c01ba7817e6d95c318a2528fe778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1295c01ba7817e6d95c318a2528fe778">&#9670;&nbsp;</a></span>MessageType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#a1295c01ba7817e6d95c318a2528fe778">DSharpPlus.MessageType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates the type of the message. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><p>Indicates a regular message. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a2c31ef36b3d054e9546c939df082cc77"></a>RecipientAdd&#160;</td><td class="fielddoc"><p>Message indicating a recipient was added to a group direct message. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a254bdd38b26aee4fc27b9ff85e788659"></a>RecipientRemove&#160;</td><td class="fielddoc"><p>Message indicating a recipient was removed from a group direct message. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778ac3755e61202abd74da5885d2e9c9160e"></a>Call&#160;</td><td class="fielddoc"><p>Message indicating a call. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a5436625e2821aed70e84f1a007b5fdf8"></a>ChannelNameChange&#160;</td><td class="fielddoc"><p>Message indicating a group direct message channel rename. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a4713868d0f3664b1c6c4bca78ac24a2b"></a>ChannelIconChange&#160;</td><td class="fielddoc"><p>Message indicating a group direct message channel icon change. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a0c9d90d54d468eb2db345f39f34c2bb4"></a>ChannelPinnedMessage&#160;</td><td class="fielddoc"><p>USER pinned a message to this channel. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778ad33cf216a6e1a81061e0ef0b1a9d727b"></a>GuildMemberJoin&#160;</td><td class="fielddoc"><p>Message when a guild member joins. Most frequently seen in newer, smaller guilds. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a02ab93af66616bc5269fbabd7aa22f8a"></a>UserPremiumGuildSubscription&#160;</td><td class="fielddoc"><p>Message when a member nitro boosts the guild. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a3a4b8c4cffbca09267f3e1bdc45662b4"></a>TierOneUserPremiumGuildSubscription&#160;</td><td class="fielddoc"><p>Message when the guild reaches tier one of nitro boosts. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778adbbfdf8e1cb7cbd194e341c5fc0ebe5b"></a>TierTwoUserPremiumGuildSubscription&#160;</td><td class="fielddoc"><p>Message when the guild reaches tier two of nitro boosts. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778ab5bcc38da276e74ce4c76fdb49d6b088"></a>TierThreeUserPremiumGuildSubscription&#160;</td><td class="fielddoc"><p>Message when the guild reaches tier three of nitro boosts. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1295c01ba7817e6d95c318a2528fe778a079f3a050f7118df10693046c17d3066"></a>ChannelFollowAdd&#160;</td><td class="fielddoc"><p>Message when a user follows a news channel. </p>
 </td></tr>
 </table>
 
@@ -661,6 +849,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae587b668db2e56c756c3b3be3fd34535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae587b668db2e56c756c3b3be3fd34535">&#9670;&nbsp;</a></span>SystemChannelFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#ae587b668db2e56c756c3b3be3fd34535">DSharpPlus.SystemChannelFlags</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents settings for a guild's system channel. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae587b668db2e56c756c3b3be3fd34535a1423049dcf7c830e2f3561918785622f"></a>SuppressJoinNotifications&#160;</td><td class="fielddoc"><p>Member join messages are disabled. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae587b668db2e56c756c3b3be3fd34535a25933488e96cdae14b5f534aaa678409"></a>SuppressPremiumSubscriptions&#160;</td><td class="fielddoc"><p>Server boost messages are disabled. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a9c12592a6a8027398f0c6e389811f45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c12592a6a8027398f0c6e389811f45c">&#9670;&nbsp;</a></span>TargetUserType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#a9c12592a6a8027398f0c6e389811f45c">DSharpPlus.TargetUserType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents the type of user who the invite is for. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9c12592a6a8027398f0c6e389811f45caac21d502848247aa2f578d0f718f5d1d"></a>Streaming&#160;</td><td class="fielddoc"><p>Represents a user who is livestreaming. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ae6d246da95984f616102a949c9d471f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6d246da95984f616102a949c9d471f1">&#9670;&nbsp;</a></span>TokenType</h2>
 
@@ -688,6 +934,60 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ae6d246da95984f616102a949c9d471f1a1448e86d90e0feb307c2894c24e87767"></a>Bot&#160;</td><td class="fielddoc"><p>Bot token type </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ae6d246da95984f616102a949c9d471f1a83dedad0728baaef3ad3f50bd05ed030"></a>Bearer&#160;</td><td class="fielddoc"><p>Bearer token type (used for oAuth) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aff8b4dce53b114d4f92b960fe75065f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff8b4dce53b114d4f92b960fe75065f1">&#9670;&nbsp;</a></span>UserFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_d_sharp_plus.html#aff8b4dce53b114d4f92b960fe75065f1">DSharpPlus.UserFlags</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents additional details of a users account. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>The user has no flags. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a513d89d836947cc72df8b934b77058c3"></a>DiscordEmployee&#160;</td><td class="fielddoc"><p>The user is a Discord employee. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a1b84e28c3902095f14d90c9be17dfb52"></a>DiscordPartner&#160;</td><td class="fielddoc"><p>The user is a Discord partner. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a88c1d26844a8e20eb8de935b2693d0d7"></a>HypeSquadEvents&#160;</td><td class="fielddoc"><p>The user has the HypeSquad badge. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a62bf6370312f83a88795df44f2a19e9b"></a>BugHunterLevelOne&#160;</td><td class="fielddoc"><p>The user reached the first bug hunter tier. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a61c23aaa79c69c97063d475f5df9b150"></a>HouseBravery&#160;</td><td class="fielddoc"><p>The user is a member of house bravery. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a1d3a4c04bb753c25684f1b8cd52ebbdb"></a>HouseBrilliance&#160;</td><td class="fielddoc"><p>The user is a member of house brilliance. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a0f46efead75533201b1298db22efd043"></a>HouseBalance&#160;</td><td class="fielddoc"><p>The user is a member of house balance. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a7b16d44106c27cbe8402841ee87e0299"></a>EarlySupporter&#160;</td><td class="fielddoc"><p>The user has the early supporter badge. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a530ab4d291452d4fb0f0e9b693a1a2ed"></a>TeamUser&#160;</td><td class="fielddoc"><p>Whether the user is apart of a Discord developer team. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1aa45da96d0bf6575970f2d27af22be28a"></a>System&#160;</td><td class="fielddoc"><p>Whether the user is an official system user. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1ae74163315cf5166728967ef2d1285ac3"></a>BugHunterLevelTwo&#160;</td><td class="fielddoc"><p>The user reached the second bug hunter tier. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a88c9e52c93c8df60757adc4912bd9e0c"></a>VerifiedBot&#160;</td><td class="fielddoc"><p>The user is a verified bot. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff8b4dce53b114d4f92b960fe75065f1a0a8e0785c4a14d5bc06064b536bf97f2"></a>VerifiedBotDeveloper&#160;</td><td class="fielddoc"><p>The user is a verified bot developer. </p>
 </td></tr>
 </table>
 

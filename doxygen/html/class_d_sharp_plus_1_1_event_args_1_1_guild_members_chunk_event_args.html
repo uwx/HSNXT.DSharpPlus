@@ -110,11 +110,26 @@ Inheritance diagram for DSharpPlus.EventArgs.GuildMembersChunkEventArgs:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:ad355c6c7ce5fa0a8ce51be360db19531"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#ad355c6c7ce5fa0a8ce51be360db19531">Guild</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:ad355c6c7ce5fa0a8ce51be360db19531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the guild whose members were requested.  <a href="#ad355c6c7ce5fa0a8ce51be360db19531">More...</a><br /></td></tr>
+<tr class="memdesc:ad355c6c7ce5fa0a8ce51be360db19531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the guild that requested this chunk.  <a href="#ad355c6c7ce5fa0a8ce51be360db19531">More...</a><br /></td></tr>
 <tr class="separator:ad355c6c7ce5fa0a8ce51be360db19531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28676e2aeb00812a56e090ae6bbf76ef"><td class="memItemLeft" align="right" valign="top">IReadOnlyCollection&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_member.html">DiscordMember</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a28676e2aeb00812a56e090ae6bbf76ef">Members</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a28676e2aeb00812a56e090ae6bbf76ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a collection containing the members in the received chunk.  <a href="#a28676e2aeb00812a56e090ae6bbf76ef">More...</a><br /></td></tr>
+<tr class="memdesc:a28676e2aeb00812a56e090ae6bbf76ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of members returned from this chunk.  <a href="#a28676e2aeb00812a56e090ae6bbf76ef">More...</a><br /></td></tr>
 <tr class="separator:a28676e2aeb00812a56e090ae6bbf76ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf87cfcd909baafca910e44b790163e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#aaf87cfcd909baafca910e44b790163e9">ChunkIndex</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aaf87cfcd909baafca910e44b790163e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current chunk index from the response.  <a href="#aaf87cfcd909baafca910e44b790163e9">More...</a><br /></td></tr>
+<tr class="separator:aaf87cfcd909baafca910e44b790163e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f130b8b8df49191b959526f3d84e4f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a2f130b8b8df49191b959526f3d84e4f3">ChunkCount</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a2f130b8b8df49191b959526f3d84e4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the total amount of chunks for the request.  <a href="#a2f130b8b8df49191b959526f3d84e4f3">More...</a><br /></td></tr>
+<tr class="separator:a2f130b8b8df49191b959526f3d84e4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90939f49c16540cca6b346bc9ba3c415"><td class="memItemLeft" align="right" valign="top">IReadOnlyCollection&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_presence.html">DiscordPresence</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a90939f49c16540cca6b346bc9ba3c415">Presences</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a90939f49c16540cca6b346bc9ba3c415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of presences returned from this chunk, if specified.  <a href="#a90939f49c16540cca6b346bc9ba3c415">More...</a><br /></td></tr>
+<tr class="separator:a90939f49c16540cca6b346bc9ba3c415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc6189b53dc9a0af6ae25fd0b4aad89"><td class="memItemLeft" align="right" valign="top">IReadOnlyCollection&lt; ulong &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a7dc6189b53dc9a0af6ae25fd0b4aad89">NotFound</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a7dc6189b53dc9a0af6ae25fd0b4aad89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the returned Ids that were not found in the chunk, if specified.  <a href="#a7dc6189b53dc9a0af6ae25fd0b4aad89">More...</a><br /></td></tr>
+<tr class="separator:a7dc6189b53dc9a0af6ae25fd0b4aad89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241ffdbd34d230d27782d08d081a4977"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_guild_members_chunk_event_args.html#a241ffdbd34d230d27782d08d081a4977">Nonce</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a241ffdbd34d230d27782d08d081a4977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the unique string used to identify the request, if specified.  <a href="#a241ffdbd34d230d27782d08d081a4977">More...</a><br /></td></tr>
+<tr class="separator:a241ffdbd34d230d27782d08d081a4977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_d_sharp_plus_1_1_event_args_1_1_discord_event_args"><td colspan="2" onclick="javascript:toggleInherit('properties_class_d_sharp_plus_1_1_event_args_1_1_discord_event_args')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_discord_event_args.html">DSharpPlus.EventArgs.DiscordEventArgs</a></td></tr>
 <tr class="memitem:ae1b7234d52d2abc4ede3ecb919e1f7ed inherit properties_class_d_sharp_plus_1_1_event_args_1_1_discord_event_args"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html">DiscordClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_event_args_1_1_discord_event_args.html#ae1b7234d52d2abc4ede3ecb919e1f7ed">Client</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ae1b7234d52d2abc4ede3ecb919e1f7ed inherit properties_class_d_sharp_plus_1_1_event_args_1_1_discord_event_args"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the client that triggered the event.  <a href="class_d_sharp_plus_1_1_event_args_1_1_discord_event_args.html#ae1b7234d52d2abc4ede3ecb919e1f7ed">More...</a><br /></td></tr>
@@ -154,7 +169,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the guild whose members were requested. </p>
+<p>Gets the guild that requested this chunk. </p>
 
 </div>
 </div>
@@ -178,7 +193,127 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets a collection containing the members in the received chunk. </p>
+<p>Gets the collection of members returned from this chunk. </p>
+
+</div>
+</div>
+<a id="aaf87cfcd909baafca910e44b790163e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf87cfcd909baafca910e44b790163e9">&#9670;&nbsp;</a></span>ChunkIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current chunk index from the response. </p>
+
+</div>
+</div>
+<a id="a2f130b8b8df49191b959526f3d84e4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f130b8b8df49191b959526f3d84e4f3">&#9670;&nbsp;</a></span>ChunkCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the total amount of chunks for the request. </p>
+
+</div>
+</div>
+<a id="a90939f49c16540cca6b346bc9ba3c415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90939f49c16540cca6b346bc9ba3c415">&#9670;&nbsp;</a></span>Presences</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IReadOnlyCollection&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_presence.html">DiscordPresence</a>&gt; DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the collection of presences returned from this chunk, if specified. </p>
+
+</div>
+</div>
+<a id="a7dc6189b53dc9a0af6ae25fd0b4aad89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc6189b53dc9a0af6ae25fd0b4aad89">&#9670;&nbsp;</a></span>NotFound</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IReadOnlyCollection&lt;ulong&gt; DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the returned Ids that were not found in the chunk, if specified. </p>
+
+</div>
+</div>
+<a id="a241ffdbd34d230d27782d08d081a4977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241ffdbd34d230d27782d08d081a4977">&#9670;&nbsp;</a></span>Nonce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the unique string used to identify the request, if specified. </p>
 
 </div>
 </div>

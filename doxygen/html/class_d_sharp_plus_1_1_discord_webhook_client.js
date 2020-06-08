@@ -2,7 +2,7 @@ var class_d_sharp_plus_1_1_discord_webhook_client =
 [
     [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html#a03a03345e9c274057706a64bd0dc0f4c", null ],
     [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html#ad5b13c474e30942fc3ad82c688452e08", null ],
-    [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html#a47245dce3a1d4129c4102a162de0089e", null ],
+    [ "DiscordWebhookClient", "class_d_sharp_plus_1_1_discord_webhook_client.html#a7461dc9f999dfe51813901ba85b2715e", null ],
     [ "AddWebhookAsync", "class_d_sharp_plus_1_1_discord_webhook_client.html#aa26ba50c62c5131ac4b446e48594f269", null ],
     [ "AddWebhookAsync", "class_d_sharp_plus_1_1_discord_webhook_client.html#afe6657bb8fb73a8d59942fea6879c01f", null ],
     [ "AddWebhookAsync", "class_d_sharp_plus_1_1_discord_webhook_client.html#a9688aa23fba3e2bf928eec962b92076c", null ],

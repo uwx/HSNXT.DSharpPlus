@@ -6,7 +6,7 @@ var searchData=
   ['channelpinsupdateeventargs',['ChannelPinsUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_channel_pins_update_event_args.html',1,'DSharpPlus::EventArgs']]],
   ['channelupdateeventargs',['ChannelUpdateEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_channel_update_event_args.html',1,'DSharpPlus::EventArgs']]],
   ['clienterroreventargs',['ClientErrorEventArgs',['../class_d_sharp_plus_1_1_event_args_1_1_client_error_event_args.html',1,'DSharpPlus::EventArgs']]],
-  ['clientmodule',['ClientModule',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html',1,'HSNXT.DSharpPlus.Extended.ClientModule&lt; TConfiguration &gt;'],['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html',1,'HSNXT.DSharpPlus.Extended.ClientModule']]],
+  ['clientmodule',['ClientModule',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html',1,'HSNXT.DSharpPlus.Extended.ClientModule'],['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_client_module.html',1,'HSNXT.DSharpPlus.Extended.ClientModule&lt; TConfiguration &gt;']]],
   ['clientproperties',['ClientProperties',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html',1,'DSharpPlus::Net::Abstractions']]],
   ['collectrequest',['CollectRequest',['../class_d_sharp_plus_1_1_interactivity_1_1_event_handling_1_1_collect_request.html',1,'DSharpPlus::Interactivity::EventHandling']]],
   ['commandsnextwrapper',['CommandsNextWrapper',['../class_h_s_n_x_t_1_1_d_sharp_plus_1_1_extended_1_1_commands_next_wrapper.html',1,'HSNXT::DSharpPlus::Extended']]],

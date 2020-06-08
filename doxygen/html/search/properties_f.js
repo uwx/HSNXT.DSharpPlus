@@ -16,6 +16,7 @@ var searchData=
   ['requirescodegrant',['RequiresCodeGrant',['../class_d_sharp_plus_1_1_entities_1_1_discord_application.html#a1fac51fa3584093fac38070299577f6c',1,'DSharpPlus::Entities::DiscordApplication']]],
   ['requirescolons',['RequiresColons',['../class_d_sharp_plus_1_1_entities_1_1_discord_emoji.html#a5aae39712d6c69436c7aaef563909783',1,'DSharpPlus::Entities::DiscordEmoji']]],
   ['reset',['Reset',['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a331521dea888bf1dc770a71d29be22ac',1,'DSharpPlus::Net::RateLimitBucket']]],
+  ['resetafter',['ResetAfter',['../class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a174262aa87d30880c03782f5e5755df9',1,'DSharpPlus::Net::RateLimitBucket']]],
   ['response',['Response',['../class_d_sharp_plus_1_1_net_1_1_rest_response.html#a5d4bf223840052b26f92fed9e757ca20',1,'DSharpPlus::Net::RestResponse']]],
   ['responsecode',['ResponseCode',['../class_d_sharp_plus_1_1_net_1_1_rest_response.html#a59357e6a9c46b5471836256ef8472237',1,'DSharpPlus::Net::RestResponse']]],
   ['rest',['Rest',['../class_d_sharp_plus_1_1_lavalink_1_1_lavalink_node_connection.html#a218246515e133a16cf6872c013b7d093',1,'DSharpPlus::Lavalink::LavalinkNodeConnection']]],

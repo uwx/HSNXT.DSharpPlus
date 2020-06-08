@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['oauthflags',['OAuthFlags',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a45efb85a53da8546cff1c0f86d87cbc3',1,'DSharpPlus.Entities.DiscordMember.OAuthFlags()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a89f4d59783791e87ed909fadf6dbe340',1,'DSharpPlus.Entities.DiscordUser.OAuthFlags()']]],
   ['opcode',['OpCode',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_payload.html#a7bc34e2e815086abbf006692c04e0add',1,'DSharpPlus::Net::Abstractions::GatewayPayload']]],
   ['operatingsystem',['OperatingSystem',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_client_properties.html#a9458fefc51e52c82f8eb1490f32d7d64',1,'DSharpPlus::Net::Abstractions::ClientProperties']]],
   ['opusdata',['OpusData',['../class_d_sharp_plus_1_1_voice_next_1_1_event_args_1_1_voice_receive_event_args.html#a5f00810079bc96f17a4f1e8372843de7',1,'DSharpPlus::VoiceNext::EventArgs::VoiceReceiveEventArgs']]],

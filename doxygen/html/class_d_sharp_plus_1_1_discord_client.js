@@ -10,7 +10,7 @@ var class_d_sharp_plus_1_1_discord_client =
     [ "GetChannelAsync", "class_d_sharp_plus_1_1_discord_client.html#ad55ffea7be54a9fa869f86fe196a7a6c", null ],
     [ "SendMessageAsync", "class_d_sharp_plus_1_1_discord_client.html#abc0ca0aadedaf1d89f9e4438fb0209da", null ],
     [ "CreateGuildAsync", "class_d_sharp_plus_1_1_discord_client.html#a882fd6d0807bf9658322cb698f40364d", null ],
-    [ "GetGuildAsync", "class_d_sharp_plus_1_1_discord_client.html#a6baed22b485319946a6cfa7990d3e165", null ],
+    [ "GetGuildAsync", "class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0", null ],
     [ "GetGuildPreviewAsync", "class_d_sharp_plus_1_1_discord_client.html#ab166aeb7210faff15be6f9d97af5150f", null ],
     [ "GetInviteByCodeAsync", "class_d_sharp_plus_1_1_discord_client.html#af5a4675b62bb2b025f2952b3f9209224", null ],
     [ "GetConnectionsAsync", "class_d_sharp_plus_1_1_discord_client.html#a9f0cdcffd5373b577b9c9518d0d3400c", null ],

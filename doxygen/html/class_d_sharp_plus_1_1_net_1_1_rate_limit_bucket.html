@@ -159,6 +159,9 @@ Properties</h2></td></tr>
 <tr class="memitem:a331521dea888bf1dc770a71d29be22ac"><td class="memItemLeft" align="right" valign="top">DateTimeOffset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a331521dea888bf1dc770a71d29be22ac">Reset</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a331521dea888bf1dc770a71d29be22ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timestamp at which the rate limit resets.  <a href="#a331521dea888bf1dc770a71d29be22ac">More...</a><br /></td></tr>
 <tr class="separator:a331521dea888bf1dc770a71d29be22ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174262aa87d30880c03782f5e5755df9"><td class="memItemLeft" align="right" valign="top">TimeSpan?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html#a174262aa87d30880c03782f5e5755df9">ResetAfter</a> = null<code> [get, set]</code></td></tr>
+<tr class="memdesc:a174262aa87d30880c03782f5e5755df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the time interval to wait before the rate limit resets.  <a href="#a174262aa87d30880c03782f5e5755df9">More...</a><br /></td></tr>
+<tr class="separator:a174262aa87d30880c03782f5e5755df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a rate limit bucket. </p>
@@ -235,9 +238,6 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">override string DSharpPlus.Net.RateLimitBucket.ToString </td>
@@ -246,11 +246,6 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a string representation of this bucket. </p>
@@ -263,9 +258,6 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">override bool DSharpPlus.Net.RateLimitBucket.Equals </td>
@@ -275,11 +267,6 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Checks whether this <a class="el" href="class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html" title="Represents a rate limit bucket.">RateLimitBucket</a> is equal to another object. </p>
@@ -333,9 +320,6 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">override int DSharpPlus.Net.RateLimitBucket.GetHashCode </td>
@@ -344,11 +328,6 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Gets the hash code for this <a class="el" href="class_d_sharp_plus_1_1_net_1_1_rate_limit_bucket.html" title="Represents a rate limit bucket.">RateLimitBucket</a>. </p>
@@ -555,6 +534,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the timestamp at which the rate limit resets. </p>
+
+</div>
+</div>
+<a id="a174262aa87d30880c03782f5e5755df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a174262aa87d30880c03782f5e5755df9">&#9670;&nbsp;</a></span>ResetAfter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimeSpan? DSharpPlus.Net.RateLimitBucket.ResetAfter = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the time interval to wait before the rate limit resets. </p>
 
 </div>
 </div>

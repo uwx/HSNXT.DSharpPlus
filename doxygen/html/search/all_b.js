@@ -49,7 +49,7 @@ var searchData=
   ['lilac',['Lilac',['../struct_d_sharp_plus_1_1_entities_1_1_discord_color.html#a6f1220f2001d22b9223bc088c85fa1f8',1,'DSharpPlus::Entities::DiscordColor']]],
   ['line',['Line',['../namespace_d_sharp_plus_1_1_interactivity.html#a75a7c6986b9f9eb0cb61e4d3464fe846a4803e6b9e63dabf04de980788d6a13c4',1,'DSharpPlus::Interactivity']]],
   ['lines',['Lines',['../namespace_h_s_n_x_t_1_1_d_sharp_plus_1_1_interactivity_next.html#a250f1562f47809459a9f8a4cec69a251aa0b0293a2db49f5f93c15a62e095c819',1,'HSNXT::DSharpPlus::InteractivityNext']]],
-  ['listen',['Listen',['../namespace_d_sharp_plus_1_1_enums.html#a659a7442136b2df92b372fbc9525010aace6802b46091c31e2ec2363883fe8369',1,'DSharpPlus::Enums']]],
+  ['listen',['Listen',['../namespace_d_sharp_plus.html#aabb380172aab808cb9be265ff2590a4face6802b46091c31e2ec2363883fe8369',1,'DSharpPlus']]],
   ['listeningto',['ListeningTo',['../namespace_d_sharp_plus_1_1_entities.html#aedfff5f54450f621fb2e709ee6148695aeb2334ba16a7e9a759462830d23b3f51',1,'DSharpPlus::Entities']]],
   ['listguildmembersasync',['ListGuildMembersAsync',['../class_d_sharp_plus_1_1_discord_rest_client.html#a3d06bcd42df3da53a4b9d6c1ebab431b',1,'DSharpPlus::DiscordRestClient']]],
   ['listvoiceregionsasync',['ListVoiceRegionsAsync',['../class_d_sharp_plus_1_1_base_discord_client.html#ab978e21e9a89b953140fd65a7c6ce179',1,'DSharpPlus.BaseDiscordClient.ListVoiceRegionsAsync()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_guild.html#a62dbfe0b69a991ce85b81debf5d688a3',1,'DSharpPlus.Entities.DiscordGuild.ListVoiceRegionsAsync()']]],

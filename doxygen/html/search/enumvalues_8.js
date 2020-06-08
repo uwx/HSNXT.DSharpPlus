@@ -13,5 +13,5 @@ var searchData=
   ['invited',['Invited',['../namespace_d_sharp_plus_1_1_entities.html#a316b3800d457f4815458de25a062e6d8aaa3443ffdec7410e60018515486e1279',1,'DSharpPlus::Entities']]],
   ['invitedelete',['InviteDelete',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a967b3f28e1d29fcaa7df9ed219f63f9d',1,'DSharpPlus::Entities']]],
   ['inviteupdate',['InviteUpdate',['../namespace_d_sharp_plus_1_1_entities.html#a3f82bc132402c085e9d2cef0af4b8a18a87dbd1dac441ed657a05b03532f95d83',1,'DSharpPlus::Entities']]],
-  ['iscrosspost',['IsCrosspost',['../namespace_d_sharp_plus_1_1_enums.html#afdfe64fcd32cfdf43672905e289b9c11abf61a95a5c4b63b212104e24e03018ad',1,'DSharpPlus::Enums']]]
+  ['iscrosspost',['IsCrosspost',['../namespace_d_sharp_plus.html#a8d96a7b5a10a17e92c7d643592c09162abf61a95a5c4b63b212104e24e03018ad',1,'DSharpPlus']]]
 ];

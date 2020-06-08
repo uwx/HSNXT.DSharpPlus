@@ -6,6 +6,7 @@ var class_d_sharp_plus_1_1_discord_configuration =
     [ "TokenType", "class_d_sharp_plus_1_1_discord_configuration.html#ac8b5f7a0538354287e26d6f87ef94f26", null ],
     [ "LogLevel", "class_d_sharp_plus_1_1_discord_configuration.html#ad9f5015bcc5e241505bf0e5cd1056c9a", null ],
     [ "UseInternalLogHandler", "class_d_sharp_plus_1_1_discord_configuration.html#ab6fb7e0ee13d420880dab0cfb51a60c9", null ],
+    [ "UseRelativeRatelimit", "class_d_sharp_plus_1_1_discord_configuration.html#a8e91fce9663525d25b4d99ba1978c466", null ],
     [ "DateTimeFormat", "class_d_sharp_plus_1_1_discord_configuration.html#ad374c86bdbca89a9398c37efdee4754f", null ],
     [ "LargeThreshold", "class_d_sharp_plus_1_1_discord_configuration.html#a42ad3e18db8f68cbc0cb51eb9e3ee687", null ],
     [ "AutoReconnect", "class_d_sharp_plus_1_1_discord_configuration.html#a28449150496b55e8f2ede33dec658932", null ],

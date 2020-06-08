@@ -720,12 +720,15 @@ references:
   fullName.vb: DSharpPlus.DiscordClient.GetExtension(Of T)()
   nameWithType: DiscordClient.GetExtension<T>()
   nameWithType.vb: DiscordClient.GetExtension(Of T)()
-- uid: DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64)
-  name: GetGuildAsync(UInt64)
-  href: api/DSharpPlus/DSharpPlus.DiscordClient.html#DSharpPlus_DiscordClient_GetGuildAsync_System_UInt64_
-  commentId: M:DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64)
-  fullName: DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64)
-  nameWithType: DiscordClient.GetGuildAsync(UInt64)
+- uid: DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64,System.Nullable{System.Boolean})
+  name: GetGuildAsync(UInt64, Nullable<Boolean>)
+  href: api/DSharpPlus/DSharpPlus.DiscordClient.html#DSharpPlus_DiscordClient_GetGuildAsync_System_UInt64_System_Nullable_System_Boolean__
+  commentId: M:DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64,System.Nullable{System.Boolean})
+  name.vb: GetGuildAsync(UInt64, Nullable(Of Boolean))
+  fullName: DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64, System.Nullable<System.Boolean>)
+  fullName.vb: DSharpPlus.DiscordClient.GetGuildAsync(System.UInt64, System.Nullable(Of System.Boolean))
+  nameWithType: DiscordClient.GetGuildAsync(UInt64, Nullable<Boolean>)
+  nameWithType.vb: DiscordClient.GetGuildAsync(UInt64, Nullable(Of Boolean))
 - uid: DSharpPlus.DiscordClient.GetGuildAsync*
   name: GetGuildAsync
   href: api/DSharpPlus/DSharpPlus.DiscordClient.html#DSharpPlus_DiscordClient_GetGuildAsync_
@@ -1412,6 +1415,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.DiscordConfiguration.UseInternalLogHandler
   nameWithType: DiscordConfiguration.UseInternalLogHandler
+- uid: DSharpPlus.DiscordConfiguration.UseRelativeRatelimit
+  name: UseRelativeRatelimit
+  href: api/DSharpPlus/DSharpPlus.DiscordConfiguration.html#DSharpPlus_DiscordConfiguration_UseRelativeRatelimit
+  commentId: P:DSharpPlus.DiscordConfiguration.UseRelativeRatelimit
+  fullName: DSharpPlus.DiscordConfiguration.UseRelativeRatelimit
+  nameWithType: DiscordConfiguration.UseRelativeRatelimit
+- uid: DSharpPlus.DiscordConfiguration.UseRelativeRatelimit*
+  name: UseRelativeRatelimit
+  href: api/DSharpPlus/DSharpPlus.DiscordConfiguration.html#DSharpPlus_DiscordConfiguration_UseRelativeRatelimit_
+  commentId: Overload:DSharpPlus.DiscordConfiguration.UseRelativeRatelimit
+  isSpec: "True"
+  fullName: DSharpPlus.DiscordConfiguration.UseRelativeRatelimit
+  nameWithType: DiscordConfiguration.UseRelativeRatelimit
 - uid: DSharpPlus.DiscordConfiguration.WebSocketClientFactory
   name: WebSocketClientFactory
   href: api/DSharpPlus/DSharpPlus.DiscordConfiguration.html#DSharpPlus_DiscordConfiguration_WebSocketClientFactory
@@ -1473,12 +1489,15 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.DiscordRestClient.AddGuildMemberRoleAsync
   nameWithType: DiscordRestClient.AddGuildMemberRoleAsync
-- uid: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.String)
-  name: BeginGuildPruneAsync(UInt64, Int32, String)
-  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_String_
-  commentId: M:DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.String)
-  fullName: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64, System.Int32, System.String)
-  nameWithType: DiscordRestClient.BeginGuildPruneAsync(UInt64, Int32, String)
+- uid: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.Boolean,System.Collections.Generic.IEnumerable{System.UInt64},System.String)
+  name: BeginGuildPruneAsync(UInt64, Int32, Boolean, IEnumerable<UInt64>, String)
+  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_Boolean_System_Collections_Generic_IEnumerable_System_UInt64__System_String_
+  commentId: M:DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.Boolean,System.Collections.Generic.IEnumerable{System.UInt64},System.String)
+  name.vb: BeginGuildPruneAsync(UInt64, Int32, Boolean, IEnumerable(Of UInt64), String)
+  fullName: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64, System.Int32, System.Boolean, System.Collections.Generic.IEnumerable<System.UInt64>, System.String)
+  fullName.vb: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64, System.Int32, System.Boolean, System.Collections.Generic.IEnumerable(Of System.UInt64), System.String)
+  nameWithType: DiscordRestClient.BeginGuildPruneAsync(UInt64, Int32, Boolean, IEnumerable<UInt64>, String)
+  nameWithType.vb: DiscordRestClient.BeginGuildPruneAsync(UInt64, Int32, Boolean, IEnumerable(Of UInt64), String)
 - uid: DSharpPlus.DiscordRestClient.BeginGuildPruneAsync*
   name: BeginGuildPruneAsync
   href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_
@@ -1996,12 +2015,15 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.DiscordRestClient.GetCurrentUserGuildsAsync
   nameWithType: DiscordRestClient.GetCurrentUserGuildsAsync
-- uid: DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64)
-  name: GetGuildAsync(UInt64)
-  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_
-  commentId: M:DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64)
-  fullName: DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64)
-  nameWithType: DiscordRestClient.GetGuildAsync(UInt64)
+- uid: DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64,System.Nullable{System.Boolean})
+  name: GetGuildAsync(UInt64, Nullable<Boolean>)
+  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_System_Nullable_System_Boolean__
+  commentId: M:DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64,System.Nullable{System.Boolean})
+  name.vb: GetGuildAsync(UInt64, Nullable(Of Boolean))
+  fullName: DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64, System.Nullable<System.Boolean>)
+  fullName.vb: DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64, System.Nullable(Of System.Boolean))
+  nameWithType: DiscordRestClient.GetGuildAsync(UInt64, Nullable<Boolean>)
+  nameWithType.vb: DiscordRestClient.GetGuildAsync(UInt64, Nullable(Of Boolean))
 - uid: DSharpPlus.DiscordRestClient.GetGuildAsync*
   name: GetGuildAsync
   href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildAsync_
@@ -2087,12 +2109,15 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.DiscordRestClient.GetGuildMemberAsync
   nameWithType: DiscordRestClient.GetGuildMemberAsync
-- uid: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32)
-  name: GetGuildPruneCountAsync(UInt64, Int32)
-  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_
-  commentId: M:DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32)
-  fullName: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64, System.Int32)
-  nameWithType: DiscordRestClient.GetGuildPruneCountAsync(UInt64, Int32)
+- uid: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32,System.Collections.Generic.IEnumerable{System.UInt64})
+  name: GetGuildPruneCountAsync(UInt64, Int32, IEnumerable<UInt64>)
+  href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_System_Collections_Generic_IEnumerable_System_UInt64__
+  commentId: M:DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32,System.Collections.Generic.IEnumerable{System.UInt64})
+  name.vb: GetGuildPruneCountAsync(UInt64, Int32, IEnumerable(Of UInt64))
+  fullName: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64, System.Int32, System.Collections.Generic.IEnumerable<System.UInt64>)
+  fullName.vb: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64, System.Int32, System.Collections.Generic.IEnumerable(Of System.UInt64))
+  nameWithType: DiscordRestClient.GetGuildPruneCountAsync(UInt64, Int32, IEnumerable<UInt64>)
+  nameWithType.vb: DiscordRestClient.GetGuildPruneCountAsync(UInt64, Int32, IEnumerable(Of UInt64))
 - uid: DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync*
   name: GetGuildPruneCountAsync
   href: api/DSharpPlus/DSharpPlus.DiscordRestClient.html#DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_
@@ -3116,12 +3141,12 @@ references:
   commentId: M:DSharpPlus.DiscordWebhookClient.#ctor(System.Net.IWebProxy)
   fullName: DSharpPlus.DiscordWebhookClient.DiscordWebhookClient(System.Net.IWebProxy)
   nameWithType: DiscordWebhookClient.DiscordWebhookClient(IWebProxy)
-- uid: DSharpPlus.DiscordWebhookClient.#ctor(System.Net.IWebProxy,System.TimeSpan)
-  name: DiscordWebhookClient(IWebProxy, TimeSpan)
-  href: api/DSharpPlus/DSharpPlus.DiscordWebhookClient.html#DSharpPlus_DiscordWebhookClient__ctor_System_Net_IWebProxy_System_TimeSpan_
-  commentId: M:DSharpPlus.DiscordWebhookClient.#ctor(System.Net.IWebProxy,System.TimeSpan)
-  fullName: DSharpPlus.DiscordWebhookClient.DiscordWebhookClient(System.Net.IWebProxy, System.TimeSpan)
-  nameWithType: DiscordWebhookClient.DiscordWebhookClient(IWebProxy, TimeSpan)
+- uid: DSharpPlus.DiscordWebhookClient.#ctor(System.Net.IWebProxy,System.TimeSpan,System.Boolean)
+  name: DiscordWebhookClient(IWebProxy, TimeSpan, Boolean)
+  href: api/DSharpPlus/DSharpPlus.DiscordWebhookClient.html#DSharpPlus_DiscordWebhookClient__ctor_System_Net_IWebProxy_System_TimeSpan_System_Boolean_
+  commentId: M:DSharpPlus.DiscordWebhookClient.#ctor(System.Net.IWebProxy,System.TimeSpan,System.Boolean)
+  fullName: DSharpPlus.DiscordWebhookClient.DiscordWebhookClient(System.Net.IWebProxy, System.TimeSpan, System.Boolean)
+  nameWithType: DiscordWebhookClient.DiscordWebhookClient(IWebProxy, TimeSpan, Boolean)
 - uid: DSharpPlus.DiscordWebhookClient.#ctor*
   name: DiscordWebhookClient
   href: api/DSharpPlus/DSharpPlus.DiscordWebhookClient.html#DSharpPlus_DiscordWebhookClient__ctor_
@@ -7306,6 +7331,51 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedFooter.Text
   nameWithType: DiscordEmbedBuilder.EmbedFooter.Text
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail
+  name: DiscordEmbedBuilder.EmbedThumbnail
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html
+  commentId: T:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height
+  name: Height
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Height
+  commentId: P:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Height
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height*
+  name: Height
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Height_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Height
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Height
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url
+  name: Url
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Url
+  commentId: P:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Url
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url*
+  name: Url
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Url_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Url
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Url
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width
+  name: Width
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Width
+  commentId: P:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Width
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width*
+  name: Width
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.html#DSharpPlus_Entities_DiscordEmbedBuilder_EmbedThumbnail_Width_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.EmbedThumbnail.Width
+  nameWithType: DiscordEmbedBuilder.EmbedThumbnail.Width
 - uid: DSharpPlus.Entities.DiscordEmbedBuilder.Fields
   name: Fields
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_Fields
@@ -7364,19 +7434,45 @@ references:
   fullName.vb: DSharpPlus.Entities.DiscordEmbedBuilder.Widening
   nameWithType: DiscordEmbedBuilder.Implicit
   nameWithType.vb: DiscordEmbedBuilder.Widening
-- uid: DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl
-  name: ThumbnailUrl
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_ThumbnailUrl
-  commentId: P:DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl
-  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl
-  nameWithType: DiscordEmbedBuilder.ThumbnailUrl
-- uid: DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl*
-  name: ThumbnailUrl
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_ThumbnailUrl_
-  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt(System.Int32)
+  name: RemoveFieldAt(Int32)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_RemoveFieldAt_System_Int32_
+  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt(System.Int32)
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt(System.Int32)
+  nameWithType: DiscordEmbedBuilder.RemoveFieldAt(Int32)
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt*
+  name: RemoveFieldAt
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_RemoveFieldAt_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt
   isSpec: "True"
-  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.ThumbnailUrl
-  nameWithType: DiscordEmbedBuilder.ThumbnailUrl
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldAt
+  nameWithType: DiscordEmbedBuilder.RemoveFieldAt
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange(System.Int32,System.Int32)
+  name: RemoveFieldRange(Int32, Int32)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_RemoveFieldRange_System_Int32_System_Int32_
+  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange(System.Int32,System.Int32)
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange(System.Int32, System.Int32)
+  nameWithType: DiscordEmbedBuilder.RemoveFieldRange(Int32, Int32)
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange*
+  name: RemoveFieldRange
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_RemoveFieldRange_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.RemoveFieldRange
+  nameWithType: DiscordEmbedBuilder.RemoveFieldRange
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail
+  name: Thumbnail
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_Thumbnail
+  commentId: P:DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail
+  nameWithType: DiscordEmbedBuilder.Thumbnail
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail*
+  name: Thumbnail
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_Thumbnail_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.Thumbnail
+  nameWithType: DiscordEmbedBuilder.Thumbnail
 - uid: DSharpPlus.Entities.DiscordEmbedBuilder.Timestamp
   name: Timestamp
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_Timestamp
@@ -7487,25 +7583,25 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithImageUrl
   nameWithType: DiscordEmbedBuilder.WithImageUrl
-- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.String)
-  name: WithThumbnailUrl(String)
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_String_
-  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.String)
-  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.String)
-  nameWithType: DiscordEmbedBuilder.WithThumbnailUrl(String)
-- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.Uri)
-  name: WithThumbnailUrl(Uri)
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_System_Uri_
-  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.Uri)
-  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl(System.Uri)
-  nameWithType: DiscordEmbedBuilder.WithThumbnailUrl(Uri)
-- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl*
-  name: WithThumbnailUrl
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnailUrl_
-  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.String,System.Int32,System.Int32)
+  name: WithThumbnail(String, Int32, Int32)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnail_System_String_System_Int32_System_Int32_
+  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.String,System.Int32,System.Int32)
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.String, System.Int32, System.Int32)
+  nameWithType: DiscordEmbedBuilder.WithThumbnail(String, Int32, Int32)
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.Uri,System.Int32,System.Int32)
+  name: WithThumbnail(Uri, Int32, Int32)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnail_System_Uri_System_Int32_System_Int32_
+  commentId: M:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.Uri,System.Int32,System.Int32)
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail(System.Uri, System.Int32, System.Int32)
+  nameWithType: DiscordEmbedBuilder.WithThumbnail(Uri, Int32, Int32)
+- uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail*
+  name: WithThumbnail
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithThumbnail_
+  commentId: Overload:DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail
   isSpec: "True"
-  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnailUrl
-  nameWithType: DiscordEmbedBuilder.WithThumbnailUrl
+  fullName: DSharpPlus.Entities.DiscordEmbedBuilder.WithThumbnail
+  nameWithType: DiscordEmbedBuilder.WithThumbnail
 - uid: DSharpPlus.Entities.DiscordEmbedBuilder.WithTimestamp(System.Nullable{System.DateTime})
   name: WithTimestamp(Nullable<DateTime>)
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordEmbedBuilder.html#DSharpPlus_Entities_DiscordEmbedBuilder_WithTimestamp_System_Nullable_System_DateTime__
@@ -8145,6 +8241,32 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordGuild.ApplicationId
   nameWithType: DiscordGuild.ApplicationId
+- uid: DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount
+  name: ApproximateMemberCount
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_ApproximateMemberCount
+  commentId: P:DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount
+  fullName: DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount
+  nameWithType: DiscordGuild.ApproximateMemberCount
+- uid: DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount*
+  name: ApproximateMemberCount
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_ApproximateMemberCount_
+  commentId: Overload:DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordGuild.ApproximateMemberCount
+  nameWithType: DiscordGuild.ApproximateMemberCount
+- uid: DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount
+  name: ApproximatePresenceCount
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_ApproximatePresenceCount
+  commentId: P:DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount
+  fullName: DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount
+  nameWithType: DiscordGuild.ApproximatePresenceCount
+- uid: DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount*
+  name: ApproximatePresenceCount
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_ApproximatePresenceCount_
+  commentId: Overload:DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordGuild.ApproximatePresenceCount
+  nameWithType: DiscordGuild.ApproximatePresenceCount
 - uid: DSharpPlus.Entities.DiscordGuild.AttachUserIntegrationAsync(DSharpPlus.Entities.DiscordIntegration)
   name: AttachUserIntegrationAsync(DiscordIntegration)
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_AttachUserIntegrationAsync_DSharpPlus_Entities_DiscordIntegration_
@@ -8711,12 +8833,15 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordGuild.GetMemberAsync
   nameWithType: DiscordGuild.GetMemberAsync
-- uid: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32)
-  name: GetPruneCountAsync(Int32)
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_GetPruneCountAsync_System_Int32_
-  commentId: M:DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32)
-  fullName: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32)
-  nameWithType: DiscordGuild.GetPruneCountAsync(Int32)
+- uid: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordRole})
+  name: GetPruneCountAsync(Int32, IEnumerable<DiscordRole>)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_GetPruneCountAsync_System_Int32_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordRole__
+  commentId: M:DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordRole})
+  name.vb: GetPruneCountAsync(Int32, IEnumerable(Of DiscordRole))
+  fullName: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32, System.Collections.Generic.IEnumerable<DSharpPlus.Entities.DiscordRole>)
+  fullName.vb: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync(System.Int32, System.Collections.Generic.IEnumerable(Of DSharpPlus.Entities.DiscordRole))
+  nameWithType: DiscordGuild.GetPruneCountAsync(Int32, IEnumerable<DiscordRole>)
+  nameWithType.vb: DiscordGuild.GetPruneCountAsync(Int32, IEnumerable(Of DiscordRole))
 - uid: DSharpPlus.Entities.DiscordGuild.GetPruneCountAsync*
   name: GetPruneCountAsync
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_GetPruneCountAsync_
@@ -8906,6 +9031,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordGuild.MaxPresences
   nameWithType: DiscordGuild.MaxPresences
+- uid: DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers
+  name: MaxVideoChannelUsers
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_MaxVideoChannelUsers
+  commentId: P:DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers
+  fullName: DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers
+  nameWithType: DiscordGuild.MaxVideoChannelUsers
+- uid: DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers*
+  name: MaxVideoChannelUsers
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_MaxVideoChannelUsers_
+  commentId: Overload:DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordGuild.MaxVideoChannelUsers
+  nameWithType: DiscordGuild.MaxVideoChannelUsers
 - uid: DSharpPlus.Entities.DiscordGuild.MemberCount
   name: MemberCount
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_MemberCount
@@ -9094,12 +9232,15 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordGuild.PremiumTier
   nameWithType: DiscordGuild.PremiumTier
-- uid: DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32,System.String)
-  name: PruneAsync(Int32, String)
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_PruneAsync_System_Int32_System_String_
-  commentId: M:DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32,System.String)
-  fullName: DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32, System.String)
-  nameWithType: DiscordGuild.PruneAsync(Int32, String)
+- uid: DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32,System.Boolean,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordRole},System.String)
+  name: PruneAsync(Int32, Boolean, IEnumerable<DiscordRole>, String)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_PruneAsync_System_Int32_System_Boolean_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordRole__System_String_
+  commentId: M:DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32,System.Boolean,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordRole},System.String)
+  name.vb: PruneAsync(Int32, Boolean, IEnumerable(Of DiscordRole), String)
+  fullName: DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32, System.Boolean, System.Collections.Generic.IEnumerable<DSharpPlus.Entities.DiscordRole>, System.String)
+  fullName.vb: DSharpPlus.Entities.DiscordGuild.PruneAsync(System.Int32, System.Boolean, System.Collections.Generic.IEnumerable(Of DSharpPlus.Entities.DiscordRole), System.String)
+  nameWithType: DiscordGuild.PruneAsync(Int32, Boolean, IEnumerable<DiscordRole>, String)
+  nameWithType.vb: DiscordGuild.PruneAsync(Int32, Boolean, IEnumerable(Of DiscordRole), String)
 - uid: DSharpPlus.Entities.DiscordGuild.PruneAsync*
   name: PruneAsync
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_PruneAsync_
@@ -9120,19 +9261,22 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordGuild.PublicUpdatesChannel
   nameWithType: DiscordGuild.PublicUpdatesChannel
-- uid: DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync
-  name: RequestAllMembersAsync()
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_RequestAllMembersAsync
-  commentId: M:DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync
-  fullName: DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync()
-  nameWithType: DiscordGuild.RequestAllMembersAsync()
-- uid: DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync*
-  name: RequestAllMembersAsync
-  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_RequestAllMembersAsync_
-  commentId: Overload:DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync
+- uid: DSharpPlus.Entities.DiscordGuild.RequestMembersAsync(System.String,System.Int32,System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.UInt64},System.String)
+  name: RequestMembersAsync(String, Int32, Nullable<Boolean>, IEnumerable<UInt64>, String)
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_RequestMembersAsync_System_String_System_Int32_System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_System_UInt64__System_String_
+  commentId: M:DSharpPlus.Entities.DiscordGuild.RequestMembersAsync(System.String,System.Int32,System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.UInt64},System.String)
+  name.vb: RequestMembersAsync(String, Int32, Nullable(Of Boolean), IEnumerable(Of UInt64), String)
+  fullName: DSharpPlus.Entities.DiscordGuild.RequestMembersAsync(System.String, System.Int32, System.Nullable<System.Boolean>, System.Collections.Generic.IEnumerable<System.UInt64>, System.String)
+  fullName.vb: DSharpPlus.Entities.DiscordGuild.RequestMembersAsync(System.String, System.Int32, System.Nullable(Of System.Boolean), System.Collections.Generic.IEnumerable(Of System.UInt64), System.String)
+  nameWithType: DiscordGuild.RequestMembersAsync(String, Int32, Nullable<Boolean>, IEnumerable<UInt64>, String)
+  nameWithType.vb: DiscordGuild.RequestMembersAsync(String, Int32, Nullable(Of Boolean), IEnumerable(Of UInt64), String)
+- uid: DSharpPlus.Entities.DiscordGuild.RequestMembersAsync*
+  name: RequestMembersAsync
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_RequestMembersAsync_
+  commentId: Overload:DSharpPlus.Entities.DiscordGuild.RequestMembersAsync
   isSpec: "True"
-  fullName: DSharpPlus.Entities.DiscordGuild.RequestAllMembersAsync
-  nameWithType: DiscordGuild.RequestAllMembersAsync
+  fullName: DSharpPlus.Entities.DiscordGuild.RequestMembersAsync
+  nameWithType: DiscordGuild.RequestMembersAsync
 - uid: DSharpPlus.Entities.DiscordGuild.Roles
   name: Roles
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordGuild.html#DSharpPlus_Entities_DiscordGuild_Roles
@@ -9957,6 +10101,32 @@ references:
   commentId: T:DSharpPlus.Entities.DiscordInviteGuild
   fullName: DSharpPlus.Entities.DiscordInviteGuild
   nameWithType: DiscordInviteGuild
+- uid: DSharpPlus.Entities.DiscordInviteGuild.IconHash
+  name: IconHash
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordInviteGuild.html#DSharpPlus_Entities_DiscordInviteGuild_IconHash
+  commentId: P:DSharpPlus.Entities.DiscordInviteGuild.IconHash
+  fullName: DSharpPlus.Entities.DiscordInviteGuild.IconHash
+  nameWithType: DiscordInviteGuild.IconHash
+- uid: DSharpPlus.Entities.DiscordInviteGuild.IconHash*
+  name: IconHash
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordInviteGuild.html#DSharpPlus_Entities_DiscordInviteGuild_IconHash_
+  commentId: Overload:DSharpPlus.Entities.DiscordInviteGuild.IconHash
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordInviteGuild.IconHash
+  nameWithType: DiscordInviteGuild.IconHash
+- uid: DSharpPlus.Entities.DiscordInviteGuild.IconUrl
+  name: IconUrl
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordInviteGuild.html#DSharpPlus_Entities_DiscordInviteGuild_IconUrl
+  commentId: P:DSharpPlus.Entities.DiscordInviteGuild.IconUrl
+  fullName: DSharpPlus.Entities.DiscordInviteGuild.IconUrl
+  nameWithType: DiscordInviteGuild.IconUrl
+- uid: DSharpPlus.Entities.DiscordInviteGuild.IconUrl*
+  name: IconUrl
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordInviteGuild.html#DSharpPlus_Entities_DiscordInviteGuild_IconUrl_
+  commentId: Overload:DSharpPlus.Entities.DiscordInviteGuild.IconUrl
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordInviteGuild.IconUrl
+  nameWithType: DiscordInviteGuild.IconUrl
 - uid: DSharpPlus.Entities.DiscordInviteGuild.Name
   name: Name
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordInviteGuild.html#DSharpPlus_Entities_DiscordInviteGuild_Name
@@ -10099,6 +10269,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordMember.Equals
   nameWithType: DiscordMember.Equals
+- uid: DSharpPlus.Entities.DiscordMember.Flags
+  name: Flags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_Flags
+  commentId: P:DSharpPlus.Entities.DiscordMember.Flags
+  fullName: DSharpPlus.Entities.DiscordMember.Flags
+  nameWithType: DiscordMember.Flags
+- uid: DSharpPlus.Entities.DiscordMember.Flags*
+  name: Flags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_Flags_
+  commentId: Overload:DSharpPlus.Entities.DiscordMember.Flags
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordMember.Flags
+  nameWithType: DiscordMember.Flags
 - uid: DSharpPlus.Entities.DiscordMember.GetHashCode
   name: GetHashCode()
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_GetHashCode
@@ -10271,6 +10454,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordMember.Nickname
   nameWithType: DiscordMember.Nickname
+- uid: DSharpPlus.Entities.DiscordMember.OAuthFlags
+  name: OAuthFlags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_OAuthFlags
+  commentId: P:DSharpPlus.Entities.DiscordMember.OAuthFlags
+  fullName: DSharpPlus.Entities.DiscordMember.OAuthFlags
+  nameWithType: DiscordMember.OAuthFlags
+- uid: DSharpPlus.Entities.DiscordMember.OAuthFlags*
+  name: OAuthFlags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_OAuthFlags_
+  commentId: Overload:DSharpPlus.Entities.DiscordMember.OAuthFlags
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordMember.OAuthFlags
+  nameWithType: DiscordMember.OAuthFlags
 - uid: DSharpPlus.Entities.DiscordMember.op_Equality(DSharpPlus.Entities.DiscordMember,DSharpPlus.Entities.DiscordMember)
   name: Equality(DiscordMember, DiscordMember)
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordMember.html#DSharpPlus_Entities_DiscordMember_op_Equality_DSharpPlus_Entities_DiscordMember_DSharpPlus_Entities_DiscordMember_
@@ -12529,6 +12725,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordUser.Equals
   nameWithType: DiscordUser.Equals
+- uid: DSharpPlus.Entities.DiscordUser.Flags
+  name: Flags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Flags
+  commentId: P:DSharpPlus.Entities.DiscordUser.Flags
+  fullName: DSharpPlus.Entities.DiscordUser.Flags
+  nameWithType: DiscordUser.Flags
+- uid: DSharpPlus.Entities.DiscordUser.Flags*
+  name: Flags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Flags_
+  commentId: Overload:DSharpPlus.Entities.DiscordUser.Flags
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordUser.Flags
+  nameWithType: DiscordUser.Flags
 - uid: DSharpPlus.Entities.DiscordUser.GetAvatarUrl(DSharpPlus.ImageFormat,System.UInt16)
   name: GetAvatarUrl(ImageFormat, UInt16)
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_GetAvatarUrl_DSharpPlus_ImageFormat_System_UInt16_
@@ -12581,6 +12790,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordUser.IsCurrent
   nameWithType: DiscordUser.IsCurrent
+- uid: DSharpPlus.Entities.DiscordUser.IsSystem
+  name: IsSystem
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_IsSystem
+  commentId: P:DSharpPlus.Entities.DiscordUser.IsSystem
+  fullName: DSharpPlus.Entities.DiscordUser.IsSystem
+  nameWithType: DiscordUser.IsSystem
+- uid: DSharpPlus.Entities.DiscordUser.IsSystem*
+  name: IsSystem
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_IsSystem_
+  commentId: Overload:DSharpPlus.Entities.DiscordUser.IsSystem
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordUser.IsSystem
+  nameWithType: DiscordUser.IsSystem
 - uid: DSharpPlus.Entities.DiscordUser.Locale
   name: Locale
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Locale
@@ -12620,6 +12842,19 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.Entities.DiscordUser.MfaEnabled
   nameWithType: DiscordUser.MfaEnabled
+- uid: DSharpPlus.Entities.DiscordUser.OAuthFlags
+  name: OAuthFlags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_OAuthFlags
+  commentId: P:DSharpPlus.Entities.DiscordUser.OAuthFlags
+  fullName: DSharpPlus.Entities.DiscordUser.OAuthFlags
+  nameWithType: DiscordUser.OAuthFlags
+- uid: DSharpPlus.Entities.DiscordUser.OAuthFlags*
+  name: OAuthFlags
+  href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_OAuthFlags_
+  commentId: Overload:DSharpPlus.Entities.DiscordUser.OAuthFlags
+  isSpec: "True"
+  fullName: DSharpPlus.Entities.DiscordUser.OAuthFlags
+  nameWithType: DiscordUser.OAuthFlags
 - uid: DSharpPlus.Entities.DiscordUser.op_Equality(DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordUser)
   name: Equality(DiscordUser, DiscordUser)
   href: api/DSharpPlus/DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_op_Equality_DSharpPlus_Entities_DiscordUser_DSharpPlus_Entities_DiscordUser_
@@ -14061,218 +14296,6 @@ references:
   commentId: F:DSharpPlus.Entities.WidgetType.Shield
   fullName: DSharpPlus.Entities.WidgetType.Shield
   nameWithType: WidgetType.Shield
-- uid: DSharpPlus.Enums
-  name: DSharpPlus.Enums
-  href: api/DSharpPlus/DSharpPlus.Enums.html
-  commentId: N:DSharpPlus.Enums
-  fullName: DSharpPlus.Enums
-  nameWithType: DSharpPlus.Enums
-- uid: DSharpPlus.Enums.MessageActivityType
-  name: MessageActivityType
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageActivityType.html
-  commentId: T:DSharpPlus.Enums.MessageActivityType
-  fullName: DSharpPlus.Enums.MessageActivityType
-  nameWithType: MessageActivityType
-- uid: DSharpPlus.Enums.MessageActivityType.Join
-  name: Join
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageActivityType.html#DSharpPlus_Enums_MessageActivityType_Join
-  commentId: F:DSharpPlus.Enums.MessageActivityType.Join
-  fullName: DSharpPlus.Enums.MessageActivityType.Join
-  nameWithType: MessageActivityType.Join
-- uid: DSharpPlus.Enums.MessageActivityType.JoinRequest
-  name: JoinRequest
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageActivityType.html#DSharpPlus_Enums_MessageActivityType_JoinRequest
-  commentId: F:DSharpPlus.Enums.MessageActivityType.JoinRequest
-  fullName: DSharpPlus.Enums.MessageActivityType.JoinRequest
-  nameWithType: MessageActivityType.JoinRequest
-- uid: DSharpPlus.Enums.MessageActivityType.Listen
-  name: Listen
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageActivityType.html#DSharpPlus_Enums_MessageActivityType_Listen
-  commentId: F:DSharpPlus.Enums.MessageActivityType.Listen
-  fullName: DSharpPlus.Enums.MessageActivityType.Listen
-  nameWithType: MessageActivityType.Listen
-- uid: DSharpPlus.Enums.MessageActivityType.Spectate
-  name: Spectate
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageActivityType.html#DSharpPlus_Enums_MessageActivityType_Spectate
-  commentId: F:DSharpPlus.Enums.MessageActivityType.Spectate
-  fullName: DSharpPlus.Enums.MessageActivityType.Spectate
-  nameWithType: MessageActivityType.Spectate
-- uid: DSharpPlus.Enums.MessageFlagExtensions
-  name: MessageFlagExtensions
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlagExtensions.html
-  commentId: T:DSharpPlus.Enums.MessageFlagExtensions
-  fullName: DSharpPlus.Enums.MessageFlagExtensions
-  nameWithType: MessageFlagExtensions
-- uid: DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag(DSharpPlus.Enums.MessageFlags,DSharpPlus.Enums.MessageFlags)
-  name: HasMessageFlag(MessageFlags, MessageFlags)
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlagExtensions.html#DSharpPlus_Enums_MessageFlagExtensions_HasMessageFlag_DSharpPlus_Enums_MessageFlags_DSharpPlus_Enums_MessageFlags_
-  commentId: M:DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag(DSharpPlus.Enums.MessageFlags,DSharpPlus.Enums.MessageFlags)
-  fullName: DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag(DSharpPlus.Enums.MessageFlags, DSharpPlus.Enums.MessageFlags)
-  nameWithType: MessageFlagExtensions.HasMessageFlag(MessageFlags, MessageFlags)
-- uid: DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag*
-  name: HasMessageFlag
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlagExtensions.html#DSharpPlus_Enums_MessageFlagExtensions_HasMessageFlag_
-  commentId: Overload:DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag
-  isSpec: "True"
-  fullName: DSharpPlus.Enums.MessageFlagExtensions.HasMessageFlag
-  nameWithType: MessageFlagExtensions.HasMessageFlag
-- uid: DSharpPlus.Enums.MessageFlags
-  name: MessageFlags
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlags.html
-  commentId: T:DSharpPlus.Enums.MessageFlags
-  fullName: DSharpPlus.Enums.MessageFlags
-  nameWithType: MessageFlags
-- uid: DSharpPlus.Enums.MessageFlags.Crossposted
-  name: Crossposted
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlags.html#DSharpPlus_Enums_MessageFlags_Crossposted
-  commentId: F:DSharpPlus.Enums.MessageFlags.Crossposted
-  fullName: DSharpPlus.Enums.MessageFlags.Crossposted
-  nameWithType: MessageFlags.Crossposted
-- uid: DSharpPlus.Enums.MessageFlags.IsCrosspost
-  name: IsCrosspost
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlags.html#DSharpPlus_Enums_MessageFlags_IsCrosspost
-  commentId: F:DSharpPlus.Enums.MessageFlags.IsCrosspost
-  fullName: DSharpPlus.Enums.MessageFlags.IsCrosspost
-  nameWithType: MessageFlags.IsCrosspost
-- uid: DSharpPlus.Enums.MessageFlags.SuppressedEmbeds
-  name: SuppressedEmbeds
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageFlags.html#DSharpPlus_Enums_MessageFlags_SuppressedEmbeds
-  commentId: F:DSharpPlus.Enums.MessageFlags.SuppressedEmbeds
-  fullName: DSharpPlus.Enums.MessageFlags.SuppressedEmbeds
-  nameWithType: MessageFlags.SuppressedEmbeds
-- uid: DSharpPlus.Enums.MessageType
-  name: MessageType
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html
-  commentId: T:DSharpPlus.Enums.MessageType
-  fullName: DSharpPlus.Enums.MessageType
-  nameWithType: MessageType
-- uid: DSharpPlus.Enums.MessageType.Call
-  name: Call
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_Call
-  commentId: F:DSharpPlus.Enums.MessageType.Call
-  fullName: DSharpPlus.Enums.MessageType.Call
-  nameWithType: MessageType.Call
-- uid: DSharpPlus.Enums.MessageType.ChannelFollowAdd
-  name: ChannelFollowAdd
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_ChannelFollowAdd
-  commentId: F:DSharpPlus.Enums.MessageType.ChannelFollowAdd
-  fullName: DSharpPlus.Enums.MessageType.ChannelFollowAdd
-  nameWithType: MessageType.ChannelFollowAdd
-- uid: DSharpPlus.Enums.MessageType.ChannelIconChange
-  name: ChannelIconChange
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_ChannelIconChange
-  commentId: F:DSharpPlus.Enums.MessageType.ChannelIconChange
-  fullName: DSharpPlus.Enums.MessageType.ChannelIconChange
-  nameWithType: MessageType.ChannelIconChange
-- uid: DSharpPlus.Enums.MessageType.ChannelNameChange
-  name: ChannelNameChange
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_ChannelNameChange
-  commentId: F:DSharpPlus.Enums.MessageType.ChannelNameChange
-  fullName: DSharpPlus.Enums.MessageType.ChannelNameChange
-  nameWithType: MessageType.ChannelNameChange
-- uid: DSharpPlus.Enums.MessageType.ChannelPinnedMessage
-  name: ChannelPinnedMessage
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_ChannelPinnedMessage
-  commentId: F:DSharpPlus.Enums.MessageType.ChannelPinnedMessage
-  fullName: DSharpPlus.Enums.MessageType.ChannelPinnedMessage
-  nameWithType: MessageType.ChannelPinnedMessage
-- uid: DSharpPlus.Enums.MessageType.Default
-  name: Default
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_Default
-  commentId: F:DSharpPlus.Enums.MessageType.Default
-  fullName: DSharpPlus.Enums.MessageType.Default
-  nameWithType: MessageType.Default
-- uid: DSharpPlus.Enums.MessageType.GuildMemberJoin
-  name: GuildMemberJoin
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_GuildMemberJoin
-  commentId: F:DSharpPlus.Enums.MessageType.GuildMemberJoin
-  fullName: DSharpPlus.Enums.MessageType.GuildMemberJoin
-  nameWithType: MessageType.GuildMemberJoin
-- uid: DSharpPlus.Enums.MessageType.RecipientAdd
-  name: RecipientAdd
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_RecipientAdd
-  commentId: F:DSharpPlus.Enums.MessageType.RecipientAdd
-  fullName: DSharpPlus.Enums.MessageType.RecipientAdd
-  nameWithType: MessageType.RecipientAdd
-- uid: DSharpPlus.Enums.MessageType.RecipientRemove
-  name: RecipientRemove
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_RecipientRemove
-  commentId: F:DSharpPlus.Enums.MessageType.RecipientRemove
-  fullName: DSharpPlus.Enums.MessageType.RecipientRemove
-  nameWithType: MessageType.RecipientRemove
-- uid: DSharpPlus.Enums.MessageType.TierOneUserPremiumGuildSubscription
-  name: TierOneUserPremiumGuildSubscription
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_TierOneUserPremiumGuildSubscription
-  commentId: F:DSharpPlus.Enums.MessageType.TierOneUserPremiumGuildSubscription
-  fullName: DSharpPlus.Enums.MessageType.TierOneUserPremiumGuildSubscription
-  nameWithType: MessageType.TierOneUserPremiumGuildSubscription
-- uid: DSharpPlus.Enums.MessageType.TierThreeUserPremiumGuildSubscription
-  name: TierThreeUserPremiumGuildSubscription
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_TierThreeUserPremiumGuildSubscription
-  commentId: F:DSharpPlus.Enums.MessageType.TierThreeUserPremiumGuildSubscription
-  fullName: DSharpPlus.Enums.MessageType.TierThreeUserPremiumGuildSubscription
-  nameWithType: MessageType.TierThreeUserPremiumGuildSubscription
-- uid: DSharpPlus.Enums.MessageType.TierTwoUserPremiumGuildSubscription
-  name: TierTwoUserPremiumGuildSubscription
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_TierTwoUserPremiumGuildSubscription
-  commentId: F:DSharpPlus.Enums.MessageType.TierTwoUserPremiumGuildSubscription
-  fullName: DSharpPlus.Enums.MessageType.TierTwoUserPremiumGuildSubscription
-  nameWithType: MessageType.TierTwoUserPremiumGuildSubscription
-- uid: DSharpPlus.Enums.MessageType.UserPremiumGuildSubscription
-  name: UserPremiumGuildSubscription
-  href: api/DSharpPlus/DSharpPlus.Enums.MessageType.html#DSharpPlus_Enums_MessageType_UserPremiumGuildSubscription
-  commentId: F:DSharpPlus.Enums.MessageType.UserPremiumGuildSubscription
-  fullName: DSharpPlus.Enums.MessageType.UserPremiumGuildSubscription
-  nameWithType: MessageType.UserPremiumGuildSubscription
-- uid: DSharpPlus.Enums.SystemChannelFlags
-  name: SystemChannelFlags
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlags.html
-  commentId: T:DSharpPlus.Enums.SystemChannelFlags
-  fullName: DSharpPlus.Enums.SystemChannelFlags
-  nameWithType: SystemChannelFlags
-- uid: DSharpPlus.Enums.SystemChannelFlags.SuppressJoinNotifications
-  name: SuppressJoinNotifications
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlags.html#DSharpPlus_Enums_SystemChannelFlags_SuppressJoinNotifications
-  commentId: F:DSharpPlus.Enums.SystemChannelFlags.SuppressJoinNotifications
-  fullName: DSharpPlus.Enums.SystemChannelFlags.SuppressJoinNotifications
-  nameWithType: SystemChannelFlags.SuppressJoinNotifications
-- uid: DSharpPlus.Enums.SystemChannelFlags.SuppressPremiumSubscriptions
-  name: SuppressPremiumSubscriptions
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlags.html#DSharpPlus_Enums_SystemChannelFlags_SuppressPremiumSubscriptions
-  commentId: F:DSharpPlus.Enums.SystemChannelFlags.SuppressPremiumSubscriptions
-  fullName: DSharpPlus.Enums.SystemChannelFlags.SuppressPremiumSubscriptions
-  nameWithType: SystemChannelFlags.SuppressPremiumSubscriptions
-- uid: DSharpPlus.Enums.SystemChannelFlagsExtension
-  name: SystemChannelFlagsExtension
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlagsExtension.html
-  commentId: T:DSharpPlus.Enums.SystemChannelFlagsExtension
-  fullName: DSharpPlus.Enums.SystemChannelFlagsExtension
-  nameWithType: SystemChannelFlagsExtension
-- uid: DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.Enums.SystemChannelFlags,DSharpPlus.Enums.SystemChannelFlags)
-  name: HasSystemChannelFlag(SystemChannelFlags, SystemChannelFlags)
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlagsExtension.html#DSharpPlus_Enums_SystemChannelFlagsExtension_HasSystemChannelFlag_DSharpPlus_Enums_SystemChannelFlags_DSharpPlus_Enums_SystemChannelFlags_
-  commentId: M:DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.Enums.SystemChannelFlags,DSharpPlus.Enums.SystemChannelFlags)
-  fullName: DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.Enums.SystemChannelFlags, DSharpPlus.Enums.SystemChannelFlags)
-  nameWithType: SystemChannelFlagsExtension.HasSystemChannelFlag(SystemChannelFlags, SystemChannelFlags)
-- uid: DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag*
-  name: HasSystemChannelFlag
-  href: api/DSharpPlus/DSharpPlus.Enums.SystemChannelFlagsExtension.html#DSharpPlus_Enums_SystemChannelFlagsExtension_HasSystemChannelFlag_
-  commentId: Overload:DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag
-  isSpec: "True"
-  fullName: DSharpPlus.Enums.SystemChannelFlagsExtension.HasSystemChannelFlag
-  nameWithType: SystemChannelFlagsExtension.HasSystemChannelFlag
-- uid: DSharpPlus.Enums.TargetUserType
-  name: TargetUserType
-  href: api/DSharpPlus/DSharpPlus.Enums.TargetUserType.html
-  commentId: T:DSharpPlus.Enums.TargetUserType
-  fullName: DSharpPlus.Enums.TargetUserType
-  nameWithType: TargetUserType
-- uid: DSharpPlus.Enums.TargetUserType.Streaming
-  name: Streaming
-  href: api/DSharpPlus/DSharpPlus.Enums.TargetUserType.html#DSharpPlus_Enums_TargetUserType_Streaming
-  commentId: F:DSharpPlus.Enums.TargetUserType.Streaming
-  fullName: DSharpPlus.Enums.TargetUserType.Streaming
-  nameWithType: TargetUserType.Streaming
 - uid: DSharpPlus.EventArgs
   name: DSharpPlus.EventArgs
   href: api/DSharpPlus/DSharpPlus.EventArgs.html
@@ -14887,6 +14910,32 @@ references:
   commentId: T:DSharpPlus.EventArgs.GuildMembersChunkEventArgs
   fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs
   nameWithType: GuildMembersChunkEventArgs
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount
+  name: ChunkCount
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_ChunkCount
+  commentId: P:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount
+  nameWithType: GuildMembersChunkEventArgs.ChunkCount
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount*
+  name: ChunkCount
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_ChunkCount_
+  commentId: Overload:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount
+  isSpec: "True"
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkCount
+  nameWithType: GuildMembersChunkEventArgs.ChunkCount
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex
+  name: ChunkIndex
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_ChunkIndex
+  commentId: P:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex
+  nameWithType: GuildMembersChunkEventArgs.ChunkIndex
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex*
+  name: ChunkIndex
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_ChunkIndex_
+  commentId: Overload:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex
+  isSpec: "True"
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.ChunkIndex
+  nameWithType: GuildMembersChunkEventArgs.ChunkIndex
 - uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Guild
   name: Guild
   href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_Guild
@@ -14913,6 +14962,45 @@ references:
   isSpec: "True"
   fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Members
   nameWithType: GuildMembersChunkEventArgs.Members
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce
+  name: Nonce
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_Nonce
+  commentId: P:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce
+  nameWithType: GuildMembersChunkEventArgs.Nonce
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce*
+  name: Nonce
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_Nonce_
+  commentId: Overload:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce
+  isSpec: "True"
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Nonce
+  nameWithType: GuildMembersChunkEventArgs.Nonce
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound
+  name: NotFound
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_NotFound
+  commentId: P:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound
+  nameWithType: GuildMembersChunkEventArgs.NotFound
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound*
+  name: NotFound
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_NotFound_
+  commentId: Overload:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound
+  isSpec: "True"
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.NotFound
+  nameWithType: GuildMembersChunkEventArgs.NotFound
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences
+  name: Presences
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_Presences
+  commentId: P:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences
+  nameWithType: GuildMembersChunkEventArgs.Presences
+- uid: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences*
+  name: Presences
+  href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMembersChunkEventArgs.html#DSharpPlus_EventArgs_GuildMembersChunkEventArgs_Presences_
+  commentId: Overload:DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences
+  isSpec: "True"
+  fullName: DSharpPlus.EventArgs.GuildMembersChunkEventArgs.Presences
+  nameWithType: GuildMembersChunkEventArgs.Presences
 - uid: DSharpPlus.EventArgs.GuildMemberUpdateEventArgs
   name: GuildMemberUpdateEventArgs
   href: api/DSharpPlus/DSharpPlus.EventArgs.GuildMemberUpdateEventArgs.html
@@ -15144,19 +15232,6 @@ references:
   commentId: T:DSharpPlus.EventArgs.HeartbeatEventArgs
   fullName: DSharpPlus.EventArgs.HeartbeatEventArgs
   nameWithType: HeartbeatEventArgs
-- uid: DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum
-  name: IntegrityChecksum
-  href: api/DSharpPlus/DSharpPlus.EventArgs.HeartbeatEventArgs.html#DSharpPlus_EventArgs_HeartbeatEventArgs_IntegrityChecksum
-  commentId: P:DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum
-  fullName: DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum
-  nameWithType: HeartbeatEventArgs.IntegrityChecksum
-- uid: DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum*
-  name: IntegrityChecksum
-  href: api/DSharpPlus/DSharpPlus.EventArgs.HeartbeatEventArgs.html#DSharpPlus_EventArgs_HeartbeatEventArgs_IntegrityChecksum_
-  commentId: Overload:DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum
-  isSpec: "True"
-  fullName: DSharpPlus.EventArgs.HeartbeatEventArgs.IntegrityChecksum
-  nameWithType: HeartbeatEventArgs.IntegrityChecksum
 - uid: DSharpPlus.EventArgs.HeartbeatEventArgs.Ping
   name: Ping
   href: api/DSharpPlus/DSharpPlus.EventArgs.HeartbeatEventArgs.html#DSharpPlus_EventArgs_HeartbeatEventArgs_Ping
@@ -16869,6 +16944,12 @@ references:
   commentId: T:DSharpPlus.ImageFormat
   fullName: DSharpPlus.ImageFormat
   nameWithType: ImageFormat
+- uid: DSharpPlus.ImageFormat.Auto
+  name: Auto
+  href: api/DSharpPlus/DSharpPlus.ImageFormat.html#DSharpPlus_ImageFormat_Auto
+  commentId: F:DSharpPlus.ImageFormat.Auto
+  fullName: DSharpPlus.ImageFormat.Auto
+  nameWithType: ImageFormat.Auto
 - uid: DSharpPlus.ImageFormat.Gif
   name: Gif
   href: api/DSharpPlus/DSharpPlus.ImageFormat.html#DSharpPlus_ImageFormat_Gif
@@ -18939,6 +19020,163 @@ references:
   commentId: F:DSharpPlus.MentionType.Username
   fullName: DSharpPlus.MentionType.Username
   nameWithType: MentionType.Username
+- uid: DSharpPlus.MessageActivityType
+  name: MessageActivityType
+  href: api/DSharpPlus/DSharpPlus.MessageActivityType.html
+  commentId: T:DSharpPlus.MessageActivityType
+  fullName: DSharpPlus.MessageActivityType
+  nameWithType: MessageActivityType
+- uid: DSharpPlus.MessageActivityType.Join
+  name: Join
+  href: api/DSharpPlus/DSharpPlus.MessageActivityType.html#DSharpPlus_MessageActivityType_Join
+  commentId: F:DSharpPlus.MessageActivityType.Join
+  fullName: DSharpPlus.MessageActivityType.Join
+  nameWithType: MessageActivityType.Join
+- uid: DSharpPlus.MessageActivityType.JoinRequest
+  name: JoinRequest
+  href: api/DSharpPlus/DSharpPlus.MessageActivityType.html#DSharpPlus_MessageActivityType_JoinRequest
+  commentId: F:DSharpPlus.MessageActivityType.JoinRequest
+  fullName: DSharpPlus.MessageActivityType.JoinRequest
+  nameWithType: MessageActivityType.JoinRequest
+- uid: DSharpPlus.MessageActivityType.Listen
+  name: Listen
+  href: api/DSharpPlus/DSharpPlus.MessageActivityType.html#DSharpPlus_MessageActivityType_Listen
+  commentId: F:DSharpPlus.MessageActivityType.Listen
+  fullName: DSharpPlus.MessageActivityType.Listen
+  nameWithType: MessageActivityType.Listen
+- uid: DSharpPlus.MessageActivityType.Spectate
+  name: Spectate
+  href: api/DSharpPlus/DSharpPlus.MessageActivityType.html#DSharpPlus_MessageActivityType_Spectate
+  commentId: F:DSharpPlus.MessageActivityType.Spectate
+  fullName: DSharpPlus.MessageActivityType.Spectate
+  nameWithType: MessageActivityType.Spectate
+- uid: DSharpPlus.MessageFlagExtensions
+  name: MessageFlagExtensions
+  href: api/DSharpPlus/DSharpPlus.MessageFlagExtensions.html
+  commentId: T:DSharpPlus.MessageFlagExtensions
+  fullName: DSharpPlus.MessageFlagExtensions
+  nameWithType: MessageFlagExtensions
+- uid: DSharpPlus.MessageFlagExtensions.HasMessageFlag(DSharpPlus.MessageFlags,DSharpPlus.MessageFlags)
+  name: HasMessageFlag(MessageFlags, MessageFlags)
+  href: api/DSharpPlus/DSharpPlus.MessageFlagExtensions.html#DSharpPlus_MessageFlagExtensions_HasMessageFlag_DSharpPlus_MessageFlags_DSharpPlus_MessageFlags_
+  commentId: M:DSharpPlus.MessageFlagExtensions.HasMessageFlag(DSharpPlus.MessageFlags,DSharpPlus.MessageFlags)
+  fullName: DSharpPlus.MessageFlagExtensions.HasMessageFlag(DSharpPlus.MessageFlags, DSharpPlus.MessageFlags)
+  nameWithType: MessageFlagExtensions.HasMessageFlag(MessageFlags, MessageFlags)
+- uid: DSharpPlus.MessageFlagExtensions.HasMessageFlag*
+  name: HasMessageFlag
+  href: api/DSharpPlus/DSharpPlus.MessageFlagExtensions.html#DSharpPlus_MessageFlagExtensions_HasMessageFlag_
+  commentId: Overload:DSharpPlus.MessageFlagExtensions.HasMessageFlag
+  isSpec: "True"
+  fullName: DSharpPlus.MessageFlagExtensions.HasMessageFlag
+  nameWithType: MessageFlagExtensions.HasMessageFlag
+- uid: DSharpPlus.MessageFlags
+  name: MessageFlags
+  href: api/DSharpPlus/DSharpPlus.MessageFlags.html
+  commentId: T:DSharpPlus.MessageFlags
+  fullName: DSharpPlus.MessageFlags
+  nameWithType: MessageFlags
+- uid: DSharpPlus.MessageFlags.Crossposted
+  name: Crossposted
+  href: api/DSharpPlus/DSharpPlus.MessageFlags.html#DSharpPlus_MessageFlags_Crossposted
+  commentId: F:DSharpPlus.MessageFlags.Crossposted
+  fullName: DSharpPlus.MessageFlags.Crossposted
+  nameWithType: MessageFlags.Crossposted
+- uid: DSharpPlus.MessageFlags.IsCrosspost
+  name: IsCrosspost
+  href: api/DSharpPlus/DSharpPlus.MessageFlags.html#DSharpPlus_MessageFlags_IsCrosspost
+  commentId: F:DSharpPlus.MessageFlags.IsCrosspost
+  fullName: DSharpPlus.MessageFlags.IsCrosspost
+  nameWithType: MessageFlags.IsCrosspost
+- uid: DSharpPlus.MessageFlags.SuppressedEmbeds
+  name: SuppressedEmbeds
+  href: api/DSharpPlus/DSharpPlus.MessageFlags.html#DSharpPlus_MessageFlags_SuppressedEmbeds
+  commentId: F:DSharpPlus.MessageFlags.SuppressedEmbeds
+  fullName: DSharpPlus.MessageFlags.SuppressedEmbeds
+  nameWithType: MessageFlags.SuppressedEmbeds
+- uid: DSharpPlus.MessageType
+  name: MessageType
+  href: api/DSharpPlus/DSharpPlus.MessageType.html
+  commentId: T:DSharpPlus.MessageType
+  fullName: DSharpPlus.MessageType
+  nameWithType: MessageType
+- uid: DSharpPlus.MessageType.Call
+  name: Call
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_Call
+  commentId: F:DSharpPlus.MessageType.Call
+  fullName: DSharpPlus.MessageType.Call
+  nameWithType: MessageType.Call
+- uid: DSharpPlus.MessageType.ChannelFollowAdd
+  name: ChannelFollowAdd
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_ChannelFollowAdd
+  commentId: F:DSharpPlus.MessageType.ChannelFollowAdd
+  fullName: DSharpPlus.MessageType.ChannelFollowAdd
+  nameWithType: MessageType.ChannelFollowAdd
+- uid: DSharpPlus.MessageType.ChannelIconChange
+  name: ChannelIconChange
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_ChannelIconChange
+  commentId: F:DSharpPlus.MessageType.ChannelIconChange
+  fullName: DSharpPlus.MessageType.ChannelIconChange
+  nameWithType: MessageType.ChannelIconChange
+- uid: DSharpPlus.MessageType.ChannelNameChange
+  name: ChannelNameChange
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_ChannelNameChange
+  commentId: F:DSharpPlus.MessageType.ChannelNameChange
+  fullName: DSharpPlus.MessageType.ChannelNameChange
+  nameWithType: MessageType.ChannelNameChange
+- uid: DSharpPlus.MessageType.ChannelPinnedMessage
+  name: ChannelPinnedMessage
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_ChannelPinnedMessage
+  commentId: F:DSharpPlus.MessageType.ChannelPinnedMessage
+  fullName: DSharpPlus.MessageType.ChannelPinnedMessage
+  nameWithType: MessageType.ChannelPinnedMessage
+- uid: DSharpPlus.MessageType.Default
+  name: Default
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_Default
+  commentId: F:DSharpPlus.MessageType.Default
+  fullName: DSharpPlus.MessageType.Default
+  nameWithType: MessageType.Default
+- uid: DSharpPlus.MessageType.GuildMemberJoin
+  name: GuildMemberJoin
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_GuildMemberJoin
+  commentId: F:DSharpPlus.MessageType.GuildMemberJoin
+  fullName: DSharpPlus.MessageType.GuildMemberJoin
+  nameWithType: MessageType.GuildMemberJoin
+- uid: DSharpPlus.MessageType.RecipientAdd
+  name: RecipientAdd
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_RecipientAdd
+  commentId: F:DSharpPlus.MessageType.RecipientAdd
+  fullName: DSharpPlus.MessageType.RecipientAdd
+  nameWithType: MessageType.RecipientAdd
+- uid: DSharpPlus.MessageType.RecipientRemove
+  name: RecipientRemove
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_RecipientRemove
+  commentId: F:DSharpPlus.MessageType.RecipientRemove
+  fullName: DSharpPlus.MessageType.RecipientRemove
+  nameWithType: MessageType.RecipientRemove
+- uid: DSharpPlus.MessageType.TierOneUserPremiumGuildSubscription
+  name: TierOneUserPremiumGuildSubscription
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_TierOneUserPremiumGuildSubscription
+  commentId: F:DSharpPlus.MessageType.TierOneUserPremiumGuildSubscription
+  fullName: DSharpPlus.MessageType.TierOneUserPremiumGuildSubscription
+  nameWithType: MessageType.TierOneUserPremiumGuildSubscription
+- uid: DSharpPlus.MessageType.TierThreeUserPremiumGuildSubscription
+  name: TierThreeUserPremiumGuildSubscription
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_TierThreeUserPremiumGuildSubscription
+  commentId: F:DSharpPlus.MessageType.TierThreeUserPremiumGuildSubscription
+  fullName: DSharpPlus.MessageType.TierThreeUserPremiumGuildSubscription
+  nameWithType: MessageType.TierThreeUserPremiumGuildSubscription
+- uid: DSharpPlus.MessageType.TierTwoUserPremiumGuildSubscription
+  name: TierTwoUserPremiumGuildSubscription
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_TierTwoUserPremiumGuildSubscription
+  commentId: F:DSharpPlus.MessageType.TierTwoUserPremiumGuildSubscription
+  fullName: DSharpPlus.MessageType.TierTwoUserPremiumGuildSubscription
+  nameWithType: MessageType.TierTwoUserPremiumGuildSubscription
+- uid: DSharpPlus.MessageType.UserPremiumGuildSubscription
+  name: UserPremiumGuildSubscription
+  href: api/DSharpPlus/DSharpPlus.MessageType.html#DSharpPlus_MessageType_UserPremiumGuildSubscription
+  commentId: F:DSharpPlus.MessageType.UserPremiumGuildSubscription
+  fullName: DSharpPlus.MessageType.UserPremiumGuildSubscription
+  nameWithType: MessageType.UserPremiumGuildSubscription
 - uid: DSharpPlus.Net
   name: DSharpPlus.Net
   href: api/DSharpPlus/DSharpPlus.Net.html
@@ -20896,6 +21134,55 @@ references:
   fullName.vb: DSharpPlus.RingBuffer(Of T).TryGet
   nameWithType: RingBuffer<T>.TryGet
   nameWithType.vb: RingBuffer(Of T).TryGet
+- uid: DSharpPlus.SystemChannelFlags
+  name: SystemChannelFlags
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlags.html
+  commentId: T:DSharpPlus.SystemChannelFlags
+  fullName: DSharpPlus.SystemChannelFlags
+  nameWithType: SystemChannelFlags
+- uid: DSharpPlus.SystemChannelFlags.SuppressJoinNotifications
+  name: SuppressJoinNotifications
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlags.html#DSharpPlus_SystemChannelFlags_SuppressJoinNotifications
+  commentId: F:DSharpPlus.SystemChannelFlags.SuppressJoinNotifications
+  fullName: DSharpPlus.SystemChannelFlags.SuppressJoinNotifications
+  nameWithType: SystemChannelFlags.SuppressJoinNotifications
+- uid: DSharpPlus.SystemChannelFlags.SuppressPremiumSubscriptions
+  name: SuppressPremiumSubscriptions
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlags.html#DSharpPlus_SystemChannelFlags_SuppressPremiumSubscriptions
+  commentId: F:DSharpPlus.SystemChannelFlags.SuppressPremiumSubscriptions
+  fullName: DSharpPlus.SystemChannelFlags.SuppressPremiumSubscriptions
+  nameWithType: SystemChannelFlags.SuppressPremiumSubscriptions
+- uid: DSharpPlus.SystemChannelFlagsExtension
+  name: SystemChannelFlagsExtension
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlagsExtension.html
+  commentId: T:DSharpPlus.SystemChannelFlagsExtension
+  fullName: DSharpPlus.SystemChannelFlagsExtension
+  nameWithType: SystemChannelFlagsExtension
+- uid: DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.SystemChannelFlags,DSharpPlus.SystemChannelFlags)
+  name: HasSystemChannelFlag(SystemChannelFlags, SystemChannelFlags)
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlagsExtension.html#DSharpPlus_SystemChannelFlagsExtension_HasSystemChannelFlag_DSharpPlus_SystemChannelFlags_DSharpPlus_SystemChannelFlags_
+  commentId: M:DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.SystemChannelFlags,DSharpPlus.SystemChannelFlags)
+  fullName: DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag(DSharpPlus.SystemChannelFlags, DSharpPlus.SystemChannelFlags)
+  nameWithType: SystemChannelFlagsExtension.HasSystemChannelFlag(SystemChannelFlags, SystemChannelFlags)
+- uid: DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag*
+  name: HasSystemChannelFlag
+  href: api/DSharpPlus/DSharpPlus.SystemChannelFlagsExtension.html#DSharpPlus_SystemChannelFlagsExtension_HasSystemChannelFlag_
+  commentId: Overload:DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag
+  isSpec: "True"
+  fullName: DSharpPlus.SystemChannelFlagsExtension.HasSystemChannelFlag
+  nameWithType: SystemChannelFlagsExtension.HasSystemChannelFlag
+- uid: DSharpPlus.TargetUserType
+  name: TargetUserType
+  href: api/DSharpPlus/DSharpPlus.TargetUserType.html
+  commentId: T:DSharpPlus.TargetUserType
+  fullName: DSharpPlus.TargetUserType
+  nameWithType: TargetUserType
+- uid: DSharpPlus.TargetUserType.Streaming
+  name: Streaming
+  href: api/DSharpPlus/DSharpPlus.TargetUserType.html#DSharpPlus_TargetUserType_Streaming
+  commentId: F:DSharpPlus.TargetUserType.Streaming
+  fullName: DSharpPlus.TargetUserType.Streaming
+  nameWithType: TargetUserType.Streaming
 - uid: DSharpPlus.Test
   name: DSharpPlus.Test
   href: api/DSharpPlus/DSharpPlus.Test.html
@@ -21800,6 +22087,96 @@ references:
   commentId: F:DSharpPlus.TokenType.User
   fullName: DSharpPlus.TokenType.User
   nameWithType: TokenType.User
+- uid: DSharpPlus.UserFlags
+  name: UserFlags
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html
+  commentId: T:DSharpPlus.UserFlags
+  fullName: DSharpPlus.UserFlags
+  nameWithType: UserFlags
+- uid: DSharpPlus.UserFlags.BugHunterLevelOne
+  name: BugHunterLevelOne
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_BugHunterLevelOne
+  commentId: F:DSharpPlus.UserFlags.BugHunterLevelOne
+  fullName: DSharpPlus.UserFlags.BugHunterLevelOne
+  nameWithType: UserFlags.BugHunterLevelOne
+- uid: DSharpPlus.UserFlags.BugHunterLevelTwo
+  name: BugHunterLevelTwo
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_BugHunterLevelTwo
+  commentId: F:DSharpPlus.UserFlags.BugHunterLevelTwo
+  fullName: DSharpPlus.UserFlags.BugHunterLevelTwo
+  nameWithType: UserFlags.BugHunterLevelTwo
+- uid: DSharpPlus.UserFlags.DiscordEmployee
+  name: DiscordEmployee
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_DiscordEmployee
+  commentId: F:DSharpPlus.UserFlags.DiscordEmployee
+  fullName: DSharpPlus.UserFlags.DiscordEmployee
+  nameWithType: UserFlags.DiscordEmployee
+- uid: DSharpPlus.UserFlags.DiscordPartner
+  name: DiscordPartner
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_DiscordPartner
+  commentId: F:DSharpPlus.UserFlags.DiscordPartner
+  fullName: DSharpPlus.UserFlags.DiscordPartner
+  nameWithType: UserFlags.DiscordPartner
+- uid: DSharpPlus.UserFlags.EarlySupporter
+  name: EarlySupporter
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_EarlySupporter
+  commentId: F:DSharpPlus.UserFlags.EarlySupporter
+  fullName: DSharpPlus.UserFlags.EarlySupporter
+  nameWithType: UserFlags.EarlySupporter
+- uid: DSharpPlus.UserFlags.HouseBalance
+  name: HouseBalance
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_HouseBalance
+  commentId: F:DSharpPlus.UserFlags.HouseBalance
+  fullName: DSharpPlus.UserFlags.HouseBalance
+  nameWithType: UserFlags.HouseBalance
+- uid: DSharpPlus.UserFlags.HouseBravery
+  name: HouseBravery
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_HouseBravery
+  commentId: F:DSharpPlus.UserFlags.HouseBravery
+  fullName: DSharpPlus.UserFlags.HouseBravery
+  nameWithType: UserFlags.HouseBravery
+- uid: DSharpPlus.UserFlags.HouseBrilliance
+  name: HouseBrilliance
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_HouseBrilliance
+  commentId: F:DSharpPlus.UserFlags.HouseBrilliance
+  fullName: DSharpPlus.UserFlags.HouseBrilliance
+  nameWithType: UserFlags.HouseBrilliance
+- uid: DSharpPlus.UserFlags.HypeSquadEvents
+  name: HypeSquadEvents
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_HypeSquadEvents
+  commentId: F:DSharpPlus.UserFlags.HypeSquadEvents
+  fullName: DSharpPlus.UserFlags.HypeSquadEvents
+  nameWithType: UserFlags.HypeSquadEvents
+- uid: DSharpPlus.UserFlags.None
+  name: None
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_None
+  commentId: F:DSharpPlus.UserFlags.None
+  fullName: DSharpPlus.UserFlags.None
+  nameWithType: UserFlags.None
+- uid: DSharpPlus.UserFlags.System
+  name: System
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_System
+  commentId: F:DSharpPlus.UserFlags.System
+  fullName: DSharpPlus.UserFlags.System
+  nameWithType: UserFlags.System
+- uid: DSharpPlus.UserFlags.TeamUser
+  name: TeamUser
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_TeamUser
+  commentId: F:DSharpPlus.UserFlags.TeamUser
+  fullName: DSharpPlus.UserFlags.TeamUser
+  nameWithType: UserFlags.TeamUser
+- uid: DSharpPlus.UserFlags.VerifiedBot
+  name: VerifiedBot
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_VerifiedBot
+  commentId: F:DSharpPlus.UserFlags.VerifiedBot
+  fullName: DSharpPlus.UserFlags.VerifiedBot
+  nameWithType: UserFlags.VerifiedBot
+- uid: DSharpPlus.UserFlags.VerifiedBotDeveloper
+  name: VerifiedBotDeveloper
+  href: api/DSharpPlus/DSharpPlus.UserFlags.html#DSharpPlus_UserFlags_VerifiedBotDeveloper
+  commentId: F:DSharpPlus.UserFlags.VerifiedBotDeveloper
+  fullName: DSharpPlus.UserFlags.VerifiedBotDeveloper
+  nameWithType: UserFlags.VerifiedBotDeveloper
 - uid: DSharpPlus.Utilities
   name: Utilities
   href: api/DSharpPlus/DSharpPlus.Utilities.html

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DiscordMember
    ">
-    <meta name="generator" content="docfx 2.51.0.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -99,6 +99,9 @@
       <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_DefaultAvatarUrl">DiscordUser.DefaultAvatarUrl</a>
     </div>
     <div>
+      <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_IsSystem">DiscordUser.IsSystem</a>
+    </div>
+    <div>
       <a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_PremiumType">DiscordUser.PremiumType</a>
     </div>
     <div>
@@ -155,7 +158,7 @@
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_AvatarHash_" data-uid="DSharpPlus.Entities.DiscordMember.AvatarHash*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_AvatarHash" data-uid="DSharpPlus.Entities.DiscordMember.AvatarHash">AvatarHash</h4>
-  <div class="markdown level1 summary"><p>Gets the user&apos;s avatar hash.</p>
+  <div class="markdown level1 summary"><p>Gets the member&apos;s avatar hash.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -220,7 +223,7 @@ public DiscordColor Color { get; }</code></pre>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Discriminator_" data-uid="DSharpPlus.Entities.DiscordMember.Discriminator*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Discriminator" data-uid="DSharpPlus.Entities.DiscordMember.Discriminator">Discriminator</h4>
-  <div class="markdown level1 summary"><p>Gets the user&apos;s 4-digit discriminator.</p>
+  <div class="markdown level1 summary"><p>Gets the member&apos;s 4-digit discriminator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -281,11 +284,12 @@ public string DisplayName { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Email.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Email%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L192">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L193">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Email_" data-uid="DSharpPlus.Entities.DiscordMember.Email*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Email" data-uid="DSharpPlus.Entities.DiscordMember.Email">Email</h4>
-  <div class="markdown level1 summary"><p>Gets the user&apos;s email address.</p>
+  <div class="markdown level1 summary"><p>Gets the member&apos;s email address.
+<p>This is only present in OAuth.</p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -309,6 +313,39 @@ public string DisplayName { get; }</code></pre>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Email">DiscordUser.Email</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Flags.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Flags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L239">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordMember_Flags_" data-uid="DSharpPlus.Entities.DiscordMember.Flags*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordMember_Flags" data-uid="DSharpPlus.Entities.DiscordMember.Flags">Flags</h4>
+  <div class="markdown level1 summary"><p>Gets the member&apos;s flags for OAuth.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override UserFlags? Flags { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.UserFlags.html">UserFlags</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_Flags">DiscordUser.Flags</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Guild.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Guild%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -382,7 +419,7 @@ public int Hierarchy { get; }</code></pre>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_IsBot_" data-uid="DSharpPlus.Entities.DiscordMember.IsBot*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_IsBot" data-uid="DSharpPlus.Entities.DiscordMember.IsBot">IsBot</h4>
-  <div class="markdown level1 summary"><p>Gets whether the user is a bot.</p>
+  <div class="markdown level1 summary"><p>Gets whether the member is a bot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -539,11 +576,11 @@ public DateTimeOffset JoinedAt { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Locale.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Locale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L219">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L221">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Locale_" data-uid="DSharpPlus.Entities.DiscordMember.Locale*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Locale" data-uid="DSharpPlus.Entities.DiscordMember.Locale">Locale</h4>
-  <div class="markdown level1 summary"><p>Gets the user&apos;s chosen language</p>
+  <div class="markdown level1 summary"><p>Gets the member&apos;s chosen language</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -572,11 +609,11 @@ public DateTimeOffset JoinedAt { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_MfaEnabled.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.MfaEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L201">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L202">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_MfaEnabled_" data-uid="DSharpPlus.Entities.DiscordMember.MfaEnabled*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_MfaEnabled" data-uid="DSharpPlus.Entities.DiscordMember.MfaEnabled">MfaEnabled</h4>
-  <div class="markdown level1 summary"><p>Gets whether the user has multi-factor authentication enabled.</p>
+  <div class="markdown level1 summary"><p>Gets whether the member has multi-factor authentication enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -632,6 +669,39 @@ public string Nickname { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_OAuthFlags.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.OAuthFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L230">View Source</a>
+  </span>
+  <a id="DSharpPlus_Entities_DiscordMember_OAuthFlags_" data-uid="DSharpPlus.Entities.DiscordMember.OAuthFlags*"></a>
+  <h4 id="DSharpPlus_Entities_DiscordMember_OAuthFlags" data-uid="DSharpPlus.Entities.DiscordMember.OAuthFlags">OAuthFlags</h4>
+  <div class="markdown level1 summary"><p>Gets the user&apos;s flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override UserFlags? OAuthFlags { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="DSharpPlus.UserFlags.html">UserFlags</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="DSharpPlus.Entities.DiscordUser.html#DSharpPlus_Entities_DiscordUser_OAuthFlags">DiscordUser.OAuthFlags</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_PremiumSince.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.PremiumSince%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -734,11 +804,12 @@ public IEnumerable&lt;DiscordRole&gt; Roles { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Verified.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Verified%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L210">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L212">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Verified_" data-uid="DSharpPlus.Entities.DiscordMember.Verified*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Verified" data-uid="DSharpPlus.Entities.DiscordMember.Verified">Verified</h4>
-  <div class="markdown level1 summary"><p>Gets whether the user is verified.</p>
+  <div class="markdown level1 summary"><p>Gets whether the member is verified.
+<p>This is only present in OAuth.</p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -801,7 +872,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_BanAsync_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.BanAsync(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L400">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L420">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_BanAsync_" data-uid="DSharpPlus.Entities.DiscordMember.BanAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_BanAsync_System_Int32_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.BanAsync(System.Int32,System.String)">BanAsync(Int32, String)</h4>
@@ -856,7 +927,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_CreateDmChannelAsync.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.CreateDmChannelAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L230">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L250">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_CreateDmChannelAsync_" data-uid="DSharpPlus.Entities.DiscordMember.CreateDmChannelAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_CreateDmChannelAsync" data-uid="DSharpPlus.Entities.DiscordMember.CreateDmChannelAsync">CreateDmChannelAsync()</h4>
@@ -888,7 +959,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Equals_DSharpPlus_Entities_DiscordMember_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Equals(DSharpPlus.Entities.DiscordMember)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L454">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L474">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Equals_" data-uid="DSharpPlus.Entities.DiscordMember.Equals*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Equals_DSharpPlus_Entities_DiscordMember_" data-uid="DSharpPlus.Entities.DiscordMember.Equals(DSharpPlus.Entities.DiscordMember)">Equals(DiscordMember)</h4>
@@ -940,7 +1011,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_Equals_System_Object_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L444">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L464">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_Equals_" data-uid="DSharpPlus.Entities.DiscordMember.Equals*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_Equals_System_Object_" data-uid="DSharpPlus.Entities.DiscordMember.Equals(System.Object)">Equals(Object)</h4>
@@ -992,7 +1063,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_GetHashCode.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L469">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L489">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_GetHashCode_" data-uid="DSharpPlus.Entities.DiscordMember.GetHashCode*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_GetHashCode" data-uid="DSharpPlus.Entities.DiscordMember.GetHashCode">GetHashCode()</h4>
@@ -1026,7 +1097,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_GrantRoleAsync_DSharpPlus_Entities_DiscordRole_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.GrantRoleAsync(DSharpPlus.Entities.DiscordRole%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L372">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L392">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_GrantRoleAsync_" data-uid="DSharpPlus.Entities.DiscordMember.GrantRoleAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_GrantRoleAsync_DSharpPlus_Entities_DiscordRole_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.GrantRoleAsync(DSharpPlus.Entities.DiscordRole,System.String)">GrantRoleAsync(DiscordRole, String)</h4>
@@ -1081,7 +1152,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_ModifyAsync_System_Action_DSharpPlus_Net_Models_MemberEditModel__.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.ModifyAsync(System.Action%7BDSharpPlus.Net.Models.MemberEditModel%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L341">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L361">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_ModifyAsync_" data-uid="DSharpPlus.Entities.DiscordMember.ModifyAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_ModifyAsync_System_Action_DSharpPlus_Net_Models_MemberEditModel__" data-uid="DSharpPlus.Entities.DiscordMember.ModifyAsync(System.Action{DSharpPlus.Net.Models.MemberEditModel})">ModifyAsync(Action&lt;MemberEditModel&gt;)</h4>
@@ -1130,7 +1201,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_PermissionsIn_DSharpPlus_Entities_DiscordChannel_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.PermissionsIn(DSharpPlus.Entities.DiscordChannel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L427">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L447">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_PermissionsIn_" data-uid="DSharpPlus.Entities.DiscordMember.PermissionsIn*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_PermissionsIn_DSharpPlus_Entities_DiscordChannel_" data-uid="DSharpPlus.Entities.DiscordMember.PermissionsIn(DSharpPlus.Entities.DiscordChannel)">PermissionsIn(DiscordChannel)</h4>
@@ -1180,7 +1251,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_PlaceInAsync_DSharpPlus_Entities_DiscordChannel_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.PlaceInAsync(DSharpPlus.Entities.DiscordChannel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L419">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L439">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_PlaceInAsync_" data-uid="DSharpPlus.Entities.DiscordMember.PlaceInAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_PlaceInAsync_DSharpPlus_Entities_DiscordChannel_" data-uid="DSharpPlus.Entities.DiscordMember.PlaceInAsync(DSharpPlus.Entities.DiscordChannel)">PlaceInAsync(DiscordChannel)</h4>
@@ -1228,7 +1299,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_RemoveAsync_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.RemoveAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L411">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L431">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_RemoveAsync_" data-uid="DSharpPlus.Entities.DiscordMember.RemoveAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_RemoveAsync_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.RemoveAsync(System.String)">RemoveAsync(String)</h4>
@@ -1279,7 +1350,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_ReplaceRolesAsync_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordRole__System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.ReplaceRolesAsync(System.Collections.Generic.IEnumerable%7BDSharpPlus.Entities.DiscordRole%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L390">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L410">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_ReplaceRolesAsync_" data-uid="DSharpPlus.Entities.DiscordMember.ReplaceRolesAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_ReplaceRolesAsync_System_Collections_Generic_IEnumerable_DSharpPlus_Entities_DiscordRole__System_String_" data-uid="DSharpPlus.Entities.DiscordMember.ReplaceRolesAsync(System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordRole},System.String)">ReplaceRolesAsync(IEnumerable&lt;DiscordRole&gt;, String)</h4>
@@ -1334,7 +1405,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_RevokeRoleAsync_DSharpPlus_Entities_DiscordRole_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.RevokeRoleAsync(DSharpPlus.Entities.DiscordRole%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L381">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L401">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_RevokeRoleAsync_" data-uid="DSharpPlus.Entities.DiscordMember.RevokeRoleAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_RevokeRoleAsync_DSharpPlus_Entities_DiscordRole_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.RevokeRoleAsync(DSharpPlus.Entities.DiscordRole,System.String)">RevokeRoleAsync(DiscordRole, String)</h4>
@@ -1389,7 +1460,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SendFileAsync_System_IO_FileStream_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SendFileAsync(System.IO.FileStream%2CSystem.String%2CSystem.Boolean%2CDSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L275">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L295">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SendFileAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SendFileAsync_System_IO_FileStream_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync(System.IO.FileStream,System.String,System.Boolean,DSharpPlus.Entities.DiscordEmbed)">SendFileAsync(FileStream, String, Boolean, DiscordEmbed)</h4>
@@ -1457,7 +1528,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SendFileAsync_System_String_System_IO_Stream_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SendFileAsync(System.String%2CSystem.IO.Stream%2CSystem.String%2CSystem.Boolean%2CDSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L258">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L278">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SendFileAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SendFileAsync_System_String_System_IO_Stream_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync(System.String,System.IO.Stream,System.String,System.Boolean,DSharpPlus.Entities.DiscordEmbed)">SendFileAsync(String, Stream, String, Boolean, DiscordEmbed)</h4>
@@ -1531,7 +1602,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SendFileAsync_System_String_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SendFileAsync(System.String%2CSystem.String%2CSystem.Boolean%2CDSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L292">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L312">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SendFileAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SendFileAsync_System_String_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordMember.SendFileAsync(System.String,System.String,System.Boolean,DSharpPlus.Entities.DiscordEmbed)">SendFileAsync(String, String, Boolean, DiscordEmbed)</h4>
@@ -1599,7 +1670,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SendMessageAsync_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SendMessageAsync(System.String%2CSystem.Boolean%2CDSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L240">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L260">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SendMessageAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SendMessageAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SendMessageAsync_System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordMember.SendMessageAsync(System.String,System.Boolean,DSharpPlus.Entities.DiscordEmbed)">SendMessageAsync(String, Boolean, DiscordEmbed)</h4>
@@ -1661,7 +1732,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SendMultipleFilesAsync_System_Collections_Generic_Dictionary_System_String_System_IO_Stream__System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SendMultipleFilesAsync(System.Collections.Generic.Dictionary%7BSystem.String%2CSystem.IO.Stream%7D%2CSystem.String%2CSystem.Boolean%2CDSharpPlus.Entities.DiscordEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L309">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L329">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SendMultipleFilesAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SendMultipleFilesAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SendMultipleFilesAsync_System_Collections_Generic_Dictionary_System_String_System_IO_Stream__System_String_System_Boolean_DSharpPlus_Entities_DiscordEmbed_" data-uid="DSharpPlus.Entities.DiscordMember.SendMultipleFilesAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.Entities.DiscordEmbed)">SendMultipleFilesAsync(Dictionary&lt;String, Stream&gt;, String, Boolean, DiscordEmbed)</h4>
@@ -1729,7 +1800,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SetDeafAsync_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SetDeafAsync(System.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L333">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L353">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SetDeafAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SetDeafAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SetDeafAsync_System_Boolean_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.SetDeafAsync(System.Boolean,System.String)">SetDeafAsync(Boolean, String)</h4>
@@ -1784,7 +1855,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_SetMuteAsync_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.SetMuteAsync(System.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L324">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L344">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_SetMuteAsync_" data-uid="DSharpPlus.Entities.DiscordMember.SetMuteAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_SetMuteAsync_System_Boolean_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.SetMuteAsync(System.Boolean,System.String)">SetMuteAsync(Boolean, String)</h4>
@@ -1839,7 +1910,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_ToString.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L434">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L454">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_ToString_" data-uid="DSharpPlus.Entities.DiscordMember.ToString*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_ToString" data-uid="DSharpPlus.Entities.DiscordMember.ToString">ToString()</h4>
@@ -1873,7 +1944,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_UnbanAsync_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.UnbanAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L403">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L423">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_UnbanAsync_" data-uid="DSharpPlus.Entities.DiscordMember.UnbanAsync*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_UnbanAsync_System_String_" data-uid="DSharpPlus.Entities.DiscordMember.UnbanAsync(System.String)">UnbanAsync(String)</h4>
@@ -1922,7 +1993,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_op_Equality_DSharpPlus_Entities_DiscordMember_DSharpPlus_Entities_DiscordMember_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.op_Equality(DSharpPlus.Entities.DiscordMember%2CDSharpPlus.Entities.DiscordMember)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L485">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L505">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_op_Equality_" data-uid="DSharpPlus.Entities.DiscordMember.op_Equality*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_op_Equality_DSharpPlus_Entities_DiscordMember_DSharpPlus_Entities_DiscordMember_" data-uid="DSharpPlus.Entities.DiscordMember.op_Equality(DSharpPlus.Entities.DiscordMember,DSharpPlus.Entities.DiscordMember)">Equality(DiscordMember, DiscordMember)</h4>
@@ -1978,7 +2049,7 @@ public DiscordVoiceState VoiceState { get; }</code></pre>
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_Entities_DiscordMember_op_Inequality_DSharpPlus_Entities_DiscordMember_DSharpPlus_Entities_DiscordMember_.md&amp;value=---%0Auid%3A%20DSharpPlus.Entities.DiscordMember.op_Inequality(DSharpPlus.Entities.DiscordMember%2CDSharpPlus.Entities.DiscordMember)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L505">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus/Entities/DiscordMember.cs/#L525">View Source</a>
   </span>
   <a id="DSharpPlus_Entities_DiscordMember_op_Inequality_" data-uid="DSharpPlus.Entities.DiscordMember.op_Inequality*"></a>
   <h4 id="DSharpPlus_Entities_DiscordMember_op_Inequality_DSharpPlus_Entities_DiscordMember_DSharpPlus_Entities_DiscordMember_" data-uid="DSharpPlus.Entities.DiscordMember.op_Inequality(DSharpPlus.Entities.DiscordMember,DSharpPlus.Entities.DiscordMember)">Inequality(DiscordMember, DiscordMember)</h4>

@@ -106,9 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad5b13c474e30942fc3ad82c688452e08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#ad5b13c474e30942fc3ad82c688452e08">DiscordWebhookClient</a> (IWebProxy proxy)</td></tr>
 <tr class="memdesc:ad5b13c474e30942fc3ad82c688452e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new webhook client, with specified HTTP proxy settings.  <a href="#ad5b13c474e30942fc3ad82c688452e08">More...</a><br /></td></tr>
 <tr class="separator:ad5b13c474e30942fc3ad82c688452e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47245dce3a1d4129c4102a162de0089e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#a47245dce3a1d4129c4102a162de0089e">DiscordWebhookClient</a> (IWebProxy proxy, TimeSpan timeout)</td></tr>
-<tr class="memdesc:a47245dce3a1d4129c4102a162de0089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new webhook client, with specified HTTP proxy and timeout settings.  <a href="#a47245dce3a1d4129c4102a162de0089e">More...</a><br /></td></tr>
-<tr class="separator:a47245dce3a1d4129c4102a162de0089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7461dc9f999dfe51813901ba85b2715e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#a7461dc9f999dfe51813901ba85b2715e">DiscordWebhookClient</a> (IWebProxy proxy, TimeSpan timeout, bool useRelativeRateLimit=true)</td></tr>
+<tr class="memdesc:a7461dc9f999dfe51813901ba85b2715e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new webhook client, with specified HTTP proxy and timeout settings.  <a href="#a7461dc9f999dfe51813901ba85b2715e">More...</a><br /></td></tr>
+<tr class="separator:a7461dc9f999dfe51813901ba85b2715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa26ba50c62c5131ac4b446e48594f269"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_webhook.html">DiscordWebhook</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_webhook_client.html#aa26ba50c62c5131ac4b446e48594f269">AddWebhookAsync</a> (ulong id, string token)</td></tr>
 <tr class="memdesc:aa26ba50c62c5131ac4b446e48594f269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a webhook with this client. This retrieves a webhook based on the ID and token supplied.  <a href="#aa26ba50c62c5131ac4b446e48594f269">More...</a><br /></td></tr>
 <tr class="separator:aa26ba50c62c5131ac4b446e48594f269"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,8 +207,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a47245dce3a1d4129c4102a162de0089e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47245dce3a1d4129c4102a162de0089e">&#9670;&nbsp;</a></span>DiscordWebhookClient() <span class="overload">[3/3]</span></h2>
+<a id="a7461dc9f999dfe51813901ba85b2715e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7461dc9f999dfe51813901ba85b2715e">&#9670;&nbsp;</a></span>DiscordWebhookClient() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +226,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">TimeSpan&#160;</td>
-          <td class="paramname"><em>timeout</em>&#160;</td>
+          <td class="paramname"><em>timeout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useRelativeRateLimit</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -246,6 +252,7 @@ Properties</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">proxy</td><td>Proxy to use for HTTP connections.</td></tr>
     <tr><td class="paramname">timeout</td><td>Timeout to use for HTTP requests. Set to System.Threading.Timeout.InfiniteTimeSpan to disable timeouts.</td></tr>
+    <tr><td class="paramname">useRelativeRateLimit</td><td>Whether to use the system clock for computing rate limit resets. See <a class="el" href="class_d_sharp_plus_1_1_discord_configuration.html#a8e91fce9663525d25b4d99ba1978c466">DiscordConfiguration.UseRelativeRatelimit</a> for more details.</td></tr>
   </table>
   </dd>
 </dl>

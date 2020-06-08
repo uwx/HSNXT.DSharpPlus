@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DiscordRestClient
    ">
-    <meta name="generator" content="docfx 2.51.0.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -379,19 +379,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_Boolean_System_Collections_Generic_IEnumerable_System_UInt64__System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64%2CSystem.Int32%2CSystem.Boolean%2CSystem.Collections.Generic.IEnumerable%7BSystem.UInt64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L814">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L818">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_" data-uid="DSharpPlus.DiscordRestClient.BeginGuildPruneAsync*"></a>
-  <h4 id="DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_String_" data-uid="DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.String)">BeginGuildPruneAsync(UInt64, Int32, String)</h4>
-  <div class="markdown level1 summary"><p>Begins a guild prune</p>
+  <h4 id="DSharpPlus_DiscordRestClient_BeginGuildPruneAsync_System_UInt64_System_Int32_System_Boolean_System_Collections_Generic_IEnumerable_System_UInt64__System_String_" data-uid="DSharpPlus.DiscordRestClient.BeginGuildPruneAsync(System.UInt64,System.Int32,System.Boolean,System.Collections.Generic.IEnumerable{System.UInt64},System.String)">BeginGuildPruneAsync(UInt64, Int32, Boolean, IEnumerable&lt;UInt64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Begins a guild prune.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; BeginGuildPruneAsync(ulong guild_id, int days, string reason)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int?&gt; BeginGuildPruneAsync(ulong guild_id, int days, bool compute_prune_count, IEnumerable&lt;ulong&gt; include_roles, string reason)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -416,6 +416,18 @@
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">compute_prune_count</span></td>
+        <td><p>Whether to return the prune count after this method completes. This is discouraged for larger guilds.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a>&gt;</td>
+        <td><span class="parametername">include_roles</span></td>
+        <td><p>The roles to be included in the prune.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">reason</span></td>
         <td><p>Reason why this guild was pruned</p>
@@ -433,7 +445,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -930,7 +942,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_CreateGuildIntegrationAsync_System_UInt64_System_String_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.CreateGuildIntegrationAsync(System.UInt64%2CSystem.String%2CSystem.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L834">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L838">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_CreateGuildIntegrationAsync_" data-uid="DSharpPlus.DiscordRestClient.CreateGuildIntegrationAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_CreateGuildIntegrationAsync_System_UInt64_System_String_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.CreateGuildIntegrationAsync(System.UInt64,System.String,System.UInt64)">CreateGuildIntegrationAsync(UInt64, String, UInt64)</h4>
@@ -991,7 +1003,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_CreateGuildRoleAsync_System_UInt64_System_String_System_Nullable_DSharpPlus_Permissions__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.CreateGuildRoleAsync(System.UInt64%2CSystem.String%2CSystem.Nullable%7BDSharpPlus.Permissions%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L793">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L794">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_CreateGuildRoleAsync_" data-uid="DSharpPlus.DiscordRestClient.CreateGuildRoleAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_CreateGuildRoleAsync_System_UInt64_System_String_System_Nullable_DSharpPlus_Permissions__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_" data-uid="DSharpPlus.DiscordRestClient.CreateGuildRoleAsync(System.UInt64,System.String,System.Nullable{DSharpPlus.Permissions},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">CreateGuildRoleAsync(UInt64, String, Nullable&lt;Permissions&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String)</h4>
@@ -1149,7 +1161,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_CreateReactionAsync_System_UInt64_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.CreateReactionAsync(System.UInt64%2CSystem.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1091">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1095">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_CreateReactionAsync_" data-uid="DSharpPlus.DiscordRestClient.CreateReactionAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_CreateReactionAsync_System_UInt64_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.CreateReactionAsync(System.UInt64,System.UInt64,System.String)">CreateReactionAsync(UInt64, UInt64, String)</h4>
@@ -1210,7 +1222,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_CreateWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.CreateWebhookAsync(System.UInt64%2CSystem.String%2CSystem.IO.Stream%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L950">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L954">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_CreateWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.CreateWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_CreateWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_" data-uid="DSharpPlus.DiscordRestClient.CreateWebhookAsync(System.UInt64,System.String,System.IO.Stream,System.String)">CreateWebhookAsync(UInt64, String, Stream, String)</h4>
@@ -1277,7 +1289,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_CreateWebhookAsync_System_UInt64_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.CreateWebhookAsync(System.UInt64%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L939">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L943">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_CreateWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.CreateWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_CreateWebhookAsync_System_UInt64_System_String_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.CreateWebhookAsync(System.UInt64,System.String,System.String,System.String)">CreateWebhookAsync(UInt64, String, String, String)</h4>
@@ -1344,7 +1356,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteAllReactionsAsync_System_UInt64_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteAllReactionsAsync(System.UInt64%2CSystem.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1147">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1151">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteAllReactionsAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteAllReactionsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteAllReactionsAsync_System_UInt64_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteAllReactionsAsync(System.UInt64,System.UInt64,System.String)">DeleteAllReactionsAsync(UInt64, UInt64, String)</h4>
@@ -1570,7 +1582,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteGuildIntegrationAsync_System_UInt64_DSharpPlus_Entities_DiscordIntegration_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteGuildIntegrationAsync(System.UInt64%2CDSharpPlus.Entities.DiscordIntegration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L855">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L859">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteGuildIntegrationAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteGuildIntegrationAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteGuildIntegrationAsync_System_UInt64_DSharpPlus_Entities_DiscordIntegration_" data-uid="DSharpPlus.DiscordRestClient.DeleteGuildIntegrationAsync(System.UInt64,DSharpPlus.Entities.DiscordIntegration)">DeleteGuildIntegrationAsync(UInt64, DiscordIntegration)</h4>
@@ -1625,7 +1637,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteGuildRoleAsync_System_UInt64_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteGuildRoleAsync(System.UInt64%2CSystem.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L779">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L780">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteGuildRoleAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteGuildRoleAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteGuildRoleAsync_System_UInt64_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteGuildRoleAsync(System.UInt64,System.UInt64,System.String)">DeleteGuildRoleAsync(UInt64, UInt64, String)</h4>
@@ -1686,7 +1698,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteInvite_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteInvite(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L917">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L921">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteInvite_" data-uid="DSharpPlus.DiscordRestClient.DeleteInvite*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteInvite_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteInvite(System.String,System.String)">DeleteInvite(String, String)</h4>
@@ -1863,7 +1875,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteOwnReactionAsync_System_UInt64_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteOwnReactionAsync(System.UInt64%2CSystem.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1101">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1105">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteOwnReactionAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteOwnReactionAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteOwnReactionAsync_System_UInt64_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteOwnReactionAsync(System.UInt64,System.UInt64,System.String)">DeleteOwnReactionAsync(UInt64, UInt64, String)</h4>
@@ -1924,7 +1936,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteUserReactionAsync_System_UInt64_System_UInt64_System_UInt64_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteUserReactionAsync(System.UInt64%2CSystem.UInt64%2CSystem.UInt64%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1113">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1117">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteUserReactionAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteUserReactionAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteUserReactionAsync_System_UInt64_System_UInt64_System_UInt64_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteUserReactionAsync(System.UInt64,System.UInt64,System.UInt64,System.String,System.String)">DeleteUserReactionAsync(UInt64, UInt64, UInt64, String, String)</h4>
@@ -1997,7 +2009,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteWebhookAsync_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteWebhookAsync(System.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1059">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1063">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteWebhookAsync_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteWebhookAsync(System.UInt64,System.String)">DeleteWebhookAsync(UInt64, String)</h4>
@@ -2052,7 +2064,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_DeleteWebhookAsync_System_UInt64_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.DeleteWebhookAsync(System.UInt64%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1069">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1073">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_DeleteWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.DeleteWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_DeleteWebhookAsync_System_UInt64_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.DeleteWebhookAsync(System.UInt64,System.String,System.String)">DeleteWebhookAsync(UInt64, String, String)</h4>
@@ -2113,7 +2125,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_Dispose.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1165">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1169">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_Dispose_" data-uid="DSharpPlus.DiscordRestClient.Dispose*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_Dispose" data-uid="DSharpPlus.DiscordRestClient.Dispose">Dispose()</h4>
@@ -2277,7 +2289,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ExecuteWebhookAsync_System_UInt64_System_String_DSharpPlus_Entities_DiscordWebhookBuilder_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ExecuteWebhookAsync(System.UInt64%2CSystem.String%2CDSharpPlus.Entities.DiscordWebhookBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1079">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1083">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ExecuteWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.ExecuteWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ExecuteWebhookAsync_System_UInt64_System_String_DSharpPlus_Entities_DiscordWebhookBuilder_" data-uid="DSharpPlus.DiscordRestClient.ExecuteWebhookAsync(System.UInt64,System.String,DSharpPlus.Entities.DiscordWebhookBuilder)">ExecuteWebhookAsync(UInt64, String, DiscordWebhookBuilder)</h4>
@@ -2338,7 +2350,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetApplicationAssetsAsync_DSharpPlus_Entities_DiscordApplication_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetApplicationAssetsAsync(DSharpPlus.Entities.DiscordApplication)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1157">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1161">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetApplicationAssetsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetApplicationAssetsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetApplicationAssetsAsync_DSharpPlus_Entities_DiscordApplication_" data-uid="DSharpPlus.DiscordRestClient.GetApplicationAssetsAsync(DSharpPlus.Entities.DiscordApplication)">GetApplicationAssetsAsync(DiscordApplication)</h4>
@@ -2613,7 +2625,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetChannelWebhooksAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetChannelWebhooksAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L965">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L969">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetChannelWebhooksAsync_" data-uid="DSharpPlus.DiscordRestClient.GetChannelWebhooksAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetChannelWebhooksAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetChannelWebhooksAsync(System.UInt64)">GetChannelWebhooksAsync(UInt64)</h4>
@@ -2751,19 +2763,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L739">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L740">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildAsync*"></a>
-  <h4 id="DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64)">GetGuildAsync(UInt64)</h4>
-  <div class="markdown level1 summary"><p>Gets a guild object</p>
+  <h4 id="DSharpPlus_DiscordRestClient_GetGuildAsync_System_UInt64_System_Nullable_System_Boolean__" data-uid="DSharpPlus.DiscordRestClient.GetGuildAsync(System.UInt64,System.Nullable{System.Boolean})">GetGuildAsync(UInt64, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets a guild.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DiscordGuild&gt; GetGuildAsync(ulong guild_id)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DiscordGuild&gt; GetGuildAsync(ulong guild_id, bool? with_counts = default(bool? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2778,7 +2790,13 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
         <td><span class="parametername">guild_id</span></td>
-        <td><p>Guild id</p>
+        <td><p>The guild ID to search for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">with_counts</span></td>
+        <td><p>Whether to include approximate presence and member counts in the returned guild.</p>
 </td>
       </tr>
     </tbody>
@@ -2901,7 +2919,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildEmbedAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildEmbedAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L872">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L876">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildEmbedAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildEmbedAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetGuildEmbedAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildEmbedAsync(System.UInt64)">GetGuildEmbedAsync(UInt64)</h4>
@@ -2950,7 +2968,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildIntegrationsAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildIntegrationsAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L824">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L828">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildIntegrationsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildIntegrationsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetGuildIntegrationsAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildIntegrationsAsync(System.UInt64)">GetGuildIntegrationsAsync(UInt64)</h4>
@@ -2999,7 +3017,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildInvitesAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildInvitesAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L897">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L901">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildInvitesAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildInvitesAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetGuildInvitesAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildInvitesAsync(System.UInt64)">GetGuildInvitesAsync(UInt64)</h4>
@@ -3100,19 +3118,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_System_Collections_Generic_IEnumerable_System_UInt64__.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64%2CSystem.Int32%2CSystem.Collections.Generic.IEnumerable%7BSystem.UInt64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L804">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L806">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync*"></a>
-  <h4 id="DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_" data-uid="DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32)">GetGuildPruneCountAsync(UInt64, Int32)</h4>
-  <div class="markdown level1 summary"><p>Get a guild&apos;s prune count</p>
+  <h4 id="DSharpPlus_DiscordRestClient_GetGuildPruneCountAsync_System_UInt64_System_Int32_System_Collections_Generic_IEnumerable_System_UInt64__" data-uid="DSharpPlus.DiscordRestClient.GetGuildPruneCountAsync(System.UInt64,System.Int32,System.Collections.Generic.IEnumerable{System.UInt64})">GetGuildPruneCountAsync(UInt64, Int32, IEnumerable&lt;UInt64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get a guild&apos;s prune count.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; GetGuildPruneCountAsync(ulong guild_id, int days)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; GetGuildPruneCountAsync(ulong guild_id, int days, IEnumerable&lt;ulong&gt; include_roles)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3134,6 +3152,12 @@
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">days</span></td>
         <td><p>Days to check for</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a>&gt;</td>
+        <td><span class="parametername">include_roles</span></td>
+        <td><p>The roles to be included in the prune.</p>
 </td>
       </tr>
     </tbody>
@@ -3207,7 +3231,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildVoiceRegionsAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildVoiceRegionsAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L889">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L893">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildVoiceRegionsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildVoiceRegionsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetGuildVoiceRegionsAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildVoiceRegionsAsync(System.UInt64)">GetGuildVoiceRegionsAsync(UInt64)</h4>
@@ -3256,7 +3280,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetGuildWebhooksAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetGuildWebhooksAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L973">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L977">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetGuildWebhooksAsync_" data-uid="DSharpPlus.DiscordRestClient.GetGuildWebhooksAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetGuildWebhooksAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetGuildWebhooksAsync(System.UInt64)">GetGuildWebhooksAsync(UInt64)</h4>
@@ -3305,7 +3329,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetInvite_System_String_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetInvite(System.String%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L908">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L912">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetInvite_" data-uid="DSharpPlus.DiscordRestClient.GetInvite*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetInvite_System_String_System_Nullable_System_Boolean__" data-uid="DSharpPlus.DiscordRestClient.GetInvite(System.String,System.Nullable{System.Boolean})">GetInvite(String, Nullable&lt;Boolean&gt;)</h4>
@@ -3464,7 +3488,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetReactionsAsync_System_UInt64_System_UInt64_DSharpPlus_Entities_DiscordEmoji_System_Nullable_System_UInt64__System_Int32_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetReactionsAsync(System.UInt64%2CSystem.UInt64%2CDSharpPlus.Entities.DiscordEmoji%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1137">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1141">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetReactionsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetReactionsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetReactionsAsync_System_UInt64_System_UInt64_DSharpPlus_Entities_DiscordEmoji_System_Nullable_System_UInt64__System_Int32_" data-uid="DSharpPlus.DiscordRestClient.GetReactionsAsync(System.UInt64,System.UInt64,DSharpPlus.Entities.DiscordEmoji,System.Nullable{System.UInt64},System.Int32)">GetReactionsAsync(UInt64, UInt64, DiscordEmoji, Nullable&lt;UInt64&gt;, Int32)</h4>
@@ -3537,7 +3561,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetReactionsAsync_System_UInt64_System_UInt64_System_String_System_Nullable_System_UInt64__System_Int32_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetReactionsAsync(System.UInt64%2CSystem.UInt64%2CSystem.String%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1125">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1129">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetReactionsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetReactionsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetReactionsAsync_System_UInt64_System_UInt64_System_String_System_Nullable_System_UInt64__System_Int32_" data-uid="DSharpPlus.DiscordRestClient.GetReactionsAsync(System.UInt64,System.UInt64,System.String,System.Nullable{System.UInt64},System.Int32)">GetReactionsAsync(UInt64, UInt64, String, Nullable&lt;UInt64&gt;, Int32)</h4>
@@ -3659,7 +3683,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetUsersConnectionsAsync.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetUsersConnectionsAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L926">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L930">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetUsersConnectionsAsync_" data-uid="DSharpPlus.DiscordRestClient.GetUsersConnectionsAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetUsersConnectionsAsync" data-uid="DSharpPlus.DiscordRestClient.GetUsersConnectionsAsync">GetUsersConnectionsAsync()</h4>
@@ -3690,7 +3714,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetWebhookAsync_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetWebhookAsync(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L981">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L985">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.GetWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetWebhookAsync_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.GetWebhookAsync(System.UInt64)">GetWebhookAsync(UInt64)</h4>
@@ -3739,7 +3763,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_GetWebhookWithTokenAsync_System_UInt64_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.GetWebhookWithTokenAsync(System.UInt64%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L990">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L994">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_GetWebhookWithTokenAsync_" data-uid="DSharpPlus.DiscordRestClient.GetWebhookWithTokenAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_GetWebhookWithTokenAsync_System_UInt64_System_String_" data-uid="DSharpPlus.DiscordRestClient.GetWebhookWithTokenAsync(System.UInt64,System.String)">GetWebhookWithTokenAsync(UInt64, String)</h4>
@@ -4733,7 +4757,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyGuildEmbedAsync_System_UInt64_DSharpPlus_Entities_DiscordGuildEmbed_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyGuildEmbedAsync(System.UInt64%2CDSharpPlus.Entities.DiscordGuildEmbed)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L881">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L885">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyGuildEmbedAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildEmbedAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyGuildEmbedAsync_System_UInt64_DSharpPlus_Entities_DiscordGuildEmbed_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildEmbedAsync(System.UInt64,DSharpPlus.Entities.DiscordGuildEmbed)">ModifyGuildEmbedAsync(UInt64, DiscordGuildEmbed)</h4>
@@ -4788,7 +4812,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyGuildIntegrationAsync_System_UInt64_System_UInt64_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyGuildIntegrationAsync(System.UInt64%2CSystem.UInt64%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L846">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L850">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyGuildIntegrationAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildIntegrationAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyGuildIntegrationAsync_System_UInt64_System_UInt64_System_Int32_System_Int32_System_Boolean_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildIntegrationAsync(System.UInt64,System.UInt64,System.Int32,System.Int32,System.Boolean)">ModifyGuildIntegrationAsync(UInt64, UInt64, Int32, Int32, Boolean)</h4>
@@ -4952,7 +4976,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_System_UInt64_System_UInt64_System_Action_DSharpPlus_Net_Models_RoleEditModel__.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync(System.UInt64%2CSystem.UInt64%2CSystem.Action%7BDSharpPlus.Net.Models.RoleEditModel%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L764">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L765">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_System_UInt64_System_UInt64_System_Action_DSharpPlus_Net_Models_RoleEditModel__" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync(System.UInt64,System.UInt64,System.Action{DSharpPlus.Net.Models.RoleEditModel})">ModifyGuildRoleAsync(UInt64, UInt64, Action&lt;RoleEditModel&gt;)</h4>
@@ -5013,7 +5037,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_System_UInt64_System_UInt64_System_String_System_Nullable_DSharpPlus_Permissions__System_Nullable_DSharpPlus_Entities_DiscordColor__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync(System.UInt64%2CSystem.UInt64%2CSystem.String%2CSystem.Nullable%7BDSharpPlus.Permissions%7D%2CSystem.Nullable%7BDSharpPlus.Entities.DiscordColor%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L754">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L755">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyGuildRoleAsync_System_UInt64_System_UInt64_System_String_System_Nullable_DSharpPlus_Permissions__System_Nullable_DSharpPlus_Entities_DiscordColor__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_" data-uid="DSharpPlus.DiscordRestClient.ModifyGuildRoleAsync(System.UInt64,System.UInt64,System.String,System.Nullable{DSharpPlus.Permissions},System.Nullable{DSharpPlus.Entities.DiscordColor},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">ModifyGuildRoleAsync(UInt64, UInt64, String, Nullable&lt;Permissions&gt;, Nullable&lt;DiscordColor&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String)</h4>
@@ -5104,7 +5128,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64%2CSystem.String%2CSystem.IO.Stream%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1012">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1016">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64,System.String,System.IO.Stream,System.String)">ModifyWebhookAsync(UInt64, String, Stream, String)</h4>
@@ -5171,7 +5195,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64%2CSystem.String%2CSystem.IO.Stream%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1043">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1047">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_IO_Stream_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64,System.String,System.IO.Stream,System.String,System.String)">ModifyWebhookAsync(UInt64, String, Stream, String, String)</h4>
@@ -5244,7 +5268,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1001">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1005">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64,System.String,System.String,System.String)">ModifyWebhookAsync(UInt64, String, String, String)</h4>
@@ -5311,7 +5335,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1031">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L1035">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_ModifyWebhookAsync_System_UInt64_System_String_System_String_System_String_System_String_" data-uid="DSharpPlus.DiscordRestClient.ModifyWebhookAsync(System.UInt64,System.String,System.String,System.String,System.String)">ModifyWebhookAsync(UInt64, String, String, String, String)</h4>
@@ -5573,7 +5597,7 @@
     <a href="https://github.com/DSharpPlus/DSharpPlus/new/master/apiSpec/new?filename=DSharpPlus_DiscordRestClient_SyncGuildIntegrationAsync_System_UInt64_System_UInt64_.md&amp;value=---%0Auid%3A%20DSharpPlus.DiscordRestClient.SyncGuildIntegrationAsync(System.UInt64%2CSystem.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L864">View Source</a>
+    <a href="https://github.com/DSharpPlus/DSharpPlus/blob/master/DSharpPlus.Rest/DiscordRestClient.cs/#L868">View Source</a>
   </span>
   <a id="DSharpPlus_DiscordRestClient_SyncGuildIntegrationAsync_" data-uid="DSharpPlus.DiscordRestClient.SyncGuildIntegrationAsync*"></a>
   <h4 id="DSharpPlus_DiscordRestClient_SyncGuildIntegrationAsync_System_UInt64_System_UInt64_" data-uid="DSharpPlus.DiscordRestClient.SyncGuildIntegrationAsync(System.UInt64,System.UInt64)">SyncGuildIntegrationAsync(UInt64, UInt64)</h4>

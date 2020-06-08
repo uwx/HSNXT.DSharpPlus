@@ -10,5 +10,6 @@ var class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user =
     [ "Email", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a88de86cdb294dc0f415638e7fb21cd2d", null ],
     [ "PremiumType", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a865ed52b65c7c64811dac1f5d4bbc01d", null ],
     [ "Locale", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a1e3ba5466f65c07cad0797c10a018ea6", null ],
-    [ "Flags", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#ac468992aee80568181b821c256a4af77", null ]
+    [ "OAuthFlags", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#a04229a9e664cbb6cba74c60ddd7ec886", null ],
+    [ "Flags", "class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_transport_user.html#ad736f7f2b57576dd9144757d15243040", null ]
 ];

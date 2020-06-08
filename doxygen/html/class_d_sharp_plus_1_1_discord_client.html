@@ -140,9 +140,9 @@ Task&#160;</td><td class="memItemRight" valign="bottom"><b>ReconnectAsync</b> (b
 <tr class="memitem:a882fd6d0807bf9658322cb698f40364d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html#a882fd6d0807bf9658322cb698f40364d">CreateGuildAsync</a> (string name, string region=null, Optional&lt; <a class="el" href="namespace_d_sharp_plus.html#a89353079e31c94d4ec36112c7c01a696aeae835e83c0494a376229f254f7d3392">Stream</a> &gt; icon=default, <a class="el" href="namespace_d_sharp_plus_1_1_entities.html#a9105166efd4bb710f3bdb4383c2f9d4a">VerificationLevel</a>? verificationLevel=null, <a class="el" href="namespace_d_sharp_plus_1_1_entities.html#ad4de7ad6f9fd21ddfa13d6c8682c0702">DefaultMessageNotifications</a>? defaultMessageNotifications=null)</td></tr>
 <tr class="memdesc:a882fd6d0807bf9658322cb698f40364d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a guild. This requires the bot to be in less than 10 guilds total.  <a href="#a882fd6d0807bf9658322cb698f40364d">More...</a><br /></td></tr>
 <tr class="separator:a882fd6d0807bf9658322cb698f40364d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6baed22b485319946a6cfa7990d3e165"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html#a6baed22b485319946a6cfa7990d3e165">GetGuildAsync</a> (ulong id)</td></tr>
-<tr class="memdesc:a6baed22b485319946a6cfa7990d3e165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a guild  <a href="#a6baed22b485319946a6cfa7990d3e165">More...</a><br /></td></tr>
-<tr class="separator:a6baed22b485319946a6cfa7990d3e165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2a4b4062adf8e0fce8fae007870bc0"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html#aad2a4b4062adf8e0fce8fae007870bc0">GetGuildAsync</a> (ulong id, bool? withCounts=null)</td></tr>
+<tr class="memdesc:aad2a4b4062adf8e0fce8fae007870bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a guild.  <a href="#aad2a4b4062adf8e0fce8fae007870bc0">More...</a><br /></td></tr>
+<tr class="separator:aad2a4b4062adf8e0fce8fae007870bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab166aeb7210faff15be6f9d97af5150f"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild_preview.html">DiscordGuildPreview</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_sharp_plus_1_1_discord_client.html#ab166aeb7210faff15be6f9d97af5150f">GetGuildPreviewAsync</a> (ulong id)</td></tr>
 <tr class="memdesc:ab166aeb7210faff15be6f9d97af5150f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a guild preview  <a href="#ab166aeb7210faff15be6f9d97af5150f">More...</a><br /></td></tr>
 <tr class="separator:ab166aeb7210faff15be6f9d97af5150f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -769,8 +769,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6baed22b485319946a6cfa7990d3e165"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6baed22b485319946a6cfa7990d3e165">&#9670;&nbsp;</a></span>GetGuildAsync()</h2>
+<a id="aad2a4b4062adf8e0fce8fae007870bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2a4b4062adf8e0fce8fae007870bc0">&#9670;&nbsp;</a></span>GetGuildAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -782,8 +782,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">async Task&lt;<a class="el" href="class_d_sharp_plus_1_1_entities_1_1_discord_guild.html">DiscordGuild</a>&gt; DSharpPlus.DiscordClient.GetGuildAsync </td>
           <td>(</td>
           <td class="paramtype">ulong&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool?&#160;</td>
+          <td class="paramname"><em>withCounts</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -793,10 +803,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets a guild </p>
+<p>Gets a guild. </p>
+<p>Setting <em>withCounts</em>  to true will make a REST request.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>The guild ID to search for.</td></tr>
+    <tr><td class="paramname">withCounts</td><td>Whether to include approximate presence and member counts in the returned guild.</td></tr>
   </table>
   </dd>
 </dl>
@@ -823,7 +835,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets a guild preview </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>The guild ID.</td></tr>
   </table>
   </dd>
 </dl>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['oauthflags',['OAuthFlags',['../class_d_sharp_plus_1_1_entities_1_1_discord_member.html#a45efb85a53da8546cff1c0f86d87cbc3',1,'DSharpPlus.Entities.DiscordMember.OAuthFlags()'],['../class_d_sharp_plus_1_1_entities_1_1_discord_user.html#a89f4d59783791e87ed909fadf6dbe340',1,'DSharpPlus.Entities.DiscordUser.OAuthFlags()']]],
   ['offline',['Offline',['../namespace_d_sharp_plus_1_1_entities.html#a175e42118988472cb7ff15b7ee613b50a8d9da4bc0e49a50e09ac9f7e56789d39',1,'DSharpPlus::Entities']]],
   ['online',['Online',['../namespace_d_sharp_plus_1_1_entities.html#a175e42118988472cb7ff15b7ee613b50a54f664c70c22054ea0d8d26fc3997ce7',1,'DSharpPlus::Entities']]],
   ['opcode',['OpCode',['../class_d_sharp_plus_1_1_net_1_1_abstractions_1_1_gateway_payload.html#a7bc34e2e815086abbf006692c04e0add',1,'DSharpPlus::Net::Abstractions::GatewayPayload']]],
