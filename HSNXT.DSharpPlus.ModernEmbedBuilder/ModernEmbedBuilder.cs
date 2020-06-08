@@ -214,7 +214,9 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
                 Url = Url,
                 Color = _color,
                 Timestamp = _timestamp,
-                ThumbnailUrl = ThumbnailUrl,
+                Thumbnail = new EmbedThumbnail {
+                    Url = ThumbnailUrl,
+                },
                 ImageUrl = ImageUrl,
             };
 
