@@ -214,7 +214,7 @@ namespace HSNXT.DSharpPlus.ModernEmbedBuilder
                 Url = Url,
                 Color = _color,
                 Timestamp = _timestamp,
-                Thumbnail = new EmbedThumbnail {
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail {
                     Url = ThumbnailUrl,
                 },
                 ImageUrl = ImageUrl,
